@@ -43,7 +43,7 @@ export const site = {
     count: 41,
     rating: 5.0,
   },
-  ga4MeasurementId: "", // TODO: set from project-config.md GA4_MEASUREMENT_ID once created
+  ga4MeasurementId: "G-S1WGGDQKQ4",
 } as const;
 
 export const whatsappLink = (message?: string) => {

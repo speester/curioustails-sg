@@ -3,9 +3,9 @@ export const site = {
   businessName: "Curious Tails",
   businessType: "AVS licensed pet shop",
   domain: "https://curioustails.sg",
-  phone: "82206480",
-  phoneDisplay: "8220 6480",
-  whatsapp: "82206480",
+  phone: "82206408",
+  phoneDisplay: "8220 6408",
+  whatsapp: "82206408",
   email: "hello@curioustails.sg",
   address: {
     full: "2 Balestier Road #01-701 S320002 Singapore",

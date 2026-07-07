@@ -9,14 +9,19 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "gbp:daily": "node scripts/scheduler.mjs",
+    "gbp:post": "node scripts/publish-daily-post.mjs",
+    "gbp:reviews": "node scripts/reply-to-reviews.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.2",
     "@astrojs/sitemap": "^3.7.3",
     "@tailwindcss/vite": "^4.3.2",
     "astro": "^7.0.6",
+    "dotenv": "^16.4.5",
     "gsap": "^3.15.0",
+    "node-cron": "^3.0.3",
     "tailwindcss": "^4.3.2"
   },
   "devDependencies": {

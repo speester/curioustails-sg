@@ -10,7 +10,7 @@ import Blob from '../../components/decor/Blob.astro';
 import PawPrint from '../../components/decor/PawPrint.astro';
 import { site, whatsappLink } from '../../data/site';
 import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
-import settlingIn from '../../assets/home/5-cavapoo-puppy-settling-playpen-first-day.png';
+import settlingIn from '../../assets/home/5-cavapoo-puppy-settling-playpen-first-day.webp';
 
 const title = 'Which Puppy Breed Fits You? 2-Minute Quiz | Curious Tails';
 const description =
@@ -256,7 +256,7 @@ const schemas = [
       const waMsg = encodeURIComponent(
         `Hi! The breed quiz matched me with: ${top.map(([k]) => breeds[k].name).join(' + ') || 'no clear match yet'}. Here's my routine:`
       );
-      body.querySelectorAll('[data-wa]').forEach((a) => a.setAttribute('href', `https://wa.me/6582206480?text=${waMsg}`));
+      body.querySelectorAll('[data-wa]').forEach((a) => a.setAttribute('href', `https://wa.me/6582206408?text=${waMsg}`));
       body.querySelector('[data-restart]')?.addEventListener('click', () => {
         step = 0;
         picks.length = 0;

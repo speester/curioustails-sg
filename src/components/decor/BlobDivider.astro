@@ -1,0 +1,20 @@
+---
+// Organic "cushion" edge between two differently-coloured full-bleed sections,
+// instead of a hard flat-color cut (or a generic ocean-wave divider, which
+// doesn't fit a pet-shop brand). Built from overlapping soft blobs that drift
+// gently — reuses the site's existing Blob motif rather than a new shape.
+import Blob from './Blob.astro';
+
+interface Props {
+  fillClass: string; // Tailwind fill-* class matching the section BELOW the divider
+  flip?: boolean; // mirror vertically, for use at the bottom of a dark section
+}
+const { fillClass, flip = false } = Astro.props;
+---
+
+<div class:list={['relative h-14 sm:h-20 overflow-hidden', flip && 'rotate-180']} aria-hidden="true">
+  <Blob class:list={['absolute -bottom-10 left-[-6%] h-32 w-40 sm:h-40 sm:w-52 blob-drift-slow', fillClass]} />
+  <Blob class:list={['absolute -bottom-12 left-[22%] h-28 w-36 sm:h-36 sm:w-48 blob-drift', fillClass]} />
+  <Blob class:list={['absolute -bottom-9 left-[48%] h-32 w-40 sm:h-40 sm:w-52 blob-drift-slow', fillClass]} />
+  <Blob class:list={['absolute -bottom-11 left-[74%] h-28 w-36 sm:h-36 sm:w-48 blob-drift', fillClass]} />
+</div>

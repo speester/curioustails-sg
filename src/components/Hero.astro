@@ -1,0 +1,163 @@
+---
+import PlaceholderImage from './PlaceholderImage.astro';
+import { whatsappLink } from '../data/site';
+import PawPrint from './decor/PawPrint.astro';
+import Bone from './decor/Bone.astro';
+import Sparkle from './decor/Sparkle.astro';
+import Blob from './decor/Blob.astro';
+
+interface Props {
+  eyebrow?: string;
+  h1: string;
+  h1Accent?: string;
+  subhead: string;
+  ctaLabel: string;
+  ctaMessage?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
+  priceAnchor?: string;
+  rating?: number;
+  reviewCount?: number;
+  trustBadges: string[];
+  imageAlt: string;
+  imageSrc?: ImageMetadata;
+  tagLabel?: string;
+  proofChip?: string;
+}
+const {
+  eyebrow,
+  h1,
+  h1Accent,
+  subhead,
+  ctaLabel,
+  ctaMessage,
+  secondaryCtaLabel,
+  secondaryCtaHref,
+  priceAnchor,
+  rating,
+  reviewCount,
+  trustBadges,
+  imageAlt,
+  imageSrc,
+  tagLabel,
+  proofChip,
+} = Astro.props;
+
+const h1Parts = h1Accent ? h1.split(h1Accent) : [h1, ''];
+---
+
+<section class="relative overflow-hidden bg-[var(--color-peach-100)] pb-4 pt-2">
+  <!-- scattered decorative doodles: paw prints, bone, sparkle, drifting blobs -->
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+    <Blob class="absolute -top-16 -left-20 h-80 w-80 fill-[var(--color-mint-200)]/70 blob-drift-slow" />
+    <Blob class="absolute top-10 right-[-6rem] h-72 w-72 fill-[var(--color-lilac-100)] blob-drift" />
+    <Blob class="absolute bottom-[-4rem] left-[38%] h-56 w-56 fill-[var(--color-coral-100)] blob-drift-slow" />
+    <PawPrint class="absolute left-[6%] top-[18%] h-10 w-10 text-[var(--color-mint-300)]/70 -rotate-12 blob-drift" />
+    <PawPrint class="absolute right-[10%] top-[62%] h-8 w-8 text-[var(--color-coral-300)]/70 rotate-12 blob-drift-slow" />
+    <Bone class="absolute right-[6%] top-[14%] h-9 w-9 text-[var(--color-lilac-300)] rotate-[18deg] blob-drift" />
+    <Sparkle class="absolute left-[42%] top-[8%] h-6 w-6 text-[var(--color-coral-400)] blob-drift-slow" />
+    <Sparkle class="absolute left-[16%] bottom-[12%] h-5 w-5 text-[var(--color-mint-300)] blob-drift" />
+  </div>
+
+  <div class="relative mx-auto max-w-[1400px] px-5 sm:px-8 pt-5 pb-14 lg:pb-20 grid gap-x-12 gap-y-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+    {Astro.slots.has('breadcrumb') && (
+      <div class="lg:col-span-2">
+        <slot name="breadcrumb" />
+      </div>
+    )}
+    <div>
+      {eyebrow && (
+        <p class="inline-flex items-center gap-2 rounded-full border-3 border-[var(--color-coral-400)] bg-white px-4 py-1.5 text-xs font-bold tracking-wide text-[var(--color-coral-600)] uppercase shadow-[0_4px_0_0_var(--color-coral-300)]" style="letter-spacing: 0.06em;">
+          <PawPrint class="h-3.5 w-3.5" />
+          {eyebrow}
+        </p>
+      )}
+
+      <h1 class="mt-5 font-[family-name:var(--font-heading)] font-semibold leading-[1.05] text-[var(--color-cream-900)]" style="font-size: clamp(2.5rem, 5.5vw, 4.5rem);">
+        {h1Parts[0]}{h1Accent && <span class="relative inline-block text-[var(--color-coral-500)]">{h1Accent}<svg class="absolute left-0 -bottom-1.5 w-full text-[var(--color-coral-300)]" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 Q50 1 100 7 T198 6" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg></span>}{h1Parts[1]}
+      </h1>
+
+      {(rating || reviewCount) && (
+        <div class="mt-5 flex items-center gap-2.5">
+          <div class="flex gap-0.5" aria-hidden="true">
+            {[0, 1, 2, 3, 4].map(() => (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--color-coral-500)" aria-hidden="true">
+                <path d="M12 2.2l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.02 6.2 20.06l1.11-6.46-4.7-4.58 6.49-.94L12 2.2z" />
+              </svg>
+            ))}
+          </div>
+          <p class="text-sm font-semibold text-[var(--color-cream-700)]">
+            {rating && <span class="text-[var(--color-cream-900)]">{rating.toFixed(1)}</span>}
+            {rating && reviewCount && ' from '}
+            {reviewCount && `${reviewCount} Google reviews`}
+          </p>
+        </div>
+      )}
+
+      <p class="mt-6 text-lg leading-relaxed text-[var(--color-cream-700)] max-w-[48ch]">
+        {subhead}
+      </p>
+
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <a
+          href={whatsappLink(ctaMessage)}
+          class="clay-btn inline-flex items-center gap-2 bg-[var(--color-accent)] px-7 py-3.5 text-base font-bold text-white hover:bg-[var(--color-accent-hover)]"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.13c-.25.7-1.44 1.33-1.99 1.37-.53.05-.53.42-3.34-.7-2.81-1.12-4.55-3.98-4.69-4.16-.14-.19-1.12-1.49-1.12-2.84 0-1.35.71-2.01.96-2.29.25-.28.55-.35.73-.35.18 0 .37 0 .53.01.17.01.4-.06.62.48.25.6.85 2.06.92 2.21.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.28.28-.12.56.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.69-.81.88-1.09.19-.28.37-.23.62-.14.25.09 1.6.76 1.87.9.28.14.46.21.53.32.07.12.07.65-.18 1.35z" />
+          </svg>
+          {ctaLabel}
+        </a>
+        {secondaryCtaLabel && secondaryCtaHref && (
+          <a
+            href={secondaryCtaHref}
+            class="clay-btn-outline inline-flex items-center gap-1.5 bg-white px-6 py-3.5 text-base font-bold text-[var(--color-cream-800)] hover:text-[var(--color-coral-600)]"
+          >
+            {secondaryCtaLabel}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        )}
+      </div>
+
+      {priceAnchor && (
+        <p class="mt-4 text-sm text-[var(--color-cream-600)]">{priceAnchor}</p>
+      )}
+
+      <ul class="mt-9 flex flex-wrap gap-3">
+        {trustBadges.map((badge) => (
+          <li class="flex items-center gap-1.5 rounded-full border-2 border-[var(--color-border)] bg-white/70 px-3 py-1.5 text-sm font-medium text-[var(--color-cream-700)]">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            {badge}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="relative">
+      <div data-tilt class="clay group rotate-2 bg-white p-3">
+        <div class="overflow-hidden rounded-[1.3rem]">
+          <div class="transition-transform duration-500 ease-out group-hover:scale-[1.06]">
+            <PlaceholderImage alt={imageAlt} src={imageSrc} ratio="aspect-[5/4]" loading="eager" fetchpriority="high" sizes="(max-width: 1023px) 100vw, 45vw" />
+          </div>
+        </div>
+      </div>
+      {tagLabel && (
+        <div class="absolute -right-4 -top-6 -rotate-6 rounded-2xl border-3 border-[var(--color-mint-300)] bg-white px-4 py-3 shadow-[0_5px_0_0_var(--color-mint-300)] blob-drift">
+          <p class="font-[family-name:var(--font-heading)] text-2xl font-bold leading-none text-[var(--color-lilac-700)]">{tagLabel}</p>
+        </div>
+      )}
+      {proofChip && (
+        <div class="absolute -left-4 bottom-6 rotate-3 flex items-center gap-2 rounded-2xl border-3 border-[var(--color-coral-300)] bg-white px-3.5 py-2.5 shadow-[0_5px_0_0_var(--color-coral-300)] blob-drift-slow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-coral-500)" aria-hidden="true">
+            <path d="M12 2.2l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.02 6.2 20.06l1.11-6.46-4.7-4.58 6.49-.94L12 2.2z" />
+          </svg>
+          <span class="text-sm font-bold text-[var(--color-cream-900)]">{proofChip}</span>
+        </div>
+      )}
+    </div>
+  </div>
+</section>

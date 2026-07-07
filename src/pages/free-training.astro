@@ -1,0 +1,296 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import Hero from '../components/Hero.astro';
+import Tabs from '../components/Tabs.astro';
+import DefBox from '../components/DefBox.astro';
+import StatStrip from '../components/StatStrip.astro';
+import ComparisonSplit from '../components/ComparisonSplit.astro';
+import CaptionedBlock from '../components/CaptionedBlock.astro';
+import BannerRibbon from '../components/BannerRibbon.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Carousel from '../components/Carousel.astro';
+import FAQ from '../components/FAQ.astro';
+import Schema from '../components/Schema.astro';
+import ScatterFloat from '../components/decor/ScatterFloat.astro';
+import CloudDivider from '../components/decor/CloudDivider.astro';
+import PawTrail from '../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  serviceSchema,
+  faqPageSchema,
+  definedTermSchema,
+} from '../lib/schema';
+import heroTraining from '../assets/free-training/1-free-puppy-training-lesson-hero-avs.webp';
+import socialisationWalk from '../assets/free-training/2-puppy-socialisation-window-walk.webp';
+import rewardClose from '../assets/free-training/3-rewards-based-training-treat-close.webp';
+import lessonHome from '../assets/free-training/4-training-lesson-owner-puppy-home.webp';
+
+const title = 'Free Puppy Training Lesson | AVS-Certified | Curious Tails';
+const description =
+  'Every puppy includes a free first training lesson with an AVS-Accredited Certified Dog Trainer: settling in, potty routine, rewards-based methods. WhatsApp us.';
+
+const jumpLinks = [
+  { label: 'What is ACDT', href: '#acdt' },
+  { label: 'Lesson Covers', href: '#covers' },
+  { label: 'Why Week One', href: '#week-one' },
+  { label: 'Booking', href: '#booking' },
+  { label: 'After the Lesson', href: '#after' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Is the training lesson really free?',
+    answer:
+      'Yes. The first lesson with an AVS-Accredited Certified Dog Trainer is included in every puppy\'s price of $2,888 to $4,488. There is no add-on fee, no deposit for the lesson, and no conditions attached to it.',
+  },
+  {
+    question: 'When should the first lesson happen?',
+    answer:
+      'In your puppy\'s first week home, ideally. Puppies have a critical socialisation window between roughly 3 and 16 weeks of age, and the earlier a simple routine is set, the easier everything after it becomes. We help you book the slot during the delivery walkthrough.',
+  },
+  {
+    question: 'What does the free lesson cover?',
+    answer:
+      'The things a brand-new owner actually needs first: settling your puppy into its playpen routine, a working potty routine, and handling basics for you, the owner. The goal is a simple routine you can follow, not a lecture you will forget.',
+  },
+  {
+    question: 'What if my puppy is shy or gets overwhelmed?',
+    answer:
+      'Rewards-based training works at the puppy\'s pace, and AVS\'s own guidance on socialisation is quality over quantity: positive, controlled exposure rather than forced interaction. The trainer adapts the lesson to your puppy on the day.',
+  },
+  {
+    question: 'How much do lessons cost after the free one?',
+    answer:
+      'That depends on which trainer you continue with; packages across Singapore vary widely, so compare a few from the official ACDT list. Whatever you decide, our own care support on WhatsApp stays free.',
+  },
+  {
+    question: 'How do I verify a trainer is genuinely AVS-accredited?',
+    answer:
+      'Check the official list of AVS-Accredited Certified Dog Trainers on the AVS website. Accreditation requires certification from recognised international animal behaviour organisations, so the list is the benchmark, not a seller\'s claim.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/free-training',
+    title,
+    description,
+    aboutName: 'AVS-Accredited Certified Dog Trainer Scheme',
+    aboutAlternateName: 'ACDT',
+    aboutSameAs: 'https://avs.nparks.gov.sg/businesses/dog-trainers/acdt/',
+    datePublished: '2026-07-06',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  serviceSchema({
+    name: 'Free First Puppy Training Lesson (AVS-Accredited Certified Dog Trainer)',
+    description:
+      'A free first training lesson with an AVS-Accredited Certified Dog Trainer, included with every Curious Tails puppy: settling in, potty routine, and rewards-based handling basics for new owners.',
+    price: 'Included',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'AVS-Accredited Certified Dog Trainer (ACDT)',
+    description:
+      'The AVS-Accredited Certified Dog Trainer Scheme, launched 10 December 2022, is Singapore\'s national benchmark for dog-training competency. Accredited trainers hold certification from recognised international animal behaviour organisations and use rewards-based, science-backed methods.',
+    sameAs: 'https://avs.nparks.gov.sg/businesses/dog-trainers/acdt/',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/free-training" ogImage="/assets/free-training/og-free-training.jpg">
+  <Hero
+    eyebrow="Included with every puppy"
+    h1="Your Free First Dog Training Lesson, AVS-Certified"
+    h1Accent="Free"
+    subhead="Training schools sell packages. We include the first lesson with every puppy: an AVS-Accredited Certified Dog Trainer, booked into your puppy's first week home, covering the settling-in and potty routine a new owner actually needs."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your puppies and the free training lesson."
+    secondaryCtaLabel="What the lesson covers"
+    secondaryCtaHref="#covers"
+    priceAnchor="Free with every puppy. No add-on fee, no conditions."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="Free puppy training lesson Singapore: trainer guiding an apricot Cavapoo into a sit with a treat lure at home"
+    imageSrc={heroTraining}
+    tagLabel="AVS-certified"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Free Training', href: '/free-training' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="acdt" class="relative scroll-mt-40">
+    <ScatterFloat />
+    <DefBox
+      term="What is an AVS-Accredited Certified Dog Trainer?"
+      definition="An AVS-Accredited Certified Dog Trainer (ACDT) is a trainer accredited under the scheme the Animal and Veterinary Service launched on 10 December 2022 as Singapore's benchmark for dog-training competency. Accreditation requires certification from recognised international animal behaviour organisations and a commitment to rewards-based, science-backed methods."
+      bridge="Every Curious Tails puppy includes a free first lesson with one of these accredited trainers. Not a discount voucher, not a trial class pitch: a real lesson, already in the price."
+      citationLabel="Read the ACDT scheme on the AVS website"
+      citationHref="https://avs.nparks.gov.sg/businesses/dog-trainers/acdt/"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">ACDT in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Launched 10 December 2022 by AVS',
+            'Requires recognised international behaviour certification',
+            'Rewards-based methods as the benchmark',
+            'The older PADT scheme ended 10 December 2024',
+            'Every accredited trainer is on a public list',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Verify any trainer on the <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2">official ACDT list</a>.
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Training that starts before the problems do"
+    stats={[
+      { value: 'Free', label: 'first lesson with every puppy' },
+      { value: 'Week 1', label: 'when we book it for you' },
+      { value: '3–16', label: 'weeks: the socialisation window' },
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="covers" class="scroll-mt-40">
+    <CaptionedBlock heading="What the Free First Lesson Covers" imageAlt="First puppy training lesson at home: trainer showing a new owner a leash hold while the Cavapoo watches from the mat" imageSrc={lessonHome} imagePosition="right">
+      <p>The first lesson is built for a brand-new owner, not a dog-sport hobbyist. It covers settling your puppy into its playpen routine, a potty routine that actually works with your floor plan and schedule, and handling basics: how to hold the leash, how to reward, how to end a session before the puppy tips into overtired chaos.</p>
+      <p>Half of the lesson is really for you. Puppies learn fast; the routine only sticks if the humans are consistent, so the trainer coaches your technique as much as the puppy's behaviour.</p>
+      <p>Two years of placing puppies taught us what new owners actually need in week one: a simple routine to follow and someone to call when unsure. The lesson provides the routine; <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the starter-kit walkthrough at delivery</a> covers the equipment; our WhatsApp covers the someone.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="week-one" class="scroll-mt-40">
+    <CaptionedBlock heading="Why Week One Matters: the Socialisation Window" imageAlt="Puppy socialisation window in action: apricot Cavapoo calmly observing a Singapore void deck from its walker's side" imageSrc={socialisationWalk} imagePosition="left" variant="card">
+      <p>Puppies have a critical socialisation window between roughly 3 and 16 weeks of age. Inside it, new people, sounds, surfaces, and calm vaccinated dogs register as normal; after it closes, the same experiences take far more work to accept. That is AVS's own guidance, and it is why we push the free lesson into week one instead of "whenever you get around to it".</p>
+      <p>The guidance comes with two caveats worth repeating: quality over quantity (a few positive, controlled exposures beat a chaotic market walk), and socialisation is a lifelong process, not a box ticked at 16 weeks.</p>
+      <p>For the day-by-day version of week one, feeding times and all, see the <a href="/first-time-owners/puppy-care-101" class="underline underline-offset-2 text-[var(--color-accent-hover)]">week-by-week puppy care guide</a>, and the <a href="https://avs.nparks.gov.sg/pets/caring-for-a-pet/dog-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">AVS dog training and socialisation guidance</a> for the source material.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CaptionedBlock heading="Rewards-Based, Because It Works" imageAlt="Rewards-based puppy training close-up: treat passed to an apricot Cavapoo the moment it holds a sit" imageSrc={rewardClose} imagePosition="right">
+    <p>The method behind the lesson is rewards-based training: mark the behaviour you want, pay it with a treat or play, and ignore or redirect the rest. AVS describes it as supported by decades of scientific research and recommended by veterinary and animal behaviour organisations worldwide, and made it the benchmark of the ACDT scheme for a reason.</p>
+    <p>It also happens to be the method a first-time owner can actually execute. Corrections require timing and confidence most new owners do not have yet; rewarding a sit requires a treat pouch.</p>
+    <p>For a small breed in an HDB flat, that matters twice over: a puppy trained through trust barks less, settles faster, and treats its playpen as territory rather than punishment.</p>
+  </CaptionedBlock>
+
+  <BannerRibbon
+    heading="Ask about our puppies and the free lesson"
+    body="Message us for current availability. Every puppy's price includes the lesson, the $500+ starter kit, and free home delivery with setup."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Could you share current puppy availability? I'd also like to know about the free training lesson."
+    variant="dark"
+  />
+
+  <div id="booking" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="How Booking Works"
+      headingAccent="Booking"
+      subhead="No forms, no fine print. The lesson is attached to your puppy from the day you reserve."
+      mode="table"
+      tableHeaders={['Step', 'What happens']}
+      rows={[
+        { label: '1. Reserve your puppy', values: ['The free lesson is included from this moment; see our transparent puppy pricing for everything else the price covers'] },
+        { label: '2. Delivery day', values: ['During the starter-kit walkthrough at your home, we help you pick a lesson slot that fits your schedule'] },
+        { label: '3. Week one', values: ['The AVS-accredited trainer runs the lesson while the socialisation window is wide open and the routine is still forming'] },
+        { label: '4. After', values: ['You keep the routine, and our WhatsApp support for follow-up questions stays free'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The lesson slots around <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">free home delivery and setup</a>, and the full cost picture is on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the transparent puppy pricing page</a>: $2,888 to $4,488, lesson included.
+      </p>
+    </div>
+  </div>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <div id="after" class="scroll-mt-40">
+    <CaptionedBlock heading="After the Free Lesson: What If We Want More?" imagePosition="none" variant="mid">
+      <p>One lesson sets the routine; it does not finish the job, and we will not pretend otherwise. Most families find the routine plus our WhatsApp support carries them comfortably through the first months. Some want structured obedience classes after that, and that is a good instinct, not a failure.</p>
+      <p>If you continue, choose from the <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">official list of AVS-Accredited Certified Dog Trainers</a> and compare a few packages; prices across Singapore vary widely and the list is the quality floor.</p>
+      <p>Either way, the aftercare that came with your puppy does not expire: care questions on WhatsApp stay free, from the people who matched you with your puppy.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-surface-card)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Continuing on: the checklist</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Pick only from the official ACDT list',
+            'Ask about rewards-based methods explicitly',
+            'Compare 2 to 3 package quotes',
+            'Group classes double as socialisation',
+            'Our WhatsApp care support stays free regardless',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Owners Say About the Guidance"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            "Couldn't recommend Curious Tails in Balestier enough after bringing home our Cavapoo. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+          name: 'Andrew Mak',
+          meta: 'Google review, Cavapoo owner',
+        },
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+      ]}
+    />
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Free Training Lesson FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Meet the Puppies Behind the Free Lesson"
+    body="Can't make the trip to Balestier? WhatsApp us for current puppies and prices; the lesson, kit, and delivery are already included."
+    reserveMessage="Hi! I'd like to see your current puppies. I understand the training lesson is included."
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

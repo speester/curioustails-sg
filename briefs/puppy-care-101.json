@@ -1,0 +1,50 @@
+{
+  "slug": "puppy-care-101",
+  "target_keyword": "puppy care guide Singapore",
+  "secondary_keyword": "puppy first week home",
+  "page_intent": "educational", "page_tier": "outer", "country": "Singapore", "city": "Singapore",
+  "dual_intent_strategy": { "primary_intent": "educational — week-by-week onboarding for weeks 1-12", "secondary_intent": "commercial-assist — the guide IS the aftercare product demo", "resolution": "Week-by-week structure (week 1 daily, weeks 2-4, months 2-3) with Singapore specifics: heat, HDB noise, canonical vaccination timeline, socialisation window. Routes to kit/training/delivery where each is naturally used." },
+  "meta_title": "Puppy Care 101: Week-by-Week Guide Singapore | Curious Tails",
+  "meta_description": "Your puppy's first weeks home, week by week: feeding times, toilet routine, sleep, the 3-16 week socialisation window, and Singapore's exact vaccination schedule.",
+  "h1": "Your Puppy's First Weeks Home: What to Expect",
+  "entity_definitions": [ { "entity": "subject_entity", "definition": "A new puppy's first month runs on routine: fixed feeding times, a consistent toilet spot, a playpen it owns, calm sleep habits, and gentle socialisation inside the 3-to-16-week window, with vaccinations at weeks 6, 8, and 12 and homecoming around week 9." } ],
+  "serp_analysis": { "dominant_content_format": "brand care guides (Purina/Royal Canin) + generic blogs", "top_competitor_weaknesses": ["not Singapore-specific (heat, HDB, local vaccination weeks)", "no hour-by-hour day one", "vague on night whimpering"], "information_gaps_none_cover": ["Singapore vaccination weeks stated exactly", "heat-adjusted walk timing", "the settle-in reality from hundreds of placements"], "featured_snippet": { "puppy first week home": "list format — target the day-by-day list" }, "factual_conflicts": [] },
+  "lsi_keywords": { "primary": ["puppy care guide", "puppy care Singapore", "first week with a puppy", "week by week puppy guide", "new puppy routine"], "secondary": ["feeding schedule", "toilet training", "crate and playpen", "night whimpering", "socialisation window", "vaccination schedule", "first vet visit", "Singapore heat"], "all": ["puppy care guide Singapore", "puppy care 101", "puppy first week home", "first weeks with a puppy", "week by week", "day one with a puppy", "feeding schedule", "three meals a day", "same food continuity", "toilet training", "pee pad routine", "toilet spot consistency", "accidents are normal", "enzymatic cleaner", "playpen routine", "alone-time training", "night whimpering", "comfort toy", "sleep schedule", "socialisation window", "3 to 16 weeks", "positive exposure", "quality over quantity", "vaccination schedule Singapore", "weeks 6 8 12", "optional week 16", "deworming with each visit", "home around week 9", "annual booster", "first vet visit", "microchip", "dog licence", "pet ownership course", "Singapore heat", "walk before 9am after 6pm", "haze days indoor play", "HDB corridor noise", "grooming habit early", "starter kit items", "free training lesson week one", "WhatsApp support", "in Singapore" ] },
+  "lsi_keyword_weighting": { "transactional_cluster": ["starter kit", "training lesson", "WhatsApp support"], "informational_cluster": ["week by week", "feeding", "toilet", "sleep", "socialisation", "vaccination"], "instruction": "Education leads; product mentions only where the item is genuinely used in the routine." },
+  "content_outline": [
+    { "heading": "Your Puppy's First Weeks Home: What to Expect", "level": "H1", "priority": "P1", "cro_phase": 1, "cro_element": "Hero", "intent_served": "both", "ux_note": "Hero", "key_points": [""], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "What does a puppy's first week look like?", "level": "H2", "priority": "P2", "cro_phase": 1, "cro_element": "Day-by-day capsule (list snippet)", "intent_served": "secondary", "ux_note": "DefBox", "key_points": [""], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "Day one, hour by hour", "level": "H2", "priority": "P2", "cro_phase": 2, "cro_element": "The arrival sequence", "intent_served": "both", "ux_note": "CaptionedBlock", "key_points": ["explore own pace", "first meal", "first toilet", "quiet evening"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "Week 1: routine (feeding/toilet/sleep blocks)", "level": "H2", "priority": "P2", "cro_phase": 2, "cro_element": "Three sub-blocks with images", "intent_served": "secondary", "ux_note": "CaptionedBlock x3", "key_points": ["fixed meals", "pad consistency", "night whimpering truth"], "first_party_prompt": "hundreds of placements experience framing", "external_link_cue": "" },
+    { "heading": "Weeks 2-4: socialisation window", "level": "H2", "priority": "P2", "cro_phase": 3, "cro_element": "AVS-guidance based", "intent_served": "secondary", "ux_note": "CaptionedBlock", "key_points": ["3-16 weeks", "quality over quantity"], "first_party_prompt": "", "external_link_cue": "https://avs.nparks.gov.sg/pets/caring-for-a-pet/dog-training/" },
+    { "heading": "The vaccination + licensing timeline", "level": "H2", "priority": "P2", "cro_phase": 3, "cro_element": "Canonical table", "intent_served": "secondary", "ux_note": "ComparisonSplit", "key_points": ["6/8/12 (+16), home ~9, annual booster, course"], "first_party_prompt": "CANONICAL block verbatim.", "external_link_cue": "https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/" },
+    { "heading": "Singapore-specific care (heat/haze/HDB)", "level": "H2", "priority": "P2", "cro_phase": 3, "cro_element": "Local micro-specifics", "intent_served": "secondary", "ux_note": "CaptionedBlock", "key_points": ["walk timing", "haze indoor games", "corridor noise"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "FAQ + CTA", "level": "H2", "priority": "P4-TERMINAL", "cro_phase": 4, "cro_element": "FAQ + FinalCta", "intent_served": "both", "ux_note": "FAQ + FinalCta", "key_points": [""], "first_party_prompt": "", "external_link_cue": "" }
+  ],
+  "outline_cross_check": { "A": "PASS", "B": "PASS", "C": "PASS", "D": "PASS", "E": "PASS", "F": "PASS", "G": "PASS", "H": "PASS" },
+  "internal_links": [
+    { "anchor": "what the free training lesson covers", "target_slug": "/free-training", "placed_in_section": "week 1" },
+    { "anchor": "everything in the starter kit", "target_slug": "/starter-kit", "placed_in_section": "day one" },
+    { "anchor": "how delivery day works", "target_slug": "/delivery", "placed_in_section": "day one" },
+    { "anchor": "puppy health checks explained", "target_slug": "/learn/puppy-health", "placed_in_section": "vaccination" },
+    { "anchor": "first-time owner hub", "target_slug": "/first-time-owners", "placed_in_section": "intro" },
+    { "anchor": "budget planner", "target_slug": "/first-time-owners/budget-guide", "placed_in_section": "FAQ area" }
+  ],
+  "filtered_links": [],
+  "external_links": [
+    { "section": "socialisation", "url": "https://avs.nparks.gov.sg/pets/caring-for-a-pet/dog-training/", "anchor": "AVS socialisation guidance", "purpose": "window facts" },
+    { "section": "vaccination", "url": "https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/", "anchor": "pet ownership course", "purpose": "first-timer requirement" }
+  ],
+  "faq": [
+    { "question": "How long until a puppy settles in?", "answer_direction": "Most settle visibly in 3 to 7 days with a fixed routine; full confidence takes 3 to 4 weeks." },
+    { "question": "Is night whimpering normal?", "answer_direction": "Yes, for the first few nights; comfort toy + consistent calm response shortens it. It is adjustment, not distress." },
+    { "question": "When is the first vet visit?", "answer_direction": "Your puppy arrives vaccinated to schedule (weeks 6/8 done, home ~week 9); week 12 completes the core course at the vet." },
+    { "question": "How often do puppies eat?", "answer_direction": "Three fixed meals a day at this age, same food it came with; transition brands gradually if at all." },
+    { "question": "When can the puppy go outside?", "answer_direction": "Carried exposure immediately (socialisation window!); ground walks in busy areas after the week-12 vaccination per your vet." },
+    { "question": "What if something feels wrong in week one?", "answer_direction": "WhatsApp us first, any time; if a puppy from us falls sick in the first 5 days, bring it back and we nurse it." }
+  ],
+  "questions": [],
+  "schema_plan": [ { "type": "WebPage + BreadcrumbList + FAQPage + HowTo(optional skip) + LocalBusiness + Person", "notes": "FAQ + list snippet targets" } ],
+  "info_gain_score": { "pct_p1_p2": 58, "gain_drivers": ["exact SG vaccination weeks", "hour-by-hour day one", "heat/haze specifics", "placement-experience framing"], "remaining_risks": ["keep vet advice deferential"] },
+  "word_count_target": 2000, "content_length_estimate": "1,900–2,200"
+}

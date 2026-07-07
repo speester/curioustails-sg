@@ -1,0 +1,578 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import heroCavapoo from '../../assets/cavapoo/1-cavapoo-puppy-hero-playpen-balestier.webp';
+import availablePortrait from '../../assets/cavapoo/2-cavapoo-puppy-portrait-available.webp';
+import familyLivingRoom from '../../assets/cavapoo/3-cavapoo-puppy-family-living-room.webp';
+import restingPlaypen from '../../assets/cavapoo/4-cavapoo-puppy-resting-playpen-daytime.webp';
+import starterKit from '../../assets/cavapoo/5-cavapoo-starter-kit-flatlay.webp';
+import windowContent from '../../assets/cavapoo/6-cavapoo-puppy-window-content.webp';
+import parkWalk from '../../assets/cavapoo/7-cavapoo-puppy-park-connector-walk.webp';
+import groomingBrush from '../../assets/cavapoo/8-cavapoo-puppy-grooming-brush.webp';
+import vetCheck from '../../assets/cavapoo/9-cavapoo-puppy-vet-health-check.webp';
+import playpenReady from '../../assets/cavapoo/10-cavapoo-playpen-set-up-ready.webp';
+
+const title = 'Cavapoo Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Cavapoo puppies for sale in Singapore from $2,888, AVS licensed. Real prices, temperament, HDB rules and the $500+ starter kit included. WhatsApp us today.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Health', href: '#health' },
+  { label: 'First Week', href: '#first-week' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Cavapoo cost in Singapore?',
+    answer:
+      'The Cavapoo price in Singapore typically runs $4,300 to $6,500 at established shops. At Curious Tails, Cavapoo puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Can I keep a Cavapoo in an HDB flat?',
+    answer:
+      "Yes. A Cavapoo is an HDB-approved small breed, and we place them in HDB flats regularly. HDB allows one dog of an approved breed per flat, and the Cavapoo's 3 to 10 kg size fits the small-breed rules. We complete the dog licensing for you at purchase, so the paperwork is handled.",
+  },
+  {
+    question: 'Can a Cavapoo be left alone while we are at work?',
+    answer:
+      'Better than most small crosses, yes. Cavapoos are more independent than Maltipoos, which is why we often recommend them to couples who are out from 8am to 6pm. A settled playpen routine matters more than the breed alone, and we set that up for you on delivery day.',
+  },
+  {
+    question: 'How big does a Cavapoo get?',
+    answer:
+      'From the Cavapoos we place, a toy Cavapoo settles around 3 to 5 kg and a mini Cavapoo around 5 to 10 kg, which is the more common size. Adult weight tracks the Poodle parent, so be wary of anyone promising a "teacup" size; no honest seller can guarantee that.',
+  },
+  {
+    question: 'How much grooming does a Cavapoo need?',
+    answer:
+      "Brush the coat 3 to 4 times a week to prevent matting, and book professional grooming every 6 to 8 weeks. Singapore's humidity speeds up matting and makes weekly ear checks worthwhile, since those floppy ears trap moisture. The brush and grooming tools are already in your starter kit.",
+  },
+  {
+    question: 'What happens after I reserve a Cavapoo?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, usually mornings or evenings, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+  {
+    question: 'How do I check that a puppy seller is licensed?',
+    answer:
+      "Search the seller's name or licence number on the AVS public registry of licensed pet shops. Curious Tails holds AVS pet shop licence AS24J00046. If a seller isn't on that registry, they aren't licensed, whatever their listing says.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/cavapoo',
+    title,
+    description,
+    aboutName: 'Cavapoo',
+    aboutAlternateName: 'Cavoodle',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Cavapoo',
+    datePublished: '2026-07-05',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Cavapoo puppy',
+      url: '/puppies/cavapoo',
+      description:
+        'Cavapoo puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Cavapoo Home Delivery & Playpen Setup',
+    description: 'Free island-wide home delivery with playpen, bed, and toy setup for every Cavapoo puppy, scheduled around the owner\'s availability.',
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our Cavapoo. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Cavapoo',
+    description:
+      'A Cavapoo, also called a Cavoodle, is a cross between a Cavalier King Charles Spaniel and a Toy Poodle. It is a small companion dog with a wavy, low-shedding coat, an affectionate and intelligent temperament, moderate exercise needs of 30 to 60 minutes a day, and a lifespan of 12 to 15 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Cavapoo',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/cavapoo" ogImage="/assets/cavapoo/og-cavapoo.jpg">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Cavapoo Puppies for Sale in Singapore"
+    h1Accent="Cavapoo"
+    subhead="The Cavapoo price in Singapore usually runs $4,300 to $6,500. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Cavapoo puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="Cavapoo puppy with a wavy apricot coat sitting in a Balestier home playpen"
+    imageSrc={heroCavapoo}
+    tagLabel="Cavapoo"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Cavapoo', href: '/puppies/cavapoo' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking for a Cavapoo for Sale in Singapore?" imageAlt="Cavapoo puppy portrait, one of the Cavapoo puppies available in Singapore" imageSrc={availablePortrait} variant="mid">
+      <p>Our litters arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. Message us and we'll send photos, gender, age, and exact prices for the Cavapoo puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Cavapoo puppy for sale here is between $2,888 and $4,488, and what you see is the full price. After you reserve with a deposit, we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Cavapoo puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Cavapoo photos and prices</a>, or book a puppy viewing appointment at our Balestier pet shop and meet them in person.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Cavapoo Puppies"
+      headingAccent="Available"
+      subhead="A few of the Cavapoo puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Apricot boy', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot male Cavapoo puppy.'), imageAlt: 'Apricot male Cavapoo puppy available in Singapore', imageSrc: availablePortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Blenheim girl', href: whatsappLink('Hi! I\'d like more photos and the price for the Blenheim female Cavapoo puppy.'), imageAlt: 'Blenheim female Cavapoo puppy settled in a family living room', imageSrc: familyLivingRoom, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Cavapoo puppy.'), imageAlt: 'Cream female Cavapoo puppy resting in its playpen', imageSrc: restingPlaypen, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Cavapoo?"
+      definition="A Cavapoo, also called a Cavoodle, is a cross between a Cavalier King Charles Spaniel and a Toy Poodle. It is a small companion dog with a wavy, low-shedding coat, an affectionate and intelligent temperament, moderate exercise needs of 30 to 60 minutes a day, and a lifespan of 12 to 15 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road specialising in exactly this kind of honest breed matching: we ask about your daily routine before recommending a Cavapoo, not after."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Cavapoo at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Cavalier King Charles Spaniel x Toy Poodle',
+            'Toy 3 to 5 kg, mini 5 to 10 kg fully grown',
+            'Wavy to curly, low-shedding coat',
+            '30 to 60 minutes of exercise a day',
+            '12 to 15 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Figures reflect the Toy Poodle crosses we carry; adult size tracks the Poodle parent.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Cavapoo from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Cavapoo pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Cavapoo Temperament: What They're Really Like at Home" imageAlt="Cavapoo puppy playing gently with a family in a Singapore living room" imageSrc={familyLivingRoom} imagePosition="left">
+      <p>Cavapoo puppies in Singapore homes are affectionate, loyal, intelligent, and playful; that part every seller will tell you. What matters more for your decision is this: a Cavapoo is noticeably more independent than the breeds it usually gets compared against, and that changes which homes it suits.</p>
+      <p>Nelson's honest note from two years of matching puppies to families: the single most common mismatch we see is a working couple choosing a companion breed that needs company all day. Maltipoos need more daily human contact; Cavapoos cope better on their own. That one difference decides more happy outcomes than any coat colour or price tag.</p>
+      <p>They're gentle with children, sociable with other dogs, and moderate barkers. A bored Cavapoo will let you know it's bored, but a settled routine keeps them calm in an apartment.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Cavapoo Be Left Alone During Work Hours?" imageAlt="Cavapoo puppy resting calmly inside a playpen during the day" imageSrc={restingPlaypen} imagePosition="right" variant="card">
+      <p>Can Cavapoos be left alone for a workday? Yes, better than most toy crosses, provided the routine is set up properly from day one. Cavapoos handle a working couple's 8am-to-6pm absence more comfortably than a Maltipoo or Bichonpoo, which is exactly why we often steer working households toward them.</p>
+      <p>The playpen matters as much as the breed. A puppy that treats its playpen as home territory, with its own bed, water, toys, and toilet area, settles into alone time instead of fretting through it. That's the setup we build in your home on delivery day, before your Cavapoo ever walks in.</p>
+      <p>If nobody is home all day AND you want a dog that thrives on constant company, tell us honestly. We'd rather talk you out of the wrong breed than sell you the wrong dog.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Cavapoo Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers, including the ones other listings round off."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight (toy Cavapoo)', values: ['3 to 5 kg, from the Cavapoos we have placed with smaller Toy Poodle parents'] },
+        { label: 'Adult weight (mini Cavapoo)', values: ['5 to 10 kg, our more common size; the Poodle parent sets the ceiling'] },
+        { label: 'Height', values: ['Around 30 cm at the shoulder'] },
+        { label: 'Coat', values: ['Wavy to curly, low-shedding; common colours include Blenheim, apricot, and cream'] },
+        { label: 'Lifespan', values: ['12 to 15 years'] },
+        { label: 'Exercise', values: ['30 to 60 minutes daily, split around the heat'] },
+        { label: 'Shedding & allergies', values: ['Low-shedding and often better tolerated by allergy sufferers, though no dog is truly allergen-free'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        How big do Cavapoos get? The Poodle parent decides. In our own placements the puppies fall into two sizes: a toy Cavapoo at 3 to 5 kg, and a mini Cavapoo at 5 to 10 kg, which is the more common of the two. That is also why "teacup" promises deserve caution: below the toy range, no honest seller can guarantee an adult weight, so treat such a claim as a red flag rather than a feature. The Cavapoo lifespan of 12 to 15 years, by contrast, is one number the breed delivers reliably with good care.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Cavapoo Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Cavapoo price commonly $4,300 to $6,500',
+            'Price usually not published; enquiry required',
+            'Starter supplies bought separately after purchase',
+            'Training arranged and paid on your own',
+            'Delivery often self-collected or charged',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer',
+            'Free boarding after deposit until you are ready',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is the price lower? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. When you buy a Cavapoo in Singapore, the sticker is only half the math. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our full puppy price guide</a>; the gap per puppy typically works out to $1,000 to $3,000 once the extras are counted.
+      </p>
+      <p class="mt-3 text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Budgeting past day one? Food, grooming, and vet basics for a small breed are ongoing costs worth planning for; our <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a> lays out the numbers before you commit.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Cavapoo Goes Home With" imageAlt="Starter kit for a Cavapoo puppy with playpen, carrier, grooming tools and food" imageSrc={starterKit} variant="mid">
+    <p>Every Cavapoo leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For a small, coat-heavy cross like a Cavapoo, the grooming brush and the playpen do the heaviest lifting in the first month.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Cavapoo's daily care. Most of the questions new owners would otherwise ask at 11pm are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">everything inside the starter kit</a>, item by item.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Cavapoo Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Cavapoo."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Working couple, out 8am to 6pm, nobody home in the day', values: ['Good fit. Cavapoos are independent enough for this, with a proper playpen routine from day one'] },
+        { label: 'Family with young children', values: ['Good fit. Gentle, playful, and patient; supervise early handling as with any puppy'] },
+        { label: 'Someone home most of the day and wants a constant-company dog', values: ['A Cavapoo works, but a Maltipoo or Bichonpoo may reward all that company even more'] },
+        { label: 'HDB flat', values: ['Good fit. The Cavapoo is an HDB-approved small breed; just mind the one-dog-per-flat rule'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Cavapoo is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Cavapoo the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Cavapoo vs Maltipoo: Which Suits a Working Couple?" imageAlt="Cavapoo sitting content by a window after being matched to a working couple" imageSrc={windowContent} variant="dark" imageRotate="right">
+    <p>A couple once came to us set on a Maltipoo. Both work 8am to 6pm, no helper, nobody home during the day. We recommended a Cavapoo instead, even though it wasn't what they'd walked in for: Maltipoos are more attachment-dependent and tend to whine through long stretches alone, while Cavapoos are similar in look and warmth but noticeably more independent.</p>
+    <p>They took the Cavapoo home. She settled into the playpen we'd set up, bed and toys already in place, and Andrew Mak later left us a 5-star review for exactly that honest steer.</p>
+    <p>The lesson we took from it: protecting the customer from a bad match builds more trust, and more referrals, than closing a quick sale ever does.</p>
+    <p>Weighing the same choice? See our <a href="/puppies/maltipoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Maltipoo puppies</a>, or read the <a href="/blog/cavapoo-vs-maltipoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">full Cavapoo vs Maltipoo comparison</a>.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Can you keep a Cavapoo in an HDB flat? Yes"
+      definition="A Cavapoo is an HDB-approved small breed, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and the Cavapoo's compact 3 to 10 kg size sits comfortably within the small-breed rules. Every Cavapoo we place comes with its dog licensing completed at purchase, so the paperwork is handled for you."
+      bridge="Is a Cavapoo HDB approved? Yes, and we place Cavapoos in HDB homes regularly. Just remember the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation before you reserve."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Cavapoo is an approved small breed for HDB flats',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+
+    <CaptionedBlock heading="Other HDB-Approved Breeds We Carry" imagePosition="none">
+      <p>The Cavapoo is not your only option for an HDB flat. Alongside it, we regularly place <a href="/puppies/maltipoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Maltipoo puppies</a>, <a href="/puppies/bichonpoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Bichonpoo puppies</a>, <a href="/puppies/mini-dachshund" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Mini Dachshund puppies</a>, and <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo puppies</a>, all approved breeds and crosses that suit flat living.</p>
+      <p>Not sure which of them fits your routine? Start with the <a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB-approved dog breeds guide</a>, or take the <a href="/first-time-owners/breed-selector" class="underline underline-offset-2 text-[var(--color-accent-hover)]">two-minute breed selector</a> and let your actual routine and housing pick the breed.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Also HDB-approved</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Maltipoo',
+            'Bichonpoo',
+            'Mini Dachshund',
+            'Bichon Frise',
+            'Chihuahua',
+          ].map((breed) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {breed}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <CaptionedBlock heading="Daily Life with a Cavapoo in Singapore" imageAlt="Cavapoo puppy on a shaded morning walk along a Singapore park connector" imageSrc={parkWalk} imagePosition="left" imageRotate="right">
+    <p>A Cavapoo's exercise needs are moderate: 30 to 60 minutes a day, split into a morning and an evening walk around the heat; midday pavement here is genuinely too hot for small paws. Shaded park connectors and void-deck-adjacent green spaces do the job; a Cavapoo doesn't need a landed garden to be happy.</p>
+    <p>Rainy weeks and haze days happen, and this is where the breed's size helps: a corridor of indoor fetch, ten minutes of trick training, and a stuffed chew toy will cover an off day without a restless dog by evening.</p>
+    <p>Noise-wise, neighbours generally won't have complaints. Cavapoos bark to announce, not to protest all day, provided the alone-time routine is settled early.</p>
+  </CaptionedBlock>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <CaptionedBlock heading="Cavapoo Grooming and Coat Care in Our Humid Climate" imageAlt="Cavapoo puppy being brushed with grooming tools from the starter kit" imageSrc={groomingBrush} variant="card">
+    <p>Brush 3 to 4 times a week; that wavy, low-shedding coat mats faster in Singapore's humidity than overseas care guides suggest. Book professional grooming every 6 to 8 weeks to keep the coat manageable and nails in check.</p>
+    <p>Those soft floppy ears trap moisture here, so make a quick weekly ear check part of the routine; it's the cheapest ear-infection prevention there is. The brush and grooming tools you need for the first months are already in the starter kit.</p>
+  </CaptionedBlock>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" againstColor="var(--color-surface-card)" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Cavapoo Health: What We Check Before You Take One Home" imageAlt="Cavapoo puppy at a veterinary health check before going home" imageSrc={vetCheck} variant="mid">
+      <p>Every Cavapoo goes home vet-checked, vaccinated, dewormed, and microchipped. The Cavapoo health issues worth knowing are three: ear infections from those floppy ears, inherited eye conditions, and patellar luxation, a kneecap issue common to small breeds. We say this once, plainly, because you should hear it from your seller and not from a forum at midnight.</p>
+      <p>Feeding is simple: your puppy comes with the small-breed food it's already eating, and the transition to any new brand should be gradual over a week or so. For portioning and feeding-stage guidance, <a href="https://www.royalcanin.com/sg" class="underline underline-offset-2 text-[var(--color-accent-hover)]">small-breed puppy feeding guidance</a> is a reliable reference, and <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our puppy health checks explained</a> covers what we screen and why.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Vaccination and Licensing Timeline"
+      headingAccent="Timeline"
+      subhead="The exact weeks, so nothing is left to guesswork."
+      mode="table"
+      tableHeaders={['When', 'What happens']}
+      rows={[
+        { label: 'Week 6', values: ['First vaccination and deworming'] },
+        { label: 'Week 8', values: ['Second vaccination and deworming'] },
+        { label: 'Week 9', values: ['Puppy goes home, one week after the second vaccination'] },
+        { label: 'Week 12', values: ['Third vaccination and deworming, completing the core puppy course'] },
+        { label: 'Week 16', values: ['Optional fourth vaccination, if advised by your vet for extra early-life protection'] },
+        { label: 'Year 1 onward', values: ['Annual booster shot and deworming, done every year as advised by your vet'] },
+        { label: 'At purchase', values: ['Microchipping is mandatory in Singapore and already done; dog licensing paperwork is completed with our full assistance at the point of purchase'] },
+        { label: 'Before licensing (first-time owners)', values: ['A one-time free online pet ownership course, required since September 2024'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Full licensing details are on the <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/licensing-requirements/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS dog licensing requirements</a> page. You won't need to chase any of it yourself; it's handled with you at purchase. First-time owners must also complete the <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">free online pet ownership course</a> before licensing.
+      </p>
+    </div>
+  </div>
+
+  <div id="first-week" class="scroll-mt-40">
+    <CaptionedBlock heading="Your Cavapoo's First Week at Home" imageAlt="Playpen set up and ready before a Cavapoo puppy arrives home for its first week" imageSrc={playpenReady} imagePosition="left">
+      <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Cavapoo explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+      <p>Days 1 to 3: keep it calm. Same food, fixed feeding times, toilet pads where we placed them, and short gentle play. Some night whimpering is normal adjustment, not distress.</p>
+      <p>Days 4 to 7: the routine starts to stick. This is the right window to book your free first lesson with an AVS-certified trainer; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free training lesson covers</a>. And for anything in between, you WhatsApp us; most questions are already answered in the walkthrough, but the ones that aren't get a real reply.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Cavapoo Owners Say About Us"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            "Couldn't recommend Curious Tails in Balestier enough after bringing home our Cavapoo. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+          name: 'Andrew Mak',
+          meta: 'Google review, Cavapoo owner',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, attentive and genuinely helpful, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. They gave us ample time to interact with the puppies before we decided. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "We'd been looking everywhere for a healthy Cavapoo puppy for sale in Singapore, and Curious Tails in Balestier turned out to be the best by far. Big thanks to Kim, who offered thoughtful tips on training and care and were incredibly accommodating. The full vaccination was already covered, which showed how much they care. Forever grateful to the team, our pup is the best thing that's happened to us.",
+          name: 'Michelle Ng',
+          meta: 'Google review, Cavapoo owner',
+        },
+        {
+          quote:
+            "Our search for the perfect Bichonpoo ended the moment we stepped into Curious Tails's Balestier store. Nelson was so patient with all our questions and gave us great value with everything bundled in and surprised us with loads of free extras. Our pup was clean, well-socialised, and full of energy when we brought it home. Everything from the health records to the paperwork was handled seamlessly. Thank you Curious Tails for such a wonderful start to pet parenthood!",
+          name: 'Po Xian Lee',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Had such a wonderful experience bringing home our new furry family member from Curious Tails in Balestier. Honestly, Nelson and Kim couldn't have been more helpful and answered every single question we had, which made the whole thing stress-free. Our pup was clean, well-socialised, and full of energy when we brought it home. The puppy came home healthy and vet-checked, which gave us real peace of mind. A truly lovely experience from start to finish, thank you!",
+          name: 'Damon Fong',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "We'd been comparing breeders for weeks, and Curious Tails in Balestier stood head and shoulders above the rest. It was clear Nelson knew their stuff, as they were happy to help with even the small things and knew their stuff inside and out. Everything from the health records to the paperwork was handled seamlessly. The $500+ starter pack was such a generous surprise and got us set up right away. We couldn't be more pleased, an easy five stars.",
+          name: 'Karen Joy Pepito',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "We weren't even sure we were ready, but a visit to Curious Tails in Balestier sealed the deal on our Maltipoo. Honestly, Nelson and Kim gave us a wonderful bundle of complimentary items, which made the whole thing stress-free. The full vaccination was already covered, which showed how much they care. Honestly couldn't recommend Curious Tails highly enough.",
+          name: 'Alex Tan',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imageAlt="Nelson and Kim providing aftercare support for a new Cavapoo owner" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Cavapoo falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Cavapoo FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Cavapoo" reserveMessage="Hi! I'd like to reserve a Cavapoo puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

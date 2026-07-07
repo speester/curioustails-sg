@@ -1,0 +1,87 @@
+---
+import { site } from '../data/site';
+import PawPrint from './decor/PawPrint.astro';
+import Blob from './decor/Blob.astro';
+
+const columns = [
+  {
+    heading: 'Puppies',
+    links: [
+      { label: 'Cavapoo', href: '/puppies/cavapoo' },
+      { label: 'Maltipoo', href: '/puppies/maltipoo' },
+      { label: 'Corgi', href: '/puppies/corgi' },
+      { label: 'All breeds', href: '/puppies' },
+    ],
+  },
+  {
+    heading: 'For Owners',
+    links: [
+      { label: 'Breed selector', href: '/first-time-owners/breed-selector' },
+      { label: 'HDB-friendly breeds', href: '/first-time-owners/hdb-breeds' },
+      { label: 'Budget guide', href: '/first-time-owners/budget-guide' },
+      { label: 'Verify a pet shop licence', href: '/learn/verify-license' },
+      { label: 'Blog', href: '/blog' },
+    ],
+  },
+  {
+    heading: 'Curious Tails',
+    links: [
+      { label: 'Starter kit', href: '/starter-kit' },
+      { label: 'Free training', href: '/free-training' },
+      { label: 'About us', href: '/about-us' },
+      { label: 'Contact', href: '/contact' },
+    ],
+  },
+];
+---
+
+<footer class="relative overflow-hidden bg-[var(--color-lilac-900)] text-[var(--color-cream-100)] mt-24 rounded-t-[2.5rem]">
+  <Blob class="pointer-events-none absolute -top-10 -left-16 h-64 w-64 fill-[var(--color-lilac-700)]/60 blob-drift-slow" aria-hidden="true" />
+  <Blob class="pointer-events-none absolute bottom-0 right-[8%] h-52 w-52 fill-[var(--color-coral-600)]/15 blob-drift" aria-hidden="true" />
+
+  <div class="relative mx-auto max-w-[1400px] px-5 sm:px-8 py-14 grid gap-10 lg:grid-cols-[1.2fr_repeat(3,1fr)]">
+    <div>
+      <div class="flex items-center gap-2.5">
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl border-3 border-[var(--color-coral-400)] bg-[var(--color-lilac-700)] text-[var(--color-coral-400)]">
+          <PawPrint class="h-5 w-5" />
+        </span>
+        <p class="font-[family-name:var(--font-heading)] text-lg font-semibold text-white">{site.businessName}</p>
+      </div>
+      <p class="mt-4 text-sm leading-relaxed text-[var(--color-lilac-100)]/85 max-w-[32ch]">
+        AVS licensed, {site.address.full}.
+      </p>
+      <p class="mt-4 text-sm text-[var(--color-lilac-100)]/85">{site.hours}</p>
+      <p class="mt-1 text-sm">
+        <a href={`tel:+65${site.phone}`} class="hover:text-white">{site.phoneDisplay}</a>
+        &middot;
+        <a href={`mailto:${site.email}`} class="hover:text-white">{site.email}</a>
+      </p>
+      <div class="mt-4 flex gap-4 text-sm">
+        <a href={site.social.instagram} class="inline-block py-1.5 hover:text-white">Instagram</a>
+        <a href={site.social.facebook} class="inline-block py-1.5 hover:text-white">Facebook</a>
+        <a href={site.gbpUrl} class="inline-block py-1.5 hover:text-white">Google reviews</a>
+      </div>
+    </div>
+
+    {columns.map((col) => (
+      <nav aria-label={col.heading}>
+        <p class="text-sm font-bold text-white mb-3">{col.heading}</p>
+        <ul class="space-y-1">
+          {col.links.map((link) => (
+            <li><a href={link.href} class="inline-block py-1 text-sm text-[var(--color-lilac-100)]/85 hover:text-white">{link.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+    ))}
+  </div>
+
+  <div class="relative border-t border-white/10">
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 py-5 flex flex-col sm:flex-row gap-2 justify-between text-xs text-[var(--color-lilac-100)]/60">
+      <p>&copy; {new Date().getFullYear()} {site.businessName}. AVS licensed, {site.license.number}.</p>
+      <p class="flex gap-4">
+        <a href="/privacy-policy" class="py-1 hover:text-white">Privacy policy</a>
+        <span class="py-1">Balestier Road, Singapore</span>
+      </p>
+    </div>
+  </div>
+</footer>

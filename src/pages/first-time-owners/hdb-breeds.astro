@@ -1,0 +1,233 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import DefBox from '../../components/DefBox.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+import bichonpooPortrait from '../../assets/bichonpoo/2-bichonpoo-white-portrait.webp';
+import dachshundPortrait from '../../assets/mini-dachshund/2-mini-dachshund-red-smooth-portrait.webp';
+
+const title = 'HDB-Approved Dog Breeds Singapore: Full Rules | Curious Tails';
+const description =
+  'The complete HDB dog rules: one approved-breed dog per flat, the official list explained by group, the $4,000 penalty, Project ADORE, and honest next steps.';
+
+const faqItems = [
+  {
+    question: 'How many dogs can an HDB flat keep?',
+    answer:
+      'One dog, and it must be from HDB\'s approved list of small breeds and their crosses. Keeping a non-approved dog in a flat risks a fine of up to $4,000 under the rules AVS enforces with HDB.',
+  },
+  {
+    question: 'Are Cavapoos, Maltipoos, and Cockapoos HDB-approved?',
+    answer:
+      'Yes. Crosses of approved small breeds are commonly accepted under the rules, and all five small crosses we carry (Cavapoo, Maltipoo, Bichonpoo, Cockapoo) plus the Miniature Dachshund qualify for HDB flats.',
+  },
+  {
+    question: 'Can I appeal to keep a Corgi or Golden Retriever in my flat?',
+    answer:
+      'Not through any route we can honestly promise. The approved list is the rule, and "exception letters" are not a plan. Project ADORE is the only structured exception, and it covers adopted local mixed-breed dogs, not purchased non-approved breeds.',
+  },
+  {
+    question: 'What is Project ADORE?',
+    answer:
+      'An AVS scheme that lets HDB households adopt one medium-sized local mixed-breed dog (a "Singapore Special") from participating rehoming groups, under conditions like training and a code of responsible ownership. It is the genuine path if you want a bigger dog in a flat.',
+  },
+  {
+    question: 'Do condos follow the same list?',
+    answer:
+      'No. Private housing may keep up to three dogs of most breeds, subject to the estate\'s own by-laws and AVS licensing. The HDB list applies to HDB flats only.',
+  },
+  {
+    question: 'Who handles the dog licence?',
+    answer:
+      'Every dog in Singapore must be licensed with AVS regardless of housing. Buy from us and the licensing paperwork is completed with our assistance at purchase; first-time owners also complete the free online Pet Ownership Course.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/first-time-owners/hdb-breeds',
+    title,
+    description,
+    aboutName: 'HDB-approved dog breeds',
+    aboutAlternateName: 'HDB dog rules Singapore',
+    aboutSameAs: 'https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets',
+    datePublished: '2026-07-06',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/first-time-owners/hdb-breeds" ogImage="/assets/bichonpoo/og-bichonpoo.jpg">
+  <Hero
+    eyebrow="First-time owner guide · Decision 1"
+    h1="The Complete HDB-Approved Dog Breeds List, Explained"
+    h1Accent="HDB-Approved"
+    subhead="One dog per flat, from an approved list of small breeds and crosses, with fines up to $4,000 for getting it wrong. Here's the list made usable: grouped, explained, with honest answers on crosses, appeals, and what to do when your dream breed isn't on it."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'm in an HDB flat. Which of your breeds would suit us?"
+    secondaryCtaLabel="Jump to the list"
+    secondaryCtaHref="#the-list"
+    priceAnchor="Rule of thumb: small breed or approved cross, one per flat, licensed."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="HDB approved dog breeds Singapore: white Bichonpoo puppy, one of the approved crosses for flat living"
+    imageSrc={bichonpooPortrait}
+    tagLabel="HDB rules"
+    proofChip="Sourced from HDB & AVS"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'First-Time Owners', href: '/first-time-owners' }, { label: 'HDB Breeds', href: '/first-time-owners/hdb-breeds' }]} />
+  </Hero>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What are the HDB dog rules?"
+      definition="HDB flats may keep one dog, and it must be from HDB's approved list of around 62 small breeds and their crosses, such as the Bichon Frise, Toy Poodle, Maltese, Miniature Dachshund, and Chihuahua. Non-approved breeds like Corgis, Shiba Inus, and Golden Retrievers are not allowed in flats, and non-compliance can draw a fine of up to $4,000."
+      bridge="The official list lives on HDB's site and is linked below; this page's job is to make it usable: what the groups mean, where the popular crosses stand, and the honest options when your heart is set on a breed that isn't on it."
+      citationLabel="See the official list on HDB's keeping-pets page"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in four lines</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'One dog per HDB flat',
+            'From the approved small-breed list (or their crosses)',
+            'Fine of up to $4,000 for non-compliance',
+            'Every dog licensed with AVS, whatever the housing',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Penalty source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="the-list" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="The Approved List, Grouped So It's Actually Usable"
+      headingAccent="Usable"
+      subhead="Around 62 breeds qualify. Instead of an A-to-Z dump, here they are by what they're like to live with."
+      mode="table"
+      tableHeaders={['Group', 'Familiar examples', 'Live-with notes']}
+      rows={[
+        { label: 'Low-shedding companions', values: ['Bichon Frise, Toy/Miniature Poodle, Maltese, Shih Tzu, Havanese, Lhasa Apso', 'The flat-living archetype: small, low-drop coats, people-oriented; grooming is the trade'] },
+        { label: 'Toys & lap breeds', values: ['Chihuahua, Pomeranian, Papillon, Japanese Chin, Pekingese', 'Tiny footprints, big voices in some; watch the heat with flat-faced types'] },
+        { label: 'Small terriers', values: ['Jack Russell, West Highland White, Cairn, Australian Silky, Miniature Schnauzer', 'Spirited and busy; happiest with real daily outlets'] },
+        { label: 'Small hounds & spaniels', values: ['Miniature Dachshund, Cavalier King Charles Spaniel, Tibetan Spaniel', 'Character breeds; the Dachshund brings the comedy, the Cavalier the calm'] },
+        { label: 'Approved crosses', values: ['Cavapoo, Maltipoo, Bichonpoo, Cockapoo, and other crosses of listed breeds', 'The modern favourites; approved-breed crosses are commonly accepted under the rules'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The authoritative A-to-Z list (and the one that settles any dispute) is on <a href="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">HDB's keeping-pets page</a>. When in doubt about a specific breed or cross, check there first, then ask us; we would rather lose a sale than place a dog somewhere it legally cannot live.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="Where the Popular Crosses Stand" imageAlt="Mini Dachshund puppy, an HDB-approved breed for Singapore flats" imageSrc={dachshundPortrait} variant="mid" imagePosition="right">
+    <p>The question we hear weekly: "the list names Bichon Frise and Poodle, but I want a Bichonpoo; is that allowed?" Yes. Crosses of approved small breeds are commonly accepted under HDB's rules, which is why the Cavapoo, Maltipoo, Bichonpoo, and Cockapoo have become Singapore's flat-living favourites.</p>
+    <p>All five small breeds and crosses we carry are HDB-fine: <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a>, <a href="/puppies/maltipoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Maltipoo</a>, <a href="/puppies/mini-dachshund" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Mini Dachshund</a>, <a href="/puppies/bichonpoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Bichonpoo</a>, and <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a>.</p>
+    <p>The practical difference between them is not the rules; it is your weekday. Who is home 8am to 6pm decides which of the five fits, and the <a href="/first-time-owners/breed-selector" class="underline underline-offset-2 text-[var(--color-accent-hover)]">two-minute breed selector</a> asks exactly that.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Not on the List: Corgis, Shibas, and What to Actually Do" imagePosition="none" variant="card">
+    <p>Corgis and Shiba Inus are the two heartbreakers: endlessly photogenic, genuinely wonderful, and not on the HDB list at any weight. We sell both breeds, and we still tell every HDB enquirer the same thing: no, and no workaround we can promise. The honest options are three.</p>
+    <p>Option one: match the spirit within the list; our <a href="/puppies/corgi" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Corgi page</a> and <a href="/puppies/shiba-inu" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shiba page</a> each map their character to approved alternatives. Option two: if the breed matters more than the flat, it becomes a housing decision, and only you can make that one. Option three: adopt under Project ADORE, below.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Dream breed not listed?</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Match its spirit inside the list (we\'ll help)',
+          'Or treat it as a housing decision, honestly',
+          'Or adopt a Singapore Special via Project ADORE',
+          'Never: keep it in the flat and hope',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <div id="adore" class="scroll-mt-40">
+    <DefBox
+      term="Project ADORE: the medium-sized exception"
+      definition="Project ADORE (ADOption and REhoming of dogs) is an AVS scheme that lets HDB households adopt one medium-sized local mixed-breed dog, a Singapore Special, from participating rehoming organisations, under conditions including obedience training and a code of responsible ownership."
+      bridge="It is the one genuine, structured path to a bigger dog in an HDB flat, and it comes with a bonus: you give a local dog a home. If your reason for wanting a Corgi was 'a real dog, not a toy', a Singapore Special delivers that in full."
+      citationLabel="Read about Project ADORE on the AVS site"
+      citationHref="https://avs.nparks.gov.sg/animals/animal-management/project-adore/"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">ADORE in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Adopted local mixed-breeds (Singapore Specials)',
+            'Medium-sized dogs become possible in flats',
+            'Conditions: training, responsible-ownership code',
+            'Through participating rehoming groups only',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </DefBox>
+  </div>
+
+  <BannerRibbon
+    heading="HDB flat, shortlist ready?"
+    body="Message us your routine and we'll match you across the five approved breeds we carry, honestly, or take the quiz first."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'm in an HDB flat. Here's my weekday routine; which breed fits?"
+    variant="dark"
+  />
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="HDB Rules, Answered" items={faqItems} />
+  </div>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Meet the HDB-Approved Five at Balestier"
+    body="Can't make the trip? WhatsApp us which approved breeds you're considering and we'll send current photos and prices."
+    reserveMessage="Hi! I'm in an HDB flat and comparing your approved breeds."
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

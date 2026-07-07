@@ -1,0 +1,16 @@
+---
+// Ambient background decoration for otherwise-flat sections: a handful of
+// paws/bones/sparkles drifting slowly at low opacity. Absolutely positioned,
+// non-interactive — drop inside any `relative` section as the first child.
+import PawPrint from './PawPrint.astro';
+import Bone from './Bone.astro';
+import Sparkle from './Sparkle.astro';
+---
+
+<div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+  <PawPrint class="absolute left-[4%] top-[12%] h-9 w-9 text-[var(--color-coral-300)]/25 -rotate-12 blob-drift-slow" />
+  <Bone class="absolute right-[8%] top-[20%] h-8 w-8 text-[var(--color-mint-300)]/30 rotate-[20deg] blob-drift" />
+  <Sparkle class="absolute left-[20%] bottom-[16%] h-5 w-5 text-[var(--color-lilac-300)]/40 blob-drift-slow" />
+  <PawPrint class="absolute right-[14%] bottom-[10%] h-7 w-7 text-[var(--color-mint-300)]/25 rotate-6 blob-drift" />
+  <Sparkle class="absolute left-[46%] top-[8%] h-4 w-4 text-[var(--color-coral-300)]/35 blob-drift" />
+</div>

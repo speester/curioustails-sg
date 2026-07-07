@@ -1,0 +1,44 @@
+{
+  "slug": "smuggled-puppies",
+  "target_keyword": "smuggled puppies Singapore",
+  "secondary_keyword": "buying puppies online Singapore risks",
+  "page_intent": "educational", "page_tier": "outer", "country": "Singapore", "city": "Singapore",
+  "dual_intent_strategy": { "primary_intent": "educational — the real cases, the buyer liability, the red flags", "secondary_intent": "trust-assist", "resolution": "Protective, not preachy (ground-truth mandate): 4 verified news cases with links, the buyer-liability shift ($7,000 precedent), the economics of why smuggling exists, red flags, and the verification path. Tone: 'you're protected when you check', never fear-mongering." },
+  "meta_title": "Smuggled Puppies in Singapore: Real Cases & Red Flags | Curious Tails",
+  "meta_description": "The real cost of smuggled puppies in Singapore: parvovirus deaths at the checkpoint, a $7,000 fine for a buyer, and the 60-second check that protects you.",
+  "h1": "Why Unlicensed Sellers Are Dangerous: the Real Cases",
+  "entity_definitions": [ { "entity": "subject_entity", "definition": "Smuggled puppies in Singapore are typically brought across the border without vaccinations or vet care and sold through Carousell, Telegram, or Facebook at below-market prices. The risks are documented: puppies dying of parvovirus in transit, treatment bills of $5,000 to $10,000, and since 2026, buyers themselves prosecuted, with one fined $7,000." } ],
+  "serp_analysis": { "dominant_content_format": "news articles + SPCA campaign", "top_competitor_weaknesses": ["news covers incidents, nobody aggregates them into buyer guidance", "no red-flag checklist attached to the cases"], "information_gaps_none_cover": ["cases + economics + red flags + check in one guide", "the buyer-liability shift explained"], "featured_snippet": {}, "factual_conflicts": [] },
+  "lsi_keywords": { "primary": ["smuggled puppies Singapore", "puppy smuggling", "unlicensed puppy sellers", "illegal puppies Singapore"], "secondary": ["parvovirus", "buyer fined $7,000", "Carousell puppies", "Telegram sellers", "red flags", "ICA checkpoint"], "all": ["smuggled puppies Singapore", "puppy smuggling Singapore", "illegal puppy sellers", "unlicensed sellers", "smuggled from Malaysia", "car boot smuggling", "Tuas checkpoint case", "12 puppies 6 died", "26 puppies case", "Pomeranian smuggling case", "canine parvovirus", "parvovirus treatment cost $5,000 to $10,000", "puppies died in transit", "buyer fined $7,000", "first NParks prosecution of a purchaser", "buyer liability", "ICA 33% decrease 2025", "enforcement improving", "Carousell puppy listings", "Telegram puppy sellers", "Facebook Marketplace", "below-market price", "no premises", "no paperwork", "red flags", "how smuggling economics work", "$500 to $1,000 cheaper", "why so cheap", "SPCA campaign", "verify the seller", "AVS public registry", "60-second check", "protective not preachy", "in Singapore"] },
+  "lsi_keyword_weighting": { "transactional_cluster": ["verify us first"], "informational_cluster": ["cases", "parvovirus", "buyer liability", "red flags", "economics"], "instruction": "Cases carry authority; checklist carries utility; single CTA is the registry check." },
+  "content_outline": [
+    { "heading": "Why Unlicensed Sellers Are Dangerous: the Real Cases", "level": "H1", "priority": "P1", "cro_phase": 1, "cro_element": "Hero", "intent_served": "both", "ux_note": "Hero", "key_points": [""], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "What are smuggled puppies? (capsule)", "level": "H2", "priority": "P2", "cro_phase": 1, "cro_element": "definition capsule", "intent_served": "both", "ux_note": "DefBox", "key_points": [""], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "Four cases, all documented", "level": "H2", "priority": "P2", "cro_phase": 2, "cro_element": "case table with news links (Tuas 12/6, Pomeranian 5, 26-puppies, $7k buyer)", "intent_served": "both", "ux_note": "ComparisonSplit", "key_points": ["ground-truth cases verbatim"], "first_party_prompt": "trust-licensing.md cases + expertise-library sources", "external_link_cue": "CNA/ST/Mothership links" },
+    { "heading": "The economics: why the 'bargain' exists", "level": "H2", "priority": "P1", "cro_phase": 2, "cro_element": "price-gap explanation", "intent_served": "both", "ux_note": "CaptionedBlock", "key_points": ["$500-$1,000 cheaper = skipped vet care", "$5-10k parvo bills"], "first_party_prompt": "insider knowledge verbatim", "external_link_cue": "" },
+    { "heading": "The liability shift: buyers now answer too", "level": "H2", "priority": "P2", "cro_phase": 3, "cro_element": "$7,000 precedent explained", "intent_served": "both", "ux_note": "CaptionedBlock", "key_points": [""], "first_party_prompt": "", "external_link_cue": "ST article" },
+    { "heading": "Red flags + the check + FAQ + CTA", "level": "H2", "priority": "P2", "cro_phase": 4, "cro_element": "checklist + registry + enforcement hope note (ICA -33%)", "intent_served": "both", "ux_note": "ComparisonSplit + FAQ + FinalCta", "key_points": [""], "first_party_prompt": "", "external_link_cue": "ICA + SPCA" }
+  ],
+  "outline_cross_check": { "A": "PASS", "B": "PASS", "C": "PASS", "D": "PASS", "E": "PASS", "F": "PASS — tone gate: protective not preachy", "G": "PASS", "H": "PASS" },
+  "internal_links": [ { "anchor": "verify-license, learn hub, pricing, about-us", "target_slug": "/learn/verify-license", "placed_in_section": "check section" } ],
+  "filtered_links": [],
+  "external_links": [
+    { "section": "cases", "url": "https://www.channelnewsasia.com/singapore/3-12-puppies-die-in-botched-smuggling-attempt-tuas-checkpoint-5718076", "anchor": "CNA: Tuas checkpoint case", "purpose": "case 1" },
+    { "section": "cases", "url": "https://www.straitstimes.com/singapore/courts-crime/16-weeks-jail-for-man-who-smuggled-5-pomeranian-puppies-from-malaysia-to-spore-in-car-boot", "anchor": "ST: Pomeranian case", "purpose": "case 2" },
+    { "section": "cases", "url": "https://mothership.sg/2023/04/msian-man-smuggles-26-puppies-1-cat/", "anchor": "Mothership: 26 puppies", "purpose": "case 3" },
+    { "section": "liability", "url": "https://www.straitstimes.com/singapore/courts-crime/dog-buyer-fined-7k-first-time-nparks-prosecuted-purchaser-over-animal-smuggling", "anchor": "ST: buyer fined $7,000", "purpose": "case 4" },
+    { "section": "enforcement", "url": "https://www.ica.gov.sg/news-and-publications/newsroom/media-release/33-per-cent-decrease-in-animal-smuggling-cases-recorded-in-2025", "anchor": "ICA 2025 data", "purpose": "enforcement stat" },
+    { "section": "welfare", "url": "https://spca.org.sg/campaigns/animal-smuggling/", "anchor": "SPCA campaign", "purpose": "welfare authority" }
+  ],
+  "faq": [
+    { "question": "How do I know if a puppy is smuggled?", "answer_direction": "You often can't by looking; you know by the seller: unlisted on the AVS registry, below-market price, no premises, no vaccination paperwork." },
+    { "question": "Can I get in trouble for buying one unknowingly?", "answer_direction": "Yes; a buyer was fined $7,000 in the first purchaser prosecution. 'I didn't know' did not prevent it; the 60-second check would have." },
+    { "question": "What is parvovirus and why does it matter here?", "answer_direction": "A highly contagious, often fatal puppy virus; unvaccinated smuggled puppies are its main victims, and treatment runs $5,000 to $10,000 without guaranteeing survival." },
+    { "question": "Is the situation improving?", "answer_direction": "Enforcement is: ICA recorded a 33% drop in smuggling cases in 2025. But sellers still operate on Carousell and Telegram, so the buyer-side check still matters." },
+    { "question": "What should I do if I suspect a listing?", "answer_direction": "Don't transfer anything, keep the listing details, and report to AVS; then buy only from registry-verified sellers." }
+  ],
+  "questions": [],
+  "schema_plan": [ { "type": "WebPage + BreadcrumbList + FAQPage + LocalBusiness + Person", "notes": "protective tone; news citations" } ],
+  "info_gain_score": { "pct_p1_p2": 65, "gain_drivers": ["4 documented cases aggregated", "economics explained", "liability shift", "actionable check"], "remaining_risks": ["tone gate: never graphic, never preachy"] },
+  "word_count_target": 1700, "content_length_estimate": "1,600–1,900"
+}

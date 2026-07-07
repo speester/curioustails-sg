@@ -1,0 +1,319 @@
+---
+import { site, whatsappLink } from '../data/site';
+import PawPrint from './decor/PawPrint.astro';
+
+// Nav model: plain links + dropdown groups. Active state derives from the
+// current path so parents highlight when a child page is open.
+type NavLink = { label: string; href: string };
+type NavGroup = { label: string; heading?: string; links: NavLink[] };
+type NavItem =
+  | { type: 'link'; label: string; href: string }
+  | { type: 'menu'; label: string; match: string[]; groups: NavGroup[] };
+
+const nav: NavItem[] = [
+  {
+    type: 'menu',
+    label: 'Our Puppies',
+    match: ['/puppies'],
+    groups: [
+      {
+        label: 'breeds',
+        links: [
+          { label: 'Cavapoo', href: '/puppies/cavapoo' },
+          { label: 'Maltipoo', href: '/puppies/maltipoo' },
+          { label: 'Mini Dachshund', href: '/puppies/mini-dachshund' },
+          { label: 'Cockapoo', href: '/puppies/cockapoo' },
+          { label: 'Bichonpoo', href: '/puppies/bichonpoo' },
+          { label: 'Corgi', href: '/puppies/corgi' },
+          { label: 'Shiba Inu', href: '/puppies/shiba-inu' },
+          { label: 'All breeds →', href: '/puppies' },
+        ],
+      },
+    ],
+  },
+  { type: 'link', label: 'Pricing', href: '/pricing' },
+  {
+    type: 'menu',
+    label: "What's Included",
+    match: ['/starter-kit', '/free-training', '/delivery'],
+    groups: [
+      {
+        label: 'included',
+        links: [
+          { label: 'Starter Kit (30+ items)', href: '/starter-kit' },
+          { label: 'Free Training Lesson', href: '/free-training' },
+          { label: 'Free Delivery & Setup', href: '/delivery' },
+        ],
+      },
+    ],
+  },
+  {
+    type: 'menu',
+    label: 'Guides',
+    match: ['/first-time-owners', '/learn', '/blog'],
+    groups: [
+      {
+        label: 'fto',
+        heading: 'First-Time Owners',
+        links: [
+          { label: 'The complete checklist', href: '/first-time-owners' },
+          { label: 'Breed selector quiz', href: '/first-time-owners/breed-selector' },
+          { label: 'HDB-approved breeds', href: '/first-time-owners/hdb-breeds' },
+          { label: 'First-year budget', href: '/first-time-owners/budget-guide' },
+          { label: 'Puppy care 101', href: '/first-time-owners/puppy-care-101' },
+        ],
+      },
+      {
+        label: 'trust',
+        heading: 'Safety & Trust',
+        links: [
+          { label: 'Learn before you buy', href: '/learn' },
+          { label: 'Verify a pet shop licence', href: '/learn/verify-license' },
+          { label: 'Smuggled puppies: the cases', href: '/learn/smuggled-puppies' },
+          { label: 'Vaccinations & health checks', href: '/learn/puppy-health' },
+        ],
+      },
+      {
+        label: 'blog',
+        heading: 'Blog',
+        links: [{ label: 'All blog posts', href: '/blog' }],
+      },
+    ],
+  },
+  { type: 'link', label: 'About Us', href: '/about-us' },
+  { type: 'link', label: 'Contact', href: '/contact' },
+];
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActiveLink = (href: string) => path === href;
+const isActiveMenu = (item: Extract<NavItem, { type: 'menu' }>) =>
+  item.match.some((m) => path === m || path.startsWith(m + '/'));
+
+const pillBase =
+  'rounded-full px-3.5 py-2 text-sm font-semibold transition-colors';
+const pillIdle =
+  'text-[var(--color-cream-700)] hover:bg-[var(--color-peach-100)] hover:text-[var(--color-coral-600)]';
+const pillActive = 'bg-[var(--color-coral-100)] text-[var(--color-coral-600)]';
+---
+
+<header class="sticky top-0 z-sticky bg-[var(--color-surface)]/90 backdrop-blur-sm">
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8 flex items-center justify-between h-20 py-3">
+    <a href="/" class="flex items-center gap-2.5 group shrink-0">
+      <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border-3 border-[var(--color-coral-600)] bg-[var(--color-coral-100)] text-[var(--color-coral-600)] shadow-[0_4px_0_0_var(--color-coral-600)] transition-transform group-hover:-rotate-6">
+        <PawPrint class="h-6 w-6" />
+      </span>
+      <span class="font-[family-name:var(--font-heading)] text-xl font-semibold text-[var(--color-cream-900)]">
+        {site.businessName}
+      </span>
+    </a>
+
+    <nav aria-label="Primary" class="hidden lg:flex items-center gap-0.5 rounded-full border-3 border-[var(--color-border)] bg-[var(--color-surface-card)] px-2 py-1.5">
+      {nav.map((item) =>
+        item.type === 'link' ? (
+          <a
+            href={item.href}
+            aria-current={isActiveLink(item.href) ? 'page' : undefined}
+            class={`${pillBase} ${isActiveLink(item.href) ? pillActive : pillIdle}`}
+          >
+            {item.label}
+          </a>
+        ) : (
+          <div class="relative" data-dropdown>
+            <button
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class={`${pillBase} ${isActiveMenu(item) ? pillActive : pillIdle} inline-flex items-center gap-1.5 clay-press`}
+              data-dropdown-toggle
+            >
+              {item.label}
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200" data-dropdown-chevron aria-hidden="true">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <div
+              class="invisible absolute left-1/2 top-[calc(100%+14px)] -translate-x-1/2 opacity-0 transition-all duration-150 translate-y-1"
+              data-dropdown-panel
+            >
+              <div class={`clay bg-[var(--color-surface-card)] p-3 shadow-tint-md ${item.groups.length > 1 ? 'flex gap-2 w-max' : 'w-60'}`}>
+                {item.groups.map((group) => (
+                  <div class={item.groups.length > 1 ? 'w-56' : ''}>
+                    {group.heading && (
+                      <p class="px-3 pb-1 pt-2 text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">
+                        {group.heading}
+                      </p>
+                    )}
+                    <ul>
+                      {group.links.map((link) => (
+                        <li>
+                          <a
+                            href={link.href}
+                            aria-current={isActiveLink(link.href) ? 'page' : undefined}
+                            class={`block rounded-xl px-3 py-2 text-sm font-semibold transition-colors ${
+                              isActiveLink(link.href)
+                                ? 'bg-[var(--color-coral-100)] text-[var(--color-coral-600)]'
+                                : 'text-[var(--color-cream-700)] hover:bg-[var(--color-peach-100)] hover:text-[var(--color-coral-600)]'
+                            }`}
+                          >
+                            {link.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )
+      )}
+    </nav>
+
+    <div class="hidden lg:block shrink-0">
+      <a
+        href={whatsappLink("Hi! I'd like to ask about your puppies.")}
+        class="clay-btn inline-flex items-center gap-2 bg-[var(--color-accent)] px-5 py-2.5 text-sm font-bold text-white hover:bg-[var(--color-accent-hover)]"
+      >
+        WhatsApp us
+      </a>
+    </div>
+
+    <button
+      type="button"
+      class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-2xl border-3 border-[var(--color-border)] bg-[var(--color-surface-card)] text-[var(--color-cream-800)]"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+      data-menu-toggle
+    >
+      <span class="sr-only">Open menu</span>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <nav
+    id="mobile-nav"
+    aria-label="Mobile"
+    class="lg:hidden hidden flex-col gap-1 mx-5 mb-4 max-h-[calc(100dvh-7rem)] overflow-y-auto rounded-3xl border-3 border-[var(--color-border)] bg-[var(--color-surface-card)] px-4 py-4 shadow-tint-md"
+    data-menu-panel
+  >
+    {nav.map((item) =>
+      item.type === 'link' ? (
+        <a
+          href={item.href}
+          aria-current={isActiveLink(item.href) ? 'page' : undefined}
+          class={`rounded-xl px-3 py-2.5 font-semibold ${isActiveLink(item.href) ? 'bg-[var(--color-coral-100)] text-[var(--color-coral-600)]' : 'text-[var(--color-cream-800)]'}`}
+        >
+          {item.label}
+        </a>
+      ) : (
+        <div data-accordion>
+          <button
+            type="button"
+            aria-expanded={isActiveMenu(item) ? 'true' : 'false'}
+            class={`flex w-full items-center justify-between rounded-xl px-3 py-2.5 font-semibold ${isActiveMenu(item) ? 'bg-[var(--color-coral-100)] text-[var(--color-coral-600)]' : 'text-[var(--color-cream-800)]'}`}
+            data-accordion-toggle
+          >
+            {item.label}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class={`transition-transform duration-200 ${isActiveMenu(item) ? 'rotate-180' : ''}`} data-accordion-chevron aria-hidden="true">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+          <div class={`${isActiveMenu(item) ? '' : 'hidden'} pb-1 pl-3`} data-accordion-panel>
+            {item.groups.map((group) => (
+              <div>
+                {group.heading && (
+                  <p class="px-3 pb-0.5 pt-2 text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">
+                    {group.heading}
+                  </p>
+                )}
+                {group.links.map((link) => (
+                  <a
+                    href={link.href}
+                    aria-current={isActiveLink(link.href) ? 'page' : undefined}
+                    class={`block rounded-xl px-3 py-2 text-sm font-semibold ${isActiveLink(link.href) ? 'bg-[var(--color-coral-100)] text-[var(--color-coral-600)]' : 'text-[var(--color-cream-700)]'}`}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    )}
+    <a
+      href={whatsappLink("Hi! I'd like to ask about your puppies.")}
+      class="clay-btn mt-2 inline-flex items-center justify-center bg-[var(--color-accent)] px-5 py-3 text-sm font-bold text-white"
+    >
+      WhatsApp us
+    </a>
+  </nav>
+</header>
+
+<script>
+  // Mobile burger
+  const toggle = document.querySelector('[data-menu-toggle]');
+  const panel = document.querySelector('[data-menu-panel]');
+  toggle?.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    panel?.classList.toggle('hidden');
+    panel?.classList.toggle('flex');
+  });
+
+  // Mobile accordions
+  document.querySelectorAll('[data-accordion]').forEach((acc) => {
+    const btn = acc.querySelector('[data-accordion-toggle]');
+    const body = acc.querySelector('[data-accordion-panel]');
+    const chev = acc.querySelector('[data-accordion-chevron]');
+    btn?.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      body?.classList.toggle('hidden');
+      chev?.classList.toggle('rotate-180');
+    });
+  });
+
+  // Desktop dropdowns: open on hover or click/focus, close on outside click or Escape.
+  const dropdowns = [...document.querySelectorAll('[data-dropdown]')];
+  const closeAll = (except?: Element) => {
+    dropdowns.forEach((d) => {
+      if (d === except) return;
+      d.querySelector('[data-dropdown-toggle]')?.setAttribute('aria-expanded', 'false');
+      const p = d.querySelector('[data-dropdown-panel]');
+      p?.classList.add('invisible', 'opacity-0', 'translate-y-1');
+      d.querySelector('[data-dropdown-chevron]')?.classList.remove('rotate-180');
+    });
+  };
+  dropdowns.forEach((d) => {
+    const btn = d.querySelector('[data-dropdown-toggle]');
+    const p = d.querySelector('[data-dropdown-panel]');
+    const chev = d.querySelector('[data-dropdown-chevron]');
+    const open = () => {
+      closeAll(d);
+      btn?.setAttribute('aria-expanded', 'true');
+      p?.classList.remove('invisible', 'opacity-0', 'translate-y-1');
+      chev?.classList.add('rotate-180');
+    };
+    const close = () => closeAll();
+    btn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      btn.getAttribute('aria-expanded') === 'true' ? close() : open();
+    });
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      d.addEventListener('mouseenter', open);
+      d.addEventListener('mouseleave', close);
+    }
+    d.addEventListener('focusout', (e) => {
+      if (!d.contains((e as FocusEvent).relatedTarget as Node)) close();
+    });
+  });
+  document.addEventListener('click', () => closeAll());
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAll();
+  });
+</script>

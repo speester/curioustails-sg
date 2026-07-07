@@ -1,0 +1,468 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import heroBichonpoo from '../../assets/bichonpoo/1-bichonpoo-puppy-hero-playpen-home.webp';
+import whitePortrait from '../../assets/bichonpoo/2-bichonpoo-white-portrait.webp';
+import creamPortrait from '../../assets/bichonpoo/3-bichonpoo-cream-portrait.webp';
+import apricotPortrait from '../../assets/bichonpoo/4-bichonpoo-apricot-portrait.webp';
+import lapCompany from '../../assets/bichonpoo/5-bichonpoo-lap-companion-company.webp';
+import faceWipe from '../../assets/bichonpoo/6-bichonpoo-face-wipe-tear-stain-care.webp';
+
+const title = 'Bichonpoo Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Bichonpoo (Poochon) puppies for sale in Singapore from $2,888 all-in. Low-shedding, HDB-approved, playful; market runs $5,000 to $8,000. Starter kit included.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'vs Maltipoo', href: '#vs-maltipoo' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Bichonpoo cost in Singapore?',
+    answer:
+      'The Poochon market in Singapore commonly runs $5,000 to $8,000. At Curious Tails, Bichonpoo puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Are Bichonpoos HDB-approved?',
+    answer:
+      'Yes. The Bichonpoo is an approved small-breed cross, well within HDB\'s rules, and its 3 to 6 kg size suits flat living naturally. HDB allows one dog per flat, and we complete the licensing for you at purchase.',
+  },
+  {
+    question: 'Are Bichonpoos hypoallergenic?',
+    answer:
+      'They are low-shedding and often kind to allergy sufferers, which is the honest version of "hypoallergenic": no dog is truly allergen-free, because allergens live in skin and saliva, not just fur. If allergies are a concern, visit and spend time with the puppy before deciding.',
+  },
+  {
+    question: 'Can a Bichonpoo be left alone during work hours?',
+    answer:
+      'This is the honest one: like the Maltipoo, the Bichonpoo thrives on company, and an empty 8am to 6pm home is a hard ask. If nobody is home during the day, a Cavapoo suits that routine better, and we will say so before you buy.',
+  },
+  {
+    question: 'How much grooming does a Bichonpoo need?',
+    answer:
+      'The curly coat is a commitment: brushing 3 to 4 times a week to prevent matting, professional grooming every 4 to 6 weeks, and a daily face wipe if tear stains appear. Singapore humidity speeds up matting, so the routine matters more here than overseas guides suggest.',
+  },
+  {
+    question: 'Bichonpoo or Maltipoo: how do we choose?',
+    answer:
+      'Both are companion-first small crosses that want people around. The Bichonpoo tends to carry a rounder, denser curl and a slightly sturdier build; the Maltipoo runs finer-coated and often a touch smaller. Your routine and grooming appetite decide; message us your weekday and we will tell you straight.',
+  },
+  {
+    question: 'What happens after I reserve a Bichonpoo?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/bichonpoo',
+    title,
+    description,
+    aboutName: 'Bichonpoo',
+    aboutAlternateName: 'Poochon',
+    datePublished: '2026-07-06',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Bichonpoo puppy',
+      url: '/puppies/bichonpoo',
+      description:
+        'Bichonpoo (Poochon) puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Bichonpoo Home Delivery & Playpen Setup',
+    description: 'Free island-wide home delivery with playpen, bed, and toy setup for every Bichonpoo puppy, scheduled around the owner\'s availability.',
+    price: 'Included',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Bichonpoo',
+    description:
+      'A Bichonpoo, also called a Poochon or Bichpoo, is a cross between a Bichon Frise and a Toy or Miniature Poodle. It is a small companion dog of 3 to 6 kg with a curly, low-shedding coat often kind to allergy sufferers, a cheerful people-loving temperament, and a 12 to 15 year lifespan.',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/bichonpoo" ogImage="/assets/bichonpoo/og-bichonpoo.jpg">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Bichonpoo Puppies for Sale in Singapore"
+    h1Accent="Bichonpoo"
+    subhead="The Poochon market in Singapore runs $5,000 to $8,000. Ours are $2,888 to $4,488, printed here, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price. Low-shedding, HDB-approved, and thoroughly sunny."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Bichonpoo puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="Bichonpoo puppy Singapore: white curly Poochon pup standing bright-eyed in its playpen at home"
+    imageSrc={heroBichonpoo}
+    tagLabel="Bichonpoo"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Bichonpoo', href: '/puppies/bichonpoo' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking for a Bichonpoo for Sale in Singapore?" imageAlt="White Bichonpoo puppy available in Singapore, seated portrait with a teddy-round face" imageSrc={whitePortrait} variant="mid">
+      <p>Bichonpoo litters get reserved fast, and half the listings you'll find elsewhere already wear a "reserved" tag. We keep availability live on WhatsApp instead: message us for photos, gender, age, colour, and exact prices of the Bichonpoo puppies available now.</p>
+      <p>Every Bichonpoo here is between $2,888 and $4,488, and what you see is the full price. After you reserve with a deposit, we board your puppy free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Bichonpoo puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Bichonpoo photos and prices</a>, or meet them at our Balestier shop.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Bichonpoo Puppies"
+      headingAccent="Available"
+      subhead="A few of the Bichonpoos recently looking for homes. Tap any pup to WhatsApp us for the latest photos, video, and full price."
+      items={[
+        { title: 'White boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white male Bichonpoo puppy.'), imageAlt: 'White male Bichonpoo puppy available in Singapore', imageSrc: whitePortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Bichonpoo puppy.'), imageAlt: 'Cream female Bichonpoo puppy relaxing on a peach blanket', imageSrc: creamPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Bichonpoo puppy.'), imageAlt: 'Apricot female Bichonpoo puppy walking on a cotton mat', imageSrc: apricotPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Bichonpoo?"
+      definition="A Bichonpoo, also called a Poochon or Bichpoo, is a cross between a Bichon Frise and a Toy or Miniature Poodle. It is a small companion dog of 3 to 6 kg with a curly, low-shedding coat often kind to allergy sufferers, a cheerful people-loving temperament, and a lifespan of 12 to 15 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road specialising in honest breed matching: we ask who is home during your day before recommending a Bichonpoo, because this cross genuinely cares about the answer."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Bichonpoo at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Bichon Frise x Toy/Mini Poodle',
+            '3 to 6 kg fully grown',
+            'Curly, low-shedding coat',
+            '20 to 40 minutes of play and walks a day',
+            '12 to 15 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Also spelled Poochon and Bichpoo; same cheerful cross.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Bichonpoo from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Bichonpoo pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Bichonpoo Temperament: Sunshine That Needs Company" imageAlt="Bichonpoo companionship: white curly puppy settled happily on a caregiver's lap at home" imageSrc={lapCompany} imagePosition="left">
+      <p>The Bichonpoo inherits the Bichon's clownish good cheer and the Poodle's brains, which makes it one of the sunniest small dogs we place: playful, gentle with children, quick to learn, and endlessly pleased to see you.</p>
+      <p>The honest half of that sentence: "pleased to see you" means it wants to see you. Like the Maltipoo, this cross thrives on human company, and an empty home from 8am to 6pm is a hard ask. If that is your weekday, a Cavapoo copes better, and we will tell you so before your deposit, not after.</p>
+      <p>Homes with a helper, a retiree, remote work, or young kids around are where the Bichonpoo does its best work. Not sure which side you fall on? Take the <a href="/first-time-owners/breed-selector" class="underline underline-offset-2 text-[var(--color-accent-hover)]">two-minute breed selector</a>.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Bichonpoo Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers, including the allergy nuance most listings hand-wave."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['3 to 6 kg; the Poodle parent sets the ceiling'] },
+        { label: 'Height', values: ['Around 23 to 30 cm at the shoulder'] },
+        { label: 'Coat', values: ['Dense, curly, low-shedding; white, cream, apricot, silver'] },
+        { label: 'Allergies', values: ['Often better tolerated, but no dog is allergen-free; meet the puppy first'] },
+        { label: 'Lifespan', values: ['12 to 15 years'] },
+        { label: 'Exercise', values: ['20 to 40 minutes daily plus indoor play'] },
+        { label: 'Shedding', values: ['Minimal drop; the trade-off is real grooming commitment (below)'] },
+      ]}
+    />
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Bichonpoo Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="The Poochon market quotes $5,000 to $8,000. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Poochon price commonly $5,000 to $8,000',
+            'Purebred Bichon Frise runs higher still',
+            'Starter supplies bought separately after purchase',
+            'Training arranged and paid on your own',
+            'Delivery often self-collected or charged',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer',
+            'Free boarding after deposit until you are ready',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The full market picture and deposit process are on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>; grooming is this breed's real recurring cost, so run the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year budget planner</a> with that line in mind.
+      </p>
+    </div>
+  </div>
+
+  <BannerRibbon
+    heading="Want current Bichonpoo photos and prices?"
+    body="Litters move fast. Message us and we'll send photos, video, gender, age, and the exact price, no obligation."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Could you send me your current Bichonpoo puppies with photos and exact prices?"
+    variant="dark"
+  />
+
+  <div id="vs-maltipoo" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Bichonpoo vs Maltipoo: Which Small White Fluff?"
+      headingAccent="vs Maltipoo"
+      subhead="The comparison half our Bichonpoo enquiries start with. Honest differences, small but real."
+      mode="table"
+      tableHeaders={['Trait', 'Bichonpoo', 'Maltipoo']}
+      rows={[
+        { label: 'Build', values: ['Slightly sturdier, rounder frame', 'Often finer-boned, a touch smaller'] },
+        { label: 'Coat', values: ['Denser, rounder curl', 'Finer, silkier wave'] },
+        { label: 'Energy', values: ['Playful clown, bounces then naps', 'Gentle lap companion, softer play'] },
+        { label: 'Company needs', values: ['High; wants people around', 'High; wants people around'] },
+        { label: 'Grooming', values: ['Every 4 to 6 weeks, brush 3 to 4x weekly', 'Similar, with more tear-stain attention'] },
+        { label: 'HDB', values: ['Approved', 'Approved'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Both are companion-first crosses; neither suits an empty weekday home. Meet our <a href="/puppies/maltipoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Maltipoo puppies</a> to compare in person, or read the <a href="/blog/cavapoo-vs-maltipoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">full Cavapoo vs Maltipoo comparison</a> if the calmer third option is also in play.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming Honesty: the Curly Coat Is a Commitment" imageAlt="Bichonpoo tear-stain care: gentle daily face wipe for a white curly puppy at home" imageSrc={faceWipe} variant="mid">
+      <p>Low-shedding does not mean low-maintenance; it means the loose hair stays in the curl instead of on your sofa, and somebody has to brush it out. Plan on brushing 3 to 4 times a week and professional grooming every 4 to 6 weeks; Singapore's humidity mats a curly coat faster than overseas care guides suggest.</p>
+      <p>White faces show tear staining, and the fix is boring and effective: a daily ten-second wipe under the eyes, started young so it is a ritual and not a wrestle. The brush and starter grooming tools are already in your kit, and we demonstrate the face wipe at the walkthrough.</p>
+      <p>Budget the grooming line honestly and this coat is a joy; skip it for a month and you will be paying a groomer to shave off the evidence.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Can you keep a Bichonpoo in an HDB flat? Yes"
+      definition="The Bichonpoo is an approved small-breed cross, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and the Bichonpoo's 3 to 6 kg size sits comfortably within the small-breed rules. Every puppy we place comes with its dog licensing completed at purchase."
+      bridge="Low-shedding coat, small frame, moderate voice: the Bichonpoo is close to the archetype the HDB list was written for. Just answer the company question honestly first."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Bichonpoo is an approved cross for HDB flats',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to estate rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: <a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2">HDB-approved dog breeds guide</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <div id="health" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Vaccination and Licensing Timeline"
+      headingAccent="Timeline"
+      subhead="The exact weeks, so nothing is left to guesswork."
+      mode="table"
+      tableHeaders={['When', 'What happens']}
+      rows={[
+        { label: 'Week 6', values: ['First vaccination and deworming'] },
+        { label: 'Week 8', values: ['Second vaccination and deworming'] },
+        { label: 'Week 9', values: ['Puppy goes home, one week after the second vaccination'] },
+        { label: 'Week 12', values: ['Third vaccination and deworming, completing the core puppy course'] },
+        { label: 'Week 16', values: ['Optional fourth vaccination, if advised by your vet for extra early-life protection'] },
+        { label: 'Year 1 onward', values: ['Annual booster shot and deworming, done every year as advised by your vet'] },
+        { label: 'At purchase', values: ['Microchipping is already done; dog licensing paperwork is completed with our full assistance at the point of purchase'] },
+        { label: 'Before licensing (first-time owners)', values: ['A one-time free online pet ownership course, required since September 2024'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Every puppy goes home vet-checked, vaccinated, dewormed, and microchipped. First-time owners must complete the <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">free online pet ownership course</a> before licensing.
+      </p>
+    </div>
+  </div>
+
+  <div id="first-week" class="scroll-mt-40">
+    <CaptionedBlock heading="Your Bichonpoo's First Week at Home" imagePosition="none" variant="card">
+      <p>Day 0: we deliver free, usually morning or evening, with the playpen, bed, water, and toys set up before your puppy explores. We walk you through all 30+ starter-kit items in person; see <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+      <p>Days 1 to 3: calm and consistent. Same food, fixed times, gentle short play; a companion cross settles fastest when the family is present but unhurried.</p>
+      <p>Days 4 to 7: book the free first lesson; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free training lesson covers</a>. Start the daily face-wipe ritual this week too, while everything is still a game.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Week one, in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Day 0: delivered, set up, walked through',
+            'Days 1–3: calm, same food, fixed times',
+            'Days 4–7: book the training lesson',
+            'Start brush + face-wipe rituals early',
+            'Questions: WhatsApp, any time',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Bichonpoo Owners Say About Us"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            "Our search for the perfect Bichonpoo ended the moment we stepped into Curious Tails's Balestier store. Nelson was so patient with all our questions and gave us great value with everything bundled in and surprised us with loads of free extras. Our pup was clean, well-socialised, and full of energy when we brought it home. Everything from the health records to the paperwork was handled seamlessly. Thank you Curious Tails for such a wonderful start to pet parenthood!",
+          name: 'Po Xian Lee',
+          meta: 'Google review, Bichonpoo owner',
+        },
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "We'd been comparing breeders for weeks, and Curious Tails in Balestier stood head and shoulders above the rest. It was clear Nelson knew their stuff, as they were happy to help with even the small things and knew their stuff inside and out. Everything from the health records to the paperwork was handled seamlessly. The $500+ starter pack was such a generous surprise and got us set up right away. We couldn't be more pleased, an easy five stars.",
+          name: 'Karen Joy Pepito',
+          meta: 'Google review',
+        },
+      ]}
+    />
+  </div>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit; if a seller isn't on the registry, they aren't licensed, whatever the listing says."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Bichonpoo FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Bichonpoo" reserveMessage="Hi! I'd like to reserve a Bichonpoo puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

@@ -1,0 +1,53 @@
+{
+  "consistency_id": "maltipoo-Singapore-#F6EFE2-#BFD3C1-5000-5600K-v1",
+  "images": [
+    {
+      "image_number": 1,
+      "file": "1-maltipoo-puppy-hero-playpen-balestier.webp",
+      "alt_text": "Maltipoo puppy with a soft cream coat sitting in a set-up playpen in a bright Balestier home",
+      "outline_section": "Hero",
+      "aspect_ratio": "16:9",
+      "kb": 151,
+      "consistency_id": "maltipoo-Singapore-#F6EFE2-#BFD3C1-5000-5600K-v1"
+    },
+    {
+      "image_number": 2,
+      "file": "2-maltipoo-puppy-companion-lap.webp",
+      "alt_text": "Maltipoo puppy cuddled close on a caregiver's lap, a people-oriented companion",
+      "outline_section": "Maltipoo Temperament",
+      "aspect_ratio": "16:9",
+      "kb": 125,
+      "consistency_id": "maltipoo-Singapore-#F6EFE2-#BFD3C1-5000-5600K-v1"
+    },
+    {
+      "image_number": 3,
+      "file": "3-maltipoo-puppy-portrait-available.webp",
+      "alt_text": "Maltipoo puppy portrait on light wood floor, a Maltipoo puppy available in Singapore",
+      "outline_section": "Available Maltipoo Puppies",
+      "aspect_ratio": "1:1",
+      "kb": 66,
+      "consistency_id": "maltipoo-Singapore-#F6EFE2-#BFD3C1-5000-5600K-v1"
+    },
+    {
+      "image_number": 4,
+      "file": "4-maltipoo-puppy-grooming-eye-care.webp",
+      "alt_text": "Maltipoo puppy having its face gently wiped during grooming and tear-stain care",
+      "outline_section": "Grooming and Tear-Stain Care",
+      "aspect_ratio": "16:9",
+      "kb": 36,
+      "consistency_id": "maltipoo-Singapore-#F6EFE2-#BFD3C1-5000-5600K-v1"
+    }
+  ],
+  "failed": [
+    {
+      "n": 5,
+      "stage": "poll",
+      "err": "poll timeout"
+    },
+    {
+      "n": 6,
+      "stage": "poll",
+      "err": "task fail: internal error, please try again later."
+    }
+  ]
+}

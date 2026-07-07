@@ -1,0 +1,94 @@
+---
+interface Column {
+  heading: string;
+  items: string[];
+  emphasis?: boolean;
+}
+interface Row {
+  label: string;
+  values: string[];
+}
+interface Props {
+  heading: string;
+  headingAccent?: string;
+  subhead?: string;
+  mode?: 'split' | 'table';
+  columns?: Column[];
+  tableHeaders?: string[];
+  rows?: Row[];
+}
+const {
+  heading,
+  headingAccent,
+  subhead,
+  mode = 'split',
+  columns = [],
+  tableHeaders = [],
+  rows = [],
+} = Astro.props;
+const headingParts = headingAccent ? heading.split(headingAccent) : [heading, ''];
+---
+
+<section class="mx-auto max-w-[1400px] px-5 sm:px-8 py-16">
+  <div class="max-w-[65ch]">
+    <h2 class="font-semibold text-[var(--color-cream-900)]" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">
+      {headingParts[0]}{headingAccent && <span class="text-[var(--color-coral-500)]">{headingAccent}</span>}{headingParts[1]}
+    </h2>
+    {subhead && <p class="mt-2 text-base text-[var(--color-cream-600)]">{subhead}</p>}
+  </div>
+
+  {mode === 'split' && (
+    <div class="mt-9 grid gap-6" style={`grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));`}>
+      {columns.map((col, i) => (
+        <div
+          data-reveal style={`--i:${i}`}
+          class:list={[
+            'clay p-7',
+            col.emphasis
+              ? 'bg-[var(--color-lilac-900)] border-[var(--color-coral-500)]'
+              : 'bg-[var(--color-surface-card)]',
+          ]}
+        >
+          <p class:list={['font-[family-name:var(--font-heading)] font-semibold', col.emphasis ? 'text-white' : 'text-[var(--color-cream-900)]']}>
+            {col.heading}
+          </p>
+          <ul class="mt-4 space-y-2.5">
+            {col.items.map((item) => (
+              <li class:list={['text-sm leading-relaxed flex gap-2', col.emphasis ? 'text-white/85' : 'text-[var(--color-cream-700)]']}>
+                <span class:list={['mt-0.5 shrink-0 font-bold', col.emphasis ? 'text-[var(--color-coral-400)]' : 'text-[var(--color-mint-300)]']} aria-hidden="true">
+                  {col.emphasis ? '+' : '–'}
+                </span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {mode === 'table' && (
+    <div class="mt-9 overflow-x-auto clay bg-[var(--color-surface-card)]">
+      <table class="w-full border-collapse text-sm">
+        <caption class="sr-only">{heading}</caption>
+        <thead>
+          <tr class="bg-[var(--color-lilac-900)]">
+            {tableHeaders.map((h) => (
+              <th scope="col" class="px-5 py-4 text-left font-bold text-white first:rounded-tl-[1.4rem] last:rounded-tr-[1.4rem]">{h}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr class="border-t-2 border-[var(--color-cream-200)] odd:bg-[var(--color-cream-50)] even:bg-[var(--color-surface-card)]">
+              <th scope="row" class="px-5 py-4 text-left font-bold text-[var(--color-cream-800)]">{row.label}</th>
+              {row.values.map((v) => (
+                <td class="px-5 py-4 text-[var(--color-cream-700)]">{v}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+</section>

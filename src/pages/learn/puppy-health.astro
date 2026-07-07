@@ -1,0 +1,223 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import DefBox from '../../components/DefBox.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+import healthCheck from '../../assets/about-us/2-puppy-health-check-stethoscope.webp';
+import microchipScan from '../../assets/guides/6-puppy-microchip-scan-health.webp';
+
+const title = 'Puppy Vaccinations Singapore: Exact Schedule | Curious Tails';
+const description =
+  "Singapore's puppy vaccination schedule, exactly: weeks 6, 8, 12 (optional 16), annual boosters, deworming at every visit, microchipping, and licensing requirements.";
+
+const faqItems = [
+  {
+    question: 'When do puppies get vaccinated in Singapore?',
+    answer:
+      'Core vaccinations at weeks 6, 8, and 12, with an optional fourth at week 16 if your vet advises it for extra early-life protection. Deworming happens together with every vaccination visit, and from year one onward the booster is annual.',
+  },
+  {
+    question: 'Why can\'t a puppy come home before week 9?',
+    answer:
+      'Homecoming happens about a week after the second vaccination, which lands around week 9. That week gives the second shot time to build protection before the puppy faces the stress and new environment of moving home. A seller offering a younger puppy "now" is offering a corner cut.',
+  },
+  {
+    question: 'Is microchipping compulsory in Singapore?',
+    answer:
+      'Yes. Microchipping is mandatory, and the chip number links the dog to its licence. Our puppies are microchipped before homecoming, and the licensing paperwork is completed with our assistance at purchase.',
+  },
+  {
+    question: 'What should a proper vaccination record show?',
+    answer:
+      'Dated entries for the week 6 and week 8 vaccinations with the vaccine names and the administering vet\'s stamp, deworming entries alongside, and a microchip number that matches the puppy in front of you. Gaps, missing stamps, or "records coming later" are the red flags.',
+  },
+  {
+    question: 'What does your pre-homecoming health check cover?',
+    answer:
+      'Every puppy goes home vet-checked, vaccinated to schedule, dewormed, and microchipped, with the records handed over at delivery. We say this once, plainly, because you should hear it from your seller before you ask.',
+  },
+  {
+    question: 'Who decides on the optional week-16 vaccination?',
+    answer:
+      'Your vet, based on your puppy and local disease risk. We flag the option on every timeline we publish; the call belongs to the professional examining your dog.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/learn/puppy-health',
+    title,
+    description,
+    aboutName: 'Puppy vaccinations in Singapore',
+    aboutAlternateName: 'puppy vaccination schedule Singapore',
+    aboutSameAs: 'https://avs.nparks.gov.sg/businesses/veterinarians/guidelines-for-veterinarians/sg-vaccination-guidelines-for-dogs-and-cats/',
+    datePublished: '2026-07-06',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/learn/puppy-health" ogImage="/assets/guides/og-learn.jpg">
+  <Hero
+    eyebrow="Buyer protection · Guide 3"
+    h1="Vaccination Schedule + Health Checks for Your New Puppy"
+    h1Accent="Health Checks"
+    subhead="Singapore's puppy vaccination schedule in exact weeks (6, 8, 12, optional 16), why homecoming is week 9 and not earlier, what a proper pre-sale health check covers, and how to read a vaccination record before you pay anyone."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I have a puppy health/vaccination question:"
+    secondaryCtaLabel="See the schedule"
+    secondaryCtaHref="#schedule"
+    priceAnchor="The schedule is not negotiable; sellers who bend it are telling you something."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="Puppy vaccinations Singapore: Cavapoo puppy calm during a stethoscope health check before homecoming"
+    imageSrc={healthCheck}
+    tagLabel="Health 101"
+    proofChip="Exact weeks"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Learn', href: '/learn' }, { label: 'Puppy Health', href: '/learn/puppy-health' }]} />
+  </Hero>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is the puppy vaccination schedule in Singapore?"
+      definition="Core vaccinations at weeks 6, 8, and 12, with an optional fourth at week 16 if the vet advises it. Deworming happens together with every vaccination visit. Puppies go home about a week after the second vaccination, around week 9, and the booster is annual from year one onward."
+      bridge="That paragraph settles most arguments with confusing schedules online. The table below adds the licensing steps, and the rest of the page teaches the skill that protects buyers: reading the record before paying."
+      citationLabel="Singapore Vaccination Guidelines for Dogs and Cats"
+      citationHref="https://avs.nparks.gov.sg/businesses/veterinarians/guidelines-for-veterinarians/sg-vaccination-guidelines-for-dogs-and-cats/"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The schedule, memorised</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Weeks 6, 8, 12: core vaccinations',
+            'Week 16: optional fourth, vet\'s call',
+            'Deworming with every visit',
+            'Home around week 9',
+            'Annual booster from year 1',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="schedule" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="The Full Timeline: Vaccinations, Microchip, Licence"
+      headingAccent="Full Timeline"
+      subhead="Health and paperwork on one timeline, because in Singapore they interlock."
+      mode="table"
+      tableHeaders={['When', 'What happens']}
+      rows={[
+        { label: 'Week 6', values: ['First core vaccination and deworming'] },
+        { label: 'Week 8', values: ['Second core vaccination and deworming'] },
+        { label: 'Week 9', values: ['Homecoming: about one week after the second vaccination'] },
+        { label: 'Week 12', values: ['Third core vaccination and deworming; completes the puppy course'] },
+        { label: 'Week 16', values: ['Optional fourth vaccination, if your vet advises it'] },
+        { label: 'Year 1 onward', values: ['Annual booster and deworming, every year'] },
+        { label: 'Before homecoming', values: ['Microchipping (mandatory) is done'] },
+        { label: 'At purchase', values: ['Dog licensing completed; first-time owners do the free online pet ownership course'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Authority sources: the <a href="https://avs.nparks.gov.sg/businesses/veterinarians/guidelines-for-veterinarians/sg-vaccination-guidelines-for-dogs-and-cats/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">Singapore Vaccination Guidelines for Dogs and Cats</a>, <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/licensing-requirements/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">AVS licensing requirements</a>, and the <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">pet ownership course</a> for first-time owners.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Why Homecoming Is Week 9, Not Earlier" imagePosition="none" variant="card">
+    <p>The week-9 timing is logic, not tradition: the second vaccination lands at week 8, and protection needs about a week to build before the puppy takes on the immune stress of moving home, new sounds, new food and water, new everything.</p>
+    <p>Which makes early availability a diagnostic: a seller offering a 6- or 7-week-old puppy "ready today" is either skipping shots or skipping the wait, and both mean the same corner got cut. The polite question that reveals it: "which vaccinations has this puppy had, and when?"</p>
+    <p>It is also why we board reserved puppies free until they are genuinely ready; the schedule sets homecoming, not the invoice.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">The week-9 logic</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Week 8: second vaccination',
+          '+1 week: protection builds',
+          'Week 9: home, with immunity working',
+          '"Ready at 6 weeks" = a corner cut somewhere',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="What a Proper Health Check Covers Before Homecoming" imageAlt="Puppy health checks Singapore: handheld scanner passed over a Cavapoo puppy's shoulder to confirm its microchip" imageSrc={microchipScan} imagePosition="right">
+    <p>Before any puppy of ours goes home, four things have happened: a vet check, vaccinations to the schedule above, deworming at each visit, and microchipping, with the records handed to you at delivery. We say this once, plainly, because you should hear it from a seller before you have to ask.</p>
+    <p>Core vaccination protects against the serious ones, canine parvovirus and distemper among them; parvovirus is the disease that fills <a href="/learn/smuggled-puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the smuggling case files</a>, and vaccination is precisely what those puppies never got.</p>
+    <p>Then week one at home has its own rhythm, covered in the <a href="/first-time-owners/puppy-care-101" class="underline underline-offset-2 text-[var(--color-accent-hover)]">week-by-week care guide</a>.</p>
+  </CaptionedBlock>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <ComparisonSplit
+    heading="How to Read a Vaccination Record"
+    headingAccent="Read"
+    subhead="Five things to find before money moves. Missing pieces are the answer, too."
+    mode="table"
+    tableHeaders={['Look for', 'What good looks like']}
+    rows={[
+      { label: 'Dated entries', values: ['Week 6 and week 8 vaccinations, dates consistent with the puppy\'s stated age'] },
+      { label: 'Vaccine names', values: ['Actual product names recorded, not just ticks'] },
+      { label: 'Vet identification', values: ['The administering clinic\'s stamp or the vet\'s signature on each entry'] },
+      { label: 'Deworming entries', values: ['Alongside each vaccination visit'] },
+      { label: 'Microchip number', values: ['Present, and matching the chip in the puppy (any vet can scan it in seconds)'] },
+    ]}
+  />
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+      The record check pairs with the seller check: paperwork from a shop you have already <a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">verified on the AVS registry</a> is trustworthy by construction; paperwork from an unverifiable seller is paper.
+    </p>
+  </div>
+
+  <BannerRibbon
+    heading="Want to see a proper record?"
+    body="Every puppy of ours comes with the full set: vaccination record, deworming entries, microchip details. Ask and we'll show you before you decide anything."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Could you show me the health records that come with your puppies?"
+    variant="dark"
+  />
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Health & Vaccination Questions" items={faqItems} />
+  </div>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Healthy Starts, Documented"
+    body="Vet-checked, vaccinated to schedule, dewormed, microchipped, and nursed by us for the first 5 days if anything goes wrong. WhatsApp us for current puppies."
+    reserveMessage="Hi! I'd like to ask about your available puppies and their health records."
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

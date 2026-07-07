@@ -1,0 +1,495 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import heroCockapoo from '../../assets/cockapoo/1-cockapoo-puppy-hero-playpen-home.webp';
+import apricotPortrait from '../../assets/cockapoo/2-cockapoo-apricot-portrait.webp';
+import redPortrait from '../../assets/cockapoo/3-cockapoo-red-portrait.webp';
+import creamPortrait from '../../assets/cockapoo/4-cockapoo-cream-portrait.webp';
+import familyFetch from '../../assets/cockapoo/5-cockapoo-family-play-fetch.webp';
+import earCheck from '../../assets/cockapoo/6-cockapoo-ear-check-care.webp';
+
+const title = 'Cockapoo Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Cockapoo puppies for sale in Singapore from $2,888 all-in. Family-friendly, low-shedding, HDB-approved, and forgiving for first-time owners. Starter kit included.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'vs Cavapoo', href: '#vs-cavapoo' },
+  { label: 'Ear Care', href: '#ear-care' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Cockapoo cost in Singapore?',
+    answer:
+      'Most shops quote Cockapoos on enquiry only, with import premiums pushing figures well up. At Curious Tails, Cockapoo puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Are Cockapoos HDB-approved?',
+    answer:
+      'Yes. The Cockapoo is an approved cross for HDB flats. HDB allows one dog of an approved breed per flat, and we complete the dog licensing for you at purchase, so the paperwork is handled.',
+  },
+  {
+    question: 'Are Cockapoos good with children?',
+    answer:
+      'Among the best fits we carry: warm, playful, patient, and sturdy enough for family life. As with any puppy, supervise early handling and teach gentle hands; the Cockapoo meets kids more than halfway.',
+  },
+  {
+    question: 'Is a Cockapoo a good first dog?',
+    answer:
+      'Yes, genuinely. It is eager to please, quick to learn, and forgiving of beginner mistakes, which is why we often shortlist it for first-time owners. Budget real walk time though: the spaniel side wants 40 to 60 minutes a day.',
+  },
+  {
+    question: 'Can a Cockapoo be left alone during work hours?',
+    answer:
+      'Moderately well, with a settled playpen routine and exercise before you leave. It sits between the clingy companion crosses and the independent breeds: more resilient than a Maltipoo, more social than a Shiba.',
+  },
+  {
+    question: 'What ear care do those long ears need?',
+    answer:
+      'Floppy spaniel ears plus Singapore humidity is the classic ear-infection recipe, and prevention is cheap: a quick weekly ear check, drying after rain or baths, and grooming every 6 to 8 weeks that keeps the ear canal trimmed. The tools are in your starter kit.',
+  },
+  {
+    question: 'What happens after I reserve a Cockapoo?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/cockapoo',
+    title,
+    description,
+    aboutName: 'Cockapoo',
+    aboutAlternateName: 'Spoodle',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Cockapoo',
+    datePublished: '2026-07-06',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Cockapoo puppy',
+      url: '/puppies/cockapoo',
+      description:
+        'Cockapoo puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Cockapoo Home Delivery & Playpen Setup',
+    description: 'Free island-wide home delivery with playpen, bed, and toy setup for every Cockapoo puppy, scheduled around the owner\'s availability.',
+    price: 'Included',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Cockapoo',
+    description:
+      'A Cockapoo is a cross between a Cocker Spaniel and a Poodle: a small-to-medium companion of 5 to 10 kg with a wavy, low-shedding coat, a warm, sociable temperament that thrives with children, moderate exercise needs, and a 13 to 15 year lifespan.',
+    sameAs: 'https://en.wikipedia.org/wiki/Cockapoo',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/cockapoo" ogImage="/assets/cockapoo/og-cockapoo.jpg">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Cockapoo Puppies for Sale in Singapore"
+    h1Accent="Cockapoo"
+    subhead="Most shops quote Cockapoos on enquiry only. Ours are $2,888 to $4,488, printed here, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price. Family-friendly, HDB-approved, and kind to first-time owners."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Cockapoo puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="Cockapoo puppy Singapore: apricot pup with long floppy ears standing happily in its playpen at home"
+    imageSrc={heroCockapoo}
+    tagLabel="Cockapoo"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Cockapoo', href: '/puppies/cockapoo' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking for a Cockapoo for Sale in Singapore?" imageAlt="Apricot Cockapoo puppy available in Singapore, seated portrait with long ears" imageSrc={apricotPortrait} variant="mid">
+      <p>Cockapoo litters get reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. Message us for photos, gender, age, colour, and exact prices of the Cockapoo puppies available now.</p>
+      <p>Every Cockapoo here is between $2,888 and $4,488, and what you see is the full price. After you reserve with a deposit, we board your puppy free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Cockapoo puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Cockapoo photos and prices</a>, or meet them at our Balestier shop.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Cockapoo Puppies"
+      headingAccent="Available"
+      subhead="A few of the Cockapoos recently looking for homes. Tap any pup to WhatsApp us for the latest photos, video, and full price."
+      items={[
+        { title: 'Apricot boy', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot male Cockapoo puppy.'), imageAlt: 'Apricot male Cockapoo puppy available in Singapore', imageSrc: apricotPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Red girl', href: whatsappLink('Hi! I\'d like more photos and the price for the red female Cockapoo puppy.'), imageAlt: 'Red female Cockapoo puppy playing with a rope toy', imageSrc: redPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Cockapoo puppy.'), imageAlt: 'Cream male Cockapoo puppy trotting on cream tiles', imageSrc: creamPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Cockapoo?"
+      definition="A Cockapoo is a cross between a Cocker Spaniel and a Poodle: a small-to-medium companion dog of 5 to 10 kg with a wavy, low-shedding coat, a warm and sociable temperament that thrives with children, moderate exercise needs of 40 to 60 minutes a day, and a lifespan of 13 to 15 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road specialising in honest breed matching. The Cockapoo is often our answer when a family asks for one dog that suits kids, first-time owners, and an HDB flat at once."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Cockapoo at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Cocker Spaniel x Poodle',
+            '5 to 10 kg; the Poodle parent sets the size',
+            'Wavy, low-shedding coat',
+            '40 to 60 minutes of exercise a day',
+            '13 to 15 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Toy crosses land smaller; ask which parent size a litter carries.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Cockapoo from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Cockapoo pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Cockapoo Temperament: the Family All-Rounder" imageAlt="Cockapoo family fit: apricot puppy returning a soft ball across a living room mat toward waiting hands" imageSrc={familyFetch} imagePosition="left">
+      <p>The Cockapoo blends the Cocker Spaniel's warmth with the Poodle's brains, and the result is the most forgiving family dog we carry: sociable with everyone, patient with children, quick to learn, and happiest in the middle of household life.</p>
+      <p>For first-time owners it is a genuinely kind starting breed, because it rewards beginner-level consistency instead of punishing beginner-level mistakes. The one honest caveat: the spaniel side brought a real engine, so 40 to 60 minutes of daily exercise is part of the contract, not a nice-to-have.</p>
+      <p>New to all of this? Our <a href="/first-time-owners" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-time owner guide</a> walks the whole journey, and we're on WhatsApp for the rest.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Cockapoo Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Moderately well, and better than its reputation suggests, provided the routine is set from day one. A Cockapoo sits in the sensible middle of our lineup: more resilient about alone time than a Maltipoo or Bichonpoo, more people-oriented than a Shiba or Dachshund.</p>
+      <p>The formula for a working-couple Cockapoo: a proper walk before you leave, a playpen it treats as home territory, and a food-puzzle toy for the quiet hours. That setup is exactly what we build in your home on delivery day.</p>
+      <p>If nobody is home all day AND the household wants maximum independence, a <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> edges it; message us your routine and we'll tell you straight.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Alone-time formula</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Real walk before you leave',
+            'Playpen as home territory from day one',
+            'Food-puzzle toy for the quiet hours',
+            'Calm exits and returns',
+            'Evening play to close the loop',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Cockapoo Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers; the Poodle parent decides more than the label does."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight (toy cross)', values: ['5 to 7 kg where the Poodle parent is a Toy'] },
+        { label: 'Adult weight (mini cross)', values: ['7 to 10 kg with a Miniature Poodle parent; the more common size'] },
+        { label: 'Coat', values: ['Wavy to loosely curled, low-shedding; apricot, red, cream, chocolate'] },
+        { label: 'Grooming', values: ['Brush 3 to 4 times weekly; professional grooming every 6 to 8 weeks'] },
+        { label: 'Lifespan', values: ['13 to 15 years'] },
+        { label: 'Exercise', values: ['40 to 60 minutes daily, split around the heat'] },
+        { label: 'Shedding & allergies', values: ['Low-shedding and often better tolerated, though no dog is truly allergen-free'] },
+      ]}
+    />
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Cockapoo Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most of the market quotes on enquiry. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Prices mostly on enquiry; UK and Australia import premiums',
+            'Numbers move with coat colour and parent size',
+            'Starter supplies bought separately after purchase',
+            'Training arranged and paid on your own',
+            'Delivery often self-collected or charged',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer',
+            'Free boarding after deposit until you are ready',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The full market picture and the deposit process are on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>; plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year budget planner</a>.
+      </p>
+    </div>
+  </div>
+
+  <BannerRibbon
+    heading="Want current Cockapoo photos and prices?"
+    body="Litters move fast. Message us and we'll send photos, video, gender, age, and the exact price, no obligation."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Could you send me your current Cockapoo puppies with photos and exact prices?"
+    variant="dark"
+  />
+
+  <div id="vs-cavapoo" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Cockapoo vs Cavapoo: Which Cross Fits Your Family?"
+      headingAccent="vs Cavapoo"
+      subhead="Our two most-compared crosses. Similar coats, different engines."
+      mode="table"
+      tableHeaders={['Trait', 'Cockapoo', 'Cavapoo']}
+      rows={[
+        { label: 'Energy', values: ['Playful engine; loves fetch and action', 'Calmer; happy with gentler routines'] },
+        { label: 'With children', values: ['Outstanding; meets kids at their energy', 'Very good; gentler pace'] },
+        { label: 'Alone time', values: ['Moderate; formula required', 'Better; the independent one'] },
+        { label: 'Size', values: ['5 to 10 kg', '3 to 10 kg'] },
+        { label: 'First-time owners', values: ['Forgiving and eager to please', 'Equally kind, slightly quieter'] },
+        { label: 'HDB', values: ['Approved', 'Approved'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Rule of thumb from two years of matching: active families with kids lean Cockapoo, working couples with quiet evenings lean <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a>. Both are kind choices; your weekday decides.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="ear-care" class="scroll-mt-40">
+    <CaptionedBlock heading="Ear Care: the Spaniel Inheritance" imageAlt="Cockapoo ear care: gently lifting a long spaniel ear for the weekly check at home" imageSrc={earCheck} variant="mid">
+      <p>Those beautiful long ears came from the Cocker Spaniel, and they arrive with one maintenance clause: floppy ears plus Singapore humidity is the classic recipe for ear infections. The prevention is cheap and takes a minute a week.</p>
+      <p>The routine we demonstrate at the walkthrough: lift each ear weekly for a quick look and sniff (a yeasty smell is your early warning), dry the ears after rain walks and baths, and keep grooming appointments every 6 to 8 weeks so the ear canal stays trimmed and ventilated.</p>
+      <p>Started young, the puppy treats the ear check as ordinary handling, and you will likely never see the infection this section is preventing.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Can you keep a Cockapoo in an HDB flat? Yes"
+      definition="The Cockapoo is an approved cross for HDB flats. HDB allows one dog of an approved breed per flat, and the Cockapoo qualifies; every puppy we place comes with its dog licensing completed at purchase, so the paperwork is handled for you."
+      bridge="A medium-small frame, a low-shedding coat, and a sociable, trainable temperament: the Cockapoo fits flat life well, as long as the daily walks actually happen."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Cockapoo is an approved cross for HDB flats',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to estate rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: <a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2">HDB-approved dog breeds guide</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <div id="health" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Vaccination and Licensing Timeline"
+      headingAccent="Timeline"
+      subhead="The exact weeks, so nothing is left to guesswork."
+      mode="table"
+      tableHeaders={['When', 'What happens']}
+      rows={[
+        { label: 'Week 6', values: ['First vaccination and deworming'] },
+        { label: 'Week 8', values: ['Second vaccination and deworming'] },
+        { label: 'Week 9', values: ['Puppy goes home, one week after the second vaccination'] },
+        { label: 'Week 12', values: ['Third vaccination and deworming, completing the core puppy course'] },
+        { label: 'Week 16', values: ['Optional fourth vaccination, if advised by your vet for extra early-life protection'] },
+        { label: 'Year 1 onward', values: ['Annual booster shot and deworming, done every year as advised by your vet'] },
+        { label: 'At purchase', values: ['Microchipping is already done; dog licensing paperwork is completed with our full assistance at the point of purchase'] },
+        { label: 'Before licensing (first-time owners)', values: ['A one-time free online pet ownership course, required since September 2024'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Every puppy goes home vet-checked, vaccinated, dewormed, and microchipped. First-time owners must complete the <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">free online pet ownership course</a> before licensing.
+      </p>
+    </div>
+  </div>
+
+  <div id="first-week" class="scroll-mt-40">
+    <CaptionedBlock heading="Your Cockapoo's First Week at Home" imagePosition="none" variant="card">
+      <p>Day 0: we deliver free, usually morning or evening, with the playpen, bed, water, and toys set up before your puppy explores. We walk you through all 30+ starter-kit items in person; see <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+      <p>Days 1 to 3: calm and consistent. Same food, fixed times, gentle short play; a sociable cross settles best when the household is present but not overwhelming.</p>
+      <p>Days 4 to 7: the routine holds, and it's the window to book the free first lesson; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free training lesson covers</a>. Start the weekly ear-check habit this week too, while it's still a game.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Week one, in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Day 0: delivered, set up, walked through',
+            'Days 1–3: calm, same food, fixed times',
+            'Days 4–7: book the training lesson',
+            'Start the weekly ear-check ritual',
+            'Questions: WhatsApp, any time',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Owners Say About Us"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "We weren't even sure we were ready, but a visit to Curious Tails in Balestier sealed the deal on our Maltipoo. Honestly, Nelson and Kim gave us a wonderful bundle of complimentary items, which made the whole thing stress-free. The full vaccination was already covered, which showed how much they care. Honestly couldn't recommend Curious Tails highly enough.",
+          name: 'Alex Tan',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Couldn't recommend Curious Tails in Balestier enough after bringing home our Cavapoo. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+          name: 'Andrew Mak',
+          meta: 'Google review',
+        },
+      ]}
+    />
+  </div>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit; if a seller isn't on the registry, they aren't licensed, whatever the listing says."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Cockapoo FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Cockapoo" reserveMessage="Hi! I'd like to reserve a Cockapoo puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

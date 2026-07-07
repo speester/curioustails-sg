@@ -1,0 +1,228 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import DefBox from '../../components/DefBox.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+import budgetFlatlay from '../../assets/guides/4-puppy-budget-planning-flatlay.webp';
+import kitFlatlay from '../../assets/pricing/2-puppy-starter-kit-value-flatlay-home.webp';
+
+const title = 'Puppy Cost Singapore: Full First-Year Budget | Curious Tails';
+const description =
+  'How much does a puppy really cost in Singapore? Purchase paths from $70 adoption to $4,488 licensed all-in, plus the honest first-year budget: $1,200 to $3,500 on top.';
+
+const jumpLinks = [
+  { label: 'Short Answer', href: '#short-answer' },
+  { label: 'Purchase Paths', href: '#purchase' },
+  { label: 'Month One', href: '#month-one' },
+  { label: 'Recurring Costs', href: '#recurring' },
+  { label: 'Year Totals', href: '#totals' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a puppy cost per month in Singapore?',
+    answer:
+      'Once the purchase is done, plan $100 to $290 a month for a small breed: food, routine care, grooming, and the licence averaged out. The range depends mostly on food choice and grooming frequency.',
+  },
+  {
+    question: 'What does the AVS dog licence cost?',
+    answer:
+      'From $15 a year, or a one-time $35 for a sterilised dog. Buy from us and the licensing paperwork is completed with our assistance at purchase; first-time owners also complete the free online pet ownership course.',
+  },
+  {
+    question: 'Is pet insurance worth it?',
+    answer:
+      'Plans start around $316 a year. The honest framing: choose between insurance or a self-built emergency fund of $2,000+, either works, but having neither is the mistake. Emergency vet bills are the one dog cost that arrives without warning.',
+  },
+  {
+    question: 'What is the single biggest avoidable cost?',
+    answer:
+      'The unlicensed "bargain". Saving $500 to $1,000 upfront on a Carousell or Telegram puppy carries the real risk of $5,000 to $10,000 in parvovirus treatment, and a buyer has been fined $7,000 over a smuggled dog. It is the worst trade in the entire budget.',
+  },
+  {
+    question: 'What does the starter kit actually save me?',
+    answer:
+      'About $500 of day-one equipment (playpen, carrier, bowls, grooming tools, pads, toys, food), plus the quiet cost nobody budgets: the wrong-size, wrong-type purchases first-timers make when buying blind.',
+  },
+  {
+    question: 'How much is grooming, and how often?',
+    answer:
+      'For the low-shedding coats we carry, professional grooming runs every 4 to 8 weeks, averaging around $274 a year, with home brushing in between using the kit tools.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/first-time-owners/budget-guide',
+    title,
+    description,
+    aboutName: 'Puppy ownership costs in Singapore',
+    aboutAlternateName: 'puppy cost Singapore',
+    datePublished: '2026-07-06',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/first-time-owners/budget-guide" ogImage="/assets/guides/og-budget-guide.jpg">
+  <Hero
+    eyebrow="First-time owner guide · Decision 2"
+    h1="How Much Does a Puppy Cost in Singapore? The Full Year"
+    h1Accent="Full Year"
+    subhead="The purchase is one number; the first year is the budget. Here is the whole picture with real figures: purchase paths from $70 adoption to $4,488 licensed all-in, then $1,200 to $3,500 of running costs, structured so nothing later is a surprise."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Budgeting for a puppy. Could you share current prices and what's included?"
+    secondaryCtaLabel="See the year totals"
+    secondaryCtaHref="#totals"
+    priceAnchor="Rule of thumb: purchase price + $100 to $290 a month."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="Puppy cost Singapore planning: notebook, pen and puppy essentials laid out for first-year budgeting"
+    imageSrc={budgetFlatlay}
+    tagLabel="Budget planner"
+    proofChip="Real figures"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'First-Time Owners', href: '/first-time-owners' }, { label: 'Budget Guide', href: '/first-time-owners/budget-guide' }]} />
+  </Hero>
+
+  <div id="short-answer" class="relative scroll-mt-40">
+    <ScatterFloat />
+    <DefBox
+      term="How much does a puppy cost in Singapore, all told?"
+      definition="A puppy in Singapore costs its purchase price plus a first year of running costs: the AVS licence from $15 a year, food $340 to $2,430 depending on size and diet, routine vet care $300 to $500, grooming around $274 for low-shedding coats, and optional insurance from about $316. A realistic first-year planning figure is $1,200 to $3,500 on top of the purchase."
+      bridge="Purchase prices themselves range from a $70 adoption package to $4,488 at the top of our all-in range; the paths and the trap between them are laid out below. Budget both halves once, and the whole year gets boring in the best way."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The two halves</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Half one: the purchase ($70 adoption to $4,488 all-in)',
+            'Half two: the year ($1,200 to $3,500 running)',
+            'Monthly reframe: $100 to $290 a month',
+            'The kit removes ~$500 of day-one gear',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="purchase" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Purchase Paths: $70 to $4,488, and the Trap In Between"
+      headingAccent="Purchase Paths"
+      subhead="Three honest ways to get a dog in Singapore, plus the one that isn't."
+      mode="table"
+      tableHeaders={['Path', 'Cost', 'The honest read']}
+      rows={[
+        { label: 'Adopt', values: ['$70 to $400 package', 'The genuine budget path; usually adult or mixed-breed dogs, vaccinations and sterilisation typically included'] },
+        { label: 'Licensed shop, all-in (us)', values: ['$2,888 to $4,488', 'Specific small breeds with the kit, delivery, setup, training, and aftercare inside the price'] },
+        { label: 'Licensed shop, big-name', values: ['$3,500 to $9,000+', 'Same AVS standards; add the kit, training, and delivery separately on top'] },
+        { label: 'The "bargain" (unlicensed)', values: ['$500 to $1,000 below market', 'Usually smuggled: parvovirus bills run $5,000 to $10,000, and a buyer has been fined $7,000'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Purchase-price detail lives on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>; the bargain path's real case files are in <a href="/learn/smuggled-puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what smuggled puppies really cost buyers</a>. We say it once here and move on.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="Month One: What You Buy vs What a Kit Removes" imageAlt="Puppy starter kit laid out: the $500 of day-one equipment a complete kit removes from the budget" imageSrc={kitFlatlay} variant="mid" imagePosition="right">
+    <p>Month one is the expensive month everywhere except here, and the difference is equipment. Buying day-one gear yourself, playpen, carrier, bed, bowls, pads, grooming tools, toys, and starter food, runs $500 or more, and first-timers reliably buy some of it twice after getting sizes wrong.</p>
+    <p>Every puppy of ours arrives with <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the 30+ item starter kit</a> already covering that list, set up at home, with each item explained. Month one then shrinks to food top-ups and the week-12 vaccination.</p>
+    <p>Buying elsewhere? Use the kit page as your shopping checklist, and hold the extras budget until you have lived with the puppy for two weeks.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="recurring" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="The Recurring Costs, Line by Line"
+      headingAccent="Line by Line"
+      subhead="Small-breed figures for Singapore, from published cost guides and our own placements."
+      mode="table"
+      tableHeaders={['Line item', 'Typical cost', 'Notes']}
+      rows={[
+        { label: 'AVS dog licence', values: ['From $15/year ($35 one-time if sterilised)', 'Mandatory; we complete it at purchase'] },
+        { label: 'Food', values: ['$340 to $2,430/year', 'The widest range: kibble choice and dog size decide it'] },
+        { label: 'Routine vet care', values: ['$300 to $500/year', 'Annual booster, deworming, checkups'] },
+        { label: 'Grooming', values: ['~$274/year', 'Every 4 to 8 weeks for low-shedding coats'] },
+        { label: 'Pet insurance (optional)', values: ['From ~$316/year', 'Or self-fund a $2,000+ emergency buffer'] },
+        { label: 'Boarding / sitting (as used)', values: ['$20 to $40/day', 'Only when you travel'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Figures cross-checked against published guides such as <a href="https://www.income.com.sg/blog/cost-of-dog-ownership-in-singapore" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="nofollow noopener">Income's cost of dog ownership guide</a> and the <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/licensing-requirements/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">AVS licensing requirements</a>. Prices move; the structure doesn't.
+      </p>
+    </div>
+  </div>
+
+  <div id="totals" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Your First-Year Total, Three Scenarios"
+      headingAccent="Three Scenarios"
+      subhead="Running costs only, on top of whichever purchase path you chose."
+      mode="table"
+      tableHeaders={['Scenario', 'First-year running costs', 'What it assumes']}
+      rows={[
+        { label: 'Lean', values: ['~$1,200', 'Value kibble, home grooming between salon visits, no insurance (emergency fund instead)'] },
+        { label: 'Typical', values: ['~$2,300', 'Mid-range food, salon grooming every 6 weeks, basic insurance'] },
+        { label: 'Comfortable', values: ['~$3,500', 'Premium food, monthly grooming, fuller insurance, some boarding'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The reframe that makes it real: $100 to $290 a month. If that number sits comfortably inside your monthly budget, you can afford a dog; if it doesn't yet, waiting six months is the responsible version of yes. The routine those dollars buy is in the <a href="/first-time-owners/puppy-care-101" class="underline underline-offset-2 text-[var(--color-accent-hover)]">week-by-week care guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <BannerRibbon
+    heading="Want the live purchase number for your breed?"
+    body="Message us the breed you're budgeting for and we'll send current availability and the exact all-in price, no obligation."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'm budgeting for a puppy. Could you share current prices for your breeds?"
+    variant="dark"
+  />
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Budget Questions, Answered" items={faqItems} />
+  </div>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Budget Done? Meet the Puppies"
+    body="Can't make the trip to Balestier? WhatsApp us your budget and shortlist; we'll tell you honestly what fits."
+    reserveMessage="Hi! My budget is set. Could you share available puppies and prices?"
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

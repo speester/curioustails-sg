@@ -1,0 +1,256 @@
+@import "tailwindcss";
+
+/*
+  Palette: claymorphism — a cute, toy-like pet shop. Soft 3D chunky cards,
+  thick borders, double shadows (inner highlight + outer pop), bubbly rounded
+  corners, pastel base with a warm coral-orange accent. Reference mood: a
+  cheerful pet-adoption app illustration — cream/peach/mint/lilac surfaces,
+  everything looks squeezable.
+*/
+@theme {
+  --font-heading: "Fredoka", "Helvetica Neue", sans-serif;
+  --font-body: "Nunito", "Helvetica Neue", sans-serif;
+
+  /* Cream base: warm, never pure white */
+  --color-cream-50: oklch(98% 0.012 80);
+  --color-cream-100: oklch(95.5% 0.022 78);
+  --color-cream-200: oklch(91% 0.032 76);
+  --color-cream-300: oklch(84% 0.040 74);
+  --color-cream-400: oklch(70% 0.038 72);
+  --color-cream-600: oklch(46% 0.035 60);
+  --color-cream-800: oklch(28% 0.030 50);
+  --color-cream-900: oklch(20% 0.028 45);
+
+  /* Peach: primary clay surface tint, used for hero + card bezels */
+  --color-peach-100: oklch(94% 0.045 55);
+  --color-peach-200: oklch(88% 0.075 52);
+  --color-peach-300: oklch(80% 0.105 48);
+
+  /* Mint: secondary pastel surface */
+  --color-mint-100: oklch(93% 0.050 165);
+  --color-mint-200: oklch(86% 0.075 165);
+  --color-mint-300: oklch(76% 0.095 163);
+
+  /* Lilac: tertiary pastel surface, used for dark/deep sections instead of black */
+  --color-lilac-100: oklch(93% 0.035 300);
+  --color-lilac-300: oklch(78% 0.075 295);
+  --color-lilac-500: oklch(58% 0.115 290);
+  --color-lilac-700: oklch(42% 0.105 288);
+  --color-lilac-900: oklch(26% 0.075 286);
+
+  /* Coral: the one vivid accent, CTA colour, ~10% of surface */
+  --color-coral-100: oklch(93% 0.055 40);
+  --color-coral-300: oklch(82% 0.130 38);
+  --color-coral-400: oklch(74% 0.175 36);
+  --color-coral-500: oklch(68% 0.205 34);
+  --color-coral-600: oklch(60% 0.200 30);
+  --color-coral-700: oklch(50% 0.175 27);
+
+  /* Semantic aliases: components read these, palette lives above */
+  --color-surface: var(--color-cream-50);
+  --color-surface-mid: var(--color-peach-100);
+  --color-surface-card: oklch(99.2% 0.006 80);
+  --color-surface-dark: var(--color-lilac-900);
+  --color-text: var(--color-cream-900);
+  --color-text-on-dark: var(--color-cream-50);
+  --color-text-muted: var(--color-cream-600);
+  --color-border: var(--color-cream-300);
+  --color-accent: var(--color-coral-500);
+  --color-accent-hover: var(--color-coral-600);
+  --color-accent-vivid: var(--color-coral-400);
+  --color-secondary: var(--color-mint-300);
+  --color-tertiary: var(--color-lilac-500);
+
+  /* kept for backward-compat with older markup still referencing forest-* */
+  --color-forest-100: var(--color-mint-100);
+  --color-forest-300: var(--color-mint-200);
+  --color-forest-500: var(--color-lilac-500);
+  --color-forest-700: var(--color-lilac-700);
+  --color-forest-800: var(--color-lilac-700);
+  --color-forest-900: var(--color-lilac-900);
+
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-clay-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+:root {
+  color-scheme: light;
+
+  --z-base: 0;
+  --z-subnav: 90; /* below --z-sticky so header dropdowns paint over the jump-nav */
+  --z-sticky: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+
+  /* tinted shadow tiers: color-mix against lilac, never rgba(0,0,0) */
+  --shadow-sm: 0 1px 2px color-mix(in oklch, var(--color-lilac-900) 12%, transparent),
+               0 1px 1px color-mix(in oklch, var(--color-lilac-900) 5%, transparent);
+  --shadow-md: 0 4px 10px color-mix(in oklch, var(--color-lilac-900) 14%, transparent),
+               0 12px 24px color-mix(in oklch, var(--color-lilac-900) 7%, transparent);
+  --shadow-lg: 0 10px 20px color-mix(in oklch, var(--color-lilac-900) 18%, transparent),
+               0 24px 48px color-mix(in oklch, var(--color-lilac-900) 10%, transparent);
+
+  /* claymorphism: chunky offset "pop" shadow + soft inner highlight/shade */
+  --clay-offset: 0 7px 0 0 color-mix(in oklch, var(--color-lilac-900) 16%, transparent);
+  --clay-lift: 0 14px 26px color-mix(in oklch, var(--color-lilac-900) 16%, transparent);
+  --clay-inset: inset 0 2px 3px color-mix(in oklch, white 70%, transparent),
+                inset 0 -4px 8px color-mix(in oklch, var(--color-lilac-900) 6%, transparent);
+}
+
+html {
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  text-rendering: optimizeLegibility;
+  /* clip (not hidden) so off-canvas decorative blobs can't cause horizontal
+     scroll on mobile without creating a scroll container that breaks sticky */
+  overflow-x: clip;
+}
+
+body {
+  font-family: var(--font-body);
+  overflow-x: clip;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  text-wrap: balance;
+  letter-spacing: -0.01em;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+em, .accent-italic {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+@layer utilities {
+  .shadow-tint-sm { box-shadow: var(--shadow-sm); }
+  .shadow-tint-md { box-shadow: var(--shadow-md); }
+  .shadow-tint-lg { box-shadow: var(--shadow-lg); }
+
+  /* Double-bezel: outer tint bezel -> inner surface, depth without heavy shadow */
+  .bezel-outer {
+    background: color-mix(in oklch, var(--color-accent) 10%, var(--color-cream-100));
+    border-radius: 1.5rem;
+    padding: 0.5rem;
+  }
+  .bezel-inner {
+    background: var(--color-surface-card);
+    border-radius: 1.1rem;
+  }
+
+  /* Claymorphism: chunky border + double shadow (inset highlight, outset pop) */
+  .clay {
+    border-radius: 1.75rem;
+    border: 3px solid var(--color-border);
+    box-shadow: var(--clay-offset), var(--clay-lift), var(--clay-inset);
+    transition: transform 220ms var(--ease-clay-pop), box-shadow 220ms var(--ease-clay-pop);
+  }
+  .clay-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 11px 0 0 color-mix(in oklch, var(--color-lilac-900) 16%, transparent),
+                var(--clay-lift), var(--clay-inset);
+  }
+  .clay-press:active {
+    transform: translateY(2px) scale(0.98);
+    box-shadow: 0 2px 0 0 color-mix(in oklch, var(--color-lilac-900) 16%, transparent), var(--clay-inset);
+  }
+  .clay-btn {
+    border-radius: 999px;
+    border: 3px solid color-mix(in oklch, var(--color-accent-hover) 60%, black 8%);
+    box-shadow: 0 6px 0 0 color-mix(in oklch, var(--color-accent-hover) 70%, black 10%),
+                var(--clay-inset);
+    transition: transform 180ms var(--ease-clay-pop), box-shadow 180ms var(--ease-clay-pop);
+  }
+  .clay-btn:hover {
+    transform: translateY(-2px);
+  }
+  .clay-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 0 color-mix(in oklch, var(--color-accent-hover) 70%, black 10%), var(--clay-inset);
+  }
+  .clay-btn-outline {
+    border-radius: 999px;
+    border: 3px solid var(--color-border);
+    box-shadow: 0 5px 0 0 var(--color-border);
+    transition: transform 180ms var(--ease-clay-pop), box-shadow 180ms var(--ease-clay-pop);
+  }
+  .clay-btn-outline:hover { transform: translateY(-2px); }
+  .clay-btn-outline:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 0 var(--color-border);
+  }
+
+  .z-base { z-index: var(--z-base); }
+  .z-subnav { z-index: var(--z-subnav); }
+  .z-sticky { z-index: var(--z-sticky); }
+  .z-overlay { z-index: var(--z-overlay); }
+  .z-modal { z-index: var(--z-modal); }
+  .z-toast { z-index: var(--z-toast); }
+
+  /* single grain overlay, applied once at the page root, never per-section */
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: var(--z-base);
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .blob-drift { animation: blob-drift 9s ease-in-out infinite; }
+  .blob-drift-slow { animation: blob-drift 13s ease-in-out infinite; animation-delay: -4s; }
+  .wiggle-hover:hover { animation: wiggle 420ms var(--ease-clay-pop); }
+}
+
+@keyframes blob-drift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(10px, -14px) rotate(4deg); }
+  66% { transform: translate(-8px, 8px) rotate(-3deg); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-6deg); }
+  75% { transform: rotate(6deg); }
+}
+
+/* Motion: transform/opacity only, ease-clay-pop, reveal on intersection.
+   Used as the CSS fallback; GSAP progressively enhances the same attribute. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 650ms var(--ease-out-quart), transform 650ms var(--ease-clay-pop);
+  transition-delay: calc(var(--i, 0) * 60ms);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .blob-drift, .blob-drift-slow { animation: none; }
+}
+noscript [data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: color-mix(in oklch, var(--color-accent) 35%, transparent);
+}

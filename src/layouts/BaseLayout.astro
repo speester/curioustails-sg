@@ -1,0 +1,240 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import StickyMobileCTA from '../components/StickyMobileCTA.astro';
+import PawPrint from '../components/decor/PawPrint.astro';
+import defaultOgImage from '../assets/home/1-cavapoo-puppy-hero-balestier.png';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  noindex?: boolean;
+  ogImage?: string;
+}
+
+const { title, description, canonicalPath = '/', noindex = false, ogImage } = Astro.props;
+const canonicalURL = new URL(canonicalPath, site.domain);
+const ogImageURL = new URL(ogImage ?? defaultOgImage.src, site.domain);
+// Dimensions are only known for the bundled default image.
+const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height: defaultOgImage.height };
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href={canonicalURL} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={site.businessName} />
+  <meta property="og:locale" content="en_SG" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:image" content={ogImageURL} />
+  {ogImageSize && <meta property="og:image:width" content={String(ogImageSize.width)} />}
+  {ogImageSize && <meta property="og:image:height" content={String(ogImageSize.height)} />}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL} />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="preload"
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap"
+  />
+
+  {site.ga4MeasurementId && (
+    <>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${site.ga4MeasurementId}`}></script>
+      <script define:vars={{ id: site.ga4MeasurementId }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', id);
+      </script>
+    </>
+  )}
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="grain-overlay" aria-hidden="true"></div>
+  <div id="cursor-buddy" class="pointer-events-none fixed left-0 top-0 z-[999] opacity-0" aria-hidden="true">
+    <PawPrint class="h-6 w-6 -translate-x-1/2 -translate-y-1/2 text-[var(--color-coral-400)] drop-shadow-[0_2px_2px_rgba(0,0,0,0.12)]" />
+  </div>
+  <Header />
+  <main id="main">
+    <slot />
+  </main>
+  <Footer />
+  <StickyMobileCTA />
+
+  <script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealTargets = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'));
+
+    if (reducedMotion || !revealTargets.length) {
+      revealTargets.forEach((el) => el.classList.add('is-visible'));
+    } else {
+      // Group siblings so lists/grids stagger together instead of firing one by one.
+      const groups = new Map<Element | null, HTMLElement[]>();
+      revealTargets.forEach((el) => {
+        const key = el.parentElement;
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key)!.push(el);
+      });
+
+      groups.forEach((els) => {
+        els.forEach((el) => el.classList.add('is-visible')); // CSS fallback baseline
+        gsap.set(els, { opacity: 0, y: 22 });
+        ScrollTrigger.batch(els, {
+          start: 'top 88%',
+          once: true,
+          onEnter: (batch) =>
+            gsap.to(batch, {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              ease: 'back.out(1.5)',
+              stagger: 0.08,
+              overwrite: true,
+            }),
+        });
+      });
+    }
+
+    // Playful squish-press feedback on every clay button/pill.
+    if (!reducedMotion) {
+      document.querySelectorAll<HTMLElement>('.clay-btn, .clay-btn-outline, .clay-hover').forEach((el) => {
+        el.addEventListener('pointerdown', () => gsap.to(el, { scale: 0.94, duration: 0.15, ease: 'power2.out' }));
+        el.addEventListener('pointerup', () => gsap.to(el, { scale: 1, duration: 0.35, ease: 'back.out(2)' }));
+        el.addEventListener('pointerleave', () => gsap.to(el, { scale: 1, duration: 0.35, ease: 'back.out(2)' }));
+      });
+    }
+
+    // Bigger "section" entrance: every other top-level section grows/fades in as
+    // a whole, on top of its own internal [data-reveal] item stagger — gives the
+    // page a stronger sense of moving between distinct scenes while scrolling.
+    if (!reducedMotion) {
+      const topSections = Array.from(
+        document.querySelectorAll<HTMLElement>('#main > section, #main > div:not([data-reveal]) > section')
+      );
+      topSections.forEach((el, i) => {
+        if (i % 2 === 0) return; // alternate: skip every other section
+        gsap.set(el, { opacity: 0, y: 36, scale: 0.97, transformOrigin: 'center top' });
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 82%',
+          once: true,
+          onEnter: () =>
+            gsap.to(el, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'power3.out' }),
+        });
+      });
+    }
+
+    // Subtle 3D tilt-on-hover for image frames and cards marked [data-tilt].
+    // Desktop/pointer devices only; skipped entirely under reduced motion.
+    if (!reducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      document.querySelectorAll<HTMLElement>('[data-tilt]').forEach((el) => {
+        el.style.transformPerspective = '900px';
+        // Bake the element's existing static Tailwind rotate-* slant into GSAP's
+        // tracked rotation first, so animating rotationX/Y doesn't reset it to 0.
+        const matrix = getComputedStyle(el).transform;
+        let baseRotation = 0;
+        if (matrix && matrix !== 'none') {
+          const m = matrix.match(/^matrix\(([^)]+)\)/);
+          if (m) {
+            const [a, b] = m[1].split(',').map(Number);
+            baseRotation = (Math.atan2(b, a) * 180) / Math.PI;
+          }
+        }
+        gsap.set(el, { rotation: baseRotation });
+
+        const hasLift = el.classList.contains('clay-hover');
+        const setRotateX = gsap.quickTo(el, 'rotationX', { duration: 0.4, ease: 'power2.out' });
+        const setRotateY = gsap.quickTo(el, 'rotationY', { duration: 0.4, ease: 'power2.out' });
+        const setLift = gsap.quickTo(el, 'y', { duration: 0.4, ease: 'power2.out' });
+        el.addEventListener('pointermove', (e) => {
+          const r = el.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width - 0.5;
+          const py = (e.clientY - r.top) / r.height - 0.5;
+          setRotateY(px * 10);
+          setRotateX(py * -10);
+        });
+        el.addEventListener('pointerenter', () => {
+          if (hasLift) setLift(-6);
+        });
+        el.addEventListener('pointerleave', () => {
+          setRotateX(0);
+          setRotateY(0);
+          if (hasLift) setLift(0);
+        });
+      });
+    }
+
+    // Cute cursor buddy: a little paw print that trails the mouse with a soft
+    // lag, and wags gently. Desktop pointer devices only; hides over text
+    // inputs/links so it never gets in the way of reading or clicking.
+    if (!reducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      const buddy = document.getElementById('cursor-buddy');
+      if (buddy) {
+        const setX = gsap.quickTo(buddy, 'x', { duration: 0.55, ease: 'power3.out' });
+        const setY = gsap.quickTo(buddy, 'y', { duration: 0.55, ease: 'power3.out' });
+        let shown = false;
+
+        gsap.to(buddy, { rotation: 14, duration: 1.6, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+
+        window.addEventListener('pointermove', (e) => {
+          setX(e.clientX);
+          setY(e.clientY);
+          if (!shown) {
+            shown = true;
+            gsap.to(buddy, { opacity: 0.9, duration: 0.3 });
+          }
+        });
+        document.addEventListener('pointerleave', () => gsap.to(buddy, { opacity: 0, duration: 0.3 }));
+        document.addEventListener('pointerdown', () =>
+          gsap.to(buddy, { scale: 1.4, duration: 0.15, ease: 'power2.out', yoyo: true, repeat: 1 })
+        );
+      }
+    }
+  </script>
+</body>
+</html>
+
+<style>
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--color-accent);
+    color: var(--color-cream-50);
+    padding: 0.75rem 1.25rem;
+    z-index: var(--z-toast);
+    border-radius: 0 0 0.5rem 0;
+  }
+  .skip-link:focus {
+    left: 0;
+  }
+</style>

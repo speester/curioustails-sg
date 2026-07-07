@@ -1,0 +1,448 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import heroShiba from '../../assets/shiba-inu/1-shiba-inu-puppy-hero-playpen-home.webp';
+import redPortrait from '../../assets/shiba-inu/2-shiba-red-portrait.webp';
+import blackTanPortrait from '../../assets/shiba-inu/3-shiba-black-tan-portrait.webp';
+import creamPortrait from '../../assets/shiba-inu/4-shiba-cream-portrait.webp';
+import voidDeckWalk from '../../assets/shiba-inu/5-shiba-void-deck-leash-walk.webp';
+import coatBlowBrush from '../../assets/shiba-inu/6-shiba-coat-blow-brushing.webp';
+
+const title = 'Shiba Inu Singapore | Puppies from $2,888, HDB Facts | Curious Tails';
+const description =
+  'Shiba Inu puppies for sale in Singapore from $2,888 all-in. Straight facts first: Shibas are not HDB-approved. Private housing? Talk to us. HDB? See alternatives.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Shedding', href: '#size' },
+  { label: 'Price', href: '#price' },
+  { label: 'Alternatives', href: '#alternatives' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Can I keep a Shiba Inu in an HDB flat?',
+    answer:
+      'No. The Shiba Inu is not on the HDB-approved breed list, and we do not promise workarounds. Condos and landed homes can keep up to three dogs, so a Shiba is entirely possible there. If you are in an HDB flat, see the approved alternatives on this page.',
+  },
+  {
+    question: 'How much does a Shiba Inu cost in Singapore?',
+    answer:
+      'Market listings run roughly $4,000 to $8,000, with imports at the top. At Curious Tails, Shiba Inu puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'A Shiba online for $1,500 or less: is it real?',
+    answer:
+      'Treat it as a red flag, not a deal. Shibas far below market usually mean an unlicensed or unverifiable seller, and buyers have been fined $7,000 for unknowingly purchasing smuggled dogs. Sixty seconds on the AVS public registry settles whether any seller is licensed.',
+  },
+  {
+    question: 'Can a Shiba Inu be left alone during work hours?',
+    answer:
+      'Better than most breeds; independence is the Shiba\'s signature, and it is why working couples shortlist them. The routine still decides the outcome: exercise before you leave, a settled space, and jobs for the clever brain.',
+  },
+  {
+    question: 'Can a Shiba ever go off-leash?',
+    answer:
+      'Plan as if the answer is no, for life. Shiba recall is famously unreliable, so leashed walks and secured spaces are the rule, with a well-fitted harness because they are also skilled escape artists. This is breed reality, not pessimism.',
+  },
+  {
+    question: 'How bad is Shiba shedding?',
+    answer:
+      'The plush double coat blows heavily about twice a year, and during those weeks daily brushing with an undercoat rake is the job. Outside the blows, weekly brushing keeps things tidy. Never shave a double coat.',
+  },
+  {
+    question: 'Is a Shiba Inu a good first dog?',
+    answer:
+      'Honestly, usually not the easiest one; the independence that makes them wonderful also makes them less forgiving of beginner mistakes. If you love the look but want a softer learning curve, message us your routine and we will tell you straight.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/shiba-inu',
+    title,
+    description,
+    aboutName: 'Shiba Inu',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Shiba_Inu',
+    datePublished: '2026-07-06',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Shiba Inu puppy',
+      url: '/puppies/shiba-inu',
+      description:
+        'Shiba Inu puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included. Not HDB-approved; suited to condos and landed homes.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Shiba Inu Home Delivery & Playpen Setup',
+    description: 'Free island-wide home delivery with playpen, bed, and toy setup for every Shiba Inu puppy, scheduled around the owner\'s availability.',
+    price: 'Included',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Shiba Inu',
+    description:
+      'The Shiba Inu is a Japanese spitz breed: 8 to 10 kg fully grown, fox-faced with a curled tail, famously independent, clean and cat-like in habits, with a double coat that sheds heavily in seasonal blows. In Singapore, Shibas are not on the HDB-approved list.',
+    sameAs: 'https://en.wikipedia.org/wiki/Shiba_Inu',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/shiba-inu" ogImage="/assets/shiba-inu/og-shiba-inu.jpg">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Shiba Inu Puppies for Sale in Singapore"
+    h1Accent="Shiba Inu"
+    subhead="Shiba prices in Singapore run roughly $4,000 to $8,000; ours are $2,888 to $4,488 all-in. The straight facts before the cute photos: Shibas are not HDB-approved, and a suspiciously cheap Shiba online is a risk, not a bargain. Private housing? Let's talk properly."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Shiba Inu puppies. I live in private housing."
+    secondaryCtaLabel="Check the HDB rules first"
+    secondaryCtaHref="#hdb"
+    priceAnchor="From $2,888 all-in, for condo and landed homes."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="Shiba Inu puppy Singapore: red Shiba pup with cream cheeks sitting composed in its playpen at home"
+    imageSrc={heroShiba}
+    tagLabel="Shiba Inu"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Shiba Inu', href: '/puppies/shiba-inu' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking for a Shiba Inu for Sale in Singapore?" imageAlt="Red Shiba Inu puppy available in Singapore, seated portrait with curled tail" imageSrc={redPortrait} variant="mid">
+      <p>Shiba litters move quickly and colours vary between them, so we keep availability live on WhatsApp rather than on a page that goes stale. Message us for photos, gender, age, colour, and exact prices of the Shiba puppies available now.</p>
+      <p>Every Shiba here is between $2,888 and $4,488, full price in writing, kit and delivery and training included. Housing comes first in our conversation, because a Shiba cannot go to an HDB flat and we don't bend that rule for a sale.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Shiba Inu puppies? I'm in private housing.")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Shiba photos and prices</a>, or meet them at our Balestier shop.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Shiba Inu Puppies"
+      headingAccent="Available"
+      subhead="A few of the Shibas recently looking for homes. Tap any pup to WhatsApp us for the latest photos, video, and full price."
+      items={[
+        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Shiba Inu puppy.'), imageAlt: 'Red male Shiba Inu puppy available in Singapore', imageSrc: redPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Black & tan girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and tan female Shiba Inu puppy.'), imageAlt: 'Black and tan female Shiba Inu puppy lying on a cotton mat', imageSrc: blackTanPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Shiba Inu puppy.'), imageAlt: 'Cream male Shiba Inu puppy standing alert on cream tiles', imageSrc: creamPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+      ]}
+    />
+  </div>
+
+  <div id="hdb" class="relative scroll-mt-40">
+    <ScatterFloat />
+    <DefBox
+      term="Can you keep a Shiba Inu in an HDB flat? No"
+      definition="The Shiba Inu is not on the HDB-approved breed list. HDB flats may keep one dog of an approved small breed, and the Shiba does not qualify. Condos and landed homes may keep up to three dogs, subject to the estate's own pet rules, so private housing is where Singapore's Shibas live."
+      bridge="We say this before you fall for the fox face, not after. HDB readers: the approved alternatives further down share more of the Shiba's spirit than you might expect. Private housing readers: carry on, and let's talk temperament honestly."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The housing rules, straight</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'HDB flat: Shiba not approved, no exceptions we can promise',
+            'Condo / landed: up to three dogs (AVS limits of ownership)',
+            'HDB readers: approved alternatives below',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: <a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2">the full HDB-approved breeds list</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why private-housing families get their Shiba from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Shiba pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Independent, Clean, and Not For Everyone: the Honest Temperament" imageAlt="Black and tan Shiba Inu puppy lying composed with paws crossed" imageSrc={blackTanPortrait} imagePosition="left">
+      <p>The Shiba is the cat of the dog world: self-possessed, meticulous about its coat, reserved with strangers, and deeply loyal on its own terms. Breed guides call it intelligent, independent, and agile, and every word carries weight in daily life.</p>
+      <p>For the right owner, that independence is the entire appeal: a Shiba handles a working couple's 8am to 6pm absence better than almost anything else we carry, and it will not smother you for attention. For an owner who wants a dog that lives to please, it will feel like rejection.</p>
+      <p>Our honest note after two years of matching: we have talked people out of Shibas more than into them. We'd rather talk you out of the wrong breed than sell you the wrong dog.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="The Recall Rule: Assume It's Leash-For-Life" imageAlt="Shiba Inu on a secure harness walk at a Singapore void deck, leash held close" imageSrc={voidDeckWalk} imagePosition="right" variant="card">
+      <p>Every Shiba owner learns the same lesson, ideally the easy way: recall is unreliable in this breed, permanently. A Shiba that spots something interesting consults its own judgment, not yours.</p>
+      <p>So the rule is simple: leashed walks and secured spaces, always, on a well-fitted harness, because Shibas are also gifted escape artists. Gate checks and door discipline become household habits.</p>
+      <p>None of this is a flaw; it is the breed working as designed. It just needs to be known before the deposit, which is why it is on this page and in our first conversation.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Shiba Inu Size, Coat, Shedding and Lifespan"
+      headingAccent="Shedding"
+      subhead="Honest numbers, including the coat-blow truth."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['8 to 10 kg; compact and athletic'] },
+        { label: 'Height', values: ['35 to 41 cm at the shoulder'] },
+        { label: 'Coat', values: ['Plush double coat; red, black and tan, cream, sesame'] },
+        { label: 'Shedding', values: ['Heavy seasonal blows about twice a year; daily raking those weeks'] },
+        { label: 'Lifespan', values: ['12 to 15 years'] },
+        { label: 'Exercise', values: ['40 to 60 minutes daily, leashed, plus mental work'] },
+        { label: 'Cleanliness', values: ['Famously cat-like; grooms itself, house-trains fast'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The upside people underrate: outside coat-blow weeks a Shiba barely smells, cleans itself like a cat, and often toilet-trains faster than any breed we place. The double-coat rule still applies: brush it out, never shave it.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Shiba Inu Price in Singapore, and the Too-Cheap Listing Warning"
+      headingAccent="Price"
+      subhead="Market listings run roughly $4,000 to $8,000. Ours: $2,888 to $4,488, all-in, and here's how to read anything far below that."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Listings roughly $4,000 to $8,000; imports at the top',
+            'Occasional far-below-market listings on Carousell or Telegram',
+            'Those "deals" usually mean no verifiable licence',
+            'Starter supplies, training, delivery all separate',
+            'Buyers have been fined $7,000 over smuggled dogs',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            'Licence AS24J00046, checkable in 60 seconds',
+            '$500+ starter kit with 30+ items included',
+            'Free delivery, setup, and first training lesson',
+            'Free boarding after deposit until you are ready',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Shiba forums here regularly ask whether a $1,300-plus listing can be real; the useful answer is a process, not a guess: check the seller on the registry before falling in love, and see <a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how to verify any seller's licence</a>. The full deposit-to-homecoming process is on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>.
+      </p>
+    </div>
+  </div>
+
+  <BannerRibbon
+    heading="In private housing and Shiba-serious?"
+    body="Message us your housing type and routine. We'll send current Shiba photos and exact prices, plus an honest read on whether the breed fits you."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'm in private housing and interested in a Shiba Inu. Here's my routine:"
+    variant="dark"
+  />
+
+  <CaptionedBlock heading="Living with a Shiba in Singapore" imageAlt="Shiba Inu coat blow care: brushing loose undercoat from a young Shiba at home" imageSrc={coatBlowBrush} imagePosition="left" imageRotate="right">
+    <p>Heat management is straightforward: walks at sunrise and after dark, shade and water always, and midday where the fan lives. The double coat insulates both ways when maintained, so the coat-blow weeks are when the undercoat rake earns its place in your starter kit.</p>
+    <p>Apartment noise is rarely the issue people expect: Shibas bark little. The famous "shiba scream" is saved for moments of profound disagreement, usually nail trims, and your neighbours will never hear it.</p>
+    <p>Door and gate discipline is the real daily habit: this breed treats an open door as an invitation to explore Singapore solo.</p>
+  </CaptionedBlock>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="alternatives" class="scroll-mt-40">
+    <CaptionedBlock heading="In an HDB Flat? Approved Alternatives with a Similar Spirit" imagePosition="none" variant="mid">
+      <p>If it is the Shiba's independence you love, the <a href="/puppies/mini-dachshund" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Mini Dachshund</a> is the closest HDB-approved spirit we carry: self-possessed, bold, and comfortable with alone time. If it is the composed, low-fuss companionship, a <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> gives you calm independence with a softer learning curve.</p>
+      <p>Match on routine, not silhouette: take the <a href="/first-time-owners/breed-selector" class="underline underline-offset-2 text-[var(--color-accent-hover)]">two-minute breed selector</a> or message us your weekday and we'll shortlist honestly.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-surface-card)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">If you loved the Shiba's...</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Independent spirit → Mini Dachshund',
+            'Calm, low-fuss company → Cavapoo',
+            'Clean, low-odour coat → Bichonpoo',
+            'Alert watchfulness → Mini Dachshund',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <div id="health" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Vaccination and Licensing Timeline"
+      headingAccent="Timeline"
+      subhead="The exact weeks, so nothing is left to guesswork."
+      mode="table"
+      tableHeaders={['When', 'What happens']}
+      rows={[
+        { label: 'Week 6', values: ['First vaccination and deworming'] },
+        { label: 'Week 8', values: ['Second vaccination and deworming'] },
+        { label: 'Week 9', values: ['Puppy goes home, one week after the second vaccination'] },
+        { label: 'Week 12', values: ['Third vaccination and deworming, completing the core puppy course'] },
+        { label: 'Week 16', values: ['Optional fourth vaccination, if advised by your vet for extra early-life protection'] },
+        { label: 'Year 1 onward', values: ['Annual booster shot and deworming, done every year as advised by your vet'] },
+        { label: 'At purchase', values: ['Microchipping is already done; dog licensing paperwork is completed with our full assistance at the point of purchase'] },
+        { label: 'Before licensing (first-time owners)', values: ['A one-time free online pet ownership course, required since September 2024'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Every puppy goes home vet-checked, vaccinated, dewormed, and microchipped. First-time owners must complete the <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">free online pet ownership course</a> before licensing.
+      </p>
+    </div>
+  </div>
+
+  <div id="first-week" class="scroll-mt-40">
+    <CaptionedBlock heading="Your Shiba's First Week at Home" imagePosition="none" variant="card">
+      <p>Day 0: we deliver free, usually morning or evening, with the playpen set up before your Shiba explores; see <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>. Shibas assess new territory carefully; give it the dignity of a quiet first survey.</p>
+      <p>Days 1 to 3: same food, fixed times, minimal fuss. A Shiba respects calm competence, and toilet training usually clicks embarrassingly fast.</p>
+      <p>Days 4 to 7: book the free first lesson; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free training lesson covers</a>. Early, rewards-based work matters double with an independent breed.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Shiba week one, in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Day 0: delivered, set up, quiet survey',
+            'Days 1–3: calm routine, fast toilet wins',
+            'Days 4–7: book the training lesson',
+            'Door and gate discipline from day one',
+            'Questions: WhatsApp, any time',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Owners Say About Us"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, attentive and genuinely helpful, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. They gave us ample time to interact with the puppies before we decided. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Couldn't recommend Curious Tails in Balestier enough after bringing home our Cavapoo. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+          name: 'Andrew Mak',
+          meta: 'Google review',
+        },
+      ]}
+    />
+  </div>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit; if a seller isn't on the registry, they aren't licensed, whatever the listing says."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. With Shibas, the too-cheap listing is the classic trap: an unverifiable seller with a below-market price is where the smuggling and parvovirus stories start."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Treat far-below-market Shiba listings as the red flag they are',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Shiba Inu FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Shiba Inu" reserveMessage="Hi! I'd like to reserve a Shiba Inu puppy. I'm in private housing." />
+
+  <Schema {schemas} />
+</BaseLayout>

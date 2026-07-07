@@ -1,0 +1,80 @@
+---
+import PlaceholderImage from './PlaceholderImage.astro';
+
+interface Props {
+  id?: string;
+  heading: string;
+  headingAccent?: string;
+  imagePosition?: 'left' | 'right' | 'none';
+  imageAlt?: string;
+  imageSrc?: ImageMetadata;
+  imageRotate?: 'left' | 'right' | 'none';
+  variant?: 'default' | 'mid' | 'card' | 'accent' | 'dark';
+}
+const {
+  id,
+  heading,
+  headingAccent,
+  imagePosition = 'right',
+  imageAlt,
+  imageSrc,
+  imageRotate,
+  variant = 'default',
+} = Astro.props;
+
+const headingParts = headingAccent ? heading.split(headingAccent) : [heading, ''];
+
+const bgClass = {
+  default: 'bg-[var(--color-surface)]',
+  mid: 'bg-[var(--color-mint-100)]',
+  card: 'bg-[var(--color-surface-card)]',
+  accent: 'bg-[var(--color-peach-100)]',
+  dark: 'bg-[var(--color-lilac-900)]',
+}[variant];
+
+const headingClass = variant === 'dark' ? 'text-white' : 'text-[var(--color-cream-900)]';
+const bodyClass = variant === 'dark' ? 'text-white/85' : 'text-[var(--color-cream-700)]';
+// Every photo gets a playful tilt by default (cute > straight-laced); pass
+// imageRotate="none" explicitly to opt a specific block out (e.g. a document scan).
+const effectiveRotate = imageRotate ?? (imagePosition === 'left' ? 'right' : 'left');
+const rotateClass = { left: '-rotate-2', right: 'rotate-2', none: '' }[effectiveRotate];
+
+// When there's no photo, an optional named "side" slot fills the empty column
+// (e.g. a decorative badge/callout) instead of leaving it blank.
+const hasSide = Astro.slots.has('side');
+const showImageColumn = imagePosition !== 'none' && !!imageAlt;
+const twoCol = showImageColumn || hasSide;
+---
+
+<section id={id} class={`${bgClass} py-16 scroll-mt-40`}>
+  <div class:list={[
+    'mx-auto max-w-[1400px] px-5 sm:px-8 grid gap-10 items-center',
+    twoCol && 'lg:grid-cols-2',
+  ]}>
+    <div class:list={[imagePosition === 'left' && 'lg:order-2']} data-reveal>
+      <h2 class:list={['font-semibold', headingClass]} style="font-size: clamp(1.75rem, 3vw, 2.5rem);">
+        {headingParts[0]}{headingAccent && <span class="text-[var(--color-coral-400)]">{headingAccent}</span>}{headingParts[1]}
+      </h2>
+      <div class:list={['mt-4 space-y-3 text-base leading-relaxed max-w-[62ch]', bodyClass]}>
+        <slot />
+      </div>
+    </div>
+    {showImageColumn && (
+      <div
+        data-tilt
+        class:list={[imagePosition === 'left' && 'lg:order-1', 'clay clay-hover group overflow-hidden bg-white p-3 transition-transform', rotateClass]}
+      >
+        <div class="overflow-hidden rounded-[1.3rem]">
+          <div class="transition-transform duration-500 ease-out group-hover:scale-[1.06]">
+            <PlaceholderImage alt={imageAlt} src={imageSrc} ratio="aspect-[4/3]" />
+          </div>
+        </div>
+      </div>
+    )}
+    {!showImageColumn && hasSide && (
+      <div data-reveal>
+        <slot name="side" />
+      </div>
+    )}
+  </div>
+</section>

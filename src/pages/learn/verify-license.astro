@@ -1,0 +1,258 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import DefBox from '../../components/DefBox.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+import verifyPhone from '../../assets/guides/5-verify-seller-phone-check-puppy.webp';
+
+const title = 'How to Check a Pet Shop\'s Licence in Singapore | Curious Tails';
+const description =
+  "Check any pet shop's AVS licence in 60 seconds: the 4-step registry search, what licensing guarantees, seller red flags, and what to do when the check fails.";
+
+const faqItems = [
+  {
+    question: 'Where do I check whether a pet shop is licensed?',
+    answer:
+      'On the AVS public registry of licensed pet shops, on the AVS (NParks) website. It is free, needs no login, and the search takes about 60 seconds.',
+  },
+  {
+    question: 'The shop\'s brand name is not in the registry. Is it a scam?',
+    answer:
+      'Not necessarily; registries list registered business entities, and a shop\'s marketing name can differ from its registered name. Ask the shop for its licence number and search that instead. A legitimate shop hands the number over instantly; refusal or evasion is the actual red flag.',
+  },
+  {
+    question: 'Does "licensed" mean the puppies are guaranteed healthy?',
+    answer:
+      'It means the shop is subject to welfare inspections, must screen buyers through the Pet Purchase Declaration, and must meet health, vaccination, and microchipping requirements. That is a strong floor, not a magic guarantee; still read the individual puppy\'s paperwork.',
+  },
+  {
+    question: 'What should I do if a seller is not listed?',
+    answer:
+      'Walk away and transfer nothing, however good the price looks. Buyers have been fined $7,000 over smuggled dogs, so an unlisted seller is your legal risk too, not just the puppy\'s. Suspicious listings can be reported to AVS.',
+  },
+  {
+    question: 'Can I practise the check on a real shop?',
+    answer:
+      'Yes: search AS24J00046, our licence, on the registry. That is exactly what a passing result looks like, and running it on us first is precisely the habit this page is trying to build.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/learn/verify-license',
+    title,
+    description,
+    aboutName: 'Verifying a pet shop licence in Singapore',
+    aboutAlternateName: 'AVS registry check',
+    aboutSameAs: 'https://avs.nparks.gov.sg/outreach/resources/public-registry-of-avs-licensed-pet-shops/',
+    datePublished: '2026-07-06',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to check a pet shop\'s AVS licence in Singapore',
+    description: 'Verify any Singapore pet shop on the AVS public registry in about 60 seconds.',
+    totalTime: 'PT1M',
+    step: [
+      { '@type': 'HowToStep', position: 1, name: 'Open the registry', text: 'Go to the AVS public registry of licensed pet shops on the AVS (NParks) website.' },
+      { '@type': 'HowToStep', position: 2, name: 'Search the seller', text: 'Search the shop\'s name, or better, its licence number (ask the shop for it; legitimate shops provide it instantly).' },
+      { '@type': 'HowToStep', position: 3, name: 'Match the entry', text: 'Confirm the registry entry matches the seller you are dealing with: name, and licence number if provided.' },
+      { '@type': 'HowToStep', position: 4, name: 'Act on the result', text: 'Listed and matching: proceed with normal care. Not listed: walk away and transfer nothing; report suspicious sellers to AVS.' },
+    ],
+  },
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/learn/verify-license" ogImage="/assets/guides/og-learn.jpg">
+  <Hero
+    eyebrow="Buyer protection · Guide 1"
+    h1="Check If a Pet Shop Is AVS Licensed in Singapore"
+    h1Accent="AVS Licensed"
+    subhead="The most valuable 60 seconds in puppy buying: search the seller on the AVS public registry before any deposit changes hands. Here is the check step by step, the trap that confuses honest results, and the red flags that fail sellers instantly."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I have a question about verifying a puppy seller."
+    secondaryCtaLabel="See the 4 steps"
+    secondaryCtaHref="#steps"
+    priceAnchor="Practise on us: search AS24J00046."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="How to check a pet shop licence Singapore: buyer running the AVS registry search on their phone beside a puppy"
+    imageSrc={verifyPhone}
+    tagLabel="60 seconds"
+    proofChip="Free check"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Learn', href: '/learn' }, { label: 'Verify a Licence', href: '/learn/verify-license' }]} />
+  </Hero>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="How do you check a pet shop's licence?"
+      definition="Open the AVS public registry of licensed pet shops, search the shop's name or licence number, confirm the entry matches the seller you are dealing with, and walk away from any seller who is not listed. The check is free, needs no login, and takes about 60 seconds."
+      bridge="That paragraph is the whole defence. Everything below is the detail that makes it foolproof: the exact steps, the name-mismatch trap, what a licence actually guarantees, and what to do when a seller fails."
+      citationLabel="Open the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The check, in four steps</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            '1. Open the AVS public registry',
+            '2. Search the name, or better, the licence number',
+            '3. Match the entry to your seller',
+            '4. Not listed? Walk away, report if suspicious',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="steps" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="The Four Steps, Properly"
+      headingAccent="Four Steps"
+      subhead="Run this before any deposit, on any seller, every time."
+      mode="table"
+      tableHeaders={['Step', 'What to do', 'Watch for']}
+      rows={[
+        { label: '1. Open the registry', values: ['The AVS public registry of licensed pet shops, on the AVS (NParks) site', 'Use the official avs.nparks.gov.sg address, not a screenshot the seller sends'] },
+        { label: '2. Search', values: ['Shop name first; licence number if you have it', 'Ask the seller for the number; instant answers are the norm, stalling is the tell'] },
+        { label: '3. Match', values: ['Confirm the entry corresponds to who you\'re actually paying', 'Brand names can differ from registered names; the licence number resolves it'] },
+        { label: '4. Act', values: ['Listed and matching: proceed. Not listed: stop', 'No exceptions for great photos, sad stories, or expiring "discounts"'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Practise now: open the <a href={site.license.registryUrl} class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">AVS public registry</a> and search <strong>AS24J00046</strong>, our licence. Thirty seconds from now you will have verified a real shop and learned the whole skill.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="The Name-Mismatch Trap (Honest Shops Fail It Too)" imagePosition="none" variant="card">
+    <p>The most common false alarm: you search a shop's Instagram name and find nothing, because the registry lists registered business entities, and a brand name can legitimately differ from a registered name.</p>
+    <p>The resolution is one message: "Could you share your AVS licence number?" A legitimate shop answers in seconds, because being checkable is the point of the licence. Then search the number, not the name.</p>
+    <p>What the trap teaches: absence of the brand name is a question, not a verdict; refusal to provide the licence number is the verdict.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">One message resolves it</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          '"Could you share your AVS licence number?"',
+          'Instant answer → search the number',
+          'Stalling, excuses, topic changes → the verdict',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="What 'Licensed' Actually Guarantees You" imagePosition="none" variant="mid">
+    <p>The licence is not a sticker; it is a set of enforceable obligations. A licensed shop is subject to welfare inspections of how animals are housed and sold, must assess every buyer through the mandatory Pet Purchase Declaration before a sale, must meet health, vaccination, and microchipping standards, and re-earns the licence through annual renewal.</p>
+    <p>That is a strong floor, and it is the floor that smuggled-puppy sellers are pricing against when their listings run cheap. It is not a substitute for reading the individual puppy's paperwork, which is its own 5-minute skill: see <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">health checks and vaccination records explained</a>.</p>
+    <p>The obligations are public: <a href="https://avs.nparks.gov.sg/businesses/pet-shop-owners/licensing-conditions/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">AVS licensing conditions</a>.</p>
+  </CaptionedBlock>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <ComparisonSplit
+    heading="Red Flags That Fail Sellers Instantly"
+    headingAccent="Red Flags"
+    subhead="Any one of these plus an unlisted registry result: close the chat."
+    mode="split"
+    columns={[
+      {
+        heading: 'Walk away when you see',
+        items: [
+          'No licence number, or excuses instead of one',
+          'Price hundreds below every licensed listing',
+          'No premises to visit; meets at carparks or void decks',
+          'No vaccination records, or "records coming later"',
+          'Pressure tactics: "another buyer is coming at 6pm"',
+        ],
+      },
+      {
+        heading: 'What legitimate looks like',
+        items: [
+          'Licence number offered instantly, verifiable on the registry',
+          'Prices in the market range, inclusions explained',
+          'A real shop you can walk into (ours: 2 Balestier Road)',
+          'Vaccination records with vet stamps, shown before payment',
+          'Time to decide, and honest answers that risk the sale',
+        ],
+        emphasis: true,
+      },
+    ]}
+  />
+
+  <CaptionedBlock heading="If the Check Fails: What To Actually Do" imagePosition="none" variant="card">
+    <p>Stop, and transfer nothing: no "small deposit to hold", no "transport fee". The Straits Times covered <a href="https://www.straitstimes.com/singapore/courts-crime/dog-buyer-fined-7k-first-time-nparks-prosecuted-purchaser-over-animal-smuggling" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">the first prosecution of a buyer</a>, fined $7,000 over a smuggled dog, so an unlisted seller is your legal exposure too.</p>
+    <p>If the listing looks like smuggling (below-market price, cross-border hints, no paperwork), report it to AVS through their feedback channels; the case files in <a href="/learn/smuggled-puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our smuggled-puppies guide</a> show exactly why that matters.</p>
+    <p>Then buy from a seller who passes. There are enough licensed shops in Singapore, <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">ours included</a>, that nobody needs the unlisted one.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Failed check protocol</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Transfer nothing, whatever the story',
+          'Keep the listing details',
+          'Report suspicious sellers to AVS',
+          'Buy from a registry-verified shop instead',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <BannerRibbon
+    heading="Checked us yet?"
+    body="AS24J00046 on the AVS registry. Then message us anything, including listings elsewhere you're unsure about; we'd rather help you dodge a scam than close a sale."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I ran the registry check. I have a question:"
+    variant="dark"
+  />
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Verification Questions, Answered" items={faqItems} />
+  </div>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Verified. Now Meet the Puppies"
+    body="Can't make the trip to Balestier? WhatsApp us for current puppies and prices; the licence number is on every page for a reason."
+    reserveMessage="Hi! I've verified your licence. Could you share your current puppies?"
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

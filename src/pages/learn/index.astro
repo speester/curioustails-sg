@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import DefBox from '../../components/DefBox.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+import verifyPhone from '../../assets/guides/5-verify-seller-phone-check-puppy.webp';
+
+const title = 'Learn Before You Buy: Puppy Safety Guides | Curious Tails';
+const description =
+  "Buyer-protection guides for Singapore puppy buyers: verify any pet shop's AVS licence in 60 seconds, spot smuggled-puppy red flags, and read health paperwork properly.";
+
+const faqItems = [
+  {
+    question: 'What is the single most important buyer-protection check?',
+    answer:
+      'The AVS registry search. Every legitimate pet shop in Singapore is on the public registry; a seller who is not listed is not licensed, whatever the listing claims. The check is free and takes about 60 seconds.',
+  },
+  {
+    question: 'Why does a pet shop teach buyers to verify pet shops?',
+    answer:
+      'Because we pass the check and the bad actors do not. An informed buyer is protected from scams and smuggled puppies, and shops like ours only benefit when buyers know how to tell the difference. Education is honestly our best marketing.',
+  },
+  {
+    question: 'Are Carousell or Telegram puppy listings safe?',
+    answer:
+      'Treat any seller you cannot verify on the AVS registry as unlicensed by default. Those platforms are where smuggled puppies are sold, prices run suspiciously below market, and buyers have been fined for purchases they thought were bargains.',
+  },
+  {
+    question: 'What paperwork should a legitimate puppy come with?',
+    answer:
+      'Vaccination records showing the week 6 and week 8 shots with vet stamps, deworming entries, microchip details that match the puppy, and licensing done properly at purchase. Missing pieces are the red flag.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/learn',
+    title,
+    description,
+    aboutName: 'Puppy buyer protection in Singapore',
+    aboutAlternateName: 'buying a puppy safely Singapore',
+    datePublished: '2026-07-06',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  faqPageSchema(faqItems),
+];
+
+const guides = [
+  {
+    title: 'Verify any pet shop\'s licence',
+    body: 'The 60-second AVS registry check, step by step, plus the name-mismatch trap and what "licensed" actually guarantees you.',
+    href: '/learn/verify-license',
+    tint: 'bg-[var(--color-mint-100)]',
+    label: 'Guide 1',
+  },
+  {
+    title: 'Smuggled puppies: the real cases',
+    body: 'Four documented cases, the economics behind "bargain" listings, and the $7,000 fine that made buyers liable too.',
+    href: '/learn/smuggled-puppies',
+    tint: 'bg-[var(--color-peach-100)]',
+    label: 'Guide 2',
+  },
+  {
+    title: 'Health checks and vaccinations',
+    body: 'Singapore\'s exact vaccination schedule, why homecoming is week 9, and how to read a vaccination record like you mean it.',
+    href: '/learn/puppy-health',
+    tint: 'bg-[var(--color-lilac-100)]',
+    label: 'Guide 3',
+  },
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/learn" ogImage="/assets/guides/og-learn.jpg">
+  <Hero
+    eyebrow="Buyer protection, from a licensed shop"
+    h1="Learn Before You Buy: Pet Safety & Buyer Protection"
+    h1Accent="Before You Buy"
+    subhead="Three checks protect every puppy buyer in Singapore: verify the seller's licence, know the smuggling red flags, and read the health paperwork. We teach all three, because we pass all three, and the sellers who don't are counting on you not knowing how to look."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I have a question about buying a puppy safely."
+    secondaryCtaLabel="Start with the checks"
+    secondaryCtaHref="#guides"
+    priceAnchor="Check us first: licence AS24J00046, searchable in 60 seconds."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="Buying a puppy safely in Singapore: buyer running the AVS registry check on their phone beside an attentive puppy"
+    imageSrc={verifyPhone}
+    tagLabel="Learn"
+    proofChip="3 checks"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Learn', href: '/learn' }]} />
+  </Hero>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="How do you buy a puppy safely in Singapore?"
+      definition="Three checks: verify the seller on the AVS public registry of licensed pet shops (60 seconds, free), know the red flags of smuggled puppies (below-market prices, no premises, no paperwork), and confirm the health records (vaccinations at weeks 6 and 8, deworming, a microchip that matches) before homecoming."
+      bridge="Each check has its own guide below. Run all three on any seller, us included; an honest shop never minds, and the dishonest ones fail fast."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The three checks</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            '1. Licence: on the AVS registry, or walk away',
+            '2. Red flags: price, premises, paperwork',
+            '3. Health records: weeks 6 and 8 done, microchip matches',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </DefBox>
+  </div>
+
+  <section id="guides" class="mx-auto max-w-[1400px] scroll-mt-40 px-5 sm:px-8 py-14">
+    <div class="max-w-[65ch]">
+      <p class="text-sm font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">The guides</p>
+      <h2 class="mt-2 font-semibold text-[var(--color-cream-900)]" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">
+        Three checks, three guides
+      </h2>
+    </div>
+    <div class="mt-9 grid gap-5 md:grid-cols-3">
+      {guides.map((g, i) => (
+        <a href={g.href} data-reveal style={`--i:${i}`} class={`clay clay-hover clay-press flex h-full flex-col ${g.tint} p-7`}>
+          <span class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">{g.label}</span>
+          <h3 class="mt-3 font-[family-name:var(--font-heading)] text-xl font-semibold text-[var(--color-cream-900)]">{g.title}</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-[var(--color-cream-700)]">{g.body}</p>
+          <span class="mt-4 text-sm font-semibold text-[var(--color-accent-hover)] underline underline-offset-2">Read the guide →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <CaptionedBlock heading="Why We Teach This" imagePosition="none" variant="card">
+    <p>A fair question: why does a shop that sells puppies spend pages teaching you to scrutinise puppy sellers? Because the maths of the unlicensed market only works on uninformed buyers. A puppy $500 to $1,000 below market is cheap precisely because someone skipped the vet care, the vaccinations, and the legal channel, and the buyer inherits those skipped costs with interest.</p>
+    <p>Every buyer who runs the three checks either ends up at a licensed shop, ours or another, or walks away from a bad deal. Both outcomes are good ones. The shops that lose from an educated market are exactly the ones that should.</p>
+    <p>Start anywhere: <a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the licence check</a> is the quickest win, and <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">who we are</a> shows you what passing all three looks like.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">The market, honestly</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Unlicensed "bargains" are priced by skipped vet care',
+          'Parvovirus bills run $5,000 to $10,000',
+          'A buyer has been fined $7,000',
+          'Educated buyers end this market',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+      <p class="mt-4 text-xs text-[var(--color-cream-500)]">
+        Welfare context: <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2" rel="noopener">SPCA's anti-smuggling campaign</a>
+      </p>
+    </div>
+  </CaptionedBlock>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Buyer-Protection Questions" items={faqItems} />
+  </div>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Run the Checks on Us First"
+    body="Licence AS24J00046, on the registry. Then WhatsApp us anything, from availability to a listing you're unsure about."
+    reserveMessage="Hi! I've done my research. Could you share your current puppies?"
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

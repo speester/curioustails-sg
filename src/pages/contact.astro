@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import Hero from '../components/Hero.astro';
+import BannerRibbon from '../components/BannerRibbon.astro';
+import FAQ from '../components/FAQ.astro';
+import Schema from '../components/Schema.astro';
+import PawTrail from '../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../lib/schema';
+import heroCare from '../assets/about-us/1-avs-licensed-pet-shop-hero-care.webp';
+
+const title = 'Contact Curious Tails | WhatsApp, Visit or Call | Balestier';
+const description =
+  'Get in touch with Curious Tails: WhatsApp 8220 6480, visit 2 Balestier Road #01-701 (weekdays 12pm to 6pm, weekends 10am to 6pm), or email hello@curioustails.sg.';
+
+const faqItems = [
+  {
+    question: 'What is the fastest way to reach you?',
+    answer:
+      'WhatsApp 8220 6480. That is where we share current puppy photos, exact prices, and availability, and where every after-sale care question lands too. Messages get a real reply from Nelson or Kim.',
+  },
+  {
+    question: 'Do I need an appointment to visit?',
+    answer:
+      'Walk-ins are welcome during opening hours, but a WhatsApp heads-up means we can have the right puppies ready for the breeds you are considering, which makes the visit far more useful.',
+  },
+  {
+    question: 'Where exactly is the shop?',
+    answer:
+      '2 Balestier Road #01-701, Singapore 320002. We are open weekdays 12pm to 6pm and weekends 10am to 6pm.',
+  },
+  {
+    question: 'Can you send puppy photos and prices before I visit?',
+    answer:
+      'Yes, that is the normal first step: message us which breeds interest you and we will send current photos, video, gender, age, and the exact price for each available puppy.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/contact',
+    title,
+    description,
+    aboutName: 'Contact Curious Tails',
+    datePublished: '2026-07-06',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/contact" ogImage="/assets/about-us/og-about-us.jpg">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Get in Touch: WhatsApp, Visit or Call"
+    h1Accent="Get in Touch"
+    subhead="WhatsApp is the fastest way to reach Nelson and Kim: current puppy photos, exact prices, honest breed advice, and every care question after the sale. Or just come by the Balestier shop and meet the puppies."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your puppies."
+    secondaryCtaLabel="See visiting details"
+    secondaryCtaHref="#visit"
+    priceAnchor={`Open ${site.hours}.`}
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="Contact Curious Tails Singapore: caregiver hands gently holding a Cavapoo puppy at the AVS licensed Balestier shop"
+    imageSrc={heroCare}
+    tagLabel="Balestier"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Contact', href: '/contact' }]} />
+  </Hero>
+
+  <section id="visit" class="mx-auto max-w-[1400px] scroll-mt-40 px-5 sm:px-8 py-14">
+    <div class="grid gap-5 lg:grid-cols-3">
+      <a href={whatsappLink('Hi! I\'d like to ask about your puppies.')} data-tilt class="clay clay-hover clay-press bg-[var(--color-mint-100)] p-7 flex flex-col gap-3">
+        <span class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">WhatsApp (fastest)</span>
+        <span class="font-[family-name:var(--font-heading)] text-2xl font-semibold text-[var(--color-cream-900)]">{site.phoneDisplay}</span>
+        <span class="text-sm leading-relaxed text-[var(--color-cream-700)]">Photos, prices, availability, and aftercare questions. Real replies from the owners.</span>
+      </a>
+      <a href={`tel:+65${site.phone}`} data-tilt class="clay clay-hover clay-press bg-[var(--color-peach-100)] p-7 flex flex-col gap-3">
+        <span class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Call</span>
+        <span class="font-[family-name:var(--font-heading)] text-2xl font-semibold text-[var(--color-cream-900)]">+65 {site.phoneDisplay}</span>
+        <span class="text-sm leading-relaxed text-[var(--color-cream-700)]">During opening hours: weekdays 12pm to 6pm, weekends 10am to 6pm.</span>
+      </a>
+      <a href={`mailto:${site.email}`} data-tilt class="clay clay-hover clay-press bg-[var(--color-lilac-100)] p-7 flex flex-col gap-3">
+        <span class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Email</span>
+        <span class="font-[family-name:var(--font-heading)] text-2xl font-semibold text-[var(--color-cream-900)]">{site.email}</span>
+        <span class="text-sm leading-relaxed text-[var(--color-cream-700)]">For anything that suits writing better; we answer within a working day.</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-14 grid gap-8 lg:grid-cols-2">
+    <div data-reveal>
+      <h2 class="text-3xl font-semibold text-[var(--color-cream-900)]">Visit Us in Balestier</h2>
+      <p class="mt-3 text-base text-[var(--color-cream-700)]">{site.address.full}</p>
+      <p class="mt-1 text-base text-[var(--color-cream-700)]">{site.hours}</p>
+      <p class="mt-4 text-base leading-relaxed text-[var(--color-cream-700)]">
+        Meeting the puppies in person beats any photo. WhatsApp first and we'll have the breeds you're considering ready; browse <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all seven breeds</a> before you come, and check <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what every price includes</a> so the numbers hold no surprises.
+      </p>
+      <div class="mt-5 flex flex-wrap gap-3">
+        <a href={whatsappLink()} class="clay-btn inline-flex items-center gap-2 bg-[var(--color-accent)] px-6 py-3 text-sm font-bold text-white hover:bg-[var(--color-accent-hover)]">
+          WhatsApp {site.phoneDisplay}
+        </a>
+        <a href={site.gbpUrl} target="_blank" rel="noopener" class="clay-btn-outline inline-flex items-center gap-1.5 px-6 py-3 text-sm font-bold text-[var(--color-cream-900)] hover:text-[var(--color-coral-600)]">
+          See us on Google
+        </a>
+      </div>
+    </div>
+    <div class="clay bg-white p-2">
+      <iframe
+        class="rounded-[1.3rem]"
+        src={site.googleMapsEmbed}
+        width="100%"
+        height="340"
+        style="border:0;"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        title="Curious Tails location on Balestier Road"
+      ></iframe>
+    </div>
+  </section>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Contact Questions" items={faqItems} />
+  </div>
+
+  <BannerRibbon
+    heading="First time buying a puppy?"
+    body="Start with the first-time owner guide, or take the two-minute breed quiz before you message us. Both make the conversation better."
+    ctaLabel="Read the guide"
+    ctaHref="/first-time-owners"
+    variant="tint"
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

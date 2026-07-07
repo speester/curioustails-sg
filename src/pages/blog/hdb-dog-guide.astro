@@ -1,0 +1,172 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import DefBox from '../../components/DefBox.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+import bichonpooPortrait from '../../assets/bichonpoo/2-bichonpoo-white-portrait.webp';
+import voidDeckWalk from '../../assets/free-training/2-puppy-socialisation-window-walk.webp';
+
+const title = 'Best Puppy Breeds for HDB Living in Singapore | Curious Tails';
+const description =
+  'Low-shedding, low-barking dogs that HDB actually allows: the five breeds that fit flat life best, ranked by alone-time tolerance, noise, and grooming reality.';
+const datePublished = '2026-07-06';
+
+const faqItems = [
+  {
+    question: 'What is the best dog breed for an HDB flat?',
+    answer:
+      'For most flats: the Cavapoo, because it combines an approved-cross status, a low-shedding coat, moderate voice, and genuine tolerance for work-hour alone time. If someone is home most days, the Maltipoo or Bichonpoo reward that company even more; for families with kids, the Cockapoo leads.',
+  },
+  {
+    question: 'Which dogs bark least in HDB flats?',
+    answer:
+      'Barking follows boredom and routine more than breed, but among approved breeds the poodle crosses (Cavapoo, Cockapoo, Bichonpoo, Maltipoo) are announce-barkers rather than all-day protesters when properly settled. The Mini Dachshund has a bigger watchdog voice that early training keeps to announcements.',
+  },
+  {
+    question: 'Are Corgis, Shibas, or Huskies allowed in HDB flats?',
+    answer:
+      'No. None of the three is on the HDB-approved list at any weight, and workaround promises are not a plan. Condos and landed homes may keep them; flats may not.',
+  },
+  {
+    question: 'Does one dog per flat really get enforced?',
+    answer:
+      'The rule is one dog of an approved breed per HDB flat, with fines of up to $4,000 for non-compliance. Treat it as enforced; the licence and microchip system makes dogs traceable.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/blog/hdb-dog-guide',
+    title,
+    description,
+    aboutName: 'Best dog breeds for HDB living',
+    aboutAlternateName: 'HDB dog breeds guide',
+    datePublished,
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/blog/hdb-dog-guide" ogImage="/assets/bichonpoo/og-bichonpoo.jpg">
+  <section class="bg-[var(--color-peach-100)] pb-10 pt-2">
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pt-5">
+      <Breadcrumb bare items={[{ label: 'Blog', href: '/blog' }, { label: 'HDB Dog Guide', href: '/blog/hdb-dog-guide' }]} />
+      <div class="mx-auto mt-8 max-w-[75ch]">
+        <p class="text-xs font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">Blog · Breed guides</p>
+        <h1 class="mt-3 font-[family-name:var(--font-heading)] font-semibold leading-[1.08] text-[var(--color-cream-900)]" style="font-size: clamp(2.2rem, 4.5vw, 3.5rem);">
+          Low-Shedding, Low-Barking Dogs That HDB Allows
+        </h1>
+        <p class="mt-4 text-sm text-[var(--color-cream-600)]">
+          By <a href="/about-us" class="font-semibold underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson &amp; Kim</a>, Curious Tails · Published {datePublished} · Rankings from two years of HDB placements
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <DefBox
+    term="Which dogs suit HDB living best?"
+    definition="For HDB flats, the best-fit approved breeds are the Cavapoo (independent and low-shedding), the Cockapoo (the family all-rounder), the Bichonpoo and Maltipoo (low-shed companions for homes with daytime company), and the Mini Dachshund (compact character with a light-shedding smooth coat). Corgis, Shibas, and Huskies are not HDB-approved."
+    bridge="Flat life makes three demands of a dog: cope with your work hours, keep the corridor peaceful, and not carpet the sofa in fur. The five below are ranked against exactly those demands, with the trade-offs stated out loud."
+    citationLabel="The official approved list, on HDB's site"
+    citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+  >
+    <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Flat life's three demands</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          '1. Cope with your alone-hours',
+          '2. Keep the corridor peaceful',
+          '3. Keep the fur off the sofa',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </DefBox>
+
+  <ComparisonSplit
+    heading="The Five Best-Fit Breeds, Ranked Honestly"
+    headingAccent="Ranked"
+    subhead="All five are HDB-approved and all five live in the same $2,888 to $4,488 range with us. The differences are in the trade-offs."
+    mode="table"
+    tableHeaders={['Breed', 'Best for', 'The honest trade-off']}
+    rows={[
+      { label: '1. Cavapoo', values: ['Working couples; the empty 8am-to-6pm flat', 'Needs its grooming schedule respected; the coat mats in humidity'] },
+      { label: '2. Cockapoo', values: ['Families with kids; first-time owners', 'The spaniel engine wants real 40-to-60-minute walk days'] },
+      { label: '3. Mini Dachshund', values: ['Character seekers; light grooming budgets', 'A proper watchdog voice, and the back-care rules are non-negotiable'] },
+      { label: '4. Bichonpoo', values: ['Homes with daytime company; allergy-sensitive households', 'Wants people around; grooming every 4 to 6 weeks'] },
+      { label: '5. Maltipoo', values: ['Retirees, WFH homes, constant-company households', 'The most attachment-dependent of the five; empty weekdays are unkind to it'] },
+    ]}
+  />
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+      Full profiles: <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a>, <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a>, <a href="/puppies/mini-dachshund" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Mini Dachshund</a>, <a href="/puppies/bichonpoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Bichonpoo</a>, and <a href="/puppies/maltipoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Maltipoo</a>.
+    </p>
+  </div>
+
+  <CaptionedBlock heading="The Ranking Logic: Alone-Time Is the Sorter" imageAlt="White Bichonpoo puppy, a low-shedding HDB-approved cross for flats with daytime company" imageSrc={bichonpooPortrait} imagePosition="right">
+    <p>Notice what sorts the list: not cuteness, not size, but alone-time tolerance, because that is where HDB placements succeed or quietly fail. The single most common mismatch we see is a working couple choosing a companion breed that needs company all day.</p>
+    <p>Cavapoos and Mini Dachshunds carry genuine independence; Maltipoos and Bichonpoos are wonderful precisely because they are attachment-driven, which becomes unkind in an empty flat. The Cockapoo sits usefully in between.</p>
+    <p>If your household has someone home most days, the ranking flips: the companion crosses move to the top, and their daytime devotion becomes the feature it was always meant to be.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Noise: the Real Neighbour Test" imageAlt="Calm puppy observing a Singapore void deck: corridor noise handled through early socialisation" imageSrc={voidDeckWalk} imagePosition="left" variant="card">
+    <p>The corridor question worries HDB buyers most, and the honest answer is that barking follows boredom and routine more than breed. A settled, exercised puppy of any breed here is a quiet neighbour; a bored one is not.</p>
+    <p>That said, breeds have baselines: the poodle crosses announce and stop; the Mini Dachshund's watchdog voice arrives factory-installed and needs early training to stay at announcements. Both outcomes are routine problems with routine solutions, which is why the free training lesson with our puppies lands in week one.</p>
+    <p>The rules themselves (one approved dog per flat, up to $4,000 for getting it wrong) are covered fully in the <a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB-approved breeds guide</a>.</p>
+  </CaptionedBlock>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <CaptionedBlock heading="The Ones That Are Not Allowed (However Good the Photos)" imagePosition="none" variant="mid">
+    <p>Corgis, Shiba Inus, Huskies, Golden Retrievers: none is on the HDB list, at any weight, and we say this as a shop that sells two of them. Flats cannot take them; condos and landed homes can.</p>
+    <p>If the photos already got you, the honest paths are three: match the spirit inside the approved list (our <a href="/puppies/corgi" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Corgi</a> and <a href="/puppies/shiba-inu" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shiba</a> pages both map their characters to approved alternatives), treat it as a housing decision, or adopt a Singapore Special under Project ADORE.</p>
+    <p>What never works: keeping one in the flat and hoping. The licence and microchip system makes every dog traceable, and the fine runs to $4,000.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-surface-card)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Not HDB-approved</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Corgi (both Pembroke and Cardigan)',
+          'Shiba Inu',
+          'Husky, Golden Retriever, and other mediums',
+          'Any breed not on the official list',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="HDB Breed Questions" items={faqItems} />
+  </div>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Your Flat, Honestly Matched"
+    body="Take the two-minute quiz with the HDB filter built in, or WhatsApp us your routine; we'll rank the five for your actual weekday."
+    reserveMessage="Hi! I'm in an HDB flat. Here's my routine; which breed fits us best?"
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

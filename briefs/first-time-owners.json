@@ -1,0 +1,49 @@
+{
+  "slug": "first-time-owners",
+  "target_keyword": "first time dog owner Singapore",
+  "secondary_keyword": "buying your first puppy Singapore",
+  "page_intent": "educational",
+  "page_tier": "outer",
+  "country": "Singapore", "city": "Singapore",
+  "dual_intent_strategy": { "primary_intent": "educational hub — first-timer orienting the whole journey", "secondary_intent": "commercial-assist — route to breed selector, guides, and money pages", "resolution": "Hub: the complete first-puppy checklist journey in 5 stages (choose → budget → verify → prepare → first weeks), each stage summarised with a capsule and routed to its dedicated child page." },
+  "meta_title": "First-Time Dog Owner Guide Singapore | Curious Tails",
+  "meta_description": "Buying your first puppy in Singapore? The complete first-time owner checklist: choose the right breed, budget the first year, verify the seller, and survive week one.",
+  "h1": "Your Complete Checklist: Buying Your First Puppy",
+  "entity_definitions": [
+    { "entity": "business_entity", "definition": "Curious Tails is an AVS licensed pet shop in Balestier (AS24J00046) built around first-time owners: honest breed matching, a 30+ item starter kit, home setup, and a free training lesson." },
+    { "entity": "subject_entity", "definition": "First-time dog ownership in Singapore has five decisions in order: which breed fits your housing and routine, what the first year truly costs, whether the seller is AVS licensed, how to prepare the home, and how to run the first weeks. Get them in that order and the rest is joy, not crisis." }
+  ],
+  "serp_analysis": { "dominant_content_format": "listicles + generic guides", "top_competitor_weaknesses": ["no ordered decision journey", "no Singapore-specific costs/rules", "no honest breed-fit guidance"], "information_gaps_none_cover": ["the 5-decision order", "seller verification as a first-timer step", "socialisation window timing"], "featured_snippet": { "first time dog owner Singapore": "target the 5-decision capsule" }, "factual_conflicts": [] },
+  "lsi_keywords": { "primary": ["first time dog owner Singapore", "first puppy Singapore", "buying your first puppy", "new dog owner guide", "first-time owner checklist"], "secondary": ["which breed for beginners", "puppy budget", "verify pet shop", "prepare home for puppy", "first week with puppy", "HDB rules", "pet ownership course"], "all": ["first time dog owner Singapore", "first-time dog owner", "first puppy", "buying your first puppy Singapore", "new dog owner", "beginner dog owner", "first-time owner checklist", "five decisions in order", "which breed fits", "breed selector quiz", "HDB approved breeds", "puppy cost Singapore", "first-year budget", "verify AVS licence", "licensed pet shop", "prepare your home", "playpen setup", "puppy-proofing", "first week home", "socialisation window", "pet ownership course", "AVS licence", "starter kit", "free training lesson", "someone to call", "simple routine", "Singapore", "WhatsApp us"] },
+  "lsi_keyword_weighting": { "transactional_cluster": ["breed selector quiz", "starter kit", "WhatsApp us"], "informational_cluster": ["first-time owner checklist", "budget", "verify", "prepare", "first week"], "instruction": "Hub: capsules route to children; keep education summary-level." },
+  "content_outline": [
+    { "heading": "Your Complete Checklist: Buying Your First Puppy", "level": "H1", "priority": "P1", "cro_phase": 1, "cro_element": "Hero", "intent_served": "both", "ux_note": "Hero", "key_points": ["5 decisions in order", "guide hub"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "What should a first-time dog owner in Singapore do first?", "level": "H2", "priority": "P2", "cro_phase": 1, "cro_element": "5-decision capsule", "intent_served": "both", "ux_note": "DefBox", "key_points": ["order matters"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "Decision 1-5 stage cards", "level": "H2", "priority": "P2", "cro_phase": 2, "cro_element": "5 routed stage blocks (breed → budget → verify → prepare → first weeks)", "intent_served": "both", "ux_note": "CaptionedBlock x5 + ListingGrid-style routing", "key_points": ["each stage capsule + child link"], "first_party_prompt": "Contrarian view: first-timers need a routine and someone to call, not more information.", "external_link_cue": "https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/" },
+    { "heading": "The mistake list + FAQ + CTA", "level": "H2", "priority": "P2", "cro_phase": 4, "cro_element": "blog link + FAQ + FinalCta", "intent_served": "both", "ux_note": "FAQ + FinalCta", "key_points": [""], "first_party_prompt": "", "external_link_cue": "" }
+  ],
+  "outline_cross_check": { "A": "PASS", "B": "PASS", "C": "PASS", "D": "PASS", "E": "PASS (hub-condensed)", "F": "PASS", "G": "PASS", "H": "PASS" },
+  "internal_links": [
+    { "anchor": "two-minute breed selector", "target_slug": "/first-time-owners/breed-selector", "placed_in_section": "Decision 1" },
+    { "anchor": "HDB-approved breeds guide", "target_slug": "/first-time-owners/hdb-breeds", "placed_in_section": "Decision 1" },
+    { "anchor": "first-year budget planner", "target_slug": "/first-time-owners/budget-guide", "placed_in_section": "Decision 2" },
+    { "anchor": "verify any pet shop's licence", "target_slug": "/learn/verify-license", "placed_in_section": "Decision 3" },
+    { "anchor": "week-by-week puppy care guide", "target_slug": "/first-time-owners/puppy-care-101", "placed_in_section": "Decision 5" },
+    { "anchor": "5 first-time mistakes", "target_slug": "/blog/first-time-mistakes", "placed_in_section": "mistake list" },
+    { "anchor": "starter kit / delivery / training", "target_slug": "/starter-kit,/delivery,/free-training", "placed_in_section": "Decision 4" }
+  ],
+  "filtered_links": [],
+  "external_links": [ { "section": "Decision 3/5", "url": "https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/", "anchor": "AVS Pet Ownership Course", "purpose": "mandatory first-timer step" } ],
+  "faq": [
+    { "question": "What should I do first when buying my first puppy?", "answer_direction": "Fix housing + routine fit before anything: HDB status and alone-hours narrow the breed list fast; then budget, verify, prepare, and learn the first-week routine." },
+    { "question": "Is the AVS Pet Ownership Course compulsory?", "answer_direction": "Yes for first-time owners, before your first dog licence; free, online, one evening." },
+    { "question": "How much should a first-timer budget?", "answer_direction": "$2,888–$4,488 all-in at a licensed shop like ours, plus $1,200–$3,500 first-year running costs." },
+    { "question": "Which breed is best for first-time owners?", "answer_direction": "Cockapoo for families, Cavapoo for working couples; routine decides, and the quiz asks the right questions." },
+    { "question": "What support exists after buying?", "answer_direction": "Kit walkthrough, free training lesson, WhatsApp support, and the 5-day nurse-back safety net." },
+    { "question": "What is the biggest first-timer mistake?", "answer_direction": "Choosing by photo instead of routine; the breed-mismatch stories all start there." }
+  ],
+  "questions": [],
+  "schema_plan": [ { "type": "WebPage + BreadcrumbList + FAQPage + LocalBusiness + Person", "notes": "hub" } ],
+  "info_gain_score": { "pct_p1_p2": 60, "gain_drivers": ["5-decision ordered journey", "verification as a first-timer step", "real support story"], "remaining_risks": [] },
+  "word_count_target": 1600, "content_length_estimate": "1,500–1,800 (hub)"
+}

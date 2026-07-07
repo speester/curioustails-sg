@@ -1,0 +1,505 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import Hero from '../components/Hero.astro';
+import Tabs from '../components/Tabs.astro';
+import DefBox from '../components/DefBox.astro';
+import StatStrip from '../components/StatStrip.astro';
+import ComparisonSplit from '../components/ComparisonSplit.astro';
+import CaptionedBlock from '../components/CaptionedBlock.astro';
+import ValueBundle from '../components/ValueBundle.astro';
+import BannerRibbon from '../components/BannerRibbon.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Carousel from '../components/Carousel.astro';
+import FAQ from '../components/FAQ.astro';
+import Schema from '../components/Schema.astro';
+import ScatterFloat from '../components/decor/ScatterFloat.astro';
+import CloudDivider from '../components/decor/CloudDivider.astro';
+import PawTrail from '../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../data/site';
+import heroPricing from '../assets/pricing/1-puppy-pricing-hero-starter-kit-included.webp';
+import kitFlatlay from '../assets/pricing/2-puppy-starter-kit-value-flatlay-home.webp';
+import homecoming from '../assets/pricing/3-puppy-homecoming-delivery-day-hdb.webp';
+import aftercareLap from '../assets/pricing/4-puppy-aftercare-support-lap-check.webp';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  aggregateOfferSchema,
+  faqPageSchema,
+} from '../lib/schema';
+
+const title = 'Puppy Pricing Singapore | $2,888 to $4,488 | Curious Tails';
+const description =
+  'How much does a puppy cost in Singapore? Ours are $2,888 to $4,488 all-in: $500+ starter kit, free delivery and setup, and a free training lesson. WhatsApp us.';
+
+const jumpLinks = [
+  { label: "What's Included", href: '#included' },
+  { label: 'Market Prices', href: '#market' },
+  { label: 'Why Less', href: '#why-less' },
+  { label: 'By Breed', href: '#by-breed' },
+  { label: 'After You Pay', href: '#after-you-pay' },
+  { label: 'First-Year Budget', href: '#first-year' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a puppy cost at Curious Tails?',
+    answer:
+      'Every puppy is between $2,888 and $4,488, and the price always includes the 30+ item starter kit worth $500+, free home delivery with playpen setup, a free training lesson with an AVS-certified trainer, and licensing paperwork completed at purchase. The exact price depends on the individual puppy, so WhatsApp 8220 6480 for current litters.',
+  },
+  {
+    question: "Why don't you list an exact price for each puppy?",
+    answer:
+      'Individual pricing varies with breed, coat, and age, and availability changes weekly. Publishing our committed $2,888 to $4,488 range keeps us honest, while WhatsApp gives you the live number for the specific puppy you are asking about, together with its photos and video.',
+  },
+  {
+    question: 'Do you charge extra for delivery, setup, or the training lesson?',
+    answer:
+      'No. Home delivery, playpen setup in your home, and the first lesson with an AVS-certified trainer are all inside the listed price. There are no add-on fees at collection, and the dog licensing paperwork is also completed with our assistance at purchase.',
+  },
+  {
+    question: 'How much should I budget for the first year beyond the purchase?',
+    answer:
+      'Plan for roughly $1,200 to $3,500 in the first year: the AVS dog licence from $15 a year, food around $340 to $2,430 a year depending on size and diet, vet care around $300 to $500, and grooming around $274 for low-shedding coats. The starter kit removes about $500 of day-one equipment from that list.',
+  },
+  {
+    question: 'Why are your puppies $500 to $2,000 cheaper than the big-name shops?',
+    answer:
+      'We spend almost nothing on marketing and pass that saving on. Every licensed shop answers to the same AVS standards, so the licence on the wall is identical; we choose to compete on what is included and the aftercare rather than on advertising reach.',
+  },
+  {
+    question: 'What happens if my puppy falls sick soon after coming home?',
+    answer:
+      'If your puppy falls sick within the first 5 days of going home, bring them back to the shop and we will nurse them ourselves. After that, we remain a WhatsApp away for any care question; support does not end at the sale.',
+  },
+  {
+    question: 'Can you hold my puppy if my home is not ready yet?',
+    answer:
+      'Yes. After your deposit, we board your puppy free of charge, lodging and food both covered, until you are ready. Delivery is then scheduled around your availability, usually mornings or evenings.',
+  },
+  {
+    question: 'Is adopting cheaper than buying a puppy in Singapore?',
+    answer:
+      'Yes. Adoption packages in Singapore run about $70 to $400 and are the honest answer for tight budgets. If you want a specific small breed with structured support from day one, a licensed shop is the alternative; ours is $2,888 to $4,488 with everything included.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/pricing',
+    title,
+    description,
+    aboutName: 'Puppy pricing in Singapore',
+    aboutAlternateName: 'puppy cost Singapore',
+    datePublished: '2026-07-06',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  aggregateOfferSchema({ priceLow: '2888', priceHigh: '4488', priceCurrency: 'SGD' }),
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/pricing" ogImage="/assets/pricing/og-pricing.jpg">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Puppy Pricing in Singapore: Everything Included"
+    h1Accent="Pricing"
+    subhead="Most shops make you message them just to hear a number. Ours is in writing: every puppy is $2,888 to $4,488, and that already covers the $500+ starter kit, free home delivery and setup, and a free first lesson with an AVS-certified trainer."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Could you share current puppy availability and prices?"
+    secondaryCtaLabel="See what's included"
+    secondaryCtaHref="#included"
+    priceAnchor="From $2,888 all-in. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="Puppy pricing in Singapore made transparent: apricot Cavapoo puppy in its playpen with the included starter kit around it"
+    imageSrc={heroPricing}
+    tagLabel="All-in pricing"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Pricing', href: '/pricing' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="How much does a puppy cost in Singapore?"
+      definition="Puppy prices in Singapore run from roughly $800 to $13,900 depending on breed, size, coat, and seller, and established shops commonly list small breeds at $3,500 to $7,800. At Curious Tails, every puppy is $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson already inside the price."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We publish our full price range because comparing puppy pricing in Singapore only works when someone puts a real number in writing first."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The number, in writing</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Every puppy: $2,888 to $4,488, all-in',
+            'Starter kit worth $500+, 30+ items',
+            'Free home delivery and playpen setup',
+            'Free first AVS-certified training lesson',
+            'Licensing paperwork done at purchase',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Exact price per puppy depends on breed, coat, and age. WhatsApp us for current litters.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families trust our pricing"
+    stats={[
+      { value: '$2,888', label: 'puppy pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included in every price' },
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="included" class="scroll-mt-40">
+    <ValueBundle
+      eyebrow="One price, five inclusions"
+      heading="What every Curious Tails price includes"
+      headingAccent="every"
+      subhead="The sticker price is the full price. These come with every puppy, whichever breed and whichever end of the $2,888 to $4,488 range."
+      items={[
+        {
+          title: 'Starter kit, 30+ items',
+          body: 'Playpen, carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral care, and toys. Bought separately this is a $500+ shopping trip you skip entirely.',
+          icon: 'kit',
+          highlight: '$500+ value',
+        },
+        {
+          title: 'Free delivery and home setup',
+          body: 'We deliver island-wide free, set up the playpen before your puppy walks in, and walk you through how to use every item in the kit.',
+          icon: 'delivery',
+          highlight: 'Included',
+        },
+        {
+          title: 'Free AVS-certified training lesson',
+          body: 'Your first lesson with an AVS-Accredited Certified Dog Trainer is on us, best booked in week one while the routine is forming.',
+          icon: 'training',
+          highlight: 'Included',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-4 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Two more inclusions do not fit in a card: after your deposit we board your puppy free, food and lodging covered, until your home is ready, and the dog licensing paperwork is completed with our full assistance at purchase. Read <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how the free AVS-certified training lesson works</a> and <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">everything inside the 30+ item starter kit</a>.
+      </p>
+    </div>
+  </div>
+
+  <div id="market" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Puppy Prices Across Singapore: the Honest Market Picture"
+      headingAccent="Honest"
+      subhead="We would rather show you the whole market, including the cheaper paths, than pretend ours is the only number."
+      mode="table"
+      tableHeaders={['Where you buy', 'What you pay']}
+      rows={[
+        { label: 'Adoption (shelters such as Action for Singapore Dogs)', values: ['$70 to $400 adoption package; the genuine budget path, usually adult or mixed-breed dogs'] },
+        { label: 'Established big-name pet shops, small breeds', values: ['Commonly $3,500 to $7,800 per puppy, before supplies and training'] },
+        { label: 'Cavapoo, typical Singapore market', values: ['$4,300 to $6,500'] },
+        { label: 'Maltipoo, typical Singapore market', values: ['$5,000 to $9,000'] },
+        { label: 'Rare and large breeds', values: ['Up to $13,900 at the top of the market'] },
+        { label: 'Curious Tails, all seven breeds', values: ['$2,888 to $4,488, with kit, delivery, setup, and training already included'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Market figures reflect published listings and cost guides such as <a href="https://www.income.com.sg/blog/cost-of-dog-ownership-in-singapore" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="nofollow noopener">Income's cost of dog ownership guide</a>; exact numbers move with litters and demand. The point stands either way: a listed puppy price tells you almost nothing until you know what it includes.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="What Actually Drives a Puppy's Price" imagePosition="none" variant="card">
+    <p>Four things move a puppy's price in Singapore: breed demand against how few litters are available locally, adult size, coat type and colour, and age at sale. A wavy-coated small cross in a popular colour will always sit above a common coat, because more families are queuing for the same few puppies.</p>
+    <p>The fifth driver is the one listings never mention: what it costs to sell a puppy legally. A licensed shop carries AVS licensing, proper housing, vet checks, vaccinations, and microchipping before any puppy goes home, and those costs sit inside every honest price.</p>
+    <p>Which is why a price far below the market is not a discount; it is usually a seller who skipped those steps. More on that below.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Price drivers, ranked</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Breed demand vs local litter supply',
+          'Adult size (toy sizes command more)',
+          'Coat type and colour',
+          'Age at sale (8 to 12 weeks is peak)',
+          'The legal costs an honest seller carries',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="why-less" class="scroll-mt-40">
+    <CloudDivider fillClass="fill-[var(--color-mint-100)]" againstColor="var(--color-surface-card)" />
+    <CaptionedBlock heading="Why We're $500 to $2,000 Less Than the Big-Name Shops" imageAlt="Puppy starter kit included in the price: playpen panels, carrier, bowls, grooming brush and toys laid out in a Singapore home" imageSrc={kitFlatlay} imagePosition="right" variant="mid">
+      <p>The honest answer is boring: marketing. The established names have been in the market longer and spend heavily on advertising and social reach, and that spend has to come back through the puppy price. We spend almost nothing on ads and let the pricing do the talking.</p>
+      <p>The licence on the wall is the same. Every AVS licensed pet shop, us included, answers to the same welfare standards, inspections, and health requirements, so a lower price here is not a shortcut on care. Verify any shop, ours first, on the <a href={site.license.registryUrl} class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS public registry of licensed pet shops</a>.</p>
+      <p>We would rather win on what is included and on word of mouth. It is slower than advertising, and it has given us {site.reviews.count} five-star reviews in two years.</p>
+    </CaptionedBlock>
+    <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+  </div>
+
+  <div id="by-breed" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Price Guide by Breed"
+      headingAccent="Breed"
+      subhead="All seven breeds we carry sit inside the same published range. The market column shows what the same breed commonly costs elsewhere in Singapore."
+      mode="table"
+      tableHeaders={['Breed', 'At Curious Tails', 'Typical market']}
+      rows={[
+        { label: 'Cavapoo', values: ['$2,888 to $4,488 all-in', '$4,300 to $6,500'] },
+        { label: 'Maltipoo', values: ['$2,888 to $4,488 all-in', '$5,000 to $9,000'] },
+        { label: 'Mini Dachshund', values: ['$2,888 to $4,488 all-in', 'Enquiry-only at most shops'] },
+        { label: 'Corgi', values: ['$2,888 to $4,488 all-in', 'Commonly $7,880 to $8,500'] },
+        { label: 'Shiba Inu', values: ['$2,888 to $4,488 all-in', 'Enquiry-only at most shops'] },
+        { label: 'Bichonpoo', values: ['$2,888 to $4,488 all-in', 'Enquiry-only at most shops'] },
+        { label: 'Cockapoo', values: ['$2,888 to $4,488 all-in', 'Enquiry-only at most shops'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The exact price for an individual puppy depends on its coat, colour, and age, which is why we quote per puppy on WhatsApp rather than pinning stale numbers here. Start with our <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo puppies</a> or <a href="/puppies/maltipoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Maltipoo puppies</a> pages for breed-level detail, or browse <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all seven breeds we carry</a>. A note for HDB residents: Corgi and Shiba Inu are not HDB-approved breeds, and we will tell you that before you fall for a photo, not after.
+      </p>
+    </div>
+  </div>
+
+  <BannerRibbon
+    heading="Want the live number for a specific puppy?"
+    body="Litters and availability change weekly. Message us and we'll send current photos, video, gender, age, and the exact price, no obligation."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Could you send me your current puppies with photos and exact prices?"
+    variant="dark"
+  />
+
+  <ComparisonSplit
+    heading="The Real Cost of a 'Bargain' Puppy"
+    headingAccent="Real Cost"
+    subhead="Unlicensed listings on Carousell and Telegram run $500 to $1,000 below shop prices. Here is what that discount actually buys."
+    mode="split"
+    columns={[
+      {
+        heading: 'The $1,500 online "deal"',
+        items: [
+          'No AVS licence to verify, whatever the listing claims',
+          'Often smuggled in without vaccinations or vet care',
+          'Parvovirus treatment can run $5,000 to $10,000, and the puppy may still not survive',
+          'One buyer was fined $7,000 for unknowingly purchasing a smuggled dog',
+          'No recourse, no support, seller vanishes after payment',
+        ],
+      },
+      {
+        heading: 'A licensed shop at $2,888+',
+        items: [
+          'Licence verifiable on the AVS public registry in 60 seconds',
+          'Vet-checked, vaccinated, dewormed, and microchipped before homecoming',
+          'Licensing paperwork completed at purchase',
+          'A shop that is still there tomorrow, and answers its WhatsApp',
+          'The $500+ starter kit and training already included',
+        ],
+        emphasis: true,
+      },
+    ]}
+  />
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-6">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+      The $7,000 fine is real: the Straits Times covered <a href="https://www.straitstimes.com/singapore/courts-crime/dog-buyer-fined-7k-first-time-nparks-prosecuted-purchaser-over-animal-smuggling" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">the first NParks prosecution of a buyer</a>, not just the smuggler. We say this once and move on; read <a href="/learn/smuggled-puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what smuggled puppies really cost buyers</a> if you want the full picture.
+    </p>
+  </div>
+
+  <div id="after-you-pay" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="What Happens After You Pay: Deposit to Homecoming"
+      headingAccent="After You Pay"
+      subhead="The part most shops leave vague. Here is the exact sequence, so nothing after the deposit is a surprise."
+      mode="table"
+      tableHeaders={['Step', 'What happens']}
+      rows={[
+        { label: '1. Reserve', values: ['A deposit reserves your puppy; from that moment it is yours'] },
+        { label: '2. We board, free', values: ['Lodging and food covered until your home is ready, whether that is days or weeks'] },
+        { label: '3. Delivery scheduled', values: ['Free island-wide, arranged around your availability, usually mornings or evenings'] },
+        { label: '4. Home setup', values: ['Playpen, bed, water, and toilet area set up before your puppy explores; we walk you through all 30+ kit items'] },
+        { label: '5. Training + licence', values: ['Book the free AVS-certified lesson in week one; licensing paperwork is already done from purchase day'] },
+      ]}
+    />
+    <CaptionedBlock heading="Homecoming, Scheduled Around You" imageAlt="Puppy homecoming after deposit and free delivery: caregiver lowering an apricot Cavapoo puppy onto the floor of an HDB flat" imageSrc={homecoming} imagePosition="left">
+      <p>The boarding step matters more than families expect: renovations overrun, trips get booked, and a puppy should not arrive into chaos. Because we board free after the deposit, your puppy comes home on the day your home is actually ready.</p>
+      <p>On that day the playpen is set up before your puppy explores the room. See <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and playpen setup works</a> for the full picture of the day itself.</p>
+    </CaptionedBlock>
+  </div>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <div id="first-year" class="scroll-mt-40">
+    <CaptionedBlock heading="Your First-Year Budget Beyond the Purchase Price" imagePosition="none">
+      <p>The purchase is the biggest single number, but the first year adds its own line items, and you should see them before you commit, not after. Expect the AVS dog licence from $15 a year ($35 one-time for a sterilised dog), food from roughly $340 to $2,430 a year depending on size and diet, routine vet care around $300 to $500, and grooming around $274 a year for the low-shedding coats we carry.</p>
+      <p>Add the annual booster vaccination and deworming from Year 1 onward, and pet insurance from around $316 a year if you choose it. A comfortable planning figure for a small breed's first year is $1,200 to $3,500 on top of the purchase.</p>
+      <p>What you can cross off that list: the $500+ of day-one equipment, because the starter kit covers it. For the full month-by-month numbers, use the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget planner</a>.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">First-year planning figures</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'AVS dog licence: from $15/year',
+            'Food: $340 to $2,430/year by size',
+            'Routine vet care: $300 to $500/year',
+            'Grooming: around $274/year',
+            'Annual booster + deworming from Year 1',
+            'Starter kit already covers ~$500 of gear',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <ComparisonSplit
+    heading="Which Budget Path Fits Your Situation?"
+    subhead="Four honest answers for four different wallets. We only benefit from one of them, and we'll still give you the other three."
+    mode="table"
+    tableHeaders={['Your situation', 'Our honest take']}
+    rows={[
+      { label: 'Budget under $500', values: ['Adopt. Shelters like Action for Singapore Dogs rehome for $70 to $400, and a rehomed dog is a genuinely good dog'] },
+      { label: 'Want a specific small breed, first dog, want support', values: ['A licensed shop is your path; ours is $2,888 to $4,488 with the kit, setup, and training lesson included'] },
+      { label: 'Found a $1,500 "deal" on Carousell or Telegram', values: ['Check the seller on the AVS registry before paying anything. No licence means the discount is the risk'] },
+      { label: 'Torn between two breeds at different prices', values: ['Decide on routine fit, not price. WhatsApp us your 8am to 6pm reality and we will tell you straight which breed suits it'] },
+    ]}
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="We Price the Match, Not the Sale" imagePosition="none" variant="dark">
+    <p>A note from us, Nelson and Kim. The most expensive mistake in puppy buying is not overpaying by a few hundred dollars; it is bringing home a breed that does not fit your routine. We have talked customers out of the breed they walked in for, and one of those couples left us a five-star review for exactly that steer.</p>
+    <p>So before we ever talk numbers, we ask what your day looks like from 8am to 6pm. We'd rather talk you out of the wrong breed than sell you the wrong dog.</p>
+    <p>That is the whole pricing philosophy: publish the range, include what a new owner actually needs, and let the match decide the rest. Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how we run the shop</a>.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Our pricing philosophy</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'The range is published: $2,888 to $4,488',
+          'Everything a first-time owner needs is inside it',
+          'Routine fit decides the breed, not the price tag',
+          'No pressure, no upsell, honest answers',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Families Say About the Value"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            "We'd been comparing breeders for weeks, and Curious Tails in Balestier stood head and shoulders above the rest. It was clear Nelson knew their stuff, as they were happy to help with even the small things and knew their stuff inside and out. Everything from the health records to the paperwork was handled seamlessly. The $500+ starter pack was such a generous surprise and got us set up right away. We couldn't be more pleased, an easy five stars.",
+          name: 'Karen Joy Pepito',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Our search for the perfect Bichonpoo ended the moment we stepped into Curious Tails's Balestier store. Nelson was so patient with all our questions and gave us great value with everything bundled in and surprised us with loads of free extras. Our pup was clean, well-socialised, and full of energy when we brought it home. Everything from the health records to the paperwork was handled seamlessly. Thank you Curious Tails for such a wonderful start to pet parenthood!",
+          name: 'Po Xian Lee',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "We weren't even sure we were ready, but a visit to Curious Tails in Balestier sealed the deal on our Maltipoo. Honestly, Nelson and Kim gave us a wonderful bundle of complimentary items, which made the whole thing stress-free. The full vaccination was already covered, which showed how much they care. Honestly couldn't recommend Curious Tails highly enough.",
+          name: 'Alex Tan',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Couldn't recommend Curious Tails in Balestier enough after bringing home our Cavapoo. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+          name: 'Andrew Mak',
+          meta: 'Google review, Cavapoo owner',
+        },
+      ]}
+    />
+  </div>
+
+  <CaptionedBlock heading="Aftercare That's Already in the Price" imageAlt="Puppy aftercare included in the price: apricot Cavapoo resting on a caregiver's lap during a gentle ear check at home" imageSrc={aftercareLap} imagePosition="right" variant="card">
+    <p>Support does not end when the delivery van leaves. If your puppy falls sick within the first 5 days of going home, bring them back to the shop and we will nurse them ourselves.</p>
+    <p>Beyond that window, our customer service stays free: WhatsApp us any care question, any time. Most of them we will already have answered during the starter-kit walkthrough in your home, and the ones we haven't get a real reply from the people who matched you with your puppy.</p>
+    <p>The free first lesson is with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, best booked in your puppy's first week home.</p>
+  </CaptionedBlock>
+
+  <div id="licensing" class="scroll-mt-40">
+    <DefBox
+      term="Licensing and paperwork: done at purchase, included in the price"
+      definition="An AVS dog licence is mandatory for every dog in Singapore. At Curious Tails, the licensing and paperwork are completed at the point of purchase with our full assistance, so your puppy goes home already properly documented, microchipped, and licensed to you."
+      bridge="First-time owners have one extra step: a free one-time online pet ownership course, required before your first dog licence. It takes an evening, and we will point you to it during purchase so nothing stalls your puppy's homecoming."
+      citationLabel="AVS Pet Ownership Course (required for first-time owners)"
+      citationHref="https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay any seller</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry, it takes 60 seconds',
+            'Ask for the licence number and check it matches',
+            'Curious Tails: AVS pet shop licence AS24J00046',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">how to verify any pet shop's AVS licence</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Pricing Questions, Answered" items={faqItems} />
+  </div>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Ready to Talk Numbers? Visit or Message Us"
+    body="Can't make the trip to Balestier? WhatsApp us for current availability and exact per-puppy pricing, with free home delivery across Singapore."
+    reserveMessage="Hi! I'd like to check current puppy availability and pricing."
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

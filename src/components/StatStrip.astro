@@ -1,0 +1,37 @@
+---
+import Blob from './decor/Blob.astro';
+
+interface Stat {
+  value: string;
+  label: string;
+}
+interface Props {
+  heading?: string;
+  stats: Stat[];
+}
+const { heading, stats } = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-[var(--color-lilac-900)] py-14">
+  <Blob class="pointer-events-none absolute -top-20 left-[12%] h-64 w-64 fill-[var(--color-lilac-700)]/50 blob-drift-slow" aria-hidden="true" />
+  <Blob class="pointer-events-none absolute -bottom-16 right-[6%] h-56 w-56 fill-[var(--color-coral-600)]/15 blob-drift" aria-hidden="true" />
+
+  <div class="relative mx-auto max-w-[1400px] px-5 sm:px-8">
+    {heading && (
+      <p class="text-sm font-bold uppercase text-white/60 mb-7" style="letter-spacing: 0.08em;">
+        {heading}
+      </p>
+    )}
+    <dl class="grid grid-cols-2 sm:grid-cols-4 gap-5">
+      {stats.map((stat, i) => (
+        <div data-reveal style={`--i:${i}`} class="rounded-3xl border-3 border-white/10 bg-white/5 p-5 text-center sm:text-left">
+          <dt class="sr-only">{stat.label}</dt>
+          <dd class="font-[family-name:var(--font-heading)] font-bold text-[var(--color-coral-400)]" style="font-size: clamp(2.1rem, 3.6vw, 3rem); line-height: 1;">
+            {stat.value}
+          </dd>
+          <p class="mt-2 text-sm text-white/80">{stat.label}</p>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>

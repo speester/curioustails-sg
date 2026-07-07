@@ -1,0 +1,243 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import DefBox from '../../components/DefBox.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+import mealTime from '../../assets/guides/2-puppy-mealtime-fixed-schedule.webp';
+import nightRoutine from '../../assets/guides/3-puppy-night-routine-sleeping-pen.webp';
+import socialisationWalk from '../../assets/free-training/2-puppy-socialisation-window-walk.webp';
+import exploring from '../../assets/delivery/4-puppy-first-24-hours-exploring.webp';
+
+const title = 'Puppy Care 101: Week-by-Week Guide Singapore | Curious Tails';
+const description =
+  "Your puppy's first weeks home, week by week: feeding times, toilet routine, sleep, the 3-16 week socialisation window, and Singapore's exact vaccination schedule.";
+
+const jumpLinks = [
+  { label: 'Day One', href: '#day-one' },
+  { label: 'Week 1', href: '#week-one' },
+  { label: 'Weeks 2–4', href: '#weeks-2-4' },
+  { label: 'Vaccinations', href: '#vaccinations' },
+  { label: 'Singapore Care', href: '#sg-care' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How long until a puppy settles into a new home?',
+    answer:
+      'Most puppies settle visibly within 3 to 7 days when the routine is fixed: same meal times, same toilet spot, same bedtime. Full confidence, where the puppy owns the space and the schedule, takes 3 to 4 weeks. Consistency is the whole trick.',
+  },
+  {
+    question: 'Is night whimpering normal in the first week?',
+    answer:
+      'Yes, for the first few nights. It is adjustment, not distress: your puppy just left its littermates. A comfort toy in the pen and a calm, consistent response shorten it; dramatic midnight rescues lengthen it.',
+  },
+  {
+    question: 'When is the first vet visit?',
+    answer:
+      'If your puppy comes from us, the week 6 and week 8 vaccinations are already done and it comes home around week 9. Your first vet visit is the week 12 vaccination that completes the core course; we hand you the records so the vet has the full picture.',
+  },
+  {
+    question: 'How often should a puppy eat?',
+    answer:
+      'Three fixed meals a day at this age, using the same food the puppy came with. If you later switch brands, transition gradually over about a week; sudden diet changes are the top cause of week-one stomach upsets.',
+  },
+  {
+    question: 'When can my puppy go outside?',
+    answer:
+      'Carried outings can start immediately, and should, because the socialisation window is open. Ground walks in busy dog areas wait until after the week 12 vaccination, per your vet\'s advice. In between, quiet corridors and carried void-deck visits do the socialisation work safely.',
+  },
+  {
+    question: 'What if something feels wrong in week one?',
+    answer:
+      'WhatsApp us first, any time; most week-one worries are normal adjustment, and we can usually tell you so in two messages. And if a puppy from us falls sick within the first 5 days home, bring it back and we nurse it ourselves.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/first-time-owners/puppy-care-101',
+    title,
+    description,
+    aboutName: 'Puppy care in the first weeks',
+    aboutAlternateName: 'puppy first week home',
+    datePublished: '2026-07-06',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/first-time-owners/puppy-care-101" ogImage="/assets/guides/og-puppy-care-101.jpg">
+  <Hero
+    eyebrow="First-time owner guide · Decision 5"
+    h1="Your Puppy's First Weeks Home: What to Expect"
+    h1Accent="First Weeks"
+    subhead="The week-by-week puppy care guide for Singapore homes: day one hour by hour, the week-one routine, the 3-to-16-week socialisation window, and the exact local vaccination schedule. Built from hundreds of placements, not theory."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Quick puppy care question:"
+    secondaryCtaLabel="Start at day one"
+    secondaryCtaHref="#day-one"
+    priceAnchor="The rule behind every section: routine beats reading."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="Puppy care guide Singapore: Cavapoo exploring its set-up playpen at its own pace in the first 24 hours"
+    imageSrc={exploring}
+    tagLabel="Care 101"
+    proofChip="Week by week"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'First-Time Owners', href: '/first-time-owners' }, { label: 'Puppy Care 101', href: '/first-time-owners/puppy-care-101' }]} />
+  </Hero>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What does a puppy's first week look like?"
+      definition="Day 0: arrive into a ready playpen, explore at its own pace, first meal on the usual food. Days 1 to 3: fixed meal times, a consistent toilet spot, calm handling, some night whimpering. Days 4 to 7: the routine starts holding, the first training lesson happens, and gentle carried socialisation begins. Boring, on purpose."
+      bridge="A new puppy runs on routine: fixed feeding, one toilet spot, a playpen it owns, calm nights, and gentle socialisation inside the 3-to-16-week window. Everything below is that sentence, expanded and localised to Singapore."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The five anchors</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Fixed meal times (three a day)',
+            'One consistent toilet spot',
+            'A playpen the puppy owns',
+            'A calm, repeatable bedtime',
+            'Gentle socialisation, 3 to 16 weeks',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="day-one" class="scroll-mt-40">
+    <CaptionedBlock heading="Day One, Hour by Hour" imageAlt="Puppy first day home: Cavapoo exploring its set-up playpen at its own pace" imageSrc={exploring} imagePosition="right">
+      <p>Hour 0: your puppy explores the playpen at its own pace, no welcome party, no passing-around. If we delivered, the pen is already set up and smells of its own bed, which is exactly why we set up before letting the puppy out; see <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how delivery day works</a>.</p>
+      <p>Hour 2 or so: first meal, the same food it has been eating, water always available. First toilet trip to the pad right after; success gets quiet praise, misses get cleaned without comment.</p>
+      <p>Evening: dim the lights, keep voices low, and let the day be boring. Everything your puppy needs on day one is in <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the starter kit</a>, and everything you need is patience.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="week-one" class="scroll-mt-40">
+    <CaptionedBlock heading="Week One: Feeding on the Clock" imageAlt="Puppy feeding routine: Cavapoo eating from its ceramic bowl at a fixed mealtime in a Singapore kitchen" imageSrc={mealTime} imagePosition="left" variant="card">
+      <p>Three meals a day, at the same times every day, of the same food your puppy arrived with. Diet continuity is the single biggest protector of week-one digestion, and week-one digestion is the single biggest protector of toilet training.</p>
+      <p>Portion by the food's small-breed guide, not by the eyes looking up at you. If you eventually want a different brand, transition over a week or so, a quarter at a time.</p>
+      <p>Meals also power the toilet routine: puppies go after eating with near-clockwork reliability, so each mealtime ends with a trip to the pad. That is the whole system.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Week One: Nights, Whimpering, and the Comfort Toy" imageAlt="Puppy night routine: Cavapoo asleep in its dim playpen with a comfort toy after lights out" imageSrc={nightRoutine} imagePosition="right">
+      <p>The first two or three nights usually include whimpering, and here is the truth that saves families: it is adjustment, not distress. Your puppy slept in a pile of siblings last week; alone is new.</p>
+      <p>What shortens it: a comfort toy in the bed, the pen where the family's evening sounds still reach, and a calm, consistent response, the same brief reassurance every time. What lengthens it: dramatic rescues into the human bed at 2am, which teach exactly the lesson you'd expect.</p>
+      <p>By night four or five, most puppies sleep through. If yours doesn't, WhatsApp us; the fix is usually one detail.</p>
+    </CaptionedBlock>
+  </div>
+
+  <BannerRibbon
+    heading="Week one is when the free lesson lands"
+    body="Every puppy of ours includes a first lesson with an AVS-certified trainer, booked into week one while the routine is forming."
+    ctaLabel="See the free lesson"
+    ctaHref="/free-training"
+    variant="dark"
+  />
+
+  <div id="weeks-2-4" class="scroll-mt-40">
+    <CaptionedBlock heading="Weeks 2 to 4: the Socialisation Window Is Open" imageAlt="Puppy socialisation window: Cavapoo calmly observing a Singapore void deck from its walker's side" imageSrc={socialisationWalk} imagePosition="left">
+      <p>Between roughly 3 and 16 weeks of age, new experiences register as normal instead of alarming, and that window is open right now. AVS's own guidance is the standard we follow: positive, controlled exposure to people, sounds, surfaces, and calm vaccinated dogs, with quality beating quantity every time.</p>
+      <p>Until the week-12 vaccination clears ground walks in busy areas, carry your puppy: a carried tour of the void deck, the lift lobby, and the corridor at different hours covers traffic sounds, strangers, and lift chimes safely.</p>
+      <p>One rule from the <a href="https://avs.nparks.gov.sg/pets/caring-for-a-pet/dog-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">AVS socialisation guidance</a> worth engraving: never force an interaction. A puppy that watches from your arms is socialising; a puppy that gets passed to every enthusiastic stranger is not.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="vaccinations" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="The Vaccination and Licensing Timeline"
+      headingAccent="Timeline"
+      subhead="Singapore's schedule, in exact weeks. If your puppy is from us, the first two rows are already done at homecoming."
+      mode="table"
+      tableHeaders={['When', 'What happens']}
+      rows={[
+        { label: 'Week 6', values: ['First vaccination and deworming'] },
+        { label: 'Week 8', values: ['Second vaccination and deworming'] },
+        { label: 'Week 9', values: ['Puppy goes home, one week after the second vaccination'] },
+        { label: 'Week 12', values: ['Third vaccination and deworming, completing the core puppy course; your first vet visit'] },
+        { label: 'Week 16', values: ['Optional fourth vaccination, if advised by your vet for extra early-life protection'] },
+        { label: 'Year 1 onward', values: ['Annual booster shot and deworming, every year as advised by your vet'] },
+        { label: 'At purchase', values: ['Microchipping is done; dog licensing paperwork is completed with our full assistance'] },
+        { label: 'Before licensing (first-time owners)', values: ['The free online pet ownership course, required since September 2024'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        What we screen before any puppy goes home is covered in <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our puppy health checks explained</a>; the first-timer course lives on the <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">AVS pet ownership course</a> page.
+      </p>
+    </div>
+  </div>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="sg-care" class="scroll-mt-40">
+    <CaptionedBlock heading="The Singapore-Specific Parts" imagePosition="none" variant="mid">
+      <p>Heat first: walk before 9am and after 6pm, full stop. Midday pavement here burns small paws, and a puppy will not tell you until it has. The five-second rule works: if the back of your hand cannot rest on the pavement for five seconds, neither can paws.</p>
+      <p>Haze weeks and monsoon afternoons happen; a corridor of fetch, ten minutes of kibble-scatter sniffing, and a stuffed chew toy will honestly retire a small puppy indoors. Exercise is about the brain as much as the legs at this age.</p>
+      <p>And HDB corridor noise: lift chimes, renovation drilling, neighbours' slippers. Treat each as a socialisation rep, not an annoyance; a puppy that hears drilling from its calm playpen at 10 weeks ignores it for life. Ongoing costs for all of this are in the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year budget planner</a>.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-surface-card)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Local rules of thumb</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Walks: before 9am, after 6pm',
+            'Five-second pavement test with your hand',
+            'Haze days: indoor sniff-and-seek games',
+            'Corridor noise = free socialisation reps',
+            'Water available in every room the puppy uses',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="First-Weeks Questions, Answered" items={faqItems} />
+  </div>
+
+  <FinalCta
+    breed="Puppy"
+    heading="The Guide Comes With the Puppy"
+    body="Every puppy of ours arrives with this routine pre-built: kit set up, walkthrough done, lesson booked, and our WhatsApp open. Ask us anything."
+    reserveMessage="Hi! I'd like to ask about your available puppies."
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

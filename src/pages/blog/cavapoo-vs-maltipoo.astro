@@ -1,0 +1,189 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import DefBox from '../../components/DefBox.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+import cavapooPortrait from '../../assets/cavapoo/2-cavapoo-puppy-portrait-available.webp';
+import maltipooLap from '../../assets/maltipoo/2-maltipoo-puppy-companion-lap.webp';
+import windowContent from '../../assets/cavapoo/6-cavapoo-puppy-window-content.webp';
+
+const title = 'Cavapoo vs Maltipoo: Which Should You Choose? | Curious Tails';
+const description =
+  'Cavapoo vs Maltipoo for Singapore families: the full comparison table, the alone-time difference that decides most matches, and the honest answer by household type.';
+const datePublished = '2026-07-07';
+
+const faqItems = [
+  {
+    question: 'What is the main difference between a Cavapoo and a Maltipoo?',
+    answer:
+      'Independence. They look similar and both carry low-shedding coats, but the Cavapoo copes noticeably better with being alone during work hours, while the Maltipoo is more attachment-dependent and happiest where someone is home most of the day. This one difference decides most matches.',
+  },
+  {
+    question: 'Which is better for a working couple in Singapore?',
+    answer:
+      'The Cavapoo, clearly. An 8am to 6pm empty home is workable for a Cavapoo with a settled playpen routine; the same hours are genuinely hard on a Maltipoo, which tends toward whining and anxiety through long stretches alone.',
+  },
+  {
+    question: 'Which is better with children?',
+    answer:
+      'Both are gentle, but the Cavapoo\'s slightly sturdier build and patient temperament edge it for younger kids, while the Maltipoo\'s softer frame suits calmer households and older children who have learned gentle handling.',
+  },
+  {
+    question: 'Are both HDB-approved?',
+    answer:
+      'Yes, both are approved crosses for HDB flats, one dog per flat, and both sit in the same $2,888 to $4,488 all-in range with us, so neither rules nor budget separate them. Your weekday routine does.',
+  },
+  {
+    question: 'Which sheds less, and which needs more grooming?',
+    answer:
+      'Both are low-shedding; grooming workloads are similar (brushing several times a week, professional grooming every 4 to 8 weeks). The Maltipoo\'s lighter face shows tear stains more, adding a daily ten-second wipe to its routine.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/blog/cavapoo-vs-maltipoo',
+    title,
+    description,
+    aboutName: 'Cavapoo vs Maltipoo comparison',
+    aboutAlternateName: 'cavapoo or maltipoo',
+    datePublished,
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/blog/cavapoo-vs-maltipoo" ogImage="/assets/cavapoo/og-cavapoo.jpg">
+  <section class="bg-[var(--color-peach-100)] pb-10 pt-2">
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pt-5">
+      <Breadcrumb bare items={[{ label: 'Blog', href: '/blog' }, { label: 'Cavapoo vs Maltipoo', href: '/blog/cavapoo-vs-maltipoo' }]} />
+      <div class="mx-auto mt-8 max-w-[75ch]">
+        <p class="text-xs font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">Blog · Breed comparison</p>
+        <h1 class="mt-3 font-[family-name:var(--font-heading)] font-semibold leading-[1.08] text-[var(--color-cream-900)]" style="font-size: clamp(2.2rem, 4.5vw, 3.5rem);">
+          Cavapoo vs Maltipoo: the Complete Breed Comparison
+        </h1>
+        <p class="mt-4 text-sm text-[var(--color-cream-600)]">
+          By <a href="/about-us" class="font-semibold underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson &amp; Kim</a>, Curious Tails · Published {datePublished} · The most common comparison in our shop, answered properly
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <DefBox
+    term="Cavapoo or Maltipoo: which should you choose?"
+    definition="The Cavapoo and Maltipoo look similar and share low-shedding coats, but differ where it matters: the Cavapoo is noticeably more independent and suits working couples whose home is empty 8am to 6pm, while the Maltipoo is more attachment-dependent and happiest where someone is home most of the day. Both are HDB-approved and both are $2,888 to $4,488 all-in with us."
+    bridge="This is the single most common comparison in our shop, and the single most common mismatch when it goes wrong. The full table is below; the deciding factor gets its own section, with the story that made it famous here."
+    citationLabel="Verify our licence on the AVS public registry"
+    citationHref={site.license.registryUrl}
+  >
+    <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The 10-second version</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Empty home 8am to 6pm → Cavapoo',
+          'Someone home most days → Maltipoo',
+          'Young kids → Cavapoo, slightly',
+          'Both: HDB-approved, low-shedding',
+          'Both: $2,888 to $4,488 all-in here',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </DefBox>
+
+  <ComparisonSplit
+    heading="The Full Comparison Table"
+    headingAccent="Comparison"
+    subhead="Side by side, with the numbers other comparisons round off."
+    mode="table"
+    tableHeaders={['Trait', 'Cavapoo', 'Maltipoo']}
+    rows={[
+      { label: 'The cross', values: ['Cavalier King Charles Spaniel x Toy Poodle', 'Maltese x Toy Poodle'] },
+      { label: 'Adult size', values: ['3 to 10 kg (toy and mini lines)', 'Often 2 to 6 kg; typically the smaller of the two'] },
+      { label: 'Coat', values: ['Wavy to curly, low-shedding; Blenheim, apricot, cream', 'Finer, silkier wave; white, cream, apricot'] },
+      { label: 'Temperament', values: ['Affectionate, gentle, notably independent', 'Affectionate, people-focused, attachment-driven'] },
+      { label: 'Alone during work hours', values: ['Copes well with a settled playpen routine', 'Hard; prone to whining and anxiety through long stretches'] },
+      { label: 'With children', values: ['Sturdier build, patient; good with young kids', 'Softer frame; better with calm or older kids'] },
+      { label: 'Exercise', values: ['30 to 60 minutes daily', '20 to 40 minutes daily'] },
+      { label: 'Grooming', values: ['Brush 3 to 4x weekly; groom every 6 to 8 weeks', 'Similar, plus daily tear-stain wipes on light faces'] },
+      { label: 'Lifespan', values: ['12 to 15 years', '12 to 15 years'] },
+      { label: 'HDB status', values: ['Approved cross', 'Approved cross'] },
+      { label: 'Price at Curious Tails', values: ['$2,888 to $4,488 all-in', '$2,888 to $4,488 all-in'] },
+    ]}
+  />
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+      Full profiles with health, first-week, and pricing detail: <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo puppies</a> and <a href="/puppies/maltipoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Maltipoo puppies</a>. What every price includes is on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the pricing page</a>.
+    </p>
+  </div>
+
+  <CaptionedBlock heading="The Deciding Factor: Independence" imageAlt="Cavapoo content by the window during work hours, the independent half of this comparison" imageSrc={windowContent} imagePosition="right">
+    <p>Strip away the coat colours and the size decimals, and one difference decides almost every Cavapoo-vs-Maltipoo match: how each breed handles an empty home. It is the single most common mismatch we see in Singapore, working couples choosing the companion breed that needs company all day.</p>
+    <p>The story we tell every torn buyer: a couple came in set on a Maltipoo. Both work 8am to 6pm, no helper, nobody home. We recommended a Cavapoo instead, similar look and warmth, noticeably more independent, and risked the sale saying so. They took the Cavapoo, she settled into her playpen routine without the distress a Maltipoo might have shown, and Andrew Mak's five-star review of that steer is still our favourite piece of marketing we never wrote.</p>
+    <p>The rule it left us with: we'd rather talk you out of the wrong breed than sell you the wrong dog.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Where the Maltipoo Wins Outright" imageAlt="Maltipoo cuddled on a lap, the companion half of this comparison doing what it does best" imageSrc={maltipooLap} imagePosition="left" variant="card">
+    <p>None of this makes the Cavapoo "better"; it makes it better for empty weekdays. Flip the household and the verdict flips with it: for retirees, work-from-home owners, and families with someone usually around, the Maltipoo's attachment-driven devotion is not a weakness, it is the entire point.</p>
+    <p>A Maltipoo in a company-rich home is one of the most rewarding placements we make: a shadow, a lap ornament, a greeter of every return, usually in a slightly smaller and silkier package than the Cavapoo.</p>
+    <p>If that sounds like your home but you want a rounder, sturdier curl, the <a href="/puppies/bichonpoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Bichonpoo</a> plays the same role with a different coat.</p>
+  </CaptionedBlock>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <ComparisonSplit
+    heading="The Verdict, by Household Type"
+    headingAccent="Verdict"
+    subhead="Two years of placements, compressed into one table."
+    mode="table"
+    tableHeaders={['Your household', 'Our honest pick']}
+    rows={[
+      { label: 'Working couple, home empty 8am to 6pm', values: ['Cavapoo, and it is not close'] },
+      { label: 'Someone home most of the day', values: ['Maltipoo; it will reward every hour of that company'] },
+      { label: 'Young children in the house', values: ['Cavapoo, for the sturdier build and patience'] },
+      { label: 'Older kids or adults-only, calm home', values: ['Either; let the individual puppy\'s character decide at a viewing'] },
+      { label: 'Allergy-sensitive household', values: ['Either; both low-shedding, meet the puppy first'] },
+      { label: 'Genuinely torn after all this', values: ['Message us your weekday, or come meet both at Balestier'] },
+    ]}
+  />
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+      Still undecided across more breeds than these two? The <a href="/first-time-owners/breed-selector" class="underline underline-offset-2 text-[var(--color-accent-hover)]">two-minute breed selector</a> scores all seven we carry against your routine.
+    </p>
+  </div>
+
+  <CaptionedBlock heading="Cost: a Tie, on Purpose" imageAlt="Cavapoo puppy portrait, priced identically to the Maltipoo in this comparison" imageSrc={cavapooPortrait} imagePosition="right" variant="card">
+    <p>Elsewhere, the Maltipoo often prices higher ($5,000 to $9,000 market against the Cavapoo's $4,300 to $6,500), which quietly pushes torn buyers toward the Cavapoo for the wrong reason.</p>
+    <p>Here both breeds live in the same published $2,888 to $4,488 all-in range, with the $500+ starter kit, free delivery and setup, and the first training lesson inside the price for either. The tie is deliberate: it means your decision runs on routine fit, which is the only variable that predicts a happy placement.</p>
+    <p>Money questions beyond the sticker are covered in the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year budget planner</a>.</p>
+  </CaptionedBlock>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Cavapoo vs Maltipoo Questions" items={faqItems} />
+  </div>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Meet Both, Decide Once"
+    body="The fastest way to settle this comparison is ten minutes with each breed at Balestier. WhatsApp us and we'll have both ready."
+    reserveMessage="Hi! I'm deciding between a Cavapoo and a Maltipoo. Here's my routine:"
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

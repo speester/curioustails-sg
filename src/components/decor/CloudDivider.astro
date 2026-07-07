@@ -1,0 +1,80 @@
+---
+// A clean, continuous scalloped edge between two full-bleed section colors —
+// a seamless "conveyor belt" scroll loop that drifts endlessly in one direction.
+//
+// SEAM-PROOFING (learned the hard way): a divider band between two solid
+// sections can expose a 1px hairline of the PAGE background at the seam where
+// the divider meets the coloured section, because sub-pixel rounding on the
+// scaled SVG / stacked block boxes leaves a fractional gap. To make that
+// impossible we DON'T rely on a transparent SVG over the page background.
+// Instead:
+//   • the container's own background is set to the FILL colour, so the seam
+//     against the coloured section is fill-on-fill and can never show through;
+//   • the "light" side is painted as an explicit `--color-surface` (or caller-
+//     supplied `againstColor`) path that OVERSHOOTS every edge, so the seam
+//     against the light section is light-on-light with overlap — no gap.
+// Nothing anywhere is left transparent, so the page background is never visible.
+//   • Belt-and-braces: the container also carries `-my-px`, physically OVERLAPPING
+//     both neighbouring sections by 1px so there is no fractional gap between the
+//     block boxes to expose the page background in the first place. (Container-bg
+//     alone only hides the divider's own transparency; it does NOT close a real
+//     gap between two stacked boxes — that gap shows the ROOT background, which is
+//     what produced the persistent hairline. The overlap is what actually kills it.)
+interface Props {
+  fillClass: string; // Tailwind fill-* class matching the coloured section the divider borders
+  flip?: boolean; // scallop points down (bottom of a coloured section) instead of up
+  againstColor?: string; // raw CSS colour of the OTHER (light) section; defaults to page surface
+}
+const { fillClass, flip = false, againstColor = 'var(--color-surface)' } = Astro.props;
+
+const bumpWidth = 100;
+const count = 12;
+const r = bumpWidth / 2;
+const width = bumpWidth * count; // one tile
+const totalW = width * 2; // two tiles, back-to-back, for the seamless loop
+const o = 6; // overshoot (viewBox units) past each edge, so no seam is ever flush
+
+// The scallop boundary line. Non-flip: coloured section is the FILL side at the
+// bottom, its bumps rising into the light top. Flip: mirrored.
+const boundary = flip ? 30 : 70;
+
+// Build the LIGHT-side path with a scalloped edge, tracing the boundary
+// right→left so the semicircle bumps of the fill colour show through.
+let d;
+if (!flip) {
+  d = `M${-o},${-o} L${totalW + o},${-o} L${totalW + o},${boundary}`;
+  for (let i = count * 2; i > 0; i--) {
+    d += ` A${r},${r} 0 0 0 ${(i - 1) * bumpWidth},${boundary}`;
+  }
+  d += ` L${-o},${boundary} Z`;
+} else {
+  d = `M${-o},${100 + o} L${totalW + o},${100 + o} L${totalW + o},${boundary}`;
+  for (let i = count * 2; i > 0; i--) {
+    d += ` A${r},${r} 0 0 1 ${(i - 1) * bumpWidth},${boundary}`;
+  }
+  d += ` L${-o},${boundary} Z`;
+}
+
+// Container background = the fill colour (derived from the fill-[...] class).
+const bgClass = fillClass.replace('fill-', 'bg-');
+---
+
+<div class:list={['relative h-12 sm:h-16 overflow-hidden -my-px', bgClass]} aria-hidden="true">
+  <svg class="cloud-loop absolute inset-y-0 left-0 h-full" style="width: 200%;" viewBox={`0 0 ${totalW} 100`} preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d={d} fill={againstColor} />
+  </svg>
+</div>
+
+<style>
+  .cloud-loop {
+    animation: cloud-loop 16s linear infinite;
+    will-change: transform;
+  }
+  @keyframes cloud-loop {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cloud-loop { animation: none; }
+  }
+</style>

@@ -1,0 +1,19 @@
+---
+import { site, whatsappLink } from '../data/site';
+
+const ALLOW_STICKY_MOBILE_CTA = true;
+---
+
+{ALLOW_STICKY_MOBILE_CTA && (
+  <div
+    class="lg:hidden fixed bottom-0 inset-x-0 z-sticky bg-[var(--color-surface)]/95 backdrop-blur-sm px-4 py-3"
+    style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom));"
+  >
+    <a
+      href={whatsappLink("Hi! I'd like to ask about your puppies.")}
+      class="clay-btn flex items-center justify-center gap-2 bg-[var(--color-accent)] px-5 py-3.5 text-sm font-bold text-white"
+    >
+      WhatsApp {site.businessName}
+    </a>
+  </div>
+)}

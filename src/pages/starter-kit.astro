@@ -1,0 +1,370 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import Hero from '../components/Hero.astro';
+import Tabs from '../components/Tabs.astro';
+import DefBox from '../components/DefBox.astro';
+import StatStrip from '../components/StatStrip.astro';
+import ComparisonSplit from '../components/ComparisonSplit.astro';
+import CaptionedBlock from '../components/CaptionedBlock.astro';
+import BannerRibbon from '../components/BannerRibbon.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Carousel from '../components/Carousel.astro';
+import FAQ from '../components/FAQ.astro';
+import Schema from '../components/Schema.astro';
+import ScatterFloat from '../components/decor/ScatterFloat.astro';
+import CloudDivider from '../components/decor/CloudDivider.astro';
+import PawTrail from '../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  serviceSchema,
+  faqPageSchema,
+} from '../lib/schema';
+import heroKit from '../assets/starter-kit/1-puppy-starter-kit-hero-playpen-assembled.webp';
+import asleepBed from '../assets/starter-kit/2-puppy-asleep-fleece-bed-playpen.webp';
+import feedingBowls from '../assets/starter-kit/3-feeding-bowls-puppy-food-kit.webp';
+import groomingCare from '../assets/starter-kit/4-grooming-brush-puppy-coat-care.webp';
+import outdoorWalk from '../assets/starter-kit/5-outdoor-gear-leash-harness-walk.webp';
+import kitWalkthrough from '../assets/starter-kit/6-kit-walkthrough-home-guidance.webp';
+
+const title = 'Puppy Starter Kit Singapore | 30+ Items | Curious Tails';
+const description =
+  "What's included in a puppy starter kit? Ours has 30+ items worth $500+ across 8 categories, free with every puppy, delivered and set up at home. WhatsApp us.";
+
+const jumpLinks = [
+  { label: 'The 8 Categories', href: '#categories' },
+  { label: 'Week One', href: '#week-one' },
+  { label: 'DIY vs Included', href: '#diy' },
+  { label: 'Home Setup', href: '#setup' },
+  { label: 'Walkthrough', href: '#walkthrough' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Is the starter kit really free?',
+    answer:
+      'It is included in every puppy\'s price, which is $2,888 to $4,488 all-in. There is no add-on charge, no minimum spend, and no membership to sign up for. Bought separately, the same items are a $500+ shopping trip.',
+  },
+  {
+    question: 'What exactly is in the puppy starter kit?',
+    answer:
+      'More than 30 items across eight categories: a playpen and bed, a carrier, feeding bowls and puppy food, toilet training supplies, grooming tools, oral health care, outdoor gear like a leash and harness, and toys. We walk you through every item at delivery.',
+  },
+  {
+    question: 'Will the playpen fit a small HDB flat?',
+    answer:
+      'Yes. We deliver and set the playpen up ourselves, and we place it to suit your layout: away from direct afternoon sun, out of the aircon draft, and where the family actually spends time. Small flats are the norm for us, not the exception.',
+  },
+  {
+    question: 'What food comes in the kit?',
+    answer:
+      'The same small-breed puppy food your puppy has been eating at our shop, so there is no sudden diet change on the most stressful day of its young life. If you later prefer another brand, transition gradually over about a week.',
+  },
+  {
+    question: 'When will my puppy outgrow the starter items?',
+    answer:
+      'Most items serve the first 6 to 12 months. The playpen, bowls, and grooming tools last well beyond that; the harness and collar get sized up as your puppy grows. We flag what to upgrade and when during the walkthrough, and you can WhatsApp us any time after.',
+  },
+  {
+    question: 'Can the kit be delivered before the puppy arrives?',
+    answer:
+      'The kit arrives with your puppy on delivery day, and that is deliberate: we set everything up before your puppy explores the room, so the space reads as home from the first minute rather than a pile of unopened shopping.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/starter-kit',
+    title,
+    description,
+    aboutName: 'Puppy starter kit',
+    aboutAlternateName: 'new puppy kit',
+    datePublished: '2026-07-06',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  serviceSchema({
+    name: 'Puppy Starter Kit & Home Setup (30+ items)',
+    description:
+      '30+ item puppy starter kit worth $500+, included with every puppy: playpen, carrier, grooming tools, food, outdoor gear, toilet training supplies, oral care and toys, delivered and set up at the buyer\'s home with a full item-by-item walkthrough.',
+    price: 'Included',
+  }),
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/starter-kit" ogImage="/assets/starter-kit/og-starter-kit.jpg">
+  <Hero
+    eyebrow="Included with every puppy"
+    h1="Inside Our Puppy Starter Kit: 30+ Items, $500+ Value"
+    h1Accent="Starter Kit"
+    subhead="Retail 'starter kits' in Singapore are $20 to $200 bundles of samples and toys. Ours is the full day-one setup: 30+ items across 8 categories, delivered free, set up in your home, and explained item by item before we leave."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your puppies and the starter kit."
+    secondaryCtaLabel="See the 8 categories"
+    secondaryCtaHref="#categories"
+    priceAnchor="Included in every puppy's price. Never sold separately, never billed as an add-on."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="Puppy starter kit Singapore: assembled playpen with bed, bowls and toys from the 30+ item kit, apricot Cavapoo puppy inside"
+    imageSrc={heroKit}
+    tagLabel="30+ items"
+    proofChip="$500+ value"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Starter Kit', href: '/starter-kit' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What's included in a puppy starter kit?"
+      definition="A complete puppy starter kit covers eight categories: housing (playpen and bed), transport (carrier), feeding (bowls and food), toilet training (pads and cleaner), grooming tools, oral care, outdoor gear (leash and harness), and toys. Retail kits in Singapore run $20 to $200 and cover only part of that list; a complete set bought separately costs $500 or more."
+      bridge="Curious Tails includes the full eight-category kit, over 30 items, with every puppy. It comes home with your puppy, gets set up by us, and every item is explained before we leave."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The 8 categories</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Playpen and bed (housing)',
+            'Carrier (transport)',
+            'Bowls and puppy food (feeding)',
+            'Pads and cleaner (toilet training)',
+            'Brush, shampoo, nail care (grooming)',
+            'Toothbrush and dental care (oral health)',
+            'Leash, harness, poo bags (outdoor)',
+            'Teething and comfort toys (play)',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="The kit, in numbers"
+    stats={[
+      { value: '30+', label: 'items in every kit' },
+      { value: '$500+', label: 'retail value, included free' },
+      { value: '8', label: 'categories, day-one complete' },
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="categories" class="scroll-mt-40">
+    <CaptionedBlock heading="Housing and Comfort: Where Your Puppy Actually Lives" imageAlt="Puppy starter kit housing items in use: apricot Cavapoo asleep in the fleece bed inside its playpen corner" imageSrc={asleepBed} imagePosition="right">
+      <p>The playpen is the single most important item in the kit, and the one new owners most often buy wrongly on their own: too small, too flimsy, or set up somewhere the puppy is either isolated or overstimulated. Ours comes with a proper bed, and we set both up in the right spot in your home.</p>
+      <p>A puppy that treats its playpen as home territory settles into alone time instead of fretting through it. That is the foundation for everything else: toilet training, sleep, and a working couple's 8am to 6pm absence.</p>
+      <p>The playpen, the bed, and the placement advice all come with your puppy; see <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what happens on delivery day</a>.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Feeding: the Same Food, the Same Bowls, Zero Disruption" imageAlt="Feeding items from the puppy starter kit: ceramic bowls, small-breed puppy food and a scoop on a kitchen floor" imageSrc={feedingBowls} imagePosition="left" variant="card">
+      <p>Homecoming day is the most stressful day of a puppy's young life, so the kit removes the one stressor we can control: diet. Your puppy goes home with the same small-breed food it has been eating at our shop, plus food and water bowls.</p>
+      <p>Keep that food constant for the first weeks. If you later want another brand, transition gradually over about a week; the <a href="https://www.royalcanin.com/sg/dogs/puppy/collecting-your-puppy" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">puppy collection checklists</a> the big food brands publish say the same thing for the same reason.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Grooming and Oral Care: Small Tools, Big First-Year Difference" imageAlt="Grooming tools from the puppy starter kit in use: brushing an apricot Cavapoo coat with the slicker brush" imageSrc={groomingCare} imagePosition="right">
+      <p>The low-shedding coats we carry, Cavapoo, Maltipoo, Bichonpoo, Cockapoo, mat faster in Singapore's humidity than overseas care guides let on. The kit's brush handles the 3-to-4-times-a-week routine that prevents it, and the puppy shampoo and nail tools cover the rest of the basics.</p>
+      <p>Oral care is the category everyone skips and later regrets: the kit includes a puppy toothbrush and dental care so the habit starts young, while your puppy still thinks everything is a game.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Outdoor Gear and Toys: Walks, Play, and Teething" imageAlt="Outdoor gear from the puppy starter kit: apricot Cavapoo in a small harness on a shaded morning walk in Singapore" imageSrc={outdoorWalk} imagePosition="left" variant="card">
+      <p>The kit includes a leash, a properly sized harness, and poo bags for the park connector walks that bracket a Singapore dog's day, morning and evening, around the heat.</p>
+      <p>Toys are not filler: a teething puppy will chew something, and the kit decides that it is a rubber toy rather than your table leg. A comfort toy in the playpen also does quiet work on night one.</p>
+      <p>Toilet training supplies, pads and an enzymatic cleaner, round out the list; where the pads go is part of the setup we do in your home.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="week-one" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Which Kit Items Matter Most in Week One"
+      headingAccent="Week One"
+      subhead="All 30+ items earn their place eventually. These four run the first week."
+      mode="table"
+      tableHeaders={['Priority', 'Item and why it leads']}
+      rows={[
+        { label: '1. Playpen + bed', values: ['Home territory from hour one; where settling, sleep, and alone-time training all happen'] },
+        { label: '2. The same food', values: ['Diet continuity prevents the upset stomach that derails toilet training in week one'] },
+        { label: '3. Pads + cleaner', values: ['Accidents are normal; the enzymatic cleaner stops repeat-marking in the same spot'] },
+        { label: '4. Comfort toy', values: ['Night whimpering is adjustment, not distress; a comfort toy shortens it'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The full week-by-week routine, feeding times, toilet schedule, and what is normal at 3am, is in our <a href="/first-time-owners/puppy-care-101" class="underline underline-offset-2 text-[var(--color-accent-hover)]">week-by-week puppy care guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <BannerRibbon
+    heading="Want to see the kit with an actual puppy?"
+    body="Message us and we'll send photos of current puppies plus everything that comes home with them, prices included."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Could you show me your current puppies and what comes in the starter kit?"
+    variant="dark"
+  />
+
+  <div id="diy" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Buy It Yourself vs Included With Your Puppy"
+      headingAccent="Included"
+      subhead="We priced the DIY route honestly. It is not close."
+      mode="split"
+      columns={[
+        {
+          heading: 'The DIY shopping trip',
+          items: [
+            'Retail "starter kits" run $20 to $200 and cover a fraction of the list',
+            'A complete set across all 8 categories: $500 or more',
+            'You guess at playpen size, harness fit, and food choice',
+            'Everything arrives flat-packed; you assemble and place it',
+            'Nobody shows you how any of it works',
+          ],
+        },
+        {
+          heading: 'The Curious Tails kit',
+          items: [
+            'All 8 categories, 30+ items, included in the puppy\'s price',
+            'Sized and chosen for your actual puppy',
+            'Delivered free, island-wide',
+            'Assembled and placed in your home before your puppy explores',
+            'Every item explained in person before we leave',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The kit is one reason <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing</a> reads lower than it is: the $2,888 to $4,488 already covers what other buyers spend again after leaving the shop. For everything beyond day one, plan with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget planner</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="setup" class="scroll-mt-40">
+    <CaptionedBlock heading="Set Up in Your Home Before Your Puppy Walks In" imagePosition="none" variant="mid">
+      <p>Delivery is not a doorstep drop-off. We carry the kit in, assemble the playpen, and place it properly: away from direct afternoon sun, out of the aircon draft, near where the family actually spends its evenings, with the toilet area positioned so training makes sense for your layout.</p>
+      <p>We do this in HDB flats, condos, and landed homes across Singapore, and the small-flat version is the one we know best. By the time your puppy explores the room, its space is already there: bed in the pen, water filled, pads down.</p>
+      <p>That first impression matters more than it sounds. A puppy that walks into a ready territory settles in days; one that arrives to cardboard boxes and assembly noise takes longer.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-surface-card)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Placement rules we follow</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Out of direct afternoon sun (west-facing windows especially)',
+            'Away from the aircon\'s direct draft',
+            'Near family activity, not isolated in a store room',
+            'Toilet area away from the bed, consistent from day one',
+            'Water reachable from the first minute',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="walkthrough" class="scroll-mt-40">
+    <CaptionedBlock heading="The Walkthrough: We Show You How to Use Every Item" imageAlt="Starter kit walkthrough at home: staff hands demonstrating a kit item to a new owner beside the set-up playpen" imageSrc={kitWalkthrough} imagePosition="right">
+      <p>A box of 30 items helps nobody if you are guessing at 11pm. So before we leave your home, we go through each item in person: how the pad holder clips, how much food per meal, how the harness adjusts, which toy is for teething and which is for the playpen at night.</p>
+      <p>Here is what two years of doing this taught us: most first-time owners think they need a lot of information upfront. What they actually need is a simple routine to follow and someone to call when they are unsure. The walkthrough gives you the routine; our WhatsApp gives you the someone.</p>
+      <p>The kit walkthrough pairs with <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the free AVS-certified training lesson</a>, best booked in week one while the routine is forming.</p>
+    </CaptionedBlock>
+  </div>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <CaptionedBlock heading="What NOT to Buy Before Your Puppy Arrives" imagePosition="none" variant="card">
+    <p>The most common day-one mistake is over-buying. Skip adult-size gear (your puppy will outgrow two sizes before it matters), skip a second food brand (diet continuity beats variety), and skip duplicate beds and toy piles (one bed the puppy owns beats three it ignores).</p>
+    <p>Hold your extras budget until after the walkthrough. Once you have seen what the kit covers and how your actual puppy behaves in your actual home, the gaps, if any, are obvious and cheap to fill.</p>
+    <p>If you are still budgeting for the bigger picture, the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year cost breakdown</a> covers what genuinely comes later: licensing, vet visits, grooming.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Save your money on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Adult-size harnesses, collars, and beds',
+          'A second or third food brand "for variety"',
+          'Toy piles (two good toys beat ten)',
+          'Fancy crates before you know your routine',
+          'Anything the walkthrough hasn\'t confirmed you need',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Families Say About the Kit"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            "We'd been comparing breeders for weeks, and Curious Tails in Balestier stood head and shoulders above the rest. It was clear Nelson knew their stuff, as they were happy to help with even the small things and knew their stuff inside and out. Everything from the health records to the paperwork was handled seamlessly. The $500+ starter pack was such a generous surprise and got us set up right away. We couldn't be more pleased, an easy five stars.",
+          name: 'Karen Joy Pepito',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Our search for the perfect Bichonpoo ended the moment we stepped into Curious Tails's Balestier store. Nelson was so patient with all our questions and gave us great value with everything bundled in and surprised us with loads of free extras. Our pup was clean, well-socialised, and full of energy when we brought it home. Everything from the health records to the paperwork was handled seamlessly. Thank you Curious Tails for such a wonderful start to pet parenthood!",
+          name: 'Po Xian Lee',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "We weren't even sure we were ready, but a visit to Curious Tails in Balestier sealed the deal on our Maltipoo. Honestly, Nelson and Kim gave us a wonderful bundle of complimentary items, which made the whole thing stress-free. The full vaccination was already covered, which showed how much they care. Honestly couldn't recommend Curious Tails highly enough.",
+          name: 'Alex Tan',
+          meta: 'Google review',
+        },
+      ]}
+    />
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Starter Kit Questions, Answered" items={faqItems} />
+  </div>
+
+  <FinalCta
+    breed="Puppy"
+    heading="See the Kit and Meet the Puppies"
+    body="Can't make the trip to Balestier? WhatsApp us for current puppies and photos of everything that comes home with them, free delivery included."
+    reserveMessage="Hi! I'd like to see your current puppies and what comes in the starter kit."
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

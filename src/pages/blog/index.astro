@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Schema from '../../components/Schema.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import Blob from '../../components/decor/Blob.astro';
+import PawPrint from '../../components/decor/PawPrint.astro';
+import { Image } from 'astro:assets';
+import { site } from '../../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, itemListSchema } from '../../lib/schema';
+import mistakesImg from '../../assets/home/5-cavapoo-puppy-settling-playpen-first-day.png';
+import hdbImg from '../../assets/bichonpoo/2-bichonpoo-white-portrait.webp';
+import compareImg from '../../assets/cavapoo/2-cavapoo-puppy-portrait-available.webp';
+
+const title = 'Blog: Puppy Guides & Honest Advice | Curious Tails';
+const description =
+  'Honest puppy advice from the Curious Tails shop floor: first-timer mistakes, HDB breed guidance, and breed comparisons, written from real Singapore placements.';
+
+// One entry per post. Newest first; add new posts to the top.
+const posts = [
+  {
+    title: 'Cavapoo vs Maltipoo: the Complete Breed Comparison',
+    href: '/blog/cavapoo-vs-maltipoo',
+    date: '2026-07-07',
+    tag: 'Breed comparison',
+    excerpt:
+      'They look alike; they live differently. The full table, plus the independence difference that decides most matches.',
+    image: compareImg,
+    imageAlt: 'Cavapoo puppy portrait, one half of the Cavapoo vs Maltipoo comparison',
+  },
+  {
+    title: 'Low-Shedding, Low-Barking Dogs That HDB Allows',
+    href: '/blog/hdb-dog-guide',
+    date: '2026-07-06',
+    tag: 'Breed guides',
+    excerpt:
+      'The five approved breeds that fit flat life best, ranked by alone-time tolerance, noise, and grooming reality.',
+    image: hdbImg,
+    imageAlt: 'White Bichonpoo puppy, an HDB-approved low-shedding cross',
+  },
+  {
+    title: '5 First-Time Puppy Owner Mistakes to Avoid',
+    href: '/blog/first-time-mistakes',
+    date: '2026-07-06',
+    tag: 'First-time owners',
+    excerpt:
+      'From real placements: choosing by photo, the 2am rescue, and the other classics, with the fixes attached.',
+    image: mistakesImg,
+    imageAlt: 'Cavapoo puppy settled in her playpen after an honest breed match',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/blog',
+    title,
+    description,
+    aboutName: 'Puppy guides and advice',
+    datePublished: '2026-07-07',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema(posts.map((p) => ({ name: p.title, url: p.href, description: p.excerpt }))),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/blog" ogImage="/assets/guides/og-first-time-owners.jpg">
+  <section class="relative overflow-hidden bg-[var(--color-peach-100)] pb-12 pt-2">
+    <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+      <Blob class="absolute -top-16 -left-20 h-80 w-80 fill-[var(--color-mint-200)]/70 blob-drift-slow" />
+      <Blob class="absolute top-10 right-[-6rem] h-72 w-72 fill-[var(--color-lilac-100)] blob-drift" />
+      <PawPrint class="absolute left-[6%] top-[26%] h-10 w-10 text-[var(--color-mint-300)]/70 -rotate-12 blob-drift" />
+      <PawPrint class="absolute right-[10%] top-[60%] h-8 w-8 text-[var(--color-coral-300)]/70 rotate-12 blob-drift-slow" />
+    </div>
+    <div class="relative mx-auto max-w-[1400px] px-5 sm:px-8 pt-5">
+      <Breadcrumb bare items={[{ label: 'Blog', href: '/blog' }]} />
+      <div class="mt-8 max-w-[70ch]">
+        <p class="inline-flex items-center gap-2 rounded-full border-3 border-[var(--color-coral-400)] bg-white px-4 py-1.5 text-xs font-bold tracking-wide text-[var(--color-coral-600)] uppercase shadow-[0_4px_0_0_var(--color-coral-300)]" style="letter-spacing: 0.06em;">
+          <PawPrint class="h-3.5 w-3.5" />
+          The blog
+        </p>
+        <h1 class="mt-5 font-[family-name:var(--font-heading)] font-semibold leading-[1.05] text-[var(--color-cream-900)]" style="font-size: clamp(2.5rem, 5vw, 4rem);">
+          Honest Advice, From the <span class="text-[var(--color-coral-500)]">Shop Floor</span>
+        </h1>
+        <p class="mt-4 max-w-[60ch] text-lg leading-relaxed text-[var(--color-cream-700)]">
+          Guides written from real Singapore placements by Nelson and Kim: what actually goes wrong, what actually fits an HDB flat, and which breed actually suits your weekday. New posts land here first.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[1400px] px-5 sm:px-8 py-14">
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {posts.map((post, i) => (
+        <article data-reveal style={`--i:${i}`} class="clay clay-hover flex h-full flex-col overflow-hidden bg-[var(--color-surface-card)]">
+          <a href={post.href} class="block">
+            <Image src={post.image} alt={post.imageAlt} class="aspect-[16/10] w-full object-cover" widths={[480, 760]} sizes="(min-width: 1024px) 430px, 90vw" loading={i === 0 ? 'eager' : 'lazy'} />
+          </a>
+          <div class="flex flex-1 flex-col p-6">
+            <div class="flex items-center gap-2 text-xs">
+              <span class="rounded-full bg-[var(--color-mint-100)] px-3 py-1 font-bold text-[var(--color-cream-700)]">{post.tag}</span>
+              <time datetime={post.date} class="text-[var(--color-cream-500)]">{post.date}</time>
+            </div>
+            <h2 class="mt-3 font-[family-name:var(--font-heading)] text-xl font-semibold leading-snug text-[var(--color-cream-900)]">
+              <a href={post.href} class="hover:text-[var(--color-coral-600)]">{post.title}</a>
+            </h2>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-[var(--color-cream-700)]">{post.excerpt}</p>
+            <a href={post.href} class="mt-4 text-sm font-semibold text-[var(--color-accent-hover)] underline underline-offset-2 hover:text-[var(--color-coral-600)]">Read the post →</a>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="mt-8 text-sm leading-relaxed text-[var(--color-cream-600)]">
+      Looking for the structured versions? The <a href="/first-time-owners" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-time owner checklist</a> and the <a href="/learn" class="underline underline-offset-2 text-[var(--color-accent-hover)]">buyer-protection guides</a> cover the same ground as reference pages rather than posts.
+    </p>
+  </section>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <BannerRibbon
+    heading="Got a question a post hasn't answered?"
+    body="Message us; real questions from real owners are where every post on this page started."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I have a puppy question your blog hasn't covered yet:"
+    variant="dark"
+  />
+
+  <FinalCta
+    breed="Puppy"
+    heading="Reading Done? Meet the Puppies"
+    body="Can't make the trip to Balestier? WhatsApp us for current puppies and prices; honest answers either way."
+    reserveMessage="Hi! I'd like to ask about your available puppies."
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

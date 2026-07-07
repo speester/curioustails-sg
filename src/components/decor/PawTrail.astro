@@ -1,0 +1,75 @@
+---
+// A trail of paw prints "walking" across a section boundary — full-width,
+// alternating left/right gait, with its own fast reveal + continuous trot
+// bounce (independent of the sitewide [data-reveal] timing, which is tuned
+// for content cards, not a quick playful trail like this).
+import PawPrint from './PawPrint.astro';
+
+interface Props {
+  bg?: string; // background utility class for the band, e.g. 'bg-[var(--color-surface)]'
+  colorClass?: string; // paw print text-color utility class
+}
+const { bg = 'bg-[var(--color-surface)]', colorClass = 'text-[var(--color-coral-300)]' } = Astro.props;
+const steps = Array.from({ length: 11 }, (_, i) => i);
+---
+
+<div class:list={['paw-trail relative overflow-hidden py-6', bg]} aria-hidden="true">
+  <div class="mx-auto flex w-full max-w-[1400px] items-center justify-between px-5 sm:px-8">
+    {steps.map((i) => (
+      <div
+        data-paw
+        style={`--i:${i}; margin-top: ${i % 2 === 0 ? '0.9rem' : '0'}; transition-delay: ${i * 45}ms; animation-delay: ${i * 90}ms;`}
+        class:list={['paw-step', i % 2 === 0 ? 'rotate-[8deg]' : '-rotate-[8deg]']}
+      >
+        <PawPrint class:list={['h-5 w-5 sm:h-6 sm:w-6', colorClass]} />
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .paw-step {
+    opacity: 0;
+    transform: translateY(10px) scale(0.6);
+    transition: opacity 350ms ease-out, transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .paw-trail.is-walking .paw-step {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  .paw-trail.is-walking .paw-step {
+    animation: paw-bounce 1.1s ease-in-out infinite;
+  }
+  @keyframes paw-bounce {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -5px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .paw-step {
+      opacity: 1;
+      transform: none;
+      transition: none;
+      animation: none !important;
+    }
+  }
+</style>
+
+<script>
+  const trails = document.querySelectorAll<HTMLElement>('.paw-trail');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-walking');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    trails.forEach((el) => observer.observe(el));
+  } else {
+    trails.forEach((el) => el.classList.add('is-walking'));
+  }
+</script>

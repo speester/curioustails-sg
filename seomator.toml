@@ -1,0 +1,66 @@
+# SEOmator Configuration for Curious Tails
+# Site-wide SEO audit configuration
+
+[site]
+name = "Curious Tails"
+url = "https://curioustails.sg"
+language = "en-sg"
+
+[audit]
+# Enable all 251 audit rules across 20 categories
+enable_all_rules = true
+
+# Performance audits
+check_core_web_vitals = true
+check_lighthouse = true
+measure_lcp = true        # Largest Contentful Paint
+measure_cls = true        # Cumulative Layout Shift
+measure_fcp = true        # First Contentful Paint
+measure_ttfb = true       # Time to First Byte
+measure_inp = true        # Interaction to Next Paint
+
+# Technical SEO
+check_redirects = true
+check_broken_links = true
+check_robots_txt = true
+check_sitemap = true
+check_canonical = true
+check_structured_data = true
+
+# Security
+check_https = true
+check_security_headers = true
+check_content_security_policy = true
+
+# Accessibility
+check_aria_labels = true
+check_color_contrast = true
+check_heading_hierarchy = true
+
+# Content
+check_readability = true
+check_duplicate_content = true
+
+# Multi-page crawling
+crawl_depth = 2
+max_pages = 50
+concurrent_requests = 5
+
+[output]
+# Generate reports in multiple formats
+formats = ["json", "html", "markdown"]
+output_dir = "./seo-audit-reports"
+
+[content]
+# Content quality rules specific to Curious Tails
+min_word_count = 1500
+max_meta_length = 160
+target_readability = "flesch-kincaid-8th"
+
+[exclusions]
+# Pages to exclude from crawl
+exclude_paths = [
+  "/admin/*",
+  "/api/*",
+  "/search/*"
+]

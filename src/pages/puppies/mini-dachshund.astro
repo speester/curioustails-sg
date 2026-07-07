@@ -1,0 +1,546 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import heroDachshund from '../../assets/mini-dachshund/1-mini-dachshund-puppy-hero-playpen-balestier.webp';
+import redPortrait from '../../assets/mini-dachshund/2-mini-dachshund-red-smooth-portrait.webp';
+import chocoPortrait from '../../assets/mini-dachshund/3-mini-dachshund-chocolate-tan-portrait.webp';
+import creamPortrait from '../../assets/mini-dachshund/4-mini-dachshund-cream-longhair-portrait.webp';
+import rampCare from '../../assets/mini-dachshund/5-mini-dachshund-ramp-sofa-back-care.webp';
+import harnessWalk from '../../assets/mini-dachshund/6-mini-dachshund-harness-walk-park.webp';
+
+const title = 'Mini Dachshund Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Mini Dachshund puppies for sale in Singapore from $2,888, AVS licensed. Real prices, temperament, HDB rules, back-care basics and the $500+ starter kit included.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'Back Care', href: '#back-care' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'First Week', href: '#first-week' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Mini Dachshund cost in Singapore?',
+    answer:
+      'The market runs anywhere from $2,500 to $9,000 depending on coat type, colour, and origin. At Curious Tails, Mini Dachshund puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Can I keep a Mini Dachshund in an HDB flat?',
+    answer:
+      'Yes. The miniature dachshund is an HDB-approved breed, and its compact 4 to 5.5 kg frame suits flat living well. HDB allows one dog of an approved breed per flat, and we complete the dog licensing for you at purchase.',
+  },
+  {
+    question: 'Can a Mini Dachshund be left alone while we are at work?',
+    answer:
+      'Yes, with a settled playpen routine from day one. Dachshunds carry a more independent streak than the companion crosses, so an 8am to 6pm workday is workable. A bored dachshund will announce itself, though, so exercise before you leave and a food-puzzle toy are part of the deal.',
+  },
+  {
+    question: 'What back care does a Mini Dachshund need?',
+    answer:
+      'The long spine makes disc problems (IVDD) the breed\'s known risk, and prevention is mostly habits: no jumping on or off sofas and beds, ramps where height is unavoidable, a lean body weight, and a harness instead of a neck collar. We walk every buyer through this before purchase, not after.',
+  },
+  {
+    question: 'Do Mini Dachshunds bark a lot?',
+    answer:
+      'They have a proper watchdog bark that sounds bigger than the dog. With early training and a settled routine it stays at announcements rather than all-day protest, which keeps HDB neighbours friendly.',
+  },
+  {
+    question: 'How much grooming does the coat need?',
+    answer:
+      'Smooth coats are the easy mode: a weekly brush and the occasional bath. Long-haired coats want brushing 2 to 3 times a week plus professional grooming every 6 to 8 weeks. Either way, the brush and starter tools are already in your kit.',
+  },
+  {
+    question: 'What happens after I reserve a Mini Dachshund?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, usually mornings or evenings, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/mini-dachshund',
+    title,
+    description,
+    aboutName: 'Miniature Dachshund',
+    aboutAlternateName: 'Mini Dachshund',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Dachshund',
+    datePublished: '2026-07-06',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Mini Dachshund puppy',
+      url: '/puppies/mini-dachshund',
+      description:
+        'Mini Dachshund puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Mini Dachshund Home Delivery & Playpen Setup',
+    description: 'Free island-wide home delivery with playpen, bed, and toy setup for every Mini Dachshund puppy, scheduled around the owner\'s availability.',
+    price: 'Included',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Miniature Dachshund',
+    description:
+      'A Miniature Dachshund is a small, long-bodied hound originally bred in Germany for burrow work. Adults typically weigh 4 to 5.5 kg, carry smooth or long coats, live 12 to 16 years, and pack a bold, curious personality into a compact, HDB-approved frame.',
+    sameAs: 'https://en.wikipedia.org/wiki/Dachshund',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/mini-dachshund" ogImage="/assets/mini-dachshund/og-mini-dachshund.jpg">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Mini Dachshund Puppies for Sale in Singapore"
+    h1Accent="Mini Dachshund"
+    subhead="Mini Dachshund prices in Singapore run anywhere from $2,500 to $9,000, usually without explanation. Ours are $2,888 to $4,488, printed here, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Mini Dachshund puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="Mini Dachshund puppy Singapore: red smooth-coat pup standing alert in its set-up playpen at home"
+    imageSrc={heroDachshund}
+    tagLabel="Mini Dachshund"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Mini Dachshund', href: '/puppies/mini-dachshund' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking for a Mini Dachshund for Sale in Singapore?" imageAlt="Red smooth-coat Mini Dachshund puppy available in Singapore, seated portrait" imageSrc={redPortrait} variant="mid">
+      <p>Litters arrive and get reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. Message us and we'll send photos, gender, age, coat type, and exact prices for the Mini Dachshund puppies available now.</p>
+      <p>Every Mini Dachshund puppy for sale here is between $2,888 and $4,488, and what you see is the full price. After you reserve with a deposit, we board your puppy free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Mini Dachshund puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Mini Dachshund photos and prices</a>, or book a viewing at our Balestier shop and meet them in person.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Mini Dachshund Puppies"
+      headingAccent="Available"
+      subhead="A few of the Mini Dachshunds recently looking for homes. Litters move fast, so tap any pup to WhatsApp us for the latest photos, video, and full price."
+      items={[
+        { title: 'Red smooth boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red smooth-coat male Mini Dachshund.'), imageAlt: 'Red smooth-coat male Mini Dachshund puppy available in Singapore', imageSrc: redPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Chocolate & tan girl', href: whatsappLink('Hi! I\'d like more photos and the price for the chocolate and tan female Mini Dachshund.'), imageAlt: 'Chocolate and tan female Mini Dachshund puppy resting on a blanket', imageSrc: chocoPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Cream long-haired girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream long-haired female Mini Dachshund.'), imageAlt: 'Cream long-haired female Mini Dachshund puppy on a cotton mat', imageSrc: creamPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Mini Dachshund?"
+      definition="A Miniature Dachshund is a small, long-bodied hound originally bred in Germany for burrow work. Adults typically weigh 4 to 5.5 kg, carry smooth or long coats, live 12 to 16 years, and pack a bold, curious personality into a compact frame that HDB rules approve."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road specialising in honest breed matching: we ask about your daily routine and your furniture before recommending a dachshund, because both matter with this breed."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Mini Dachshund at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Small hound, long body, big personality',
+            '4 to 5.5 kg fully grown',
+            'Smooth or long coat; smooth sheds lightly',
+            '20 to 40 minutes of walks a day',
+            '12 to 16 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Figures reflect the miniature lines we carry; the standard dachshund is a larger dog.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Mini Dachshund from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Mini Dachshund pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Mini Dachshund Temperament: Big Personality, Small Chassis" imageAlt="Mini Dachshund puppy exploring confidently at home in Singapore" imageSrc={chocoPortrait} imagePosition="left">
+      <p>A Mini Dachshund is a hound in a handbag-sized body: bold, curious, stubborn in the charming way, and fiercely attached to its people. It was bred to make decisions alone inside a burrow, and that history shows up as genuine independence around the house.</p>
+      <p>That independence is why we often shortlist dachshunds for working couples: an 8am to 6pm absence is workable with a settled playpen routine, where a company-hungry Maltipoo would struggle. The trade-off is the watchdog bark, which sounds three sizes bigger than the dog; early training keeps it to announcements.</p>
+      <p>With children, they do well when the handling is gentle and the spine is respected: carry with two hands, no rough wrestling. We show every family how on delivery day.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Mini Dachshund Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Yes, better than most small companion crosses, provided the routine is built from day one. A dachshund that treats its playpen as territory settles into alone time rather than fretting through it, and that setup is exactly what we build in your home on delivery day.</p>
+      <p>The honest caveat: a bored dachshund digs, chews, and announces its opinions. A walk before you leave and a food-puzzle toy in the pen are not optional extras; they are the difference between a calm flat and a redecorated one.</p>
+      <p>Not sure the fit is right? Take the <a href="/first-time-owners/breed-selector" class="underline underline-offset-2 text-[var(--color-accent-hover)]">two-minute breed selector</a>, or message us your actual weekday and we'll tell you straight.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Alone-time checklist</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Walk or play session before you leave',
+            'Playpen as home territory from day one',
+            'Food-puzzle toy for the quiet hours',
+            'Water and toilet area always reachable',
+            'Calm exits and returns, no big scenes',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Mini Dachshund Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers, including the coat-type differences other listings gloss over."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['4 to 5.5 kg for the miniature lines we carry'] },
+        { label: 'Build', values: ['Long back, short legs; about 13 to 15 cm at the shoulder'] },
+        { label: 'Coat (smooth)', values: ['Glossy and short; sheds lightly, weekly brushing'] },
+        { label: 'Coat (long-haired)', values: ['Soft feathering; brush 2 to 3 times weekly, grooming every 6 to 8 weeks'] },
+        { label: 'Common colours', values: ['Red, chocolate and tan, black and tan, cream, dapple'] },
+        { label: 'Lifespan', values: ['12 to 16 years; among the longer-lived small breeds'] },
+        { label: 'Exercise', values: ['20 to 40 minutes daily, split around the heat'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why do listings for the same breed range from $2,500 to $9,000? Coat type and colour rarity (dapple and cream command premiums), import origin, and what the seller includes. When you compare, compare the whole package: our number already contains the kit, delivery, setup, and training that others price separately.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Mini Dachshund Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="The market quotes anywhere from $2,500 to $9,000. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Listings from $2,500 to $9,000 with no explanation',
+            'Coat and colour premiums unstated until you ask',
+            'Starter supplies bought separately after purchase',
+            'Training arranged and paid on your own',
+            'Delivery often self-collected or charged',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer',
+            'Free boarding after deposit until you are ready',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The full market picture, deposit process, and what every dollar covers are on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>. Budgeting past day one? The <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a> lays out food, vet, and grooming numbers before you commit.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Mini Dachshund Goes Home With" imagePosition="none" variant="mid">
+    <p>Every Mini Dachshund leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral care, and toys. For this breed, the harness in the outdoor set matters most: dachshunds walk on harnesses, never neck collars, to protect that long spine.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your dachshund's daily care. See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">everything inside the starter kit</a>, item by item.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-surface-card)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Dachshund-critical kit items</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Harness sized for a long, low body',
+          'Playpen with a low, safe entry',
+          'Bed with a supportive edge',
+          'Food portioned to keep weight lean',
+          'Teething toys that spare your furniture',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="back-care" class="scroll-mt-40">
+    <CaptionedBlock heading="The Back-Care Talk We Give Every Buyer" imageAlt="Mini Dachshund back care at home: puppy using a low fabric ramp beside the sofa instead of jumping" imageSrc={rampCare} imagePosition="right">
+      <p>Here is the conversation most sellers skip: that wonderful long spine is also the breed's weak point. Intervertebral disc disease (IVDD) is the dachshund's known risk, and the good news is that prevention is mostly daily habits, set from puppyhood.</p>
+      <p>The rules we hand every family: no jumping on or off sofas and beds, ever (a ramp solves it); keep the body lean, because extra weight loads the spine; walk on a harness, not a neck collar; and carry the puppy with two hands, chest and hindquarters supported. Children learn this fastest when it is framed as "the dachshund carry".</p>
+      <p>We say this once, plainly, before you buy, because you should hear it from your seller and not from a vet after an emergency. Set the habits early and this breed gives you 12 to 16 sturdy years.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Mini Dachshund Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Mini Dachshund."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Working couple, out 8am to 6pm', values: ['Good fit. Independent enough, with a proper playpen routine and a pre-work walk'] },
+        { label: 'Family with young children', values: ['Good fit with house rules: gentle handling, the two-hand carry, no rough wrestling'] },
+        { label: 'Home with lots of sofas, beds, and stairs', values: ['Workable, with ramps and supervision; jumping is the one habit this breed cannot afford'] },
+        { label: 'HDB flat', values: ['Good fit. The miniature dachshund is HDB-approved; mind the one-dog-per-flat rule'] },
+        { label: 'Want a calm, quiet lap dog', values: ['Look at a Cavapoo instead; a dachshund is a spirited little hound with opinions'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Mini Dachshund is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Mini Dachshund the right fit for us?"
+    variant="dark"
+  />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Can you keep a Mini Dachshund in an HDB flat? Yes"
+      definition="The miniature dachshund is an HDB-approved breed, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and the mini dachshund's 4 to 5.5 kg frame sits comfortably within the small-breed rules. Every puppy we place comes with its dog licensing completed at purchase."
+      bridge="We place dachshunds in HDB homes regularly. The breed's compact size and light-shedding smooth coat suit flat living; the bark just needs early training so the corridor stays friendly."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The miniature dachshund is an approved breed for HDB flats',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: <a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2">HDB-approved dog breeds guide</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CaptionedBlock heading="Daily Life with a Mini Dachshund in Singapore" imageAlt="Mini Dachshund puppy in a small harness on a shaded Singapore park connector walk" imageSrc={harnessWalk} imagePosition="left" imageRotate="right">
+    <p>Exercise needs are honest-sized: 20 to 40 minutes a day, split into a morning and evening walk around the heat. Midday pavement is genuinely too hot for paws this close to the ground, so shaded park connectors and void-deck loops are the routine.</p>
+    <p>Rainy weeks are easy to cover indoors: a corridor of fetch, ten minutes of sniff-and-seek with kibble, and a stuffed chew toy will retire a dachshund for the afternoon. The digging instinct is real, so a designated dig-friendly towel pile beats your laundry basket.</p>
+    <p>Weight discipline is the quiet hero of dachshund life here: portion the food, go easy on table scraps, and that long back stays strong.</p>
+  </CaptionedBlock>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <div id="health" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Vaccination and Licensing Timeline"
+      headingAccent="Timeline"
+      subhead="The exact weeks, so nothing is left to guesswork."
+      mode="table"
+      tableHeaders={['When', 'What happens']}
+      rows={[
+        { label: 'Week 6', values: ['First vaccination and deworming'] },
+        { label: 'Week 8', values: ['Second vaccination and deworming'] },
+        { label: 'Week 9', values: ['Puppy goes home, one week after the second vaccination'] },
+        { label: 'Week 12', values: ['Third vaccination and deworming, completing the core puppy course'] },
+        { label: 'Week 16', values: ['Optional fourth vaccination, if advised by your vet for extra early-life protection'] },
+        { label: 'Year 1 onward', values: ['Annual booster shot and deworming, done every year as advised by your vet'] },
+        { label: 'At purchase', values: ['Microchipping is already done; dog licensing paperwork is completed with our full assistance at the point of purchase'] },
+        { label: 'Before licensing (first-time owners)', values: ['A one-time free online pet ownership course, required since September 2024'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Every puppy goes home vet-checked, vaccinated, dewormed, and microchipped; <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our puppy health checks explained</a> covers what we screen and why. First-time owners must also complete the <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">free online pet ownership course</a> before licensing.
+      </p>
+    </div>
+  </div>
+
+  <div id="first-week" class="scroll-mt-40">
+    <CaptionedBlock heading="Your Mini Dachshund's First Week at Home" imagePosition="none">
+      <p>Day 0: we deliver free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your puppy explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+      <p>Days 1 to 3: keep it calm. Same food, fixed feeding times, toilet pads where we placed them, gentle short play. Some night whimpering is normal adjustment, not distress.</p>
+      <p>Days 4 to 7: the routine starts sticking, and this is the window to book your free first lesson; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free training lesson covers</a>. For everything in between, you WhatsApp us and get a real reply.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Week one, in five lines</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Day 0: delivered, set up, walked through',
+            'Days 1–3: calm, same food, fixed times',
+            'Days 4–7: routine holds, book the lesson',
+            'Back-care habits start on day one',
+            'Questions: WhatsApp, any time',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Owners Say About Us"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "We'd been comparing breeders for weeks, and Curious Tails in Balestier stood head and shoulders above the rest. It was clear Nelson knew their stuff, as they were happy to help with even the small things and knew their stuff inside and out. Everything from the health records to the paperwork was handled seamlessly. The $500+ starter pack was such a generous surprise and got us set up right away. We couldn't be more pleased, an easy five stars.",
+          name: 'Karen Joy Pepito',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Had such a wonderful experience bringing home our new furry family member from Curious Tails in Balestier. Honestly, Nelson and Kim couldn't have been more helpful and answered every single question we had, which made the whole thing stress-free. Our pup was clean, well-socialised, and full of energy when we brought it home. The puppy came home healthy and vet-checked, which gave us real peace of mind. A truly lovely experience from start to finish, thank you!",
+          name: 'Damon Fong',
+          meta: 'Google review',
+        },
+      ]}
+    />
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Mini Dachshund falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return: we nurse your puppy at the shop',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit; if a seller isn't on the registry, they aren't licensed, whatever the listing says."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind. A dachshund listing far below the market range usually means an unlicensed seller, and that discount is the risk."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Mini Dachshund FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Mini Dachshund" reserveMessage="Hi! I'd like to reserve a Mini Dachshund puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

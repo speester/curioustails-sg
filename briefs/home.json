@@ -1,0 +1,628 @@
+{
+  "slug": "home",
+  "target_keyword": "puppy for sale Singapore",
+  "secondary_keyword": null,
+  "page_intent": "transactional (single-intent — no dual-intent logic on this page; breed pages carry the informational/comparison depth)",
+  "page_tier": "core / money / root document",
+  "country": "Singapore",
+  "city": "Singapore (single location: Balestier Road)",
+  "dual_intent_strategy": null,
+
+  "meta_title": "Puppy for Sale Singapore | AVS Licensed | Curious Tails",
+  "meta_description": "Puppies for sale in Singapore from an AVS licensed breeder. Every puppy includes a $500+ starter kit, free home delivery, and a free AVS-certified training lesson. WhatsApp us.",
+  "h1": "Puppies for Sale in Singapore",
+  "h1_full_title_variant": "Puppies for Sale Singapore — Trusted AVS-Licensed Breeder with Free Training & Starter Kit",
+
+  "entity_definitions": [
+    {
+      "entity": "business_entity",
+      "definition": "Curious Tails is an AVS-licensed pet shop in Balestier Road, Singapore, specialising in puppy sales — Cavapoo, Maltipoo, Mini Dachshund, Corgi, Shiba Inu, Bichonpoo, and Cockapoo — each priced $2,888 to $4,488 and paired with a comprehensive starter kit, free home delivery, and a free first training lesson.",
+      "placement": "first 200 visible words, body copy"
+    },
+    {
+      "entity": "subject_entity",
+      "definition": "An AVS-licensed pet shop is a Singapore business approved by the Animal & Veterinary Service (a unit of the National Parks Board) to keep and sell dogs, cats, or rabbits, subject to welfare inspections, mandatory owner-suitability screening (the Pet Purchase Declaration), and annual licence renewal.",
+      "placement": "Definition Box, section 3 (within first 30% of page) — this is the Featured Snippet target"
+    }
+  ],
+
+  "serp_analysis": {
+    "dominant_format": "Product/breed listing pages with trust and testimonial blocks",
+    "avg_word_count": "800-1,200 words for competitor homepages",
+    "structure_patterns": [
+      "Hero with breed carousel",
+      "Available puppies grid",
+      "About/ethical sourcing blurb",
+      "Testimonials strip",
+      "Contact/WhatsApp footer"
+    ],
+    "intent_confirmation": "Dominant intent is transactional — searchers want to see available puppies and a way to contact the seller; a secondary trust-verification intent runs underneath given the smuggling/scam awareness in this niche.",
+    "serp_features": [
+      "Local Pack (searches with location + breed)",
+      "Google Shopping-style product carousel",
+      "People Also Ask (breed and cost questions)",
+      "Image Pack (breed photos)",
+      "Review stars in snippet"
+    ],
+    "serp_feature_targeting": {
+      "featured_snippet": "Definition Box answering 'what is an AVS-licensed pet shop' in <=40 words, placed in section 3, directly after the breed showcase.",
+      "image_pack": "Every breed-card and lifestyle image gets unique alt text naming the breed + Balestier/Singapore + one sensory/action detail.",
+      "knowledge_panel": "LocalBusiness + Organization schema reinforcing Curious Tails as a named, licensed entity at a fixed address, with AggregateRating from the 39 reviews."
+    },
+    "competitor_weaknesses": [
+      "Wag a Tail: limited opening hours, no delivery/setup or training mentioned",
+      "Dawgs & Co: no pricing shown anywhere, no AVS licence mentioned",
+      "The Pup Life: puppy pricing unclear, page focused on subscription meals",
+      "Across the board: no shop publishes a starter-kit value breakdown",
+      "Across the board: none explain what happens AFTER you reserve a puppy (process is opaque)"
+    ],
+    "consensus_topics": [
+      "Ethical breeding / welfare claims",
+      "Health checks before sale",
+      "Available breeds list",
+      "Testimonials / reviews"
+    ],
+    "consensus_topic_depth_note": "Each of these gets 80-120 words of genuine detail on this page, not a one-line badge — e.g. 'health checks' names what is actually checked, not just the word 'health-checked'.",
+    "information_gaps": [
+      "No competitor publishes a starter-kit itemised value breakdown (30+ items, $500+)",
+      "No competitor explains the free-training-lesson process end to end",
+      "No competitor walks a buyer through what happens after reservation (verified across Wag a Tail, Dawgs & Co, The Pup Life, and the review-focused search)",
+      "No competitor pairs AVS licence verification with real, cited smuggling case data (ICA/CNA/Straits Times) — this is a verified true gap, not a depth gap",
+      "No competitor offers lifestyle-first breed matching (all list breeds by availability, not by daily-routine fit)"
+    ],
+    "vagueness_gaps": [
+      "\"Ethically bred and raised\" (Dawgs & Co) → no definition of what the practice actually involves",
+      "\"Health checked, vaccinated and dewormed\" (multiple competitors) → no vaccine names, no schedule, no vet partner named",
+      "\"4000+ families since 2016\" (Wag a Tail) → no verifiable proof mechanism shown (no linked reviews count)"
+    ],
+    "unanswered_questions": [
+      "What happens in the first 24 hours after the puppy arrives at my home?",
+      "How do I know the starter kit is actually worth $500 and not marked up?",
+      "If my puppy gets sick in the first week, what actually happens?"
+    ],
+    "sourcing_transparency_gaps": [
+      "No competitor names their vaccination protocol or a specific vaccination guideline they follow"
+    ],
+    "regulatory_compliance_gaps": [
+      "No competitor explains HDB dog-ownership rules on their homepage, despite this being a primary buyer concern for Singapore's largely-HDB population"
+    ],
+    "decision_stage_gaps": [
+      "No clear 'what happens when I message you' process shown anywhere",
+      "No shop shows a value/inclusions breakdown next to the price to justify what a buyer is paying for"
+    ],
+    "cro_conversion_gaps": [
+      "No mid-page CTA on any competitor homepage — single CTA at top or bottom only",
+      "No urgency or availability signal (buyers can't tell if a breed is in stock)",
+      "No secondary conversion path for browsers not ready to buy today",
+      "No visible AVS licence number on any competitor homepage — trust signal left to inference"
+    ]
+  },
+
+  "lsi_keywords": {
+    "instruction": "Adoption/free/cheap-cluster terms (e.g. 'free puppy Singapore', 'puppies for adoption Singapore') are EXCLUDED per business decision — that audience has no purchase intent and is not the target market for a $2,888+ puppy.",
+    "all": [
+      "puppy for sale Singapore", "puppies for sale Singapore", "puppy for sale near me Singapore", "puppy shop Singapore", "pet shop Singapore puppies",
+      "puppy for sale Singapore price", "puppy for sale Singapore AVS licensed", "AVS licensed puppy Singapore", "AVS licensed pet shop Singapore",
+      "small puppy for sale Singapore", "small breed puppy Singapore", "toy breed puppy Singapore", "hypoallergenic puppy Singapore",
+      "Cavapoo puppy Singapore", "Maltipoo puppy Singapore", "Mini Dachshund puppy Singapore", "Corgi puppy Singapore", "Shiba Inu puppy Singapore", "Bichonpoo puppy Singapore", "Cockapoo puppy Singapore",
+      "puppy starter kit Singapore", "puppy starter pack Singapore", "puppy essentials Singapore", "puppy playpen Singapore", "puppy carrier Singapore", "puppy grooming kit Singapore", "puppy toilet training Singapore", "puppy oral health care Singapore",
+      "free puppy training Singapore", "AVS certified dog trainer Singapore", "AVS accredited dog trainer", "ACDT dog trainer Singapore", "first puppy training lesson Singapore", "dog obedience training Singapore",
+      "free puppy delivery Singapore", "puppy home delivery Singapore", "puppy playpen setup Singapore", "door to door puppy delivery",
+      "licensed pet shop Singapore", "AVS licence number", "AVS pet shop licence", "AVS public registry pet shops", "verify pet shop licence Singapore", "how to check pet shop licence",
+      "first time dog owner Singapore", "first time puppy owner Singapore", "new puppy owner guide Singapore", "puppy buying guide Singapore",
+      "HDB approved dog breeds", "HDB dog rules Singapore", "HDB pet policy", "dog licensing Singapore", "dog licence HDB",
+      "puppy vaccination schedule Singapore", "puppy vaccination Singapore", "canine parvovirus Singapore", "canine distemper Singapore", "DHPP vaccine dog", "core vaccines dog Singapore", "puppy deworming Singapore", "puppy microchipping Singapore",
+      "smuggled puppies Singapore", "illegal puppy import Singapore", "puppy smuggling parvovirus", "unlicensed pet seller Singapore", "buying puppy from Carousell risk", "puppy scam Singapore",
+      "puppy cost Singapore", "puppy price Singapore", "puppy budget first year Singapore", "total cost of owning a puppy Singapore", "puppy first year expenses Singapore",
+      "Curious Tails Singapore", "Curious Tails Balestier", "Curious Tails puppy shop", "Curious Tails reviews", "Curious Tails Google reviews",
+      "Balestier Road pet shop", "puppy shop Balestier", "pet shop near Balestier MRT", "puppy shop Singapore 320002",
+      "Nelson and Kim Curious Tails", "Curious Tails owners",
+      "39 Google reviews puppy shop", "5 star pet shop Singapore", "trusted puppy breeder Singapore", "genuine puppy seller Singapore", "honest pet shop Singapore",
+      "best puppy breed for first time owner Singapore", "lifestyle matching dog breed", "which puppy breed suits me", "puppy breed quiz Singapore", "breed selector tool Singapore",
+      "working couple puppy breed Singapore", "apartment friendly puppy breed", "low shedding puppy breed Singapore", "independent dog breed for working owners",
+      "Cavapoo vs Maltipoo", "Cavapoo temperament", "Maltipoo temperament", "which is better Cavapoo or Maltipoo",
+      "reserve a puppy Singapore", "puppy reservation process", "how to reserve a puppy", "puppy deposit Singapore",
+      "what happens after buying a puppy", "first week with new puppy Singapore", "puppy settling in checklist", "puppy first night home",
+      "puppy health check Singapore", "vet checked puppy Singapore", "puppy health certificate Singapore", "healthy puppy signs",
+      "AVS accredited certified dog trainer scheme", "ACDT Singapore", "IAABC certified trainer", "CCPDT certified trainer",
+      "WhatsApp puppy shop Singapore", "contact puppy shop Singapore", "pet shop opening hours Singapore", "visit puppy shop Singapore",
+      "Wag a Tail Singapore price", "Dawgs and Co Singapore", "The Lovely Pets Singapore", "cheaper than Wag a Tail", "puppy shop price comparison Singapore",
+      "puppy microchip cost Singapore", "first vaccination cost puppy", "puppy deworming cost Singapore", "total puppy investment breakdown",
+      "genuine breed advice Singapore", "honest breed matching", "breed matching consultation", "talked out of wrong breed",
+      "puppy welfare standards Singapore", "pet shop welfare inspection Singapore", "Pet Purchase Declaration Singapore", "PPD form pet shop",
+      "puppy that suits HDB flat", "condo friendly puppy Singapore", "landed property dog Singapore",
+      "puppy aftercare support Singapore", "post purchase puppy support", "ongoing puppy guidance Singapore",
+      "puppy toys included Singapore", "puppy food included Singapore", "puppy bed included Singapore", "puppy leash and collar included",
+      "2 years pet shop Singapore", "established puppy shop Singapore", "hundreds of customers puppy shop",
+      "AVS licence verification steps", "check if pet shop is licensed", "how to spot unlicensed pet seller",
+      "puppy parvovirus symptoms", "puppy distemper symptoms", "puppy vet visit schedule first year",
+      "value of puppy starter kit", "what's included with puppy purchase Singapore", "puppy bundle deal Singapore",
+      "small dog breed Singapore family", "companion dog for existing dog Singapore", "second dog Singapore household",
+      "puppy for family with kids Singapore", "gentle puppy breed Singapore", "playful puppy breed Singapore"
+    ],
+    "type_coverage_note": "Types 1-18 represented above: core variations, qualifiers, product/process terms, subtopics, action/intent phrases (reserve, verify, check, WhatsApp, matching), named entities (Curious Tails, Nelson and Kim, AVS, ACDT, ICA, SPCA, Wag a Tail, Dawgs & Co, The Lovely Pets — all verified via search), local/geo terms (Balestier, HDB, Singapore 320002), audience descriptors (first-time owner, working couple, family with kids), long-tail 4+ word phrases, methodology terms (lifestyle-first matching, breed selector), quantifier+noun (30+ items, $500+ value, 39 reviews, 2+ years), credential permutations (AVS licensed / AVS certified / AVS accredited / ACDT), cost/value terms, trust/social-proof terms, supply-chain/origin terms (health check, vet checked, microchipped), protection/risk terms (smuggling, parvovirus, unlicensed seller), everyday-reality terms (first night home, settling in checklist)."
+  },
+  "lsi_keyword_weighting": {
+    "transactional_cluster": ["puppy for sale Singapore", "AVS licensed puppy Singapore", "Cavapoo/Maltipoo/Corgi/etc. puppy Singapore", "reserve a puppy Singapore", "WhatsApp puppy shop Singapore", "puppy shop price comparison Singapore"],
+    "informational_cluster": ["puppy starter kit Singapore", "HDB approved dog breeds", "puppy vaccination schedule Singapore", "smuggled puppies Singapore", "lifestyle matching dog breed", "first time dog owner Singapore"],
+    "instruction": "Home page is single-intent (transactional), so the informational cluster here exists to support topical authority and internal-link bridges to the Outer-tier pages (HDB guide, smuggling awareness, budget guide) — it is not competing for a separate secondary keyword ranking on THIS URL."
+  },
+
+  "content_outline": [
+    {
+      "heading": "Puppies for Sale in Singapore",
+      "level": "H1",
+      "priority": "P2",
+      "cro_phase": 1,
+      "cro_element": "primary CTA + hero trust badges",
+      "intent_served": "primary",
+      "ux_note": "Hero",
+      "key_points": [
+        "H1 contains exact target keyword",
+        "Sub-headline: AVS licensed, free training, $500+ starter kit, free delivery",
+        "Primary CTA: WhatsApp us (82206480)",
+        "Trust badges: AVS licensed, 39 five-star reviews, 2+ years"
+      ],
+      "first_party_prompt": "",
+      "external_link_cue": ""
+    },
+    {
+      "heading": "Meet Our Puppies",
+      "level": "H2",
+      "priority": "P2",
+      "cro_phase": 1,
+      "cro_element": "inventory/showcase — proves availability before anything else",
+      "intent_served": "primary",
+      "ux_note": "ListingGrid",
+      "key_points": [
+        "7 breed cards: Cavapoo, Maltipoo, Mini Dachshund, Corgi, Shiba Inu, Bichonpoo, Cockapoo",
+        "Each card: price range $2,888-$4,488, 1-line temperament tag, link to breed page",
+        "\"More breeds added regularly\" note (site is expanding beyond these 7)",
+        "CTA under grid: \"Not sure which breed fits you? Take the 2-minute quiz\""
+      ],
+      "first_party_prompt": "",
+      "external_link_cue": ""
+    },
+    {
+      "heading": "What Is an AVS-Licensed Puppy Shop?",
+      "level": "H2",
+      "priority": "P2",
+      "cro_phase": 1,
+      "cro_element": "Featured Snippet target + entity definition, builds baseline trust before deeper content",
+      "intent_served": "both",
+      "ux_note": "DefBox",
+      "key_points": [
+        "40-word definition (subject_entity above) answering the snippet directly",
+        "One sentence connecting this definition to Curious Tails' own licence (ACRA 202420075D)",
+        "Immediately after the breed showcase, within first 30% of page"
+      ],
+      "first_party_prompt": "",
+      "external_link_cue": "AVS pet shop licence page — explains what licensing actually requires (welfare inspection, PPD form)"
+    },
+    {
+      "heading": "Jump to a Section",
+      "level": "H3",
+      "priority": "P4-TERMINAL",
+      "cro_phase": 1,
+      "cro_element": "UX navigation aid, can win sitelinks",
+      "intent_served": "both",
+      "ux_note": "Tabs",
+      "key_points": [
+        "Breeds / Pricing / Starter Kit / Training / Delivery / Trust / Reviews / FAQ",
+        "Structural only — permitted P4-TERMINAL exception"
+      ],
+      "first_party_prompt": "",
+      "external_link_cue": ""
+    },
+    {
+      "heading": "Why Singapore Families Trust Curious Tails",
+      "level": "H2",
+      "priority": "P1",
+      "cro_phase": 1,
+      "cro_element": "trust/credentials strip",
+      "intent_served": "primary",
+      "ux_note": "StatStrip",
+      "key_points": [
+        "39 Google reviews, 5.0 average (exact, real number)",
+        "2+ years operating, hundreds of customers served",
+        "AVS licensed — ACRA 202420075D",
+        "Owners Nelson and Kim personally deliver and set up every puppy"
+      ],
+      "first_party_prompt": "Pull the exact review count/rating and owner names verbatim from business-context.md proof section — do not round or generalise.",
+      "external_link_cue": ""
+    },
+    {
+      "heading": "Why Our Puppies Cost Less, Not More",
+      "level": "H2",
+      "priority": "P2",
+      "cro_phase": 2,
+      "cro_element": "objection handled: price concern / value justification",
+      "intent_served": "primary",
+      "ux_note": "ComparisonSplit",
+      "key_points": [
+        "$2,888-$4,488 vs market $3,980-$6,500+ for comparable breeds",
+        "Not a discount shop: price is lower BECAUSE overhead goes into the kit/training/delivery bundle, not marketing spend",
+        "Contrast: competitors spend heavily on social reach (verified: Wag a Tail cites 4,000+ families since 2016); Curious Tails spends on what you take home",
+        "No competitor publishes this kind of direct price transparency (verified gap)"
+      ],
+      "first_party_prompt": "",
+      "external_link_cue": ""
+    },
+    {
+      "heading": "What's Actually Inside the Starter Kit",
+      "level": "H2",
+      "priority": "P1",
+      "cro_phase": 2,
+      "cro_element": "desire-building via first-party specificity",
+      "intent_served": "primary",
+      "ux_note": "CaptionedBlock",
+      "key_points": [
+        "30+ items across 8 categories: playpen, carrier, grooming, food, outdoor gear, toilet training, oral health, toys",
+        "$500+ total value, included with every puppy (not sold separately)",
+        "Staff walk the owner through how to use each item on delivery day, not just hand over a box",
+        "No competitor in the crawled set (Wag a Tail, Dawgs & Co, The Pup Life) publishes an itemised kit list"
+      ],
+      "first_party_prompt": "Pull the exact 8 category names from business-context.md 'What We Sell' section verbatim.",
+      "external_link_cue": ""
+    },
+    {
+      "heading": "Your Free First Training Lesson, Explained",
+      "level": "H2",
+      "priority": "P2",
+      "cro_phase": 2,
+      "cro_element": "desire-building + differentiation",
+      "intent_served": "primary",
+      "ux_note": "CaptionedBlock",
+      "key_points": [
+        "Included free with every puppy — not an upsell",
+        "Delivered by an AVS-Accredited Certified Dog Trainer (ACDT scheme)",
+        "Covers the basics new owners actually ask about first: settling in, potty routine, not being overwhelmed",
+        "Verified gap: no competitor site explains what the training lesson actually covers"
+      ],
+      "first_party_prompt": "",
+      "external_link_cue": "AVS list of Accredited Certified Dog Trainers — verifies the credential behind the free lesson"
+    },
+    {
+      "heading": "Free Delivery, With the Playpen Already Set Up",
+      "level": "H2",
+      "priority": "P1",
+      "cro_phase": 2,
+      "cro_element": "desire-building, unique proof point",
+      "intent_served": "primary",
+      "ux_note": "CaptionedBlock",
+      "key_points": [
+        "Free home delivery across Singapore",
+        "Playpen, bed, and toys are physically set up before the puppy arrives, not left in boxes",
+        "This is why the Andrew Mak Cavapoo settled in without separation distress on day one",
+        "No competitor mentions any form of home setup"
+      ],
+      "first_party_prompt": "Reference the Andrew Mak case study from expertise-library.md by name (consent: yes) — playpen/bed/toys detail already in that case study.",
+      "external_link_cue": ""
+    },
+    {
+      "heading": "Find Your Perfect Match: What Kind of Day Do You Actually Have?",
+      "level": "H2",
+      "priority": "P1",
+      "cro_phase": 2,
+      "cro_element": "mid-page CTA + decision matrix (If/Then) + objection handled: 'will I pick the wrong breed?'",
+      "intent_served": "primary",
+      "ux_note": "ComparisonSplit",
+      "key_points": [
+        "If/Then table: home all day -> Maltipoo/Bichonpoo fine; away 8am-6pm with nobody home -> Cavapoo/Cockapoo/Mini Dachshund better; active outdoor routine -> Corgi/Shiba Inu (with HDB caveat linked)",
+        "Practitioner's Note (first person, Nelson/Kim): 'We'll tell you not to buy the breed you came in for if it doesn't fit your day — ask Andrew Mak, our Cavapoo customer, who almost left with a Maltipoo'",
+        "Mid-page CTA: \"Take the 2-minute breed quiz\" -> links to breed selector",
+        "3+ distinct scenarios covered: working couple, retiree/helper at home, active outdoor family"
+      ],
+      "first_party_prompt": "Use the Andrew Mak case study verbatim from expertise-library.md Case Study 1 — the exact situation, decision, and outcome. This is the page's strongest P1 proof point.",
+      "external_link_cue": ""
+    },
+    {
+      "heading": "What Happens After You Reserve a Puppy",
+      "level": "H2",
+      "priority": "P1",
+      "cro_phase": 3,
+      "cro_element": "objection handled: 'what happens next, is this transparent?' + MAXIMUM-gain differentiator (free boarding is not offered anywhere in the crawled competitor set)",
+      "intent_served": "primary",
+      "ux_note": "CaptionedBlock",
+      "key_points": [
+        "Step 1: WhatsApp us to confirm breed availability",
+        "Step 2: Place a deposit to secure the puppy",
+        "Step 3: Curious Tails boards the puppy for FREE (lodging and food both covered) until the customer is ready to receive it — no pressure to take the puppy home before you're prepared",
+        "Step 4: Delivery is scheduled around the customer's own availability, typically mornings or evenings",
+        "Step 5 (delivery day): Playpen setup + starter-kit walkthrough + training lesson booked",
+        "Verified gap: no competitor in the crawled set offers free boarding before delivery, or explains this sequence at all"
+      ],
+      "first_party_prompt": "Use business-context.md Differentiation point 7 verbatim: free boarding (lodging + food) after deposit, delivery scheduled around the customer's availability (morning/evening).",
+      "external_link_cue": ""
+    },
+    {
+      "heading": "Bringing a Puppy Home to an HDB Flat",
+      "level": "H2",
+      "priority": "P2",
+      "cro_phase": 3,
+      "cro_element": "regulatory compliance — objection handled: 'am I even allowed to keep this breed?'",
+      "intent_served": "primary",
+      "ux_note": "CaptionedBlock",
+      "key_points": [
+        "HDB allows 1 dog of an approved breed/cross per flat; private property up to 3",
+        "Corgi and Shiba Inu are NOT on the standard HDB-approved list — say this plainly, don't bury it",
+        "Cavapoo, Maltipoo, Bichonpoo, Cockapoo, Mini Dachshund are commonly approved as crosses/small breeds — verify per HDB's actual list before publishing",
+        "Link out to full HDB breed guide for the complete list"
+      ],
+      "first_party_prompt": "",
+      "external_link_cue": "HDB/AVS dog ownership rules — cite the actual approved-breed source, not a paraphrase"
+    },
+    {
+      "heading": "Where Our Puppies Come From and How They're Checked",
+      "level": "H2",
+      "priority": "P3",
+      "cro_phase": 3,
+      "cro_element": "sourcing transparency + trust, handled once (not fear-based)",
+      "intent_served": "primary",
+      "ux_note": "CaptionedBlock",
+      "key_points": [
+        "Every puppy is health-checked before it goes home",
+        "Vaccination follows the Singapore Vaccination Guidelines for Dogs and Cats (AVS/SVA) — covers core protection including parvovirus and distemper",
+        "Mentioned once, factually, not repeated as a scare tactic",
+        "[NEEDS INPUT] name of vet partner/clinic if the business wants to state one specifically"
+      ],
+      "first_party_prompt": "[NEEDS INPUT] Ask the business owner whether they have a named vet partner for health checks/vaccinations; do not invent one.",
+      "external_link_cue": "AVS/SVA Singapore Vaccination Guidelines for Dogs and Cats — the credible health-standards reference for this section"
+    },
+    {
+      "heading": "A Cavapoo Settling in on Day One",
+      "level": "H3",
+      "priority": "P4-TERMINAL",
+      "cro_phase": 3,
+      "cro_element": "visual break, resets scroll fatigue",
+      "intent_served": "primary",
+      "ux_note": "CaptionedBlock",
+      "key_points": [
+        "Image placeholder: puppy in set-up playpen with starter-kit items visible",
+        "Caption reinforces free delivery + setup"
+      ],
+      "first_party_prompt": "",
+      "external_link_cue": ""
+    },
+    {
+      "heading": "What Our Customers Say",
+      "level": "H2",
+      "priority": "P1",
+      "cro_phase": 4,
+      "cro_element": "social proof",
+      "intent_served": "primary",
+      "ux_note": "Carousel",
+      "key_points": [
+        "Andrew Mak's full review, named, consent: yes",
+        "Reference to 39 total Google reviews, 5-star average, with a link out to the Google Business Profile",
+        "Highlight themes across reviews: aftercare, clear care routine, genuine ownership"
+      ],
+      "first_party_prompt": "Use the Andrew Mak review verbatim from expertise-library.md testimonials section.",
+      "external_link_cue": ""
+    },
+    {
+      "heading": "Our Care and Support Promise",
+      "level": "H2",
+      "priority": "P1",
+      "cro_phase": 4,
+      "cro_element": "risk reversal / guarantee — resolves the single biggest first-time-owner fear (what if something goes wrong in the first days)",
+      "intent_served": "primary",
+      "ux_note": "CaptionedBlock",
+      "key_points": [
+        "Free ongoing customer service for any care questions after the sale, not a one-time handover",
+        "Most common care questions are already pre-empted: Nelson and Kim walk through how to use and care for the puppy with each of the 30 starter-kit items in person, before the customer ever needs to ask",
+        "If the puppy falls sick within the first 5 days of going home, the customer can bring it back to the shop to nurse",
+        "This is what Andrew Mak's review independently confirms: 'a clear care routine' and 'aftercare support'"
+      ],
+      "first_party_prompt": "Use business-context.md Differentiation point 8 verbatim: free post-purchase customer service, the starter-kit walkthrough pre-empting common questions, and the 5-day nurse-back policy. Cross-reference the Andrew Mak review as independent proof this already happens in practice.",
+      "external_link_cue": ""
+    },
+    {
+      "heading": "What You're Really Getting for $2,888-$4,488",
+      "level": "H2",
+      "priority": "P1",
+      "cro_phase": 4,
+      "cro_element": "value breakdown, not a raw price-comparison table",
+      "intent_served": "primary",
+      "ux_note": "ComparisonSplit",
+      "key_points": [
+        "Line items: puppy + starter kit ($500+ value) + free delivery/setup + free training lesson",
+        "This is a value/inclusions table, not a head-to-head price table against named competitors",
+        "Anti-hallucination: figures must match PRICE_RANGE ($2,888-$4,488) exactly, no invented sub-costs"
+      ],
+      "first_party_prompt": "",
+      "external_link_cue": ""
+    },
+    {
+      "heading": "Verifying Our AVS Licence",
+      "level": "H2",
+      "priority": "P2",
+      "cro_phase": 4,
+      "cro_element": "trust/licence verification — elevated in priority per business-context.md (Curious Tails treats this as a MAJOR trust signal, not a minor footnote)",
+      "intent_served": "primary",
+      "ux_note": "CaptionedBlock",
+      "key_points": [
+        "Licence number (ACRA 202420075D) stated plainly",
+        "Direct instructions: how to search the AVS public registry yourself, in under a minute",
+        "One sentence bridging to the smuggling-awareness content: this is exactly what an unlicensed seller can't show you",
+        "Link to the fuller /learn/verify-license page for buyers who want the complete checklist"
+      ],
+      "first_party_prompt": "",
+      "external_link_cue": "AVS Public Registry of Licensed Pet Shops — the actual verification tool, linked directly"
+    },
+    {
+      "heading": "Frequently Asked Questions",
+      "level": "H2",
+      "priority": "P2",
+      "cro_phase": 4,
+      "cro_element": "objection clearance, FAQPage schema eligibility",
+      "intent_served": "both",
+      "ux_note": "FAQ",
+      "key_points": [
+        "Which puppy breed is best for first-time owners in Singapore?",
+        "How much does a puppy cost in Singapore?",
+        "How do I know if a pet shop is licensed?",
+        "What's included in the starter kit?",
+        "Can I keep a Corgi or Shiba Inu in an HDB flat?",
+        "How do I avoid buying a smuggled puppy?"
+      ],
+      "first_party_prompt": "",
+      "external_link_cue": ""
+    },
+    {
+      "heading": "Reserve Your Puppy Today",
+      "level": "H2",
+      "priority": "P2",
+      "cro_phase": 5,
+      "cro_element": "primary CTA, repeated with urgency",
+      "intent_served": "primary",
+      "ux_note": "BannerRibbon",
+      "key_points": [
+        "WhatsApp 82206480 or call — availability confirmed within the hour",
+        "Puppies are placed on a first-confirmed basis; mention honestly, no fabricated scarcity",
+        "Restate the full bundle in one line: puppy + $500+ kit + free delivery/setup + free training"
+      ],
+      "first_party_prompt": "",
+      "external_link_cue": ""
+    },
+    {
+      "heading": "Visit Us in Balestier",
+      "level": "H2",
+      "priority": "P4",
+      "cro_phase": 5,
+      "cro_element": "local/NAP block",
+      "intent_served": "primary",
+      "ux_note": "CaptionedBlock",
+      "key_points": [
+        "2 Balestier Road #01-701 S320002",
+        "Hours: Weekdays 12pm-6pm, Weekends 10am-6pm",
+        "Embedded map",
+        "GBP link for directions/reviews"
+      ],
+      "first_party_prompt": "",
+      "external_link_cue": ""
+    },
+    {
+      "heading": "Not Ready to Reserve Yet? Take the Breed Quiz",
+      "level": "H2",
+      "priority": "P3",
+      "cro_phase": 5,
+      "cro_element": "secondary micro-conversion for consideration-stage visitors",
+      "intent_served": "primary",
+      "ux_note": "BannerRibbon",
+      "key_points": [
+        "Link to /first-time-owners/breed-selector — 2-minute lifestyle quiz",
+        "Alternative: link to the free budget-guide download for cost-conscious browsers",
+        "No pressure framing — matches warm/neighbourly brand voice"
+      ],
+      "first_party_prompt": "",
+      "external_link_cue": ""
+    },
+    {
+      "heading": "Licensing and Transfer, Handled at Purchase",
+      "level": "H3",
+      "priority": "P2",
+      "cro_phase": 5,
+      "cro_element": "closes a specific paperwork objection — verified gap, no competitor states this plainly",
+      "intent_served": "primary",
+      "ux_note": "CaptionedBlock",
+      "key_points": [
+        "Dog licensing and paperwork are completed at the point of purchase, not left for the buyer to sort out afterward",
+        "Curious Tails provides full assistance to make sure everything is done properly"
+      ],
+      "first_party_prompt": "Use business-context.md Differentiation point 9 verbatim.",
+      "external_link_cue": ""
+    }
+  ],
+
+  "outline_cross_check": {
+    "gaps_without_sections": "RESOLVED — all Task 1 information_gaps map to sections (starter-kit breakdown -> section 7; training explained -> section 8; post-reservation process -> section 11; AVS + smuggling pairing -> sections 17/19 + FAQ; lifestyle-first matching -> section 10)",
+    "high_gain_questions_without_sections": [
+      "Q: Which puppy breed is best for first-time owners? -> Section: Find Your Perfect Match",
+      "Q: How do I know if a pet shop is licensed? -> Section: Verifying Our AVS Licence",
+      "Q: How do I avoid buying a smuggled puppy? -> Section: Verifying Our AVS Licence + FAQ",
+      "Q: What's included in a puppy starter kit? -> Section: What's Actually Inside the Starter Kit",
+      "Q: Can I keep a Corgi/Shiba Inu in an HDB flat? -> Section: Bringing a Puppy Home to an HDB Flat"
+    ],
+    "overlapping_key_points_resolved": "Starter-kit value ($500+) owned by 'What's Actually Inside the Starter Kit'; not restated in the value-breakdown section beyond a one-line reference.",
+    "p4_without_p1p2_subsection": "NONE — remaining non-P1/P2 sections (Where Our Puppies Come From, Visit Us in Balestier, Not Ready to Reserve Yet) sit alongside P1/P2 neighbours in the same CRO phase; the only true structural exceptions are tagged P4-TERMINAL below.",
+    "p4_terminal_sections": [
+      "Jump to a Section — pure navigation aid",
+      "A Cavapoo Settling in on Day One — visual break only"
+    ],
+    "cro_phase_coverage": "ALL 5 PHASES COVERED",
+    "objection_coverage": "ALL OBJECTIONS ADDRESSED — price (section 6), wrong breed (section 10), opaque process (section 11), HDB legality (section 12), trust/licensing (section 17), what-happens-if-sick (section 16 care/support promise), paperwork (section 22)",
+    "cta_placement_verified": "VERIFIED — primary CTA in Hero (Phase 1), mid-page CTA in 'Find Your Perfect Match' (Phase 2), primary CTA repeated in 'Reserve Your Puppy Today' (Phase 5), secondary micro-conversion in 'Not Ready to Reserve Yet' (Phase 5)",
+    "dual_intent_coverage": "N/A — this page is single-intent (no PAGE_SECONDARY_KEYWORD); dual-intent rule does not apply to the root document. Informational depth is deliberately routed to Outer-tier pages via internal links instead of duplicated here."
+  },
+
+  "internal_links": [
+    { "anchor": "take the 2-minute breed quiz", "target_slug": "/first-time-owners/breed-selector", "placed_in_section": "Meet Our Puppies" },
+    { "anchor": "our Cavapoo puppies", "target_slug": "/puppies/cavapoo", "placed_in_section": "Meet Our Puppies" },
+    { "anchor": "full HDB-approved breed list", "target_slug": "/first-time-owners/hdb-breeds", "placed_in_section": "Bringing a Puppy Home to an HDB Flat" },
+    { "anchor": "our Corgi puppies", "target_slug": "/puppies/corgi", "placed_in_section": "Bringing a Puppy Home to an HDB Flat" },
+    { "anchor": "how we price every puppy", "target_slug": "/pricing", "placed_in_section": "Why Our Puppies Cost Less, Not More" },
+    { "anchor": "everything in the starter kit", "target_slug": "/starter-kit", "placed_in_section": "What's Actually Inside the Starter Kit" },
+    { "anchor": "what the free training lesson covers", "target_slug": "/free-training", "placed_in_section": "Your Free First Training Lesson, Explained" },
+    { "anchor": "how home delivery and setup works", "target_slug": "/delivery", "placed_in_section": "Free Delivery, With the Playpen Already Set Up" },
+    { "anchor": "how to verify any pet shop's licence", "target_slug": "/learn/verify-license", "placed_in_section": "Verifying Our AVS Licence" },
+    { "anchor": "why unlicensed sellers are risky", "target_slug": "/learn/smuggled-puppies", "placed_in_section": "Verifying Our AVS Licence" },
+    { "anchor": "puppy vaccination schedules explained", "target_slug": "/learn/puppy-health", "placed_in_section": "Where Our Puppies Come From and How They're Checked" },
+    { "anchor": "planning your first-year budget", "target_slug": "/first-time-owners/budget-guide", "placed_in_section": "Not Ready to Reserve Yet? Take the Breed Quiz" },
+    { "anchor": "get in touch", "target_slug": "/contact", "placed_in_section": "Visit Us in Balestier" }
+  ],
+  "filtered_links": [],
+
+  "external_links": [
+    { "section": "What Is an AVS-Licensed Puppy Shop?", "url": "https://avs.nparks.gov.sg/businesses/pet-shop-owners/pet-shop-licence/", "anchor": "what pet shop licensing in Singapore actually requires", "purpose": "government regulatory — defines the subject entity credibly" },
+    { "section": "Verifying Our AVS Licence", "url": "https://avs.nparks.gov.sg/outreach/resources/public-registry-of-avs-licensed-pet-shops/", "anchor": "search the AVS public registry yourself", "purpose": "government regulatory — direct verification tool" },
+    { "section": "Your Free First Training Lesson, Explained", "url": "https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/", "anchor": "the list of AVS-Accredited Certified Dog Trainers", "purpose": "government accreditation — verifies the training credential" },
+    { "section": "Verifying Our AVS Licence", "url": "https://www.ica.gov.sg/news-and-publications/newsroom/media-release/33-per-cent-decrease-in-animal-smuggling-cases-recorded-in-2025", "anchor": "animal smuggling cases recorded at Singapore's borders", "purpose": "government enforcement data — grounds the smuggling-risk framing in real figures" },
+    { "section": "Verifying Our AVS Licence", "url": "https://spca.org.sg/campaigns/animal-smuggling/", "anchor": "SPCA's own campaign against animal smuggling", "purpose": "authoritative industry/welfare body" },
+    { "section": "Where Our Puppies Come From and How They're Checked", "url": "https://avs.nparks.gov.sg/businesses/veterinarians/guidelines-for-veterinarians/sg-vaccination-guidelines-for-dogs-and-cats/", "anchor": "the Singapore Vaccination Guidelines for Dogs and Cats", "purpose": "credible breed/health standards reference (AVS/SVA joint guideline)" }
+  ],
+
+  "faq": [
+    { "question": "Which puppy breed is best for first-time owners in Singapore?", "stage": "awareness", "gain": "HIGH", "source": "PAA-HIGH", "intent_served": "primary" },
+    { "question": "How much does a puppy cost in Singapore?", "stage": "awareness", "gain": "HIGH", "source": "PAA", "intent_served": "primary" },
+    { "question": "How do I know if a pet shop is licensed in Singapore?", "stage": "decision", "gain": "HIGH", "source": "PAA-HIGH", "intent_served": "primary" },
+    { "question": "What's included in your puppy starter kit?", "stage": "consideration", "gain": "HIGH", "source": "in-store/differentiator", "intent_served": "primary" },
+    { "question": "Can I keep a Corgi or Shiba Inu in an HDB flat?", "stage": "awareness", "gain": "HIGH", "source": "PAA-HIGH", "intent_served": "primary" },
+    { "question": "How do I avoid buying a smuggled puppy in Singapore?", "stage": "decision", "gain": "HIGH", "source": "PAA-HIGH", "intent_served": "primary" },
+    { "question": "What happens after I reserve a puppy?", "stage": "decision", "gain": "HIGH", "source": "gap analysis", "intent_served": "primary" },
+    { "question": "Is the free training lesson really free, no catch?", "stage": "consideration", "gain": "HIGH", "source": "objection map", "intent_served": "primary" }
+  ],
+  "questions": {
+    "note": "Full 18-22 question bank already exists in research/research.json.questions — the 8 above are the subset promoted to this page's visible FAQ; the rest are reference material distributed across Outer-tier pages (budget guide, HDB guide, smuggling-awareness page, breed pages) to avoid duplicate FAQ content across the site."
+  },
+
+  "schema_plan": [
+    "LocalBusiness (PetStore) — name, address, phone, hours, geo from GOOGLE_MAPS_EMBED, priceRange",
+    "AggregateRating — 39 reviews, 5.0 rating, nested under the LocalBusiness",
+    "Organization — sameAs: Instagram, Facebook, GBP",
+    "WebPage — about property referencing subject_entity (AVS-licensed pet shop) as a Thing with alternateName 'pet shop licence Singapore'",
+    "FAQPage — from the 8 promoted FAQ entries",
+    "BreadcrumbList — Home only (root, single crumb)",
+    "ItemList — the 7 breed cards in the showcase section, each an Item linking to its breed page"
+  ],
+
+  "info_gain_score": {
+    "pct_p1_p2": "18 of 21 substantive sections are P1/P2 = 86% (excludes the 2 P4-TERMINAL structural sections — Jump Links, visual-break image — from the denominator)",
+    "gain_drivers": [
+      "Andrew Mak case study (first-party, verified via Google review with consent)",
+      "Itemised starter-kit breakdown (no competitor publishes this)",
+      "Free boarding after deposit — lodging AND food covered until the customer is ready — a MAXIMUM-gain differentiator with zero equivalent anywhere in the crawled competitor set",
+      "5-day nurse-back policy if the puppy falls sick — resolves the single biggest first-time-owner fear with a real, specific policy rather than a vague guarantee",
+      "Post-reservation process walkthrough (verified gap across all 3 crawled competitors)",
+      "AVS licence + smuggling-case pairing with real ICA/CNA figures (verified gap)",
+      "Lifestyle-first decision matrix instead of a static breed list",
+      "Licence/paperwork handled at purchase, stated plainly (no competitor states this either way)"
+    ],
+    "remaining_risks": [
+      "All 3 previously-flagged [NEEDS INPUT] items have been confirmed by the business owner (2026-07-04) and are now written into business-context.md Differentiation points 7-9 and this outline. No open gaps remain on this brief."
+    ]
+  },
+
+  "word_count_target": "2,200-2,800 (root document; single-intent so lighter than a dual-intent breed page, but still comprehensive per QDP root-document status)",
+  "content_length_estimate": "~2,500 visible words across 24 substantive sections + FAQ"
+}

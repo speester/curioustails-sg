@@ -1,0 +1,627 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ValueBundle from '../components/ValueBundle.astro';
+import ListingGrid from '../components/ListingGrid.astro';
+import DefBox from '../components/DefBox.astro';
+import Tabs from '../components/Tabs.astro';
+import StatStrip from '../components/StatStrip.astro';
+import ComparisonSplit from '../components/ComparisonSplit.astro';
+import CaptionedBlock from '../components/CaptionedBlock.astro';
+import BannerRibbon from '../components/BannerRibbon.astro';
+import Carousel from '../components/Carousel.astro';
+import FAQ from '../components/FAQ.astro';
+import Schema from '../components/Schema.astro';
+import PawPrint from '../components/decor/PawPrint.astro';
+import Sparkle from '../components/decor/Sparkle.astro';
+import Blob from '../components/decor/Blob.astro';
+import PawTrail from '../components/decor/PawTrail.astro';
+import CloudDivider from '../components/decor/CloudDivider.astro';
+import ScatterFloat from '../components/decor/ScatterFloat.astro';
+import { site, whatsappLink } from '../data/site';
+import { localBusinessSchema, organizationSchema, websiteSchema, webPageSchema, personSchema, serviceSchema, reviewSchema, aggregateOfferSchema, faqPageSchema, itemListSchema, definedTermSchema } from '../lib/schema';
+import heroCavapoo from '../assets/home/1-cavapoo-puppy-hero-balestier.png';
+import starterKit from '../assets/home/2-starter-kit-items-cavapoo-unboxing.png';
+import trainingLesson from '../assets/home/3-avs-certified-trainer-puppy-training-lesson.png';
+import playpenSetup from '../assets/home/4-playpen-setup-delivery-home-balestier.png';
+import settlingIn from '../assets/home/5-cavapoo-puppy-settling-playpen-first-day.png';
+import healthCheck from '../assets/home/6-puppy-health-check-vet-care-avs.png';
+import careSupport from '../assets/home/7-nelson-kim-puppy-care-aftercare-support.png';
+import cavapooPortrait from '../assets/cavapoo/2-cavapoo-puppy-portrait-available.webp';
+import maltipooPortrait from '../assets/maltipoo/3-maltipoo-puppy-portrait-available.webp';
+import dachshundPortrait from '../assets/mini-dachshund/2-mini-dachshund-red-smooth-portrait.webp';
+import corgiPortrait from '../assets/corgi/2-corgi-red-white-portrait.webp';
+import shibaPortrait from '../assets/shiba-inu/2-shiba-red-portrait.webp';
+import bichonpooPortrait from '../assets/bichonpoo/2-bichonpoo-white-portrait.webp';
+import cockapooPortrait from '../assets/cockapoo/2-cockapoo-apricot-portrait.webp';
+
+const title = 'Puppy for Sale Singapore | AVS Licensed | Curious Tails';
+const description =
+  'AVS licensed puppies for sale in Singapore — Cavapoo, Maltipoo & more. $500+ starter kit, free delivery. WhatsApp today.';
+
+const breeds = [
+  { title: 'Cavapoo', href: '/puppies/cavapoo', imageSrc: cavapooPortrait, imageAlt: 'Cavapoo puppy sitting on a light wood floor', meta: 'Gentle and easygoing, a favourite for working households', tag: 'From $2,888' },
+  { title: 'Maltipoo', href: '/puppies/maltipoo', imageSrc: maltipooPortrait, imageAlt: 'Maltipoo puppy with a wavy cream coat', meta: 'Affectionate and people focused, happiest with company at home', tag: 'From $2,888' },
+  { title: 'Mini Dachshund', href: '/puppies/mini-dachshund', imageSrc: dachshundPortrait, imageAlt: 'Mini Dachshund puppy standing on a rug', meta: 'Compact, curious, and full of personality', tag: 'From $2,888' },
+  { title: 'Corgi', href: '/puppies/corgi', imageSrc: corgiPortrait, imageAlt: 'Corgi puppy with upright ears', meta: 'Big character in a small body, active and alert', tag: 'From $2,888' },
+  { title: 'Shiba Inu', href: '/puppies/shiba-inu', imageSrc: shibaPortrait, imageAlt: 'Shiba Inu puppy with a fox-like face', meta: 'Independent and clean, for owners who want a calmer bond', tag: 'From $2,888' },
+  { title: 'Bichonpoo', href: '/puppies/bichonpoo', imageSrc: bichonpooPortrait, imageAlt: 'Bichonpoo puppy with a white curly coat', meta: 'Low shedding and playful, an easy fit for small homes', tag: 'From $2,888' },
+  { title: 'Cockapoo', href: '/puppies/cockapoo', imageSrc: cockapooPortrait, imageAlt: 'Cockapoo puppy with long floppy ears', meta: 'Warm and sociable, a natural with children', tag: 'From $2,888' },
+];
+
+const jumpLinks = [
+  { label: 'Puppies', href: '#puppies' },
+  { label: 'Pricing', href: '#pricing' },
+  { label: 'Starter Kit', href: '#starter-kit' },
+  { label: 'Training', href: '#training' },
+  { label: 'Reviews', href: '#reviews' },
+  { label: 'Trust', href: '#trust' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Which puppy breed is best for first-time owners in Singapore?',
+    answer:
+      "It depends more on your daily routine than on the breed itself. If nobody's home during the day, a Cavapoo, Cockapoo, or Mini Dachshund tends to cope better than a Maltipoo or Bichonpoo, which prefer more company. For a first time dog owner in Singapore, this matters more than popularity. Take our 2-minute breed quiz for a match based on your actual routine.",
+  },
+  {
+    question: 'How much does a puppy cost in Singapore?',
+    answer:
+      'At Curious Tails, puppies range from $2,888 to $4,488, and that price includes a $500+ starter kit, free delivery and setup, and a free first training lesson. Elsewhere, prices for comparable breeds can run higher once those extras are added separately.',
+  },
+  {
+    question: 'How do I know if a pet shop is licensed in Singapore?',
+    answer:
+      "Search the shop's name or licence number on the AVS public registry. Curious Tails holds AVS pet shop licence AS24J00046. If a seller can't be found there, they aren't licensed, regardless of what they claim.",
+  },
+  {
+    question: "What's included in your starter kit?",
+    answer:
+      'Over 30 items across eight categories: a playpen, a carrier, grooming tools, food, outdoor gear, toilet training supplies, oral health care, and toys, worth more than $500 in total. We also walk you through how to use each one.',
+  },
+  {
+    question: 'Can I keep a Corgi or Shiba Inu in an HDB flat?',
+    answer:
+      "Not under the standard HDB approved list. If you're set on either breed, you'd need private property, or to look at an approved cross instead. We'll tell you this upfront rather than let you find out later.",
+  },
+  {
+    question: 'How do I avoid buying a smuggled puppy?',
+    answer:
+      "Check the seller's AVS licence number on the public registry before you pay a deposit. Smuggled puppies are usually sold outside licensed channels, often without vaccination, and the health risk to the puppy, and the legal risk to you, is real.",
+  },
+  {
+    question: 'What happens after I reserve a puppy?',
+    answer:
+      "You WhatsApp us, place a deposit, and we board your puppy for free until you're ready. Delivery is scheduled around your availability, and everything is set up before you arrive home.",
+  },
+  {
+    question: 'Is the free training lesson really free?',
+    answer:
+      'Yes. It is included in the price of every puppy, delivered by an AVS Accredited Certified Dog Trainer, with no add-on fee.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  organizationSchema(),
+  websiteSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/',
+    title,
+    description,
+    aboutName: 'AVS licensed pet shop',
+    aboutAlternateName: 'pet shop licence Singapore',
+    datePublished: '2024-01-01',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  serviceSchema({
+    name: 'Free First Training Lesson',
+    description: 'Free training lesson with an AVS-Accredited Certified Dog Trainer included with every puppy purchase',
+    price: 'Included',
+  }),
+  serviceSchema({
+    name: 'Free Home Delivery & Setup',
+    description: 'Free home delivery across Singapore with playpen, bed, and toys setup included',
+    price: 'Included',
+  }),
+  serviceSchema({
+    name: 'Ongoing Customer Support',
+    description: 'Free post-purchase customer service and 5-day nurse-back safety net if puppy falls sick',
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody: "Couldn't recommend Curious Tails in Balestier enough after bringing home our Cavapoo. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  aggregateOfferSchema({
+    priceLow: '2888',
+    priceHigh: '4488',
+    priceCurrency: 'SGD',
+  }),
+  faqPageSchema(faqItems),
+  itemListSchema(breeds.map((b) => ({
+    name: `${b.title} puppy`,
+    url: b.href,
+    description: b.meta,
+    price: 'From $2,888',
+    image: b.imageSrc.src,
+  }))),
+  definedTermSchema({
+    name: 'AVS-licensed pet shop',
+    description: 'An AVS-licensed pet shop is a Singapore business approved by the Animal and Veterinary Service, a unit of the National Parks Board, to keep and sell dogs, cats, or rabbits, subject to welfare inspections, mandatory owner-suitability screening, and annual licence renewal.',
+    sameAs: 'https://avs.nparks.gov.sg/businesses/pet-shop-owners/pet-shop-licence/',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/">
+  <Hero
+    eyebrow="AVS Licensed Puppy Shop in Balestier"
+    h1="Puppies for Sale in Singapore"
+    h1Accent="Sale"
+    subhead="Every puppy comes with a $500+ starter kit, free home delivery, and a free first training lesson. Priced honestly, not padded for marketing spend."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your puppies."
+    secondaryCtaLabel="See available puppies & pricing"
+    secondaryCtaHref="#puppies"
+    priceAnchor="From $2,888, all-in — starter kit, home delivery and first training lesson included."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="Cavapoo puppy in a set-up playpen at a Balestier Road home"
+    imageSrc={heroCavapoo}
+    tagLabel="7 breeds"
+    proofChip="5.0 on Google"
+  />
+
+  <Tabs items={jumpLinks} />
+
+  <ValueBundle
+    eyebrow="Included with every puppy"
+    heading="One honest price. Everything to settle in."
+    headingAccent="honest price"
+    subhead="No add-ons quietly billed later. The kit, the delivery and the first lesson are already in the price you see."
+    items={[
+      {
+        icon: 'kit',
+        title: '$500+ Starter Kit',
+        body: 'Over 30 items across eight categories — playpen, carrier, grooming, food, outdoor gear, toilet training, oral care and toys. Included, never sold separately.',
+        highlight: '30+ items',
+      },
+      {
+        icon: 'delivery',
+        title: 'Free Home Delivery & Setup',
+        body: 'We bring your puppy home and set up the playpen, bed and toys before you arrive, scheduled around your own availability.',
+        highlight: 'Free',
+      },
+      {
+        icon: 'training',
+        title: 'Free First Training Lesson',
+        body: 'Your first lesson with an AVS-Accredited Certified Dog Trainer, built into the price to cover settling in and a potty routine.',
+        highlight: 'AVS-certified',
+      },
+    ]}
+  />
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <div id="puppies" class="scroll-mt-40">
+    <ListingGrid
+      heading="Meet Our Puppies"
+      headingAccent="Puppies"
+      subhead="Seven breeds, each priced $2,888 to $4,488. More are added as we bring new litters home."
+      items={breeds}
+      footerCtaLabel="Not sure which breed fits you? Take the 2-minute quiz"
+      footerCtaHref="/first-time-owners/breed-selector"
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is an AVS-licensed puppy shop?"
+      definition="An AVS-licensed pet shop is a Singapore business approved by the Animal and Veterinary Service, a unit of the National Parks Board, to keep and sell dogs. Licensing means welfare inspections, mandatory owner-suitability screening, and annual renewal, not just a name on a shopfront."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. You can check ours, or any shop's, on the public registry below."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">What licensing actually requires</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Regular welfare inspections of how animals are kept and sold',
+            'Mandatory owner-suitability screening before a sale (the Pet Purchase Declaration)',
+            'Annual licence renewal, not a one-time approval',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">A shop with none of this is unlicensed, regardless of what it claims.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families trust Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '2+', label: 'years in Balestier' },
+      { value: '7', label: 'breeds, more added regularly' },
+      { value: '$500+', label: 'starter kit included free' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="pricing" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Why Our Puppies Cost Less, Not More"
+      headingAccent="Less"
+      subhead="$2,888 to $4,488 per puppy, all in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Many Singapore pet shops',
+          items: [
+            'Price covers the puppy only',
+            'Starter supplies sold separately',
+            'Training is an add-on, if offered at all',
+            'Delivery arranged and charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, starter kit included',
+            '$500+ worth of starter kit items, no extra cost',
+            'First training lesson free, with an AVS-certified trainer',
+            'Free home delivery, with the playpen already set up',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Want the market-wide numbers, what drives them, and the deposit-to-homecoming process? It's all in the <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">full breakdown of puppy prices in Singapore</a>.
+      </p>
+    </div>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+
+  <div id="starter-kit" class="scroll-mt-40">
+    <CaptionedBlock heading="What's Actually Inside the Starter Kit" imageAlt="Starter kit items including a playpen, carrier, and grooming tools" imageSrc={starterKit} variant="mid">
+      <p>Every puppy leaves Curious Tails with more than 30 items, worth over $500, covering eight categories: a playpen, a carrier, grooming tools, food, outdoor gear, toilet training supplies, oral health care, and toys. Your puppy is microchipped and vaccinated before going home, so the paperwork and the health side are already settled.</p>
+      <p>We don't just hand over a box. On delivery day, Nelson or Kim goes through each item with you: how to use it, and how it fits into caring for your puppy day to day. We'll talk you through the first night home, the potty routine, and what's normal in the first week, so you're not guessing at 11pm.</p>
+      <p>That's deliberate. Most of the questions a new owner would normally have to ask later are already answered before we leave your home. For the item-by-item detail, see <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what's inside our puppy starter kit</a>.</p>
+    </CaptionedBlock>
+
+    <ComparisonSplit
+      heading="Starter Kit Itemized Value Breakdown"
+      headingAccent="Value Breakdown"
+      subhead="No competitor lists itemized pricing. This is what the $500+ actually covers."
+      mode="table"
+      tableHeaders={['Category', 'Retail Value']}
+      rows={[
+        { label: 'Playpen (wooden) + soft-sided carrier', values: ['$150'] },
+        { label: 'Bed and blankets (2)', values: ['$50'] },
+        { label: 'Food and water bowls, premium puppy food (2kg)', values: ['$40'] },
+        { label: 'Brush, nail clippers, wipes', values: ['$30'] },
+        { label: 'Pee pads (100 count), clicker, training treats', values: ['$35'] },
+        { label: 'Plush toys, balls, chew toys (8)', values: ['$50'] },
+        { label: 'Collar, leash, poop bags', values: ['$30'] },
+        { label: 'Microchip insertion and vaccination', values: ['$100'] },
+        { label: 'Care guide and setup instructions', values: ['$10'] },
+        { label: 'Total retail value', values: ['$500+'] },
+      ]}
+    />
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="training" class="scroll-mt-40">
+    <CaptionedBlock heading="Your Free First Training Lesson, Explained" imageAlt="AVS-certified trainer working with a puppy" imageSrc={trainingLesson} imagePosition="left">
+      <p>
+        Every puppy includes a free first lesson with an{' '}
+        <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>,
+        under the scheme introduced to raise the standard of dog training in Singapore. This is your AVS-certified training lesson for new puppy owners, covering settling in and a first potty routine.
+      </p>
+      <p>This isn't an upsell we mention once and forget. It's built into the price, and it's designed to cover what a new owner actually needs first: settling in, a potty routine, and not feeling overwhelmed in the first week. Curious how the booking and the lesson itself work? <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Your free first lesson, explained in full</a>.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CaptionedBlock heading="Free Boarding, Then Delivery When You're Ready" imageAlt="Playpen and bed set up in a Singapore home ahead of a puppy's arrival" imageSrc={playpenSetup} imageRotate="left">
+    <p>After you place a deposit, we don't rush you. Curious Tails boards your puppy for free, lodging and food both covered, until you're ready to bring them home.</p>
+    <p>Delivery is then scheduled around your own availability, usually in the morning or the evening. We arrive with the playpen, bed, and toys already set up, so your puppy has a calm space waiting rather than a box to unpack.</p>
+    <p>It's the reason a Cavapoo we placed with a working couple settled into her playpen without distress on day one, instead of arriving to an empty room.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Your Puppy's First 24 Hours" imageAlt="Puppy settling into a pre-set-up playpen on arrival day" imagePosition="none" variant="card">
+    <p>Because the playpen, bed, and toys are already set up before you arrive, your puppy sees it as their space from hour one, not a new, scary place.</p>
+    <ul class="mt-4 space-y-3 text-base leading-relaxed text-[var(--color-cream-700)]">
+      <li><strong class="text-[var(--color-cream-900)]">Hour 0, Arrival:</strong> Puppy explores the playpen at their own pace, no overwhelming introductions yet.</li>
+      <li><strong class="text-[var(--color-cream-900)]">Hour 2, First Meal:</strong> Fed on the same food brand they're used to, with water available at all times and noise kept low.</li>
+      <li><strong class="text-[var(--color-cream-900)]">Hour 4, Potty Training Starts:</strong> Outside plus training pads inside, with treats for success and no scolding for accidents, they're normal.</li>
+      <li><strong class="text-[var(--color-cream-900)]">Hour 8, Social Interaction:</strong> Gentle play with the included toys as your puppy gets used to your voice and touch.</li>
+      <li><strong class="text-[var(--color-cream-900)]">Evening, Sleep Routine:</strong> Dim lights, a quiet room, and the playpen as a safe space. Some whimpering is a normal part of adjusting.</li>
+    </ul>
+  </CaptionedBlock>
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+  <ComparisonSplit
+      heading="Find Your Perfect Match: What Kind of Day Do You Actually Have?"
+      subhead="The right breed depends less on how a puppy looks, and more on what your day actually looks like. We match by lifestyle, whether you're a working couple, a retiree, or a family with kids looking for a gentle, playful companion."
+      mode="table"
+      tableHeaders={['Your day', 'Breeds that tend to fit']}
+      rows={[
+        { label: 'Nobody home 8am to 6pm on weekdays', values: ['Cavapoo, Cockapoo, or Mini Dachshund tend to cope better alone'] },
+        { label: 'Someone home most of the day (helper, retiree, remote work)', values: ['Maltipoo or Bichonpoo thrive on company'] },
+        { label: 'Active, outdoor routine, condo or landed property', values: ['Corgi or Shiba Inu, check HDB rules first, see below'] },
+        { label: 'Family with kids, or adding a second dog to the home', values: ['Cockapoo or Cavapoo, both gentle and sociable enough to settle in alongside children or an existing pet'] },
+      ]}
+    />
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Ask Andrew Mak" imageAlt="Cavapoo puppy settled in her playpen at home" imageSrc={settlingIn} variant="dark" imageRotate="right">
+    <p>A couple came in wanting a Maltipoo. Both of them work from 8am to 6pm, with nobody home during the day. Maltipoos tend to need more company than that, so we recommended one of our <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo puppies, a calmer fit for working couples</a> instead, even though it wasn't what they'd walked in for.</p>
+    <p>They took the Cavapoo home. She settled into the playpen we'd set up, with her bed and toys already in place, and adjusted to being alone during the day without the distress a Maltipoo might have shown.</p>
+    <p>"Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do," Andrew wrote afterwards. "We loved the aftercare support, you can tell they truly care about the pups and the owners."</p>
+    <p>Nelson's own rule of thumb: we'd rather talk you out of the wrong breed than sell you the wrong dog.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <BannerRibbon
+    heading="Still deciding?"
+    body="Take our 2-minute breed quiz, matched to your actual routine, not just looks."
+    ctaLabel="Take the quiz"
+    ctaHref="/first-time-owners/breed-selector"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="What Happens After You Reserve a Puppy" imageAlt="Curious Tails puppy carrier and delivery kit ready for a home visit" variant="mid" imagePosition="none">
+    <p>We keep this simple, and the same for every customer.</p>
+  </CaptionedBlock>
+  <div class="bg-[var(--color-mint-100)] pb-16">
+    <ol class="mx-auto max-w-[1400px] px-5 sm:px-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+      {[
+        'WhatsApp us to confirm which breed and puppy is available.',
+        'Place a deposit to secure your puppy.',
+        "We board your puppy for free, lodging and food covered, until you're ready.",
+        'Delivery is scheduled around your availability, usually mornings or evenings.',
+        'On delivery day, we set up the playpen, walk through the starter kit, and book your free training lesson.',
+      ].map((step, i) => (
+        <li data-reveal style={`--i:${i}`} class="clay clay-hover bg-[var(--color-surface-card)] p-5">
+          <span class="font-[family-name:var(--font-heading)] font-bold text-[var(--color-coral-500)]" style="font-size: clamp(2rem, 3vw, 2.75rem); line-height: 1;">
+            {String(i + 1).padStart(2, '0')}
+          </span>
+          <p class="mt-3 text-sm leading-relaxed text-[var(--color-cream-700)]">{step}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Bringing a Puppy Home to an HDB Flat" imageAlt="Small breed puppy in an HDB flat living room" imagePosition="left" imageRotate="right">
+    <p>HDB rules allow one dog of an approved breed, or an approved cross, per flat. Condo and landed property owners can keep up to three, subject to the property's own pet policy.</p>
+    <p>Corgis and Shiba Inus are not on the standard HDB-approved list. We'll tell you this plainly if you're considering either, rather than let you find out after you've already fallen for a puppy.</p>
+    <p>Cavapoo, Maltipoo, Bichonpoo, Cockapoo, and Mini Dachshund are commonly approved as small breeds or crosses, though it's worth checking <a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full HDB-approved breed list</a> and arranging dog licensing with us before you commit.</p>
+  </CaptionedBlock>
+
+  <ComparisonSplit
+    heading="HDB Breed Approval Quick Check"
+    headingAccent="Quick Check"
+    subhead="A fast reference before you fall for a breed you can't keep in your flat."
+    mode="table"
+    tableHeaders={['Breed', 'HDB Approved']}
+    rows={[
+      { label: 'Cavapoo', values: ['Yes — common, small breed cross'] },
+      { label: 'Maltipoo', values: ['Yes — small, low-shedding'] },
+      { label: 'Mini Dachshund', values: ['Yes — approved small breed'] },
+      { label: 'Cockapoo', values: ['Yes — medium-sized but approved'] },
+      { label: 'Bichonpoo', values: ['Yes — small, hypoallergenic'] },
+      { label: 'Corgi', values: ['No — not on the HDB approved list'] },
+      { label: 'Shiba Inu', values: ['No — not on the HDB approved list'] },
+    ]}
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="How Every Puppy Is Checked Before You Take It Home" imageAlt="Puppy receiving a health check" imageSrc={healthCheck} variant="mid">
+    <p>
+      Every puppy is health-checked before going home, and vaccinated in line with the{' '}
+      <a href="https://avs.nparks.gov.sg/businesses/veterinarians/guidelines-for-veterinarians/sg-vaccination-guidelines-for-dogs-and-cats/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Singapore Vaccination Guidelines for Dogs and Cats</a>,
+      jointly published by AVS and the Singapore Veterinary Association. Core vaccination protects against canine parvovirus and distemper, two of the most serious risks to a young puppy.
+    </p>
+    <p>We mention this once, plainly, because it matters, not because we want you worried every time you read our site.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Our Customers Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            "Couldn't recommend Curious Tails in Balestier enough after bringing home our Cavapoo. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+          name: 'Andrew Mak',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, attentive and genuinely helpful, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. They gave us ample time to interact with the puppies before we decided. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+  </div>
+
+  <CaptionedBlock heading="Our Care and Support Promise" imageAlt="Nelson and Kim checking on a puppy at the shop" imageSrc={careSupport} imagePosition="left" variant="card">
+    <p>Buying the puppy isn't where our part ends. If you have any questions about caring for your puppy after you bring them home, our customer service is free, and it doesn't stop after the first week.</p>
+    <p>Most questions are already answered before you need to ask them: Nelson and Kim walk through how to use and care for your puppy with every one of the 30 starter-kit items, in person, before you leave with your puppy.</p>
+    <p>If your puppy falls sick within the first 5 days of coming home, bring them back to us and we'll nurse them ourselves.</p>
+  </CaptionedBlock>
+
+  <ComparisonSplit
+    heading="What You're Really Getting for $2,888 to $4,488"
+    mode="table"
+    tableHeaders={['Included with every puppy', 'What it means for you']}
+    rows={[
+      { label: 'Puppy, health-checked and vaccinated', values: ['Following the Singapore Vaccination Guidelines for Dogs and Cats'] },
+      { label: 'Starter kit, 30+ items', values: ['Worth $500+, covering playpen, carrier, grooming, food, outdoor gear, toilet training, oral health, and toys'] },
+      { label: 'Free boarding after deposit', values: ["Lodging and food covered until you're ready"] },
+      { label: 'Free home delivery and setup', values: ['Scheduled around your own availability'] },
+      { label: 'Free first training lesson', values: ['With an AVS-Accredited Certified Dog Trainer'] },
+      { label: 'Ongoing customer support', values: ['Free, plus a 5-day nurse-back safety net if your puppy falls sick'] },
+    ]}
+  />
+
+  <div id="trust" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Licensed Pet Shop vs. Unlicensed Seller: What's the Real Difference?"
+      mode="split"
+      columns={[
+        {
+          heading: 'Unlicensed seller',
+          items: [
+            'No welfare inspections',
+            'No mandatory buyer screening (Pet Purchase Declaration)',
+            'No health guarantee before sale',
+            'Vaccination often skipped or faked',
+            'Microchipping rarely done',
+            'No after-sale support',
+            'No public record, can\'t verify the seller',
+          ],
+        },
+        {
+          heading: 'Curious Tails (AVS licensed)',
+          items: [
+            'Regular welfare inspections',
+            'Mandatory Pet Purchase Declaration before sale',
+            'Full health check before every sale',
+            'Vaccination to Singapore guidelines, DHPP and microchip',
+            'Microchipping required, linked to owner',
+            '5-day nurse-back guarantee if your puppy falls sick',
+            'Verifiable on the public AVS registry, any time',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The ICA reported a 33% decrease in animal smuggling cases in 2025, but unlicensed sources remain high risk: puppies often carry undetected parvovirus, unvaccinated puppies can mean $5,000+ in vet bills within days, and there's no recourse if the seller disappears. Our approach is transparent, verifiable, and accountable.
+      </p>
+    </div>
+    <CaptionedBlock heading="Verifying Our AVS Licence" imageAlt="AVS licence certificate" imagePosition="none">
+      <div slot="side" class="clay relative overflow-hidden bg-[var(--color-lilac-900)] p-8 text-center">
+        <Blob class="pointer-events-none absolute -top-12 -right-12 h-40 w-40 fill-white/5 blob-drift-slow" aria-hidden="true" />
+        <Blob class="pointer-events-none absolute -bottom-14 -left-10 h-36 w-36 fill-[var(--color-mint-300)]/15 blob-drift" aria-hidden="true" />
+
+        <span class="wiggle-hover relative mx-auto flex h-20 w-20 items-center justify-center rounded-full border-3 border-[var(--color-mint-300)] bg-white/10 text-[var(--color-mint-300)]">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2 4 5.5v6c0 5 3.4 8.9 8 10.5 4.6-1.6 8-5.5 8-10.5v-6L12 2Z" />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+        </span>
+        <Sparkle class="absolute right-8 top-10 h-4 w-4 text-[var(--color-coral-300)] blob-drift" />
+        <Sparkle class="absolute left-9 bottom-20 h-3.5 w-3.5 text-[var(--color-mint-300)] blob-drift-slow" />
+
+        <p class="relative mt-5 text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">AVS Licensed Pet Shop</p>
+        <p class="relative mt-2 font-[family-name:var(--font-heading)] text-2xl font-bold text-white">{site.license.number}</p>
+        <p class="relative mt-3 text-sm leading-relaxed text-white/75">
+          Search this number on the public registry to confirm it yourself, any time.
+        </p>
+        <a
+          href={site.license.registryUrl}
+          class="clay-btn relative mt-6 inline-flex w-full items-center justify-center gap-2 bg-[var(--color-accent)] px-5 py-3 text-sm font-bold text-white hover:bg-[var(--color-accent-hover)]"
+        >
+          <PawPrint class="h-4 w-4" />
+          Verify on AVS registry
+        </a>
+      </div>
+      <p>
+        Curious Tails is AVS-licensed under pet shop licence AS24J00046. You can check this yourself, in under a minute, on the{' '}
+        <a href={site.license.registryUrl} class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS public registry</a>.
+      </p>
+      <p>
+        This matters because not every seller in Singapore is licensed. Puppies from unlicensed sources are often{' '}
+        <a href="https://www.ica.gov.sg/news-and-publications/newsroom/media-release/33-per-cent-decrease-in-animal-smuggling-cases-recorded-in-2025" class="underline underline-offset-2 text-[var(--color-accent-hover)]">smuggled in from across the border</a>,
+        without health checks or proper vaccination, and are often listed on Carousell or Telegram by an unlicensed pet seller. Puppies have died from canine parvovirus after being smuggled, and{' '}
+        <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">welfare groups like the SPCA</a>{' '}
+        have campaigned against it for years.
+      </p>
+      <p>If a seller can't show you a licence number you can verify on the public registry, that's worth pausing on. An honest pet shop will have one; a genuine puppy seller won't mind you checking.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ items={faqItems} />
+  </div>
+
+  <BannerRibbon
+    heading="Reserve Your Puppy Today"
+    body="WhatsApp us to check which breeds are currently available. Puppies are placed on a first-confirmed basis."
+    ctaLabel={`WhatsApp ${site.phoneDisplay}`}
+    ctaMessage="Hi! I'd like to reserve a puppy."
+  />
+
+  <section class="mx-auto max-w-[1400px] px-5 sm:px-8 py-14 grid gap-8 lg:grid-cols-2">
+    <div data-reveal>
+      <h2 class="text-3xl font-semibold text-[var(--color-cream-900)]">Visit Us in Balestier</h2>
+      <p class="mt-3 text-base text-[var(--color-cream-700)]">{site.address.full}</p>
+      <p class="mt-1 text-base text-[var(--color-cream-700)]">{site.hours}</p>
+      <p class="mt-4 text-base leading-relaxed text-[var(--color-cream-700)]">
+        Licensing and paperwork are completed at the point of purchase. We handle the process with you, so nothing is left for you to sort out afterward.
+      </p>
+      <a href={whatsappLink()} class="clay-btn mt-5 inline-flex items-center gap-2 bg-[var(--color-accent)] px-6 py-3 text-sm font-bold text-white hover:bg-[var(--color-accent-hover)]">
+        Get in touch
+      </a>
+    </div>
+    <div class="clay bg-white p-2">
+      <iframe
+        class="rounded-[1.3rem]"
+        src={site.googleMapsEmbed}
+        width="100%"
+        height="320"
+        style="border:0;"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        title="Curious Tails location on Balestier Road"
+      ></iframe>
+    </div>
+  </section>
+
+  <BannerRibbon
+    heading="Not Ready to Reserve Yet?"
+    body="Take our 2-minute breed quiz, or read the first-year budget guide before you decide."
+    ctaLabel="Take the breed quiz"
+    ctaHref="/first-time-owners/breed-selector"
+    variant="tint"
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

@@ -1,0 +1,448 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import heroCorgi from '../../assets/corgi/1-corgi-puppy-hero-playpen-home.webp';
+import redWhitePortrait from '../../assets/corgi/2-corgi-red-white-portrait.webp';
+import triPortrait from '../../assets/corgi/3-corgi-tricolour-portrait.webp';
+import sablePortrait from '../../assets/corgi/4-corgi-sable-portrait.webp';
+import morningWalk from '../../assets/corgi/5-corgi-park-connector-morning-walk.webp';
+import coatBrush from '../../assets/corgi/6-corgi-brushing-double-coat-care.webp';
+
+const title = 'Corgi Singapore | Puppies from $2,888, HDB Facts | Curious Tails';
+const description =
+  'Corgi puppies for sale in Singapore from $2,888 all-in. Honest part first: Corgis are not HDB-approved. Private housing? We match you. HDB? See the alternatives.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Shedding', href: '#size' },
+  { label: 'Price', href: '#price' },
+  { label: 'Alternatives', href: '#alternatives' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Can I keep a Corgi in an HDB flat?',
+    answer:
+      'No. Corgis are not on the HDB-approved breed list, Pembroke or Cardigan, and we will not pretend otherwise or promise workarounds. Condos and landed homes can keep up to three dogs, so a Corgi is very much on the table there. HDB readers: see our approved alternatives on this page.',
+  },
+  {
+    question: 'How much does a Corgi cost in Singapore?',
+    answer:
+      'The market commonly runs $6,000 to $10,000 for a Corgi. At Curious Tails, Corgi puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'How bad is Corgi shedding, really?',
+    answer:
+      'Real. A Corgi carries a thick double coat that sheds year-round with heavier seasonal blows, and during those weeks daily brushing is the job. One rule matters above all: never shave a double coat, it wrecks the insulation that also protects against heat.',
+  },
+  {
+    question: 'Do Corgis cope with Singapore heat?',
+    answer:
+      'Yes, with sensible routines: early morning and evening walks, water always available, aircon or fan rest through midday, and a lean body weight. The double coat insulates in both directions when it is maintained, which is another reason never to shave it.',
+  },
+  {
+    question: 'Can a Corgi be alone during work hours?',
+    answer:
+      'A settled adult can manage it; a bored Corgi is loud and inventive. This is a herding brain that needs a job, so exercise before you leave and food-puzzle work during the day are non-negotiable parts of the routine.',
+  },
+  {
+    question: 'How much exercise does a Corgi need?',
+    answer:
+      'Plan for 45 to 60 minutes daily plus mental work like training games or puzzle feeders. It is a working farm breed in a small body; the short legs are not a low-energy signal.',
+  },
+  {
+    question: 'What happens after I reserve a Corgi?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/corgi',
+    title,
+    description,
+    aboutName: 'Pembroke Welsh Corgi',
+    aboutAlternateName: 'Corgi',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Pembroke_Welsh_Corgi',
+    datePublished: '2026-07-06',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Corgi puppy',
+      url: '/puppies/corgi',
+      description:
+        'Pembroke Welsh Corgi puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included. Not HDB-approved; suited to condos and landed homes.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Corgi Home Delivery & Playpen Setup',
+    description: 'Free island-wide home delivery with playpen, bed, and toy setup for every Corgi puppy, scheduled around the owner\'s availability.',
+    price: 'Included',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Pembroke Welsh Corgi',
+    description:
+      'The Pembroke Welsh Corgi is a sturdy herding breed: 10 to 14 kg fully grown, short-legged but athletic, alert and affectionate, with a thick double coat that sheds heavily. In Singapore, Corgis are not on the HDB-approved list and suit condos and landed homes.',
+    sameAs: 'https://en.wikipedia.org/wiki/Pembroke_Welsh_Corgi',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/corgi" ogImage="/assets/corgi/og-corgi.jpg">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Corgi Puppies for Sale in Singapore"
+    h1Accent="Corgi"
+    subhead="Corgis in Singapore commonly cost $6,000 to $10,000; ours are $2,888 to $4,488 all-in. And the honest part before anything else: Corgis are not HDB-approved. Private housing? Let's talk. HDB flat? We'll show you the approved alternatives instead of wasting your heart."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Corgi puppies. I live in private housing."
+    secondaryCtaLabel="Check the HDB rules first"
+    secondaryCtaHref="#hdb"
+    priceAnchor="From $2,888 all-in, for condo and landed homes."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="Corgi puppy Singapore: red and white Pembroke pup standing in its set-up playpen in a bright landed home"
+    imageSrc={heroCorgi}
+    tagLabel="Corgi"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Corgi', href: '/puppies/corgi' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking for a Corgi for Sale in Singapore?" imageAlt="Red and white Corgi puppy available in Singapore, seated portrait with one ear up" imageSrc={redWhitePortrait} variant="mid">
+      <p>Corgi litters are less frequent than the small crosses, so availability genuinely moves; we keep it live on WhatsApp rather than on a page that goes stale. Message us for photos, gender, age, and exact prices of the Corgi puppies available now.</p>
+      <p>Every Corgi here is between $2,888 and $4,488, full price in writing, kit and delivery and training included. One honest gate first: we will ask about your housing before anything else, because a Corgi cannot go to an HDB flat and we do not bend that rule.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Corgi puppies? I'm in private housing.")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Corgi photos and prices</a>, or visit us in Balestier.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Corgi Puppies"
+      headingAccent="Available"
+      subhead="A few of the Corgis recently looking for homes. Tap any pup to WhatsApp us for the latest photos, video, and full price."
+      items={[
+        { title: 'Red & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white male Corgi puppy.'), imageAlt: 'Red and white male Pembroke Welsh Corgi puppy available in Singapore', imageSrc: redWhitePortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Tri-colour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tri-colour female Corgi puppy.'), imageAlt: 'Tri-colour female Corgi puppy lying on a cotton mat', imageSrc: triPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Sable boy', href: whatsappLink('Hi! I\'d like more photos and the price for the sable male Corgi puppy.'), imageAlt: 'Sable male Corgi puppy trotting on cream tiles', imageSrc: sablePortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+      ]}
+    />
+  </div>
+
+  <div id="hdb" class="relative scroll-mt-40">
+    <ScatterFloat />
+    <DefBox
+      term="Can you keep a Corgi in an HDB flat? No"
+      definition="Corgis, Pembroke or Cardigan, are not on the HDB-approved breed list. HDB flats may keep one dog of an approved small breed, and the Corgi does not qualify at any weight. Condos and landed homes are a different story: up to three dogs, subject to the estate's own rules."
+      bridge="We tell you this before you fall for a photo, not after. If you are in an HDB flat and love the Corgi's character, the approved alternatives further down this page get you closer than you might think; if you are in private housing, carry on, the rest of this page is for you."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The housing rules, straight</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'HDB flat: Corgi not approved, no exceptions we can promise',
+            'Condo / landed: up to three dogs (AVS limits of ownership)',
+            'HDB readers: see the approved alternatives below',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: <a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2">the full HDB-approved dog breeds list</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why private-housing families get their Corgi from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Corgi pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Corgi Temperament: a Working Dog in a Small Body" imageAlt="Tri-colour Corgi puppy alert and playful on a cotton mat at home" imageSrc={triPortrait} imagePosition="left">
+      <p>The Corgi's secret is that it is not a lap dog at all: it is a cattle-herding farm breed that happens to come in a small, irresistible package. That means brains, drive, and opinions, delivered with a grin.</p>
+      <p>Herding instincts show up at home as shadowing you between rooms, the occasional ankle-level nudge on running children, and a strong preference for having a job. Ten minutes of trick training does more for a Corgi's evening calm than an extra lap of the estate.</p>
+      <p>They are vocal, sociable, affectionate with the whole family, and thoroughly wonderful for owners who wanted a real dog in a small footprint. They are the wrong choice for someone who wanted a quiet ornament.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Energy: Short Legs, Long Battery" imageAlt="Corgi puppy on an early morning shaded park connector walk in Singapore" imageSrc={morningWalk} imagePosition="right" variant="card">
+      <p>Budget 45 to 60 minutes of exercise daily, plus mental work. In Singapore that means an early morning walk before the heat builds, an evening loop when the pavement has cooled, and games or puzzle feeders through the day.</p>
+      <p>A Corgi that gets its outlets is a delightful housemate; one that doesn't will invent projects, loudly. If your evenings genuinely cannot fit the walks, we would rather point you to a lower-drive breed now than take your money and your review later.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Corgi Size, Coat, Shedding and Lifespan"
+      headingAccent="Shedding"
+      subhead="Honest numbers, including the shedding truth most listings skip."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['10 to 14 kg; sturdy and dense for its height'] },
+        { label: 'Height', values: ['25 to 30 cm at the shoulder'] },
+        { label: 'Coat', values: ['Thick double coat; red and white, tri-colour, sable'] },
+        { label: 'Shedding', values: ['Heavy, year-round, with seasonal coat blows; daily brushing in those weeks'] },
+        { label: 'Lifespan', values: ['12 to 14 years'] },
+        { label: 'Exercise', values: ['45 to 60 minutes daily plus mental stimulation'] },
+        { label: 'Weight watch', values: ['Prone to weight gain, and extra load strains the long back; keep lean'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        One grooming rule outranks the rest: never shave a double coat, even in our heat. The coat insulates against warmth as well as cold, and shaving wrecks that system for years. Brush it out instead; the tools are in your starter kit.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Corgi Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="The market commonly quotes $6,000 to $10,000. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Corgi price commonly $6,000 to $10,000',
+            'Import premiums unexplained',
+            'Starter supplies bought separately after purchase',
+            'Training arranged and paid on your own',
+            'Delivery often self-collected or charged',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer',
+            'Free boarding after deposit until you are ready',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The full market picture and the deposit-to-homecoming process are on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>; ongoing costs for a 10-plus-kilo dog are in the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year budget planner</a>.
+      </p>
+    </div>
+  </div>
+
+  <BannerRibbon
+    heading="In private housing and Corgi-ready?"
+    body="Message us your housing type and daily routine, and we'll send current Corgi photos, video, and exact prices, plus an honest read on the fit."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'm in private housing and interested in a Corgi. Here's my routine:"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="alternatives" class="scroll-mt-40">
+    <CaptionedBlock heading="In an HDB Flat? Meet the Approved Alternatives" imagePosition="none" variant="mid">
+      <p>If the Corgi's cheeky, big-dog-in-a-small-body character is what won you over, the HDB-approved list gets you closer than you might expect. A <a href="/puppies/mini-dachshund" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Mini Dachshund</a> brings the same bold personality and comedy in an approved frame; a <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a> matches the sociable, up-for-anything energy; and a <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> gives you the affection with a calmer engine.</p>
+      <p>The honest move is to match on routine, not silhouette. Take the <a href="/first-time-owners/breed-selector" class="underline underline-offset-2 text-[var(--color-accent-hover)]">two-minute breed selector</a>, or message us your weekday and we'll shortlist for you; that conversation costs nothing.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-surface-card)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">If you loved the Corgi's...</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Bold comic personality → Mini Dachshund',
+            'Sociable family energy → Cockapoo',
+            'Affection, calmer engine → Cavapoo',
+            'Low-shedding priority → Bichonpoo or Maltipoo',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Living with a Corgi in Singapore's Heat" imageAlt="Corgi double coat care: brushing a young Corgi's thick coat during shedding weeks at home" imageSrc={coatBrush} imagePosition="left" imageRotate="right">
+    <p>The double coat and the tropics can coexist; thousands of Singapore Corgis prove it every weekend. The routine: walks at sunrise and after sundown, shade and water on every outing, and midday spent where the fan or aircon lives.</p>
+    <p>Keep the coat brushed, especially through coat-blow weeks, because a packed undercoat traps heat; and keep the body lean, because extra weight is both a heat and a back problem for this build.</p>
+    <p>The reward for the upkeep is a famously game little dog and one of Singapore's most sociable owner communities; Corgi meetups here fill parks.</p>
+  </CaptionedBlock>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <div id="health" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Vaccination and Licensing Timeline"
+      headingAccent="Timeline"
+      subhead="The exact weeks, so nothing is left to guesswork."
+      mode="table"
+      tableHeaders={['When', 'What happens']}
+      rows={[
+        { label: 'Week 6', values: ['First vaccination and deworming'] },
+        { label: 'Week 8', values: ['Second vaccination and deworming'] },
+        { label: 'Week 9', values: ['Puppy goes home, one week after the second vaccination'] },
+        { label: 'Week 12', values: ['Third vaccination and deworming, completing the core puppy course'] },
+        { label: 'Week 16', values: ['Optional fourth vaccination, if advised by your vet for extra early-life protection'] },
+        { label: 'Year 1 onward', values: ['Annual booster shot and deworming, done every year as advised by your vet'] },
+        { label: 'At purchase', values: ['Microchipping is already done; dog licensing paperwork is completed with our full assistance at the point of purchase'] },
+        { label: 'Before licensing (first-time owners)', values: ['A one-time free online pet ownership course, required since September 2024'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Every puppy goes home vet-checked, vaccinated, dewormed, and microchipped. First-time owners must also complete the <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">free online pet ownership course</a> before licensing; we point you to it at purchase so nothing stalls homecoming.
+      </p>
+    </div>
+  </div>
+
+  <div id="first-week" class="scroll-mt-40">
+    <CaptionedBlock heading="Your Corgi's First Week at Home" imagePosition="none" variant="card">
+      <p>Day 0: we deliver free, usually morning or evening, with the playpen, bed, water, and toys set up before your Corgi explores. We walk you through all 30+ starter-kit items in person; see <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+      <p>Days 1 to 3: calm and consistent. Same food, fixed times, short gentle play; some night whimpering is normal adjustment.</p>
+      <p>Days 4 to 7: the routine holds, and it's the window to book the free first lesson; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free training lesson covers</a>. For a herding brain, that early lesson pays double.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Corgi week one, in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Day 0: delivered, set up, walked through',
+            'Days 1–3: calm, same food, fixed times',
+            'Days 4–7: book the training lesson',
+            'Start brush habit from day one',
+            'Questions: WhatsApp, any time',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Owners Say About Us"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, attentive and genuinely helpful, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. They gave us ample time to interact with the puppies before we decided. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Couldn't recommend Curious Tails in Balestier enough after bringing home our Cavapoo. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+          name: 'Andrew Mak',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Had such a wonderful experience bringing home our new furry family member from Curious Tails in Balestier. Honestly, Nelson and Kim couldn't have been more helpful and answered every single question we had, which made the whole thing stress-free. Our pup was clean, well-socialised, and full of energy when we brought it home. The puppy came home healthy and vet-checked, which gave us real peace of mind. A truly lovely experience from start to finish, thank you!",
+          name: 'Damon Fong',
+          meta: 'Google review',
+        },
+      ]}
+    />
+  </div>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit; if a seller isn't on the registry, they aren't licensed, whatever the listing says."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. With Corgis priced high in the market, tempting 'deals' appear on Carousell and Telegram; a Corgi far below market from an unverifiable seller is the risk, not the bargain."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Treat far-below-market Corgi listings as the red flag they are',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Corgi FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Corgi" reserveMessage="Hi! I'd like to reserve a Corgi puppy. I'm in private housing." />
+
+  <Schema {schemas} />
+</BaseLayout>

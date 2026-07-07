@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import DefBox from '../../components/DefBox.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+import settlingIn from '../../assets/home/5-cavapoo-puppy-settling-playpen-first-day.png';
+import nightRoutine from '../../assets/guides/3-puppy-night-routine-sleeping-pen.webp';
+
+const title = '5 First-Time Puppy Owner Mistakes to Avoid | Curious Tails';
+const description =
+  'The five mistakes first-time puppy owners in Singapore actually make, from real placements: choosing by photo, skipping the routine, 2am rescues, and more.';
+const datePublished = '2026-07-06';
+
+const faqItems = [
+  {
+    question: 'What is the most common first-time puppy owner mistake?',
+    answer:
+      'Choosing the breed by photo instead of routine. Every mismatch story we have untangled in two years of placements started with a picture; the fix is answering "who is home 8am to 6pm?" before browsing a single listing.',
+  },
+  {
+    question: 'Should I comfort my puppy when it cries at night?',
+    answer:
+      'Briefly and boringly, yes; dramatically, no. The 2am rescue into the human bed teaches a lesson you will spend months unteaching. A consistent, calm response plus a comfort toy shortens the crying phase to a few nights.',
+  },
+  {
+    question: 'How much gear should I buy before the puppy arrives?',
+    answer:
+      'Less than you think. The day-one essentials fit one checklist (playpen, bed, bowls, pads, food, a couple of toys), and everything beyond it is better bought after two weeks of knowing your actual puppy. With our puppies, the 30+ item kit covers the list entirely.',
+  },
+  {
+    question: 'Is week-one whimpering, hiding, or an accident an emergency?',
+    answer:
+      'Almost never; they are adjustment behaviours that fade with routine. The genuine escalation signs are refusing food for more than a day, lethargy, vomiting, or diarrhoea; those get a vet, everything else gets consistency and patience.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/blog/first-time-mistakes',
+    title,
+    description,
+    aboutName: 'First-time puppy owner mistakes',
+    aboutAlternateName: 'puppy owner tips',
+    datePublished,
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/blog/first-time-mistakes" ogImage="/assets/guides/og-first-time-owners.jpg">
+  <section class="bg-[var(--color-peach-100)] pb-10 pt-2">
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pt-5">
+      <Breadcrumb bare items={[{ label: 'Blog', href: '/blog' }, { label: 'First-Time Mistakes', href: '/blog/first-time-mistakes' }]} />
+      <div class="mx-auto mt-8 max-w-[75ch]">
+        <p class="text-xs font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">Blog · First-time owners</p>
+        <h1 class="mt-3 font-[family-name:var(--font-heading)] font-semibold leading-[1.08] text-[var(--color-cream-900)]" style="font-size: clamp(2.2rem, 4.5vw, 3.5rem);">
+          5 First-Time Puppy Owner Mistakes to Avoid
+        </h1>
+        <p class="mt-4 text-sm text-[var(--color-cream-600)]">
+          By <a href="/about-us" class="font-semibold underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson &amp; Kim</a>, Curious Tails · Published {datePublished} · From two years of real placements
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <DefBox
+    term="What mistakes do first-time puppy owners make?"
+    definition="The five we see most: choosing a breed by photo instead of routine, buying a mountain of gear before understanding the puppy, breaking the night routine with 2am rescues, socialising in chaotic bursts instead of calm reps, and treating normal week-one behaviour as an emergency. All five are preventable with a simple routine and someone to call."
+    bridge="These are not hypotheticals; they are the patterns behind two years of WhatsApp messages, delivered here in the order they usually happen."
+    citationLabel="Verify our licence on the AVS public registry"
+    citationHref={site.license.registryUrl}
+  >
+    <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The five, in one card</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          '1. Choosing by photo, not routine',
+          '2. Over-buying gear before day one',
+          '3. The 2am rescue',
+          '4. Chaotic socialisation bursts',
+          '5. Panicking at normal week-one behaviour',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </DefBox>
+
+  <CaptionedBlock heading="Mistake 1: Choosing by Photo, Not Routine" imageAlt="A well-matched Cavapoo settled in her playpen on day one" imageSrc={settlingIn} imagePosition="right">
+    <p>The costliest mistake happens before any purchase. A couple once came to us set on a Maltipoo; both work 8am to 6pm with nobody home. Maltipoos need more company than that, so we recommended a Cavapoo instead, similar look and warmth, far more independent, and risked losing the sale saying so.</p>
+    <p>They took the Cavapoo. She settled beautifully into the alone-time routine, and Andrew Mak's five-star review of that steer still teaches the lesson better than we can: the right starting question is never "which breed is cutest", it is "what does our day look like?"</p>
+    <p>Prevention takes two minutes: the <a href="/first-time-owners/breed-selector" class="underline underline-offset-2 text-[var(--color-accent-hover)]">breed selector quiz</a> asks the routine questions in the right order.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Mistake 2: Over-Buying Gear Before Day One" imagePosition="none" variant="card">
+    <p>Excited first-timers arrive at day one with three beds, a tower of toys, two food brands "for variety", and an adult-size harness the puppy will grow into around month eight. Half of it goes unused; the second food brand actively causes the week-one stomach upset it was meant to prevent.</p>
+    <p>The day-one list is short and boring: playpen, bed, bowls, the same food the puppy already eats, pads, a cleaner, and two good toys. Hold the extras budget until you have lived with your actual puppy for two weeks and know what it ignores.</p>
+    <p>Our puppies arrive with the <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">30+ item starter kit</a> covering the whole list, which is one way to make this mistake impossible.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Skip on day one</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Adult-size gear of any kind',
+          'A second food brand "for variety"',
+          'Toy mountains (two good ones win)',
+          'Anything not on the short list yet',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Mistake 3: the 2am Rescue" imageAlt="Puppy asleep in its dim playpen with a comfort toy: the night routine holding" imageSrc={nightRoutine} imagePosition="left" variant="card">
+    <p>Night two, the whimpering starts, and somewhere around 2am the resolve breaks: the puppy is scooped into the human bed, comforted extravagantly, and taught the single clearest lesson of its young life: crying relocates me.</p>
+    <p>The whimpering is adjustment, not distress; your puppy left a pile of siblings four days ago. What shortens it: a comfort toy, the pen within earshot of family life, and the same brief, boring reassurance every time. What lengthens it into months: the rescue.</p>
+    <p>The full night routine, hour by hour, is in the <a href="/first-time-owners/puppy-care-101" class="underline underline-offset-2 text-[var(--color-accent-hover)]">week-by-week care guide</a>.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Mistake 4: Chaotic Socialisation Bursts" imagePosition="none" variant="mid">
+    <p>The socialisation window (roughly 3 to 16 weeks) is real, and well-read owners sometimes over-correct: a Saturday crash-course of the wet market, a kids' birthday party, and a dog run, all before lunch. The puppy ends the day overwhelmed, and overwhelmed is the opposite of socialised.</p>
+    <p>AVS's own guidance says it plainly: quality over quantity, positive and controlled, never forced. One calm void-deck session where the puppy watches the world from your arms beats five chaotic adventures.</p>
+    <p>The <a href="https://avs.nparks.gov.sg/pets/caring-for-a-pet/dog-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">AVS socialisation guidance</a> is the reference, and the <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">free first training lesson</a> that comes with our puppies sets the pattern in week one.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-surface-card)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good socialisation looks like</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Short, calm, positive exposures',
+          'Watching from your arms counts',
+          'One new thing per outing',
+          'The puppy sets the pace, always',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Mistake 5: Panicking at Normal Week-One Behaviour" imagePosition="none" variant="card">
+    <p>Week one produces a predictable set of behaviours that read as alarming and are not: whimpering at night, an accident next to the pad rather than on it, hiding under furniture for an afternoon, one skipped meal on day one. Each has triggered a panicked 11pm message we were glad to answer.</p>
+    <p>The real escalation list is short: food refused beyond a day, lethargy, vomiting, diarrhoea. Those go to a vet without delay. Everything else goes to patience, and ideally to someone who has seen a hundred week-ones and can tell you which list you are on.</p>
+    <p>That someone, for our families, is our WhatsApp; and if a puppy from us falls sick in the first 5 days, it comes back to us and we nurse it.</p>
+  </CaptionedBlock>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <CaptionedBlock heading="The Pattern Behind All Five" imagePosition="none" variant="dark">
+    <p>Every mistake on this list is an information problem wearing a different costume: choosing blind, buying blind, comforting blind, socialising blind, panicking blind. And yet the fix is not more reading; the first-timers who thrive are rarely the best-read ones.</p>
+    <p>They are the ones with a simple routine to follow and someone to call when unsure. That is the whole system, and it is buildable in a week: quiz, checklist, routine, and a number that answers.</p>
+    <p>Start at the <a href="/first-time-owners" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-time owner checklist</a>; it walks the five decisions in order.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The whole system</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'A routine to follow',
+          'Someone to call when unsure',
+          'That\'s it; that\'s the system',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="First-Timer Mistake Questions" items={faqItems} />
+  </div>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Make Zero of These Mistakes"
+    body="Every puppy of ours ships with the routine pre-built and our WhatsApp open. Ask us anything, including whether you're ready."
+    reserveMessage="Hi! First-time owner here. I read the mistakes post; here's my situation:"
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

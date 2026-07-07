@@ -1,0 +1,283 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import Hero from '../components/Hero.astro';
+import Tabs from '../components/Tabs.astro';
+import DefBox from '../components/DefBox.astro';
+import StatStrip from '../components/StatStrip.astro';
+import ComparisonSplit from '../components/ComparisonSplit.astro';
+import CaptionedBlock from '../components/CaptionedBlock.astro';
+import BannerRibbon from '../components/BannerRibbon.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Carousel from '../components/Carousel.astro';
+import FAQ from '../components/FAQ.astro';
+import Schema from '../components/Schema.astro';
+import ScatterFloat from '../components/decor/ScatterFloat.astro';
+import CloudDivider from '../components/decor/CloudDivider.astro';
+import PawTrail from '../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  serviceSchema,
+  faqPageSchema,
+} from '../lib/schema';
+import heroArrival from '../assets/delivery/1-puppy-home-delivery-hero-arrival.webp';
+import setupHands from '../assets/delivery/2-playpen-setup-hands-assembly.webp';
+import boardingPen from '../assets/delivery/3-puppy-boarding-cozy-pen-waiting.webp';
+import exploring from '../assets/delivery/4-puppy-first-24-hours-exploring.webp';
+
+const title = 'Puppy Home Delivery Singapore | Free, Setup Included | Curious Tails';
+const description =
+  'Free puppy home delivery across Singapore: playpen set up before your puppy explores, a 30+ item kit walkthrough, and timing that fits your schedule. WhatsApp us.';
+
+const jumpLinks = [
+  { label: 'Delivery Day', href: '#delivery-day' },
+  { label: 'Free Boarding', href: '#boarding' },
+  { label: 'Prepare', href: '#prepare' },
+  { label: 'First 24 Hours', href: '#first-24' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Is delivery really free, island-wide?',
+    answer:
+      'Yes. Home delivery is free anywhere in Singapore with every puppy, and it includes the playpen setup and the starter-kit walkthrough. It is all inside the $2,888 to $4,488 price, with no delivery surcharge for any district.',
+  },
+  {
+    question: 'How long do the delivery and setup take?',
+    answer:
+      'Plan for about an hour. Setup comes first, so your puppy walks into a ready space, then we go through the 30+ starter-kit items with you. It runs longer if you have questions, and questions are the point of us being there.',
+  },
+  {
+    question: 'Can I collect my puppy from the shop instead?',
+    answer:
+      'Of course. Collection from our Balestier shop works too; you still take the full starter kit home, and we run the same item-by-item walkthrough at the shop before you leave.',
+  },
+  {
+    question: 'How long can you board my puppy after the deposit?',
+    answer:
+      'Until you are ready. After your deposit, boarding is free with lodging and food covered. Renovation overruns and booked trips are the usual reasons, and we simply plan the delivery date around them.',
+  },
+  {
+    question: 'What paperwork comes with the puppy at delivery?',
+    answer:
+      'Health records, vaccination records, and microchip details come with your puppy. Dog licensing is completed with our assistance at the point of purchase, so by delivery day the paperwork side is already in order.',
+  },
+  {
+    question: 'What should I do in the first 24 hours after delivery?',
+    answer:
+      'Keep it calm. Let your puppy explore the set-up playpen at its own pace, feed the same food at fixed times, hold off on visitors, and expect some whimpering on night one; it is adjustment, not distress, and it passes.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/delivery',
+    title,
+    description,
+    aboutName: 'Puppy home delivery and setup',
+    aboutAlternateName: 'puppy delivery Singapore',
+    datePublished: '2026-07-06',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  serviceSchema({
+    name: 'Free Puppy Home Delivery & Playpen Setup',
+    description:
+      'Free island-wide puppy home delivery with every Curious Tails puppy: playpen, bed, and toilet area set up before the puppy explores, plus a full 30+ item starter-kit walkthrough, scheduled around the owner\'s availability.',
+    price: 'Included',
+  }),
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/delivery" ogImage="/assets/delivery/og-delivery.jpg">
+  <Hero
+    eyebrow="Included with every puppy"
+    h1="Free Home Delivery, Playpen Setup Included"
+    h1Accent="Free"
+    subhead="Most shops hand you a carrier at the counter. We deliver your puppy home free, anywhere in Singapore, set up the playpen before your puppy explores the room, and walk you through all 30+ starter-kit items before we leave."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your puppies and how home delivery works."
+    secondaryCtaLabel="See how delivery day runs"
+    secondaryCtaHref="#delivery-day"
+    priceAnchor="Free island-wide, setup and walkthrough included. No surcharge for any district."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="Puppy home delivery Singapore: carrier with an apricot Cavapoo arriving at an HDB doorway on delivery day"
+    imageSrc={heroArrival}
+    tagLabel="Island-wide"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Delivery', href: '/delivery' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What does proper puppy home delivery include?"
+      definition="Puppy home delivery, done properly, is three jobs in one visit: transporting the puppy safely in a secure carrier, setting up its space so the playpen, bed, water, and toilet area are ready before the puppy explores, and briefing the owner so the routine is clear before the door closes. It should be scheduled around the family, not the shop."
+      bridge="That is exactly what comes free with every Curious Tails puppy, anywhere in Singapore. Delivery is scheduled around your availability, usually mornings or evenings, and it is Nelson and Kim who turn up, not a courier."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Delivery, in one card</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Free, island-wide, no district surcharge',
+            'Scheduled around you, usually mornings or evenings',
+            'Playpen set up before your puppy explores',
+            'All 30+ kit items explained in person',
+            'Delivered by the owners, not a courier',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Handover the way it should be"
+    stats={[
+      { value: 'Free', label: 'delivery, anywhere in Singapore' },
+      { value: '~1 hr', label: 'setup plus full kit walkthrough' },
+      { value: '30+', label: 'items explained before we leave' },
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="delivery-day" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Delivery Day, Start to Finish"
+      headingAccent="Delivery Day"
+      subhead="The exact sequence, so nothing on the day is a surprise."
+      mode="table"
+      tableHeaders={['Step', 'What happens']}
+      rows={[
+        { label: '1. Scheduling', values: ['We fix a slot around your availability, usually a morning or an evening, never around ours'] },
+        { label: '2. The ride', values: ['Your puppy travels in a secure carrier; short, calm, and air-conditioned'] },
+        { label: '3. Setup first', values: ['Playpen assembled and placed, bed in, water filled, pads down, before your puppy is let out to explore'] },
+        { label: '4. The walkthrough', values: ['All 30+ starter-kit items explained: feeding amounts, pad placement, grooming basics, harness fit'] },
+        { label: '5. Before we leave', values: ['Health records handed over, your free training lesson slot booked, and our WhatsApp confirmed on your phone'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The kit itself is its own story: see <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">everything inside the 30+ item starter kit</a>, and how <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the free AVS-certified training lesson</a> slots into week one.
+      </p>
+    </div>
+
+    <CaptionedBlock heading="Setup Comes First, Always" imageAlt="Playpen setup included with puppy delivery: hands assembling the fabric playpen panels in a Singapore living room" imageSrc={setupHands} imagePosition="right">
+      <p>The order of operations matters more than it looks. We assemble and place the playpen before your puppy is let out of the carrier, so the first thing it meets is a ready territory: bed, water, toys, toilet area, all in position.</p>
+      <p>Placement follows the same rules in every home: out of direct afternoon sun, away from the aircon's draft, near where the family actually spends its time. In an HDB flat or a compact condo, those few metres of difference decide how fast the settling happens.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="boarding" class="scroll-mt-40">
+    <CaptionedBlock heading="Not Ready Yet? We Board Your Puppy Free" imageAlt="Free puppy boarding after deposit: apricot Cavapoo relaxed in a cosy pen with its bed and water while its family gets ready" imageSrc={boardingPen} imagePosition="left" variant="card">
+      <p>Renovations overrun. Trips were booked months ago. A puppy should not arrive into a half-painted flat or an empty house, so after your deposit we board your puppy free, lodging and food both covered, until you are genuinely ready.</p>
+      <p>There is no daily charge quietly accruing and no pressure to take delivery early. When your home is ready, we schedule the delivery around your availability and your puppy comes home to a calm start.</p>
+      <p>It is one of the inclusions that make <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing</a> read the way it does: $2,888 to $4,488, with the awkward gaps already handled.</p>
+    </CaptionedBlock>
+  </div>
+
+  <BannerRibbon
+    heading="Want a delivery slot that fits your week?"
+    body="Message us about current puppies. Once you reserve, delivery is planned around your schedule, mornings or evenings, and boarding is free until then."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Could you share current puppy availability? I'd also like to understand delivery timing."
+    variant="dark"
+  />
+
+  <div id="prepare" class="scroll-mt-40">
+    <CaptionedBlock heading="What to Prepare Before Delivery Day" imagePosition="none" variant="mid">
+      <p>Honestly, not much; that is the point of the service. Clear a corner of the living room for the playpen, roughly two by one metres, and think about where the family spends its evenings, because that is where we will suggest the pen goes.</p>
+      <p>Keep the delivery day itself light. A quiet home beats a welcome party: the puppy has one big job that day, and it is settling, not entertaining visitors.</p>
+      <p>If there are children, brief them before we arrive: calm voices, gentle hands, and let the puppy come to them. Everything else, the equipment, the food, the setup, arrives with us.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-surface-card)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Your 4-item prep list</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Clear a corner near family activity (about 2m x 1m)',
+            'Keep the day visitor-free and unhurried',
+            'Brief the kids: calm voices, gentle hands',
+            'Have your questions ready; the walkthrough is for them',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <div id="first-24" class="scroll-mt-40">
+    <CaptionedBlock heading="The First 24 Hours After the Van Leaves" imageAlt="Bringing a new puppy home: apricot Cavapoo exploring its set-up playpen at its own pace in the first 24 hours" imageSrc={exploring} imagePosition="right">
+      <p>Bringing a new puppy home goes best when the first day is boring. Let your puppy explore the playpen at its own pace; the space already smells of its bed and toys, which is exactly why we set up before letting it out.</p>
+      <p>Feed the same food it came with, at fixed times, and keep handling gentle and short. Some whimpering on night one is adjustment, not distress; a comfort toy in the pen and a consistent response shorten it.</p>
+      <p>By day two or three the routine starts to hold, and the <a href="/first-time-owners/puppy-care-101" class="underline underline-offset-2 text-[var(--color-accent-hover)]">week-by-week puppy care guide</a> takes it from there. The big food brands' <a href="https://www.royalcanin.com/sg/dogs/puppy/collecting-your-puppy" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">puppy homecoming checklists</a> agree on the fundamentals: continuity, calm, and patience.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Families Say About the Handover"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            "Had such a wonderful experience bringing home our new furry family member from Curious Tails in Balestier. Honestly, Nelson and Kim couldn't have been more helpful and answered every single question we had, which made the whole thing stress-free. Our pup was clean, well-socialised, and full of energy when we brought it home. The puppy came home healthy and vet-checked, which gave us real peace of mind. A truly lovely experience from start to finish, thank you!",
+          name: 'Damon Fong',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Couldn't recommend Curious Tails in Balestier enough after bringing home our Cavapoo. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+          name: 'Andrew Mak',
+          meta: 'Google review, Cavapoo owner',
+        },
+      ]}
+    />
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Delivery Questions, Answered" items={faqItems} />
+  </div>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Reserve First. Deliver When You're Ready."
+    body="Can't make the trip to Balestier? WhatsApp us for current puppies and prices; delivery, setup, and the walkthrough are already included."
+    reserveMessage="Hi! I'd like to ask about your current puppies and delivery arrangements."
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

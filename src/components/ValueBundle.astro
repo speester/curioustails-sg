@@ -1,0 +1,78 @@
+---
+// Homepage signature band: the three inclusions that come with every puppy.
+interface Item {
+  title: string;
+  body: string;
+  icon: 'kit' | 'delivery' | 'training';
+  highlight?: string;
+}
+interface Props {
+  eyebrow?: string;
+  heading: string;
+  headingAccent?: string;
+  subhead?: string;
+  items: Item[];
+}
+const { eyebrow, heading, headingAccent, subhead, items } = Astro.props;
+const headingParts = headingAccent ? heading.split(headingAccent) : [heading, ''];
+
+const icons: Record<Item['icon'], string> = {
+  kit: '<path d="M3 8.5 12 4l9 4.5-9 4.5-9-4.5Z"/><path d="M3 8.5V16l9 4.5 9-4.5V8.5"/><path d="M12 13v7.5"/>',
+  delivery:
+    '<path d="M3 6h11v9H3z"/><path d="M14 9h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/>',
+  training:
+    '<path d="M12 3 3 7.5 12 12l9-4.5L12 3Z"/><path d="M7 9.8V14c0 1.4 2.24 2.6 5 2.6s5-1.2 5-2.6V9.8"/><path d="M21 7.5V13"/>',
+};
+const tints: Record<Item['icon'], string> = {
+  kit: 'var(--color-mint-100)',
+  delivery: 'var(--color-lilac-100)',
+  training: 'var(--color-coral-100)',
+};
+const rings: Record<Item['icon'], string> = {
+  kit: 'var(--color-mint-300)',
+  delivery: 'var(--color-lilac-300)',
+  training: 'var(--color-coral-300)',
+};
+---
+
+<section class="bg-[var(--color-surface)] py-16 scroll-mt-24">
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
+    <div class="max-w-[65ch]">
+      {eyebrow && (
+        <p class="text-sm font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">
+          {eyebrow}
+        </p>
+      )}
+      <h2 class="mt-2 font-semibold text-[var(--color-cream-900)]" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">
+        {headingParts[0]}{headingAccent && <span class="text-[var(--color-coral-500)]">{headingAccent}</span>}{headingParts[1]}
+      </h2>
+      {subhead && <p class="mt-2 text-base text-[var(--color-cream-600)]">{subhead}</p>}
+    </div>
+
+    <ul class="mt-9 grid gap-6" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+      {items.map((item, i) => (
+        <li data-reveal style={`--i:${i}`}>
+          <div class="clay clay-hover h-full bg-[var(--color-surface-card)] p-7">
+            <div class="flex items-center justify-between">
+              <span
+                class="wiggle-hover inline-flex h-14 w-14 items-center justify-center rounded-2xl border-3"
+                style={`background:${tints[item.icon]}; border-color:${rings[item.icon]}; color:${rings[item.icon]};`}
+              >
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={icons[item.icon]} />
+              </span>
+              {item.highlight && (
+                <span class="rounded-full bg-[var(--color-lilac-900)] px-3 py-1 text-xs font-bold text-[var(--color-coral-400)]">
+                  {item.highlight}
+                </span>
+              )}
+            </div>
+            <h3 class="mt-5 text-lg font-[family-name:var(--font-heading)] font-semibold text-[var(--color-cream-900)]">
+              {item.title}
+            </h3>
+            <p class="mt-2 text-sm leading-relaxed text-[var(--color-cream-700)]">{item.body}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

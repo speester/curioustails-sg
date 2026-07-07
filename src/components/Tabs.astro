@@ -1,0 +1,93 @@
+---
+interface Item {
+  label: string;
+  href: string; // "#section-id"
+}
+interface Props {
+  items: Item[];
+}
+const { items } = Astro.props;
+---
+
+<nav aria-label="Jump to a section" class="relative bg-[var(--color-surface)] sticky top-20 z-subnav py-4 border-b-2 border-[var(--color-border)]/60">
+  <div class="relative mx-auto max-w-[1400px]">
+    <ul
+      class="flex gap-3 overflow-x-auto no-scrollbar px-5 sm:px-8 pt-1 pb-3"
+      data-tabs
+      role="tablist"
+    >
+      {items.map((item, i) => (
+        <li role="presentation" class="shrink-0">
+          <a
+            href={item.href}
+            role="tab"
+            tabindex={i === 0 ? 0 : -1}
+            class="jump-link clay-btn-outline whitespace-nowrap inline-flex items-center bg-[var(--color-surface-card)] px-5 py-2.5 text-sm font-bold text-[var(--color-cream-700)] hover:text-[var(--color-coral-600)]"
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <!-- edge fades hint that the row scrolls horizontally -->
+    <div class="pointer-events-none absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-[var(--color-surface)] to-transparent"></div>
+    <div class="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-[var(--color-surface)] to-transparent"></div>
+  </div>
+</nav>
+
+<style>
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .jump-link[aria-current='true'] {
+    color: white;
+    background: var(--color-accent);
+    border-color: color-mix(in oklch, var(--color-accent-hover) 60%, black 8%);
+    box-shadow: 0 5px 0 0 color-mix(in oklch, var(--color-accent-hover) 70%, black 10%);
+  }
+</style>
+
+<script>
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('.jump-link'));
+  const sections = links
+    .map((link) => document.querySelector(link.getAttribute('href') ?? ''))
+    .filter((el): el is Element => !!el);
+
+  if ('IntersectionObserver' in window && sections.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = `#${entry.target.id}`;
+          const link = links.find((l) => l.getAttribute('href') === id);
+          if (link && entry.isIntersecting) {
+            links.forEach((l) => {
+              l.removeAttribute('aria-current');
+              l.tabIndex = -1;
+            });
+            link.setAttribute('aria-current', 'true');
+            link.tabIndex = 0;
+            link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          }
+        });
+      },
+      { rootMargin: '-40% 0px -50% 0px' }
+    );
+    sections.forEach((section) => observer.observe(section));
+  }
+
+  // roving tabindex via arrow keys
+  const tabList = document.querySelector('[data-tabs]');
+  tabList?.addEventListener('keydown', (e) => {
+    const key = (e as KeyboardEvent).key;
+    if (key !== 'ArrowRight' && key !== 'ArrowLeft') return;
+    const current = document.activeElement;
+    const idx = links.indexOf(current as HTMLAnchorElement);
+    if (idx === -1) return;
+    e.preventDefault();
+    const next = key === 'ArrowRight' ? (idx + 1) % links.length : (idx - 1 + links.length) % links.length;
+    links[next].focus();
+  });
+</script>

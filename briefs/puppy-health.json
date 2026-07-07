@@ -1,0 +1,42 @@
+{
+  "slug": "puppy-health",
+  "target_keyword": "puppy vaccinations Singapore",
+  "secondary_keyword": "puppy health check",
+  "page_intent": "educational", "page_tier": "outer", "country": "Singapore", "city": "Singapore",
+  "dual_intent_strategy": { "primary_intent": "educational — the exact vaccination schedule, health checks, microchip and licensing requirements", "secondary_intent": "trust-assist — what we screen before homecoming", "resolution": "The canonical health page: exact SG schedule (6/8/12 +16 optional, annual booster), what a pre-homecoming health check covers, microchip + licensing requirements, and how to read a vaccination record. Canonical facts verbatim." },
+  "meta_title": "Puppy Vaccinations Singapore: Exact Schedule | Curious Tails",
+  "meta_description": "Singapore's puppy vaccination schedule, exactly: weeks 6, 8, 12 (optional 16), annual boosters, deworming at every visit, microchipping, and licensing requirements.",
+  "h1": "Vaccination Schedule + Health Checks for Your New Puppy",
+  "entity_definitions": [ { "entity": "subject_entity", "definition": "Puppies in Singapore receive core vaccinations at weeks 6, 8, and 12, with an optional fourth at week 16 if the vet advises it, deworming at every vaccination visit, and an annual booster from year one onward. Puppies go home about a week after the second vaccination, around week 9, microchipped and ready for licensing." } ],
+  "serp_analysis": { "dominant_content_format": "vet clinic pages + brand guides", "top_competitor_weaknesses": ["schedules vary and confuse (6/8/12 vs other patterns)", "nobody connects schedule → homecoming timing → licensing", "no how-to-read-the-record guidance"], "information_gaps_none_cover": ["homecoming-timing logic (why week 9)", "record-reading guide", "seller-side screening transparency"], "featured_snippet": { "puppy vaccinations Singapore": "target table/list snippet" }, "factual_conflicts": ["various schedules online → resolution: use the canonical business-context block verbatim (6/8/12 +16 optional, annual booster)"] },
+  "lsi_keywords": { "primary": ["puppy vaccinations Singapore", "puppy vaccination schedule", "vaccination weeks 6 8 12", "annual booster", "puppy health check"], "secondary": ["deworming", "microchipping", "dog licence", "core vaccines", "parvovirus distemper", "vaccination record", "vet visit"], "all": ["puppy vaccinations Singapore", "puppy vaccination schedule Singapore", "vaccination schedule", "weeks 6 8 12", "optional week 16", "annual booster from year 1", "deworming with every visit", "core vaccines", "parvovirus", "distemper", "DHPP", "Singapore Vaccination Guidelines for Dogs and Cats", "puppy health check", "pre-homecoming health check", "vet-checked", "microchipping mandatory", "microchip number", "dog licence Singapore", "licensing at purchase", "pet ownership course", "vaccination record", "how to read the record", "puppy goes home week 9", "one week after second vaccination", "quarantine notes", "healthy puppy signs", "clear eyes", "clean ears", "energetic", "in Singapore" ] },
+  "lsi_keyword_weighting": { "transactional_cluster": ["what we screen"], "informational_cluster": ["schedule", "deworming", "microchip", "record reading"], "instruction": "Canonical facts verbatim; deferential to vets on individual decisions." },
+  "content_outline": [
+    { "heading": "Vaccination Schedule + Health Checks for Your New Puppy", "level": "H1", "priority": "P1", "cro_phase": 1, "cro_element": "Hero", "intent_served": "both", "ux_note": "Hero", "key_points": [""], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "The Singapore schedule (capsule + table)", "level": "H2", "priority": "P2", "cro_phase": 1, "cro_element": "canonical schedule, snippet target", "intent_served": "both", "ux_note": "DefBox + ComparisonSplit", "key_points": ["CANONICAL verbatim"], "first_party_prompt": "canonical block", "external_link_cue": "https://avs.nparks.gov.sg/businesses/veterinarians/guidelines-for-veterinarians/sg-vaccination-guidelines-for-dogs-and-cats/" },
+    { "heading": "Why homecoming is week 9", "level": "H2", "priority": "P2", "cro_phase": 2, "cro_element": "the timing logic nobody explains", "intent_served": "both", "ux_note": "CaptionedBlock", "key_points": ["one week after 2nd vaccination"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "What a proper health check covers before homecoming", "level": "H2", "priority": "P1", "cro_phase": 2, "cro_element": "seller-side transparency", "intent_served": "both", "ux_note": "CaptionedBlock", "key_points": ["vet check, vaccination, deworm, microchip"], "first_party_prompt": "our screening framing (say once, plainly)", "external_link_cue": "" },
+    { "heading": "How to read a vaccination record", "level": "H2", "priority": "P2", "cro_phase": 3, "cro_element": "record-reading guide (unique)", "intent_served": "both", "ux_note": "ComparisonSplit", "key_points": ["dates, vaccine names, vet stamps, microchip match"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "Microchip + licence + course, FAQ, CTA", "level": "H2", "priority": "P2", "cro_phase": 4, "cro_element": "compliance close", "intent_served": "both", "ux_note": "DefBox + FAQ + FinalCta", "key_points": [""], "first_party_prompt": "", "external_link_cue": "https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/" }
+  ],
+  "outline_cross_check": { "A": "PASS", "B": "PASS", "C": "PASS", "D": "PASS", "E": "PASS", "F": "PASS", "G": "PASS", "H": "PASS" },
+  "internal_links": [ { "anchor": "care-101, verify-license, learn hub, breed pages timeline anchor", "target_slug": "/first-time-owners/puppy-care-101", "placed_in_section": "various" } ],
+  "filtered_links": [],
+  "external_links": [
+    { "section": "schedule", "url": "https://avs.nparks.gov.sg/businesses/veterinarians/guidelines-for-veterinarians/sg-vaccination-guidelines-for-dogs-and-cats/", "anchor": "Singapore Vaccination Guidelines for Dogs and Cats", "purpose": "authority" },
+    { "section": "licence", "url": "https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/licensing-requirements/", "anchor": "AVS licensing requirements", "purpose": "compliance" },
+    { "section": "course", "url": "https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/", "anchor": "pet ownership course", "purpose": "first-timers" }
+  ],
+  "faq": [
+    { "question": "When do puppies get vaccinated in Singapore?", "answer_direction": "Weeks 6, 8, and 12 for the core course, optional week 16 if the vet advises, annual booster from year one; deworming happens at every visit." },
+    { "question": "Why can't a puppy come home before week 9?", "answer_direction": "Homecoming is about a week after the second (week 8) vaccination so protection is building before the move's stress." },
+    { "question": "Is microchipping compulsory?", "answer_direction": "Yes, and it must match the licence; ours are microchipped before homecoming and licensing is completed at purchase." },
+    { "question": "What should a vaccination record show?", "answer_direction": "Dated entries for weeks 6 and 8 with vaccine names and the vet's stamp, plus the microchip number matching the puppy; missing pieces are a red flag." },
+    { "question": "What does your pre-homecoming check cover?", "answer_direction": "Vet check, vaccinations to schedule, deworming, and microchipping; records handed over at delivery. Said once, plainly." },
+    { "question": "Who decides the optional week-16 shot?", "answer_direction": "Your vet, based on the puppy and local risk; we flag the option, the vet makes the call." }
+  ],
+  "questions": [],
+  "schema_plan": [ { "type": "WebPage + BreadcrumbList + FAQPage + LocalBusiness + Person", "notes": "table snippet target" } ],
+  "info_gain_score": { "pct_p1_p2": 60, "gain_drivers": ["exact canonical schedule", "week-9 logic", "record-reading guide", "seller-side transparency"], "remaining_risks": ["defer to vets on individual choices"] },
+  "word_count_target": 1600, "content_length_estimate": "1,500–1,800"
+}

@@ -1,0 +1,16 @@
+---
+// Single decorative paw print, colour inherits via `class` (text-*), used as a
+// scattered background doodle. Never used as a functional icon.
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<svg viewBox="0 0 64 64" fill="currentColor" class={className} aria-hidden="true" focusable="false">
+  <ellipse cx="32" cy="42" rx="15" ry="12" />
+  <ellipse cx="14" cy="26" rx="7" ry="8.5" transform="rotate(-18 14 26)" />
+  <ellipse cx="27" cy="14" rx="7.5" ry="9" transform="rotate(-6 27 14)" />
+  <ellipse cx="42" cy="13" rx="7.5" ry="9" transform="rotate(8 42 13)" />
+  <ellipse cx="53" cy="27" rx="7" ry="8.5" transform="rotate(20 53 27)" />
+</svg>

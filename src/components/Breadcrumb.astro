@@ -1,0 +1,48 @@
+---
+import { site } from '../data/site';
+
+interface Crumb {
+  label: string;
+  href: string;
+}
+interface Props {
+  items: Crumb[]; // does not include "Home", added automatically
+  bare?: boolean; // drop the standalone container (max-width + padding) when nested inside another section (e.g. the hero)
+}
+const { items, bare = false } = Astro.props;
+const crumbs = [{ label: 'Home', href: '/' }, ...items];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: crumbs.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: c.label,
+    item: new URL(c.href, site.domain).toString(),
+  })),
+};
+---
+
+{crumbs.length > 1 && (
+  <nav aria-label="Breadcrumb" class:list={[!bare && 'mx-auto max-w-[1400px] px-5 sm:px-8 pt-5 pb-1']}>
+    <ol class="flex flex-wrap items-center gap-1 text-sm">
+      {crumbs.map((c, i) => (
+        <li class="flex items-center gap-1">
+          {i > 0 && (
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="mx-0.5 shrink-0 text-[var(--color-cream-400)]" aria-hidden="true">
+              <path d="m9 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          )}
+          {i === crumbs.length - 1 ? (
+            <span aria-current="page" class="font-semibold text-[var(--color-coral-600)]">{c.label}</span>
+          ) : (
+            <a href={c.href} class="font-medium text-[var(--color-cream-500)] underline-offset-2 hover:text-[var(--color-accent-hover)] hover:underline">{c.label}</a>
+          )}
+        </li>
+      ))}
+    </ol>
+  </nav>
+)}
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

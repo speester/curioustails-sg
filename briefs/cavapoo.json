@@ -1,0 +1,285 @@
+{
+  "slug": "cavapoo",
+  "url": "/puppies/cavapoo",
+  "target_keyword": "cavapoo singapore",
+  "secondary_keyword": "cavapoo price singapore",
+  "page_intent": "commercial (buy) + informational (breed research)",
+  "page_tier": "core / money (breed page, astro-collection)",
+  "country": "Singapore",
+  "city": "Singapore",
+
+  "dual_intent_strategy": {
+    "primary_intent": "Transactional/commercial: buy a Cavapoo puppy in Singapore ('cavapoo singapore' 320/mo MEDIUM, 'cavapoo for sale singapore' 30/mo, 'cavapoo puppies' 170/mo)",
+    "secondary_intent": "Commercial-investigation/informational: what does a Cavapoo cost and is the breed right for me ('cavapoo price singapore' 30/mo KD10 trending +150% yearly; supporting cluster: vs maltipoo 110, size 70, lifespan 50, temperament 40, hdb approved 20, grooming 20)",
+    "resolution": "Transactional architecture leads (listings + price above the fold); the Definition Box and educational overview land within the first 30%. Both keywords appear in the first 150 words. Price content is co-primary: Curious Tails is the ONLY shop in the top 10 showing prices — price transparency is simultaneously the SEO gap and the conversion lever."
+  },
+
+  "meta_title": "Cavapoo Singapore | Puppies from $2,888 | Curious Tails",
+  "meta_description": "Cavapoo puppies for sale in Singapore from $2,888, AVS licensed. Real prices, temperament, HDB rules and the $500+ starter kit included. WhatsApp us today.",
+  "h1": "Cavapoo Puppies for Sale in Singapore",
+
+  "entity_definitions": [
+    {
+      "entity": "Curious Tails",
+      "definition": "Curious Tails is an AVS-licensed pet shop at 2 Balestier Road, Singapore specialising in Cavapoo puppies and honest breed matching, with every puppy priced between $2,888 and $4,488 including a 30-plus item starter kit, free home delivery and setup, and a free AVS-certified training lesson."
+    },
+    {
+      "entity": "Cavapoo",
+      "definition": "A Cavapoo (also called a Cavoodle) is a cross between a Cavalier King Charles Spaniel and a Toy Poodle. It is a small companion dog with a wavy, low-shedding coat, an affectionate and intelligent temperament, moderate exercise needs of 30 to 60 minutes a day, and a lifespan of 12 to 15 years."
+    }
+  ],
+
+  "serp_analysis": {
+    "dominant_content_format": "Pet-shop product/listing pages with thin breed blurbs; one blog-style breed guide",
+    "estimated_average_word_count": "600-1,200 for product pages; 1,500-2,500 for the one ranking guide",
+    "common_structure_patterns": [
+      "Available litters grid first",
+      "Short temperament blurb",
+      "Health/vaccination checklist",
+      "Testimonials block",
+      "FAQ accordion",
+      "WhatsApp CTA repeated"
+    ],
+    "search_intent_confirmation": "SERP mixes shop product pages (rank 1,2,5,7,8,10) with community threads (rank 3) and one guide (rank 6), confirming dominant buy intent with a strong research sub-intent; both intents must be served on one page.",
+    "serp_features_present": {
+      "cavapoo singapore": ["local pack potential", "related searches (price, breeders, toy/teacup)", "image-rich listings"],
+      "cavapoo price singapore": ["no owned featured snippet yet — winnable", "People Also Ask"]
+    },
+    "top_competitor_weaknesses": [
+      "Nobody shows prices except one sold listing ($3,880) — universal opacity",
+      "HDB claims contradict each other and the actual HDB list",
+      "Breed education thin on product pages (no size/lifespan/temperament depth)",
+      "No delivery/home-setup or onboarding content anywhere",
+      "Heavy 'DNA tested' import messaging, zero local aftercare proof"
+    ],
+    "consensus_topics_low_gain": [
+      "Cavalier x Toy Poodle parentage",
+      "Low-shedding/allergy-friendly coat",
+      "Affectionate family temperament",
+      "Vaccinated/microchipped/health-checked checklist",
+      "WhatsApp-to-enquire CTA"
+    ],
+    "information_gaps_none_cover": [
+      "Actual transparent pricing with a full what's-included value table",
+      "The honest HDB answer sourced to HDB/AVS rules (competitors assert 'HDB approved' with no source; one says not approved)",
+      "What happens AFTER purchase: delivery, playpen setup, first-week routine, free boarding until ready",
+      "Lifestyle-first matching (hours alone per day as the deciding factor) with a real named case study",
+      "How to verify any shop's AVS licence before paying"
+    ],
+    "vagueness_gaps": [
+      "\"Regular grooming\" (Woof Loof) → no brush frequency, no professional-groom interval, no humid-climate note",
+      "\"30-60 minutes exercise\" (all) → no Singapore reality: timing around heat, corridor/lift etiquette, park options",
+      "\"Health screened parents\" (several) → no vaccination schedule by week, no named conditions checked",
+      "\"Apartment friendly\" (Wag a Tail) → no distinction between HDB rules and condo living"
+    ],
+    "unanswered_followup_questions": [
+      "What will the first week at home actually look like?",
+      "How much per month does a Cavapoo cost AFTER purchase?",
+      "Toy vs standard Cavapoo — which size will mine end up?",
+      "Can they be left alone during work hours?",
+      "What if the puppy gets sick right after I take it home?"
+    ],
+    "sourcing_transparency_gaps": "Competitors say 'Australia import' or 'ethical breeders' with no verifiable trail; nobody links the AVS public registry or teaches buyers to check it.",
+    "regulatory_compliance_gaps": "No top-10 page links HDB's actual keeping-pets rules or AVS limits-of-ownership; two pages make an unsourced 'HDB approved' claim that contradicts the official list.",
+    "cro_conversion_gaps": [
+      "No price anchor anywhere — forces a WhatsApp message just to learn cost (high-friction)",
+      "Trust badges present but no licence NUMBER + registry link pairing",
+      "No micro-conversion for not-ready visitors (waitlists only)",
+      "No above-fold social-proof stat pairing (rating + review count + years)"
+    ],
+    "decision_stage_gaps": [
+      "No risk-reversal story: what happens if the puppy falls sick in week one",
+      "No 'total first-year budget' bridge for buyers doing final math"
+    ],
+    "factual_conflicts_detected": [
+      "\"HDB Approved\" (Wag a Tail, The Lovely Pets, Paw Palace) vs \"Not HDB-Approved\" (Woof Loof) → RESOLUTION: HDB's approved-breeds list names specific breeds (incl. Cavalier King Charles Spaniel and Toy Poodle individually); crossbreeds such as Cavapoo are NOT on the list. Source: hdb.gov.sg keeping-pets guidelines + avs.nparks.gov.sg limits-of-ownership. Page must state this honestly and route HDB dwellers to approved alternatives.",
+      "Adult size: 3-4kg (Woof Loof litter estimate) vs 5-10kg (Lovely Pets) vs 5-9kg (Pet Me Please) vs 9-14kg (ground-truth file) → RESOLUTION: depends on Poodle parent size; state honest range 5-10kg typical for Toy Poodle crosses and [VERIFY with Nelson/Kim: actual adult weights of past Curious Tails Cavapoos — first-party data no competitor can copy]",
+      "Lifespan: 12-15 (ground truth) vs 13-15 (Pet Me Please) vs 14-18 (Lovely Pets) → RESOLUTION: use 12-15 years, consistent with ground-truth sources; do not inflate."
+    ],
+    "featured_snippet": {
+      "cavapoo singapore": "format=none owned; target PARAGRAPH via Definition Box (What is a Cavapoo, 40-55 words)",
+      "cavapoo price singapore": "format=none owned; target TABLE via price/value comparison table (market range vs Curious Tails with inclusions) — ComparisonSplit component",
+      "note": "Mirror-the-SERP rule applied: no existing snippet for either keyword, so def-box paragraph (primary) and table (price) are both open targets."
+    },
+    "image_pack": "Descriptive alt text pattern '[coat colour] cavapoo puppy singapore [context]'; gallery of real Curious Tails puppies beats competitors' stock imports",
+    "knowledge_panel": "WebPage.about → Thing 'Cavapoo' with alternateName 'Cavoodle' + sameAs Wikipedia; LocalBusiness sameAs AVS registry reinforces the seller entity"
+  },
+
+  "lsi_keywords": {
+    "primary": ["cavapoo singapore", "cavapoo for sale singapore", "cavapoo puppies singapore", "buy cavapoo singapore", "cavapoo puppy for sale", "cavapoo pet shop singapore", "cavapoo balestier", "available cavapoo puppies", "reserve a cavapoo", "cavapoo breeder singapore"],
+    "secondary": ["cavapoo price singapore", "cavapoo cost singapore", "how much is a cavapoo in singapore", "cavapoo price range", "cavapoo puppy price", "cost of owning a cavapoo", "cavapoo monthly expenses", "cavapoo first year budget", "cavapoo starter kit value", "what's included with a cavapoo puppy"],
+    "all": [
+      "cavapoo singapore", "cavapoo", "cavoodle", "cavoodle singapore", "cavapoo puppies", "cavapoo puppy", "cavapoo for sale", "cavapoo for sale singapore", "cavapoo puppies for sale singapore", "buy cavapoo singapore", "buy a cavapoo puppy", "where to buy cavapoo in singapore", "cavapoo pet shop", "licensed cavapoo seller", "cavapoo breeder singapore", "toy cavapoo", "toy cavapoo singapore", "teacup cavapoo singapore", "first generation cavapoo", "cavalier king charles spaniel cross", "toy poodle cross", "cavalier x toy poodle", "poodle mix puppy", "designer crossbreed dog",
+      "cavapoo price singapore", "cavapoo price", "cavapoo cost", "how much does a cavapoo cost in singapore", "cavapoo price range singapore", "puppy price singapore", "$2,888 to $4,488", "transparent puppy pricing", "what's included in the price", "value for money puppy", "puppy starter kit", "starter kit worth $500", "30 plus item starter kit", "free home delivery singapore", "free playpen setup", "free puppy training lesson", "avs certified trainer", "avs accredited dog trainer", "free boarding after deposit", "puppy deposit singapore",
+      "cavapoo temperament", "cavapoo personality", "affectionate companion dog", "gentle family dog", "intelligent small dog", "playful puppy", "people oriented breed", "good with children", "good for first time owners", "first time dog owner singapore", "can cavapoos be left alone", "separation anxiety in small dogs", "independent small breed", "barking level cavapoo", "calm apartment dog",
+      "cavapoo size", "cavapoo full grown", "cavapoo adult weight", "5 to 10 kg dog", "small breed puppy", "cavapoo height", "how big do cavapoos get", "toy vs mini cavapoo", "cavapoo growth timeline",
+      "cavapoo lifespan", "12 to 15 years", "how long do cavapoos live", "healthy cavapoo",
+      "cavapoo coat", "wavy coat puppy", "curly coat", "low shedding dog", "hypoallergenic dog singapore", "allergy friendly breed", "cavapoo colours", "blenheim cavapoo", "apricot cavapoo", "cavapoo grooming", "cavapoo grooming needs", "brushing 3 to 4 times a week", "professional grooming every 6 to 8 weeks", "grooming in humid climate", "coat matting prevention", "ear cleaning floppy ears",
+      "cavapoo exercise needs", "30 to 60 minutes daily exercise", "morning and evening walks", "walking in singapore heat", "indoor play for puppies", "hdb corridor walking etiquette", "dog friendly parks singapore", "bishan ang mo kio park dogs", "pet friendly condo singapore",
+      "cavapoo hdb approved", "hdb approved dog breeds", "hdb dog rules", "one dog per hdb flat", "hdb approved breeds list", "is cavapoo allowed in hdb", "hdb keeping pets guidelines", "avs limits of ownership", "crossbreed hdb rules", "project adore", "hdb friendly alternatives", "bichon frise hdb approved", "condo dog rules singapore", "private property dog ownership",
+      "cavapoo health", "cavapoo health issues", "ear infections floppy ears", "patellar luxation small breeds", "inherited eye conditions", "health checked puppy", "vet checked puppy singapore", "vaccination schedule puppy", "vaccinations at 6 8 and 12 weeks", "puppy deworming", "microchipping mandatory singapore", "dog licence singapore", "dog licensing at purchase", "avs dog licence", "pet ownership course singapore",
+      "cavapoo vs maltipoo", "cavapoo or maltipoo", "maltipoo comparison", "which breed for working couple", "breed matching by lifestyle", "lifestyle first matching", "hours alone each day", "breed selector quiz", "which puppy breed suits me", "cavapoo vs cockapoo", "cavapoo vs bichonpoo",
+      "avs licensed pet shop", "avs licence verification", "public registry of avs licensed pet shops", "acra 202420075d", "licensed vs unlicensed sellers", "avoid smuggled puppies", "verify pet shop licence singapore", "safe puppy buying singapore", "ethical puppy sourcing",
+      "puppy first week home", "settling in a new puppy", "puppy playpen setup", "crate and playpen training", "toilet training pads", "small breed puppy food", "feeding schedule puppy", "gradual food transition", "puppy sleep routine", "first vet visit singapore", "puppy care questions whatsapp", "aftercare support pet shop", "bring puppy back if sick", "5 day health support",
+      "cavapoo review singapore", "5 star google reviews", "39 google reviews", "real customer stories", "balestier pet shop", "2 balestier road", "visit our shop", "whatsapp 82206480", "curious tails", "nelson and kim", "puppy viewing appointment", "weekday and weekend hours",
+      "cavapoo puppies available now", "current litter", "male and female cavapoo", "reserve with deposit", "puppy home delivery singapore", "delivery and setup included", "morning or evening delivery", "how to choose a healthy puppy", "signs of a healthy cavapoo", "puppy health checklist", "cost of dog ownership singapore", "monthly cost of a small dog", "pet insurance singapore puppy", "puppy proofing hdb flat", "singapore pet shop opening hours"
+    ]
+  },
+
+  "lsi_keyword_weighting": {
+    "transactional_cluster": ["cavapoo for sale singapore", "buy cavapoo singapore", "cavapoo puppies available now", "reserve with deposit", "whatsapp 82206480", "puppy viewing appointment", "avs licensed pet shop", "balestier pet shop", "free home delivery singapore", "starter kit worth $500", "cavapoo price singapore", "$2,888 to $4,488"],
+    "informational_cluster": ["cavapoo temperament", "cavapoo size", "cavapoo lifespan", "cavapoo grooming", "cavapoo exercise needs", "cavapoo hdb approved", "cavapoo vs maltipoo", "cavapoo health issues", "what is a cavapoo", "cavoodle", "how big do cavapoos get", "can cavapoos be left alone"],
+    "instruction": "Weave each cluster into the sections that own it (transactional → Phases 1, 4, 5; informational → Phases 2, 3). Both clusters must independently reach ≥70% placement. Never stuff: one natural use per term is enough; sub-phrase fragments count via longer phrases that contain them."
+  },
+
+  "content_outline": [
+    { "heading": "Cavapoo Puppies for Sale in Singapore", "level": "H1", "priority": "P4-TERMINAL", "cro_phase": 1, "cro_element": "Hero: exact-keyword H1, subline with price-from anchor ($2,888) + AVS licence + 5.0-star/39-review badges, primary WhatsApp CTA", "intent_served": "primary", "ux_note": "Hero", "key_points": ["exact keyword H1", "price-from anchor visible", "AVS + review trust badges", "WhatsApp CTA above fold"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "Available Cavapoo Puppies", "level": "H2", "priority": "P2", "cro_phase": 1, "cro_element": "Showcase before education (transactional intent); each card shows real price — the only shop in the top 10 that does", "intent_served": "primary", "ux_note": "ListingGrid", "key_points": ["live litter cards with gender/colour/age", "REAL prices on cards (universal competitor gap)", "reserve via WhatsApp", "note free boarding until you're ready"], "first_party_prompt": "Current available Cavapoos from Nelson/Kim: names, colours, ages, individual prices", "external_link_cue": "" },
+    { "heading": "What Is a Cavapoo?", "level": "H2", "priority": "P2", "cro_phase": 1, "cro_element": "Definition Box — Featured Snippet target (paragraph format); answer capsule for AI engines", "intent_served": "both", "ux_note": "DefBox", "key_points": ["use subject_entity definition near-verbatim (40-55 words)", "alternateName Cavoodle", "Cavalier x Toy Poodle parentage", "sits within first 30% of page"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "On This Page", "level": "H3", "priority": "P4-TERMINAL", "cro_phase": 1, "cro_element": "Jump links reduce pogo-sticking for research-intent visitors", "intent_served": "both", "ux_note": "Tabs", "key_points": ["anchor links: price, temperament, HDB, health, FAQ"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "Why Families Choose Curious Tails", "level": "H2", "priority": "P1", "cro_phase": 1, "cro_element": "Trust block: licence number + registry link pairing (no competitor pairs them)", "intent_served": "primary", "ux_note": "StatStrip", "key_points": ["AVS licensed, ACRA 202420075D, verify at public registry", "39 Google reviews, 5.0 stars", "2+ years, hundreds of families", "business_entity definition paragraph here (first 200 words rule)"], "first_party_prompt": "Proof stats from business-context.md: 39 reviews / 5.0 / 2+ years / hundreds served", "external_link_cue": "AVS public registry of licensed pet shops" },
+
+    { "heading": "Cavapoo Temperament: What They're Really Like at Home", "level": "H2", "priority": "P3", "cro_phase": 2, "cro_element": "Depth superiority: desire-building through honest specifics, not adjectives", "intent_served": "secondary", "ux_note": "CaptionedBlock", "key_points": ["affectionate, loyal, intelligent, playful (ground truth)", "more independent than a Maltipoo — the single most common mismatch we see", "moderate barking, people-oriented", "up to 5 sentences per para allowed (educational)"], "first_party_prompt": "Practitioner's Note #1: 'Maltipoo vs Cavapoo independence is the most common mismatch we see' — expertise-library Insider Knowledge, quote near-verbatim", "external_link_cue": "" },
+    { "heading": "Can a Cavapoo Be Left Alone During Work Hours?", "level": "H3", "priority": "P2", "cro_phase": 2, "cro_element": "Answers the #1 unspoken fear of working couples (SERP follow-up gap)", "intent_served": "secondary", "ux_note": "CaptionedBlock", "key_points": ["honest answer: better than most toy crosses, with playpen routine", "hours-alone-per-day as THE deciding factor", "what the starter-kit playpen setup solves"], "first_party_prompt": "Andrew Mak outcome: puppy settled well in playpen with bed and toys from starter kit", "external_link_cue": "" },
+    { "heading": "Size, Coat and Lifespan", "level": "H2", "priority": "P3", "cro_phase": 2, "cro_element": "Answers the informational cluster (size 70/mo, lifespan 50/mo) other shops skip", "intent_served": "secondary", "ux_note": "StatStrip", "key_points": ["typical adult 5-10kg for Toy Poodle crosses (resolve SERP conflict honestly)", "[VERIFY: actual adult weights of past CT Cavapoos — first-party gain]", "wavy-to-curly low-shedding coat, colours incl. Blenheim/apricot", "lifespan 12-15 years"], "first_party_prompt": "Ask Nelson/Kim for 2-3 real adult weights of past Cavapoo puppies for the honest size answer", "external_link_cue": "" },
+    { "heading": "Toy vs Standard Cavapoo: Which Size Will Yours Be?", "level": "H3", "priority": "P2", "cro_phase": 2, "cro_element": "Variant/option-selection section (related searches: toy cavapoo, teacup cavapoo)", "intent_served": "secondary", "ux_note": "ComparisonSplit", "key_points": ["size depends on Poodle parent", "honest 'teacup' warning: no reputable seller guarantees teacup size", "which sizes Curious Tails typically carries"], "first_party_prompt": "Which Poodle parent sizes CT's Cavapoos come from", "external_link_cue": "" },
+    { "heading": "Cavapoo Price in Singapore: What You'll Pay and What's Included", "level": "H2", "priority": "P1", "cro_phase": 2, "cro_element": "Secondary-keyword owner; TABLE featured-snippet target; price transparency = conversion lever", "intent_served": "both", "ux_note": "ComparisonSplit", "key_points": ["market range $4,300-$6,500 vs Curious Tails $2,888-$4,488", "value/inclusions table: starter kit $500+, delivery+setup, training lesson, boarding (per business rule: inclusions table, not competitor-bashing)", "why the price is lower: no heavy marketing spend, value over hype", "total advantage $1,000-$3,000 per puppy"], "first_party_prompt": "Exact PRICE_RANGE $2,888-$4,488; starter kit 30+ items $500+ value; never show a price below the real low", "external_link_cue": "" },
+    { "heading": "What a Cavapoo Costs After You Take It Home", "level": "H3", "priority": "P2", "cro_phase": 2, "cro_element": "Decision-stage budget bridge (SERP follow-up gap); routes to budget guide", "intent_served": "secondary", "ux_note": "StatStrip", "key_points": ["monthly food/grooming/insurance ballparks with [VERIFY] flags where no source", "first-year one-offs: licence, vaccinations, gear beyond kit", "link to full budget guide"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "The $500+ Starter Kit Every Cavapoo Goes Home With", "level": "H2", "priority": "P1", "cro_phase": 2, "cro_element": "Core differentiator; desire-building with concrete item list", "intent_served": "primary", "ux_note": "Carousel", "key_points": ["30+ items: playpen, carrier, grooming, food, training pads, oral care, toys", "small-breed-specific choices for a Cavapoo", "we set it up at your home and walk you through every item"], "first_party_prompt": "Starter kit contents from business-context.md; the guided walkthrough detail (differentiation #4)", "external_link_cue": "" },
+    { "heading": "Is a Cavapoo Right for Your Lifestyle?", "level": "H2", "priority": "P1", "cro_phase": 2, "cro_element": "If/Then decision matrix; scenario-based section (3 scenarios); mid-funnel suitability", "intent_served": "both", "ux_note": "Tabs", "key_points": ["scenario 1: working couple out 8am-6pm → yes, with playpen routine", "scenario 2: family with young kids → yes, gentle and playful", "scenario 3: HDB dweller → honest redirect to approved breeds", "Lifestyle-First Matching: we ask about your routine BEFORE recommending"], "first_party_prompt": "Lifestyle-First Matching framework (5 questions) from expertise-library.md — name it and show the questions", "external_link_cue": "" },
+    { "heading": "Talk to Us Before You Decide", "level": "H3", "priority": "P4-TERMINAL", "cro_phase": 2, "cro_element": "Mid-page CTA with authentic angle: 'we'd rather talk you out of the wrong breed'", "intent_served": "primary", "ux_note": "BannerRibbon", "key_points": ["quotable line: 'We'd rather talk you out of the wrong breed than sell you the wrong dog.'", "WhatsApp CTA"], "first_party_prompt": "Quotable line from expertise-library.md verbatim", "external_link_cue": "" },
+
+    { "heading": "Cavapoo vs Maltipoo: Which Suits a Working Couple?", "level": "H2", "priority": "P1", "cro_phase": 3, "cro_element": "Comparison/selection guidance anchored in a real, named case study (MAXIMUM info gain)", "intent_served": "secondary", "ux_note": "ComparisonSplit", "key_points": ["Andrew Mak story: came for a Maltipoo, out 8am-6pm, we recommended Cavapoo, 5-star outcome", "Maltipoos need more daily human contact; Cavapoos more independent", "short comparison, then link to the full blog comparison (do not cannibalize /blog/cavapoo-vs-maltipoo)", "Practitioner's Note #2: protecting the match beats closing the sale"], "first_party_prompt": "Case Study 1 (Andrew Mak, consent: yes) — situation, pivot, outcome, lesson; use near-verbatim", "external_link_cue": "" },
+    { "heading": "Can You Keep a Cavapoo in an HDB Flat? The Honest Answer", "level": "H2", "priority": "P2", "cro_phase": 3, "cro_element": "Regulatory-compliance section; resolves the SERP's loudest factual conflict; trust through honesty", "intent_served": "secondary", "ux_note": "DefBox", "key_points": ["direct answer capsule: Cavapoo is NOT on HDB's approved breeds list (crossbreeds are not listed)", "one dog of an approved small breed per flat (AVS limits of ownership)", "some sellers claim 'HDB approved' — always check the official list yourself", "condo/private housing: no breed restriction, one-per-flat rule doesn't apply"], "first_party_prompt": "", "external_link_cue": "HDB keeping-pets guidelines (hdb.gov.sg) + AVS limits-of-ownership (avs.nparks.gov.sg)" },
+    { "heading": "Live in an HDB? Breeds We'd Point You To Instead", "level": "H3", "priority": "P2", "cro_phase": 3, "cro_element": "Solution after the honest 'no' — keeps HDB traffic converting instead of bouncing", "intent_served": "secondary", "ux_note": "ListingGrid", "key_points": ["HDB-approved alternatives we carry (e.g. Bichon Frise-type crosses — verify against list)", "link to HDB breeds guide + breed selector", "honest note: exemption paths are rare, plan around the list"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "Daily Life with a Cavapoo in Singapore", "level": "H2", "priority": "P3", "cro_phase": 3, "cro_element": "Practical-reality section with hyper-local specifics; visual break resets scroll fatigue", "intent_served": "secondary", "ux_note": "CaptionedBlock", "key_points": ["30-60 min daily exercise, split morning/evening around the heat", "walking routine: shaded park connectors, avoid midday pavement", "indoor play days: rain and haze reality", "apartment noise: what neighbours will and won't hear"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "Grooming and Coat Care in Our Humid Climate", "level": "H2", "priority": "P3", "cro_phase": 3, "cro_element": "Fills the 'regular grooming' vagueness gap with exact frequencies", "intent_served": "secondary", "ux_note": "StatStrip", "key_points": ["brush 3-4x weekly to prevent matting", "professional grooming every 6-8 weeks", "humidity = faster matting + more frequent ear checks (floppy ears)", "grooming tools already in the starter kit"], "first_party_prompt": "Which grooming items are in the CT starter kit", "external_link_cue": "" },
+    { "heading": "Cavapoo Health: What We Check Before You Take One Home", "level": "H2", "priority": "P2", "cro_phase": 3, "cro_element": "Health handled through OUR screening lens (per business rule: no fear-mongering; conditions mentioned once)", "intent_served": "both", "ux_note": "CaptionedBlock", "key_points": ["our checks: vet-checked, vaccinated, dewormed, microchipped before handover", "breed awareness (once, factual): floppy-ear infections, inherited eye conditions, patellar luxation", "vaccination schedule: weeks 6/8/12 (optional 4th at week 16), deworming with every jab, home ~week 9, ANNUAL booster from Year 1 (canonical: business-context.md SG facts block)", "small-breed puppy food; transition gradually from the kit's included food"], "first_party_prompt": "", "external_link_cue": "Royal Canin small-breed puppy feeding guidance (health/standards reference)" },
+    { "heading": "Vaccination and Licensing Timeline", "level": "H3", "priority": "P2", "cro_phase": 3, "cro_element": "Quantified-process section: exact weeks and steps", "intent_served": "secondary", "ux_note": "Tabs", "key_points": ["week 6 / 8 / 12 jabs (optional week 16), what each covers; deworming at every visit; puppy home ~week 9; annual booster from Year 1", "microchipping mandatory in Singapore", "dog licence completed AT purchase with our full assistance (business fact #9)", "first-time owners: one-time free online pet ownership course before licence"], "first_party_prompt": "Licensing-handled-at-purchase detail from business-context.md differentiation #9 — wording must match", "external_link_cue": "AVS licensing requirements page" },
+    { "heading": "Your Cavapoo's First Week at Home", "level": "H2", "priority": "P1", "cro_phase": 3, "cro_element": "Post-purchase confidence: the onboarding no competitor describes", "intent_served": "both", "ux_note": "Carousel", "key_points": ["day 0: free delivery, we set up the playpen and walk you through all 30+ items", "days 1-3: settling routine, feeding schedule, toilet-pad placement", "days 4-7: first training habits, when to book the free AVS-certified lesson", "you WhatsApp us with any question — most are pre-empted in the walkthrough"], "first_party_prompt": "Home setup + guided walkthrough details (differentiation #3, #4, #8); free boarding until ready (#7); delivery scheduled mornings/evenings", "external_link_cue": "" },
+
+    { "heading": "What Cavapoo Owners Say About Us", "level": "H2", "priority": "P1", "cro_phase": 4, "cro_element": "Social proof with named, consented review; Review schema", "intent_served": "primary", "ux_note": "Carousel", "key_points": ["Andrew Mak Google review quote verbatim (consent: yes)", "39 reviews, 5.0 stars, link to GBP", "anonymized patterns from other reviews only ('a family in ___') until more consents collected"], "first_party_prompt": "Andrew Mak quote from expertise-library.md Testimonials — verbatim, named", "external_link_cue": "" },
+    { "heading": "Free Training, Free Boarding and Real Aftercare", "level": "H2", "priority": "P1", "cro_phase": 4, "cro_element": "Risk reversal: what happens after payment (guarantee wording must match business-context exactly)", "intent_served": "primary", "ux_note": "StatStrip", "key_points": ["free first lesson with an AVS-certified trainer", "free boarding (lodging + food) after deposit until you're ready", "if the puppy falls sick within the first 5 days home, bring it back and we'll nurse it (exact framing from business-context #8)", "ongoing WhatsApp support for care questions"], "first_party_prompt": "Differentiators #5, #7, #8 from business-context.md — use their wording verbatim, no invented guarantees", "external_link_cue": "AVS-accredited certified dog trainers list (acdt)" },
+    { "heading": "Buying Safely: Verify Any Pet Shop's AVS Licence First", "level": "H2", "priority": "P2", "cro_phase": 4, "cro_element": "Sourcing-transparency + final objection clearance; educates without preaching", "intent_served": "primary", "ux_note": "DefBox", "key_points": ["answer capsule: every legitimate SG pet shop is on the AVS public registry — check before paying anyone", "Curious Tails: ACRA 202420075D, verify us on the registry", "unlicensed = likely smuggled: disease risk, buyers have been fined $7,000", "link to the full verification guide"], "first_party_prompt": "Insider Knowledge: AVS verification + $7,000 buyer fine + parvovirus cost from expertise-library.md", "external_link_cue": "AVS public registry (primary); SPCA anti-smuggling campaign (supporting)" },
+    { "heading": "Cavapoo FAQs", "level": "H2", "priority": "P2", "cro_phase": 4, "cro_element": "FAQ accordion + FAQPage schema; self-contained answers for AI citation", "intent_served": "both", "ux_note": "FAQ", "key_points": ["promote 7 from the question bank: price, HDB, alone-hours, size, grooming, first week, licence verification", "first FAQ answer contains the secondary keyword", "every answer self-contained in 40-60 words"], "first_party_prompt": "", "external_link_cue": "" },
+
+    { "heading": "Meet Our Cavapoos at Balestier or WhatsApp Us Today", "level": "H2", "priority": "P4-TERMINAL", "cro_phase": 5, "cro_element": "Close: primary CTA + location/service-area + authentic availability urgency only", "intent_served": "primary", "ux_note": "BannerRibbon", "key_points": ["WhatsApp 82206480 (verb-first CTA ≤4 words)", "2 Balestier Road #01-701, weekday 12-6pm / weekend 10am-6pm", "free delivery island-wide, mornings or evenings", "tagline: 'Every puppy comes with the complete starter, the guidance, and someone to help your puppy settle in your new home.'"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "Not Sure a Cavapoo Is the One? Try Our Breed Selector", "level": "H3", "priority": "P4-TERMINAL", "cro_phase": 5, "cro_element": "Secondary micro-conversion for consideration-stage visitors", "intent_served": "both", "ux_note": "BannerRibbon", "key_points": ["breed selector as no-pressure next step", "browse other breeds link to hub"], "first_party_prompt": "", "external_link_cue": "" }
+  ],
+
+  "outline_cross_check": {
+    "A_gaps_mapped": "PASS — pricing gap→price section; HDB conflict→HDB section; onboarding gap→first-week + aftercare; matching gap→lifestyle + vs-maltipoo; verification gap→buying-safely",
+    "B_high_gain_questions_mapped": "PASS — all HIGH questions map to a section or promoted FAQ (see questions[].maps_to)",
+    "C_duplicates_removed": "PASS — price appears in hero (anchor), price section (deep), value recap only inside aftercare framing; starter kit detailed once, referenced elsewhere",
+    "D_p4_rule": "PASS — all P4 sections are P4-TERMINAL structural (hero, jump links, CTAs, close)",
+    "E_all_phases": "PASS — Phase 1: 5 sections; Phase 2: 9; Phase 3: 8; Phase 4: 4; Phase 5: 2",
+    "F_objections_addressed": "PASS — price opacity→transparent table; HDB doubt→honest section; alone-hours fear→dedicated H3; post-purchase fear→first week + aftercare; scam fear→verification; wrong-breed fear→matching + selector",
+    "G_cta_placement": "PASS — Phase 1 hero CTA, Phase 2 mid-page BannerRibbon, Phase 5 close",
+    "H_dual_intent_share": "PASS — 14 of 27 sections (52%) serve secondary or both, all P1/P2/P3 with educational ones P1/P2"
+  },
+
+  "internal_links": [
+    { "anchor": "our full puppy price guide", "target_slug": "/pricing", "placed_in_section": "Cavapoo Price in Singapore" },
+    { "anchor": "first-year puppy budget guide", "target_slug": "/first-time-owners/budget-guide", "placed_in_section": "What a Cavapoo Costs After You Take It Home" },
+    { "anchor": "everything inside the starter kit", "target_slug": "/starter-kit", "placed_in_section": "The $500+ Starter Kit" },
+    { "anchor": "how our free home delivery and setup works", "target_slug": "/delivery", "placed_in_section": "Your Cavapoo's First Week at Home" },
+    { "anchor": "Maltipoo puppies", "target_slug": "/puppies/maltipoo", "placed_in_section": "Cavapoo vs Maltipoo" },
+    { "anchor": "full Cavapoo vs Maltipoo comparison", "target_slug": "/blog/cavapoo-vs-maltipoo", "placed_in_section": "Cavapoo vs Maltipoo" },
+    { "anchor": "HDB-approved dog breeds guide", "target_slug": "/first-time-owners/hdb-breeds", "placed_in_section": "Live in an HDB? Breeds We'd Point You To Instead" },
+    { "anchor": "two-minute breed selector", "target_slug": "/first-time-owners/breed-selector", "placed_in_section": "Not Sure a Cavapoo Is the One?" },
+    { "anchor": "what the free AVS-certified training lesson covers", "target_slug": "/free-training", "placed_in_section": "Free Training, Free Boarding and Real Aftercare" },
+    { "anchor": "step-by-step licence verification guide", "target_slug": "/learn/verify-license", "placed_in_section": "Buying Safely" },
+    { "anchor": "puppy health checks explained", "target_slug": "/learn/puppy-health", "placed_in_section": "Cavapoo Health" },
+    { "anchor": "browse all our puppy breeds", "target_slug": "/puppies", "placed_in_section": "Not Sure a Cavapoo Is the One?" },
+    { "anchor": "about Nelson and Kim", "target_slug": "/about-us", "placed_in_section": "What Cavapoo Owners Say About Us" }
+  ],
+  "filtered_links": [
+    { "url_or_slug": "/puppies/corgi", "reason_excluded": "not HDB-approved either but unrelated to Cavapoo intent; would dilute" },
+    { "url_or_slug": "/puppies/shiba-inu", "reason_excluded": "unrelated temperament/intent match" },
+    { "url_or_slug": "/blog/first-time-mistakes", "reason_excluded": "one logical step too far from a breed product page; belongs on first-week guide instead" },
+    { "url_or_slug": "/learn/smuggled-puppies", "reason_excluded": "buying-safely section already links verify-license; two fear-topic links in one section is over-weighting" }
+  ],
+
+  "external_links": [
+    { "section": "Why Families Choose Curious Tails", "url": "https://avs.nparks.gov.sg/outreach/resources/public-registry-of-avs-licensed-pet-shops/", "anchor": "AVS public registry of licensed pet shops", "purpose": "government verification of ACRA 202420075D (entity + trust)" },
+    { "section": "Can You Keep a Cavapoo in an HDB Flat?", "url": "https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets", "anchor": "HDB's guidelines on keeping pets", "purpose": "government source for approved-breeds list (regulatory)" },
+    { "section": "Can You Keep a Cavapoo in an HDB Flat?", "url": "https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/", "anchor": "AVS limits of ownership", "purpose": "government source: one approved small-breed dog per HDB flat" },
+    { "section": "Vaccination and Licensing Timeline", "url": "https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/licensing-requirements/", "anchor": "AVS dog licensing requirements", "purpose": "government source: licensing + pet ownership course" },
+    { "section": "Free Training, Free Boarding and Real Aftercare", "url": "https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/", "anchor": "AVS-accredited certified dog trainers", "purpose": "government accreditation list backing the free-lesson claim" },
+    { "section": "Buying Safely", "url": "https://spca.org.sg/campaigns/animal-smuggling/", "anchor": "SPCA's animal smuggling campaign", "purpose": "industry body: why unlicensed sellers are a risk" },
+    { "section": "Cavapoo Health", "url": "https://www.royalcanin.com/sg", "anchor": "small-breed puppy feeding guidance", "purpose": "health/quality/standards reference for feeding transition" }
+  ],
+
+  "faq": [
+    { "question": "How much does a Cavapoo cost in Singapore?", "note": "FIRST answer — must contain secondary keyword; $2,888-$4,488 + what's included vs $4,300-$6,500 market" },
+    { "question": "Can I keep a Cavapoo in an HDB flat?", "note": "honest: not on the approved list; link HDB guide" },
+    { "question": "Can a Cavapoo be left alone while we're at work?", "note": "Andrew Mak pattern; playpen routine" },
+    { "question": "How big does a Cavapoo get?", "note": "5-10kg typical, depends on Poodle parent; honest teacup warning" },
+    { "question": "How much grooming does a Cavapoo need?", "note": "brush 3-4x weekly; pro groom 6-8 weeks; humidity note" },
+    { "question": "What happens after I reserve a Cavapoo?", "note": "free boarding → scheduled delivery → home setup → first week support" },
+    { "question": "How do I check that a puppy seller is licensed?", "note": "AVS registry steps; our ACRA number" }
+  ],
+
+  "questions": [
+    { "question": "What is a Cavapoo and why are they popular in Singapore?", "stage": "awareness", "gain": "HIGH", "source": "featured-snippet-target", "intent_served": "secondary", "maps_to": "What Is a Cavapoo?" },
+    { "question": "How big does a Cavapoo get when fully grown?", "stage": "awareness", "gain": "HIGH", "source": "PAA", "intent_served": "secondary", "maps_to": "Size, Coat and Lifespan" },
+    { "question": "Are Cavapoos hypoallergenic?", "stage": "awareness", "gain": "LOW", "source": "PAA", "intent_served": "secondary", "maps_to": "Size, Coat and Lifespan" },
+    { "question": "What's the difference between a Cavapoo and a Cavoodle?", "stage": "awareness", "gain": "HIGH", "source": "autocomplete", "intent_served": "secondary", "maps_to": "What Is a Cavapoo?" },
+    { "question": "How long do Cavapoos live?", "stage": "awareness", "gain": "LOW", "source": "PAA", "intent_served": "secondary", "maps_to": "Size, Coat and Lifespan" },
+    { "question": "How much does a Cavapoo cost in Singapore?", "stage": "consideration", "gain": "HIGH", "source": "PAA-HIGH", "intent_served": "both", "maps_to": "Cavapoo Price in Singapore + FAQ" },
+    { "question": "Why are Cavapoo prices in Singapore so different between shops?", "stage": "consideration", "gain": "HIGH", "source": "forum", "intent_served": "both", "maps_to": "Cavapoo Price in Singapore" },
+    { "question": "Cavapoo vs Maltipoo — which is better for a working couple in Singapore?", "stage": "consideration", "gain": "HIGH", "source": "PAA-HIGH", "intent_served": "secondary", "maps_to": "Cavapoo vs Maltipoo" },
+    { "question": "Can a Cavapoo be left alone from 8am to 6pm?", "stage": "consideration", "gain": "HIGH", "source": "forum (Facebook Dogs Singapore)", "intent_served": "secondary", "maps_to": "Can a Cavapoo Be Left Alone During Work Hours?" },
+    { "question": "Is a Cavapoo good for first-time dog owners in Singapore?", "stage": "consideration", "gain": "HIGH", "source": "PAA", "intent_served": "secondary", "maps_to": "Is a Cavapoo Right for Your Lifestyle?" },
+    { "question": "Can I keep a Cavapoo in an HDB flat in Singapore?", "stage": "decision", "gain": "HIGH", "source": "PAA-HIGH + featured-snippet-target", "intent_served": "both", "maps_to": "Can You Keep a Cavapoo in an HDB Flat?" },
+    { "question": "How do I verify a pet shop's AVS licence before buying?", "stage": "decision", "gain": "HIGH", "source": "gap analysis", "intent_served": "primary", "maps_to": "Buying Safely" },
+    { "question": "What vaccinations should a Cavapoo puppy already have at purchase?", "stage": "decision", "gain": "HIGH", "source": "PAA", "intent_served": "both", "maps_to": "Vaccination and Licensing Timeline" },
+    { "question": "What's included when I buy a Cavapoo from Curious Tails?", "stage": "decision", "gain": "HIGH", "source": "review", "intent_served": "primary", "maps_to": "Cavapoo Price + Starter Kit" },
+    { "question": "How soon can my Cavapoo come home after I reserve it?", "stage": "decision", "gain": "HIGH", "source": "review", "intent_served": "primary", "maps_to": "Free Training, Free Boarding and Real Aftercare" },
+    { "question": "What does a Cavapoo puppy's first week at home look like?", "stage": "post-purchase", "gain": "HIGH", "source": "forum", "intent_served": "both", "maps_to": "Your Cavapoo's First Week at Home" },
+    { "question": "How often should I groom my Cavapoo in Singapore's humidity?", "stage": "post-purchase", "gain": "HIGH", "source": "forum", "intent_served": "secondary", "maps_to": "Grooming and Coat Care" },
+    { "question": "What should I feed my Cavapoo puppy and when should I change food?", "stage": "post-purchase", "gain": "LOW", "source": "PAA", "intent_served": "secondary", "maps_to": "Cavapoo Health" },
+    { "question": "What do I do if my new puppy seems unwell in the first few days?", "stage": "post-purchase", "gain": "HIGH", "source": "review + business fact", "intent_served": "primary", "maps_to": "Free Training, Free Boarding and Real Aftercare" },
+    { "question": "How much exercise does a Cavapoo need each day in Singapore?", "stage": "post-purchase", "gain": "LOW", "source": "PAA", "intent_served": "secondary", "maps_to": "Daily Life with a Cavapoo in Singapore" }
+  ],
+
+  "schema_plan": [
+    "WebPage — with about: { '@type': 'Thing', name: 'Cavapoo', alternateName: 'Cavoodle', sameAs: 'https://en.wikipedia.org/wiki/Cavapoo' }, datePublished/dateModified, author { '@id': '#owner' }, isPartOf #website",
+    "BreadcrumbList — Home > Puppies > Cavapoo",
+    "LocalBusiness (reference via @id #business) — with sameAs: GBP, Instagram, Facebook, AVS public registry (per SCHEMA.md entity rules)",
+    "Person (#owner) — Nelson and Kim, AVS licensed pet shop owners, sameAs socials, worksFor #business (site-wide @id)",
+    "Product + AggregateOffer — name 'Cavapoo Puppy', priceLow '2888', priceHigh '4488', priceCurrency 'SGD', availability InStock, image hero",
+    "Review — Andrew Mak, 5, reviewBody verbatim quote, consent: yes",
+    "FAQPage — the 7 promoted FAQs, answers self-contained",
+    "Speakable — Definition Box + price answer capsule"
+  ],
+
+  "info_gain_score": {
+    "pct_p1_p2": "70% (19 of 27 sections P1/P2; 8 P1, 11 P2, 4 P3, 4 P4-TERMINAL)",
+    "gain_drivers": [
+      "Only page in SERP with real prices + full inclusions table (P1, first-party)",
+      "Andrew Mak named case study — MAXIMUM gain, cannot exist elsewhere",
+      "Honest HDB answer resolving a live SERP factual conflict with government sources",
+      "First-week onboarding + free boarding + 5-day sick-return support — no competitor describes post-purchase reality",
+      "Lifestyle-First Matching framework (named method, first-party)"
+    ],
+    "remaining_risks": [
+      "[VERIFY] actual adult weights of past CT Cavapoos (strengthens size section from P3 to P1)",
+      "[VERIFY] monthly ongoing-cost ballparks need a citable source or CT first-party data",
+      "[VERIFY] which HDB-approved alternatives CT actually carries before naming them",
+      "Only 1 named consented testimonial — collect more per expertise-library PENDING items"
+    ]
+  },
+
+  "word_count_target": 2800,
+  "content_length_estimate": "2,500-3,000 words (money-tier 2,500-3,500, mid-range; dual-intent educational depth ≥40% = ~1,100+ words on informational sections). Note: ground-truth file's older 1,500-2,000 target superseded by money-tier standard.",
+
+  "house_rule_reminders": {
+    "words_to_avoid_hard_block": ["pedigree", "DNA", "Malay"],
+    "note_on_competitors": "Competitors lean on 'DNA tested' messaging — we CANNOT use that word. Counter with: AVS licensed, vet-checked, vaccinated, health-checked, verifiable at the government registry.",
+    "no_em_dashes": true,
+    "price_rule": "$2,888-$4,488 exactly; never lower",
+    "health_framing": "conditions mentioned once, through our screening lens, no fear-mongering",
+    "guarantee_wording": "5-day sick-return = 'bring it back to the shop to nurse' — exact business-context framing, never 'we pay vet fees'"
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "slug": "corgi",
+  "target_keyword": "Corgi Singapore",
+  "secondary_keyword": "corgi HDB approved",
+  "page_intent": "commercial",
+  "page_tier": "core",
+  "country": "Singapore",
+  "city": "Singapore",
+  "dual_intent_strategy": {
+    "primary_intent": "commercial — buyer wanting a Corgi puppy",
+    "secondary_intent": "informational — 'can I keep a Corgi in an HDB flat?' (answer: no) + breed research",
+    "resolution": "Blueprint mandate: HDB reality check page. Lead with honest availability + price, put the NOT-HDB-approved answer high and unmissable, educate, and route HDB residents to approved alternatives without losing them."
+  },
+  "meta_title": "Corgi Singapore | Puppies from $2,888, HDB Facts | Curious Tails",
+  "meta_description": "Corgi puppies for sale in Singapore from $2,888 all-in. The honest part first: Corgis are not HDB-approved. Private housing? We'll match you. HDB? We'll show you alternatives.",
+  "h1": "Corgi Puppies for Sale in Singapore",
+  "entity_definitions": [
+    { "entity": "business_entity", "definition": "Curious Tails is an AVS licensed pet shop at 2 Balestier Road (licence AS24J00046) selling Corgi puppies at $2,888 to $4,488 all-in, with honest housing-fit advice first." },
+    { "entity": "subject_entity", "definition": "The Pembroke Welsh Corgi is a sturdy herding breed: 10 to 14 kg fully grown, short-legged but athletic, alert and affectionate, with a thick double coat that sheds heavily. In Singapore, Corgis are NOT on the HDB-approved list; they suit condos and landed homes." }
+  ],
+  "serp_analysis": {
+    "dominant_content_format": "shop listings + care guides + strong community content",
+    "estimated_average_word_count": "800–2,000",
+    "common_structure_patterns": ["product pages", "HDB-approved? guides", "community groups"],
+    "search_intent_confirmation": "Commercial + heavy HDB question: PAA 'Can I own a Corgi in HDB?' answered NO by two ranking guides.",
+    "serp_features": { "Corgi Singapore": ["PAA (cost, HDB x2, maintenance)", "Image pack", "related: price, HDB, adoption"] },
+    "featured_snippet": { "corgi HDB approved": "paragraph (Pawrenthood: No) — mirror with a clearer, kinder NO + alternatives" },
+    "image_pack": "strong corgi imagery demand",
+    "knowledge_panel": "n/a",
+    "top_competitor_weaknesses": ["shops sell Corgis without mentioning HDB status", "guides say 'no' but offer no path forward", "prices opaque or very high ($6k–$10k)", "shedding reality underplayed"],
+    "consensus_topics_low_gain": ["breed overview", "not-HDB-approved fact", "cost mentions"],
+    "information_gaps_none_cover": ["a seller saying 'not HDB-approved' BEFORE the sale", "approved alternatives routing", "all-in published price", "shedding/heat honesty for Singapore"],
+    "vagueness_gaps": ["'Corgis cost $6–10k' → what drives it; what's included"],
+    "unanswered_followup_questions": ["I'm in an HDB flat, what now?", "How bad is the shedding really?", "Do Corgis cope with the heat?", "Are they OK alone during work?"],
+    "sourcing_transparency_gaps": ["import origin rarely explained"],
+    "regulatory_compliance_gaps": ["private-housing licensing rules not covered"],
+    "cro_conversion_gaps": ["HDB 'no' pages dead-end without alternatives"],
+    "decision_stage_gaps": ["no honest energy/exercise fit check"],
+    "factual_conflicts": ["Corgi HDB status: some owners cite exceptions → resolution: NOT on the approved list; do not promote workarounds (per research.json resolution)"]
+  },
+  "lsi_keywords": {
+    "primary": ["Corgi Singapore", "corgi for sale Singapore", "corgi puppies Singapore", "corgi price Singapore", "Pembroke Welsh Corgi", "$2,888 to $4,488", "AVS licensed", "WhatsApp us"],
+    "secondary": ["corgi HDB approved", "can I keep a corgi in HDB", "corgi shedding", "corgi temperament", "herding breed", "corgi exercise needs", "corgi in Singapore heat", "HDB-approved alternatives", "condo and landed homes"],
+    "all": ["Corgi Singapore", "corgi for sale Singapore", "corgi puppies", "corgi puppies for sale Singapore", "corgi price", "corgi price Singapore", "how much does a corgi cost in Singapore", "Pembroke Welsh Corgi", "Welsh corgi", "corgi puppy", "10 to 14 kg fully grown", "short legs athletic build", "herding breed", "herding instinct", "alert and affectionate", "big personality small package", "double coat", "thick double coat", "sheds heavily", "shedding all year", "daily brushing during coat blow", "corgi HDB approved", "not HDB approved", "not on the HDB approved list", "HDB rules one small breed", "condo friendly", "landed home", "private housing", "up to three dogs private housing", "HDB-approved alternatives", "cavapoo alternative", "cockapoo alternative", "mini dachshund alternative", "corgi exercise needs", "45 to 60 minutes daily", "mental stimulation", "herding games", "corgi barking", "vocal breed", "corgi with children", "family dog", "corgi alone at home", "corgi in Singapore heat", "early morning walks", "aircon rest", "paw pavement check", "corgi weight management", "prone to weight gain", "back and joint care", "keep lean", "vet-checked vaccinated microchipped", "vaccination weeks 6 8 12", "home around week 9", "annual booster", "licensing at purchase", "market price $6,000 to $10,000", "$2,888 to $4,488 all-in", "starter kit included", "$500+ starter kit", "free delivery and setup", "free training lesson", "free boarding after deposit", "5-day sick-return care", "AVS licensed pet shop", "licence AS24J00046", "Balestier", "corgi community Singapore", "corgi meetups Sentosa", "in Singapore", "WhatsApp for photos and prices"]
+  },
+  "lsi_keyword_weighting": {
+    "transactional_cluster": ["Corgi Singapore", "corgi for sale Singapore", "corgi price Singapore", "$2,888 to $4,488", "starter kit included", "WhatsApp us"],
+    "informational_cluster": ["corgi HDB approved", "not on the HDB approved list", "shedding", "exercise needs", "Singapore heat", "alternatives"],
+    "instruction": "HDB honesty owns the top educational slot; transactional stays for private-housing buyers; alternatives section routes HDB readers to approved breed pages."
+  },
+  "content_outline": [
+    { "heading": "Corgi Puppies for Sale in Singapore", "level": "H1", "priority": "P1", "cro_phase": 1, "cro_element": "Hero + price + honest HDB flag in subhead", "intent_served": "both", "ux_note": "Hero", "key_points": ["ours $2,888–$4,488 vs market $6k–$10k", "HDB flag upfront", "WhatsApp CTA"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "Looking for a Corgi for sale in Singapore?", "level": "H2", "priority": "P1", "cro_phase": 1, "cro_element": "Availability + recently placed grid", "intent_served": "primary", "ux_note": "CaptionedBlock + ListingGrid", "key_points": ["live availability on WhatsApp", "price in writing"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "Can you keep a Corgi in an HDB flat? No, and here's what that means", "level": "H2", "priority": "P2", "cro_phase": 1, "cro_element": "The honest answer, high on the page; snippet target", "intent_served": "secondary", "ux_note": "DefBox", "key_points": ["not on the approved list", "no workaround promises", "condo/landed OK (up to 3 dogs)", "HDB readers: approved alternatives below"], "first_party_prompt": "We tell you before you fall for a photo, not after.", "external_link_cue": "https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets" },
+    { "heading": "What is a Pembroke Welsh Corgi?", "level": "H2", "priority": "P2", "cro_phase": 1, "cro_element": "DefBox entity + facts card", "intent_served": "secondary", "ux_note": "DefBox", "key_points": ["subject entity", "at-a-glance card"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "Trust stats", "level": "H3", "priority": "P1", "cro_phase": 1, "cro_element": "StatStrip", "intent_served": "primary", "ux_note": "StatStrip", "key_points": ["reviews/price/kit/years"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "Temperament and energy: a working dog in a small body", "level": "H2", "priority": "P2", "cro_phase": 2, "cro_element": "Honest energy/herding/vocal education", "intent_served": "secondary", "ux_note": "CaptionedBlock x2", "key_points": ["herding brain needs jobs", "45–60 min exercise + games", "vocal; announce-bark", "great with involved families"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "Size, coat, shedding and lifespan", "level": "H2", "priority": "P3", "cro_phase": 2, "cro_element": "Numbers table incl. shedding honesty", "intent_served": "secondary", "ux_note": "ComparisonSplit", "key_points": ["10–14 kg", "double coat sheds heavily", "12–14 years", "daily brushing in coat-blow weeks"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "Corgi price in Singapore", "level": "H2", "priority": "P1", "cro_phase": 2, "cro_element": "Market vs ours + mid CTA after", "intent_served": "both", "ux_note": "ComparisonSplit + BannerRibbon", "key_points": ["market $6k–$10k", "ours all-in", "pricing + budget links"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "Living with a Corgi in Singapore's heat", "level": "H2", "priority": "P2", "cro_phase": 3, "cro_element": "Local reality: heat + double coat", "intent_served": "secondary", "ux_note": "CaptionedBlock", "key_points": ["early/late walks", "aircon rest", "never shave the double coat", "weight discipline"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "In an HDB flat? Meet the approved alternatives", "level": "H2", "priority": "P2", "cro_phase": 3, "cro_element": "Alternatives routing — the conversion save", "intent_served": "both", "ux_note": "CaptionedBlock imagePosition=none + side list", "key_points": ["cavapoo/cockapoo for sociable energy", "mini dachshund for personality", "breed selector quiz"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "Starter kit + health timeline + first week", "level": "H2", "priority": "P1", "cro_phase": 3, "cro_element": "Kit block, canonical vaccination table, first-week", "intent_served": "both", "ux_note": "CaptionedBlock + ComparisonSplit", "key_points": ["kit", "weeks 6/8/12 (+16 optional), home ~9, annual booster", "licensing at purchase + course link", "first week routine"], "first_party_prompt": "CANONICAL facts.", "external_link_cue": "https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/" },
+    { "heading": "Reviews + aftercare + verify", "level": "H2", "priority": "P1", "cro_phase": 4, "cro_element": "Carousel + aftercare + registry", "intent_served": "primary", "ux_note": "Carousel + CaptionedBlock + DefBox", "key_points": ["reviews", "boarding/5-day/support", "registry"], "first_party_prompt": "", "external_link_cue": "https://avs.nparks.gov.sg/outreach/resources/public-registry-of-avs-licensed-pet-shops/" },
+    { "heading": "FAQ", "level": "H2", "priority": "P4-TERMINAL", "cro_phase": 4, "cro_element": "FAQ schema", "intent_served": "both", "ux_note": "FAQ", "key_points": ["HDB", "price", "shedding", "heat", "alone", "exercise", "after reserving"], "first_party_prompt": "", "external_link_cue": "" },
+    { "heading": "Final CTA", "level": "H2", "priority": "P4-TERMINAL", "cro_phase": 5, "cro_element": "FinalCta", "intent_served": "primary", "ux_note": "FinalCta", "key_points": [""], "first_party_prompt": "", "external_link_cue": "" }
+  ],
+  "outline_cross_check": { "A": "PASS", "B": "PASS", "C": "PASS", "D": "PASS", "E": "PASS", "F": "PASS — HDB, shedding, heat, energy objections all addressed with honesty-first framing", "G": "PASS", "H": "PASS" },
+  "internal_links": [
+    { "anchor": "our transparent puppy pricing", "target_slug": "/pricing", "placed_in_section": "Corgi price" },
+    { "anchor": "first-year budget planner", "target_slug": "/first-time-owners/budget-guide", "placed_in_section": "Corgi price" },
+    { "anchor": "the full HDB-approved dog breeds list", "target_slug": "/first-time-owners/hdb-breeds", "placed_in_section": "HDB DefBox" },
+    { "anchor": "Cavapoo puppies", "target_slug": "/puppies/cavapoo", "placed_in_section": "Alternatives" },
+    { "anchor": "Cockapoo puppies", "target_slug": "/puppies/cockapoo", "placed_in_section": "Alternatives" },
+    { "anchor": "Mini Dachshund puppies", "target_slug": "/puppies/mini-dachshund", "placed_in_section": "Alternatives" },
+    { "anchor": "two-minute breed selector", "target_slug": "/first-time-owners/breed-selector", "placed_in_section": "Alternatives" },
+    { "anchor": "everything inside the starter kit", "target_slug": "/starter-kit", "placed_in_section": "Kit block" },
+    { "anchor": "how delivery and setup works", "target_slug": "/delivery", "placed_in_section": "First week" },
+    { "anchor": "the free training lesson", "target_slug": "/free-training", "placed_in_section": "First week" }
+  ],
+  "filtered_links": [],
+  "external_links": [
+    { "section": "HDB DefBox", "url": "https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets", "anchor": "HDB's pet rules", "purpose": "government source for the NO" },
+    { "section": "HDB side", "url": "https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/", "anchor": "AVS limits of ownership", "purpose": "3-dog private rule" },
+    { "section": "Health", "url": "https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/", "anchor": "pet ownership course", "purpose": "first-time owners" },
+    { "section": "Verify", "url": "https://avs.nparks.gov.sg/outreach/resources/public-registry-of-avs-licensed-pet-shops/", "anchor": "AVS public registry", "purpose": "trust" }
+  ],
+  "faq": [
+    { "question": "Can I keep a Corgi in an HDB flat?", "answer_direction": "No; Corgis are not on the HDB-approved list, and we will not pretend otherwise. Condos and landed homes: yes, up to three dogs. HDB readers: see our approved alternatives." },
+    { "question": "How much does a Corgi cost in Singapore?", "answer_direction": "Market commonly $6,000 to $10,000; ours are $2,888 to $4,488 all-in with kit, delivery, setup and training." },
+    { "question": "How bad is Corgi shedding?", "answer_direction": "Real: a thick double coat sheds year-round with heavier seasonal blows; daily brushing in those weeks. Never shave the double coat." },
+    { "question": "Do Corgis cope with Singapore heat?", "answer_direction": "Yes with sense: early/late walks, water, aircon rest, and a lean weight; the double coat insulates both ways." },
+    { "question": "Can a Corgi be alone during work hours?", "answer_direction": "A settled adult can; a bored Corgi is loud and inventive. Exercise before you leave and food-puzzle jobs are non-negotiable." },
+    { "question": "How much exercise does a Corgi need?", "answer_direction": "45 to 60 minutes daily plus mental work; it is a herding breed in a small body." },
+    { "question": "What happens after I reserve?", "answer_direction": "Deposit, free boarding, delivery around your schedule, setup + walkthrough, week-one training lesson." }
+  ],
+  "questions": [
+    { "question": "How much does a Corgi cost in Singapore?", "stage": "awareness", "gain": "HIGH", "source": "PAA", "intent_served": "both" },
+    { "question": "Are Corgis allowed in HDB flats?", "stage": "awareness", "gain": "HIGH", "source": "PAA x2", "intent_served": "secondary" },
+    { "question": "Is a Corgi high maintenance?", "stage": "consideration", "gain": "HIGH", "source": "PAA", "intent_served": "secondary" },
+    { "question": "What HDB-approved breeds feel like a Corgi?", "stage": "consideration", "gain": "HIGH", "source": "gap — the conversion save", "intent_served": "both" },
+    { "question": "How much do Corgis shed?", "stage": "consideration", "gain": "HIGH", "source": "gap", "intent_served": "secondary" },
+    { "question": "Do Corgis overheat in Singapore?", "stage": "consideration", "gain": "HIGH", "source": "local gap", "intent_served": "secondary" },
+    { "question": "Are Corgis good with kids?", "stage": "consideration", "gain": "LOW", "source": "PAA", "intent_served": "secondary" },
+    { "question": "Why are Corgis so expensive in Singapore?", "stage": "awareness", "gain": "HIGH", "source": "vagueness gap", "intent_served": "both" },
+    { "question": "Can a condo keep a Corgi?", "stage": "decision", "gain": "HIGH", "source": "second-order", "intent_served": "both" },
+    { "question": "How much exercise does a Corgi need daily?", "stage": "decision", "gain": "HIGH", "source": "gap", "intent_served": "secondary" },
+    { "question": "Do Corgis bark a lot in apartments?", "stage": "decision", "gain": "HIGH", "source": "forum", "intent_served": "secondary" },
+    { "question": "What weight should a Corgi keep for its back?", "stage": "post-purchase", "gain": "HIGH", "source": "second-order", "intent_served": "secondary" },
+    { "question": "Should I shave my Corgi in the heat?", "stage": "post-purchase", "gain": "HIGH", "source": "misconception", "intent_served": "secondary" },
+    { "question": "Where do Corgi owners meet up in Singapore?", "stage": "post-purchase", "gain": "LOW", "source": "community", "intent_served": "secondary" },
+    { "question": "What's included in your Corgi price?", "stage": "decision", "gain": "HIGH", "source": "gap", "intent_served": "primary" },
+    { "question": "How do I verify your licence?", "stage": "decision", "gain": "HIGH", "source": "trust", "intent_served": "both" },
+    { "question": "When can a Corgi puppy come home?", "stage": "decision", "gain": "HIGH", "source": "canonical", "intent_served": "both" },
+    { "question": "Is a Corgi OK as a first dog?", "stage": "consideration", "gain": "HIGH", "source": "second-order", "intent_served": "both" }
+  ],
+  "schema_plan": [
+    { "type": "WebPage", "notes": "about Pembroke Welsh Corgi, sameAs wikipedia" },
+    { "type": "BreadcrumbList", "notes": "Home → Puppies → Corgi" },
+    { "type": "LocalBusiness + Person", "notes": "site @ids" },
+    { "type": "ItemList/Product", "notes": "Corgi puppy, 2888" },
+    { "type": "FAQPage", "notes": "7" },
+    { "type": "DefinedTerm", "notes": "Pembroke Welsh Corgi" }
+  ],
+  "info_gain_score": { "pct_p1_p2": 58, "gain_drivers": ["seller-side HDB honesty before purchase", "alternatives routing", "published all-in price vs $6–10k market", "heat + shedding realism"], "remaining_risks": ["never promise HDB workarounds"] },
+  "word_count_target": 2700,
+  "content_length_estimate": "2,500–2,900 words, cavapoo-pattern with HDB reality-check high"
+}

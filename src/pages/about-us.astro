@@ -1,0 +1,362 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import Hero from '../components/Hero.astro';
+import Tabs from '../components/Tabs.astro';
+import DefBox from '../components/DefBox.astro';
+import StatStrip from '../components/StatStrip.astro';
+import ComparisonSplit from '../components/ComparisonSplit.astro';
+import CaptionedBlock from '../components/CaptionedBlock.astro';
+import BannerRibbon from '../components/BannerRibbon.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Carousel from '../components/Carousel.astro';
+import FAQ from '../components/FAQ.astro';
+import Schema from '../components/Schema.astro';
+import ScatterFloat from '../components/decor/ScatterFloat.astro';
+import CloudDivider from '../components/decor/CloudDivider.astro';
+import PawTrail from '../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  definedTermSchema,
+} from '../lib/schema';
+import heroCare from '../assets/about-us/1-avs-licensed-pet-shop-hero-care.webp';
+import healthCheck from '../assets/about-us/2-puppy-health-check-stethoscope.webp';
+import familyVisit from '../assets/about-us/3-family-meeting-puppy-visit.webp';
+import puppiesPlay from '../assets/about-us/4-two-puppies-play-socialised.webp';
+
+const title = 'AVS Licensed Pet Shop Singapore | Why Curious Tails';
+const description =
+  'Curious Tails is an AVS licensed pet shop in Balestier (licence AS24J00046): welfare inspections, buyer screening, and honest breed matching by Nelson and Kim.';
+
+const jumpLinks = [
+  { label: 'What AVS Licensed Means', href: '#avs' },
+  { label: 'Nelson & Kim', href: '#owners' },
+  { label: 'The Licence at Work', href: '#licence' },
+  { label: 'Why Cheaper', href: '#why-cheaper' },
+  { label: 'Aftercare', href: '#aftercare' },
+  { label: 'Reviews', href: '#reviews' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'What is your AVS licence number?',
+    answer:
+      'AS24J00046, and you can search it on the AVS public registry of licensed pet shops any time. Our ACRA company registration, 202420075D, is a separate identifier; for a pet shop, the AVS licence is the one that counts.',
+  },
+  {
+    question: 'What does the Pet Purchase Declaration ask me?',
+    answer:
+      'It checks that you are genuinely ready for a dog: your housing type, whether the household agrees, and whether you have the time and means to care for a pet. Licensed shops must complete it before any sale. It protects the puppy, and honestly, it protects you too.',
+  },
+  {
+    question: "Why are you cheaper than bigger licensed shops if the standards are the same?",
+    answer:
+      'Because the standards are the same but the overheads are not. The bigger names carry heavy marketing budgets that come back through the puppy price; we spend almost nothing on ads and grow on reviews and referrals instead. Same licence, smaller megaphone.',
+  },
+  {
+    question: 'What support do we get after buying?',
+    answer:
+      'The in-home walkthrough of all 30+ starter-kit items, a free first lesson with an AVS-certified trainer, free care support on WhatsApp for as long as you need it, and the 5-day promise: if your puppy falls sick within the first 5 days home, bring them back and we nurse them ourselves.',
+  },
+  {
+    question: 'Can we visit before deciding?',
+    answer:
+      'Please do. We are at 2 Balestier Road #01-701, open weekdays 12pm to 6pm and weekends 10am to 6pm. WhatsApp us first so we can have the right puppies ready for the breeds you are considering.',
+  },
+  {
+    question: 'How do I check that any pet shop is really licensed?',
+    answer:
+      'Search the shop\'s name on the AVS public registry of licensed pet shops; every legitimate shop in Singapore is listed there. If a seller is not on that registry, they are not licensed, whatever their listing says.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/about-us',
+    title,
+    description,
+    aboutName: 'AVS licensed pet shop',
+    aboutAlternateName: 'licensed pet shop Singapore',
+    aboutSameAs: 'https://avs.nparks.gov.sg/businesses/pet-shop-owners/pet-shop-licence/',
+    datePublished: '2026-07-06',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our Cavapoo. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'AVS licensed pet shop',
+    description:
+      'A pet shop licensed by the Animal and Veterinary Service (a unit of Singapore\'s National Parks Board) to keep and sell pets, subject to welfare inspections, mandatory buyer-suitability screening via the Pet Purchase Declaration, AVS-recognised staff training, and annual licence renewal.',
+    sameAs: 'https://avs.nparks.gov.sg/businesses/pet-shop-owners/pet-shop-licence/',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/about-us" ogImage="/assets/about-us/og-about-us.jpg">
+  <Hero
+    eyebrow="Nelson & Kim, Balestier"
+    h1="Trusted Puppy Shop, AVS Licensed & Verified"
+    h1Accent="Trusted"
+    subhead="Curious Tails is run by two people you will actually meet: Nelson and Kim, AVS licensed (AS24J00046), two years and hundreds of families in, with a 5.0-star Google rating built on one habit: honest breed matching over quick sales."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to arrange a visit to meet your puppies."
+    secondaryCtaLabel="Meet Nelson & Kim"
+    secondaryCtaHref="#owners"
+    priceAnchor="Licence AS24J00046, verifiable on the AVS public registry in under a minute."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="AVS licensed pet shop Singapore: caregiver hands gently holding an apricot Cavapoo puppy in a bright, well-kept space"
+    imageSrc={heroCare}
+    tagLabel="Est. 2024"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'About Us', href: '/about-us' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="avs" class="relative scroll-mt-40">
+    <ScatterFloat />
+    <DefBox
+      term="What does 'AVS licensed pet shop' actually mean?"
+      definition="An AVS licensed pet shop is a business licensed by the Animal and Veterinary Service, a unit of the National Parks Board, to keep and sell pets in Singapore. The licence requires welfare inspections of how animals are housed and sold, mandatory buyer-suitability screening through the Pet Purchase Declaration, AVS-recognised staff training, and annual renewal."
+      bridge="Curious Tails holds licence AS24J00046. The rest of this page is what those requirements look like in practice, from the two people who answer for them."
+      citationLabel="Read the AVS licensing conditions"
+      citationHref="https://avs.nparks.gov.sg/businesses/pet-shop-owners/licensing-conditions/"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The licence requires</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Welfare inspections of housing and sale conditions',
+            'Pet Purchase Declaration before every sale',
+            'AVS-recognised training for the people running the shop',
+            'Annual renewal, never a one-time stamp',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Two years of receipts"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '2+', label: 'years in Balestier' },
+      { value: '7', label: 'breeds, matched by lifestyle' },
+      { value: '$500+', label: 'starter kit with every puppy' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="owners" class="scroll-mt-40">
+    <CaptionedBlock heading="Meet Nelson and Kim" imageAlt="Meeting the puppies before deciding: family sitting on a mat while an apricot Cavapoo approaches at its own pace" imageSrc={familyVisit} imagePosition="right">
+      <p>Curious Tails is not a chain with a duty roster; it is Nelson and Kim, in the shop, most days. The same two people who help you choose a breed are the ones who drive the <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">free home delivery and setup</a>, assemble your playpen, and answer your WhatsApp three weeks later.</p>
+      <p>Two years and hundreds of families in, the working method has not changed: ask about the customer's daily routine first, and only then talk breeds. Who is home between 8am and 6pm decides more about the right dog than any photo does.</p>
+      <p>That approach costs us the occasional quick sale. It is also why the review column reads the way it does.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="We'd Rather Talk You Out of the Wrong Breed" imagePosition="none" variant="dark">
+      <p>The story we are known for: a couple came in set on a Maltipoo. Both work 8am to 6pm, nobody home in the day, no helper. Maltipoos need more company than that, so we recommended a Cavapoo instead, similar warmth, noticeably more independent, knowing it might cost us the sale.</p>
+      <p>They took the Cavapoo home, she settled into the playpen we had set up, and Andrew Mak's five-star review of that honest steer still does more for us than any advertisement could.</p>
+      <p>If you are not sure what fits your routine, start with the <a href="/first-time-owners/breed-selector" class="underline underline-offset-2 text-[var(--color-accent-hover)]">two-minute breed selector</a>, or just message us your typical weekday. We will tell you straight.</p>
+      <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Lifestyle-first matching</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            '1. Your daily routine: who is home, and when',
+            '2. Your space: HDB, condo, or landed',
+            '3. Your experience: first dog or returning owner',
+            '4. Your energy preference: active or calm',
+            '5. Only then: the breed',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="licence" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="What the Licence Makes Us Do, and Why You Benefit"
+      headingAccent="Licence"
+      subhead="Most shops wear 'AVS licensed' as a badge. Here is what it obliges us to do, requirement by requirement."
+      mode="table"
+      tableHeaders={['Licence requirement', 'What it means for you']}
+      rows={[
+        { label: 'Welfare inspections', values: ['How our puppies are housed, fed, and sold is inspected against AVS standards, not our own claims'] },
+        { label: 'Pet Purchase Declaration before every sale', values: ['We must assess whether a buyer is ready for a dog; nobody walks out with a puppy on impulse'] },
+        { label: 'Health, vaccination, and microchip standards', values: ['Every puppy goes home vet-checked, vaccinated, dewormed, and microchipped'] },
+        { label: 'AVS-recognised training for shop operators', values: ['The advice you get comes from people trained in welfare and animal management, not just retail'] },
+        { label: 'Annual renewal', values: ['The licence is re-earned every year; AS24J00046 stays searchable on the public registry'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The full requirements are public: see the <a href="https://avs.nparks.gov.sg/businesses/pet-shop-owners/pet-shop-licence/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">AVS pet shop licence requirements</a> and the <a href="https://avs.nparks.gov.sg/businesses/pet-shop-owners/licensing-conditions/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">licensing conditions</a>, including the buyer-suitability rule.
+      </p>
+    </div>
+
+    <CaptionedBlock heading="The Pet Purchase Declaration: We Screen You Too" imageAlt="Licensed pet shop standards in practice: apricot Cavapoo puppy calm during a gentle stethoscope health check" imageSrc={healthCheck} imagePosition="left" variant="card">
+      <p>Here is the part of licensing most buyers never hear about: before any sale, we are required to assess whether you are suited to own a pet. The Pet Purchase Declaration covers your housing type, whether your household agrees, and whether you realistically have the time and means for a dog.</p>
+      <p>It can feel odd being on the receiving end of questions when you came to buy. But it is the single best rule in the licence: it protects the puppy from an impulsive home, and it protects you from a decision your household has not actually made.</p>
+      <p>We would ask most of those questions anyway; the lifestyle-matching habit came before the form did.</p>
+    </CaptionedBlock>
+  </div>
+
+  <BannerRibbon
+    heading="Come meet the puppies before you decide"
+    body="2 Balestier Road #01-701. Weekdays 12pm to 6pm, weekends 10am to 6pm. WhatsApp first so the right puppies are ready for you."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to arrange a visit to meet your puppies."
+    variant="dark"
+  />
+
+  <div id="why-cheaper" class="scroll-mt-40">
+    <CaptionedBlock heading="Why the Licensed Shop Is Also the Cheaper One Here" imagePosition="none" variant="mid">
+      <p>People assume licensed means expensive, and unlicensed 'deals' online feed that assumption. Our pricing breaks it: $2,888 to $4,488 all-in, typically $500 to $2,000 below the big-name licensed shops, with the $500+ starter kit, delivery, setup, and the training lesson already inside. The reason is unglamorous: we spend almost nothing on marketing, and the same AVS standards bind every licensed shop regardless of ad budget.</p>
+      <p>One protective note, said once: a puppy $500 to $1,000 below even our range, from a Carousell or Telegram seller with no licence to show, is usually smuggled, and buyers have been fined $7,000 for purchasing one. The maths and the case files are in <a href="/learn/smuggled-puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what smuggled puppies really cost buyers</a>.</p>
+      <p>The full number-by-number picture is on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-surface-card)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Same standards, different overheads</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            '$2,888 to $4,488, everything included',
+            'Typically $500 to $2,000 below big-name shops',
+            'Near-zero ad spend, passed on to you',
+            'Growth by reviews and referrals',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <div id="aftercare" class="scroll-mt-40">
+    <CaptionedBlock heading="Aftercare: What Happens After You Buy" imageAlt="Well-socialised puppies at an AVS licensed shop: apricot Cavapoo and cream Bichonpoo playing gently on a mat" imageSrc={puppiesPlay} imagePosition="right">
+      <p>The sale is the middle of our job, not the end. Delivery day includes the in-home walkthrough of <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the 30+ item starter kit</a>, your <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">free AVS-certified training lesson</a> gets booked into week one, and our WhatsApp stays open for care questions, free, indefinitely.</p>
+      <p>And the promise we are asked about most: if your puppy falls sick within the first 5 days of going home, bring them back to the shop and we will nurse them ourselves.</p>
+      <p>Most of the questions new owners would ask at 11pm are answered before we leave your home; the rest get a real reply from the two people who matched you with your puppy.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Families Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            "Couldn't recommend Curious Tails in Balestier enough after bringing home our Cavapoo. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+          name: 'Andrew Mak',
+          meta: 'Google review, Cavapoo owner',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, attentive and genuinely helpful, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. They gave us ample time to interact with the puppies before we decided. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "We'd been comparing breeders for weeks, and Curious Tails in Balestier stood head and shoulders above the rest. It was clear Nelson knew their stuff, as they were happy to help with even the small things and knew their stuff inside and out. Everything from the health records to the paperwork was handled seamlessly. The $500+ starter pack was such a generous surprise and got us set up right away. We couldn't be more pleased, an easy five stars.",
+          name: 'Karen Joy Pepito',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Had such a wonderful experience bringing home our new furry family member from Curious Tails in Balestier. Honestly, Nelson and Kim couldn't have been more helpful and answered every single question we had, which made the whole thing stress-free. Our pup was clean, well-socialised, and full of energy when we brought it home. The puppy came home healthy and vet-checked, which gave us real peace of mind. A truly lovely experience from start to finish, thank you!",
+          name: 'Damon Fong',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+      ]}
+    />
+  </div>
+
+  <div id="verify" class="scroll-mt-40">
+    <DefBox
+      term="Check us, or any shop, on the AVS registry"
+      definition="Every legitimate pet shop in Singapore appears on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit; the check takes about 60 seconds, and a seller who is not listed is not licensed, whatever the listing claims."
+      bridge="Curious Tails is listed under licence AS24J00046. Check us first; an honest shop never minds. For the red flags and the full walkthrough, see our step-by-step licence verification guide."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The 60-second check</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Open the AVS public registry',
+            'Search the shop name or licence number',
+            'Not listed = not licensed, full stop',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="About Us, Answered" items={faqItems} />
+  </div>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Meet Us, Then Decide"
+    body="Can't make the trip to Balestier? WhatsApp us for current puppies and prices; honest answers either way."
+    reserveMessage="Hi! I'd like to visit and meet your puppies before deciding."
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

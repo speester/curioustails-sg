@@ -1,0 +1,62 @@
+---
+interface Testimonial {
+  quote: string;
+  name: string;
+  meta?: string;
+}
+interface Props {
+  heading: string;
+  subhead?: string;
+  items: Testimonial[];
+}
+const { heading, subhead, items } = Astro.props;
+const tints = ['var(--color-mint-100)', 'var(--color-peach-100)', 'var(--color-lilac-100)'];
+---
+
+<section class="mx-auto max-w-[1400px] px-5 sm:px-8 py-16">
+  <div class="flex flex-wrap items-end justify-between gap-4">
+    <div class="max-w-[65ch]">
+      <h2 class="font-semibold text-[var(--color-cream-900)]" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">{heading}</h2>
+      {subhead && <p class="mt-2 text-base text-[var(--color-cream-600)]">{subhead}</p>}
+    </div>
+    <div class="hidden sm:flex gap-2">
+      <button type="button" data-carousel-prev class="clay-btn-outline w-11 h-11 bg-white flex items-center justify-center hover:text-[var(--color-coral-600)] transition-colors" aria-label="Previous testimonial">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button type="button" data-carousel-next class="clay-btn-outline w-11 h-11 bg-white flex items-center justify-center hover:text-[var(--color-coral-600)] transition-colors" aria-label="Next testimonial">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="relative mt-8">
+    <ul
+      data-carousel-track
+      aria-live="polite"
+      class="flex gap-6 overflow-x-auto snap-x snap-mandatory pt-4 pb-3 no-scrollbar"
+    >
+      {items.map((t, i) => (
+        <li class:list={['snap-start shrink-0 w-[85%] sm:w-[440px] clay p-7 relative', i % 2 === 0 ? '-rotate-1' : 'rotate-1']} style={`background:${tints[i % tints.length]};`}>
+          <span class="absolute -top-3 -left-1 font-[family-name:var(--font-heading)] text-6xl leading-none text-[var(--color-coral-400)]/40 select-none" aria-hidden="true">&ldquo;</span>
+          <p class="relative text-base leading-relaxed text-[var(--color-cream-800)]">{t.quote}</p>
+          <p class="mt-5 font-[family-name:var(--font-heading)] font-semibold text-[var(--color-cream-900)]">{t.name}</p>
+          {t.meta && <p class="text-sm text-[var(--color-cream-600)]">{t.meta}</p>}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+</style>
+
+<script>
+  const track = document.querySelector('[data-carousel-track]') as HTMLElement | null;
+  const prev = document.querySelector('[data-carousel-prev]');
+  const next = document.querySelector('[data-carousel-next]');
+  const scrollAmount = () => (track?.firstElementChild as HTMLElement)?.offsetWidth + 24 || 300;
+  prev?.addEventListener('click', () => track?.scrollBy({ left: -scrollAmount(), behavior: 'smooth' }));
+  next?.addEventListener('click', () => track?.scrollBy({ left: scrollAmount(), behavior: 'smooth' }));
+</script>

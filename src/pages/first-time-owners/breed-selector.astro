@@ -1,0 +1,269 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import Blob from '../../components/decor/Blob.astro';
+import PawPrint from '../../components/decor/PawPrint.astro';
+import { site, whatsappLink } from '../../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+import settlingIn from '../../assets/home/5-cavapoo-puppy-settling-playpen-first-day.png';
+
+const title = 'Which Puppy Breed Fits You? 2-Minute Quiz | Curious Tails';
+const description =
+  'Find your puppy match in 2 minutes: five questions about your housing, routine, and family, honestly scored across 7 breeds by the matchmakers at Curious Tails.';
+
+const faqItems = [
+  {
+    question: 'How does the quiz decide my match?',
+    answer:
+      'Five weighted questions: housing type (a hard filter, because HDB rules are rules), weekday alone-hours, children at home, energy appetite, and shedding tolerance. It is the same intake we run in person at the shop, just faster.',
+  },
+  {
+    question: 'Can the quiz tell me not to get a dog yet?',
+    answer:
+      'Yes. If your alone-hours and lifestyle answers clash with every breed we carry, the result says so honestly and suggests what to change first. A quiz that always says yes is an advertisement, not a tool.',
+  },
+  {
+    question: 'Is my result final?',
+    answer:
+      'No, it is a starting shortlist. Message us your result plus your actual routine and we will sanity-check it for free; sometimes one detail (a helper at home, a ground-floor unit) changes the answer.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/first-time-owners/breed-selector',
+    title,
+    description,
+    aboutName: 'Puppy breed selector quiz',
+    datePublished: '2026-07-06',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/first-time-owners/breed-selector">
+  <section class="relative overflow-hidden bg-[var(--color-peach-100)] pb-16 pt-2">
+    <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+      <Blob class="absolute -top-16 -left-20 h-80 w-80 fill-[var(--color-mint-200)]/70 blob-drift-slow" />
+      <Blob class="absolute top-10 right-[-6rem] h-72 w-72 fill-[var(--color-lilac-100)] blob-drift" />
+      <PawPrint class="absolute left-[6%] top-[22%] h-10 w-10 text-[var(--color-mint-300)]/70 -rotate-12 blob-drift" />
+      <PawPrint class="absolute right-[10%] top-[64%] h-8 w-8 text-[var(--color-coral-300)]/70 rotate-12 blob-drift-slow" />
+    </div>
+    <div class="relative mx-auto max-w-[1400px] px-5 sm:px-8 pt-5">
+      <Breadcrumb bare items={[{ label: 'First-Time Owners', href: '/first-time-owners' }, { label: 'Breed Selector', href: '/first-time-owners/breed-selector' }]} />
+      <div class="mx-auto mt-8 max-w-[70ch] text-center">
+        <p class="inline-flex items-center gap-2 rounded-full border-3 border-[var(--color-coral-400)] bg-white px-4 py-1.5 text-xs font-bold tracking-wide text-[var(--color-coral-600)] uppercase shadow-[0_4px_0_0_var(--color-coral-300)]" style="letter-spacing: 0.06em;">
+          <PawPrint class="h-3.5 w-3.5" />
+          The 2-minute quiz
+        </p>
+        <h1 class="mt-5 font-[family-name:var(--font-heading)] font-semibold leading-[1.05] text-[var(--color-cream-900)]" style="font-size: clamp(2.5rem, 5.5vw, 4rem);">
+          Find Your Perfect <span class="text-[var(--color-coral-500)]">Puppy Match</span>
+        </h1>
+        <p class="mt-4 text-lg leading-relaxed text-[var(--color-cream-700)]">
+          Five questions about your real week, honestly scored across the seven breeds we carry. The best breed for a first time dog owner in Singapore is the one that fits your routine; this asks the same questions we would in the shop.
+        </p>
+      </div>
+
+      <!-- QUIZ -->
+      <div id="quiz" class="clay relative mx-auto mt-10 max-w-[760px] bg-[var(--color-surface-card)] p-6 sm:p-10">
+        <div id="quiz-progress" class="mb-6 flex items-center gap-2" aria-hidden="true"></div>
+        <div id="quiz-body"></div>
+      </div>
+
+      <p class="mx-auto mt-6 max-w-[60ch] text-center text-sm text-[var(--color-cream-600)]">
+        Prefer a human? <a href={whatsappLink('Hi! Could you help me pick a breed? Here is my routine:')} class="underline underline-offset-2 text-[var(--color-accent-hover)]">WhatsApp us your routine</a> and Nelson or Kim will shortlist for you.
+      </p>
+    </div>
+  </section>
+
+  <CaptionedBlock heading="Why We Match by Routine, Not by Photo" imageAlt="Cavapoo puppy settled in her playpen after an honest breed match" imageSrc={settlingIn} imagePosition="right">
+    <p>A couple once came to us set on a Maltipoo. Both work 8am to 6pm, nobody home in the day. We recommended a Cavapoo instead, similar warmth, noticeably more independent, knowing it risked the sale. They took the Cavapoo, she settled beautifully, and that honest steer became our most-quoted five-star review.</p>
+    <p>That is the entire philosophy inside this quiz: the most popular breed is the wrong starting question. The right question is what your day looks like from 8am to 6pm, and the quiz asks it properly.</p>
+    <p>Whatever your result, browse <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all seven breeds</a> with your shortlist in hand, or start from the <a href="/first-time-owners" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-time owner checklist</a> if you're at step zero.</p>
+  </CaptionedBlock>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Quiz Questions, Answered" items={faqItems} />
+  </div>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Got Your Match? Come Meet It"
+    body="Can't make the trip to Balestier? WhatsApp us your quiz result and we'll send current photos and prices for your matched breeds."
+    reserveMessage="Hi! The breed quiz matched me. Could you share available puppies for that breed?"
+    browseHref="/puppies"
+  />
+
+  <Schema {schemas} />
+
+  <script>
+    // Lifestyle-First Matching quiz: 5 questions scored across 7 breeds.
+    // HDB is a hard filter (Corgi/Shiba excluded); low totals yield an honest "not yet".
+    type BreedKey = 'cavapoo' | 'maltipoo' | 'dachshund' | 'cockapoo' | 'bichonpoo' | 'corgi' | 'shiba';
+    const breeds: Record<BreedKey, { name: string; href: string; hdb: boolean; blurb: string }> = {
+      cavapoo: { name: 'Cavapoo', href: '/puppies/cavapoo', hdb: true, blurb: 'The independent companion: our first pick for working couples.' },
+      maltipoo: { name: 'Maltipoo', href: '/puppies/maltipoo', hdb: true, blurb: 'Affectionate and people-focused; happiest with company at home.' },
+      dachshund: { name: 'Mini Dachshund', href: '/puppies/mini-dachshund', hdb: true, blurb: 'Bold little hound; independent, comic, and compact.' },
+      cockapoo: { name: 'Cockapoo', href: '/puppies/cockapoo', hdb: true, blurb: 'The family all-rounder; kindest to first-time owners.' },
+      bichonpoo: { name: 'Bichonpoo', href: '/puppies/bichonpoo', hdb: true, blurb: 'Low-shedding sunshine; wants its people around.' },
+      corgi: { name: 'Corgi', href: '/puppies/corgi', hdb: false, blurb: 'Big personality, real energy; private housing only.' },
+      shiba: { name: 'Shiba Inu', href: '/puppies/shiba-inu', hdb: false, blurb: 'Independent and cat-clean; private housing only.' },
+    };
+
+    type Opt = { label: string; scores: Partial<Record<BreedKey, number>>; flag?: 'hdb' | 'longhours' };
+    const questions: { q: string; opts: Opt[] }[] = [
+      {
+        q: 'Where will your puppy live?',
+        opts: [
+          { label: 'HDB flat', flag: 'hdb', scores: {} },
+          { label: 'Condo or apartment (private)', scores: { corgi: 1, shiba: 1 } },
+          { label: 'Landed home', scores: { corgi: 2, shiba: 1 } },
+        ],
+      },
+      {
+        q: 'On a normal weekday, how long is the home empty?',
+        opts: [
+          { label: 'Rarely empty: someone is usually home', scores: { maltipoo: 3, bichonpoo: 3, cockapoo: 2, cavapoo: 1 } },
+          { label: 'Half days: 3 to 5 hours empty', scores: { cockapoo: 2, cavapoo: 2, maltipoo: 1, bichonpoo: 1, dachshund: 1 } },
+          { label: 'Full workdays: 8am to 6pm empty', flag: 'longhours', scores: { cavapoo: 3, dachshund: 2, shiba: 2, cockapoo: 1 } },
+        ],
+      },
+      {
+        q: 'Any young children at home?',
+        opts: [
+          { label: 'Yes, young kids', scores: { cockapoo: 3, cavapoo: 2, bichonpoo: 1 } },
+          { label: 'Older kids or teens', scores: { cockapoo: 2, cavapoo: 1, dachshund: 1, corgi: 1 } },
+          { label: 'No kids', scores: { shiba: 1, maltipoo: 1, dachshund: 1 } },
+        ],
+      },
+      {
+        q: 'How much dog energy do you want to live with?',
+        opts: [
+          { label: 'Calm companion; gentle walks', scores: { maltipoo: 2, cavapoo: 2, bichonpoo: 1 } },
+          { label: 'Playful but manageable', scores: { cockapoo: 2, bichonpoo: 2, dachshund: 1, cavapoo: 1 } },
+          { label: 'Active; real daily exercise is a feature', scores: { corgi: 3, cockapoo: 1, shiba: 1, dachshund: 1 } },
+        ],
+      },
+      {
+        q: 'How do you feel about shedding?',
+        opts: [
+          { label: 'Low-shedding matters (allergies or preference)', scores: { bichonpoo: 2, maltipoo: 2, cavapoo: 2, cockapoo: 2 } },
+          { label: 'Some shedding is fine', scores: { dachshund: 2, corgi: 1, shiba: 1 } },
+          { label: 'Fur happens; not a factor', scores: { corgi: 2, shiba: 2, dachshund: 1 } },
+        ],
+      },
+    ];
+
+    const body = document.getElementById('quiz-body')!;
+    const progress = document.getElementById('quiz-progress')!;
+    let step = 0;
+    const picks: number[] = [];
+
+    function renderProgress() {
+      progress.innerHTML = questions
+        .map((_, i) => `<span class="h-2 flex-1 rounded-full ${i < step ? 'bg-[var(--color-coral-500)]' : i === step ? 'bg-[var(--color-coral-300)]' : 'bg-[var(--color-cream-200)]'}"></span>`)
+        .join('');
+    }
+
+    function renderStep() {
+      renderProgress();
+      const q = questions[step];
+      body.innerHTML = `
+        <p class="text-xs font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">Question ${step + 1} of ${questions.length}</p>
+        <h2 class="mt-2 font-[family-name:var(--font-heading)] text-2xl sm:text-3xl font-semibold text-[var(--color-cream-900)]">${q.q}</h2>
+        <div class="mt-6 grid gap-3">
+          ${q.opts
+            .map(
+              (o, i) => `<button data-opt="${i}" class="clay clay-press w-full bg-[var(--color-surface)] px-5 py-4 text-left text-base font-semibold text-[var(--color-cream-800)] hover:bg-[var(--color-mint-100)]">${o.label}</button>`
+            )
+            .join('')}
+        </div>
+        ${step > 0 ? '<button data-back class="mt-5 text-sm font-semibold text-[var(--color-cream-500)] underline underline-offset-2">Back</button>' : ''}
+      `;
+      body.querySelectorAll('[data-opt]').forEach((btn) =>
+        btn.addEventListener('click', () => {
+          picks[step] = Number((btn as HTMLElement).dataset.opt);
+          step += 1;
+          if (step >= questions.length) renderResult();
+          else renderStep();
+        })
+      );
+      body.querySelector('[data-back]')?.addEventListener('click', () => {
+        step -= 1;
+        renderStep();
+      });
+    }
+
+    function renderResult() {
+      progress.innerHTML = questions.map(() => `<span class="h-2 flex-1 rounded-full bg-[var(--color-coral-500)]"></span>`).join('');
+      const totals: Record<BreedKey, number> = { cavapoo: 0, maltipoo: 0, dachshund: 0, cockapoo: 0, bichonpoo: 0, corgi: 0, shiba: 0 };
+      let isHdb = false;
+      let longHours = false;
+      picks.forEach((p, i) => {
+        const opt = questions[i].opts[p];
+        if (opt.flag === 'hdb') isHdb = true;
+        if (opt.flag === 'longhours') longHours = true;
+        for (const [k, v] of Object.entries(opt.scores)) totals[k as BreedKey] += v as number;
+      });
+      let entries = (Object.entries(totals) as [BreedKey, number][]).filter(([k]) => (isHdb ? breeds[k].hdb : true));
+      // Long empty days penalise the company-dependent crosses honestly.
+      if (longHours) entries = entries.map(([k, v]) => [k, k === 'maltipoo' || k === 'bichonpoo' ? v - 3 : v]);
+      entries.sort((a, b) => b[1] - a[1]);
+      const top = entries.slice(0, 2).filter(([, v]) => v > 0);
+
+      const restart = '<button data-restart class="mt-6 text-sm font-semibold text-[var(--color-cream-500)] underline underline-offset-2">Restart the quiz</button>';
+
+      if (top.length === 0 || top[0][1] < 3) {
+        body.innerHTML = `
+          <p class="text-xs font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">The honest result</p>
+          <h2 class="mt-2 font-[family-name:var(--font-heading)] text-2xl sm:text-3xl font-semibold text-[var(--color-cream-900)]">Maybe not yet, and that's a good answer</h2>
+          <p class="mt-4 text-base leading-relaxed text-[var(--color-cream-700)]">Your answers pull in opposite directions: long empty days plus a breed profile that needs company, or energy appetites no breed we carry can meet in your housing. A quiz that always says yes is an ad; this one says: change one variable first (a midday helper, a different housing plan, a calmer-energy expectation), then retake it.</p>
+          <p class="mt-3 text-base leading-relaxed text-[var(--color-cream-700)]">Or just message us the real situation; humans find fits that scoring misses.</p>
+          <a href="#" data-wa class="clay-btn mt-6 inline-flex items-center gap-2 bg-[var(--color-accent)] px-6 py-3 text-sm font-bold text-white hover:bg-[var(--color-accent-hover)]">WhatsApp us your situation</a>
+          ${restart}
+        `;
+      } else {
+        const cards = top
+          .map(
+            ([k], i) => `
+            <a href="${breeds[k].href}" class="clay clay-hover clay-press block bg-[var(--color-${i === 0 ? 'mint-100' : 'peach-100'})] p-6">
+              <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">${i === 0 ? 'Your top match' : 'Close second'}</p>
+              <p class="mt-2 font-[family-name:var(--font-heading)] text-2xl font-semibold text-[var(--color-cream-900)]">${breeds[k].name}</p>
+              <p class="mt-2 text-sm leading-relaxed text-[var(--color-cream-700)]">${breeds[k].blurb}</p>
+              <span class="mt-3 inline-block text-sm font-semibold text-[var(--color-accent-hover)] underline underline-offset-2">See the full ${breeds[k].name} profile →</span>
+            </a>`
+          )
+          .join('');
+        body.innerHTML = `
+          <p class="text-xs font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">Your result</p>
+          <h2 class="mt-2 font-[family-name:var(--font-heading)] text-2xl sm:text-3xl font-semibold text-[var(--color-cream-900)]">Matched on your routine, not the photos</h2>
+          <div class="mt-6 grid gap-4 sm:grid-cols-2">${cards}</div>
+          <p class="mt-5 text-sm leading-relaxed text-[var(--color-cream-600)]">${isHdb ? 'HDB filter applied: only approved breeds were scored. ' : ''}Treat this as a shortlist; the in-person version of this quiz comes with puppies.</p>
+          <a href="#" data-wa class="clay-btn mt-4 inline-flex items-center gap-2 bg-[var(--color-accent)] px-6 py-3 text-sm font-bold text-white hover:bg-[var(--color-accent-hover)]">WhatsApp us this result</a>
+          ${restart}
+        `;
+      }
+      const waMsg = encodeURIComponent(
+        `Hi! The breed quiz matched me with: ${top.map(([k]) => breeds[k].name).join(' + ') || 'no clear match yet'}. Here's my routine:`
+      );
+      body.querySelectorAll('[data-wa]').forEach((a) => a.setAttribute('href', `https://wa.me/6582206480?text=${waMsg}`));
+      body.querySelector('[data-restart]')?.addEventListener('click', () => {
+        step = 0;
+        picks.length = 0;
+        renderStep();
+      });
+    }
+
+    renderStep();
+  </script>
+</BaseLayout>

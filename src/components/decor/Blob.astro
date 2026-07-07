@@ -1,0 +1,15 @@
+---
+// Soft amoeba background shape. Purely decorative; colour via `class` (fill-*),
+// position/size via `class` (absolute, w-*, h-*), motion via .blob-drift(-slow).
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<svg viewBox="0 0 200 200" class={className} aria-hidden="true" focusable="false">
+  <path
+    d="M45.1,-58.4C58.8,-49.6,70.6,-36.4,75.6,-21.1C80.6,-5.8,78.8,11.6,71.7,26.4C64.6,41.2,52.2,53.4,37.7,61.8C23.2,70.2,6.6,74.8,-10.8,74.6C-28.2,74.4,-46.4,69.4,-58.6,58.1C-70.8,46.8,-77,29.2,-78.5,11.2C-80,-6.8,-76.8,-25.2,-67.2,-39.6C-57.6,-54,-41.6,-64.4,-25.6,-72.1C-9.6,-79.8,6.4,-84.8,20.9,-79.9C35.4,-75,45.1,-58.4,45.1,-58.4Z"
+    transform="translate(100 100)"
+  />
+</svg>

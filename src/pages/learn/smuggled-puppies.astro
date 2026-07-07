@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import DefBox from '../../components/DefBox.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+import boardingPen from '../../assets/delivery/3-puppy-boarding-cozy-pen-waiting.webp';
+import healthCheck from '../../assets/about-us/2-puppy-health-check-stethoscope.webp';
+
+const title = 'Smuggled Puppies in Singapore: Real Cases & Red Flags | Curious Tails';
+const description =
+  'The real cost of smuggled puppies in Singapore: parvovirus deaths at the checkpoint, a $7,000 fine for a buyer, and the 60-second check that protects you.';
+
+const faqItems = [
+  {
+    question: 'How do I know if a puppy is smuggled?',
+    answer:
+      'You usually cannot tell by looking; you tell by the seller. Not listed on the AVS registry, a price hundreds below every licensed listing, no premises to visit, and no vaccination paperwork: that combination is the smuggled-puppy profile, whatever the photos look like.',
+  },
+  {
+    question: 'Can I get in trouble for buying one unknowingly?',
+    answer:
+      'Yes. In the first prosecution of a purchaser, a buyer was fined $7,000 over a smuggled dog. "I didn\'t know" did not prevent it, and the 60-second registry check would have. Buyer liability is now part of this story.',
+  },
+  {
+    question: 'What is parvovirus and why does it keep appearing in these cases?',
+    answer:
+      'Canine parvovirus is a highly contagious and often fatal virus that hits unvaccinated puppies hardest, which is exactly what smuggled puppies are. Treatment runs $5,000 to $10,000 and does not guarantee survival; in the documented cases, many puppies died before any buyer met them.',
+  },
+  {
+    question: 'Is enforcement improving?',
+    answer:
+      'Yes: ICA recorded a 33% decrease in animal smuggling cases in 2025. But unlicensed sellers still operate through Carousell, Telegram, and Facebook, so the buyer-side check remains the practical defence.',
+  },
+  {
+    question: 'What should I do if I suspect a listing?',
+    answer:
+      'Transfer nothing, keep the listing details, and report it to AVS. Then buy only from sellers you have verified on the public registry; the check takes 60 seconds and ends this market one buyer at a time.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/learn/smuggled-puppies',
+    title,
+    description,
+    aboutName: 'Puppy smuggling in Singapore',
+    aboutAlternateName: 'smuggled puppies Singapore',
+    datePublished: '2026-07-06',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/learn/smuggled-puppies" ogImage="/assets/guides/og-learn.jpg">
+  <Hero
+    eyebrow="Buyer protection · Guide 2"
+    h1="Why Unlicensed Sellers Are Dangerous: the Real Cases"
+    h1Accent="Real Cases"
+    subhead="Not scare stories: court records and news reports. Puppies dying of parvovirus in car boots at the checkpoint, and a buyer fined $7,000 for a purchase that looked like a bargain. Here is what happened, why the 'deals' exist, and the one check that keeps you out of these stories."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I saw a listing I'm unsure about. Could I ask you about it?"
+    secondaryCtaLabel="See the cases"
+    secondaryCtaHref="#cases"
+    priceAnchor="Protective, not preachy: check any seller in 60 seconds and this page never applies to you."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="The licensed alternative to smuggled puppies: healthy Cavapoo resting safely in a proper pen with bed and water"
+    imageSrc={boardingPen}
+    tagLabel="Documented"
+    proofChip="4 real cases"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Learn', href: '/learn' }, { label: 'Smuggled Puppies', href: '/learn/smuggled-puppies' }]} />
+  </Hero>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What are smuggled puppies?"
+      definition="Smuggled puppies are brought into Singapore across the border, typically from Malaysia, without vaccinations, health checks, or legal channels, and sold through Carousell, Telegram, or Facebook at prices below the licensed market. The documented consequences: puppies dying of parvovirus in transit, treatment bills of $5,000 to $10,000 for survivors, and since 2026, buyers themselves prosecuted."
+      bridge="This page exists to keep you out of those stories, not to frighten you with them. Four documented cases, the economics that create the 'bargains', and the 60-second check that settles everything."
+      citationLabel="SPCA's anti-smuggling campaign"
+      citationHref="https://spca.org.sg/campaigns/animal-smuggling/"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The pattern, in numbers</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            '$500 to $1,000: the typical "saving"',
+            '$5,000 to $10,000: parvovirus treatment',
+            '$7,000: the fine a buyer paid',
+            '60 seconds: the registry check that prevents all of it',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="cases" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Four Cases, All Documented"
+      headingAccent="Documented"
+      subhead="Every row links to the original reporting. Nothing here is embellished; it doesn't need to be."
+      mode="table"
+      tableHeaders={['Case', 'What happened', 'The outcome']}
+      rows={[
+        { label: 'Tuas checkpoint, 2024', values: ['12 puppies found in a modified car boot compartment', 'Puppies died of canine parvovirus; the case became the reference image of what "no paperwork" means'] },
+        { label: 'Pomeranian smuggling, 2023', values: ['5 Pomeranian puppies in a plastic container in a car boot', 'All 5 tested positive for parvovirus; the smuggler was jailed 16 weeks'] },
+        { label: '26 puppies and a cat, 2023', values: ['A single smuggling run of 26 puppies', '1 dead on arrival, 18 died of parvovirus after; 12 months\' jail'] },
+        { label: 'The buyer prosecution, 2026', values: ['A man bought a smuggled puppy, unknowingly by his account', 'Fined $7,000 in the first NParks prosecution of a purchaser; buyers are now liable too'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Sources: <a href="https://www.channelnewsasia.com/singapore/3-12-puppies-die-in-botched-smuggling-attempt-tuas-checkpoint-5718076" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">CNA on the Tuas case</a>, <a href="https://www.straitstimes.com/singapore/courts-crime/16-weeks-jail-for-man-who-smuggled-5-pomeranian-puppies-from-malaysia-to-spore-in-car-boot" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">the Straits Times on the Pomeranian case</a>, <a href="https://mothership.sg/2023/04/msian-man-smuggles-26-puppies-1-cat/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">Mothership on the 26-puppy run</a>, and <a href="https://www.straitstimes.com/singapore/courts-crime/dog-buyer-fined-7k-first-time-nparks-prosecuted-purchaser-over-animal-smuggling" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">the Straits Times on the buyer's $7,000 fine</a>.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="The Economics: Why the 'Bargain' Exists" imageAlt="What a legitimate start looks like: puppy calm during a proper stethoscope health check before homecoming" imageSrc={healthCheck} imagePosition="right">
+    <p>An unlicensed puppy runs $500 to $1,000 below the licensed market, and the discount has a source: it is the exact cost of everything that was skipped. No vaccinations at weeks 6 and 8, no vet checks, no deworming, no microchip, no licensed premises with welfare inspections. The price is low because the puppy arrived in a car boot instead of through any of that.</p>
+    <p>The buyer inherits the skipped costs with interest. Parvovirus treatment runs $5,000 to $10,000, survival is not guaranteed, and the emotional cost of a week-one hospitalisation does not appear on any invoice.</p>
+    <p>Two years inside the licensed side of this industry taught us the blunt version: a cheaper puppy from an unlicensed source is not a bargain; it is a financial and emotional risk priced to look like one.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="The Liability Shift: Buyers Now Answer Too" imagePosition="none" variant="card">
+    <p>For years, enforcement landed on smugglers and sellers. The 2026 case changed the arithmetic: NParks prosecuted the purchaser, and the court fined him $7,000, in a case reported as the first of its kind.</p>
+    <p>The practical meaning for you: "I didn't know" is not a defence you want to test, and you never have to. The AVS registry check takes 60 seconds and settles whether a seller is legitimate before any money moves; run it and buyer liability simply never reaches you.</p>
+    <p>The full check, red flags included, is in <a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our step-by-step licence verification guide</a>.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Smuggled-listing red flags</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Price hundreds below every licensed listing',
+          'Not on the AVS registry, no licence number offered',
+          'No premises; carpark or MRT handovers',
+          '"Vaccination records coming later"',
+          'Urgency scripts: another buyer at 6pm',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <CaptionedBlock heading="The Hopeful Part: It's Working" imagePosition="none" variant="mid">
+    <p>Enforcement is genuinely improving: ICA recorded a <a href="https://www.ica.gov.sg/news-and-publications/newsroom/media-release/33-per-cent-decrease-in-animal-smuggling-cases-recorded-in-2025" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">33% decrease in animal smuggling cases in 2025</a>, checkpoint detection keeps getting better, and the buyer-liability precedent removed the market's safest participant.</p>
+    <p>The remaining gap is demand, and that is where you come in: every buyer who runs the registry check either buys licensed or walks away, and both outcomes shrink this market. Welfare groups like the <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">SPCA have campaigned on this for years</a>; the buyer-side check is the piece individuals control.</p>
+    <p>What the licensed path looks like, priced and itemised, is on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent pricing page</a>; the $500-to-$1,000 "premium" buys everything the car boot skipped.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-surface-card)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Your part takes 60 seconds</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Run the AVS registry check on any seller',
+          'Walk away from unlisted sellers, every time',
+          'Report suspicious listings to AVS',
+          'That\'s it; that\'s the whole job',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <BannerRibbon
+    heading="Unsure about a listing you've seen?"
+    body="Send it to us. We'll tell you honestly what we see, even though we sell puppies too; helping you dodge a bad seller costs us nothing and might save you everything."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Could I get your honest opinion on a puppy listing I found?"
+    variant="dark"
+  />
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Smuggling Questions, Answered" items={faqItems} />
+  </div>
+
+  <FinalCta
+    breed="Puppy"
+    heading="The Licensed Path Is Right Here"
+    body="Verified, vaccinated, microchipped, and nursed by us for the first 5 days if anything goes wrong. WhatsApp us for current puppies."
+    reserveMessage="Hi! I'd like to ask about your available puppies."
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

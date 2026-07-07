@@ -1,0 +1,43 @@
+---
+import { whatsappLink } from '../data/site';
+import PawPrint from './decor/PawPrint.astro';
+
+interface Props {
+  heading: string;
+  body?: string;
+  ctaLabel: string;
+  ctaMessage?: string;
+  ctaHref?: string;
+  variant?: 'tint' | 'dark';
+}
+const { heading, body, ctaLabel, ctaMessage, ctaHref, variant = 'tint' } = Astro.props;
+
+const isDark = variant === 'dark';
+---
+
+<section class="mx-auto max-w-[1400px] px-5 sm:px-8 py-6">
+  <div
+    class:list={[
+      'clay relative overflow-hidden px-6 py-9 sm:px-9 flex flex-col sm:flex-row sm:items-center justify-between gap-5',
+      isDark ? 'bg-[var(--color-lilac-900)] border-[var(--color-coral-500)]' : 'bg-[var(--color-peach-100)]',
+    ]}
+  >
+    <PawPrint class:list={['pointer-events-none absolute -right-4 -bottom-6 h-28 w-28 rotate-12', isDark ? 'text-white/5' : 'text-[var(--color-coral-300)]/30']} aria-hidden="true" />
+    <div class="relative">
+      <p class:list={['text-2xl font-[family-name:var(--font-heading)] font-semibold', isDark ? 'text-white' : 'text-[var(--color-cream-900)]']}>
+        {heading}
+      </p>
+      {body && (
+        <p class:list={['mt-1.5 text-sm max-w-[60ch]', isDark ? 'text-white/75' : 'text-[var(--color-cream-600)]']}>
+          {body}
+        </p>
+      )}
+    </div>
+    <a
+      href={ctaHref ?? whatsappLink(ctaMessage)}
+      class="clay-btn relative shrink-0 inline-flex items-center justify-center bg-[var(--color-accent)] px-6 py-3 text-sm font-bold text-white hover:bg-[var(--color-accent-hover)]"
+    >
+      {ctaLabel}
+    </a>
+  </div>
+</section>

@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import Schema from '../components/Schema.astro';
+import { site } from '../data/site';
+import { webPageSchema, organizationSchema } from '../lib/schema';
+
+const title = 'Privacy Policy | Curious Tails';
+const description =
+  'How Curious Tails collects, uses, and protects your personal data under Singapore’s PDPA — covering WhatsApp enquiries, analytics, and third-party services.';
+
+const lastUpdated = '2026-07-07';
+
+const schemas = [
+  organizationSchema(),
+  webPageSchema({
+    path: '/privacy-policy',
+    title,
+    description,
+    aboutName: 'Privacy policy',
+    datePublished: lastUpdated,
+    dateModified: lastUpdated,
+  }),
+];
+
+const sections = [
+  {
+    heading: 'What we collect',
+    body: [
+      'When you contact us on WhatsApp, by phone, or by email, we receive the details you share with us: your name, contact number, and anything you tell us about your home and lifestyle so we can recommend a suitable breed.',
+      'When you buy a puppy, we collect the details required to complete AVS licensing, microchip registration, and the Pet Purchase Declaration — this is a regulatory requirement for every licensed pet shop in Singapore.',
+      'Our website itself does not require an account and has no login. If we enable analytics (Google Analytics 4), it collects standard usage data such as pages visited and approximate location, using cookies.',
+    ],
+  },
+  {
+    heading: 'How we use it',
+    body: [
+      'To answer your enquiry, match you with a suitable puppy, arrange delivery and your free training lesson, and provide after-sale support.',
+      'To meet our legal obligations as an AVS-licensed pet shop, including dog licensing and microchip records.',
+      'We do not sell your personal data, and we do not send marketing you have not asked for.',
+    ],
+  },
+  {
+    heading: 'Third-party services',
+    body: [
+      'WhatsApp (Meta) handles chat messages you send us — their own privacy policy applies to the WhatsApp service.',
+      'Google services on this site include an embedded Google Map of our Balestier shop and, if enabled, Google Analytics. These may set cookies governed by Google’s privacy policy.',
+      'Regulatory data (licensing, microchip) is shared with AVS/NParks as required by law.',
+    ],
+  },
+  {
+    heading: 'Retention and protection',
+    body: [
+      'We keep enquiry messages only as long as needed to help you, and purchase records for as long as Singapore law and AVS licensing conditions require.',
+      'Access to customer information is limited to Nelson and Kim, the owners who run Curious Tails day to day.',
+    ],
+  },
+  {
+    heading: 'Your rights under the PDPA',
+    body: [
+      'Under Singapore’s Personal Data Protection Act, you may ask us what personal data we hold about you, ask us to correct it, or withdraw consent for its use (subject to legal retention requirements).',
+      `To do any of these, contact us at ${site.email} or WhatsApp ${site.phoneDisplay}. We will respond within 30 days.`,
+    ],
+  },
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/privacy-policy">
+  <section class="mx-auto max-w-[820px] px-5 sm:px-8 pt-6 pb-16">
+    <Breadcrumb items={[{ label: 'Privacy Policy', href: '/privacy-policy' }]} bare />
+
+    <h1 class="mt-6 font-[family-name:var(--font-heading)] font-semibold leading-tight text-[var(--color-cream-900)]" style="font-size: clamp(2.25rem, 4vw, 3.25rem);">
+      Privacy Policy
+    </h1>
+    <p class="mt-3 text-sm text-[var(--color-cream-600)]">Last updated: 7 July 2026</p>
+    <p class="mt-6 text-base leading-relaxed text-[var(--color-cream-700)]">
+      Curious Tails ({site.address.full}, AVS licence {site.license.avsNumber}) keeps this simple: we collect the
+      minimum personal data needed to help you find and care for a puppy, we protect it, and we don't sell it.
+      This page explains what that means in practice, in line with Singapore's Personal Data Protection Act (PDPA).
+    </p>
+
+    {sections.map((section) => (
+      <div class="mt-10">
+        <h2 class="font-[family-name:var(--font-heading)] text-2xl font-semibold text-[var(--color-cream-900)]">{section.heading}</h2>
+        {section.body.map((para) => (
+          <p class="mt-3 text-base leading-relaxed text-[var(--color-cream-700)]">{para}</p>
+        ))}
+      </div>
+    ))}
+
+    <div class="clay mt-12 bg-[var(--color-surface-card)] p-6 sm:p-8">
+      <h2 class="font-[family-name:var(--font-heading)] text-xl font-semibold text-[var(--color-cream-900)]">Questions about your data?</h2>
+      <p class="mt-2 text-base leading-relaxed text-[var(--color-cream-700)]">
+        Email <a href={`mailto:${site.email}`} class="underline underline-offset-2 text-[var(--color-accent-hover)]">{site.email}</a> or
+        WhatsApp <a href={`https://wa.me/65${site.whatsapp}`} class="underline underline-offset-2 text-[var(--color-accent-hover)]">{site.phoneDisplay}</a>,
+        and Nelson or Kim will get back to you directly.
+      </p>
+    </div>
+  </section>
+
+  <Schema {schemas} />
+</BaseLayout>

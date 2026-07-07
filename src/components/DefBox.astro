@@ -1,0 +1,35 @@
+---
+interface Props {
+  term: string;
+  definition: string;
+  bridge?: string;
+  citationLabel?: string;
+  citationHref?: string;
+}
+const { term, definition, bridge, citationLabel, citationHref } = Astro.props;
+const hasSide = Astro.slots.has('side');
+---
+
+<section class="mx-auto max-w-[1400px] px-5 sm:px-8 py-10">
+  <div class:list={['grid gap-6 items-stretch', hasSide && 'lg:grid-cols-[1.4fr_1fr]']}>
+    <div class="clay bg-[var(--color-mint-100)] p-6 sm:p-8" data-reveal>
+      <p class="text-xs font-bold uppercase text-[var(--color-lilac-700)]" style="letter-spacing: 0.08em;">
+        {term}
+      </p>
+      <p class="mt-2 text-lg leading-relaxed text-[var(--color-cream-800)]">
+        {definition}
+      </p>
+      {bridge && <p class="mt-3 text-base leading-relaxed text-[var(--color-cream-600)]">{bridge}</p>}
+      {citationHref && (
+        <a href={citationHref} class="mt-3 inline-block text-sm font-bold text-[var(--color-coral-600)] underline underline-offset-2">
+          {citationLabel}
+        </a>
+      )}
+    </div>
+    {hasSide && (
+      <div data-reveal style="--i:1">
+        <slot name="side" />
+      </div>
+    )}
+  </div>
+</section>

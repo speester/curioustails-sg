@@ -1,0 +1,255 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+import heroGuide from '../../assets/guides/1-first-time-dog-owner-guide-hero.webp';
+import mealTime from '../../assets/guides/2-puppy-mealtime-fixed-schedule.webp';
+import budgetFlatlay from '../../assets/guides/4-puppy-budget-planning-flatlay.webp';
+import verifyPhone from '../../assets/guides/5-verify-seller-phone-check-puppy.webp';
+
+const title = 'First-Time Dog Owner Guide Singapore | Curious Tails';
+const description =
+  'Buying your first puppy in Singapore? The complete first-time owner checklist: choose the right breed, budget the first year, verify the seller, and survive week one.';
+
+const faqItems = [
+  {
+    question: 'What should I do first when buying my first puppy?',
+    answer:
+      'Fix the housing and routine questions before you look at a single photo. Your HDB status and your weekday alone-hours eliminate half the breed list instantly, and doing this first is what prevents the classic mismatch stories.',
+  },
+  {
+    question: 'Is the AVS Pet Ownership Course compulsory?',
+    answer:
+      'Yes, for first-time owners, before your first dog licence. It is free, online, and takes about an evening. We point you to it at purchase so it never delays your puppy\'s homecoming.',
+  },
+  {
+    question: 'How much should a first-time owner budget in total?',
+    answer:
+      'At a licensed shop like ours, $2,888 to $4,488 buys the puppy with the kit, delivery, setup, and training included; then plan $1,200 to $3,500 for the first year\'s running costs. The budget planner breaks it down line by line.',
+  },
+  {
+    question: 'Which breed is best for a first-time owner?',
+    answer:
+      'For families with kids, the Cockapoo is the forgiving all-rounder; for working couples, the Cavapoo\'s independence wins. But the honest answer is whichever breed matches your routine, and the two-minute quiz asks exactly the right questions.',
+  },
+  {
+    question: 'What support do first-time owners get after buying?',
+    answer:
+      'The in-home walkthrough of all 30+ starter-kit items, a free first lesson with an AVS-certified trainer in week one, free WhatsApp care support indefinitely, and the 5-day nurse-back promise if your puppy falls sick.',
+  },
+  {
+    question: 'What is the biggest first-timer mistake?',
+    answer:
+      'Choosing by photo instead of routine. Every breed-mismatch story we have ever untangled started with a picture, not a plan. Decision one on this page exists to prevent it.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/first-time-owners',
+    title,
+    description,
+    aboutName: 'First-time dog ownership in Singapore',
+    aboutAlternateName: 'first time dog owner Singapore',
+    datePublished: '2026-07-06',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  faqPageSchema(faqItems),
+];
+
+const decisions = [
+  {
+    n: '01',
+    title: 'Choose the breed by routine, not photo',
+    body: 'HDB status and weekday alone-hours narrow seven breeds to two or three fast. Start with the quiz, check the approved list, then browse breeds with the shortlist in hand.',
+    links: [
+      { label: 'Take the two-minute breed selector', href: '/first-time-owners/breed-selector' },
+      { label: 'The HDB-approved breeds guide', href: '/first-time-owners/hdb-breeds' },
+    ],
+  },
+  {
+    n: '02',
+    title: 'Budget the whole first year, not just the sticker',
+    body: 'Purchase is the big number; the first year adds $1,200 to $3,500 in licence, food, vet, and grooming. Know both before you commit and nothing later feels like a surprise.',
+    links: [{ label: 'The first-year budget planner', href: '/first-time-owners/budget-guide' }],
+  },
+  {
+    n: '03',
+    title: 'Verify the seller before you pay anyone',
+    body: 'Every legitimate shop is on the AVS public registry; the check takes 60 seconds and it is the single best scam filter that exists. Unlicensed "bargains" are where the smuggling stories start.',
+    links: [{ label: 'How to verify any pet shop\'s licence', href: '/learn/verify-license' }],
+  },
+  {
+    n: '04',
+    title: 'Prepare the home (or let us do it)',
+    body: 'A ready playpen, the right food, and day-one equipment decide how fast your puppy settles. With us, the 30+ item kit arrives set up in your home with every item explained; without us, the kit page doubles as your shopping list.',
+    links: [
+      { label: 'What\'s inside the starter kit', href: '/starter-kit' },
+      { label: 'How delivery and setup work', href: '/delivery' },
+    ],
+  },
+  {
+    n: '05',
+    title: 'Run the first weeks on a routine',
+    body: 'Fixed meals, a consistent toilet spot, calm nights, and gentle socialisation inside the 3-to-16-week window. The week-by-week guide is the manual; the free training lesson in week one makes it stick.',
+    links: [
+      { label: 'The week-by-week puppy care guide', href: '/first-time-owners/puppy-care-101' },
+      { label: 'The free AVS-certified training lesson', href: '/free-training' },
+    ],
+  },
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/first-time-owners" ogImage="/assets/guides/og-first-time-owners.jpg">
+  <Hero
+    eyebrow="The first-timer's guide"
+    h1="Your Complete Checklist: Buying Your First Puppy"
+    h1Accent="First Puppy"
+    subhead="First time dog owner in Singapore? There are five decisions, and the order matters: breed by routine, budget the full year, verify the seller, prepare the home, then run week one on a routine. This page walks all five, with a guide for each."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'm a first-time owner starting my research. Here's my situation:"
+    secondaryCtaLabel="Start with decision one"
+    secondaryCtaHref="#decisions"
+    priceAnchor="Free advice, honest answers; we've talked people out of the wrong breed before."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="First time dog owner Singapore: couple on the floor with a checklist notebook while their new Cavapoo puppy explores"
+    imageSrc={heroGuide}
+    tagLabel="Start here"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'First-Time Owners', href: '/first-time-owners' }]} />
+  </Hero>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What should a first-time dog owner in Singapore do first?"
+      definition="Five decisions, in order: choose the breed by your housing and routine (not the photo), budget the full first year, verify the seller on the AVS registry, prepare the home before the puppy arrives, and run the first weeks on a fixed routine. Each step makes the next one easier; skipping ahead is where the regret stories come from."
+      bridge="Two years of matching puppies to first-time families taught us one thing worth more than any list: new owners don't need more information, they need a simple routine to follow and someone to call when unsure. The five guides below give you the routine; our WhatsApp is the someone."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The five decisions</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            '1. Breed, chosen by routine',
+            '2. Budget, the full first year',
+            '3. Seller, verified on the registry',
+            '4. Home, ready before day one',
+            '5. First weeks, run on routine',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Built for first-timers"
+    stats={[
+      { value: '5', label: 'decisions, in the right order' },
+      { value: '3–16', label: 'weeks: the socialisation window' },
+      { value: '$500+', label: 'starter kit so day one is covered' },
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <section id="decisions" class="mx-auto max-w-[1400px] scroll-mt-40 px-5 sm:px-8 py-14">
+    <div class="max-w-[65ch]">
+      <p class="text-sm font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">The journey</p>
+      <h2 class="mt-2 font-semibold text-[var(--color-cream-900)]" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">
+        Five decisions, five guides
+      </h2>
+      <p class="mt-2 text-base text-[var(--color-cream-600)]">Work top to bottom. Each card links to the full guide for that step.</p>
+    </div>
+    <ol class="mt-9 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {decisions.map((d, i) => (
+        <li data-reveal style={`--i:${i}`} class="clay clay-hover h-full bg-[var(--color-surface-card)] p-7 flex flex-col">
+          <span class="font-[family-name:var(--font-heading)] font-bold text-[var(--color-coral-500)]" style="font-size: clamp(2rem, 3vw, 2.75rem); line-height: 1;">{d.n}</span>
+          <h3 class="mt-4 text-lg font-[family-name:var(--font-heading)] font-semibold text-[var(--color-cream-900)]">{d.title}</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-[var(--color-cream-700)]">{d.body}</p>
+          <div class="mt-4 space-y-2">
+            {d.links.map((l) => (
+              <a href={l.href} class="block text-sm font-semibold text-[var(--color-accent-hover)] underline underline-offset-2 hover:text-[var(--color-coral-600)]">{l.label} →</a>
+            ))}
+          </div>
+        </li>
+      ))}
+      <li data-reveal style="--i:5" class="clay clay-hover h-full bg-[var(--color-peach-100)] p-7 flex flex-col justify-between">
+        <div>
+          <span class="font-[family-name:var(--font-heading)] font-bold text-[var(--color-coral-500)]" style="font-size: clamp(2rem, 3vw, 2.75rem); line-height: 1;">+</span>
+          <h3 class="mt-4 text-lg font-[family-name:var(--font-heading)] font-semibold text-[var(--color-cream-900)]">Skip the guesswork entirely</h3>
+          <p class="mt-2 text-sm leading-relaxed text-[var(--color-cream-700)]">Message us your housing type and weekday routine, and we'll walk the five decisions with you, honestly, including the "not this breed" parts.</p>
+        </div>
+        <a href={whatsappLink("Hi! First-time owner here. Could you help me work through breed and budget for my situation?")} class="clay-btn mt-4 inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] px-6 py-3 text-sm font-bold text-white hover:bg-[var(--color-accent-hover)]">
+          WhatsApp us
+        </a>
+      </li>
+    </ol>
+  </section>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <CaptionedBlock heading="The Routine Beats the Reading" imageAlt="Puppy care routine in action: Cavapoo eating from its bowl at a fixed mealtime" imageSrc={mealTime} imagePosition="right">
+    <p>Here is the counter-intuitive thing we tell every first-time family: you do not need to become a dog expert before your puppy arrives. You need five fixed anchors (meal times, toilet spot, playpen, walk slots, bedtime) and the willingness to hold them for three weeks.</p>
+    <p>Puppies read consistency, not vocabulary. The families whose puppies settle fastest are rarely the ones who read the most; they are the ones whose 7am looks like their 7am every day.</p>
+    <p>The <a href="/first-time-owners/puppy-care-101" class="underline underline-offset-2 text-[var(--color-accent-hover)]">week-by-week guide</a> hands you those anchors ready-made.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="The 60-Second Check That Outranks Every Other Tip" imageAlt="Verifying a puppy seller in Singapore: buyer checking their phone beside an attentive Cavapoo puppy" imageSrc={verifyPhone} imagePosition="left" variant="card">
+    <p>If you remember one thing from this page: before paying any seller a cent, search their name on the AVS public registry of licensed pet shops. Every legitimate shop in Singapore is on it; every smuggled-puppy story starts with a seller who was not.</p>
+    <p>First-time buyers are exactly who the Carousell and Telegram "bargains" target, because the price gap looks like a deal instead of a warning. The <a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">verification guide</a> makes the check foolproof, red flags included.</p>
+    <p>Check us first, licence AS24J00046; an honest shop never minds.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Budget Once, Relax All Year" imageAlt="Puppy budget planning: notebook and puppy essentials laid out for first-year cost planning" imageSrc={budgetFlatlay} imagePosition="right">
+    <p>Money surprises are the second-biggest first-year stress after toilet training, and they are entirely preventable: the recurring costs of a small breed in Singapore are boringly predictable once someone lists them.</p>
+    <p>Licence from $15 a year, food, routine vet care, grooming every 4 to 8 weeks: it lands between $100 and $290 a month. The <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">budget planner</a> gives you the full table and three realistic first-year totals.</p>
+  </CaptionedBlock>
+
+  <BannerRibbon
+    heading="Learn from other people's week one"
+    body="The five mistakes first-time owners actually make, from real stories, so yours can be someone else's cautionary tale avoided."
+    ctaLabel="Read the mistakes"
+    ctaHref="/blog/first-time-mistakes"
+    variant="dark"
+  />
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="First-Timer Questions, Answered" items={faqItems} />
+  </div>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Start the Conversation, Not the Commitment"
+    body="Can't make the trip to Balestier? WhatsApp us your situation; honest first-timer advice costs nothing, whichever way you decide."
+    reserveMessage="Hi! First-time owner here, starting my research. Here's my situation:"
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

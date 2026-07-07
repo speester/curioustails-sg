@@ -68,6 +68,25 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', id);
+
+        // Lead tracking: every WhatsApp (wa.me) and phone (tel:) link on the
+        // site fires a GA4 event. Delegated so it covers links added anywhere.
+        document.addEventListener('click', (e) => {
+          const link = e.target instanceof Element ? e.target.closest('a[href]') : null;
+          if (!link) return;
+          const href = link.getAttribute('href') || '';
+          if (href.startsWith('tel:')) {
+            gtag('event', 'phone_click', {
+              link_url: href,
+              link_text: (link.textContent || '').trim().slice(0, 100),
+            });
+          } else if (/(^|\/\/)(wa\.me|api\.whatsapp\.com)\//.test(href)) {
+            gtag('event', 'whatsapp_click', {
+              link_url: href,
+              link_text: (link.textContent || '').trim().slice(0, 100),
+            });
+          }
+        });
       </script>
     </>
   )}

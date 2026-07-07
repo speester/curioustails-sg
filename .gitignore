@@ -22,3 +22,25 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Claude Code & Local Development (do not commit)
+.claude/
+CLAUDE.md
+AGENTS.md
+PAGE_CREATION_WORKFLOW.md
+RUN-THE-PROJECT.md
+SCHEMA.md
+SEOMATOR-SETUP.md
+SEO_ROADMAP.md
+
+# Business & Research (confidential - keep locally only)
+business-context.md
+expertise-library.md
+project-config.md
+research/
+briefs/
+seo-audit-reports/
+*-seo-audit.md
+about-us-seo-audit.md
+seomator.toml
+claude-seo/

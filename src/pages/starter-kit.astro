@@ -38,6 +38,7 @@ const jumpLinks = [
   { label: 'The 8 Categories', href: '#categories' },
   { label: 'Week One', href: '#week-one' },
   { label: 'DIY vs Included', href: '#diy' },
+  { label: 'Itemized Value', href: '#breakdown' },
   { label: 'Home Setup', href: '#setup' },
   { label: 'Walkthrough', href: '#walkthrough' },
   { label: 'FAQ', href: '#faq' },
@@ -47,7 +48,7 @@ const faqItems = [
   {
     question: 'Is the starter kit really free?',
     answer:
-      'It is included in every puppy\'s price, which is $2,888 to $4,488 all-in. There is no add-on charge, no minimum spend, and no membership to sign up for. Bought separately, the same items are a $500+ shopping trip.',
+      'It is included in every puppy\'s price, which is $2,888 to $4,488 all-in. There is no add-on charge, no minimum spend, and no membership to sign up for. Bought separately, the same 30 items add up to $533 — the full itemized breakdown is on this page.',
   },
   {
     question: 'What exactly is in the puppy starter kit?',
@@ -232,7 +233,7 @@ const schemas = [
           heading: 'The DIY shopping trip',
           items: [
             'Retail "starter kits" run $20 to $200 and cover a fraction of the list',
-            'A complete set across all 8 categories: $500 or more',
+            'A complete set across all 8 categories: $533 (itemized below)',
             'You guess at playpen size, harness fit, and food choice',
             'Everything arrives flat-packed; you assemble and place it',
             'Nobody shows you how any of it works',
@@ -254,6 +255,32 @@ const schemas = [
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
         The kit is one reason <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing</a> reads lower than it is: the $2,888 to $4,488 already covers what other buyers spend again after leaving the shop. For everything beyond day one, plan with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget planner</a>.
+      </p>
+    </div>
+  </div>
+
+  <div id="breakdown" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Starter Kit Itemized Value Breakdown"
+      headingAccent="Itemized"
+      subhead="Every item in the kit, priced individually. 30 items, $533 in total — included with every puppy."
+      mode="table"
+      tableHeaders={['Category', 'Items included', 'Value']}
+      rows={[
+        { label: 'Housing & comfort', values: ['Play pen ($90), dog bed ($18)', '$108'] },
+        { label: 'Grooming', values: ['Shampoo ($26), paw cleaner ($23), dry shampoo ($21), ear cleanser ($15), brush ($12), shower scrub ($12), towel ($10), nail cutter ($3), wet wipes ($2)', '$124'] },
+        { label: 'Outdoor', values: ['Leash ($30), harness ($25), water bottle ($17), poop bags ($6)', '$78'] },
+        { label: 'Toilet training', values: ['Odor removal spray ($18), pee tray ($17), pee training aid ($15), pee pads ($13)', '$63'] },
+        { label: 'Transport', values: ['Carrier ($50)', '$50'] },
+        { label: 'Oral health', values: ['Mouth wash ($17), tooth paste ($15), tooth brush ($12), teeth wipes ($5)', '$49'] },
+        { label: 'Feeding', values: ['Food bowl ($18), puppy kibbles ($23), measure cup ($1)', '$42'] },
+        { label: 'Toys & play', values: ['Soft toy ($13), chew toy ($3), chew bone ($3)', '$19'] },
+        { label: 'Total', values: ['30 items, everything above — included with every puppy', '$533'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Values are what each item costs at retail, bought individually. The kit is never billed as an add-on: the full $533 set comes home with your puppy inside the $2,888 to $4,488 price.
       </p>
     </div>
   </div>

@@ -31,7 +31,8 @@ import first24Hours from '../assets/home/8-puppy-first-24-hours-settling-playpen
 import hdbLivingRoom from '../assets/home/9-small-breed-puppy-hdb-flat-living-room.webp';
 import cavapooPortrait from '../assets/cavapoo/2-cavapoo-puppy-portrait-available.webp';
 import maltipooPortrait from '../assets/maltipoo/3-maltipoo-puppy-portrait-available.webp';
-import dachshundPortrait from '../assets/mini-dachshund/2-mini-dachshund-red-smooth-portrait.webp';
+import maltesePortrait from '../assets/maltese/3-maltese-puppy-portrait-available.webp';
+import dachshundPortrait from '../assets/mini-dachshund/4-mini-dachshund-cream-longhair-portrait.webp';
 import corgiPortrait from '../assets/corgi/2-corgi-red-white-portrait.webp';
 import shibaPortrait from '../assets/shiba-inu/2-shiba-red-portrait.webp';
 import bichonpooPortrait from '../assets/bichonpoo/2-bichonpoo-white-portrait.webp';
@@ -53,7 +54,12 @@ const breeds = [
     points: ['Affectionate and people-focused', 'Happiest with company at home', 'Low-shedding, easy-care coat', 'HDB-approved cross'],
   },
   {
-    title: 'Mini Dachshund', href: '/puppies/mini-dachshund', imageSrc: dachshundPortrait, imageAlt: 'Mini Dachshund puppy standing on a rug',
+    title: 'Maltese', href: '/puppies/maltese', imageSrc: maltesePortrait, imageAlt: 'Maltese puppy with a silky white coat',
+    meta: 'The classic white companion, gentle and devoted to its people', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Gentle, devoted lap companion', 'Happiest with company at home', 'Silky white, very low-shedding coat', 'HDB-approved breed'],
+  },
+  {
+    title: 'Mini Dachshund', href: '/puppies/mini-dachshund', imageSrc: dachshundPortrait, imageAlt: 'Cream long-haired Mini Dachshund puppy portrait',
     meta: 'Compact, curious, and full of personality', tag: 'From $2,888', ctaLabel: 'View Breed',
     points: ['Compact with a big personality', 'Curious, confident little explorer', 'Short coat, minimal grooming', 'HDB-approved small breed'],
   },
@@ -204,7 +210,7 @@ const schemas = [
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
     imageAlt="Cavapoo puppy in a set-up playpen at a Balestier Road home"
     imageSrc={heroCavapoo}
-    tagLabel="7 breeds"
+    tagLabel="8 breeds"
     proofChip="5.0 on Google"
   />
 
@@ -243,7 +249,7 @@ const schemas = [
     <ListingGrid
       heading="Meet Our Puppies"
       headingAccent="Puppies"
-      subhead="Seven breeds, each priced $2,888 to $4,488. More are added as we bring new litters home."
+      subhead="Eight breeds, each priced $2,888 to $4,488. More are added as we bring new litters home."
       items={breeds}
       footerCtaLabel="Not sure which breed fits you? Take the 2-minute quiz"
       footerCtaHref="/first-time-owners/breed-selector"
@@ -445,7 +451,7 @@ const schemas = [
   <CaptionedBlock heading="Bringing a Puppy Home to an HDB Flat" imageAlt="Small breed puppy in an HDB flat living room" imageSrc={hdbLivingRoom} imagePosition="left" imageRotate="right">
     <p>HDB rules allow one dog of an approved breed, or an approved cross, per flat. Condo and landed property owners can keep up to three, subject to the property's own pet policy.</p>
     <p>Corgis and Shiba Inus are not on the standard HDB-approved list. We'll tell you this plainly if you're considering either, rather than let you find out after you've already fallen for a puppy.</p>
-    <p>Cavapoo, Maltipoo, Bichonpoo, Cockapoo, and Mini Dachshund are commonly approved as small breeds or crosses, though it's worth checking <a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full HDB-approved breed list</a> and arranging dog licensing with us before you commit.</p>
+    <p>Cavapoo, Maltipoo, Maltese, Bichonpoo, Cockapoo, and Mini Dachshund are commonly approved as small breeds or crosses, though it's worth checking <a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full HDB-approved breed list</a> and arranging dog licensing with us before you commit.</p>
   </CaptionedBlock>
 
   <ComparisonSplit
@@ -457,6 +463,7 @@ const schemas = [
     rows={[
       { label: 'Cavapoo', values: ['Yes — common, small breed cross'] },
       { label: 'Maltipoo', values: ['Yes — small, low-shedding'] },
+      { label: 'Maltese', values: ['Yes — approved toy breed'] },
       { label: 'Mini Dachshund', values: ['Yes — approved small breed'] },
       { label: 'Cockapoo', values: ['Yes — medium-sized but approved'] },
       { label: 'Bichonpoo', values: ['Yes — small, hypoallergenic'] },

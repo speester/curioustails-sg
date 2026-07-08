@@ -1,0 +1,553 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import heroMaltese from '../../assets/maltese/1-maltese-puppy-hero-playpen-balestier.webp';
+import companionLap from '../../assets/maltese/2-maltese-puppy-companion-lap.webp';
+import maltesePortrait from '../../assets/maltese/3-maltese-puppy-portrait-available.webp';
+import malteseGrooming from '../../assets/maltese/4-maltese-puppy-grooming-tear-stain-care.webp';
+import malteseVet from '../../assets/maltese/5-maltese-puppy-vet-health-check.webp';
+import malteseSettling from '../../assets/maltese/6-maltese-puppy-settling-playpen.webp';
+import whiteBoyPortrait from '../../assets/maltese/7-maltese-white-boy-portrait.webp';
+import ivoryGirlPortrait from '../../assets/maltese/8-maltese-ivory-girl-portrait.webp';
+import creamEarsBoyPortrait from '../../assets/maltese/9-maltese-cream-ears-boy-portrait.webp';
+import snowGirlPortrait from '../../assets/maltese/10-maltese-snow-girl-portrait.webp';
+import silkyGirlPortrait from '../../assets/maltese/11-maltese-silky-girl-portrait.webp';
+import ivoryBoyPortrait from '../../assets/maltese/12-maltese-ivory-boy-portrait.webp';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Maltese Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Maltese puppies for sale in Singapore from $2,888, AVS licensed and HDB-approved. Real prices, temperament, grooming and the $500+ starter kit included. WhatsApp us.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Maltese cost in Singapore?',
+    answer:
+      'Maltese prices in Singapore range widely, commonly from around $2,500 to $6,000 depending on size, coat, and shop, with "teacup" listings priced higher still. At Curious Tails, Maltese puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Maltese HDB-approved?',
+    answer:
+      'Yes. The Maltese is on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and we complete the dog licensing for you at purchase, so the paperwork is handled.',
+  },
+  {
+    question: 'Can a Maltese be left alone while we are at work?',
+    answer:
+      "Like its Maltipoo cousin, the Maltese is a companion breed built for company, so a full 8am to 6pm alone every weekday is not its ideal. It suits homes with someone around: a family, a retiree, a helper, or remote work. If nobody is home all day, a more independent Cavapoo is often the kinder match, and we'll tell you so.",
+  },
+  {
+    question: 'How big does a Maltese get?',
+    answer:
+      'Most Maltese reach roughly 3 to 4 kg fully grown, standing around 20 to 25 cm at the shoulder. Be cautious with anyone advertising a "teacup" or "micro" Maltese; sizes below the normal range often come with real health trade-offs, and no honest seller can guarantee them.',
+  },
+  {
+    question: 'Do Maltese have tear stains, and how do I manage them?',
+    answer:
+      'Tear staining is the classic Maltese care point, because the reddish-brown marks show clearly on a white coat. A daily wipe around the eyes with clean water, keeping the face hair trimmed, and regular grooming keep it under control. The grooming tools you need are already in your starter kit.',
+  },
+  {
+    question: 'Is the Maltese coat really low-shedding?',
+    answer:
+      'Yes. The Maltese carries a single-layer silky coat that sheds very little, which is why it has been a flat-friendly companion for centuries and is often better tolerated by allergy sufferers, though no dog is truly allergen-free. The trade-off is brushing: the silky coat mats if ignored, so a short "puppy cut" is what most Singapore owners choose.',
+  },
+  {
+    question: 'What happens after I reserve a Maltese?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/maltese',
+    title,
+    description,
+    aboutName: 'Maltese',
+    aboutAlternateName: 'Maltese dog',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Maltese_dog',
+    datePublished: '2026-07-08',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Maltese puppy',
+      url: '/puppies/maltese',
+      description:
+        'Maltese puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Maltese Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Maltese puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Maltese',
+    description:
+      'The Maltese is an ancient toy companion breed of roughly 3 to 4 kg with a silky, single-layer white coat that sheds very little. It is affectionate, lively and people-oriented, thrives on company, and lives 12 to 15 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Maltese_dog',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/maltese" ogImage="/assets/maltese/og-maltese.jpg">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Maltese Puppies for Sale in Singapore"
+    h1Accent="Maltese"
+    subhead="Maltese prices in Singapore run anywhere from $2,500 to $6,000, and higher for 'teacup' listings. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Maltese puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-approved. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved toy breed']}
+    imageAlt="Maltese puppy with a snow-white coat sitting in a set-up playpen at a Balestier home"
+    imageSrc={heroMaltese}
+    tagLabel="Maltese"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Maltese', href: '/puppies/maltese' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Maltese in Singapore?" imageAlt="Maltese puppy portrait, one of the Maltese puppies available in Singapore" imageSrc={maltesePortrait} variant="mid">
+      <p>Our Maltese puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Maltese puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Maltese for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Maltese puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Maltese photos and prices</a>, or meet our Maltese puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Maltese Puppies"
+      headingAccent="Available"
+      subhead="A few of the Maltese puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Snow-white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the snow-white female Maltese puppy.'), imageAlt: 'Snow-white female Maltese puppy available in Singapore', imageSrc: maltesePortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'White boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white male Maltese puppy.'), imageAlt: 'White male Maltese puppy cuddled close on a caregiver\'s lap', imageSrc: companionLap, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '11 weeks' },
+        { title: 'Cream-white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream-white female Maltese puppy.'), imageAlt: 'Cream-white female Maltese puppy during grooming and eye care', imageSrc: malteseGrooming, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
+        { title: 'Pure white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the pure white male Maltese puppy (8 weeks).'), imageAlt: 'Pure white male Maltese puppy sitting with a head tilt', imageSrc: whiteBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '8 weeks' },
+        { title: 'Ivory girl', href: whatsappLink('Hi! I\'d like more photos and the price for the ivory female Maltese puppy.'), imageAlt: 'Ivory female Maltese puppy lying on a pastel blanket', imageSrc: ivoryGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'White & cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white and cream male Maltese puppy.'), imageAlt: 'White male Maltese puppy with pale cream ears standing alert', imageSrc: creamEarsBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Petite white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite white female Maltese puppy.'), imageAlt: 'Petite snow-white female Maltese puppy playing with a plush toy', imageSrc: snowGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Silky-coat girl', href: whatsappLink('Hi! I\'d like more photos and the price for the silky-coat female Maltese puppy.'), imageAlt: 'White female Maltese puppy with a longer silky coat sitting on a cotton mat', imageSrc: silkyGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
+        { title: 'Ivory boy', href: whatsappLink('Hi! I\'d like more photos and the price for the ivory male Maltese puppy.'), imageAlt: 'Ivory male Maltese puppy trotting toward the camera', imageSrc: ivoryBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '9 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Maltese?"
+      definition="The Maltese is an ancient toy companion breed, roughly 3 to 4 kg fully grown, with a silky single-layer white coat that sheds very little. It is affectionate, lively and people-oriented, thrives on company, and lives 12 to 15 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Maltese suits one kind of home especially well: one where someone is usually around."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Maltese at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Ancient toy companion breed',
+            'Roughly 3 to 4 kg fully grown',
+            'Silky, single-layer white coat, very low shedding',
+            'People-oriented, thrives on company',
+            '12 to 15 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Sizes vary by line; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Maltese from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Maltese pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Maltese Temperament: Centuries of Practice at Being a Companion" imageAlt="Maltese puppy cuddled close on a caregiver's lap at home" imageSrc={companionLap} imagePosition="left">
+      <p>The Maltese has done exactly one job for over two thousand years: keep its people company. It shows. This is an affectionate, bright, surprisingly playful little dog that wants to be in the same room as you, preferably on you, and gives back every bit of attention it gets.</p>
+      <p>Here is the honest part we lead with, from two years of matching puppies to families: a Maltese's need for company is the single thing that decides whether the match works. In a home with someone usually around, a Maltese is a delight. In an empty home from 8am to 6pm, that same devotion can turn into whining and separation anxiety.</p>
+      <p>With gentle children the Maltese is sweet and patient, but at 3 to 4 kg it is a delicate dog; homes with boisterous toddlers are usually better served by the sturdier <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a>, and we'll say so.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Maltese Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Honestly, this is where you should pause. The Maltese, like the Maltipoo, copes least well of our breeds with long stretches alone, because company is the whole point of the breed. If someone is home for most of the day, a family member, a retiree, a helper, or you working remotely, a Maltese thrives.</p>
+      <p>If your home is empty from 8am to 6pm every weekday, we will say so plainly, and often point you to a more independent breed instead. We'd rather talk you out of the wrong match than sell you a puppy that spends its days anxious. See our <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo puppies</a>, which handle alone time more comfortably.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Someone is usually home during the day',
+            'A family member, retiree or helper is around',
+            'You work remotely most days',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Maltese Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers, including the ones the teacup listings skip."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 3 to 4 kg; one of the smallest breeds we carry'] },
+        { label: 'Height', values: ['Around 20 to 25 cm at the shoulder'] },
+        { label: 'Coat', values: ['Silky, single-layer and straight; always white, sometimes with pale ivory or cream shading on the ears'] },
+        { label: 'Lifespan', values: ['12 to 15 years'] },
+        { label: 'Exercise', values: ['About 30 minutes a day, plus indoor play and company'] },
+        { label: 'Shedding & allergies', values: ['Very low-shedding single coat, often better tolerated by allergy sufferers, though no dog is truly allergen-free'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        How big do Maltese get? Not very: 3 to 4 kg is the healthy range, which is exactly why the breed gets targeted by "teacup" marketing promising even less. The Maltese lifespan of 12 to 15 years is dependable with good care, which is one reason to choose health over an unusually tiny size.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Maltese Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Maltese price commonly $2,500 to $6,000',
+            'Price usually not published; enquiry required',
+            '"Teacup" and "micro" listings priced at a premium',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Maltese Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Maltese leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For a white-coated, tear-stain-prone breed like the Maltese, the grooming tools and the eye-wipe routine start on day one.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Maltese's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Maltese Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Maltese."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Someone home most of the day (family, retiree, helper, remote work)', values: ['Ideal. This is the Maltese home; the company is exactly what they want'] },
+        { label: 'Adults or older children wanting a devoted lap dog', values: ['Great fit. Affectionate, portable, and endlessly loyal'] },
+        { label: 'Allergy-sensitive household', values: ['One of the better picks; very low-shedding single coat, though no dog is allergen-free'] },
+        { label: 'Home with boisterous toddlers', values: ['Reconsider. At 3 to 4 kg a Maltese is delicate; a sturdier Cockapoo is usually the kinder match'] },
+        { label: 'Nobody home 8am to 6pm on weekdays', values: ['Reconsider. A Maltese may fret; an independent Cavapoo is usually the kinder match'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Maltese is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Maltese the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Maltese vs Maltipoo: Which One Fits Your Home?" imagePosition="none" variant="dark">
+    <p>The Maltipoo is literally half Maltese, so the two share the small size, the love of company, and the tear-stain care routine. The honest differences: the purebred Maltese carries a straight, silky white coat and a more predictable adult look, while the Maltipoo's Poodle side brings a wavy coat, more colour options, and often a touch more bounce.</p>
+    <p>Grooming effort is similar either way, and with us the price, the starter kit, and the aftercare are identical. If nobody is home during weekdays, neither is the right pick, and we'll steer you to a more independent breed instead of taking the sale.</p>
+    <p>Weighing the two? See our <a href="/puppies/maltipoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Maltipoo puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Maltese: purebred, silky straight white coat, 3 to 4 kg',
+          'Maltipoo: Maltese x Poodle, wavy coat, more colours, 3 to 6 kg',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Maltese in an HDB flat"
+      definition="The Maltese is on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and the Maltese's compact 3 to 4 kg size sits comfortably within the small-breed rules. Every Maltese we place has its dog licensing completed at purchase, so the paperwork is handled for you."
+      bridge="Is a Maltese HDB-approved? Yes, and it has been a Singapore flat favourite for decades. Just mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Maltese is on the HDB-approved breed list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming a White Silky Coat in Our Humid Climate" imageAlt="Maltese puppy having its face gently wiped during grooming and tear-stain care" imageSrc={malteseGrooming} imagePosition="left">
+      <p>The Maltese coat is silky and single-layered: it sheds very little, which means it needs your help instead of dropping on its own. Brush 3 to 4 times a week to prevent matting, and book professional grooming every 6 to 8 weeks. Most Singapore owners keep a short "puppy cut", which turns the show-ring coat into a genuinely easy-care one, and it looks adorable.</p>
+      <p>Tear staining is the Maltese-specific one. Reddish-brown marks under the eyes show clearly on a white coat. A daily wipe with clean water, keeping the face hair trimmed, and steady grooming keep it in check. The brush and grooming tools you need are already in the starter kit.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Maltese Health: What We Check Before You Take One Home" imageAlt="Maltese puppy at a veterinary health check before going home" imageSrc={malteseVet} variant="mid">
+      <p>Every Maltese goes home vet-checked, vaccinated, dewormed, and microchipped. The Maltese health points worth knowing are a small few: patellar luxation, a kneecap issue common to toy breeds; dental crowding, because a small jaw leaves little room for teeth, so the oral care items in your kit matter; and tear staining, which is cosmetic and manageable. We say this once, plainly, so you hear it from your seller and not from a forum later.</p>
+      <p>Feeding is simple: your puppy comes with the small-breed food it is already eating, and any change should be gradual over a week. Tiny puppies also need regular meals to keep blood sugar steady, one more reason we don't sell to the "teacup" label. For portioning guidance see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div class="scroll-mt-40">
+    <CaptionedBlock heading="The Truth About Teacup and Micro Maltese" imagePosition="none" variant="card">
+      <p>The Maltese is the breed the "teacup" label targets hardest, because it is already tiny. You will see "teacup," "micro," and "smallest in Singapore" Maltese listings, often at a premium. We don't sell to that label. Dogs bred to be unusually tiny carry higher risks: fragile bones, dental and breathing problems, low blood sugar, and shorter lives.</p>
+      <p>A healthy Maltese at 3 to 4 kg is already one of the smallest, most flat-friendly dogs you can own. If a seller promises a size below that and guarantees it, treat the promise as a warning, not a feature.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Teacup red flags</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Guaranteed adult weight below 3 kg',
+            'No mention of the parents\' actual size',
+            '"Teacup" or "micro" priced at a premium',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M18 6 6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+
+    <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+  </div>
+
+  <CaptionedBlock heading="Your Maltese's First Week at Home" imageAlt="Maltese puppy settling into a set-up playpen during its first week home" imageSrc={malteseSettling} imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Maltese explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and close. Maltese settle fastest with gentle company nearby, a fixed feeding routine, and the toilet pads where we placed them. Some night whimpering is normal adjustment.</p>
+    <p>Days 4 to 7: the routine sticks. This is the window to book your free first lesson with an AVS-certified trainer; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>. For anything in between, you WhatsApp us.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Maltese falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Maltese FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Maltese" reserveMessage="Hi! I'd like to reserve a Maltese puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

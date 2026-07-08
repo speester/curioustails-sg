@@ -14,7 +14,7 @@ import settlingIn from '../../assets/home/5-cavapoo-puppy-settling-playpen-first
 
 const title = 'Which Puppy Breed Fits You? 2-Minute Quiz | Curious Tails';
 const description =
-  'Find your puppy match in 2 minutes: five questions about your housing, routine, and family, honestly scored across 8 breeds by the matchmakers at Curious Tails.';
+  'Find your puppy match in 2 minutes: five questions about your housing, routine, and family, honestly scored across 11 breeds by the matchmakers at Curious Tails.';
 
 const faqItems = [
   {
@@ -68,7 +68,7 @@ const schemas = [
           Find Your Perfect <span class="text-[var(--color-coral-500)]">Puppy Match</span>
         </h1>
         <p class="mt-4 text-lg leading-relaxed text-[var(--color-cream-700)]">
-          Five questions about your real week, honestly scored across the eight breeds we carry. The best breed for a first time dog owner in Singapore is the one that fits your routine; this asks the same questions we would in the shop.
+          Five questions about your real week, honestly scored across the eleven breeds we carry. The best breed for a first time dog owner in Singapore is the one that fits your routine; this asks the same questions we would in the shop.
         </p>
       </div>
 
@@ -87,7 +87,7 @@ const schemas = [
   <CaptionedBlock heading="Why We Match by Routine, Not by Photo" imageAlt="Cavapoo puppy settled in her playpen after an honest breed match" imageSrc={settlingIn} imagePosition="right">
     <p>A couple once came to us set on a Maltipoo. Both work 8am to 6pm, nobody home in the day. We recommended a Cavapoo instead, similar warmth, noticeably more independent, knowing it risked the sale. They took the Cavapoo, she settled beautifully, and that honest steer became our most-quoted five-star review.</p>
     <p>That is the entire philosophy inside this quiz: the most popular breed is the wrong starting question. The right question is what your day looks like from 8am to 6pm, and the quiz asks it properly.</p>
-    <p>Whatever your result, browse <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all eight breeds</a> with your shortlist in hand, or start from the <a href="/first-time-owners" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-time owner checklist</a> if you're at step zero.</p>
+    <p>Whatever your result, browse <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all eleven breeds</a> with your shortlist in hand, or start from the <a href="/first-time-owners" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-time owner checklist</a> if you're at step zero.</p>
   </CaptionedBlock>
 
   <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
@@ -107,9 +107,9 @@ const schemas = [
   <Schema {schemas} />
 
   <script>
-    // Lifestyle-First Matching quiz: 5 questions scored across 8 breeds.
+    // Lifestyle-First Matching quiz: 5 questions scored across 11 breeds.
     // HDB is a hard filter (Corgi/Shiba excluded); low totals yield an honest "not yet".
-    type BreedKey = 'cavapoo' | 'maltipoo' | 'maltese' | 'dachshund' | 'cockapoo' | 'bichonpoo' | 'corgi' | 'shiba';
+    type BreedKey = 'cavapoo' | 'maltipoo' | 'maltese' | 'dachshund' | 'cockapoo' | 'bichonpoo' | 'bichonfrise' | 'cavapoochon' | 'chihuahua' | 'corgi' | 'shiba';
     const breeds: Record<BreedKey, { name: string; href: string; hdb: boolean; blurb: string }> = {
       cavapoo: { name: 'Cavapoo', href: '/puppies/cavapoo', hdb: true, blurb: 'The independent companion: our first pick for working couples.' },
       maltipoo: { name: 'Maltipoo', href: '/puppies/maltipoo', hdb: true, blurb: 'Affectionate and people-focused; happiest with company at home.' },
@@ -117,6 +117,9 @@ const schemas = [
       dachshund: { name: 'Mini Dachshund', href: '/puppies/mini-dachshund', hdb: true, blurb: 'Bold little hound; independent, comic, and compact.' },
       cockapoo: { name: 'Cockapoo', href: '/puppies/cockapoo', hdb: true, blurb: 'The family all-rounder; kindest to first-time owners.' },
       bichonpoo: { name: 'Bichonpoo', href: '/puppies/bichonpoo', hdb: true, blurb: 'Low-shedding sunshine; wants its people around.' },
+      bichonfrise: { name: 'Bichon Frise', href: '/puppies/bichon-frise', hdb: true, blurb: 'The cheerful white classic; loves company, needs grooming.' },
+      cavapoochon: { name: 'Cavapoochon', href: '/puppies/cavapoochon', hdb: true, blurb: 'Teddy-bear triple cross; the gentle family all-rounder.' },
+      chihuahua: { name: 'Chihuahua', href: '/puppies/chihuahua', hdb: true, blurb: 'Tiny devoted companion; best with adults or older kids.' },
       corgi: { name: 'Corgi', href: '/puppies/corgi', hdb: false, blurb: 'Big personality, real energy; private housing only.' },
       shiba: { name: 'Shiba Inu', href: '/puppies/shiba-inu', hdb: false, blurb: 'Independent and cat-clean; private housing only.' },
     };
@@ -134,32 +137,32 @@ const schemas = [
       {
         q: 'On a normal weekday, how long is the home empty?',
         opts: [
-          { label: 'Rarely empty: someone is usually home', scores: { maltipoo: 3, maltese: 3, bichonpoo: 3, cockapoo: 2, cavapoo: 1 } },
-          { label: 'Half days: 3 to 5 hours empty', scores: { cockapoo: 2, cavapoo: 2, maltipoo: 1, maltese: 1, bichonpoo: 1, dachshund: 1 } },
-          { label: 'Full workdays: 8am to 6pm empty', flag: 'longhours', scores: { cavapoo: 3, dachshund: 2, shiba: 2, cockapoo: 1 } },
+          { label: 'Rarely empty: someone is usually home', scores: { maltipoo: 3, maltese: 3, bichonpoo: 3, bichonfrise: 3, cockapoo: 2, cavapoochon: 2, cavapoo: 1, chihuahua: 1 } },
+          { label: 'Half days: 3 to 5 hours empty', scores: { cockapoo: 2, cavapoo: 2, cavapoochon: 2, chihuahua: 2, maltipoo: 1, maltese: 1, bichonpoo: 1, bichonfrise: 1, dachshund: 1 } },
+          { label: 'Full workdays: 8am to 6pm empty', flag: 'longhours', scores: { cavapoo: 3, dachshund: 2, shiba: 2, cockapoo: 1, cavapoochon: 1, chihuahua: 1 } },
         ],
       },
       {
         q: 'Any young children at home?',
         opts: [
-          { label: 'Yes, young kids', scores: { cockapoo: 3, cavapoo: 2, bichonpoo: 1 } },
-          { label: 'Older kids or teens', scores: { cockapoo: 2, cavapoo: 1, dachshund: 1, corgi: 1 } },
-          { label: 'No kids', scores: { shiba: 1, maltipoo: 1, maltese: 2, dachshund: 1 } },
+          { label: 'Yes, young kids', scores: { cockapoo: 3, cavapoo: 2, cavapoochon: 2, bichonpoo: 1, bichonfrise: 1 } },
+          { label: 'Older kids or teens', scores: { cockapoo: 2, cavapoochon: 2, cavapoo: 1, dachshund: 1, corgi: 1, bichonfrise: 1, chihuahua: 1 } },
+          { label: 'No kids', scores: { shiba: 1, maltipoo: 1, maltese: 2, chihuahua: 2, dachshund: 1 } },
         ],
       },
       {
         q: 'How much dog energy do you want to live with?',
         opts: [
-          { label: 'Calm companion; gentle walks', scores: { maltipoo: 2, maltese: 2, cavapoo: 2, bichonpoo: 1 } },
-          { label: 'Playful but manageable', scores: { cockapoo: 2, bichonpoo: 2, dachshund: 1, cavapoo: 1 } },
+          { label: 'Calm companion; gentle walks', scores: { maltipoo: 2, maltese: 2, cavapoo: 2, chihuahua: 2, cavapoochon: 1, bichonpoo: 1 } },
+          { label: 'Playful but manageable', scores: { cockapoo: 2, bichonpoo: 2, bichonfrise: 2, cavapoochon: 2, dachshund: 1, cavapoo: 1 } },
           { label: 'Active; real daily exercise is a feature', scores: { corgi: 3, cockapoo: 1, shiba: 1, dachshund: 1 } },
         ],
       },
       {
         q: 'How do you feel about shedding?',
         opts: [
-          { label: 'Low-shedding matters (allergies or preference)', scores: { bichonpoo: 2, maltipoo: 2, maltese: 2, cavapoo: 2, cockapoo: 2 } },
-          { label: 'Some shedding is fine', scores: { dachshund: 2, corgi: 1, shiba: 1 } },
+          { label: 'Low-shedding matters (allergies or preference)', scores: { bichonpoo: 2, bichonfrise: 2, maltipoo: 2, maltese: 2, cavapoo: 2, cavapoochon: 2, cockapoo: 2 } },
+          { label: 'Some shedding is fine', scores: { dachshund: 2, chihuahua: 2, corgi: 1, shiba: 1 } },
           { label: 'Fur happens; not a factor', scores: { corgi: 2, shiba: 2, dachshund: 1 } },
         ],
       },

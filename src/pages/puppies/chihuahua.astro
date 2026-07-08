@@ -1,0 +1,555 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import heroChihuahua from '../../assets/chihuahua/1-chihuahua-puppy-hero-playpen-balestier.webp';
+import companionLap from '../../assets/chihuahua/2-chihuahua-puppy-companion-lap.webp';
+import chihuahuaGrooming from '../../assets/chihuahua/3-chihuahua-puppy-grooming-coat-care.webp';
+import chihuahuaVet from '../../assets/chihuahua/4-chihuahua-puppy-vet-health-check.webp';
+import chihuahuaSettling from '../../assets/chihuahua/5-chihuahua-puppy-settling-playpen.webp';
+import fawnBoyPortrait from '../../assets/chihuahua/6-chihuahua-puppy-fawn-male-portrait.webp';
+import blackTanGirlPortrait from '../../assets/chihuahua/7-chihuahua-puppy-black-tan-female-portrait.webp';
+import chocolateBoyPortrait from '../../assets/chihuahua/8-chihuahua-puppy-chocolate-male-portrait.webp';
+import creamLongCoatGirlPortrait from '../../assets/chihuahua/9-chihuahua-puppy-cream-long-coat-female-portrait.webp';
+import whiteBoyPortrait from '../../assets/chihuahua/10-chihuahua-puppy-white-male-portrait.webp';
+import redSableBoyPortrait from '../../assets/chihuahua/11-chihuahua-puppy-red-sable-male-portrait.webp';
+import blueFawnGirlPortrait from '../../assets/chihuahua/12-chihuahua-puppy-blue-fawn-female-portrait.webp';
+import fawnWhiteGirlPortrait from '../../assets/chihuahua/13-chihuahua-puppy-fawn-white-female-portrait.webp';
+import blackWhiteBoyPortrait from '../../assets/chihuahua/14-chihuahua-puppy-black-white-male-portrait.webp';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Chihuahua Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Chihuahua puppies for sale in Singapore from $2,888, AVS licensed and HDB-approved. Real prices, temperament, coat types and the $500+ starter kit included. WhatsApp us.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Chihuahua cost in Singapore?',
+    answer:
+      'Chihuahua prices in Singapore commonly run from around $2,500 to $6,000 depending on coat, colour, and shop, with "teacup" listings priced higher still. At Curious Tails, Chihuahua puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Chihuahua HDB-approved?',
+    answer:
+      'Yes. The Chihuahua is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and we complete the dog licensing for you at purchase, so the paperwork is handled.',
+  },
+  {
+    question: 'Can a Chihuahua be left alone while we are at work?',
+    answer:
+      'Moderately well, and better than most of our companion crosses. Chihuahuas bond hard to their people but carry a certain self-contained streak, so with a settled routine, a safe playpen, and something to do, most handle a working household. The bigger question is socialisation: an under-socialised Chihuahua becomes a yappy one, which is why the free training lesson matters.',
+  },
+  {
+    question: 'How big does a Chihuahua get?',
+    answer:
+      'The Chihuahua is the smallest dog breed in the world: most reach roughly 1.5 to 3 kg fully grown, standing 15 to 23 cm at the shoulder. That is already tiny; be cautious with anyone advertising a "teacup" Chihuahua below that range, because the health trade-offs are real and no honest seller can guarantee adult size.',
+  },
+  {
+    question: 'Are Chihuahuas good with children?',
+    answer:
+      'With calm, older children, yes. With boisterous toddlers, honestly, no: at 1.5 to 3 kg a Chihuahua is delicate, and a dropped or squeezed puppy gets hurt. For young families we usually point to the sturdier Cockapoo instead, and we will say so before you buy.',
+  },
+  {
+    question: 'Smooth coat or long coat: what is the difference?',
+    answer:
+      'Purely grooming and look. The smooth coat needs just a weekly brush; the long coat needs brushing 2 to 3 times a week. Both shed lightly year-round, both come in the full range of Chihuahua colours, and temperament is the same either way.',
+  },
+  {
+    question: 'What happens after I reserve a Chihuahua?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/chihuahua',
+    title,
+    description,
+    aboutName: 'Chihuahua',
+    aboutAlternateName: 'Chihuahua dog',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Chihuahua_(dog_breed)',
+    datePublished: '2026-07-08',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Chihuahua puppy',
+      url: '/puppies/chihuahua',
+      description:
+        'Chihuahua puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Chihuahua Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Chihuahua puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Chihuahua',
+    description:
+      'The Chihuahua is the smallest dog breed in the world, roughly 1.5 to 3 kg, with smooth or long coat varieties in many colours. It is a devoted, alert companion with a big-dog personality and a lifespan of 14 to 16 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Chihuahua_(dog_breed)',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/chihuahua" ogImage="/assets/chihuahua/og-chihuahua.jpg">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Chihuahua Puppies for Sale in Singapore"
+    h1Accent="Chihuahua"
+    subhead="Chihuahua prices in Singapore commonly run $2,500 to $6,000, and higher for 'teacup' listings. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Chihuahua puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-approved. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved toy breed']}
+    imageAlt="Fawn Chihuahua puppy sitting in a set-up playpen at a Balestier home"
+    imageSrc={heroChihuahua}
+    tagLabel="Chihuahua"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Chihuahua', href: '/puppies/chihuahua' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Chihuahua in Singapore?" imageAlt="Fawn Chihuahua puppy portrait, one of the Chihuahua puppies available in Singapore" imageSrc={fawnBoyPortrait} variant="mid">
+      <p>Our Chihuahua puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and exact prices for the Chihuahua puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Chihuahua for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Chihuahua puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Chihuahua photos and prices</a>, or meet our Chihuahua puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Chihuahua Puppies"
+      headingAccent="Available"
+      subhead="A few of the Chihuahua puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn male Chihuahua puppy.'), imageAlt: 'Fawn male Chihuahua puppy available in Singapore', imageSrc: fawnBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Black & tan girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and tan female Chihuahua puppy.'), imageAlt: 'Black and tan female Chihuahua puppy available in Singapore', imageSrc: blackTanGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Chocolate boy', href: whatsappLink('Hi! I\'d like more photos and the price for the chocolate male Chihuahua puppy.'), imageAlt: 'Chocolate male Chihuahua puppy available in Singapore', imageSrc: chocolateBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Cream long-coat girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream long-coat female Chihuahua puppy.'), imageAlt: 'Cream long-coat female Chihuahua puppy available in Singapore', imageSrc: creamLongCoatGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'White boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white male Chihuahua puppy.'), imageAlt: 'White male Chihuahua puppy available in Singapore', imageSrc: whiteBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Red sable boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red sable male Chihuahua puppy.'), imageAlt: 'Red sable male Chihuahua puppy available in Singapore', imageSrc: redSableBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Blue fawn girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue fawn female Chihuahua puppy.'), imageAlt: 'Blue fawn female Chihuahua puppy available in Singapore', imageSrc: blueFawnGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Fawn & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn and white female Chihuahua puppy.'), imageAlt: 'Fawn and white female Chihuahua puppy available in Singapore', imageSrc: fawnWhiteGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
+        { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Chihuahua puppy.'), imageAlt: 'Black and white male Chihuahua puppy available in Singapore', imageSrc: blackWhiteBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '8 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Chihuahua?"
+      definition="The Chihuahua is the smallest dog breed in the world, roughly 1.5 to 3 kg, with smooth-coat and long-coat varieties in nearly every colour. It is a devoted, alert companion with a famously big-dog personality and a lifespan of 14 to 16 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Chihuahua suits a specific home well: adults or older children who want a devoted, portable companion."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Chihuahua at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The world\'s smallest dog breed',
+            'Roughly 1.5 to 3 kg fully grown',
+            'Smooth or long coat, nearly every colour',
+            'Devoted and alert, with a big-dog attitude',
+            '14 to 16 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Sizes vary by line; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Chihuahua from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Chihuahua pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Chihuahua Temperament: A Big Dog in a 2 kg Body" imageAlt="Chihuahua puppy cuddled close on a caregiver's lap at home" imageSrc={companionLap} imagePosition="left">
+      <p>Nobody told the Chihuahua it is small. This is a confident, alert, fiercely devoted little dog that picks its people and commits completely. It makes an excellent watchdog for a flat, quick to announce the doorbell, and an even better lap companion once the announcement is made.</p>
+      <p>The honest part, from two years of matching puppies to families: a Chihuahua's confidence needs shaping. A well-socialised Chihuahua is charming and portable; an under-socialised one becomes suspicious and yappy. Early, gentle exposure to people and other dogs decides which one you get, and the free first training lesson with an AVS-certified trainer is exactly where that starts.</p>
+      <p>With calm older children, a Chihuahua does well. With boisterous toddlers, we say no plainly: at this size, a squeeze or a fall genuinely injures. The sturdier <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a> is the kinder family pick.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Chihuahua Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Moderately well, and honestly better than most toy companions. Chihuahuas bond deeply but keep a self-contained streak: with a safe playpen, a settled routine, and something to work on, most handle a working household's hours once matured into it.</p>
+      <p>Two caveats we give every buyer: keep the home routine warm, because a Chihuahua alone AND under-handled turns suspicious; and mind the aircon, because a 2 kg dog chills easily. If your home is empty 8am to 6pm and you want maximum independence, compare the <a href="/puppies/mini-dachshund" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Mini Dachshund</a> before deciding.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Adults or older children in the home',
+            'You want a devoted, portable companion',
+            'Small flat; the breed needs little space',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Chihuahua Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers, including the ones the teacup listings skip."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 1.5 to 3 kg; the smallest breed we carry'] },
+        { label: 'Height', values: ['Around 15 to 23 cm at the shoulder'] },
+        { label: 'Coat', values: ['Two varieties: smooth (weekly brush) and long coat (brush 2 to 3 times a week); colours from fawn and cream to chocolate, black & tan, sable and blue'] },
+        { label: 'Lifespan', values: ['14 to 16 years, among the longest of any breed'] },
+        { label: 'Exercise', values: ['About 20 to 30 minutes a day, plus indoor play; a flat is genuinely enough space'] },
+        { label: 'Shedding & allergies', values: ['Light year-round shedding in both coat types; not a low-shedding breed'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        How big do Chihuahuas get? Not very: 1.5 to 3 kg is the healthy range, and that is precisely why the breed is the number-one target of "teacup" marketing. The 14-to-16-year lifespan is dependable with good care, one more reason to choose health over an unusually tiny size.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Chihuahua Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Chihuahua price commonly $2,500 to $6,000',
+            'Price usually not published; enquiry required',
+            '"Teacup" and "micro" listings priced at a premium',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Chihuahua Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Chihuahua leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For a tiny breed like the Chihuahua, the oral care items and the toy-breed feeding routine matter from day one.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Chihuahua's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Chihuahua Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Chihuahua."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Adults or older children wanting a devoted lap dog', values: ['Ideal. This is the Chihuahua home; the devotion is the whole point'] },
+        { label: 'Small flat, modest exercise appetite', values: ['Great fit. A flat is genuinely enough space, and 20 to 30 minutes a day covers it'] },
+        { label: 'Working household with a settled routine', values: ['Workable. More self-contained than our companion crosses; socialisation is the real task'] },
+        { label: 'Home with boisterous toddlers', values: ['Reconsider. At 1.5 to 3 kg a Chihuahua is delicate; a sturdier Cockapoo is the kinder match'] },
+        { label: 'Allergy-sensitive household', values: ['Reconsider. Chihuahuas shed lightly year-round; a Bichon Frise or Maltese is the better pick'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Chihuahua is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Chihuahua the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Chihuahua vs Mini Dachshund: Which Small Character Fits Your Home?" imagePosition="none" variant="dark">
+    <p>Both are compact character breeds with proper watchdog voices and light-maintenance coats, which is why buyers often cross-shop them. The honest differences: the Chihuahua is smaller, lighter to carry everywhere, and more of a one-person devotee; the Mini Dachshund is sturdier, more independent, and better with younger children.</p>
+    <p>Both announce the doorbell with enthusiasm, and both need early training to keep the announcements brief. With us the price, the starter kit, and the aftercare are identical either way.</p>
+    <p>Weighing the two? See our <a href="/puppies/mini-dachshund" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Mini Dachshund puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Chihuahua: 1.5 to 3 kg, one-person devotee, ultra-portable',
+          'Mini Dachshund: 4 to 5 kg, sturdier, better with young kids',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Chihuahua in an HDB flat"
+      definition="The Chihuahua is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and at 1.5 to 3 kg the Chihuahua sits further inside the small-breed rules than any other dog. Every Chihuahua we place has its dog licensing completed at purchase, so the paperwork is handled for you."
+      bridge="Is a Chihuahua HDB-approved? Yes, by name on the list. Just mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Chihuahua is named on the HDB-approved breed list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: The Easiest Coats We Carry" imageAlt="Chihuahua puppy being gently brushed during coat care" imageSrc={chihuahuaGrooming} imagePosition="left">
+      <p>Here the Chihuahua wins outright. The smooth coat needs a weekly brush and the occasional bath; the long coat needs brushing 2 to 3 times a week and a tidy-up groom every couple of months. No mats, no monthly salon bill, no humidity drama: this is the lowest-grooming breed in our lineup alongside the smooth-coat Mini Dachshund.</p>
+      <p>Both coat types shed lightly year-round, which is the honest trade against our low-shedding poodle crosses. Nail trims and the dental routine, with the tools already in your starter kit, matter more for this breed than anything to do with the coat.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Chihuahua Health: What We Check Before You Take One Home" imageAlt="Chihuahua puppy at a veterinary health check before going home" imageSrc={chihuahuaVet} variant="mid">
+      <p>Every Chihuahua goes home vet-checked, vaccinated, dewormed, and microchipped. The Chihuahua health points worth knowing: patellar luxation, a kneecap issue common to toy breeds; dental crowding, the breed's biggest lifelong issue, because a tiny jaw leaves no room for teeth, so the oral care routine starts on day one; low blood sugar in very young puppies, which regular small meals prevent; and the molera, a soft spot on the skull some Chihuahua puppies have, which usually closes with age and mostly asks for gentle handling.</p>
+      <p>Feeding is simple: your puppy comes with the toy-breed food it is already eating, and any change should be gradual over a week. For portioning guidance see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div class="scroll-mt-40">
+    <CaptionedBlock heading="The Truth About Teacup and Micro Chihuahuas" imagePosition="none" variant="card">
+      <p>No breed gets hit harder by "teacup" marketing than the Chihuahua, because it is already the smallest dog in the world. You will see "teacup," "micro," and "pocket" Chihuahua listings, often at a premium. We don't sell to that label. Dogs bred to be unusually tiny carry higher risks: fragile bones, severe dental problems, chronic low blood sugar, and shorter lives.</p>
+      <p>A healthy Chihuahua at 1.5 to 3 kg already fits in a tote bag. If a seller promises a size below that and guarantees it, treat the promise as a warning, not a feature.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Teacup red flags</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Guaranteed adult weight below 1.5 kg',
+            'No mention of the parents\' actual size',
+            '"Teacup" or "micro" priced at a premium',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M18 6 6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+
+    <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+  </div>
+
+  <CaptionedBlock heading="Your Chihuahua's First Week at Home" imageAlt="Chihuahua puppy settling into a set-up playpen during its first week home" imageSrc={chihuahuaSettling} imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Chihuahua explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm, warm and close. Tiny puppies chill easily under aircon, so a warm bed corner matters, along with a fixed feeding routine and the toilet pads where we placed them. Some night whimpering is normal adjustment.</p>
+    <p>Days 4 to 7: the routine sticks. This is the window to book your free first lesson with an AVS-certified trainer, the single best investment against future yappiness; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>. For anything in between, you WhatsApp us.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Chihuahua falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one. Tiny breeds like the Chihuahua are smuggled most often, so check twice here."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Chihuahua FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Chihuahua" reserveMessage="Hi! I'd like to reserve a Chihuahua puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

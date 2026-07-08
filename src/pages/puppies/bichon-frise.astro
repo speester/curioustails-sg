@@ -1,0 +1,531 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import heroBichonFrise from '../../assets/bichon-frise/1-bichon-frise-puppy-hero-playpen-balestier.webp';
+import companionLap from '../../assets/bichon-frise/2-bichon-frise-puppy-companion-lap.webp';
+import bichonGrooming from '../../assets/bichon-frise/3-bichon-frise-puppy-grooming-coat-care.webp';
+import bichonVet from '../../assets/bichon-frise/4-bichon-frise-puppy-vet-health-check.webp';
+import bichonSettling from '../../assets/bichon-frise/5-bichon-frise-puppy-settling-playpen.webp';
+import whiteBoyPortrait from '../../assets/bichon-frise/6-bichon-frise-puppy-white-male-portrait.webp';
+import whiteGirlPortrait from '../../assets/bichon-frise/7-bichon-frise-puppy-white-female-portrait.webp';
+import snowWhiteGirlPortrait from '../../assets/bichon-frise/8-bichon-frise-puppy-snow-white-female-portrait.webp';
+import powderWhiteBoyPortrait from '../../assets/bichon-frise/9-bichon-frise-puppy-powder-white-male-portrait.webp';
+import ivoryGirlPortrait from '../../assets/bichon-frise/10-bichon-frise-puppy-ivory-white-female-portrait.webp';
+import creamWhiteBoyPortrait from '../../assets/bichon-frise/11-bichon-frise-puppy-cream-white-male-portrait.webp';
+import fluffyGirlPortrait from '../../assets/bichon-frise/12-bichon-frise-puppy-fluffy-white-female-portrait.webp';
+import curlyBoyPortrait from '../../assets/bichon-frise/13-bichon-frise-puppy-curly-white-male-portrait.webp';
+import petiteGirlPortrait from '../../assets/bichon-frise/14-bichon-frise-puppy-petite-white-female-portrait.webp';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Bichon Frise Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Bichon Frise puppies for sale in Singapore from $2,888, AVS licensed and HDB-approved. Real prices, temperament, grooming and the $500+ starter kit included. WhatsApp us.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Bichon Frise cost in Singapore?',
+    answer:
+      'Bichon Frise prices in Singapore commonly run from around $3,000 to $7,000 depending on lineage, coat, and shop. At Curious Tails, Bichon Frise puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Bichon Frise HDB-approved?',
+    answer:
+      'Yes. The Bichon Frise is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and we complete the dog licensing for you at purchase, so the paperwork is handled.',
+  },
+  {
+    question: 'Can a Bichon Frise be left alone while we are at work?',
+    answer:
+      "Bichons are cheerful precisely because they live for company, so a full 8am to 6pm alone every weekday is not their ideal. They suit homes with someone around: a family, a retiree, a helper, or remote work. If nobody is home all day, a more independent Cavapoo is often the kinder match, and we'll tell you so.",
+  },
+  {
+    question: 'How big does a Bichon Frise get?',
+    answer:
+      'Most Bichon Frises reach roughly 3 to 5 kg fully grown, standing around 23 to 28 cm at the shoulder. It is a naturally compact breed, which is one reason it has been a flat-living favourite for so long.',
+  },
+  {
+    question: 'Are Bichon Frises hypoallergenic?',
+    answer:
+      'The Bichon Frise is one of the breeds most often recommended for allergy-sensitive households: its curly double coat traps loose hair instead of dropping it. No dog is truly allergen-free, but the Bichon is among the better tolerated. The trade-off is grooming: that coat needs regular brushing and professional grooming to stay healthy.',
+  },
+  {
+    question: 'How much grooming does a Bichon Frise need?',
+    answer:
+      "The most of any breed we carry. Brush 3 to 4 times a week to prevent matting, and book professional grooming every 4 to 6 weeks; Singapore's humidity speeds up matting, so consistency matters more here than overseas guides suggest. Most owners keep a shorter pet trim, which makes the routine genuinely manageable.",
+  },
+  {
+    question: 'What happens after I reserve a Bichon Frise?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/bichon-frise',
+    title,
+    description,
+    aboutName: 'Bichon Frise',
+    aboutAlternateName: 'Bichon',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Bichon_Frise',
+    datePublished: '2026-07-08',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Bichon Frise puppy',
+      url: '/puppies/bichon-frise',
+      description:
+        'Bichon Frise puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Bichon Frise Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Bichon Frise puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Bichon Frise',
+    description:
+      'The Bichon Frise is a small companion breed of roughly 3 to 5 kg with a white, curly, low-shedding double coat, a famously cheerful and sociable temperament, and a lifespan of 14 to 15 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Bichon_Frise',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/bichon-frise" ogImage="/assets/bichon-frise/og-bichon-frise.jpg">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Bichon Frise Puppies for Sale in Singapore"
+    h1Accent="Bichon Frise"
+    subhead="Bichon Frise prices in Singapore commonly run $3,000 to $7,000. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Bichon Frise puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-approved. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved small breed']}
+    imageAlt="Bichon Frise puppy with a white curly coat sitting in a set-up playpen at a Balestier home"
+    imageSrc={heroBichonFrise}
+    tagLabel="Bichon Frise"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Bichon Frise', href: '/puppies/bichon-frise' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Bichon Frise in Singapore?" imageAlt="White Bichon Frise puppy portrait, one of the Bichon Frise puppies available in Singapore" imageSrc={whiteBoyPortrait} variant="mid">
+      <p>Our Bichon Frise puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Bichon Frise puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Bichon Frise for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Bichon Frise puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Bichon Frise photos and prices</a>, or meet our Bichon Frise puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Bichon Frise Puppies"
+      headingAccent="Available"
+      subhead="A few of the Bichon Frise puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'White boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white male Bichon Frise puppy.'), imageAlt: 'White male Bichon Frise puppy available in Singapore', imageSrc: whiteBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'White girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white female Bichon Frise puppy.'), imageAlt: 'White female Bichon Frise puppy available in Singapore', imageSrc: whiteGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Snow-white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the snow-white female Bichon Frise puppy.'), imageAlt: 'Snow-white female Bichon Frise puppy available in Singapore', imageSrc: snowWhiteGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
+        { title: 'Powder-white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the powder-white male Bichon Frise puppy.'), imageAlt: 'Powder-white male Bichon Frise puppy available in Singapore', imageSrc: powderWhiteBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '9 weeks' },
+        { title: 'Ivory girl', href: whatsappLink('Hi! I\'d like more photos and the price for the ivory female Bichon Frise puppy.'), imageAlt: 'Ivory white female Bichon Frise puppy available in Singapore', imageSrc: ivoryGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Cream-white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream-white male Bichon Frise puppy.'), imageAlt: 'Cream-white male Bichon Frise puppy available in Singapore', imageSrc: creamWhiteBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Fluffy white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the fluffy white female Bichon Frise puppy.'), imageAlt: 'Fluffy white female Bichon Frise puppy available in Singapore', imageSrc: fluffyGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Curly-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the curly-coat male Bichon Frise puppy.'), imageAlt: 'Curly white male Bichon Frise puppy available in Singapore', imageSrc: curlyBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Petite white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite white female Bichon Frise puppy.'), imageAlt: 'Petite white female Bichon Frise puppy available in Singapore', imageSrc: petiteGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '8 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Bichon Frise?"
+      definition="The Bichon Frise is a small companion breed of roughly 3 to 5 kg with a white, curly, low-shedding double coat. Famously cheerful and sociable, it has been a lap-and-family dog for centuries and lives 14 to 15 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Bichon suits one kind of home especially well: one where someone is usually around and grooming is part of the deal."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Bichon Frise at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Classic white companion breed',
+            'Roughly 3 to 5 kg fully grown',
+            'Curly, low-shedding double coat',
+            'Cheerful, sociable, thrives on company',
+            '14 to 15 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Sizes vary by line; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Bichon Frise from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Bichon pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Bichon Frise Temperament: Sunshine That Wants an Audience" imageAlt="Bichon Frise puppy cuddled close on a caregiver's lap at home" imageSrc={companionLap} imagePosition="left">
+      <p>The Bichon Frise is the breed people describe as "always happy," and for once the reputation is accurate. This is a merry, gentle, people-loving little dog that greets everyone as a friend, plays without rough edges, and settles into a lap the moment one becomes available.</p>
+      <p>Here is the honest part we lead with, from two years of matching puppies to families: all that cheerfulness runs on company. In a home with someone usually around, a Bichon is a delight. In an empty home from 8am to 6pm, that same sociability can turn into whining and separation anxiety.</p>
+      <p>With children the Bichon is one of our safer picks: sturdy enough for gentle play, patient by nature, and rarely snappy. For very boisterous toddlers, the slightly larger <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a> remains the most forgiving choice.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Bichon Frise Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Honestly, this is where you should pause. Like the Maltipoo and Bichonpoo, the Bichon Frise copes poorly with long stretches alone, because company is what the breed was made for. If someone is home for most of the day, a family member, a retiree, a helper, or you working remotely, a Bichon thrives.</p>
+      <p>If your home is empty from 8am to 6pm every weekday, we will say so plainly, and often point you to a more independent breed instead. See our <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo puppies</a>, which handle alone time more comfortably.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Someone is usually home during the day',
+            'A family member, retiree or helper is around',
+            'You work remotely most days',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Bichon Frise Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers, including the grooming commitment most listings gloss over."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 3 to 5 kg'] },
+        { label: 'Height', values: ['Around 23 to 28 cm at the shoulder'] },
+        { label: 'Coat', values: ['White, curly, low-shedding double coat; the loose hair stays in the coat until brushed out'] },
+        { label: 'Lifespan', values: ['14 to 15 years, one of the longer-lived breeds we carry'] },
+        { label: 'Exercise', values: ['About 30 minutes a day, plus indoor play and company'] },
+        { label: 'Shedding & allergies', values: ['Among the most allergy-tolerated breeds, though no dog is truly allergen-free; the trade is real grooming'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        How big do Bichon Frises get? A healthy adult sits at 3 to 5 kg: compact, sturdy for its size, and naturally suited to flat living. The 14-to-15-year lifespan is dependable with good care, which makes the grooming routine a long-term commitment worth being honest about upfront.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Bichon Frise Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Bichon Frise price commonly $3,000 to $7,000',
+            'Price usually not published; enquiry required',
+            'Show-line labels priced at a premium',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Bichon Frise Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Bichon Frise leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For a curly-coated breed like the Bichon, the brush and the grooming routine start on day one.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Bichon's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Bichon Frise Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Bichon Frise."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Someone home most of the day (family, retiree, helper, remote work)', values: ['Ideal. This is the Bichon home; the company is exactly what they want'] },
+        { label: 'Family with gentle children', values: ['Great fit. Sturdy for a small breed, patient, and playful without rough edges'] },
+        { label: 'Allergy-sensitive household', values: ['One of the best picks we carry, though no dog is allergen-free'] },
+        { label: 'Grooming feels like a chore, not a ritual', values: ['Reconsider. This coat needs real upkeep; a smooth-coated Mini Dachshund is the low-maintenance route'] },
+        { label: 'Nobody home 8am to 6pm on weekdays', values: ['Reconsider. A Bichon may fret; an independent Cavapoo is usually the kinder match'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Bichon Frise is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Bichon Frise the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Bichon Frise vs Bichonpoo: Which One Fits Your Home?" imagePosition="none" variant="dark">
+    <p>The Bichonpoo is half Bichon Frise, so the two share the white curls, the love of company, and the flat-friendly size. The honest differences: the purebred Bichon carries the classic powder-puff double coat and a more predictable adult look, while the Bichonpoo's Poodle side brings a slightly lighter coat, more colour options, and often a touch more spring.</p>
+    <p>Grooming effort is similar either way, with the purebred coat needing marginally more discipline, and with us the price, the starter kit, and the aftercare are identical. If nobody is home during weekdays, neither is the right pick, and we'll steer you to a more independent breed instead of taking the sale.</p>
+    <p>Weighing the two? See our <a href="/puppies/bichonpoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Bichonpoo puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Bichon Frise: purebred, classic white powder-puff coat, 3 to 5 kg',
+          'Bichonpoo: Bichon x Poodle, lighter coat, more colours, 3 to 6 kg',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Bichon Frise in an HDB flat"
+      definition="The Bichon Frise is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and the Bichon's compact 3 to 5 kg size sits comfortably within the small-breed rules. Every Bichon Frise we place has its dog licensing completed at purchase, so the paperwork is handled for you."
+      bridge="Is a Bichon Frise HDB-approved? Yes, by name on the list, and it has been a Singapore flat favourite for decades. Just mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Bichon Frise is named on the HDB-approved breed list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming the Powder-Puff Coat in Our Humid Climate" imageAlt="Bichon Frise puppy having its curly white coat brushed during grooming" imageSrc={bichonGrooming} imagePosition="left">
+      <p>We'll say it plainly: the Bichon Frise is the highest-grooming breed we carry, and pretending otherwise sells you the wrong dog. The curly double coat traps loose hair, which is why it barely sheds, and that same trap mats quickly if ignored. Brush 3 to 4 times a week, minimum, and book professional grooming every 4 to 6 weeks. Singapore's humidity speeds matting, so the routine matters more here than overseas care guides let on.</p>
+      <p>The good news: most pet owners keep a shorter teddy trim rather than the show coat, which turns the routine into something genuinely manageable. Light tear staining shows on white faces; a daily wipe with clean water keeps it in check, and the tools you need are already in the starter kit.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Bichon Frise Health: What We Check Before You Take One Home" imageAlt="Bichon Frise puppy at a veterinary health check before going home" imageSrc={bichonVet} variant="mid">
+      <p>Every Bichon Frise goes home vet-checked, vaccinated, dewormed, and microchipped. The Bichon health points worth knowing are a small few: patellar luxation, a kneecap issue common to small breeds; dental crowding, so the oral care items in your kit matter; and skin sensitivities, which the grooming routine helps you catch early. We say this once, plainly, so you hear it from your seller and not from a forum later.</p>
+      <p>Feeding is simple: your puppy comes with the small-breed food it is already eating, and any change should be gradual over a week. For portioning guidance see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Your Bichon Frise's First Week at Home" imageAlt="Bichon Frise puppy settling into a set-up playpen during its first week home" imageSrc={bichonSettling} imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Bichon explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and close. Bichons settle fastest with gentle company nearby, a fixed feeding routine, and the toilet pads where we placed them. Some night whimpering is normal adjustment.</p>
+    <p>Days 4 to 7: the routine sticks. This is the window to book your free first lesson with an AVS-certified trainer; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>. For anything in between, you WhatsApp us.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            "Our search for the perfect Bichonpoo ended the moment we stepped into Curious Tails's Balestier store. Nelson was so patient with all our questions and gave us great value with everything bundled in and surprised us with loads of free extras. Our pup was clean, well-socialised, and full of energy when we brought it home. Everything from the health records to the paperwork was handled seamlessly. Thank you Curious Tails for such a wonderful start to pet parenthood!",
+          name: 'Bichonpoo owner',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Bichon Frise falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Bichon Frise FAQs" items={faqItems} />
+  </div>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <FinalCta breed="Bichon Frise" reserveMessage="Hi! I'd like to reserve a Bichon Frise puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

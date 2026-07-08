@@ -1,0 +1,531 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import heroCavapoochon from '../../assets/cavapoochon/1-cavapoochon-puppy-hero-playpen-balestier.webp';
+import companionLap from '../../assets/cavapoochon/2-cavapoochon-puppy-companion-lap.webp';
+import cavapoochonGrooming from '../../assets/cavapoochon/3-cavapoochon-puppy-grooming-coat-care.webp';
+import cavapoochonVet from '../../assets/cavapoochon/4-cavapoochon-puppy-vet-health-check.webp';
+import cavapoochonSettling from '../../assets/cavapoochon/5-cavapoochon-puppy-settling-playpen.webp';
+import apricotGirlPortrait from '../../assets/cavapoochon/6-cavapoochon-puppy-apricot-female-portrait.webp';
+import redBoyPortrait from '../../assets/cavapoochon/7-cavapoochon-puppy-red-male-portrait.webp';
+import creamGirlPortrait from '../../assets/cavapoochon/8-cavapoochon-puppy-cream-female-portrait.webp';
+import apricotWhiteBoyPortrait from '../../assets/cavapoochon/9-cavapoochon-puppy-apricot-white-male-portrait.webp';
+import goldGirlPortrait from '../../assets/cavapoochon/10-cavapoochon-puppy-gold-female-portrait.webp';
+import redWhiteBoyPortrait from '../../assets/cavapoochon/11-cavapoochon-puppy-red-white-male-portrait.webp';
+import creamBoyPortrait from '../../assets/cavapoochon/12-cavapoochon-puppy-cream-male-portrait.webp';
+import apricotBoyPortrait from '../../assets/cavapoochon/13-cavapoochon-puppy-apricot-male-portrait.webp';
+import caramelGirlPortrait from '../../assets/cavapoochon/14-cavapoochon-puppy-caramel-female-portrait.webp';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Cavapoochon Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Cavapoochon puppies for sale in Singapore from $2,888, AVS licensed and HDB-friendly. The teddy-bear triple cross: real prices, temperament, grooming, starter kit included.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'What exactly is a Cavapoochon?',
+    answer:
+      'A Cavapoochon is a triple cross: Cavalier King Charles Spaniel x Bichon Frise x Toy Poodle. The aim is the Cavalier\'s gentle steadiness, the Bichon\'s cheerfulness, and the Poodle\'s low-shedding coat, wrapped in a teddy-bear face that tends to keep its puppy look well into adulthood.',
+  },
+  {
+    question: 'How much does a Cavapoochon cost in Singapore?',
+    answer:
+      'Cavapoochons are rarely stocked in Singapore, and most shops that carry one quote by enquiry only. At Curious Tails, Cavapoochon puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Cavapoochon HDB-approved?',
+    answer:
+      'Yes, in practice. The Cavapoochon is a cross of three breeds that are each on the approved list (Cavalier King Charles Spaniel, Bichon Frise, Toy Poodle), and crosses of approved small breeds are commonly accepted under HDB\'s rules. We complete the dog licensing for you at purchase.',
+  },
+  {
+    question: 'Can a Cavapoochon be left alone while we are at work?',
+    answer:
+      'Better than a Maltipoo or Bichon, not quite as comfortably as a Cavapoo. The Cavalier side gives the Cavapoochon a settled, adaptable streak, so with a routine set from day one it copes with a working household reasonably well. If your home is empty 8am to 6pm every single weekday, we\'ll talk it through honestly before you commit.',
+  },
+  {
+    question: 'How big does a Cavapoochon get?',
+    answer:
+      'Most Cavapoochons reach roughly 4 to 6 kg fully grown, depending on the Poodle parent. The teddy-bear face and soft rounded coat make them look bigger in photos than they are in person.',
+  },
+  {
+    question: 'Do Cavapoochons shed?',
+    answer:
+      'Very little. The Bichon and Poodle sides both bring low-shedding coats, so the Cavapoochon is usually gentle on allergy-sensitive households, though no dog is truly allergen-free. The coat needs brushing 3 to 4 times a week and grooming every 6 to 8 weeks to stay mat-free in our humidity.',
+  },
+  {
+    question: 'What happens after I reserve a Cavapoochon?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/cavapoochon',
+    title,
+    description,
+    aboutName: 'Cavapoochon',
+    aboutAlternateName: 'Cavachonpoo',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Poodle_crossbreed',
+    datePublished: '2026-07-08',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Cavapoochon puppy',
+      url: '/puppies/cavapoochon',
+      description:
+        'Cavapoochon puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Cavapoochon Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Cavapoochon puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Cavapoochon',
+    description:
+      'A Cavapoochon is a triple cross of Cavalier King Charles Spaniel, Bichon Frise and Toy Poodle. It is a small companion dog of roughly 4 to 6 kg with a soft, low-shedding teddy-bear coat, a gentle adaptable temperament, and a lifespan of 12 to 15 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Poodle_crossbreed',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/cavapoochon" ogImage="/assets/cavapoochon/og-cavapoochon.jpg">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Cavapoochon Puppies for Sale in Singapore"
+    h1Accent="Cavapoochon"
+    subhead="The teddy-bear triple cross is rarely stocked in Singapore, and almost never with a published price. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Cavapoochon puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-friendly cross. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-friendly approved cross']}
+    imageAlt="Cavapoochon puppy with a soft teddy-bear coat sitting in a set-up playpen at a Balestier home"
+    imageSrc={heroCavapoochon}
+    tagLabel="Cavapoochon"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Cavapoochon', href: '/puppies/cavapoochon' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Cavapoochon in Singapore?" imageAlt="Apricot Cavapoochon puppy portrait, one of the Cavapoochon puppies available in Singapore" imageSrc={apricotGirlPortrait} variant="mid">
+      <p>Cavapoochon litters are genuinely rare in Singapore, and ours arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Cavapoochon puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Cavapoochon for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Cavapoochon puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Cavapoochon photos and prices</a>, or meet our Cavapoochon puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Cavapoochon Puppies"
+      headingAccent="Available"
+      subhead="A few of the Cavapoochon puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Cavapoochon puppy.'), imageAlt: 'Apricot female Cavapoochon puppy available in Singapore', imageSrc: apricotGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Cavapoochon puppy.'), imageAlt: 'Red male Cavapoochon puppy available in Singapore', imageSrc: redBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '10 weeks' },
+        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Cavapoochon puppy.'), imageAlt: 'Cream female Cavapoochon puppy available in Singapore', imageSrc: creamGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
+        { title: 'Apricot & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot and white male Cavapoochon puppy.'), imageAlt: 'Apricot and white male Cavapoochon puppy available in Singapore', imageSrc: apricotWhiteBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '9 weeks' },
+        { title: 'Gold girl', href: whatsappLink('Hi! I\'d like more photos and the price for the gold female Cavapoochon puppy.'), imageAlt: 'Warm golden female Cavapoochon puppy available in Singapore', imageSrc: goldGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Red & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white male Cavapoochon puppy.'), imageAlt: 'Red and white male Cavapoochon puppy available in Singapore', imageSrc: redWhiteBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Cavapoochon puppy.'), imageAlt: 'Cream male Cavapoochon puppy available in Singapore', imageSrc: creamBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '10 weeks' },
+        { title: 'Apricot boy', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot male Cavapoochon puppy.'), imageAlt: 'Apricot male Cavapoochon puppy available in Singapore', imageSrc: apricotBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Caramel girl', href: whatsappLink('Hi! I\'d like more photos and the price for the caramel female Cavapoochon puppy.'), imageAlt: 'Caramel female Cavapoochon puppy available in Singapore', imageSrc: caramelGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '8 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Cavapoochon?"
+      definition="A Cavapoochon is a triple cross of Cavalier King Charles Spaniel, Bichon Frise and Toy Poodle. It is a small companion dog of roughly 4 to 6 kg with a soft, low-shedding teddy-bear coat that keeps its puppy look, a gentle adaptable temperament, and a lifespan of 12 to 15 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Cavapoochon is one of our most flexible matches: companionable without being clingy."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Cavapoochon at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Cavalier x Bichon Frise x Toy Poodle',
+            'Roughly 4 to 6 kg fully grown',
+            'Soft, low-shedding teddy-bear coat',
+            'Gentle and adaptable; companionable, not clingy',
+            '12 to 15 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Size follows the Poodle parent; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Cavapoochon from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Cavapoochon pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Cavapoochon Temperament: The Best of Three Gentle Breeds" imageAlt="Cavapoochon puppy cuddled close on a caregiver's lap at home" imageSrc={companionLap} imagePosition="left">
+      <p>The whole point of the Cavapoochon is balance. The Cavalier side brings a settled, gentle steadiness; the Bichon side brings cheerfulness and sociability; the Poodle side brings brains and the low-shedding coat. The result is a small dog that is affectionate without being needy, playful without being frantic.</p>
+      <p>From two years of matching puppies to families: the Cavapoochon sits usefully in the middle of our lineup on the question that decides most matches, alone-time. It copes with a working household better than a Maltipoo or Bichon, though not quite as breezily as a Cavapoo.</p>
+      <p>With children the Cavapoochon is a natural: sturdy enough for family life, gentle by inheritance from all three sides, and quick to learn house rules.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Cavapoochon Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Reasonably well, with the routine set from day one. The Cavalier steadiness shows up here: a Cavapoochon with a morning walk, a settled playpen, and a predictable schedule handles a half-day absence comfortably, and most manage a full workday once matured into the routine.</p>
+      <p>If your home is empty 8am to 6pm every single weekday, the <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> is still our first recommendation for pure independence, and we'll talk it through honestly before you commit.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Family wanting one dog that suits everyone',
+            'Half-day absences with a settled routine',
+            'First-time owners who want a forgiving learner',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Cavapoochon Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for the teddy-bear cross."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 4 to 6 kg, depending on the Toy Poodle parent'] },
+        { label: 'Height', values: ['Around 23 to 30 cm at the shoulder'] },
+        { label: 'Coat', values: ['Soft, dense and low-shedding, wavy to curly; common colours include apricot, red, cream, gold and caramel, often with white markings'] },
+        { label: 'Lifespan', values: ['12 to 15 years'] },
+        { label: 'Exercise', values: ['About 30 to 40 minutes a day, plus indoor play'] },
+        { label: 'Shedding & allergies', values: ['Low-shedding from both the Bichon and Poodle sides, though no dog is truly allergen-free'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        How big do Cavapoochons get? The Poodle parent decides most of it, so expect 4 to 6 kg. One charming quirk of the cross: the teddy-bear face means a Cavapoochon tends to look like a puppy long after it has finished growing.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Cavapoochon Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops don't stock the cross at all, and the ones that do quote by enquiry. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Rarely stocked; enquiry-only pricing at most shops',
+            'Designer-cross labels priced at a premium',
+            'Imported litters with limited paperwork visibility',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Cavapoochon Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Cavapoochon leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For a dense-coated cross like the Cavapoochon, the brush and the grooming routine start on day one.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Cavapoochon's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Cavapoochon Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Cavapoochon."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Family with children wanting one dog that suits everyone', values: ['Ideal. Gentle from all three parent breeds and sturdy enough for family life'] },
+        { label: 'Working couple with half-day flexibility (hybrid work, helper)', values: ['Good fit. The Cavalier steadiness handles a settled routine well'] },
+        { label: 'Allergy-sensitive household', values: ['Good pick; low-shedding from two of its three sides, though no dog is allergen-free'] },
+        { label: 'Want the classic teddy-bear look that lasts', values: ['This is the breed the look comes from; it keeps its puppy face for years'] },
+        { label: 'Nobody home 8am to 6pm every weekday', values: ['Workable once matured, but a Cavapoo is the more comfortable pick for pure independence'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Cavapoochon is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Cavapoochon the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Cavapoochon vs Cavapoo: Which One Fits Your Home?" imagePosition="none" variant="dark">
+    <p>Two-thirds of the Cavapoochon is a Cavapoo, so the two share the gentle temperament and the low-shedding coat. The honest differences: the Bichon third gives the Cavapoochon a denser, rounder teddy coat and a slightly more sociable, people-seeking streak, while the Cavapoo runs a touch more independent, which matters for homes empty all day.</p>
+    <p>Grooming is marginally heavier on the Cavapoochon's denser coat. With us the price, the starter kit, and the aftercare are identical, so the decision is really about your weekday, not your wallet.</p>
+    <p>Weighing the two? See our <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo puppies</a> and our <a href="/puppies/bichonpoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Bichonpoo puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Cavapoochon: denser teddy coat, more people-seeking, 4 to 6 kg',
+          'Cavapoo: more independent, easier for all-day-out households',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Cavapoochon in an HDB flat"
+      definition="The Cavapoochon is a cross of three breeds that are each on the HDB-approved list: the Cavalier King Charles Spaniel, the Bichon Frise, and the Toy Poodle. Crosses of approved small breeds are commonly accepted under HDB's rules, and the Cavapoochon's 4 to 6 kg size sits well within them. Every Cavapoochon we place has its dog licensing completed at purchase."
+      bridge="Is a Cavapoochon HDB-friendly? Yes, as an approved-breed cross, and we place them in HDB homes. Just mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'All three parent breeds are on the HDB-approved list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming the Teddy-Bear Coat in Our Humid Climate" imageAlt="Cavapoochon puppy having its soft teddy-bear coat brushed during grooming" imageSrc={cavapoochonGrooming} imagePosition="left">
+      <p>The Cavapoochon's coat is the densest of our poodle crosses: soft, rounded, and low-shedding, which means the loose hair stays in the coat until you brush it out. Brush 3 to 4 times a week to prevent matting, and book professional grooming every 6 to 8 weeks. Singapore's humidity speeds up matting, so a consistent routine matters more here than in cooler climates.</p>
+      <p>Keep the teddy trim short and the routine stays easy; let the coat grow long and the brushing becomes a daily job. Light tear staining can show on cream faces; a daily wipe with clean water keeps it in check, and the tools you need are already in the starter kit.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Cavapoochon Health: What We Check Before You Take One Home" imageAlt="Cavapoochon puppy at a veterinary health check before going home" imageSrc={cavapoochonVet} variant="mid">
+      <p>Every Cavapoochon goes home vet-checked, vaccinated, dewormed, and microchipped. The health points worth knowing: patellar luxation, a kneecap issue common to small breeds; dental crowding, so the oral care items in your kit matter; and floppy-ear hygiene, since covered ears in a humid climate need a regular check and wipe. One more, said plainly because honest sellers should: the Cavalier line carries heart-health history, so ask any seller, us included, about the parents. We'll answer straight.</p>
+      <p>Feeding is simple: your puppy comes with the small-breed food it is already eating, and any change should be gradual over a week. For portioning guidance see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Your Cavapoochon's First Week at Home" imageAlt="Cavapoochon puppy settling into a set-up playpen during its first week home" imageSrc={cavapoochonSettling} imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Cavapoochon explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and close. Cavapoochons settle fast with gentle company nearby, a fixed feeding routine, and the toilet pads where we placed them. Some night whimpering is normal adjustment.</p>
+    <p>Days 4 to 7: the routine sticks. This is the window to book your free first lesson with an AVS-certified trainer; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>. For anything in between, you WhatsApp us.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Cavapoochon falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one. Rare crosses like the Cavapoochon attract exactly this kind of grey-market listing, so check twice here."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Cavapoochon FAQs" items={faqItems} />
+  </div>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <FinalCta breed="Cavapoochon" reserveMessage="Hi! I'd like to reserve a Cavapoochon puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

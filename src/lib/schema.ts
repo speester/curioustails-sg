@@ -15,7 +15,7 @@ export function localBusinessSchema() {
     telephone: `+65${site.phone}`,
     email: site.email,
     priceRange: site.priceRange,
-    description: 'AVS-licensed puppy shop in Singapore offering Cavapoo, Maltipoo, Maltese, Mini Dachshund, Corgi, Shiba Inu, Bichonpoo, and Cockapoo puppies with starter kit, free delivery, and training lessons included.',
+    description: 'AVS-licensed puppy shop in Singapore offering Cavapoo, Maltipoo, Maltese, Mini Dachshund, Corgi, Shiba Inu, Bichonpoo, Bichon Frise, Cavapoochon, Chihuahua, and Cockapoo puppies with starter kit, free delivery, and training lessons included.',
     address: {
       '@type': 'PostalAddress',
       streetAddress: site.address.street,
@@ -181,7 +181,7 @@ export function aggregateOfferSchema(opts: { priceLow: string; priceHigh: string
     priceCurrency: opts.priceCurrency,
     lowPrice: opts.priceLow,
     highPrice: opts.priceHigh,
-    offerCount: 8, // 8 breeds
+    offerCount: 11, // 11 breeds
   };
 }
 

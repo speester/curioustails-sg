@@ -26,15 +26,18 @@ import heroCavapoo from '../../assets/cavapoo/1-cavapoo-puppy-hero-playpen-bales
 import cavapooPortrait from '../../assets/cavapoo/2-cavapoo-puppy-portrait-available.webp';
 import maltipooPortrait from '../../assets/maltipoo/3-maltipoo-puppy-portrait-available.webp';
 import maltesePortrait from '../../assets/maltese/3-maltese-puppy-portrait-available.webp';
+import bichonFrisePortrait from '../../assets/bichon-frise/6-bichon-frise-puppy-white-male-portrait.webp';
+import cavapoochonPortrait from '../../assets/cavapoochon/6-cavapoochon-puppy-apricot-female-portrait.webp';
+import chihuahuaPortrait from '../../assets/chihuahua/6-chihuahua-puppy-fawn-male-portrait.webp';
 import dachshundPortrait from '../../assets/mini-dachshund/4-mini-dachshund-cream-longhair-portrait.webp';
 import corgiPortrait from '../../assets/corgi/2-corgi-red-white-portrait.webp';
 import shibaPortrait from '../../assets/shiba-inu/2-shiba-red-portrait.webp';
 import bichonpooPortrait from '../../assets/bichonpoo/2-bichonpoo-white-portrait.webp';
 import cockapooPortrait from '../../assets/cockapoo/2-cockapoo-apricot-portrait.webp';
 
-const title = 'Our Puppy Breeds | 8 Breeds, One Honest Match | Curious Tails';
+const title = 'Our Puppy Breeds | 11 Breeds, One Honest Match | Curious Tails';
 const description =
-  'Cavapoo to Corgi: browse the 8 puppy breeds at Curious Tails Singapore, each $2,888 to $4,488 all-in. HDB status, lifestyle fit, and honest matching advice.';
+  'Cavapoo to Corgi: browse the 11 puppy breeds at Curious Tails Singapore, each $2,888 to $4,488 all-in. HDB status, lifestyle fit, and honest matching advice.';
 
 const breeds = [
   { title: 'Cavapoo', href: '/puppies/cavapoo', imageSrc: cavapooPortrait, imageAlt: 'Cavapoo puppy, an HDB-approved independent companion breed in Singapore', meta: 'HDB-approved. The independent one: best pick for working couples.', tag: 'HDB ✓' },
@@ -43,6 +46,9 @@ const breeds = [
   { title: 'Mini Dachshund', href: '/puppies/mini-dachshund', imageSrc: dachshundPortrait, imageAlt: 'Cream long-haired Mini Dachshund puppy, an HDB-approved bold small hound in Singapore', meta: 'HDB-approved. Bold little hound; independent, with a proper watchdog bark.', tag: 'HDB ✓' },
   { title: 'Cockapoo', href: '/puppies/cockapoo', imageSrc: cockapooPortrait, imageAlt: 'Cockapoo puppy, an HDB-approved family-friendly cross in Singapore', meta: 'HDB-approved. The family all-rounder; kindest pick for first-time owners.', tag: 'HDB ✓' },
   { title: 'Bichonpoo', href: '/puppies/bichonpoo', imageSrc: bichonpooPortrait, imageAlt: 'Bichonpoo puppy, an HDB-approved low-shedding playful cross in Singapore', meta: 'HDB-approved. Low-shedding sunshine; wants people around during the day.', tag: 'HDB ✓' },
+  { title: 'Bichon Frise', href: '/puppies/bichon-frise', imageSrc: bichonFrisePortrait, imageAlt: 'Bichon Frise puppy, an HDB-approved cheerful white companion breed in Singapore', meta: 'HDB-approved. The cheerful white classic; low-shedding, loves company.', tag: 'HDB ✓' },
+  { title: 'Cavapoochon', href: '/puppies/cavapoochon', imageSrc: cavapoochonPortrait, imageAlt: 'Cavapoochon puppy, an HDB-friendly teddy-bear triple cross in Singapore', meta: 'HDB-friendly cross. Teddy-bear triple cross; the gentle family all-rounder.', tag: 'HDB ✓' },
+  { title: 'Chihuahua', href: '/puppies/chihuahua', imageSrc: chihuahuaPortrait, imageAlt: 'Chihuahua puppy, an HDB-approved tiny devoted companion breed in Singapore', meta: 'HDB-approved. Tiny devoted companion with a big-dog personality.', tag: 'HDB ✓' },
   { title: 'Corgi', href: '/puppies/corgi', imageSrc: corgiPortrait, imageAlt: 'Corgi puppy, a herding breed for private housing in Singapore (not HDB-approved)', meta: 'NOT HDB-approved. Big personality, real energy; condos and landed homes.', tag: 'Private housing' },
   { title: 'Shiba Inu', href: '/puppies/shiba-inu', imageSrc: shibaPortrait, imageAlt: 'Shiba Inu puppy, an independent breed for private housing in Singapore (not HDB-approved)', meta: 'NOT HDB-approved. Independent and cat-clean; condos and landed homes.', tag: 'Private housing' },
 ];
@@ -51,12 +57,12 @@ const faqItems = [
   {
     question: 'Which breeds does Curious Tails carry?',
     answer:
-      'Eight: Cavapoo, Maltipoo, Maltese, Mini Dachshund, Cockapoo, Bichonpoo, Corgi, and Shiba Inu. All sit in the same published price range of $2,888 to $4,488, with the $500+ starter kit, free delivery and setup, and a free training lesson included.',
+      'Eleven: Cavapoo, Maltipoo, Maltese, Mini Dachshund, Cockapoo, Bichonpoo, Bichon Frise, Cavapoochon, Chihuahua, Corgi, and Shiba Inu. All sit in the same published price range of $2,888 to $4,488, with the $500+ starter kit, free delivery and setup, and a free training lesson included.',
   },
   {
     question: 'Which of your breeds are HDB-approved?',
     answer:
-      'Cavapoo, Maltipoo, Maltese, Mini Dachshund, Cockapoo, and Bichonpoo: yes. Corgi and Shiba Inu: no, they are not on the HDB-approved list and suit condos and landed homes only. We flag this on every breed card because finding out after falling in love is the worst order of operations.',
+      'Cavapoo, Maltipoo, Maltese, Mini Dachshund, Cockapoo, Bichonpoo, Bichon Frise, Cavapoochon, and Chihuahua: yes. Corgi and Shiba Inu: no, they are not on the HDB-approved list and suit condos and landed homes only. We flag this on every breed card because finding out after falling in love is the worst order of operations.',
   },
   {
     question: 'Which breed suits a working couple best?',
@@ -66,7 +72,7 @@ const faqItems = [
   {
     question: 'Do all breeds cost the same?',
     answer:
-      'All eight sit inside the same published range, $2,888 to $4,488 all-in. The exact figure for an individual puppy depends on its coat, colour, and age, which is why we quote per puppy on WhatsApp.',
+      'All eleven sit inside the same published range, $2,888 to $4,488 all-in. The exact figure for an individual puppy depends on its coat, colour, and age, which is why we quote per puppy on WhatsApp.',
   },
   {
     question: 'Can you help us choose between breeds?',
@@ -107,18 +113,18 @@ const schemas = [
     eyebrow="AVS Licensed Pet Shop in Balestier"
     h1="Cavapoo to Corgi: Choose Your Perfect Puppy"
     h1Accent="Perfect Puppy"
-    subhead="Eight breeds, one published price range of $2,888 to $4,488 all-in, and one rule that never changes: we match the breed to your routine, not to the photo you fell for. HDB status is flagged on every card below."
+    subhead="Eleven breeds, one published price range of $2,888 to $4,488 all-in, and one rule that never changes: we match the breed to your routine, not to the photo you fell for. HDB status is flagged on every card below."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'm choosing between breeds. Here's my routine and housing type:"
-    secondaryCtaLabel="Browse the 8 breeds"
+    secondaryCtaLabel="Browse the 11 breeds"
     secondaryCtaHref="#breeds"
     priceAnchor="Every breed: $2,888 to $4,488, kit, delivery and training included."
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
-    imageAlt="Puppy breeds Singapore: Cavapoo puppy in a set-up playpen, one of eight breeds at Curious Tails"
+    imageAlt="Puppy breeds Singapore: Cavapoo puppy in a set-up playpen, one of eleven breeds at Curious Tails"
     imageSrc={heroCavapoo}
-    tagLabel="8 breeds"
+    tagLabel="11 breeds"
     proofChip="5.0 on Google"
   >
     <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }]} />
@@ -156,8 +162,8 @@ const schemas = [
 
   <div id="breeds" class="scroll-mt-40">
     <ListingGrid
-      heading="The Eight Breeds We Carry"
-      headingAccent="Eight Breeds"
+      heading="The Eleven Breeds We Carry"
+      headingAccent="Eleven Breeds"
       subhead="Every card links to the full honest profile: temperament, real prices, HDB rules, and the parts other listings leave out."
       items={breeds}
       footerCtaLabel="Not sure which fits? Take the 2-minute quiz"
@@ -169,7 +175,7 @@ const schemas = [
   <StatStrip
     heading="Same promise, whichever breed"
     stats={[
-      { value: '8', label: 'breeds, honestly matched' },
+      { value: '11', label: 'breeds, honestly matched' },
       { value: '$2,888', label: 'every breed starts here, all-in' },
       { value: '$500+', label: 'starter kit with every puppy' },
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
@@ -185,11 +191,11 @@ const schemas = [
     tableHeaders={['Your situation', 'Start with']}
     rows={[
       { label: 'Working couple, out 8am to 6pm, HDB flat', values: ['Cavapoo or Mini Dachshund; both handle alone time with a settled routine'] },
-      { label: 'Someone home most of the day', values: ['Maltipoo, Maltese, or Bichonpoo; they thrive on exactly that company'] },
+      { label: 'Someone home most of the day', values: ['Maltipoo, Maltese, Bichon Frise, or Bichonpoo; they thrive on exactly that company'] },
       { label: 'Family with young children', values: ['Cockapoo first, Cavapoo close second; both meet kids halfway'] },
       { label: 'First dog, want the forgiving option', values: ['Cockapoo; eager to please and kind to beginner mistakes'] },
       { label: 'Private housing, active outdoor routine', values: ['Corgi for engagement, Shiba Inu for independence'] },
-      { label: 'Allergy-sensitive household', values: ['Bichonpoo, Maltese, Maltipoo, or Cavapoo; low-shedding, though no dog is allergen-free'] },
+      { label: 'Allergy-sensitive household', values: ['Bichon Frise, Bichonpoo, Maltese, Maltipoo, or Cavapoo; low-shedding, though no dog is allergen-free'] },
     ]}
   />
 
@@ -204,6 +210,9 @@ const schemas = [
         { label: 'Cavapoo', values: ['Yes, approved cross'] },
         { label: 'Maltipoo', values: ['Yes, approved cross'] },
         { label: 'Maltese', values: ['Yes, approved breed'] },
+        { label: 'Bichon Frise', values: ['Yes, approved breed'] },
+        { label: 'Cavapoochon', values: ['Yes, approved cross'] },
+        { label: 'Chihuahua', values: ['Yes, approved breed'] },
         { label: 'Mini Dachshund', values: ['Yes, approved breed'] },
         { label: 'Cockapoo', values: ['Yes, approved cross'] },
         { label: 'Bichonpoo', values: ['Yes, approved cross'] },
@@ -266,7 +275,7 @@ const schemas = [
 
   <FinalCta
     breed="Puppy"
-    heading="Meet All Eight at Balestier"
+    heading="Meet All Eleven at Balestier"
     body="Can't make the trip? WhatsApp us which breeds you're considering and we'll send current photos and prices for each."
     reserveMessage="Hi! I'd like to ask about your available puppies across breeds."
   />

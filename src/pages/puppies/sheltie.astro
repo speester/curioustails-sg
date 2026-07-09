@@ -1,0 +1,537 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Sheltie Singapore | Shetland Sheepdog Puppies from $2,888 | Curious Tails';
+const description =
+  'Sheltie (Shetland Sheepdog) puppies for sale in Singapore from $2,888, AVS licensed and HDB-approved. Real prices, temperament, coat honesty and the $500+ starter kit.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Sheltie cost in Singapore?',
+    answer:
+      'Shetland Sheepdog prices in Singapore commonly run from around $3,000 to $6,000; the breed is uncommon here. At Curious Tails, Sheltie puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Sheltie HDB-approved?',
+    answer:
+      'Yes, and it surprises people every time: the Shetland Sheepdog is named on the HDB-approved breed list, making it the only true herding breed you can keep in a flat. HDB allows one dog of an approved breed per flat, and we complete the dog licensing for you at purchase.',
+  },
+  {
+    question: 'Is a Sheltie just a small Rough Collie?',
+    answer:
+      'No; it is its own breed from the Shetland Islands, developed to herd on sparse crofts, though Collie crosses shaped its look. Practically the distinction matters little: what you are getting is a genuine herding intelligence, top ten in every ranking, in a flat-legal 6 to 12 kg body.',
+  },
+  {
+    question: 'Do Shelties bark a lot?',
+    answer:
+      'Honestly, yes, untrained: the Sheltie used its voice professionally on the croft, and it arrives opinionated about doorbells, lifts and passing trolleys. Early, consistent quiet-training plus enough physical and mental exercise brings it down to livable; skipping either does not. We cover the approach in the free first lesson.',
+  },
+  {
+    question: 'Can a Sheltie be left alone while we are at work?',
+    answer:
+      'Moderately, with its needs genuinely met around the workday: a real walk and training game before you leave, enrichment during the day, and proper engagement after. The Sheltie is sensitive and people-focused; a home that is empty and unstimulating produces a barky, anxious dog. Meet the needs and it is a devoted, gentle housemate.',
+  },
+  {
+    question: 'Are Shelties good with children?',
+    answer:
+      'Gentle and patient with respectful children, genuinely one of the kindest breeds. Two notes: the herding instinct may try to organise running toddlers with a nudge or heel-nip, which training redirects, and the sensitive temperament prefers calm handling over chaos.',
+  },
+  {
+    question: 'What happens after I reserve a Sheltie?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/sheltie',
+    title,
+    description,
+    aboutName: 'Shetland Sheepdog',
+    aboutAlternateName: 'Sheltie',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Shetland_Sheepdog',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Shetland Sheepdog puppy',
+      url: '/puppies/sheltie',
+      description:
+        'Sheltie puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Sheltie Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Sheltie puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Shetland Sheepdog',
+    description:
+      'The Shetland Sheepdog, or Sheltie, is a small herding breed of roughly 6 to 12 kg from the Shetland Islands, with a Collie-like mane, top-ten intelligence, and a gentle, sensitive, devoted temperament. Lifespan is typically 12 to 14 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Shetland_Sheepdog',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/sheltie">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Sheltie Puppies for Sale in Singapore"
+    h1Accent="Sheltie"
+    subhead="Shetland Sheepdog prices in Singapore commonly run $3,000 to $6,000. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Sheltie puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-approved. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved herding breed']}
+    imageAlt="Sable and white Shetland Sheepdog puppy sitting in a set-up playpen at a Balestier home"
+    tagLabel="Sheltie"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Sheltie', href: '/puppies/sheltie' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Sheltie in Singapore?" imageAlt="Sable and white Sheltie puppy portrait, one of the Shetland Sheepdog puppies available in Singapore" variant="mid">
+      <p>Shelties are uncommon in Singapore, so litters are announced and reserved fast; we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Sheltie puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Shetland Sheepdog for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Sheltie puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Sheltie photos and prices</a>, or meet our Sheltie puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Sheltie Puppies"
+      headingAccent="Available"
+      subhead="A few of the Sheltie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Sable & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the sable and white male Sheltie puppy.'), imageAlt: 'Sable and white male Shetland Sheepdog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Tricolour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tricolour female Sheltie puppy.'), imageAlt: 'Tricolour female Shetland Sheepdog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Blue merle boy', href: whatsappLink('Hi! I\'d like more photos and the price for the blue merle male Sheltie puppy.'), imageAlt: 'Blue merle male Shetland Sheepdog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Sable girl', href: whatsappLink('Hi! I\'d like more photos and the price for the sable female Sheltie puppy.'), imageAlt: 'Sable female Shetland Sheepdog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Tricolour boy', href: whatsappLink('Hi! I\'d like more photos and the price for the tricolour male Sheltie puppy.'), imageAlt: 'Tricolour male Shetland Sheepdog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Blue merle girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue merle female Sheltie puppy.'), imageAlt: 'Blue merle female Shetland Sheepdog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Sheltie?"
+      definition="The Shetland Sheepdog is a small herding breed of roughly 6 to 12 kg, developed on the Shetland Islands where sparse grazing favoured smaller, thriftier dogs. It wears a Collie-like mane over an agile frame and pairs top-ten intelligence with one of the gentlest, most sensitive temperaments in dogs. Lifespan is 12 to 14 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Sheltie occupies a unique slot: the only genuine herding brain on the HDB-approved list, for owners ready to engage it daily."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Sheltie at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The only herding breed on the HDB list',
+            'Roughly 6 to 12 kg fully grown',
+            'Top-ten intelligence; loves to work',
+            'Gentle, sensitive, devoted',
+            '12 to 14 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Sizes vary by line; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Sheltie from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Sheltie pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Sheltie Temperament: A Gentle Genius That Needs a Job" imageAlt="Sheltie puppy focused on a training game at home" imagePosition="left">
+      <p>The Sheltie pairs two qualities that rarely coexist: a working brain ranked in the world's top ten, and a temperament so gentle and eager to please that harshness of any kind wounds it. It learns cues in a handful of repetitions, reads its household like weather, and would genuinely rather do things with you, training, fetch patterns, trick chains, than do anything alone.</p>
+      <p>The honest part, from two years of matching puppies to families: this brain and body were built for a workday, and a Sheltie without daily physical and mental output turns its talents to shadow-chasing and, above all, the voice. That's the trade this breed offers: the most rewarding trainable companion on the HDB list, in exchange for a real daily commitment. Take the deal only if you mean it.</p>
+      <p>If you want the intelligence with a smaller exercise bill, the <a href="/puppies/toy-poodle" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Toy Poodle</a> or <a href="/puppies/papillon" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Papillon</a> deliver it at toy scale.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Sheltie Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Moderately, and only with the workday framed by real engagement: a proper walk plus a training game before you leave, puzzle feeders and chew work during, and genuine activity after. A Sheltie treated like a low-maintenance lapdog becomes anxious and loud; one whose brain is fed twice daily naps through the quiet hours contentedly.</p>
+      <p>If that morning routine sounds like a stretch, be honest with yourself now: the <a href="/puppies/shih-tzu" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shih Tzu</a> or <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> will thank you for the same routine the Sheltie would resent.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'You enjoy daily training as a hobby',
+            'Gentle household; no harsh corrections',
+            'You accept real brushing and real barking homework',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Sheltie Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for the Shetland original."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 6 to 12 kg; lines vary more than most breeds'] },
+        { label: 'Height', values: ['Around 33 to 41 cm at the shoulder'] },
+        { label: 'Coat', values: ['Long double coat with mane and frill; sable, tricolour, blue merle, all with white'] },
+        { label: 'Lifespan', values: ['12 to 14 years with good care'] },
+        { label: 'Exercise', values: ['45 to 60 minutes daily plus mental work; a herding budget, honestly'] },
+        { label: 'Shedding & allergies', values: ['Heavy: constant shedding plus seasonal blows. Not the pick for allergy-sensitive homes'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The Sheltie gives you the Rough Collie's whole aesthetic, mane, frill, noble profile, at a third of the weight and inside HDB rules. That's the niche, and no other approved breed offers it.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Sheltie Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Sheltie price commonly $3,000 to $6,000',
+            'Blue merles often priced at a premium',
+            'Price usually not published; enquiry required',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Sheltie Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Sheltie leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the brush works hardest, that double coat is a genuine weekly project, and the toys become training props for the cleverest student in the shop.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Sheltie's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Sheltie Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Sheltie."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'You love training and want a true partner', values: ['Ideal. Nothing on the HDB list learns faster or enjoys it more'] },
+        { label: 'Gentle family with school-age children', values: ['Great fit. Patient and kind; just redirect the herding nudge early'] },
+        { label: 'Active household, walks plus games daily', values: ['Good fit. Meet the budget and the temperament rewards you daily'] },
+        { label: 'Noise-sensitive neighbours, no training time', values: ['Reconsider. An under-worked Sheltie is a loud Sheltie, reliably'] },
+        { label: 'Allergy-sensitive household', values: ['Reconsider. The coat sheds heavily; a Toy Poodle serves allergies better'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Sheltie is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Sheltie the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Sheltie vs Border Collie: The Herding Question, Answered by HDB" imagePosition="none" variant="dark">
+    <p>Both are brilliant herding breeds, and in Singapore the comparison resolves fast: the Shetland Sheepdog is on the HDB-approved list; the Border Collie is not. Flat dwellers who want a herding brain have exactly one legal answer, and it happens to be the gentler, smaller, more flat-practical one anyway.</p>
+    <p>For private housing, the honest fuller picture: the Border Collie is the more intense working dog by a distance, needing exercise most households cannot truthfully supply; the Sheltie asks for a serious but achievable daily budget. We talk more people out of Border Collies than into them, and the Sheltie is often exactly where that conversation lands.</p>
+    <p>In private housing and weighing both? See our <a href="/puppies/border-collie" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Border Collie puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Sheltie: 6 to 12 kg, HDB-approved, achievable exercise budget',
+          'Border Collie: 14 to 20 kg, private housing only, extreme needs',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Sheltie in an HDB flat"
+      definition="The Shetland Sheepdog is named on the HDB-approved breed list, so you can keep one in an HDB flat, the only genuine herding breed with that status. HDB allows one dog of an approved breed per flat. Every Sheltie we place has its dog licensing completed at purchase, so the paperwork is handled for you."
+      bridge="Is a Sheltie HDB-approved? Yes, by name on the list. The flat itself is fine for the breed; the daily exercise and the bark-training are what make flat life work. Mind the one-dog-per-flat rule, and if you already have a dog, message us first."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Shetland Sheepdog is named on the HDB-approved breed list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: The Mane Is Weekly Homework" imageAlt="Sheltie puppy having its double coat line-brushed" imagePosition="left">
+      <p>The Sheltie coat is the Collie look on subscription: brush 2 to 3 times a week down to the skin, working in layers, with daily sessions during the twice-yearly coat blows. Skip a fortnight and mats form quietly behind the ears and in the trousers. A tidy-up groom every 6 to 8 weeks keeps things civilised, and, the double-coat rule as always, never shave it; the coat insulates against our heat when kept brushed, and shaving damages regrowth.</p>
+      <p>Expect real hair in the flat. The vacuum joins the family, the lint roller lives by the door, and Sheltie people decide it's worth it, but decide with open eyes.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Sheltie Health: What We Check Before You Take One Home" imageAlt="Sheltie puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Sheltie goes home vet-checked, vaccinated, dewormed, and microchipped. The Sheltie health points worth knowing: eye conditions run in herding lines, Collie eye anomaly and progressive retinal atrophy, so ask any seller about eye checks, as you should for every herding breed; hip dysplasia appears occasionally; and, the one to write down, many Shelties carry the MDR1 gene variant, which makes certain common drugs, including some dewormers and anti-diarrhoeals, dangerous at normal doses. Tell every vet your dog is a Sheltie before any prescription; a simple cheek-swab test settles it definitively.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div class="scroll-mt-40">
+    <CaptionedBlock heading="The Voice: Every Honest Sheltie Page Mentions It" imagePosition="none" variant="card">
+      <p>On the croft, barking was the Sheltie's job description: move the sheep, alert the croft, repeat. In a flat, that professional instinct meets lift doors, corridor footsteps and delivery riders, and an untrained Sheltie will provide full commentary. This is the breed's one genuine flat-living challenge, and pretending otherwise sells dogs badly.</p>
+      <p>The fix is two-part and reliable: enough physical and mental work that there's no restless energy left to narrate with, and early, consistent quiet-training, rewarding silence, never yelling over the noise, which a sensitive Sheltie reads as joining in. Started in puppyhood, most Shelties settle into an acceptable watchdog-announcement level. Started never, the neighbours will introduce themselves.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Quiet-training basics</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Exercise first; a tired Sheltie narrates less',
+            'Reward silence, never shout over barking',
+            'Start week one; the free lesson covers it',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+
+    <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+  </div>
+
+  <CaptionedBlock heading="Your Sheltie's First Week at Home" imageAlt="Sheltie puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Sheltie explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm, gentle and predictable; this sensitive breed reads household stress like a book, so a quiet settling window pays off doubly. Fixed feeding routine, toilet pads where we placed them, soft voices.</p>
+    <p>Days 4 to 7: the routine sticks and the studying begins. Book your free first lesson with an AVS-certified trainer this week without fail, and start the quiet-training pattern immediately; for a Sheltie both are foundational, not optional. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            "Our search for the perfect puppy ended the moment we stepped into Curious Tails's Balestier store. Nelson was so patient with all our questions and gave us great value with everything bundled in and surprised us with loads of free extras. Our pup was clean, well-socialised, and full of energy when we brought it home. Everything from the health records to the paperwork was handled seamlessly. Thank you Curious Tails for such a wonderful start to pet parenthood!",
+          name: 'Po Xian Lee',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Sheltie falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Sheltie FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Sheltie" reserveMessage="Hi! I'd like to reserve a Sheltie puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

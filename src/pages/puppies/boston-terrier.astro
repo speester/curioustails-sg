@@ -1,0 +1,537 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Boston Terrier Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Boston Terrier puppies for sale in Singapore from $2,888, AVS licensed and HDB-approved. Real prices, temperament, heat care and the $500+ starter kit included.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Boston Terrier cost in Singapore?',
+    answer:
+      'Boston Terrier prices in Singapore commonly run from around $3,000 to $6,000; the breed is uncommon here. At Curious Tails, Boston Terrier puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Boston Terrier HDB-approved?',
+    answer:
+      'Yes, and this is the fact that surprises people: the Boston Terrier is named on the HDB-approved breed list, while the similar-looking French Bulldog is not. If you love the flat-faced, bat-eared look and live in a flat, the Boston is the breed the rules point you to. We complete the dog licensing for you at purchase.',
+  },
+  {
+    question: 'Boston Terrier vs French Bulldog: what is the difference?',
+    answer:
+      'The Boston is lighter and leggier (roughly 6 to 11 kg against the Frenchie\'s stockier build), more athletic, generally easier-breathing, and crucially HDB-approved, which the Frenchie is not. Temperament is close: both are affectionate, comic companions. For most Singapore buyers the housing rule decides it.',
+  },
+  {
+    question: 'Can a Boston Terrier be left alone while we are at work?',
+    answer:
+      'Moderately well. Bostons are people-oriented but sensible, and a settled routine with exercise around the workday suits most of them. The non-negotiable is a cool room: this is a flat-faced breed, and the space it spends the day in must stay ventilated and shaded, fan or aircon included.',
+  },
+  {
+    question: 'Are Boston Terriers good with children?',
+    answer:
+      'Excellent. The "American Gentleman" nickname is earned: Bostons are gentle, playful, sturdy for their size, and genuinely patient with kids. Supervise as with any puppy, but this is one of the safest family picks on the HDB-approved list.',
+  },
+  {
+    question: 'How do Boston Terriers cope with Singapore heat?',
+    answer:
+      'Better than Pugs and Frenchies, thanks to a slightly longer muzzle, but the flat-face rules still apply in full: walks in the early morning or evening only, water always available, and a cool ventilated room at home. Managed this way, Bostons do well here; pushed through midday heat, they are at genuine risk.',
+  },
+  {
+    question: 'What happens after I reserve a Boston Terrier?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/boston-terrier',
+    title,
+    description,
+    aboutName: 'Boston Terrier',
+    aboutAlternateName: 'Boston Terrier dog',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Boston_Terrier',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Boston Terrier puppy',
+      url: '/puppies/boston-terrier',
+      description:
+        'Boston Terrier puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Boston Terrier Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Boston Terrier puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Boston Terrier',
+    description:
+      'The Boston Terrier is an American companion breed of roughly 6 to 11 kg, wearing a short tuxedo-marked coat with bat ears and a gentle, comic, people-loving temperament that earned it the nickname "the American Gentleman". Lifespan is typically 11 to 13 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Boston_Terrier',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/boston-terrier">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Boston Terrier Puppies for Sale in Singapore"
+    h1Accent="Boston Terrier"
+    subhead="Boston Terrier prices in Singapore commonly run $3,000 to $6,000. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price. And yes: unlike the Frenchie, it's HDB-approved."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Boston Terrier puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-approved. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved companion breed']}
+    imageAlt="Black and white Boston Terrier puppy sitting in a set-up playpen at a Balestier home"
+    tagLabel="Boston Terrier"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Boston Terrier', href: '/puppies/boston-terrier' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Boston Terrier in Singapore?" imageAlt="Black and white Boston Terrier puppy portrait, one of the Boston Terrier puppies available in Singapore" variant="mid">
+      <p>Boston Terriers are uncommon in Singapore, so litters are announced and reserved fast; we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Boston Terrier puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Boston Terrier for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Boston Terrier puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Boston Terrier photos and prices</a>, or meet our Boston Terrier puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Boston Terrier Puppies"
+      headingAccent="Available"
+      subhead="A few of the Boston Terrier puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Boston Terrier puppy.'), imageAlt: 'Black and white male Boston Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Seal & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the seal and white female Boston Terrier puppy.'), imageAlt: 'Seal and white female Boston Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Brindle & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle and white male Boston Terrier puppy.'), imageAlt: 'Brindle and white male Boston Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Tuxedo girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tuxedo-marked female Boston Terrier puppy.'), imageAlt: 'Tuxedo-marked female Boston Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Compact boy', href: whatsappLink('Hi! I\'d like more photos and the price for the compact male Boston Terrier puppy.'), imageAlt: 'Compact male Boston Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Sweet-faced girl', href: whatsappLink('Hi! I\'d like more photos and the price for the sweet-faced female Boston Terrier puppy.'), imageAlt: 'Sweet-faced female Boston Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Boston Terrier?"
+      definition="The Boston Terrier is America's original companion breed, roughly 6 to 11 kg, instantly recognisable by its tuxedo markings, bat ears and short muzzle. Nicknamed 'the American Gentleman' for its markings and its manners, it is gentle, comic and people-loving, with a lifespan of 11 to 13 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Boston solves a very specific Singapore dilemma: the flat-faced charm of a Frenchie, on the HDB-approved list."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Boston Terrier at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            '"The American Gentleman" in a tuxedo coat',
+            'Roughly 6 to 11 kg fully grown',
+            'Gentle, comic, superb with children',
+            'HDB-approved, unlike the French Bulldog',
+            '11 to 13 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Sizes vary by line; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Boston from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Boston pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Boston Terrier Temperament: The Gentleman Earns the Name" imageAlt="Boston Terrier puppy playing gently with a child at home" imagePosition="left">
+      <p>Despite the name, the Boston is no terrier in temperament; it was bred down from fighting stock into pure companionship over a century ago, and what remains is one of the kindest, most companionable dogs in the small-to-medium bracket. Bostons are gentle with children, easy with other dogs, comic without being chaotic, and tuned to their people's moods in a way owners never stop remarking on.</p>
+      <p>The honest part, from two years of matching puppies to families: the Boston is livelier than its dapper image, a good 30 to 60 minutes of daily activity keeps it right, and it is people-oriented enough that it wants real evening engagement, not just a bowl and a corner. Add the flat-face heat rules below and that's genuinely the whole caution list.</p>
+      <p>Comparing family options? The <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a> is our other first-recommendation family dog, low-shedding where the Boston is easy-grooming.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Boston Terrier Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Moderately well. Bostons are sociable but sensible, and a settled routine with a proper outing before work and real engagement after carries most of them through a quiet weekday without drama.</p>
+      <p>The non-negotiable is temperature, not company: a flat-faced dog must spend the day in a cool, ventilated room, with a fan or aircon through the afternoon and water everywhere. That's the deal with every short-muzzled breed in this climate, and we put it plainly on every such page.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Family with children; the classic Boston home',
+            'You want a flat-faced breed that\'s HDB-legal',
+            'You can keep its room cool all day',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Boston Terrier Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for the American Gentleman."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 6 to 11 kg; leggier and lighter than a Frenchie'] },
+        { label: 'Height', values: ['Around 38 to 43 cm at the shoulder'] },
+        { label: 'Coat', values: ['Short, smooth tuxedo coat; black, seal or brindle, always with white'] },
+        { label: 'Lifespan', values: ['11 to 13 years with good heat and eye care'] },
+        { label: 'Exercise', values: ['About 30 to 60 minutes a day in the cool hours, plus play'] },
+        { label: 'Shedding & allergies', values: ['Light-to-moderate shedding; easier than a Pug, not allergy-proof'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The Boston is the largest breed on our HDB-approved shortlist alongside the Mini Schnauzer, which is precisely its niche: a proper, sturdy family dog that still clears the flat rules.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Boston Terrier Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Boston Terrier price commonly $3,000 to $6,000',
+            'Rare locally; import premiums common',
+            'Price usually not published; enquiry required',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Boston Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Boston Terrier leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the harness is essential kit, no flat-faced throat should take leash pressure, and the wet wipes handle the daily eye-area check those big Boston eyes deserve.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Boston's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Boston Terrier Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Boston."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Family with children in an HDB flat', values: ['Ideal. Gentle, sturdy, playful, and legal; the complete package'] },
+        { label: 'You wanted a Frenchie but live in HDB', values: ['Ideal. Same charm family, approved list, generally easier breathing'] },
+        { label: 'Working household with a cool room', values: ['Good fit. Sociable but sensible; the aircon is the real requirement'] },
+        { label: 'Long midday outdoor lifestyle', values: ['Reconsider. Flat faces and midday heat don\'t mix, ever'] },
+        { label: 'Allergy-sensitive household', values: ['Reconsider. Light shedding but real; a Poodle cross serves allergies better'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Boston is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Boston Terrier the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Boston Terrier vs French Bulldog: The Rules Decide" imagePosition="none" variant="dark">
+    <p>Visually they're cousins; administratively they live on different planets. The Boston Terrier is on the HDB-approved breed list; the French Bulldog is not, full stop. For the majority of Singapore buyers that single line ends the comparison, and in the Boston's favour there's more: it's lighter, more athletic, and its slightly longer muzzle generally breathes easier in our heat.</p>
+    <p>For private housing where both are legal, it's a fair fight: the Frenchie is stockier and more famous; the Boston is nimbler and rarer. Both need the same disciplined heat care. With us the price, the starter kit, and the aftercare are identical either way.</p>
+    <p>In private housing and weighing both? See our <a href="/puppies/french-bulldog" class="underline underline-offset-2 text-[var(--color-accent-hover)]">French Bulldog puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Boston: HDB-approved, lighter, generally easier breathing',
+          'Frenchie: private housing only, stockier, more famous',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Boston Terrier in an HDB flat"
+      definition="The Boston Terrier is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and the Boston is among the most substantial breeds to clear that list. Every Boston we place has its dog licensing completed at purchase, so the paperwork is handled for you."
+      bridge="Is a Boston Terrier HDB-approved? Yes, by name on the list, the fact that separates it from the French Bulldog it so resembles. Just mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Boston Terrier is named on the HDB-approved breed list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: The Tuxedo Maintains Itself" imageAlt="Boston Terrier puppy getting a quick weekly brush" imagePosition="left">
+      <p>Coat care is a weekly once-over with a soft brush and an occasional bath; the tuxedo stays crisp on its own. No mats, no salon schedule, no coat blows. This is one of the three easiest coats we carry.</p>
+      <p>The actual routine lives on the face: those large, prominent eyes collect dust and deserve a daily ten-second wipe and check, and any facial folds get the same treatment to stay dry and comfortable in our humidity. Nails, ears and daily teeth complete the list, all with starter-kit tools.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Boston Terrier Health: What We Check Before You Take One Home" imageAlt="Boston Terrier puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Boston goes home vet-checked, vaccinated, dewormed, and microchipped. The Boston health points worth knowing: brachycephalic airway traits, milder than a Pug's on average but real, making heat and overexertion the lifelong management items; the eyes, the breed's most vulnerable feature, prominent enough that scratches and ulcers happen, so anything squinty gets a vet look the same week; and patellar luxation, the usual small-breed kneecap issue.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week; keep the Boston lean, because extra weight loads a short airway. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div class="scroll-mt-40">
+    <CaptionedBlock heading="Living Flat-Faced in Singapore: The Heat Rules" imagePosition="none" variant="card">
+      <p>The Boston breathes easier than a Pug or Frenchie on average, and none of that changes the rules, because "easier" is not "easy" at one degree north of the equator. Dogs cool themselves by panting, and every short-muzzled dog pants inefficiently.</p>
+      <p>The rules: walks before 9am or after 6pm, never midday; shade and water on every outing; a cool, ventilated room through the afternoon; and know the emergency signs: relentless heavy panting, a very dark red tongue, wobbliness. Cool water on the body, aircon, and the vet, in that order.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">The heat rules</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Walks before 9am or after 6pm only',
+            'Cool, ventilated room through the afternoon',
+            'Keep it lean; weight loads the airway',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+
+    <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+  </div>
+
+  <CaptionedBlock heading="Your Boston's First Week at Home" imageAlt="Boston Terrier puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Boston explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm, cool and predictable. A fixed feeding routine with measured portions, the toilet pads where we placed them, and the daily eye-check habit starting immediately. A little snoring is standard equipment, not a symptom.</p>
+    <p>Days 4 to 7: the routine sticks and the comedy begins. Book your free first lesson with an AVS-certified trainer this week; Bostons are eager students and early wins compound. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Had such a wonderful experience bringing home our new furry family member from Curious Tails in Balestier. Honestly, Nelson and Kim couldn't have been more helpful and answered every single question we had, which made the whole thing stress-free. Our pup was clean, well-socialised, and full of energy when we brought it home. The puppy came home healthy and vet-checked, which gave us real peace of mind. A truly lovely experience from start to finish, thank you!",
+          name: 'Karen Joy Pepito',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Boston falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Boston Terrier FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Boston Terrier" reserveMessage="Hi! I'd like to reserve a Boston Terrier puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

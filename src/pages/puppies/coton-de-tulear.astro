@@ -1,0 +1,510 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Coton de Tulear Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Coton de Tulear puppies for sale in Singapore from $2,888, AVS licensed and HDB-approved. Coton de Tulear price in SGD, temperament, cotton-coat care and the $500+ starter kit.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Coton de Tulear cost in Singapore?',
+    answer:
+      'Most Coton de Tulear price information online is in US dollars, which is no help here. In Singapore, quotes commonly run $3,500 to $7,000 with import premiums because litters are so scarce. At Curious Tails, Coton de Tulear puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Coton de Tulear HDB-approved?',
+    answer:
+      'Yes. The Coton de Tulear is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and we complete the dog licensing for you at purchase, so the paperwork is handled.',
+  },
+  {
+    question: 'Why is the Coton de Tulear so rare in Singapore?',
+    answer:
+      'The breed\'s global population is small and local litters are infrequent, which is why most Singapore buyers only encounter it through overseas websites. That scarcity also attracts grey-market imports, so verifying any seller on the AVS public registry matters even more with this breed than most.',
+  },
+  {
+    question: 'Can a Coton be left alone while we are at work?',
+    answer:
+      'This is a company-first breed, bred for centuries to sit with Madagascan nobility, and it shows. A hybrid or flexible routine works with alone-time trained gradually from week one; a flat that is empty 8am to 6pm every weekday does not, and we will steer you to the Cavapoo or Shih Tzu instead.',
+  },
+  {
+    question: 'Do Cotons shed? Are they hypoallergenic?',
+    answer:
+      'The cotton-textured coat sheds very little, making the Coton one of the friendlier picks for allergy-sensitive homes. No dog is truly allergen-free, whatever overseas lists claim, so spend time with one at our Balestier shop first if allergies are severe.',
+  },
+  {
+    question: 'How long do Coton de Tulears live?',
+    answer:
+      'Fourteen to seventeen years, among the longest of any breed, and worth saying plainly: a Coton puppy bought today is a family member into the 2040s. For the right home that is the best feature of the breed; just buy it knowingly.',
+  },
+  {
+    question: 'What happens after I reserve a Coton de Tulear?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/coton-de-tulear',
+    title,
+    description,
+    aboutName: 'Coton de Tulear',
+    aboutAlternateName: 'Royal Dog of Madagascar',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Coton_de_Tul%C3%A9ar',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Coton de Tulear puppy',
+      url: '/puppies/coton-de-tulear',
+      description:
+        'Coton de Tulear puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Coton de Tulear Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Coton puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Coton de Tulear',
+    description:
+      'The Coton de Tulear is the royal dog of Madagascar, a small bichon-family companion of roughly 3.5 to 6 kg named for its unique cotton-textured white coat. It is cheerful, clownish and deeply people-attached, with one of the longest lifespans in dogs at 14 to 17 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Coton_de_Tul%C3%A9ar',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/coton-de-tulear">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Coton de Tulear Puppies for Sale in Singapore"
+    h1Accent="Coton de Tulear"
+    subhead="Every Coton de Tulear price you'll find online is in US dollars from a breeder eleven time zones away. Here's the Singapore answer: ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Coton de Tulear puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-approved. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved rare breed']}
+    imageAlt="White Coton de Tulear puppy with a cotton-textured coat sitting in a set-up playpen at a Balestier home"
+    tagLabel="Coton de Tulear"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Coton de Tulear', href: '/puppies/coton-de-tulear' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Coton de Tulear in Singapore?" imageAlt="White Coton de Tulear puppy portrait, one of the Coton puppies available in Singapore" variant="mid">
+      <p>The Coton de Tulear is the rarest breed we carry: the global population is small, local litters are intermittent, and pups are usually reserved before they're weaned. We keep availability live on WhatsApp rather than on a page that goes stale; as an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for any Coton puppies available now, or tell you honestly when the next litter is expected.</p>
+      <p>Unlike the import quotes you'll compare us against, we tell you the number upfront: every Coton de Tulear for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Coton de Tulear puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Coton photos and prices</a>, or meet our Coton puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Coton de Tulear Puppies"
+      headingAccent="Available"
+      subhead="A few of the Coton puppies looking for a home right now. Litters are rare and move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Snow-white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white male Coton de Tulear puppy.'), imageAlt: 'White male Coton de Tulear puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'White girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white female Coton de Tulear puppy.'), imageAlt: 'White female Coton de Tulear puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'White & champagne boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white and champagne male Coton puppy.'), imageAlt: 'White and champagne male Coton de Tulear puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Grey-eared girl', href: whatsappLink('Hi! I\'d like more photos and the price for the grey-eared female Coton puppy.'), imageAlt: 'Grey-eared female Coton de Tulear puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Cotton-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cotton-coat male Coton puppy.'), imageAlt: 'Cotton-coat male Coton de Tulear puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Petite girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite female Coton puppy.'), imageAlt: 'Petite female Coton de Tulear puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Coton de Tulear?"
+      definition="The Coton de Tulear is the royal dog of Madagascar, a small bichon-family companion of roughly 3.5 to 6 kg named for its unique cotton-textured white coat — 'coton' is simply French for cotton, and Tulear is the port city where the breed charmed its way into noble households. It is cheerful, clownish and deeply people-attached, with one of the longest lifespans in dogs at 14 to 17 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Coton suits homes with daytime company that want a rare, gentle companion and are genuinely ready for a 15-year friendship."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Coton at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The royal dog of Madagascar',
+            'Roughly 3.5 to 6 kg fully grown',
+            'Unique cotton-textured white coat',
+            'Cheerful, clownish, people-attached',
+            '14 to 17 year lifespan — among the longest',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Sizes vary by line; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Coton from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Coton pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Coton Temperament: Madagascar's Court Jester" imageAlt="Coton de Tulear puppy clowning on its hind legs for its family" imagePosition="left">
+      <p>The Coton earned its place in Madagascan noble houses the same way it will earn its place in yours: by being effortlessly delightful. This is a cheerful, clownish little companion famous for two party tricks it teaches itself, walking on its hind legs when pleased, and a repertoire of soft chatty vocalisations owners swear amount to conversation. It is gentle with children, easy with other pets, and bonds to its household with the deep attachment of a breed that has never had any job except companionship.</p>
+      <p>The honest part, from two years of matching companion breeds to families: that attachment is the whole animal. Like its <a href="/puppies/havanese" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Havanese</a> cousin, the Coton is a company-first breed, and homes that are empty all weekday should not buy one, however rare and tempting the litter. Homes with daytime presence get one of the sweetest companions in existence, for longer than nearly any other breed can promise.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Coton Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Honestly: this breed was designed by centuries of selection to sit with people, and an empty weekday flat argues with everything it is. A hybrid or flexible routine can work, with alone-time built gradually from week one and real engagement around the workday; a fully-out 8am-to-6pm household cannot, and we'll say so before you fall for the coat.</p>
+      <p>If your weekdays are away, the <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> or <a href="/puppies/shih-tzu" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shih Tzu</a> handles that routine far more gracefully, and both are easier to find.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Someone is home much of most days',
+            'You\'re ready for a 15-year companion',
+            'You want rare, gentle, and low-shedding',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Coton Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers, including the one that means a commitment into the 2040s."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 3.5 to 6 kg; males run slightly larger'] },
+        { label: 'Height', values: ['Around 23 to 28 cm at the shoulder'] },
+        { label: 'Coat', values: ['The signature cotton-textured coat: white, sometimes with light champagne or grey shadings on the ears that often fade with age'] },
+        { label: 'Lifespan', values: ['14 to 17 years — among the longest of any breed; a puppy today is family into the 2040s'] },
+        { label: 'Exercise', values: ['About 30 minutes a day plus indoor play; a flat is genuinely enough'] },
+        { label: 'Shedding & allergies', values: ['Very low-shedding; a friendly pick for allergy-sensitive homes, though no dog is allergen-free'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        That lifespan deserves a second look: 14 to 17 years is the longest commitment on our shelf, and we mean it as both selling point and sanity check. Buy a Coton at 60 and it may outlast your knees; buy one for a teenager and it will see them through university and beyond. The daintier <a href="/puppies/maltese" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Maltese</a> offers similar white-coated companionship if the Coton's rarity puts it out of reach.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Coton de Tulear Price in Singapore: The SGD Answer"
+      headingAccent="Price"
+      subhead="Everyone else quotes US dollars from overseas kennels. Here's ours in writing, in Singapore dollars: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical market',
+          items: [
+            'Overseas quotes US$2,000-$4,000 before flights and permits',
+            'Local quotes $3,500 to $7,000 with rare-breed premiums',
+            'Price rarely published; enquiry or waitlist required',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here in SGD',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Coton Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Coton de Tulear leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the comb is the working tool, cotton texture mats differently from silk and needs its own routine, and the wipes serve the daily face care every white-coated breed appreciates.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Coton's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Coton Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Coton de Tulear."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Someone home much of the day, wanting a rare gentle companion', values: ['Ideal. This is the Coton\'s natural habitat, and it rewards it for 15+ years'] },
+        { label: 'Allergy-sensitive household', values: ['Good fit. Very low-shedding cotton coat; visit first if severe'] },
+        { label: 'Family with gentle children', values: ['Great fit. Clownish, patient, and sturdy enough at 3.5 to 6 kg'] },
+        { label: 'Empty flat 8am to 6pm weekdays', values: ['Reconsider honestly. A company-first breed suffers there; the Cavapoo copes far better'] },
+        { label: 'You want a dog this year, guaranteed', values: ['Set expectations. Litters are intermittent; we\'ll tell you the honest wait'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Coton is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Coton de Tulear the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Coton vs Havanese vs Bichon Frise: The White Shortlist" imagePosition="none" variant="dark">
+    <p>Three bichon-family companions, one shelf, and honest differences of degree rather than kind. The Coton is the calmest and longest-lived of the trio, with that one-of-a-kind cotton coat and the highest rarity premium on waiting time. The <a href="/puppies/havanese" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Havanese</a> brings colours and a notch more spark and trainability. The <a href="/puppies/bichon-frise" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Bichon Frise</a> is the classic powder-puff, the easiest of the three to actually find, and the most affordable route to this family's charm.</p>
+    <p>All three are low-shedding, all three are company-first breeds, and all three carry the same price, kit and aftercare with us. The choice is texture, colour, and how long you're willing to wait.</p>
+    <p>Message us your shortlist and routine, and we'll tell you which of the three, or which litter timeline, actually fits.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Coton: cotton coat, calmest, 14-17 yrs, rarest',
+          'Havanese: every colour, sparkier, loves tricks',
+          'Bichon Frise: classic white, easiest to find',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Coton de Tulear in an HDB flat"
+      definition="The Coton de Tulear is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and at 3.5 to 6 kg the Coton sits comfortably inside the small-breed rules. Every Coton we place has its dog licensing completed at purchase, so the paperwork is handled for you."
+      bridge="Is a Coton de Tulear HDB-approved? Yes, by name on the list, a pleasant surprise for a breed this rare. Just mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Coton de Tulear is named on the HDB-approved breed list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: Cotton in the Tropics" imageAlt="Coton de Tulear puppy having its cotton-textured coat combed" imagePosition="left">
+      <p>Overseas Coton guides describe flowing floor-length show coats; ignore them, as every sensible Singapore owner does. In our humidity the Coton lives in a puppy cut, which brings the routine to a comb-through 2 to 3 times a week, always down to the skin, because cotton texture mats close to the body where a glance misses it, plus a salon trim every 4 to 6 weeks.</p>
+      <p>Two tropics-specific habits: dry the coat properly after rainy walks, damp cotton is where trouble starts, and give the face its daily ten-second wipe to keep the white bright. Everything you need is in the starter kit.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Coton Health: What We Check Before You Take One Home" imageAlt="Coton de Tulear puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Coton goes home vet-checked, vaccinated, dewormed, and microchipped. Health is the breed's superpower: the Coton is one of the soundest, longest-lived dogs in existence, and its 14-to-17-year expectancy is the proof. The short watch-list is standard small-breed fare: patellar luxation, sensible eye checks, and dental care in a small jaw, met with the day-one brushing habit.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. For portioning guidance see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Your Coton's First Week at Home" imageAlt="Coton de Tulear puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Coton explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and close. This breed settles through proximity: the playpen where it can see people, a fixed feeding routine, and the toilet pads where we placed them. The chatty little vocalisations start early; enjoy them, they're the breed introducing itself.</p>
+    <p>Days 4 to 7: the routine sticks, and two habits start now: book your free first lesson with an AVS-certified trainer, and practise short, boring departures, five minutes at a time, because a company-first breed's alone-time skills are built early or not at all. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Coton falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. A breed this rare attracts grey-market imports precisely because local litters are scarce, and puppies sold outside licensed channels are often smuggled without vaccination; buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Coton de Tulear FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Coton de Tulear" reserveMessage="Hi! I'd like to reserve a Coton de Tulear puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

@@ -1,0 +1,511 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Shihpoo Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Shihpoo puppies for sale in Singapore from $2,888, AVS licensed and HDB-friendly. Real prices, temperament, low-shedding coat care and the $500+ starter kit included.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Shihpoo cost in Singapore?',
+    answer:
+      'Shihpoo prices in Singapore commonly run from around $2,500 to $5,000 depending on colour and coat. At Curious Tails, Shihpoo puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Shihpoo HDB-approved?',
+    answer:
+      'Yes, as an approved cross: the Shihpoo is a Shih Tzu × Toy Poodle mix, and both parent breeds are named on the HDB-approved list, with the cross falling comfortably inside the small-breed rules. HDB allows one dog per flat, and we complete the dog licensing for you at purchase.',
+  },
+  {
+    question: 'What is a Shihpoo exactly?',
+    answer:
+      'A cross between the Shih Tzu and the Toy or Miniature Poodle, aiming for the Shih Tzu\'s easygoing companionship with the Poodle\'s low-shedding coat and quicker mind. Most Shihpoos land 4 to 7 kg with a soft wavy-to-curly coat in a wide range of colours.',
+  },
+  {
+    question: 'Do Shihpoos shed? Are they good for allergies?',
+    answer:
+      'Both parents are low-shedding breeds, so the Shihpoo is one of the more allergy-friendly crosses available; expect very little loose hair. No dog is truly allergen-free, so if allergies are severe, spend time with one at our Balestier shop before deciding.',
+  },
+  {
+    question: 'Can a Shihpoo be left alone while we are at work?',
+    answer:
+      'Reasonably well, sitting between its parents: more self-sufficient than the velcro companions thanks to the Shih Tzu\'s composed streak, more engaged than a pure lapdog thanks to the Poodle brain. A settled routine, a safe playpen, and something to work on carries most Shihpoos through a working household\'s weekday.',
+  },
+  {
+    question: 'Are Shihpoos easier to train than Shih Tzus?',
+    answer:
+      'Usually, yes; the Poodle half sharpens the learning speed, and toilet training in particular tends to come faster than in the purebred Shih Tzu. There can still be a charming stubborn moment or two in there. Short, cheerful, food-led sessions win, and the free first lesson sets the pattern.',
+  },
+  {
+    question: 'What happens after I reserve a Shihpoo?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/shihpoo',
+    title,
+    description,
+    aboutName: 'Shihpoo',
+    aboutAlternateName: 'Shih-Poo',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Shih_Tzu',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Shihpoo puppy',
+      url: '/puppies/shihpoo',
+      description:
+        'Shihpoo puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Shihpoo Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Shihpoo puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Shihpoo',
+    description:
+      'The Shihpoo is a designer cross between the Shih Tzu and the Toy or Miniature Poodle, typically 4 to 7 kg with a soft, low-shedding wavy-to-curly coat and an affectionate, playful temperament. Lifespan is typically 13 to 16 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Shih_Tzu',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/shihpoo">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Shihpoo Puppies for Sale in Singapore"
+    h1Accent="Shihpoo"
+    subhead="Shihpoo prices in Singapore commonly run $2,500 to $5,000. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Shihpoo puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-friendly cross. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-friendly toy cross']}
+    imageAlt="Cream Shihpoo puppy sitting in a set-up playpen at a Balestier home"
+    tagLabel="Shihpoo"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Shihpoo', href: '/puppies/shihpoo' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Shihpoo in Singapore?" imageAlt="Cream Shihpoo puppy portrait, one of the Shihpoo puppies available in Singapore" variant="mid">
+      <p>Our Shihpoo puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Shihpoo puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Shihpoo for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Shihpoo puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Shihpoo photos and prices</a>, or meet our Shihpoo puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Shihpoo Puppies"
+      headingAccent="Available"
+      subhead="A few of the Shihpoo puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Shihpoo puppy.'), imageAlt: 'Cream male Shihpoo puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Shihpoo puppy.'), imageAlt: 'Apricot female Shihpoo puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Shihpoo puppy.'), imageAlt: 'Black and white male Shihpoo puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Gold girl', href: whatsappLink('Hi! I\'d like more photos and the price for the gold female Shihpoo puppy.'), imageAlt: 'Gold female Shihpoo puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Brown & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brown and white male Shihpoo puppy.'), imageAlt: 'Brown and white male Shihpoo puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Cream & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream and white female Shihpoo puppy.'), imageAlt: 'Cream and white female Shihpoo puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Shihpoo?"
+      definition="The Shihpoo is a designer cross between the Shih Tzu and the Toy or Miniature Poodle, typically 4 to 7 kg. The recipe: take the Shih Tzu's easygoing, palace-bred companionship, add the Poodle's low-shedding coat and quicker mind, and subtract most of the flat-faced snoring. Lifespan is 13 to 16 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Shihpoo suits homes that loved the Shih Tzu's temperament but wanted a lower-shedding coat and a faster study."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Shihpoo at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Shih Tzu × Toy Poodle cross',
+            'Roughly 4 to 7 kg fully grown',
+            'Soft, low-shedding wavy-to-curly coat',
+            'Easygoing companion with Poodle smarts',
+            '13 to 16 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Cross sizes vary by parents; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Shihpoo from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Shihpoo pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Shihpoo Temperament: The Chill Parent's Charm, the Smart Parent's Brain" imageAlt="Shihpoo puppy playing gently on a living room rug" imagePosition="left">
+      <p>The Shihpoo inherits from two very different job descriptions. From the Shih Tzu side comes a thousand years of professional companionship: easygoing, affectionate, happy on a lap, unbothered by a quiet afternoon. From the Poodle side comes the spark: quicker learning, more playfulness, and a livelier interest in games than a purebred Shih Tzu usually shows.</p>
+      <p>The honest part, from two years of matching crosses to families: individual Shihpoos land at different points between the parents. Some are nappers with occasional zoomies; some are busy little students with a nap habit. We tell you honestly where each puppy in a litter sits, because we've watched them, and matching the right pup to your routine matters more with crosses than with predictable purebreds.</p>
+      <p>Comparing crosses? The <a href="/puppies/maltipoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Maltipoo</a> is the daintier, more people-dependent cousin; the <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> the more independent one.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Shihpoo Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Reasonably well, and better than most toy crosses. The Shih Tzu half brings genuine composure about quiet hours; the Poodle half wants something to do, so leave chew work and a puzzle feeder. With a settled routine and a cool room, most Shihpoos handle a working household gracefully.</p>
+      <p>As always with part-Shih-Tzu dogs, the room temperature matters: cool and ventilated through the afternoon, water everywhere. The muzzle is usually longer than a purebred Shih Tzu's, which helps, but we keep the same heat habits anyway.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Working household wanting a low-shed companion',
+            'You liked the Shih Tzu but want faster training',
+            'Family with gentle children',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Shihpoo Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for the Shih Tzu × Poodle cross."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 4 to 7 kg, depending on the Poodle parent\'s size'] },
+        { label: 'Height', values: ['Around 20 to 28 cm at the shoulder'] },
+        { label: 'Coat', values: ['Soft, wavy to curly, low-shedding; gold, cream, apricot, black, brown, and parti mixes'] },
+        { label: 'Lifespan', values: ['13 to 16 years; both parent breeds are long-lived'] },
+        { label: 'Exercise', values: ['About 30 to 40 minutes a day plus indoor play; a flat is genuinely enough'] },
+        { label: 'Shedding & allergies', values: ['Very low-shedding; one of the friendlier picks for allergy-sensitive homes'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        A practical note on faces: most Shihpoos inherit a muzzle midway between the Shih Tzu's flat face and the Poodle's pointed one, which usually means less snoring and better heat tolerance than the purebred parent, one of the quiet advantages of this cross in our climate.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Shihpoo Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Shihpoo price commonly $2,500 to $5,000',
+            'Price usually not published; enquiry required',
+            'Rare colours priced at a premium',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Shihpoo Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Shihpoo leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this cross the brush earns daily use, soft mixed coats tangle quietly, and the face wipes handle the eye-area care most Shihpoos inherit from the Shih Tzu side.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Shihpoo's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Shihpoo Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Shihpoo."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Working household wanting low-shed and low-drama', values: ['Great fit. Composed alone, engaged when you\'re home'] },
+        { label: 'Allergy-sensitive household', values: ['Great fit. Both parents are low-shedding breeds'] },
+        { label: 'Family with gentle children', values: ['Good fit. Sturdier than the tiniest toys and patient by inheritance'] },
+        { label: 'First-time owner', values: ['Good fit. Forgiving temperament, faster training than a purebred Shih Tzu'] },
+        { label: 'You want guaranteed looks and temperament', values: ['Consider a purebred. Crosses vary; we\'ll tell you honestly where each pup sits'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Shihpoo is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Shihpoo the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Shihpoo vs Shih Tzu: Cross or Classic?" imagePosition="none" variant="dark">
+    <p>The honest trade between the cross and its famous parent: the purebred Shih Tzu gives you predictability, you know the size, coat, face and temperament you're getting, plus that unmatched palace-dog chill. The Shihpoo trades a little predictability for a lower-shedding coat, quicker training, usually a longer muzzle (less snoring, better in our heat), and often a touch more playfulness.</p>
+    <p>Allergy-sensitive homes and first-time trainers lean Shihpoo; lovers of the classic look and the maximum-chill temperament lean Shih Tzu. With us the price, the starter kit, and the aftercare are identical either way.</p>
+    <p>Weighing the two? See our <a href="/puppies/shih-tzu" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shih Tzu puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Shihpoo: lower-shedding, quicker to train, longer muzzle',
+          'Shih Tzu: predictable classic, maximum chill',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Shihpoo in an HDB flat"
+      definition="The Shihpoo is a cross of two HDB-approved breeds, the Shih Tzu and the Toy Poodle, and falls comfortably inside HDB's small-breed rules the same way our Cavapoos and Maltipoos do. HDB allows one dog of an approved breed per flat, and every Shihpoo we place has its dog licensing completed at purchase."
+      bridge="Is a Shihpoo HDB-friendly? Yes: both parents are named on the approved list and the cross sits well within the size rules. Mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Both parent breeds are on the HDB-approved list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: Soft Coats Tangle Quietly" imageAlt="Shihpoo puppy being brushed through its soft wavy coat" imagePosition="left">
+      <p>The Shihpoo's soft, low-shedding coat is the low-allergen dream with one string attached: hair that doesn't fall out stays in and knots. Plan on brushing every other day, a comb-through weekly to the skin, and a salon groom every 4 to 6 weeks; nearly every Singapore Shihpoo lives happily in a puppy cut.</p>
+      <p>The daily ten-second habit is the face: most Shihpoos inherit expressive Shih Tzu eyes that appreciate a quick wipe to prevent tear staining. Everything you need to start is in the kit, and we show you the routine on delivery day.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Shihpoo Health: What We Check Before You Take One Home" imageAlt="Shihpoo puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Shihpoo goes home vet-checked, vaccinated, dewormed, and microchipped. Cross-breed vigour helps, drawing from two long-lived parents, and the points worth knowing come from both sides: patellar luxation, the small-breed kneecap issue; eye care, from the Shih Tzu's prominent-eye inheritance, milder in the cross but worth the daily wipe; and dental crowding in smaller jaws, met with the day-one brushing habit.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Your Shihpoo's First Week at Home" imageAlt="Shihpoo puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Shihpoo explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and predictable. A fixed feeding routine, the toilet pads where we placed them, short gentle play, and the face-wipe habit starting now. Some night whimpering is normal adjustment.</p>
+    <p>Days 4 to 7: the routine sticks and the personality mix reveals itself, nap-lover, little student, or both. Book your free first lesson with an AVS-certified trainer this week; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Shihpoo falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one. Popular toy crosses like the Shihpoo are smuggled often, so check twice here."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Shihpoo FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Shihpoo" reserveMessage="Hi! I'd like to reserve a Shihpoo puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

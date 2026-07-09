@@ -11,6 +11,7 @@ interface Item {
   points?: string[]; // quick point-form facts shown on the card
   ctaLabel?: string; // when set, renders a "View Breed"-style button instead of the WhatsApp one
   tag?: string;
+  comingSoon?: boolean; // page not built yet: render a non-clickable "Coming soon" card (no link, no 404)
   gender?: 'Male' | 'Female';
   age?: string; // e.g. "2 months"
 }
@@ -49,7 +50,14 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
               </div>
             </div>
             {item.tag && (
-              <span class="absolute left-5 top-5 inline-flex items-center gap-1 rounded-full bg-[var(--color-coral-500)] px-2.5 py-1 text-xs font-bold text-white shadow-[0_3px_0_0_var(--color-coral-700)]">
+              <span
+                class:list={[
+                  'absolute left-5 top-5 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold text-white',
+                  item.comingSoon
+                    ? 'bg-[var(--color-lilac-900)] shadow-[0_3px_0_0_rgba(0,0,0,0.18)]'
+                    : 'bg-[var(--color-coral-500)] shadow-[0_3px_0_0_var(--color-coral-700)]',
+                ]}
+              >
                 <span class="inline-block h-1.5 w-1.5 rounded-full bg-white"></span>
                 {item.tag}
               </span>
@@ -96,7 +104,18 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
                 )}
               </div>
             )}
-            {item.ctaLabel ? (
+            {item.comingSoon ? (
+              <span
+                aria-label={`${item.title} — page coming soon`}
+                class="mt-auto inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius-btn,0.9rem)] border-2 border-dashed border-[var(--color-cream-300)] bg-[var(--color-cream-100)] px-5 py-3 text-sm font-bold text-[var(--color-cream-600)]"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v5l3 2" />
+                </svg>
+                Page coming soon
+              </span>
+            ) : item.ctaLabel ? (
               <a
                 href={item.href}
                 aria-label={`${item.ctaLabel}: ${item.title} — ${item.meta}`}

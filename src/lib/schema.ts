@@ -181,7 +181,7 @@ export function aggregateOfferSchema(opts: { priceLow: string; priceHigh: string
     priceCurrency: opts.priceCurrency,
     lowPrice: opts.priceLow,
     highPrice: opts.priceHigh,
-    offerCount: 11, // 11 breeds
+    offerCount: 41, // live breed count
   };
 }
 

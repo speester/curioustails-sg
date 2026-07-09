@@ -35,34 +35,271 @@ import shibaPortrait from '../../assets/shiba-inu/2-shiba-red-portrait.webp';
 import bichonpooPortrait from '../../assets/bichonpoo/2-bichonpoo-white-portrait.webp';
 import cockapooPortrait from '../../assets/cockapoo/2-cockapoo-apricot-portrait.webp';
 
-const title = 'Our Puppy Breeds | 11 Breeds, One Honest Match | Curious Tails';
+const title = 'Our Puppy Breeds | 40+ Breeds, One Honest Match | Curious Tails';
 const description =
-  'Cavapoo to Corgi: browse the 11 puppy breeds at Curious Tails Singapore, each $2,888 to $4,488 all-in. HDB status, lifestyle fit, and honest matching advice.';
+  'Cavapoo to Corgi: browse 40+ puppy breeds at Curious Tails Singapore, each $2,888 to $4,488 all-in. HDB status, lifestyle fit, and honest matching advice.';
 
-const breeds = [
-  { title: 'Cavapoo', href: '/puppies/cavapoo', imageSrc: cavapooPortrait, imageAlt: 'Cavapoo puppy, an HDB-approved independent companion breed in Singapore', meta: 'HDB-approved. The independent one: best pick for working couples.', tag: 'HDB ✓' },
-  { title: 'Maltipoo', href: '/puppies/maltipoo', imageSrc: maltipooPortrait, imageAlt: 'Maltipoo puppy, an HDB-approved companion breed that thrives on company', meta: 'HDB-approved. Affectionate and people-focused; happiest with company at home.', tag: 'HDB ✓' },
-  { title: 'Maltese', href: '/puppies/maltese', imageSrc: maltesePortrait, imageAlt: 'Maltese puppy, an HDB-approved silky white toy companion breed in Singapore', meta: 'HDB-approved. The classic white companion; silky low-shed coat, wants company.', tag: 'HDB ✓' },
-  { title: 'Mini Dachshund', href: '/puppies/mini-dachshund', imageSrc: dachshundPortrait, imageAlt: 'Cream long-haired Mini Dachshund puppy, an HDB-approved bold small hound in Singapore', meta: 'HDB-approved. Bold little hound; independent, with a proper watchdog bark.', tag: 'HDB ✓' },
-  { title: 'Cockapoo', href: '/puppies/cockapoo', imageSrc: cockapooPortrait, imageAlt: 'Cockapoo puppy, an HDB-approved family-friendly cross in Singapore', meta: 'HDB-approved. The family all-rounder; kindest pick for first-time owners.', tag: 'HDB ✓' },
-  { title: 'Bichonpoo', href: '/puppies/bichonpoo', imageSrc: bichonpooPortrait, imageAlt: 'Bichonpoo puppy, an HDB-approved low-shedding playful cross in Singapore', meta: 'HDB-approved. Low-shedding sunshine; wants people around during the day.', tag: 'HDB ✓' },
-  { title: 'Bichon Frise', href: '/puppies/bichon-frise', imageSrc: bichonFrisePortrait, imageAlt: 'Bichon Frise puppy, an HDB-approved cheerful white companion breed in Singapore', meta: 'HDB-approved. The cheerful white classic; low-shedding, loves company.', tag: 'HDB ✓' },
-  { title: 'Cavapoochon', href: '/puppies/cavapoochon', imageSrc: cavapoochonPortrait, imageAlt: 'Cavapoochon puppy, an HDB-friendly teddy-bear triple cross in Singapore', meta: 'HDB-friendly cross. Teddy-bear triple cross; the gentle family all-rounder.', tag: 'HDB ✓' },
-  { title: 'Chihuahua', href: '/puppies/chihuahua', imageSrc: chihuahuaPortrait, imageAlt: 'Chihuahua puppy, an HDB-approved tiny devoted companion breed in Singapore', meta: 'HDB-approved. Tiny devoted companion with a big-dog personality.', tag: 'HDB ✓' },
-  { title: 'Corgi', href: '/puppies/corgi', imageSrc: corgiPortrait, imageAlt: 'Corgi puppy, a herding breed for private housing in Singapore (not HDB-approved)', meta: 'NOT HDB-approved. Big personality, real energy; condos and landed homes.', tag: 'Private housing' },
-  { title: 'Shiba Inu', href: '/puppies/shiba-inu', imageSrc: shibaPortrait, imageAlt: 'Shiba Inu puppy, an independent breed for private housing in Singapore (not HDB-approved)', meta: 'NOT HDB-approved. Independent and cat-clean; condos and landed homes.', tag: 'Private housing' },
+// HDB-approved breeds and crosses — safe for flat living (one dog per flat).
+const hdbBreeds = [
+  {
+    title: 'Cavapoo', href: '/puppies/cavapoo', imageSrc: cavapooPortrait, imageAlt: 'Cavapoo puppy, an HDB-approved independent companion breed in Singapore',
+    meta: 'The independent one: best pick for working couples', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Gentle, easygoing temperament', 'Copes well alone during work hours', 'Low-shedding poodle-cross coat', 'HDB-approved cross'],
+  },
+  {
+    title: 'Maltipoo', href: '/puppies/maltipoo', imageSrc: maltipooPortrait, imageAlt: 'Maltipoo puppy, an HDB-approved companion breed that thrives on company',
+    meta: 'Affectionate and people-focused; wants company at home', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Affectionate and people-focused', 'Happiest with company at home', 'Low-shedding, easy-care coat', 'HDB-approved cross'],
+  },
+  {
+    title: 'Maltese', href: '/puppies/maltese', imageSrc: maltesePortrait, imageAlt: 'Maltese puppy, an HDB-approved silky white toy companion breed in Singapore',
+    meta: 'The classic white companion; silky, low-shed, loves company', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Gentle, devoted lap companion', 'Silky white, very low-shedding coat', 'Happiest with company at home', 'HDB-approved toy breed'],
+  },
+  {
+    title: 'Mini Dachshund', href: '/puppies/mini-dachshund', imageSrc: dachshundPortrait, imageAlt: 'Cream long-haired Mini Dachshund puppy, an HDB-approved bold small hound in Singapore',
+    meta: 'Bold little hound; independent, with a watchdog bark', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Bold, curious little explorer', 'Independent, with a proper watchdog bark', 'Short coat, minimal grooming', 'HDB-approved small breed'],
+  },
+  {
+    title: 'Cockapoo', href: '/puppies/cockapoo', imageSrc: cockapooPortrait, imageAlt: 'Cockapoo puppy, an HDB-approved family-friendly cross in Singapore',
+    meta: 'The family all-rounder; kindest pick for first-time owners', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Warm and sociable, great with kids', 'Adaptable to most daily routines', 'Low-shedding wavy coat', 'HDB-approved cross'],
+  },
+  {
+    title: 'Bichonpoo', href: '/puppies/bichonpoo', imageSrc: bichonpooPortrait, imageAlt: 'Bichonpoo puppy, an HDB-approved low-shedding playful cross in Singapore',
+    meta: 'Low-shedding sunshine; wants people around by day', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Playful, cheerful and gentle', 'Low-shedding, allergy-friendlier coat', 'Wants people around during the day', 'HDB-approved cross'],
+  },
+  {
+    title: 'Bichon Frise', href: '/puppies/bichon-frise', imageSrc: bichonFrisePortrait, imageAlt: 'Bichon Frise puppy, an HDB-approved cheerful white companion breed in Singapore',
+    meta: 'The cheerful white classic; low-shedding, loves company', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Famously cheerful and sociable', 'Curly, low-shedding double coat', 'Happiest with company at home', 'HDB-approved breed'],
+  },
+  {
+    title: 'Cavapoochon', href: '/puppies/cavapoochon', imageSrc: cavapoochonPortrait, imageAlt: 'Cavapoochon puppy, an HDB-friendly teddy-bear triple cross in Singapore',
+    meta: 'Teddy-bear triple cross; the gentle family all-rounder', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Gentle, adaptable family all-rounder', 'Keeps its teddy-bear puppy look', 'Low-shedding soft coat', 'HDB-approved triple cross'],
+  },
+  {
+    title: 'Chihuahua', href: '/puppies/chihuahua', imageSrc: chihuahuaPortrait, imageAlt: 'Chihuahua puppy, an HDB-approved tiny devoted companion breed in Singapore',
+    meta: 'Tiny devoted companion with a big-dog personality', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Devoted, alert lap companion', 'Big-dog personality, smallest body', 'Easiest grooming in our lineup', 'HDB-approved toy breed'],
+  },
+  {
+    title: 'Cavachon', href: '/puppies/cavachon', imageAlt: 'Cavachon puppy, an HDB-approved gentle teddy-bear cross in Singapore',
+    meta: 'Gentle teddy-bear cross of two approved breeds', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Gentle, sweet-natured cross', 'Sociable; loves being with family', 'Low-shedding wavy coat', 'HDB-approved cross'],
+  },
+  {
+    title: 'Havanese', href: '/puppies/havanese', imageAlt: 'Havanese puppy, an HDB-approved cheerful silky companion breed in Singapore',
+    meta: "Cuba's cheerful companion; a true velcro breed", tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Cheerful, affectionate companion', 'Bonds closely; wants company', 'Silky, low-shedding coat', 'HDB-approved breed'],
+  },
+  {
+    title: 'Coton de Tulear', href: '/puppies/coton-de-tulear', imageAlt: 'Coton de Tulear puppy, an HDB-approved cotton-coated companion breed in Singapore',
+    meta: 'The cotton-coated clown; rare, gentle, low-shed', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Clownish, affectionate and calm', 'Cotton-soft, low-shedding coat', 'Happiest in company', 'HDB-approved breed'],
+  },
+  {
+    title: 'Shihpoo', href: '/puppies/shihpoo', imageAlt: 'Shihpoo puppy, an HDB-approved low-shedding Shih Tzu cross in Singapore',
+    meta: 'Low-shedding Shih Tzu cross; easygoing companion', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Easygoing, affectionate cross', 'Low-shedding Shih Tzu × Poodle coat', 'Adaptable to flat living', 'HDB-approved cross'],
+  },
+  {
+    title: 'Toy Poodle', href: '/puppies/toy-poodle', imageAlt: 'Toy Poodle puppy, an HDB-approved smart low-shedding toy breed in Singapore',
+    meta: 'Smart, low-shedding, and endlessly trainable', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Bright and highly trainable', 'Low-shedding curly coat', 'Adaptable and eager to please', 'HDB-approved toy breed'],
+  },
+  {
+    title: 'Pomeranian', href: '/puppies/pomeranian', imageAlt: 'Pomeranian puppy, an HDB-approved bold toy spitz breed in Singapore',
+    meta: 'Bold toy spitz; big personality, fluffy coat', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Bold, lively little spitz', 'Confident, alert watchdog nature', 'Fluffy double coat, regular brushing', 'HDB-approved toy breed'],
+  },
+  {
+    title: 'Japanese Spitz', href: '/puppies/japanese-spitz', imageAlt: 'Japanese Spitz puppy, an HDB-approved white family spitz breed in Singapore',
+    meta: 'The white family spitz; Samoyed looks, HDB-legal', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Bright, loyal family dog', 'Samoyed looks at an HDB-legal size', 'White coat, surprisingly low-odour', 'HDB-approved breed'],
+  },
+  {
+    title: 'Shih Tzu', href: '/puppies/shih-tzu', imageAlt: 'Shih Tzu puppy, an HDB-approved easygoing palace companion breed in Singapore',
+    meta: 'Easygoing lap companion; calm and content indoors', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Easygoing palace companion', 'Low energy, content indoors', 'Flat-faced; needs cool, shaded days', 'HDB-approved breed'],
+  },
+  {
+    title: 'Pug', href: '/puppies/pug', imageAlt: 'Pug puppy, an HDB-approved comic companion breed in Singapore',
+    meta: 'The comic companion; sociable and low-exercise', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Comic, affectionate and sociable', 'Low exercise needs; loves a nap', 'Flat-faced; keep cool in the heat', 'HDB-approved breed'],
+  },
+  {
+    title: 'Yorkshire Terrier', href: '/puppies/yorkshire-terrier', imageAlt: 'Yorkshire Terrier puppy, an HDB-approved bold silky toy terrier in Singapore',
+    meta: 'Bold silky toy terrier; minimal shedding', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Bold, confident silky toy terrier', 'Minimal shedding, needs coat care', 'Alert little watchdog', 'HDB-approved toy breed'],
+  },
+  {
+    title: 'Silky Terrier', href: '/puppies/silky-terrier', imageAlt: 'Silky Terrier puppy, an HDB-approved lively silky terrier in Singapore',
+    meta: "The Yorkie's sturdier, lively cousin", tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Sturdier cousin of the Yorkie', 'Lively, curious and affectionate', 'Silky, low-shedding coat', 'HDB-approved breed'],
+  },
+  {
+    title: 'Miniature Schnauzer', href: '/puppies/miniature-schnauzer', imageAlt: 'Miniature Schnauzer puppy, an HDB-approved spirited low-shedding terrier in Singapore',
+    meta: 'Spirited, low-shedding family terrier', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Spirited, smart family terrier', 'Low-shedding wiry coat', 'Loyal and alert', 'HDB-approved breed'],
+  },
+  {
+    title: 'Miniature Pinscher', href: '/puppies/miniature-pinscher', imageAlt: 'Miniature Pinscher puppy, an HDB-approved fearless toy breed in Singapore',
+    meta: 'The fearless King of Toys; tiny but bold', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Fearless "King of Toys"', 'High energy in a tiny frame', 'Short coat, minimal grooming', 'HDB-approved toy breed'],
+  },
+  {
+    title: 'Papillon', href: '/puppies/papillon', imageAlt: 'Papillon puppy, an HDB-approved smart butterfly-eared toy breed in Singapore',
+    meta: 'Smartest toy breed; playful and easy-coated', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['One of the smartest toy breeds', 'Easy single coat, low grooming', 'Playful and trainable', 'HDB-approved toy breed'],
+  },
+  {
+    title: 'Pekingese', href: '/puppies/pekingese', imageAlt: 'Pekingese puppy, an HDB-approved dignified imperial companion breed in Singapore',
+    meta: 'Dignified imperial companion; very low-exercise', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Dignified, loyal companion', 'Lowest exercise needs in our lineup', 'Flat-faced; keep cool and shaded', 'HDB-approved breed'],
+  },
+  {
+    title: 'Japanese Chin', href: '/puppies/japanese-chin', imageAlt: 'Japanese Chin puppy, an HDB-approved cat-like toy companion breed in Singapore',
+    meta: 'Cat-like toy aristocrat; quiet and elegant', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Cat-like, quiet and independent', 'Elegant, affectionate lap dog', 'Silky coat; keep cool in heat', 'HDB-approved breed'],
+  },
+  {
+    title: 'Cavalier King Charles Spaniel', href: '/puppies/cavalier-king-charles-spaniel', imageAlt: 'Cavalier King Charles Spaniel puppy, an HDB-approved gentle toy spaniel in Singapore',
+    meta: 'The gentlest toy spaniel; wants company, not empty days', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['The gentlest toy spaniel', 'Sweet, affectionate, sociable', 'Not for long, empty days alone', 'HDB-approved breed'],
+  },
+  {
+    title: 'Jack Russell Terrier', href: '/puppies/jack-russell-terrier', imageAlt: 'Jack Russell Terrier puppy, an HDB-approved athletic working terrier in Singapore',
+    meta: 'Athletic working terrier; the high-energy approved pick', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Athletic, clever working terrier', 'Highest energy of our approved breeds', 'Needs real daily exercise', 'HDB-approved breed'],
+  },
+  {
+    title: 'Westie', href: '/puppies/westie', imageAlt: 'West Highland White Terrier puppy, an HDB-approved confident white terrier in Singapore',
+    meta: 'Confident white terrier; friendly and sturdy', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Confident Highland white terrier', 'Friendly, sturdy and lively', 'White coat needs skin care in humidity', 'HDB-approved breed'],
+  },
+  {
+    title: 'Scottish Terrier', href: '/puppies/scottish-terrier', imageAlt: 'Scottish Terrier puppy, an HDB-approved dignified independent terrier in Singapore',
+    meta: 'The dignified diehard; loyal and independent', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Dignified, independent "diehard"', 'Loyal but self-reliant', 'Low-shedding wiry coat', 'HDB-approved breed'],
+  },
+  {
+    title: 'Boston Terrier', href: '/puppies/boston-terrier', imageAlt: 'Boston Terrier puppy, an HDB-approved friendly American Gentleman breed in Singapore',
+    meta: 'The HDB-legal Frenchie alternative; friendly and neat', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Friendly "American Gentleman"', 'HDB-legal French Bulldog alternative', 'Short coat; keep cool (flat-faced)', 'HDB-approved breed'],
+  },
+  {
+    title: 'Italian Greyhound', href: '/puppies/italian-greyhound', imageAlt: 'Italian Greyhound puppy, the HDB-approved elegant sighthound breed in Singapore',
+    meta: 'Elegant HDB-approved sighthound; sweet and gentle', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Elegant, affectionate sighthound', 'The only HDB-approved sighthound', 'Fragile legs; careful in the first year', 'HDB-approved breed'],
+  },
+  {
+    title: 'Sheltie', href: '/puppies/sheltie', imageAlt: 'Shetland Sheepdog puppy, the HDB-approved herding breed in Singapore',
+    meta: 'HDB-legal herding genius; brilliant and trainable', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Brilliant, trainable herding genius', 'The only herding breed on the HDB list', 'Double coat; barky without training', 'HDB-approved breed'],
+  },
 ];
+
+// Not on the HDB-approved list — condos and landed homes only. `comingSoon` breeds have pages landing shortly.
+const privateBreeds = [
+  {
+    title: 'Corgi', href: '/puppies/corgi', imageSrc: corgiPortrait, imageAlt: 'Corgi puppy, a herding breed for private housing in Singapore (not HDB-approved)',
+    meta: 'Big personality, real energy; condos and landed homes', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Big character, active and alert', 'Needs daily exercise and play', 'Double coat, sheds regularly', 'Not HDB-approved — private housing'],
+  },
+  {
+    title: 'Shiba Inu', href: '/puppies/shiba-inu', imageSrc: shibaPortrait, imageAlt: 'Shiba Inu puppy, an independent breed for private housing in Singapore (not HDB-approved)',
+    meta: 'Independent and cat-clean; condos and landed homes', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Independent, calm, cat-like nature', 'Naturally clean and tidy habits', 'Suits owners who respect space', 'Not HDB-approved — private housing'],
+  },
+  {
+    title: 'French Bulldog', href: '/puppies/french-bulldog', imageAlt: 'French Bulldog puppy, a private-housing favourite breed in Singapore (not HDB-approved)',
+    meta: 'Private-housing favourite; charming but heat-sensitive', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Charming, low-exercise companion', 'Flat-faced; strict heat care needed', 'Boston Terrier is the HDB-legal cousin', 'Not HDB-approved — private housing'],
+  },
+  {
+    title: 'Golden Retriever', href: '/puppies/golden-retriever', imageAlt: 'Golden Retriever puppy, a family all-rounder breed for private housing in Singapore (not HDB-approved)',
+    meta: 'The family all-rounder; needs space and exercise', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['The classic family all-rounder', 'Gentle, trainable, sociable', 'Needs space and daily exercise', 'Not HDB-approved — private housing'],
+  },
+  {
+    title: 'Samoyed', href: '/puppies/samoyed', imageAlt: 'Samoyed puppy, a smiling Arctic breed for private housing in Singapore (not HDB-approved)',
+    meta: 'The smiling Arctic cloud; a coat-in-the-tropics commitment', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Smiling, friendly Arctic breed', 'Heavy coat; demanding in the tropics', 'Needs cool, active management', 'Not HDB-approved — private housing'],
+  },
+  {
+    title: 'Chow Chow', href: '/puppies/chow-chow', imageAlt: 'Chow Chow puppy, a lion-maned aloof breed for private housing in Singapore (not HDB-approved)',
+    meta: 'The lion-maned introvert; aloof and independent', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Aloof, dignified and independent', 'Lion-maned; not a cuddly breed', 'Heavy coat; needs heat management', 'Not HDB-approved — private housing'],
+  },
+  {
+    title: 'Siberian Husky', href: '/puppies/siberian-husky', imageAlt: 'Siberian Husky puppy, an Arctic athlete breed for private housing in Singapore (not HDB-approved)',
+    meta: 'Arctic athlete in the tropics; a serious commitment', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Athletic, vocal and social', 'High exercise needs, escape artist', 'Double coat; hard work in the heat', 'Not HDB-approved — private housing'],
+  },
+  {
+    title: 'Border Collie', href: '/puppies/border-collie', imageAlt: 'Border Collie puppy, the smartest working breed for private housing in Singapore (not HDB-approved)',
+    meta: "The world's smartest workaholic; needs a real job", tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ["The world's smartest breed", 'Relentless energy and drive', 'Needs a job and daily work', 'Not HDB-approved — private housing'],
+  },
+  {
+    title: 'Pomsky', href: '/puppies/pomsky', imageAlt: 'Pomsky puppy, a Husky-Pomeranian cross for private housing in Singapore (not HDB-approved)',
+    meta: 'Husky looks at half scale; energetic and vocal', tag: 'From $2,888', ctaLabel: 'View Breed',
+    points: ['Husky looks at half the scale', 'Playful, energetic and vocal', 'Size varies; double coat', 'Not HDB-approved — private housing'],
+  },
+  {
+    title: 'Beagle', href: '/puppies/beagle', imageAlt: 'Beagle puppy, a merry scent hound for private housing in Singapore (not HDB-approved)',
+    meta: 'The merry nose on legs; friendly and food-driven', tag: 'Coming soon', comingSoon: true,
+    points: ['Merry, friendly scent hound', 'Food-motivated and vocal', 'Needs daily exercise', 'Not HDB-approved — private housing'],
+  },
+  {
+    title: 'Cocker Spaniel', href: '/puppies/cocker-spaniel', imageAlt: 'Cocker Spaniel puppy, a merry medium spaniel for private housing in Singapore (not HDB-approved)',
+    meta: 'Merry medium spaniel; sociable and silky-coated', tag: 'Coming soon', comingSoon: true,
+    points: ['Merry, affectionate medium spaniel', 'Silky coat; needs regular ear care', 'Sociable and active', 'Not HDB-approved — private housing'],
+  },
+  {
+    title: 'English Bulldog', href: '/puppies/english-bulldog', imageAlt: 'English Bulldog puppy, a gentle heavyweight breed for private housing in Singapore (not HDB-approved)',
+    meta: 'The gentle heavyweight; strict heat care needed', tag: 'Coming soon', comingSoon: true,
+    points: ['Gentle, calm heavyweight', 'Flat-faced; the strictest heat care', 'Low exercise, big personality', 'Not HDB-approved — private housing'],
+  },
+  {
+    title: 'German Shepherd', href: '/puppies/german-shepherd', imageAlt: 'German Shepherd puppy, a loyal working guardian breed for private housing in Singapore (not HDB-approved)',
+    meta: 'Loyal working guardian; a scheduled breed', tag: 'Coming soon', comingSoon: true,
+    points: ['Loyal, intelligent working guardian', 'Needs training, space and exercise', 'Scheduled breed; extra rules apply', 'Not HDB-approved — private housing'],
+  },
+  {
+    title: 'Goldendoodle', href: '/puppies/goldendoodle', imageAlt: 'Goldendoodle puppy, a low-shedding golden cross for private housing in Singapore (not HDB-approved)',
+    meta: 'Golden warmth with a low-shed coat; big and friendly', tag: 'Coming soon', comingSoon: true,
+    points: ['Golden warmth, low-shed coat', 'Friendly, trainable and sociable', 'Big dog; needs space', 'Not HDB-approved — private housing'],
+  },
+  {
+    title: 'Labradoodle', href: '/puppies/labradoodle', imageAlt: 'Labradoodle puppy, the original doodle cross for private housing in Singapore (not HDB-approved)',
+    meta: 'The original doodle; sociable and low-shedding', tag: 'Coming soon', comingSoon: true,
+    points: ['The original doodle cross', 'Sociable, active and trainable', 'Low-shedding coat; needs space', 'Not HDB-approved — private housing'],
+  },
+  {
+    title: 'Whippet', href: '/puppies/whippet', imageAlt: 'Whippet puppy, a gentle sighthound for private housing in Singapore (not HDB-approved)',
+    meta: 'The gentle sprinter; calm indoors, fast outdoors', tag: 'Coming soon', comingSoon: true,
+    points: ['Gentle, quiet sighthound', 'Calm indoors, a sprinter outdoors', 'Short coat, minimal grooming', 'Not HDB-approved — private housing'],
+  },
+];
+
+const breeds = [...hdbBreeds, ...privateBreeds];
+const liveBreeds = breeds.filter((b) => !b.comingSoon);
 
 const faqItems = [
   {
     question: 'Which breeds does Curious Tails carry?',
     answer:
-      'Eleven: Cavapoo, Maltipoo, Maltese, Mini Dachshund, Cockapoo, Bichonpoo, Bichon Frise, Cavapoochon, Chihuahua, Corgi, and Shiba Inu. All sit in the same published price range of $2,888 to $4,488, with the $500+ starter kit, free delivery and setup, and a free training lesson included.',
+      'Over forty, with more arriving regularly. The range spans HDB-approved companions like the Cavapoo, Maltipoo, Maltese, Bichon Frise, Pomeranian, Shih Tzu, Pug and Cavalier King Charles Spaniel, through to private-housing breeds like the Corgi, Shiba Inu, French Bulldog, Golden Retriever and Siberian Husky. All sit in the same published price range of $2,888 to $4,488, with the $500+ starter kit, free delivery and setup, and a free training lesson included.',
   },
   {
     question: 'Which of your breeds are HDB-approved?',
     answer:
-      'Cavapoo, Maltipoo, Maltese, Mini Dachshund, Cockapoo, Bichonpoo, Bichon Frise, Cavapoochon, and Chihuahua: yes. Corgi and Shiba Inu: no, they are not on the HDB-approved list and suit condos and landed homes only. We flag this on every breed card because finding out after falling in love is the worst order of operations.',
+      'Most of them. The great majority of our breeds are HDB-approved companions and crosses, from the Cavapoo, Maltese and Bichon Frise to the Pug, Pomeranian, Shih Tzu and Cavalier King Charles Spaniel. A smaller group, including the Corgi, Shiba Inu, French Bulldog, Golden Retriever, Samoyed, Chow Chow and Siberian Husky, are not on the HDB-approved list and suit condos and landed homes only. We flag this on every breed card because finding out after falling in love is the worst order of operations.',
   },
   {
     question: 'Which breed suits a working couple best?',
@@ -72,7 +309,7 @@ const faqItems = [
   {
     question: 'Do all breeds cost the same?',
     answer:
-      'All eleven sit inside the same published range, $2,888 to $4,488 all-in. The exact figure for an individual puppy depends on its coat, colour, and age, which is why we quote per puppy on WhatsApp.',
+      'Every breed sits inside the same published range, $2,888 to $4,488 all-in. The exact figure for an individual puppy depends on its coat, colour, and age, which is why we quote per puppy on WhatsApp.',
   },
   {
     question: 'Can you help us choose between breeds?',
@@ -98,7 +335,7 @@ const schemas = [
     datePublished: '2026-07-06',
     dateModified: new Date().toISOString().split('T')[0],
   }),
-  itemListSchema(breeds.map((b) => ({
+  itemListSchema(liveBreeds.map((b) => ({
     name: `${b.title} puppy`,
     url: b.href,
     description: b.meta,
@@ -113,18 +350,18 @@ const schemas = [
     eyebrow="AVS Licensed Pet Shop in Balestier"
     h1="Cavapoo to Corgi: Choose Your Perfect Puppy"
     h1Accent="Perfect Puppy"
-    subhead="Eleven breeds, one published price range of $2,888 to $4,488 all-in, and one rule that never changes: we match the breed to your routine, not to the photo you fell for. HDB status is flagged on every card below."
+    subhead="Over forty breeds, one published price range of $2,888 to $4,488 all-in, and one rule that never changes: we match the breed to your routine, not to the photo you fell for. HDB status is flagged on every card below."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'm choosing between breeds. Here's my routine and housing type:"
-    secondaryCtaLabel="Browse the 11 breeds"
+    secondaryCtaLabel="Browse all breeds"
     secondaryCtaHref="#breeds"
     priceAnchor="Every breed: $2,888 to $4,488, kit, delivery and training included."
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
-    imageAlt="Puppy breeds Singapore: Cavapoo puppy in a set-up playpen, one of eleven breeds at Curious Tails"
+    imageAlt="Puppy breeds Singapore: Cavapoo puppy in a set-up playpen, one of the breeds at Curious Tails"
     imageSrc={heroCavapoo}
-    tagLabel="11 breeds"
+    tagLabel="40+ breeds"
     proofChip="5.0 on Google"
   >
     <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }]} />
@@ -162,10 +399,16 @@ const schemas = [
 
   <div id="breeds" class="scroll-mt-40">
     <ListingGrid
-      heading="The Eleven Breeds We Carry"
-      headingAccent="Eleven Breeds"
-      subhead="Every card links to the full honest profile: temperament, real prices, HDB rules, and the parts other listings leave out."
-      items={breeds}
+      heading="HDB-Approved Breeds for Flat Living"
+      headingAccent="HDB-Approved"
+      subhead="Approved for HDB flats, one dog per flat. Every card links to the full honest profile: temperament, real prices, HDB rules, and the parts other listings leave out."
+      items={hdbBreeds}
+    />
+    <ListingGrid
+      heading="Private Housing Breeds: Condo & Landed"
+      headingAccent="Private Housing"
+      subhead="Not on the HDB-approved list, so these suit condos and landed homes only. We flag it plainly, because finding out after you have fallen for a puppy is the worst order of operations. More breeds are landing soon."
+      items={privateBreeds}
       footerCtaLabel="Not sure which fits? Take the 2-minute quiz"
       footerCtaHref="/first-time-owners/breed-selector"
     />
@@ -175,7 +418,7 @@ const schemas = [
   <StatStrip
     heading="Same promise, whichever breed"
     stats={[
-      { value: '11', label: 'breeds, honestly matched' },
+      { value: '40+', label: 'breeds, honestly matched' },
       { value: '$2,888', label: 'every breed starts here, all-in' },
       { value: '$500+', label: 'starter kit with every puppy' },
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
@@ -203,7 +446,7 @@ const schemas = [
     <ComparisonSplit
       heading="HDB Quick Check"
       headingAccent="Quick Check"
-      subhead="The rule we flag before anything else."
+      subhead="A sample of the rule we flag before anything else. Every breed card above carries its own HDB status too."
       mode="table"
       tableHeaders={['Breed', 'HDB flat']}
       rows={[
@@ -275,7 +518,7 @@ const schemas = [
 
   <FinalCta
     breed="Puppy"
-    heading="Meet All Eleven at Balestier"
+    heading="Meet Our Breeds at Balestier"
     body="Can't make the trip? WhatsApp us which breeds you're considering and we'll send current photos and prices for each."
     reserveMessage="Hi! I'd like to ask about your available puppies across breeds."
   />

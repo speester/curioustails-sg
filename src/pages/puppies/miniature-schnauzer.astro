@@ -1,0 +1,537 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Miniature Schnauzer Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Miniature Schnauzer puppies for sale in Singapore from $2,888, AVS licensed and HDB-approved. Real prices, temperament, coat care and the $500+ starter kit included.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Miniature Schnauzer cost in Singapore?',
+    answer:
+      'Miniature Schnauzer prices in Singapore commonly run from around $2,500 to $5,500 depending on colour and shop. At Curious Tails, Miniature Schnauzer puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Miniature Schnauzer HDB-approved?',
+    answer:
+      'Yes. The Miniature Schnauzer is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and we complete the dog licensing for you at purchase, so the paperwork is handled.',
+  },
+  {
+    question: 'Do Miniature Schnauzers shed? Are they good for allergies?',
+    answer:
+      'The Miniature Schnauzer is one of the classic low-shedding breeds: the wiry double coat holds its hair rather than dropping it around the flat. That makes it a strong pick for allergy-sensitive homes. No dog is truly allergen-free, so if allergies are severe, spend time with one at our Balestier shop before deciding.',
+  },
+  {
+    question: 'Can a Miniature Schnauzer be left alone while we are at work?',
+    answer:
+      'Moderately well with a settled routine and real exercise around the workday. Schnauzers are confident and self-assured rather than clingy, but they are also alert watchdogs, and a bored one narrates the corridor to your neighbours. A proper morning walk, chew work for the day, and early training on the voice make a working household very workable.',
+  },
+  {
+    question: 'Are Miniature Schnauzers good with children?',
+    answer:
+      'Yes, and better than most small breeds. At 5 to 9 kg the Mini Schnauzer is sturdy, playful, and up for the energy children bring. It also has real terrier spirit, so the free first training lesson matters: a Schnauzer that learns manners early is a superb family dog.',
+  },
+  {
+    question: 'Do Miniature Schnauzers bark a lot?',
+    answer:
+      'They are born watchdogs, so untrained, yes: doors, lifts and delivery riders all get announced. The fix is early, consistent training and enough physical and mental exercise; a tired, well-taught Schnauzer saves the commentary for things that matter. We set that up in the free first lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'What happens after I reserve a Miniature Schnauzer?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/miniature-schnauzer',
+    title,
+    description,
+    aboutName: 'Miniature Schnauzer',
+    aboutAlternateName: 'Mini Schnauzer',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Miniature_Schnauzer',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Miniature Schnauzer puppy',
+      url: '/puppies/miniature-schnauzer',
+      description:
+        'Miniature Schnauzer puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Miniature Schnauzer Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Miniature Schnauzer puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Miniature Schnauzer',
+    description:
+      'The Miniature Schnauzer is a small terrier-type breed of roughly 5 to 9 kg with a wiry, low-shedding double coat, trademark beard and eyebrows, and a spirited, alert temperament. Lifespan is typically 12 to 15 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Miniature_Schnauzer',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/miniature-schnauzer">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Miniature Schnauzer Puppies for Sale in Singapore"
+    h1Accent="Miniature Schnauzer"
+    subhead="Miniature Schnauzer prices in Singapore commonly run $2,500 to $5,500. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Miniature Schnauzer puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-approved. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved small breed']}
+    imageAlt="Salt and pepper Miniature Schnauzer puppy sitting in a set-up playpen at a Balestier home"
+    tagLabel="Mini Schnauzer"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Miniature Schnauzer', href: '/puppies/miniature-schnauzer' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Miniature Schnauzer in Singapore?" imageAlt="Salt and pepper Miniature Schnauzer puppy portrait, one of the Mini Schnauzer puppies available in Singapore" variant="mid">
+      <p>Our Miniature Schnauzer puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Mini Schnauzer puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Miniature Schnauzer for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Miniature Schnauzer puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Mini Schnauzer photos and prices</a>, or meet our Miniature Schnauzer puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Miniature Schnauzer Puppies"
+      headingAccent="Available"
+      subhead="A few of the Mini Schnauzer puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Salt & pepper boy', href: whatsappLink('Hi! I\'d like more photos and the price for the salt and pepper male Miniature Schnauzer puppy.'), imageAlt: 'Salt and pepper male Miniature Schnauzer puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Black & silver girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and silver female Miniature Schnauzer puppy.'), imageAlt: 'Black and silver female Miniature Schnauzer puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Solid black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the solid black male Miniature Schnauzer puppy.'), imageAlt: 'Solid black male Miniature Schnauzer puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'White girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white female Miniature Schnauzer puppy.'), imageAlt: 'White female Miniature Schnauzer puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Salt & pepper girl', href: whatsappLink('Hi! I\'d like more photos and the price for the salt and pepper female Miniature Schnauzer puppy.'), imageAlt: 'Salt and pepper female Miniature Schnauzer puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Black & silver boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and silver male Miniature Schnauzer puppy.'), imageAlt: 'Black and silver male Miniature Schnauzer puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Miniature Schnauzer?"
+      definition="The Miniature Schnauzer is a small German terrier-type breed of roughly 5 to 9 kg, bred down from the Standard Schnauzer for farm ratting work. It wears a wiry, low-shedding double coat with the trademark beard and eyebrows, and carries a spirited, alert, people-loving temperament with a lifespan of 12 to 15 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Mini Schnauzer suits active families who want a sturdy, low-shedding small dog with proper personality."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Mini Schnauzer at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Sturdy small dog: roughly 5 to 9 kg',
+            'Wiry, low-shedding double coat',
+            'The famous beard and eyebrows',
+            'Spirited, alert, great with kids',
+            '12 to 15 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Sizes vary by line; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Mini Schnauzer from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Mini Schnauzer pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Miniature Schnauzer Temperament: Terrier Fire, Family Heart" imageAlt="Miniature Schnauzer puppy playing fetch in a living room" imagePosition="left">
+      <p>The Mini Schnauzer was bred to clear rats off German farms, and it kept the job's personality: brave, busy, endlessly curious, and convinced it's supervising the household. Unlike many terriers, though, it was also bred to work alongside the family, so all that fire comes wrapped in genuine affection. This is a dog that plays hard with the kids, then falls asleep against your leg.</p>
+      <p>The honest part, from two years of matching puppies to families: a Schnauzer needs its energy spent, both legs and brain. Forty-five minutes of proper walking a day plus games at home keeps the spirit charming; skip it and the watchdog instinct fills the vacuum with commentary. The chase instinct is real too; this is a leash-first breed around birds and cats.</p>
+      <p>For a mellower small family dog with similar low shedding, compare the <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a>; for the same spirit in a softer coat, the <a href="/puppies/bichonpoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Bichonpoo</a>.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Miniature Schnauzer Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Moderately well, and better than the clingy companion breeds. Schnauzers are confident, self-contained dogs; solitude itself doesn't distress them the way it does a Maltipoo. The formula for a working household: a real walk before you leave, chew work or a puzzle feeder for the day, and another proper outing in the evening.</p>
+      <p>The failure mode isn't anxiety, it's boredom with a voice attached. If your weekday can't fit the morning walk, the calmer <a href="/puppies/shih-tzu" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shih Tzu</a> or the independent <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> will thank you for it.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Active family that walks daily, rain or shine',
+            'You want low-shedding with real personality',
+            'Kids at home; this breed is sturdy enough',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Miniature Schnauzer Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for the sturdiest low-shedding small breed we carry."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 5 to 9 kg; solid and square-built for its size'] },
+        { label: 'Height', values: ['Around 30 to 36 cm at the shoulder'] },
+        { label: 'Coat', values: ['Wiry, low-shedding double coat; salt & pepper is classic, plus black & silver, solid black and white'] },
+        { label: 'Lifespan', values: ['12 to 15 years with good care'] },
+        { label: 'Exercise', values: ['About 45 to 60 minutes a day, plus games; more than the lapdog breeds, honestly'] },
+        { label: 'Shedding & allergies', values: ['Very low-shedding; one of the classic picks for allergy-sensitive homes'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The Mini Schnauzer occupies a useful middle: bigger and sturdier than the toy breeds, still comfortably flat-sized. If 5 to 9 kg with daily walks sounds like more dog than your week allows, the <a href="/puppies/maltipoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Maltipoo</a> covers the low-shedding brief at half the exercise budget.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Miniature Schnauzer Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Mini Schnauzer price commonly $2,500 to $5,500',
+            'Price usually not published; enquiry required',
+            'Rare colours priced at a premium',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Mini Schnauzer Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Miniature Schnauzer leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the harness and leash earn their keep first, because a Schnauzer's day is built around its walks, and the measured feeding cup matters more than you'd think; see the diet note below.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Mini Schnauzer's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Miniature Schnauzer Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Mini Schnauzer."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Active family with children', values: ['Ideal. Sturdy, playful, and loves being part of the action'] },
+        { label: 'Allergy-sensitive household', values: ['Great fit. The wiry coat is one of the classic low-shedding options'] },
+        { label: 'Working household that walks mornings and evenings', values: ['Good fit. Confident alone once exercised; the walks are the contract'] },
+        { label: 'You want a quiet, low-key lapdog', values: ['Reconsider. This is a spirited watchdog with opinions; the Shih Tzu is the calmer pick'] },
+        { label: 'Sedentary routine, minimal walks', values: ['Reconsider. Unspent Schnauzer energy converts directly into barking and mischief'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Mini Schnauzer is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Miniature Schnauzer the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Mini Schnauzer vs Westie: Which Spirited Small Dog?" imagePosition="none" variant="dark">
+    <p>Two sturdy, low-shedding terrier-type breeds with proper personalities, which is why buyers cross-shop them. The honest differences: the Mini Schnauzer is a touch bigger, more biddable in training, and comes in four colours; the Westie is the more classically stubborn, independent terrier under that white coat, with a slightly lower exercise floor.</p>
+    <p>Both announce visitors, both need their walks, and both are far sturdier around children than any toy breed. With us the price, the starter kit, and the aftercare are identical either way.</p>
+    <p>Weighing the two? See our <a href="/puppies/westie" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Westie puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Mini Schnauzer: 5 to 9 kg, more trainable, four colours',
+          'Westie: 6 to 9 kg, true terrier independence, always white',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Miniature Schnauzer in an HDB flat"
+      definition="The Miniature Schnauzer is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and the Mini Schnauzer sits comfortably inside the small-breed rules. Every Mini Schnauzer we place has its dog licensing completed at purchase, so the paperwork is handled for you."
+      bridge="Is a Miniature Schnauzer HDB-approved? Yes, by name on the list, and it has been one of Singapore's most popular HDB breeds for decades. Just mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Miniature Schnauzer is named on the HDB-approved breed list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: The Wiry Coat and the Famous Beard" imageAlt="Miniature Schnauzer puppy having its beard combed during grooming" imagePosition="left">
+      <p>The Schnauzer coat is low-shedding but not low-maintenance. Plan on brushing 2 to 3 times a week, a clip at the groomer every 4 to 6 weeks to keep the pet coat tidy, and, the part nobody warns you about, daily beard duty. That handsome beard collects water, food and adventure, and a quick comb and wipe after meals keeps it from smelling like everything it's been dipped in.</p>
+      <p>In our humidity, keep the body coat clipped short and the furnishings (legs and beard) combed through so they never mat. The grooming tools to start are all in your starter kit, and we'll show you the beard routine on delivery day.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Miniature Schnauzer Health: What We Check Before You Take One Home" imageAlt="Miniature Schnauzer puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Miniature Schnauzer goes home vet-checked, vaccinated, dewormed, and microchipped. The Schnauzer health points worth knowing: the breed handles dietary fat poorly, with pancreatitis and high blood fats (hyperlipidaemia) its best-known risks, so the feeding rules below are genuinely important; bladder stones occur more often than in most breeds, and generous fresh water every day is the cheap insurance; and eye conditions such as cataracts appear in some lines, worth a look at any adult dog's eyes you're shown.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. For portioning guidance see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div class="scroll-mt-40">
+    <CaptionedBlock heading="The Schnauzer Diet Rule: Boring Food Is a Feature" imagePosition="none" variant="card">
+      <p>If you remember one breed-specific fact from this page, make it this: Miniature Schnauzers and fatty food don't mix. The breed is unusually prone to pancreatitis, a painful and dangerous inflammation usually triggered by rich, oily meals, the char siu end of the dinner table, festive leftovers, anything fried.</p>
+      <p>The rule in practice: measured portions of its regular food, treats under ten percent of the day's intake, and a family agreement that nobody feeds from the table, however good the beard-and-eyebrows begging performance is. It is a genuinely excellent performance. Hold the line anyway.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Feeding rules</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'No fatty or oily human food, ever',
+            'Measured meals with the kit\'s feeding cup',
+            'Fresh water always, to protect against bladder stones',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+
+    <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+  </div>
+
+  <CaptionedBlock heading="Your Mini Schnauzer's First Week at Home" imageAlt="Miniature Schnauzer puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Schnauzer explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and predictable. A fixed feeding routine, the toilet pads where we placed them, and short, gentle play. Some night whimpering is normal adjustment, and this confident breed usually settles quickly.</p>
+    <p>Days 4 to 7: the routine sticks, and the personality arrives on schedule. Book your free first lesson with an AVS-certified trainer this week; early manners are what separate a charming Schnauzer from a loud one. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>. For anything in between, you WhatsApp us.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+          name: 'Andrew Mak',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Mini Schnauzer falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one. Popular small breeds like the Mini Schnauzer are smuggled often, so check twice here."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Miniature Schnauzer FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Miniature Schnauzer" reserveMessage="Hi! I'd like to reserve a Miniature Schnauzer puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

@@ -1,0 +1,511 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Japanese Spitz Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Japanese Spitz puppies for sale in Singapore from $2,888, AVS licensed and HDB-approved. Real prices, temperament, white coat care and the $500+ starter kit included.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Japanese Spitz cost in Singapore?',
+    answer:
+      'Japanese Spitz prices in Singapore commonly run from around $2,500 to $5,000 depending on shop and line. At Curious Tails, Japanese Spitz puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Japanese Spitz HDB-approved?',
+    answer:
+      'Yes. The Japanese Spitz is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and we complete the dog licensing for you at purchase, so the paperwork is handled.',
+  },
+  {
+    question: 'Is a Japanese Spitz just a small Samoyed?',
+    answer:
+      'They are different breeds, though the resemblance is real and the Japanese Spitz was developed partly from white spitz stock. The practical differences matter in Singapore: the Japanese Spitz is 5 to 9 kg and HDB-approved; the Samoyed is 16 to 30 kg, carries far more coat for our climate, and is not on the HDB list. If you love the look and live in a flat, this is the breed the rules point you to.',
+  },
+  {
+    question: 'Can a Japanese Spitz be left alone while we are at work?',
+    answer:
+      'Moderately well. Japanese Spitz are devoted family dogs but carry a sensible, self-possessed streak, and with a safe playpen, a proper morning walk, and a settled routine, most handle a working household. They are alert watchdogs by nature, so early training on the voice keeps corridor announcements within HDB-friendly limits.',
+  },
+  {
+    question: 'Does the white coat stay white in Singapore? Is it hard to keep clean?',
+    answer:
+      'Easier than it looks, genuinely. The Japanese Spitz coat has a texture that dirt struggles to cling to; mud dries and brushes out, and the breed keeps itself surprisingly clean, more like a cat than you\'d expect. The real work is shedding: brush 2 to 3 times a week, more during coat blows, and accept white hair as a household seasoning.',
+  },
+  {
+    question: 'Are Japanese Spitz good with children?',
+    answer:
+      'One of the best small-to-medium family breeds, yes. At 5 to 9 kg it is sturdy enough for family play, and the breed temperament is cheerful, patient and devoted. As with any puppy, supervise young children and teach gentle handling from day one.',
+  },
+  {
+    question: 'What happens after I reserve a Japanese Spitz?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/japanese-spitz',
+    title,
+    description,
+    aboutName: 'Japanese Spitz',
+    aboutAlternateName: 'Japanese Spitz dog',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Japanese_Spitz',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Japanese Spitz puppy',
+      url: '/puppies/japanese-spitz',
+      description:
+        'Japanese Spitz puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Japanese Spitz Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Japanese Spitz puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Japanese Spitz',
+    description:
+      'The Japanese Spitz is a small-to-medium companion breed of roughly 5 to 9 kg with a pure-white double coat, fox-like face and plumed tail. It is cheerful, devoted and notably healthy, with a lifespan of 12 to 16 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Japanese_Spitz',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/japanese-spitz">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Japanese Spitz Puppies for Sale in Singapore"
+    h1Accent="Japanese Spitz"
+    subhead="Japanese Spitz prices in Singapore commonly run $2,500 to $5,000. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Japanese Spitz puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-approved. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved family breed']}
+    imageAlt="White Japanese Spitz puppy sitting in a set-up playpen at a Balestier home"
+    tagLabel="Japanese Spitz"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Japanese Spitz', href: '/puppies/japanese-spitz' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Japanese Spitz in Singapore?" imageAlt="White Japanese Spitz puppy portrait, one of the Japanese Spitz puppies available in Singapore" variant="mid">
+      <p>Our Japanese Spitz puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Japanese Spitz puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Japanese Spitz for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Japanese Spitz puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Japanese Spitz photos and prices</a>, or meet our Japanese Spitz puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Japanese Spitz Puppies"
+      headingAccent="Available"
+      subhead="A few of the Japanese Spitz puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Snow-white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the male Japanese Spitz puppy.'), imageAlt: 'White male Japanese Spitz puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Snow-white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the female Japanese Spitz puppy.'), imageAlt: 'White female Japanese Spitz puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Fluffy boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fluffy male Japanese Spitz puppy.'), imageAlt: 'Fluffy male Japanese Spitz puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Petite girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite female Japanese Spitz puppy.'), imageAlt: 'Petite female Japanese Spitz puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Plush-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the plush-coat male Japanese Spitz puppy.'), imageAlt: 'Plush-coat male Japanese Spitz puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Smiley girl', href: whatsappLink('Hi! I\'d like more photos and the price for the smiley female Japanese Spitz puppy.'), imageAlt: 'Smiley female Japanese Spitz puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Japanese Spitz?"
+      definition="The Japanese Spitz is a small-to-medium companion breed of roughly 5 to 9 kg, developed in Japan in the early 20th century from white spitz stock. It carries a pure-white double coat, a fox-like smiling face and a plumed tail, with a cheerful, devoted temperament and a lifespan of 12 to 16 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Japanese Spitz is the answer to a very Singapore question: you love the Samoyed look, but you live in an HDB flat."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Japanese Spitz at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Pure-white double coat, fox-like smile',
+            'Roughly 5 to 9 kg fully grown',
+            'Cheerful, devoted, sturdy with kids',
+            'Notably healthy breed overall',
+            '12 to 16 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Sizes vary by line; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Japanese Spitz from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Japanese Spitz pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Japanese Spitz Temperament: The Cheerful All-Rounder" imageAlt="Japanese Spitz puppy playing with a family in the living room" imagePosition="left">
+      <p>The Japanese Spitz was bred to be exactly one thing: an ideal family companion, and a century of selection shows. This is a cheerful, devoted, genuinely funny dog that adores its household, plays as long as the children can, and settles beside whoever sits down first. Owners describe the breed's grin as permanent, and they're not wrong.</p>
+      <p>The honest parts, from two years of matching puppies to families: there's a brief reserve with strangers, which good early socialisation turns into polite curiosity rather than suspicion, and there's a proper spitz voice: doorbells and corridor sounds get announced until you teach otherwise. Both are standard puppy homework, and the free first training lesson with an AVS-certified trainer covers exactly that.</p>
+      <p>If you're comparing cheerful family dogs, the <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a> is the low-shedding alternative; the Japanese Spitz wins on looks and sturdiness but sheds honestly.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Japanese Spitz Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Moderately well. This breed is devoted without being needy: with a real walk before you leave, a safe playpen, and a settled routine, most Japanese Spitz mature into calm weekday nappers. They save the celebration for your key in the door.</p>
+      <p>The two conditions: exercise actually has to happen, morning and evening, and the voice needs early training, because a bored spitz shares its opinions with the whole corridor. If your weekday can't fit the walks, the <a href="/puppies/shih-tzu" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shih Tzu</a> asks far less of your mornings.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Family that wants a playful, sturdy companion',
+            'You\'ll walk twice daily, rain or shine',
+            'You love the fluffy white look and accept shedding',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Japanese Spitz Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for the snow-fox of the HDB-approved list."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 5 to 9 kg; small-to-medium and sturdily built'] },
+        { label: 'Height', values: ['Around 30 to 38 cm at the shoulder'] },
+        { label: 'Coat', values: ['Pure white double coat with a mane-like ruff; no other colours exist in the breed'] },
+        { label: 'Lifespan', values: ['12 to 16 years; a notably healthy, long-lived breed'] },
+        { label: 'Exercise', values: ['About 30 to 60 minutes a day, plus play; enjoys a proper outing'] },
+        { label: 'Shedding & allergies', values: ['Sheds year-round with seasonal coat blows; not the pick for allergy-sensitive homes'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The 5 to 9 kg range is the practical sweet spot: sturdy enough for children, small enough for any flat, and comfortably inside HDB's small-breed expectations. If you want the same white fluff in handbag size, that's the <a href="/puppies/pomeranian" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Pomeranian</a>; low-shedding white instead, the <a href="/puppies/bichon-frise" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Bichon Frise</a>.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Japanese Spitz Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Japanese Spitz price commonly $2,500 to $5,000',
+            'Price usually not published; enquiry required',
+            'Availability often limited; waitlists common',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Japanese Spitz Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Japanese Spitz leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the brush is the star of the kit; a good weekly routine with it decides how much white hair joins your laundry.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Japanese Spitz's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Japanese Spitz Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Japanese Spitz."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Family with children wanting a playful, sturdy dog', values: ['Ideal. This is the breed\'s whole design brief, executed well'] },
+        { label: 'You love the Samoyed look but live in an HDB flat', values: ['Ideal. Same aesthetic, HDB-approved size, fraction of the coat burden'] },
+        { label: 'Working household that walks mornings and evenings', values: ['Good fit. Devoted without being needy, once the routine settles'] },
+        { label: 'Allergy-sensitive household', values: ['Reconsider. This coat sheds honestly; a Bichon Frise or Toy Poodle is the better pick'] },
+        { label: 'You want a silent dog', values: ['Reconsider. Spitz breeds announce; training moderates it but won\'t erase it'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Japanese Spitz is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Japanese Spitz the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Japanese Spitz vs Samoyed: The Question We Hear Weekly" imagePosition="none" variant="dark">
+    <p>Yes, they look like the same dog at two zoom levels, and no, they aren't interchangeable in Singapore. The Japanese Spitz is 5 to 9 kg, HDB-approved, and carries a coat that our climate merely inconveniences. The Samoyed is 16 to 30 kg, bred for Arctic sledging, not on the HDB-approved list, and its coat is a serious full-time commitment at one degree north of the equator.</p>
+    <p>We carry both, and we'll be blunt about the match: for HDB families the Japanese Spitz isn't the compromise, it's the correct answer. For private housing with real space, aircon and grooming budget, the Samoyed conversation is worth having properly.</p>
+    <p>Weighing the two? See our <a href="/puppies/samoyed" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Samoyed puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Japanese Spitz: 5 to 9 kg, HDB-approved, manageable coat',
+          'Samoyed: 16 to 30 kg, private housing only, serious coat work',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Japanese Spitz in an HDB flat"
+      definition="The Japanese Spitz is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and the Japanese Spitz sits comfortably inside those rules. Every Japanese Spitz we place has its dog licensing completed at purchase, so the paperwork is handled for you."
+      bridge="Is a Japanese Spitz HDB-approved? Yes, by name on the list, which is precisely why we point Samoyed-lovers in flats to this breed. Just mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Japanese Spitz is named on the HDB-approved breed list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: The Self-Cleaning White Coat (Mostly)" imageAlt="Japanese Spitz puppy being brushed through its white double coat" imagePosition="left">
+      <p>Here's the breed's best-kept secret: that pure-white coat is far easier than it looks. The texture resists dirt the way a good raincoat resists water; mud dries, falls out, and the dog walks back in white. Baths stay occasional, every 4 to 6 weeks or so, because over-washing strips the coat's own protection.</p>
+      <p>The honest work is volume, not stains: brush 2 to 3 times a week down to the skin, daily during seasonal coat blows, and make peace with white hair on dark clothing. As with all double-coated breeds, never shave it; the coat insulates against our heat as well as cold, and shaving damages how it grows back. A tidy trim is fine; the clippers are not.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Japanese Spitz Health: What We Check Before You Take One Home" imageAlt="Japanese Spitz puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Japanese Spitz goes home vet-checked, vaccinated, dewormed, and microchipped. Health-wise this breed is one of the best stories we get to tell: it is famously robust, with few inherited problems. The points worth knowing are patellar luxation, the kneecap issue shared across small breeds, and runny eyes in some individuals, where daily wipes keep tear staining off the white face; the wipes are in your starter kit.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. For portioning guidance see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Your Japanese Spitz's First Week at Home" imageAlt="Japanese Spitz puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Japanese Spitz explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and predictable. A fixed feeding routine, the toilet pads where we placed them, and short, gentle play. Some night whimpering is normal adjustment.</p>
+    <p>Days 4 to 7: the routine sticks, and the grin becomes permanent. Book your free first lesson with an AVS-certified trainer this week; early work on the spitz voice pays off for a decade. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>. For anything in between, you WhatsApp us.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Our search for the perfect puppy ended the moment we stepped into Curious Tails's Balestier store. Nelson was so patient with all our questions and gave us great value with everything bundled in and surprised us with loads of free extras. Our pup was clean, well-socialised, and full of energy when we brought it home. Everything from the health records to the paperwork was handled seamlessly. Thank you Curious Tails for such a wonderful start to pet parenthood!",
+          name: 'Po Xian Lee',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Japanese Spitz falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Japanese Spitz FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Japanese Spitz" reserveMessage="Hi! I'd like to reserve a Japanese Spitz puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

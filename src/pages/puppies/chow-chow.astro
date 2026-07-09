@@ -1,0 +1,480 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Chow Chow Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Chow Chow puppies for sale in Singapore from $2,888 all-in. Honest first: Chows are not HDB-approved, and the teddy-bear look hides a dignified introvert. Private housing? We match you.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'Heat & Coat', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Can I keep a Chow Chow in an HDB flat?',
+    answer:
+      'No. The Chow Chow is not on the HDB-approved breed list, and we won\'t pretend otherwise. Condos and landed homes may keep up to three dogs, so a Chow is on the table there. HDB readers: there\'s no small-breed Chow lookalike, honestly, but our HDB-approved breeds guide maps what is possible in a flat.',
+  },
+  {
+    question: 'How much does a Chow Chow cost in Singapore?',
+    answer:
+      'Chow Chow prices in Singapore commonly run $3,500 to $9,000, usually quoted only on enquiry. At Curious Tails, Chow Chow puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Are Chow Chows aggressive?',
+    answer:
+      'The honest reframe: Chows are aloof and territorial by design, ancient guarding instincts in a dignified package, and what that becomes depends almost entirely on early socialisation. A well-raised, well-socialised Chow is composed and reliable with its family and politely indifferent to everyone else. An unsocialised one can become suspicious, which is where the reputation comes from. The variable is the upbringing, and we set you up for the right one.',
+  },
+  {
+    question: 'Are Chows good with children?',
+    answer:
+      'With calm, respectful older children in its own family, yes, in its dignified way. With toddlers who grab, honestly no: the Chow\'s patience for disrespect is short and its deep-set eyes mean it startles when approached from angles it can\'t see. Families with young kids should look at the Samoyed or Golden Retriever instead, and we\'ll say so.',
+  },
+  {
+    question: 'Is Singapore too hot for a Chow Chow?',
+    answer:
+      'Not too hot, but demanding, the same contract as our Samoyed: an aircon-centred home life, walks strictly in the cool hours, a properly brushed and never-shaved coat, and honest vigilance for heat stress. A Chow\'s exercise needs are modest for its size, which makes the contract easier to keep than you\'d expect.',
+  },
+  {
+    question: 'Are Chow Chows really like cats?',
+    answer:
+      'Remarkably so, and it\'s the single most useful thing to know before buying one: independent, fastidiously clean, quiet indoors, affectionate strictly on its own initiative, and devoted to its chosen few rather than the world at large. People who love cats tend to adore Chows; people who want a dog that performs enthusiasm on demand should choose differently.',
+  },
+  {
+    question: 'What happens after I reserve a Chow Chow?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/chow-chow',
+    title,
+    description,
+    aboutName: 'Chow Chow',
+    aboutAlternateName: 'Chow',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Chow_Chow',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Chow Chow puppy',
+      url: '/puppies/chow-chow',
+      description:
+        'Chow Chow puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Chow Chow Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Chow Chow puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Chow Chow',
+    description:
+      'The Chow Chow is an ancient Chinese breed of roughly 20 to 32 kg with a lion-like mane, a blue-black tongue, and a famously dignified, independent temperament closer to a cat\'s than a retriever\'s. It is not on Singapore\'s HDB-approved list and suits private housing, with a lifespan of 9 to 12 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Chow_Chow',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/chow-chow">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Chow Chow Puppies for Sale in Singapore"
+    h1Accent="Chow Chow"
+    subhead="Two honest facts before the teddy-bear face wins: Chows are not HDB-approved, and the bear look hides a dignified, cat-souled introvert — the most misunderstood temperament we sell. Chow prices here run $3,500 to $9,000; ours are $2,888 to $4,488, with the $500+ starter kit, free delivery and setup, and a free first training lesson included."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Chow Chow puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. Private housing only. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing breed']}
+    imageAlt="Red Chow Chow puppy with its lion mane sitting in a set-up playpen at a Singapore home"
+    tagLabel="Chow Chow"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Chow Chow', href: '/puppies/chow-chow' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Chow Chow in Singapore?" imageAlt="Red Chow Chow puppy portrait, one of the Chow puppies available in Singapore" variant="mid">
+      <p>Our Chow Chow puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Chow puppies available now.</p>
+      <p>One thing to know upfront: we interview Chow buyers as much as they interview us, because this breed's biggest risk is being bought for its looks by homes expecting a different soul. Every Chow for sale in Singapore here is between $2,888 and $4,488, printed, and the temperament conversation comes free with it. Book a viewing at our Balestier shop, or after you reserve with a deposit we board your puppy for free until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Chow Chow puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Chow photos and prices</a>, or meet our Chow puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Chow Chow Puppies"
+      headingAccent="Available"
+      subhead="A few of the Chow puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Chow Chow puppy.'), imageAlt: 'Red male Chow Chow puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Chow Chow puppy.'), imageAlt: 'Cream female Chow Chow puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black male Chow Chow puppy.'), imageAlt: 'Black male Chow Chow puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Cinnamon girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cinnamon female Chow Chow puppy.'), imageAlt: 'Cinnamon female Chow Chow puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Red girl', href: whatsappLink('Hi! I\'d like more photos and the price for the red female Chow Chow puppy.'), imageAlt: 'Red female Chow Chow puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Blue boy', href: whatsappLink('Hi! I\'d like more photos and the price for the blue male Chow Chow puppy.'), imageAlt: 'Blue male Chow Chow puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div id="hdb" class="relative scroll-mt-40">
+    <ScatterFloat />
+    <DefBox
+      term="Can you keep a Chow Chow in an HDB flat? No"
+      definition="The Chow Chow is not on the HDB-approved breed list, and no licensing route changes that. HDB flats may keep one dog of an approved small breed; condos and landed homes may keep up to three dogs, subject to the estate's own rules, which is where the Chow belongs in Singapore."
+      bridge="We tell you before the mane closes the deal. Unlike some of our private-housing breeds, there's no honest small-scale Chow substitute on the approved list, though cat-lovers drawn to this temperament should genuinely look at the Japanese Chin, the approved list's resident cat-soul. Private housing readers: carry on."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The housing rules, straight</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'HDB flat: Chow not approved, no exceptions we can promise',
+            'Condo / landed: up to three dogs (AVS limits of ownership)',
+            'HDB cat-soul seekers: meet the Japanese Chin',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: <a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2">HDB-approved breeds guide</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Chow from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Chow pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Chow Temperament: The Look and the Soul Are Different Animals" imageAlt="Chow Chow puppy sitting composed and dignified in a living room" imagePosition="left">
+      <p>Here is the most important paragraph on this page. The Chow Chow looks like a teddy bear and is nothing of the sort: behind the mane lives a dignified, independent, cat-souled aristocrat that chooses its people, guards its household quietly, and regards the rest of the world with polite indifference. It is fastidiously clean, almost silent indoors, and affectionate strictly on its own initiative, a temperament cat-lovers recognise instantly and retriever-lovers find baffling.</p>
+      <p>The honest part, from two years of watching looks-driven mismatches: buyers who expect the bear to cuddle on demand end up disappointed, and a disappointed Chow home helps no one. If you want visible, always-on affection, the <a href="/puppies/samoyed" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Samoyed</a> or <a href="/puppies/golden-retriever" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Golden Retriever</a> will make you far happier. If quiet, self-possessed, chosen-few devotion sounds like your kind of relationship, very little in the dog world matches a well-raised Chow.</p>
+      <p>Small-scale readers drawn to exactly this soul: the <a href="/puppies/japanese-chin" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Japanese Chin</a> is the approved-list cat-soul, at a twentieth of the coat.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Socialisation: The Make-or-Break First Months" imagePosition="none" variant="card">
+      <p>Whatever a Chow becomes as an adult is largely written in its first months, more so than any breed we carry. The ancient guarding instincts are real, and early, wide, gentle exposure, to people, dogs, handling, noise, is what shapes them into composed dignity rather than suspicion. This is why the free first lesson with an AVS-certified trainer is not a bonus on this page; it is the beginning of the single most important project of Chow ownership.</p>
+      <p>One breed-specific habit for the whole household: those deep-set eyes give the Chow limited peripheral vision, so teach everyone, especially visitors, to approach where it can see them. Most of the breed's misunderstandings start with a surprise from behind.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Calm adult household, private housing',
+            'You respect independence over neediness',
+            'You\'ll commit to early, thorough socialisation',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Chow Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for the lion-maned introvert."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 20 to 32 kg of dense, lion-maned substance'] },
+        { label: 'Height', values: ['Around 43 to 51 cm at the shoulder'] },
+        { label: 'Coat', values: ['Rough (the famous mane) or smooth; red, black, cream, cinnamon and blue'] },
+        { label: 'Lifespan', values: ['9 to 12 years with good care'] },
+        { label: 'Exercise', values: ['About 20 to 40 minutes daily in the cool hours; remarkably modest for the size'] },
+        { label: 'Shedding & allergies', values: ['Heavy, with twice-yearly blows; the wrong breed for allergy-sensitive homes'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The famous blue-black tongue is standard equipment, and the modest exercise requirement is the breed's pleasant surprise: this is one of the calmest large dogs indoors, which makes the aircon-centred Singapore lifestyle easier to deliver than for most breeds its size.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Chow Chow Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="The market runs $3,500 to $9,000 behind enquiry forms. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Chow price commonly $3,500 to $9,000',
+            'Price usually not published; enquiry required',
+            'Rare colours priced at a premium',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Chow Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Chow Chow leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the brush leads, the mane is a commitment from puppyhood, and the handling practice the kit's grooming routine creates doubles as daily socialisation, which for a Chow is the real prize.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Chow's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Chow Right for Your Lifestyle?"
+      subhead="We ask what you expect the dog to BE, not just look like. Here's the honest short version."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Calm adult home that respects independence', values: ['Ideal. The Chow\'s chosen-few devotion is a privilege worth earning'] },
+        { label: 'Cat person ready for a dog', values: ['Genuinely great fit. The temperament will feel like home'] },
+        { label: 'HDB flat', values: ['Not eligible, full stop. See the HDB-approved breeds guide'] },
+        { label: 'You want a cuddly, everyone\'s-friend bear', values: ['Wrong soul. The Samoyed IS that dog, and wears similar fluff'] },
+        { label: 'Home with toddlers, or first dog ever', values: ['Reconsider. This breed rewards experience and calm; start elsewhere'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Chow is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog — with this breed especially. Message us what you're hoping for and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my housing and what I'm hoping for in a dog. Is a Chow Chow the right fit?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Chow vs Samoyed: Same Fluff, Opposite Souls" imagePosition="none" variant="dark">
+    <p>Side by side they're two magnificent clouds; temperamentally they're opposites, and the comparison clarifies both. The <a href="/puppies/samoyed" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Samoyed</a> is the extrovert: everyone's friend, vocal, needs the family around it constantly. The Chow is the introvert: quiet, selective, self-contained, and content with its own company in a way the Sammy never is.</p>
+    <p>The coat workload and tropical heat contract are near-identical, brushing, blows, aircon, cool-hours walks, never shaving, so the choice is purely about which relationship you want. With us the price, the starter kit, and the aftercare are identical either way.</p>
+    <p>Message us honestly about which soul you're after and we'll match you to the right cloud.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Chow: introvert, quiet, chosen-few devotion',
+          'Samoyed: extrovert, vocal, everyone\'s friend',
+          'Same coat workload, heat rules, price and kit',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming and Heat: The Tropics Contract" imageAlt="Chow Chow having its dense mane brushed through" imagePosition="left">
+      <p>The Chow's coat contract mirrors our Samoyed page, and we'll summarise rather than soften it: brushing 3 to 4 times a week down to the skin, daily during the twice-yearly blows; a professional groom roughly monthly; thorough drying after wet walks, because damp undercoat in tropical humidity breeds skin trouble invisibly; and never shaving, because a maintained double coat insulates against our heat while a shaved one wrecks the system.</p>
+      <p>The heat rules are the standard heavy-coat set: walks before 9am or after 6pm only, an aircon-centred home through the afternoons, water everywhere, and vigilance for heavy panting or wobbliness. The Chow's saving grace is its modest exercise appetite, keeping the contract is genuinely easier than with the athletic Arctic breeds.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Chow Health: What We Check Before You Take One Home" imageAlt="Chow Chow puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Chow goes home vet-checked, vaccinated, dewormed, and microchipped. The Chow health points worth knowing: entropion, an inward-rolling eyelid the breed's deep-set eyes predispose it to, is the breed-specific watch-item, any persistent squinting or tearing gets a vet look early, when correction is simple; hip and elbow dysplasia run in heavyweight breeds, met with joint-friendly puppyhood and lean weight for life; and heat management, covered above, is the everyday discipline.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, portioned for controlled growth, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Your Chow's First Week at Home" imageAlt="Chow Chow puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Chow conducts its dignified inspection, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and unhurried, and let the Chow set the pace of acquaintance; this breed decides about people on its own schedule, and rushing it backfires. Fixed feeding routine, toilet pads where we placed them, gentle daily handling.</p>
+    <p>Days 4 to 7: the routine sticks, and the most important project of Chow ownership begins: book your free first lesson with an AVS-certified trainer now, and start the gentle, wide socialisation that decides who this dog becomes. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+          name: 'Andrew Mak',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Chow falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Chow Chow FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Chow Chow" reserveMessage="Hi! I'd like to reserve a Chow Chow puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

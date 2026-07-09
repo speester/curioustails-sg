@@ -1,0 +1,511 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Scottish Terrier Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Scottish Terrier puppies for sale in Singapore from $2,888, AVS licensed and HDB-approved. Real prices, temperament, coat care and the $500+ starter kit included.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Scottish Terrier cost in Singapore?',
+    answer:
+      'Scottish Terrier prices in Singapore commonly run from around $3,000 to $6,000; the breed is rare here and litters are infrequent. At Curious Tails, Scottie puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Scottish Terrier HDB-approved?',
+    answer:
+      'Yes. The Scottish Terrier is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and we complete the dog licensing for you at purchase, so the paperwork is handled.',
+  },
+  {
+    question: 'Do Scottish Terriers shed? Are they good for allergies?',
+    answer:
+      'The Scottie\'s hard, wiry outer coat sheds very little, which makes it a reasonable pick for allergy-conscious homes alongside the Westie and Mini Schnauzer. No dog is truly allergen-free, so spend time with one at our Balestier shop first if allergies are severe.',
+  },
+  {
+    question: 'Can a Scottish Terrier be left alone while we are at work?',
+    answer:
+      'Yes, among the best in the shop at it. The Scottie is a famously independent, self-contained terrier; a quiet weekday alone is dignity time, not a crisis. Honour the walk contract morning and evening, leave chew work, and it manages a working household with composure.',
+  },
+  {
+    question: 'Are Scottish Terriers stubborn?',
+    answer:
+      'Magnificently. The Scottie was bred to make its own decisions underground, facing badgers, and it never surrendered the habit. Training works through respect, consistency and food, never drilling; expect a thinking pause before compliance, which owners come to describe as the breed considering your proposal. Terrier people adore this; obedience perfectionists should choose differently.',
+  },
+  {
+    question: 'Are Scottish Terriers good with children?',
+    answer:
+      'With respectful, school-age children, fine: loyal and sturdy. With toddlers, not the best pick; the Scottie\'s patience for ear-grabbing is short and its dignity genuine. Young families are better served by the Cockapoo or Shih Tzu, and we will say so before you buy.',
+  },
+  {
+    question: 'What happens after I reserve a Scottish Terrier?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/scottish-terrier',
+    title,
+    description,
+    aboutName: 'Scottish Terrier',
+    aboutAlternateName: 'Scottie',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Scottish_Terrier',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Scottish Terrier puppy',
+      url: '/puppies/scottish-terrier',
+      description:
+        'Scottish Terrier puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Scottish Terrier Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Scottie puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Scottish Terrier',
+    description:
+      'The Scottish Terrier is a compact, powerful terrier of roughly 8 to 10 kg from the Scottish Highlands, with a wiry low-shedding coat, distinctive beard and eyebrows, and a famously dignified, independent temperament. Lifespan is typically 11 to 13 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Scottish_Terrier',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/scottish-terrier">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Scottish Terrier Puppies for Sale in Singapore"
+    h1Accent="Scottish Terrier"
+    subhead="Scottie prices in Singapore commonly run $3,000 to $6,000. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Scottish Terrier puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-approved. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved terrier']}
+    imageAlt="Black Scottish Terrier puppy sitting in a set-up playpen at a Balestier home"
+    tagLabel="Scottie"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Scottish Terrier', href: '/puppies/scottish-terrier' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Scottish Terrier in Singapore?" imageAlt="Black Scottish Terrier puppy portrait, one of the Scottie puppies available in Singapore" variant="mid">
+      <p>Scotties are rare in Singapore and litters are infrequent, so availability moves fast; we keep it live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Scottish Terrier puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Scottish Terrier for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Scottish Terrier puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Scottie photos and prices</a>, or meet our Scottish Terrier puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Scottish Terrier Puppies"
+      headingAccent="Available"
+      subhead="A few of the Scottie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black male Scottish Terrier puppy.'), imageAlt: 'Black male Scottish Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Scottish Terrier puppy.'), imageAlt: 'Black female Scottish Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Brindle boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle male Scottish Terrier puppy.'), imageAlt: 'Brindle male Scottish Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Wheaten girl', href: whatsappLink('Hi! I\'d like more photos and the price for the wheaten female Scottish Terrier puppy.'), imageAlt: 'Wheaten female Scottish Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Brindle girl', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle female Scottish Terrier puppy.'), imageAlt: 'Brindle female Scottish Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Wheaten boy', href: whatsappLink('Hi! I\'d like more photos and the price for the wheaten male Scottish Terrier puppy.'), imageAlt: 'Wheaten male Scottish Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Scottish Terrier?"
+      definition="The Scottish Terrier is a compact, surprisingly powerful terrier of roughly 8 to 10 kg, bred in the Highlands to go underground after badgers and foxes. It wears a hard, wiry, low-shedding coat, black, brindle or wheaten, with the unmistakable beard-and-eyebrows profile, and carries the most dignified, independent temperament in the terrier group. Lifespan is 11 to 13 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Scottie suits adults who appreciate a companion with gravitas: loyal to its people, aloof with the world, and entirely its own dog."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Scottie at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The dignified Highlander of the terriers',
+            'Roughly 8 to 10 kg; compact and powerful',
+            'Wiry, low-shedding coat: black, brindle, wheaten',
+            'Independent, loyal, famously stubborn',
+            '11 to 13 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Sizes vary by line; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Scottie from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Scottie pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Scottie Temperament: The Diehard Earns Its Nickname" imageAlt="Scottish Terrier puppy surveying the living room with composure" imagePosition="left">
+      <p>Victorian soldiers nicknamed the breed "the Diehard", and a century and a half later nothing has changed. The Scottie is resolute, self-possessed, and loyal in a selective, considered way: it chooses its people, holds them close, and regards the rest of the world with polite disinterest. It doesn't perform, doesn't fawn, and doesn't do anything it hasn't privately agreed to; owners describe living with one as sharing a flat with a small, opinionated Highland laird.</p>
+      <p>The honest part, from two years of matching puppies to families: the independence is the whole product. Training is a negotiation conducted in treats and mutual respect, recall is theoretical near anything scurrying, and the digging instinct is genetic, so sacrifice a corner of any planter box now. In exchange you get a low-shedding, composed, quietly devoted companion that handles alone time better than nearly anything we sell.</p>
+      <p>For more biddability in the same silhouette family, the <a href="/puppies/miniature-schnauzer" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Mini Schnauzer</a>; for the cheerful white cousin, the <a href="/puppies/westie" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Westie</a>.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Scottie Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Yes, with genuine composure; this is one of the best alone-time breeds we carry. The Scottie's self-contained temperament means a quiet weekday reads as personal time, not abandonment. Honour the walk contract, a solid outing morning and evening, leave chew work, and it runs the flat in your absence with visible satisfaction.</p>
+      <p>The one training note: the watchdog instinct is real and the bark is impressively deep for the size, so early quiet-training keeps corridor relations warm.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Working adults wanting an independent dog',
+            'You respect a dog with its own opinions',
+            'Low-shedding coat matters to you',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Scottie Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for the Diehard."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 8 to 10 kg; far more substance than the height suggests'] },
+        { label: 'Height', values: ['Around 25 to 28 cm at the shoulder; long, low and powerful'] },
+        { label: 'Coat', values: ['Hard, wiry outer coat over soft undercoat; black is classic, plus brindle and wheaten'] },
+        { label: 'Lifespan', values: ['11 to 13 years with good care'] },
+        { label: 'Exercise', values: ['About 45 minutes a day plus play; a purposeful walker, not a sprinter'] },
+        { label: 'Shedding & allergies', values: ['Low-shedding wiry coat; a reasonable allergy-conscious pick'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Pick up a Scottie once and you understand the breed: that low profile hides a dense, muscled little powerhouse built for underground work. It is a genuinely different animal from the toy breeds at similar heights.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Scottie Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Scottie price commonly $3,000 to $6,000',
+            'Rare locally; litters infrequent, waitlists common',
+            'Price usually not published; enquiry required',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Scottie Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Scottish Terrier leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the brush and comb keep the wiry coat and furnishings in order, and the chew items give that determined jaw an approved outlet, which your furniture will appreciate.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Scottie's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Scottie Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Scottie."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Working adults wanting composure and character', values: ['Ideal. Independent, low-shedding, and handles alone time with dignity'] },
+        { label: 'You\'ve owned terriers and like the negotiation', values: ['Ideal. The Scottie is the connoisseur\'s terrier'] },
+        { label: 'Family with respectful school-age children', values: ['Workable. Loyal and sturdy; supervise and teach mutual respect'] },
+        { label: 'Home with toddlers', values: ['Reconsider. Short patience for grabbing; the Shih Tzu suits young families better'] },
+        { label: 'You want eager, instant obedience', values: ['Reconsider. The Scottie considers your proposal; a Toy Poodle just says yes'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Scottie is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Scottish Terrier the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Scottie vs Westie: The Whisky-Label Pair" imagePosition="none" variant="dark">
+    <p>Black and white, side by side on the Black & White whisky label for a century, and genuinely the closest comparison in the shop: two sturdy, low-shedding Highland terriers of similar size and independence. The honest split: the Westie is the sunnier extrovert, friendlier with strangers and slightly easier for first-time terrier owners; the Scottie is deeper, more reserved, more selective, the introvert's terrier, with the more impressive dignity and the more legendary stubbornness.</p>
+    <p>Neither is better; they're two temperaments in matching tweed. Meet both at Balestier if you can, because Scottie people and Westie people usually know within minutes which they are. With us the price, the starter kit, and the aftercare are identical either way.</p>
+    <p>Weighing the two? See our <a href="/puppies/westie" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Westie puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Scottie: reserved, selective, the introvert\'s terrier',
+          'Westie: sunnier, more outgoing, easier first terrier',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Scottie in an HDB flat"
+      definition="The Scottish Terrier is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and the Scottie's compact build and composed indoor manner suit flat life well. Every Scottie we place has its dog licensing completed at purchase, so the paperwork is handled for you."
+      bridge="Is a Scottish Terrier HDB-approved? Yes, by name on the list. Just mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Scottish Terrier is named on the HDB-approved breed list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: Keeping the Tweed in Order" imageAlt="Scottish Terrier puppy having its wiry coat and beard combed" imagePosition="left">
+      <p>The Scottie coat is low-shedding but not no-work: brush 2 to 3 times a week, with particular attention to the beard, leg furnishings and skirt where tangles start, and a proper groom every 6 to 8 weeks. Show dogs are hand-stripped; pet Scotties here are clipped, which softens the coat over time and suits our climate and budgets perfectly well.</p>
+      <p>The beard collects meals and investigations, so a quick daily comb-and-wipe keeps it presentable, and in our humidity, dry the undercarriage properly after wet-grass walks. All the starting tools are in your kit.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Scottie Health: What We Check Before You Take One Home" imageAlt="Scottish Terrier puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Scottie goes home vet-checked, vaccinated, dewormed, and microchipped. The Scottie health points worth knowing, honestly: "Scottie cramp", a harmless, odd-looking gait hiccup under excitement that needs no treatment, just recognition; von Willebrand's disease, a clotting disorder in some lines, worth asking about before any surgery; and the one serious item, the breed carries a higher-than-average rate of bladder cancer in later life, which is why we tell every Scottie owner the same simple habit: take any blood in the urine seriously, at any age, and ask your vet about it early. Early detection changes outcomes.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Your Scottie's First Week at Home" imageAlt="Scottish Terrier puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Scottie conducts its inspection, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and predictable. A fixed feeding routine, the toilet pads where we placed them, and unhurried acquaintance; the Scottie decides about people on its own schedule, and rushing it backfires.</p>
+    <p>Days 4 to 7: the routine sticks and the household is formally adopted. Book your free first lesson with an AVS-certified trainer this week; with an independent breed, early respectful structure is worth double. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+          name: 'Andrew Mak',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Scottie falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Scottish Terrier FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Scottish Terrier" reserveMessage="Hi! I'd like to reserve a Scottish Terrier puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

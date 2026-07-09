@@ -1,0 +1,537 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Toy Poodle Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Toy Poodle puppies for sale in Singapore from $2,888, AVS licensed and HDB-approved. Real prices, temperament, coat colours and the $500+ starter kit included. WhatsApp us.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Toy Poodle cost in Singapore?',
+    answer:
+      'Toy Poodle prices in Singapore commonly run from around $3,000 to $8,000, with reds and unusual colours priced at the top of that band and "teacup" listings higher still. At Curious Tails, Toy Poodle puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Toy Poodle HDB-approved?',
+    answer:
+      'Yes. The Poodle is named on the HDB-approved breed list, and the toy variety sits comfortably inside the small-breed rules. HDB allows one dog of an approved breed per flat, and we complete the dog licensing for you at purchase, so the paperwork is handled.',
+  },
+  {
+    question: 'Can a Toy Poodle be left alone while we are at work?',
+    answer:
+      'Reasonably well, with one condition: a Toy Poodle is one of the smartest breeds in the world, and a smart dog with nothing to do writes its own entertainment. Leave it with a settled routine, a safe playpen, and puzzle feeders or chew work, and most adjust to working households fine. Skip the mental stimulation and you will hear about it from the neighbours.',
+  },
+  {
+    question: 'How big does a Toy Poodle get?',
+    answer:
+      'Most Toy Poodles reach roughly 3 to 4.5 kg fully grown, standing up to about 28 cm at the shoulder. Be wary of "teacup poodle" listings promising adult weights far below that: no honest seller can guarantee adult size, and dogs bred to be unusually tiny carry real health trade-offs.',
+  },
+  {
+    question: 'Are Toy Poodles good for people with allergies?',
+    answer:
+      'They are one of the best choices available. The Poodle\'s curly coat sheds very little, which is why nearly every popular "hypoallergenic" cross, from the Cavapoo to the Maltipoo, has Poodle in it. No dog is truly allergen-free, so if allergies are severe, visit our Balestier shop and spend time with one before deciding.',
+  },
+  {
+    question: 'Are Toy Poodles easy to train?',
+    answer:
+      'The easiest we carry, honestly. Poodles consistently rank among the top two or three most intelligent breeds, and a Toy Poodle picks up toilet training, recall, and basic manners faster than almost anything else in the shop. The free first lesson with an AVS-certified trainer gets that head start pointed in the right direction.',
+  },
+  {
+    question: 'What happens after I reserve a Toy Poodle?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/toy-poodle',
+    title,
+    description,
+    aboutName: 'Toy Poodle',
+    aboutAlternateName: 'Toy Poodle dog',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Poodle',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Toy Poodle puppy',
+      url: '/puppies/toy-poodle',
+      description:
+        'Toy Poodle puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Toy Poodle Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Toy Poodle puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Toy Poodle',
+    description:
+      'The Toy Poodle is the smallest variety of the Poodle, roughly 3 to 4.5 kg, with a curly low-shedding coat in colours from red and apricot to black, white and silver. It is one of the most intelligent dog breeds in the world, with a lifespan of 14 to 17 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Poodle',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/toy-poodle">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Toy Poodle Puppies for Sale in Singapore"
+    h1Accent="Toy Poodle"
+    subhead="Toy Poodle prices in Singapore commonly run $3,000 to $8,000, more for reds and 'teacups'. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Toy Poodle puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-approved. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved toy breed']}
+    imageAlt="Red Toy Poodle puppy sitting in a set-up playpen at a Balestier home"
+    tagLabel="Toy Poodle"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Toy Poodle', href: '/puppies/toy-poodle' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Toy Poodle in Singapore?" imageAlt="Apricot Toy Poodle puppy portrait, one of the Toy Poodle puppies available in Singapore" variant="mid">
+      <p>Toy Poodles are the most requested breed in the shop, so our litters arrive and are reserved quickly, and we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Toy Poodle puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Toy Poodle for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Toy Poodle puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Toy Poodle photos and prices</a>, or meet our Toy Poodle puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Toy Poodle Puppies"
+      headingAccent="Available"
+      subhead="A few of the Toy Poodle puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Toy Poodle puppy.'), imageAlt: 'Red male Toy Poodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Toy Poodle puppy.'), imageAlt: 'Apricot female Toy Poodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Toy Poodle puppy.'), imageAlt: 'Cream male Toy Poodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Toy Poodle puppy.'), imageAlt: 'Black female Toy Poodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'White boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white male Toy Poodle puppy.'), imageAlt: 'White male Toy Poodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Silver girl', href: whatsappLink('Hi! I\'d like more photos and the price for the silver female Toy Poodle puppy.'), imageAlt: 'Silver female Toy Poodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Toy Poodle?"
+      definition="The Toy Poodle is the smallest of the three Poodle varieties, roughly 3 to 4.5 kg and up to about 28 cm tall, with a dense curly coat that sheds very little. It is one of the most intelligent dog breeds in the world, an eager, people-focused companion with a lifespan of 14 to 17 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Toy Poodle earns its popularity honestly: smart, low-shedding, HDB-approved, and adaptable to most Singapore homes."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Toy Poodle at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'One of the world\'s smartest breeds',
+            'Roughly 3 to 4.5 kg fully grown',
+            'Curly, very low-shedding coat',
+            'Colours: red, apricot, cream, white, black, brown, silver',
+            '14 to 17 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Sizes vary by line; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Toy Poodle from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Toy Poodle pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Toy Poodle Temperament: The Smart One" imageAlt="Toy Poodle puppy learning a cue during play at home" imagePosition="left">
+      <p>Everything people say about Poodle intelligence is true, and living with it is the point most listings skip. A Toy Poodle learns your household's routine in days: where the treats live, which sound is the lift door, what you do before a walk. Training feels less like teaching and more like agreeing on the rules together, which is exactly why first-time owners do so well with them.</p>
+      <p>The honest part, from two years of matching puppies to families: that brain is a subscription, not a purchase. A Toy Poodle with nothing to do invents jobs you didn't ask for, usually loud ones. Ten minutes of trick work or a puzzle feeder does more for a Poodle's behaviour than an extra hour of sofa time, and the free first training lesson with an AVS-certified trainer shows you exactly how to run those ten minutes.</p>
+      <p>With children the Toy Poodle is playful and gentle, though at 3 to 4.5 kg it suits calm kids better than rowdy ones. For a sturdier family all-rounder, look at the <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a>, which carries the same Poodle smarts in a more robust frame.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Toy Poodle Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Reasonably well, with the right setup. Toy Poodles bond closely but are confident, self-assured little dogs, and with a safe playpen, a settled routine, and genuine mental work before you leave, most adjust to a working household without drama.</p>
+      <p>The caveat is boredom, not loneliness. An under-stimulated Poodle barks, and in a flat that matters. If your home is empty 8am to 6pm and you'd rather have a dog that treats alone time as nap time, compare the <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> before deciding; if you enjoy training and can spend real time on it daily, the Toy Poodle rewards you like nothing else.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'You enjoy training and daily mental games',
+            'You want a very low-shedding coat',
+            'First dog; you want the fast learner',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Toy Poodle Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers, including the ones the teacup listings skip."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 3 to 4.5 kg for a healthy Toy Poodle'] },
+        { label: 'Height', values: ['Up to about 28 cm at the shoulder; the smallest Poodle variety'] },
+        { label: 'Coat', values: ['Dense, curly, very low-shedding; colours include red, apricot, cream, white, black, brown and silver'] },
+        { label: 'Lifespan', values: ['14 to 17 years; Poodles are among the longest-lived breeds'] },
+        { label: 'Exercise', values: ['About 30 to 45 minutes a day, plus daily mental work; a flat is genuinely enough space'] },
+        { label: 'Shedding & allergies', values: ['Minimal shedding; the classic pick for allergy-sensitive homes, though no dog is allergen-free'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        How big do Toy Poodles get? 3 to 4.5 kg is the healthy range, and colour affects price more than size does: reds and apricots are the most requested in Singapore. The famous curly coat is also why the breed anchors nearly every low-shedding cross we carry, from the <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> to the <a href="/puppies/maltipoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Maltipoo</a>.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Toy Poodle Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Toy Poodle price commonly $3,000 to $8,000',
+            'Reds and rare colours priced at a premium',
+            '"Teacup" listings priced higher still',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Toy Poodle Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Toy Poodle leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For a coat like the Poodle's, the brush and grooming tools in the kit get used from week one.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Toy Poodle's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Toy Poodle Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Toy Poodle."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'First-time owner who wants a trainable dog', values: ['Ideal. The fastest learner in the shop, and forgiving of beginner mistakes'] },
+        { label: 'Allergy-sensitive household', values: ['Ideal. The lowest-shedding coat we carry; the benchmark other breeds get measured against'] },
+        { label: 'Working household with a settled routine', values: ['Workable. Mental stimulation before and after work is the real requirement, not company every hour'] },
+        { label: 'Family with calm, dog-respectful children', values: ['Great fit. Playful and gentle; just supervise around very young kids at this size'] },
+        { label: 'You want a wash-and-wear, no-grooming coat', values: ['Reconsider. The curly coat needs brushing every other day and a groom every 4 to 6 weeks; the smooth-coat Chihuahua or Mini Dachshund is the lower-maintenance pick'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Toy Poodle is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Toy Poodle the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Toy Poodle vs Cavapoo: Purebred Smarts or the Softer Cross?" imagePosition="none" variant="dark">
+    <p>The most common cross-shop in the shop, because the Cavapoo is half Poodle to begin with. The honest differences: the Toy Poodle is sharper, quicker to train, and slightly more independent; the Cavapoo trades a little of that edge for the Cavalier's mellowness, which makes it the more forgiving pick for a home that doesn't want a daily training habit.</p>
+    <p>Coats are close: both are low-shedding, and both need regular brushing and a salon groom every 4 to 6 weeks. With us the price, the starter kit, and the aftercare are identical either way.</p>
+    <p>Weighing the two? See our <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Toy Poodle: sharpest mind, loves a job, 3 to 4.5 kg',
+          'Cavapoo: mellower, more forgiving, 5 to 9 kg',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Toy Poodle in an HDB flat"
+      definition="The Poodle is named on the HDB-approved breed list, and the toy variety sits comfortably inside the small-breed rules. HDB allows one dog of an approved breed per flat. Every Toy Poodle we place has its dog licensing completed at purchase, so the paperwork is handled for you."
+      bridge="Is a Toy Poodle HDB-approved? Yes, by name on the list; it is one of the most popular HDB dogs in Singapore for good reason. Just mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Poodle is named on the HDB-approved breed list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: The Trade for That Low-Shedding Coat" imageAlt="Toy Poodle puppy being brushed during a coat care session" imagePosition="left">
+      <p>Here's the deal the Poodle offers: almost nothing on your floor, in exchange for a real grooming routine. The curly coat traps loose hair instead of dropping it, which is exactly why it mats if ignored. Plan on brushing every other day, a proper comb-through weekly, and a salon groom every 4 to 6 weeks; most Singapore owners budget $70 to $100 per session for a toy breed.</p>
+      <p>In our humidity, keep the coat clipped shorter than the show-ring look and dry your puppy properly after rainy-day walks. Tear staining shows on light-coloured Poodles; the wipes in your starter kit handle it as a daily ten-second habit rather than a problem.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Toy Poodle Health: What We Check Before You Take One Home" imageAlt="Toy Poodle puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Toy Poodle goes home vet-checked, vaccinated, dewormed, and microchipped. The Toy Poodle health points worth knowing: patellar luxation, the kneecap issue common to all toy breeds, which is why we discourage sofa-diving while joints grow; progressive retinal atrophy, an inherited eye condition the breed carries, worth asking about in any Poodle line; dental crowding, because small jaws need the oral care routine from day one; and Legg-Calvé-Perthes, a hip condition seen occasionally in toy breeds.</p>
+      <p>None of this changes the headline: a well-bred Toy Poodle is one of the longest-lived dogs you can own, with 14 to 17 years the normal expectation. Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. For portioning guidance see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div class="scroll-mt-40">
+    <CaptionedBlock heading="The Truth About Teacup Poodles" imagePosition="none" variant="card">
+      <p>After the Chihuahua, no breed gets more "teacup" marketing than the Toy Poodle. You will see "teacup poodle" and "micro poodle" listings around Singapore, usually at a premium. We don't sell to that label. Dogs bred to be unusually tiny carry higher risks: fragile bones, severe dental problems, chronic low blood sugar, and shorter lives.</p>
+      <p>A healthy Toy Poodle at 3 to 4.5 kg is already a genuinely small dog that rides in a carrier and lives happily in a flat. If a seller guarantees an adult size below that range, treat the promise as a warning, not a feature.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Teacup red flags</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Guaranteed adult weight below 3 kg',
+            'No mention of the parents\' actual size',
+            '"Teacup" or "micro" priced at a premium',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M18 6 6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+
+    <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+  </div>
+
+  <CaptionedBlock heading="Your Toy Poodle's First Week at Home" imageAlt="Toy Poodle puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Toy Poodle explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and predictable. A fixed feeding routine, the toilet pads where we placed them, and short, gentle play. Some night whimpering is normal adjustment, and Poodle puppies settle fast once the routine reads as safe.</p>
+    <p>Days 4 to 7: the routine sticks, and this brain starts looking for work. This is the window to book your free first lesson with an AVS-certified trainer; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>. For anything in between, you WhatsApp us.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Toy Poodle falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one. Popular toy breeds like the Toy Poodle are smuggled most often, so check twice here."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Toy Poodle FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Toy Poodle" reserveMessage="Hi! I'd like to reserve a Toy Poodle puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

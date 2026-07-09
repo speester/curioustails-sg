@@ -1,0 +1,511 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Cavachon Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Cavachon puppies for sale in Singapore from $2,888, AVS licensed and HDB-friendly. Cavachon vs Cavapoo honestly compared, coat care, and the $500+ starter kit included.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Cavachon cost in Singapore?',
+    answer:
+      'Cavachon prices in Singapore commonly run from around $2,500 to $5,500, and most shops make you enquire just to learn the number. At Curious Tails, Cavachon puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Cavachon HDB-approved?',
+    answer:
+      'Yes, as an approved cross: the Cavachon is a Cavalier King Charles Spaniel × Bichon Frise mix, both parent breeds are named on the HDB-approved list, and the cross sits comfortably inside the small-breed rules, the same way our Cavapoos and Maltipoos do. HDB allows one dog per flat, and we complete the dog licensing for you at purchase.',
+  },
+  {
+    question: 'What is the difference between a Cavachon and a Cavapoo?',
+    answer:
+      'Looks aside, the real difference is daytime independence. The Cavapoo\'s Poodle half gives it a genuine ability to self-occupy through a working household\'s hours; the Cavachon\'s Bichon half softens the Cavalier\'s neediness but doesn\'t erase it, so it does best with company for part of the day. Coats are similar and both are low-shedding; with us the price, kit and aftercare are identical.',
+  },
+  {
+    question: 'Can a Cavachon be left alone while we are at work?',
+    answer:
+      'Moderately at best, and we\'d rather say so now. Both parent breeds were bred purely for companionship, and while the Bichon side adds cheerful adaptability, a Cavachon in a home that is empty 8am to 6pm every weekday will struggle. If that is your routine, the Cavapoo is the kinder pick, and we will tell you the same in the shop.',
+  },
+  {
+    question: 'Do Cavachons shed? Are they good for allergies?',
+    answer:
+      'Cavachons are low-shedding: the Bichon coat barely drops and the cross usually inherits it. That makes the Cavachon one of the friendlier picks for allergy-sensitive homes, though no dog is truly allergen-free, whatever a listing promises. If allergies are severe, spend time with one at our Balestier shop before deciding.',
+  },
+  {
+    question: 'Are Cavachons good with children?',
+    answer:
+      'The softest cross we carry with children, genuinely. Both parents contribute gentleness, and the Cavachon\'s patience with small hands is the breed\'s calling card. At 5 to 9 kg it is sturdy enough for family life; supervise as with any puppy, and it thrives.',
+  },
+  {
+    question: 'What happens after I reserve a Cavachon?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/cavachon',
+    title,
+    description,
+    aboutName: 'Cavachon',
+    aboutAlternateName: 'Cavalier Bichon cross',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Bichon_Frise',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Cavachon puppy',
+      url: '/puppies/cavachon',
+      description:
+        'Cavachon puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Cavachon Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Cavachon puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Cavachon',
+    description:
+      'A Cavachon is a cross between a Cavalier King Charles Spaniel and a Bichon Frise. It is a small companion dog of roughly 5 to 9 kg with a soft, wavy, low-shedding coat, a famously gentle, people-loving temperament, and a lifespan of 12 to 15 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Bichon_Frise',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/cavachon">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Cavachon Puppies for Sale in Singapore"
+    h1Accent="Cavachon"
+    subhead="Cavachon prices in Singapore commonly run $2,500 to $5,500, usually hidden behind an enquiry form. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price. Weighing it against a Cavapoo? The honest comparison is below."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Cavachon puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-friendly cross. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-friendly toy cross']}
+    imageAlt="Apricot and white Cavachon puppy sitting in a set-up playpen at a Balestier home"
+    tagLabel="Cavachon"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Cavachon', href: '/puppies/cavachon' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Cavachon in Singapore?" imageAlt="Apricot and white Cavachon puppy portrait, one of the Cavachon puppies available in Singapore" variant="mid">
+      <p>Our Cavachon puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Cavachon puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Cavachon for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Cavachon puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Cavachon photos and prices</a>, or meet our Cavachon puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Cavachon Puppies"
+      headingAccent="Available"
+      subhead="A few of the Cavachon puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Apricot & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot and white male Cavachon puppy.'), imageAlt: 'Apricot and white male Cavachon puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Cavachon puppy.'), imageAlt: 'Cream female Cavachon puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Blenheim-marked boy', href: whatsappLink('Hi! I\'d like more photos and the price for the Blenheim-marked male Cavachon puppy.'), imageAlt: 'Blenheim-marked male Cavachon puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'White girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white female Cavachon puppy.'), imageAlt: 'White female Cavachon puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Sable & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the sable and white male Cavachon puppy.'), imageAlt: 'Sable and white male Cavachon puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Cavachon puppy.'), imageAlt: 'Apricot female Cavachon puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Cavachon?"
+      definition="A Cavachon is a cross between a Cavalier King Charles Spaniel and a Bichon Frise: roughly 5 to 9 kg of soft, wavy, low-shedding coat around one of the gentlest temperaments in the small-dog world. Both parents were bred purely for companionship, and the cross inherits that double dose, with a lifespan of 12 to 15 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Cavachon is our answer for homes with daytime company that want the gentlest possible family puppy in a low-shedding coat."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Cavachon at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Cavalier × Bichon Frise cross',
+            'Roughly 5 to 9 kg fully grown',
+            'Soft, wavy, low-shedding coat',
+            'The gentlest cross we carry with children',
+            '12 to 15 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Cross sizes vary by parents; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Cavachon from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Cavachon pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Cavachon Temperament: Two Companion Breeds, One Gentle Result" imageAlt="Cavachon puppy cuddling calmly with a child on a sofa" imagePosition="left">
+      <p>Most crosses blend a companion breed with a working one. The Cavachon blends two dogs that were each bred for centuries to do nothing but be wonderful company, the Cavalier from English courts, the Bichon from Mediterranean merchant ships, and the result is exactly what you'd predict: the gentlest, most people-oriented cross in our shop. It loves children, accepts other pets, greets visitors like returning family, and barks so little that "watchdog" doesn't appear anywhere in this page.</p>
+      <p>The honest part, from two years of matching crosses to families: all that devotion needs somewhere to go. A Cavachon does best in a home with daytime company, a family with staggered schedules, someone working from home, a helper, or retirees, and the homes we've placed them in that work all share that trait. The <a href="/puppies/bichon-frise" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Bichon Frise</a> side adds a sunnier adaptability than the purebred Cavalier, but this is still a dog that measures its day in proximity to you.</p>
+      <p>Every Cavachon litter also spreads between its parents, some pups landing bouncier and more Bichon, some softer and more Cavalier. We watch each litter daily and will tell you honestly where each puppy sits.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Cavachon Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Moderately at best, and we'd rather lose the sale than dress that up. The Bichon half softens the Cavalier's famous neediness, so a Cavachon copes better than a purebred Cavalier, but a flat that is empty 8am to 6pm every weekday is still the wrong home for this cross, and the crying and chewed corners are how owners find out.</p>
+      <p>If your weekdays are away, the <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> carries similar sweetness with genuinely better independence, and we'll tell you the same at the shop. If someone's usually home, read on; this is your breed's page.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Someone is home for part of most days',
+            'Family with children; gentleness is the priority',
+            'You want low-shedding without terrier energy',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Cavachon Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for the teddy-bear cross."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 5 to 9 kg, depending on both parents'] },
+        { label: 'Height', values: ['Around 30 to 33 cm at the shoulder'] },
+        { label: 'Coat', values: ['Soft, wavy, low-shedding; apricot, cream, white, sable, and Blenheim-style chestnut markings'] },
+        { label: 'Lifespan', values: ['12 to 15 years with good care'] },
+        { label: 'Exercise', values: ['About 30 to 40 minutes a day, plus indoor play; a flat is genuinely enough'] },
+        { label: 'Shedding & allergies', values: ['Low-shedding; a friendly pick for allergy-sensitive homes, though no dog is allergen-free'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        How big do Cavachons get? Most land between 5 and 9 kg, sturdier than the true toys, small enough for any flat. If you love this recipe with a dash more Poodle cleverness, that's literally the <a href="/puppies/cavapoochon" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoochon</a>, the triple cross next door.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Cavachon Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Cavachon price commonly $2,500 to $5,500',
+            'Price usually not published; enquiry required',
+            'Designer-cross premium for rare colours',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Cavachon Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Cavachon leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this cross the brush and the ear cleanser earn their keep fastest: the soft coat wants regular attention, and those Cavalier-style drop ears want a weekly check in our humidity.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Cavachon's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Cavachon Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Cavachon."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Family with children, someone home part of the day', values: ['Ideal. The gentlest cross we carry, in its natural habitat'] },
+        { label: 'First-time owner wanting a soft, forgiving dog', values: ['Great fit. Eager, gentle, and kind to beginner mistakes'] },
+        { label: 'Allergy-sensitive household', values: ['Good fit. Low-shedding coat; visit first if allergies are severe'] },
+        { label: 'Out 8am to 6pm on weekdays', values: ['Reconsider honestly. This cross needs company; the Cavapoo handles that routine far better'] },
+        { label: 'You want a watchdog', values: ['Wrong breed entirely. A Cavachon greets burglars; consider the Mini Schnauzer'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Cavachon is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Cavachon the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Cavachon vs Cavapoo: The Question Everyone Asks" imagePosition="none" variant="dark">
+    <p>Same Cavalier mother, different father, and the difference that matters isn't in the photos: it's in your weekday. The Cavapoo's Poodle half brings real self-sufficiency, the ability to treat an empty flat as nap time, and quicker training. The Cavachon's Bichon half brings extra softness and arguably the sweeter temperament of the two, at the cost of needing more company through the day.</p>
+    <p>Our plain-language rule after placing both for two years: someone home most days and gentleness is the priority, Cavachon. Working household, out 8am to 6pm, Cavapoo, no hesitation. Coats are close, both low-shedding, the Cavachon's usually a touch softer and less curly. With us the price, the starter kit, and the aftercare are identical either way.</p>
+    <p>Weighing the two? See our <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Cavachon: softest temperament, wants daytime company',
+          'Cavapoo: more independent, faster to train',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Cavachon in an HDB flat"
+      definition="The Cavachon is a cross of two HDB-approved breeds, the Cavalier King Charles Spaniel and the Bichon Frise, and falls comfortably inside HDB's small-breed rules, the same way our Cavapoos and Maltipoos do. HDB allows one dog of an approved breed per flat, and every Cavachon we place has its dog licensing completed at purchase."
+      bridge="Is a Cavachon HDB-friendly? Yes: both parents are named on the approved list and the cross sits well within the size rules. Mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Both parent breeds are on the HDB-approved list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: The Teddy Coat Has a Schedule" imageAlt="Cavachon puppy being brushed through its soft wavy coat" imagePosition="left">
+      <p>The Cavachon's soft, low-shedding coat runs on the same deal as its cousin crosses: hair that doesn't fall out stays in and tangles instead. The schedule that keeps it comfortable in our humidity: a brush every other day, a comb-through to the skin weekly, and a salon groom every 4 to 6 weeks; nearly every Singapore Cavachon lives happily in a puppy cut.</p>
+      <p>Two ten-second habits round it out: a weekly lift-look-sniff of those drop ears, warmth plus humidity is how ear trouble starts, and a daily eye wipe on light-coloured faces to stay ahead of tear staining. The cleanser and wipes are already in your starter kit.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Cavachon Health: What We Check Before You Take One Home" imageAlt="Cavachon puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Cavachon goes home vet-checked, vaccinated, dewormed, and microchipped. And because honest pages answer the question buyers actually have: yes, the Cavalier parent carries a known heart condition (mitral valve disease), and crossing to a <a href="/puppies/cavalier-king-charles-spaniel" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavalier</a> line lowers, but does not erase, that inheritance. The practical habit is the same one we give Cavalier owners: from around age five, make sure the annual vet visit includes a proper listen to the heart. Early detection changes everything, and most Cavachons live their 12 to 15 years untroubled.</p>
+      <p>The rest is routine small-breed fare: weekly ear care, kneecaps (patellar luxation), and dental habits from day one. Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Your Cavachon's First Week at Home" imageAlt="Cavachon puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Cavachon explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and close. This cross settles through proximity: the playpen where it can see people, a fixed feeding routine, and the toilet pads where we placed them. Some night whimpering is normal adjustment.</p>
+    <p>Days 4 to 7: the routine sticks, and two habits start now while they're easy: book your free first lesson with an AVS-certified trainer, and practise short, boring departures, five minutes at a time, so alone-time skills grow before they're ever needed. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Cavachon falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one. Popular toy crosses like the Cavachon are smuggled often, so check twice here."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Cavachon FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Cavachon" reserveMessage="Hi! I'd like to reserve a Cavachon puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

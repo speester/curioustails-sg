@@ -1,0 +1,482 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Samoyed Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Samoyed puppies for sale in Singapore from $2,888 all-in. Honest part first: Samoyeds are not HDB-approved, and the Arctic coat is real work here. Private housing? We match you.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'The Coat', href: '#coat' },
+  { label: 'Size', href: '#size' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Can I keep a Samoyed in an HDB flat?',
+    answer:
+      'No. The Samoyed is not on the HDB-approved breed list, and we won\'t pretend otherwise. Condos and landed homes may keep up to three dogs, so a Sammy is on the table there. HDB readers who love this exact look: the Japanese Spitz is the approved-list lookalike at a fifth of the size and a fraction of the coat work, and we stock it.',
+  },
+  {
+    question: 'How much does a Samoyed cost in Singapore?',
+    answer:
+      'Samoyed prices in Singapore commonly run $3,500 to $8,000, usually quoted only on enquiry. At Curious Tails, Samoyed puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is Singapore too hot for a Samoyed?',
+    answer:
+      'Not too hot, but honestly demanding. A Samoyed thrives here on three commitments: an aircon-centred home life, exercise strictly in the cool hours, and a properly brushed, never-shaved coat, because the double coat insulates against heat when maintained and traps it when matted. Plenty of Sammies live happily in Singapore; all of them belong to owners who took those three commitments seriously.',
+  },
+  {
+    question: 'How much grooming does the coat actually need?',
+    answer:
+      'The most of any breed we carry: line brushing 4 to 7 times a week down to the skin, an undercoat rake during the spectacular twice-yearly blows, thorough drying after every wet walk, and a professional groom roughly monthly. Budget time and money for it, permanently. If that sounds unrealistic, the Japanese Spitz gives you the look on a manageable schedule.',
+  },
+  {
+    question: 'Are Samoyeds noisy?',
+    answer:
+      'They\'re talkers, honestly. The famous Sammy "woo-woo" is charming conversation to owners and worth knowing about before your neighbours do. It isn\'t nuisance barking, and training moderates it, but a silent breed this is not.',
+  },
+  {
+    question: 'Can a Samoyed be left alone while we are at work?',
+    answer:
+      'Moderately, once mature and genuinely exercised. Samoyeds are pack dogs bred to work alongside people, so the contract is real morning exercise, engagement in the evenings, and family inclusion on weekends. An excluded, under-exercised Sammy is a large, vocal, creative problem.',
+  },
+  {
+    question: 'What happens after I reserve a Samoyed?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/samoyed',
+    title,
+    description,
+    aboutName: 'Samoyed',
+    aboutAlternateName: 'Sammy',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Samoyed_dog',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Samoyed puppy',
+      url: '/puppies/samoyed',
+      description:
+        'Samoyed puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Samoyed Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Samoyed puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Samoyed',
+    description:
+      'The Samoyed is an Arctic working breed of roughly 16 to 30 kg, bred by the Samoyede people of Siberia for sledging and herding, famous for its brilliant white double coat and permanent "Sammy smile". It is not on Singapore\'s HDB-approved list and suits private housing, with a lifespan of 12 to 14 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Samoyed_dog',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/samoyed">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Samoyed Puppies for Sale in Singapore"
+    h1Accent="Samoyed"
+    subhead="Two honest facts before the smile wins: Samoyeds are not HDB-approved, and that Arctic coat is genuine work at one degree north of the equator. Still reading? Good. Samoyed prices here run $3,500 to $8,000; ours are $2,888 to $4,488, with the $500+ starter kit, free delivery and setup, and a free first training lesson included."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Samoyed puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. Private housing only. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing breed']}
+    imageAlt="White Samoyed puppy with the classic Sammy smile in a set-up playpen at a Singapore home"
+    tagLabel="Samoyed"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Samoyed', href: '/puppies/samoyed' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Samoyed in Singapore?" imageAlt="White Samoyed puppy portrait, one of the Samoyed puppies available in Singapore" variant="mid">
+      <p>Our Samoyed puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Sammy puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Samoyed for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Samoyed puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Samoyed photos and prices</a>, or meet our Samoyed puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Samoyed Puppies"
+      headingAccent="Available"
+      subhead="A few of the Sammy puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Snow-white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the male Samoyed puppy.'), imageAlt: 'White male Samoyed puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Smiley girl', href: whatsappLink('Hi! I\'d like more photos and the price for the female Samoyed puppy.'), imageAlt: 'White female Samoyed puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Cream-tinged boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream-tinged male Samoyed puppy.'), imageAlt: 'Cream-tinged male Samoyed puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Fluffy girl', href: whatsappLink('Hi! I\'d like more photos and the price for the fluffy female Samoyed puppy.'), imageAlt: 'Fluffy female Samoyed puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Biscuit-eared boy', href: whatsappLink('Hi! I\'d like more photos and the price for the biscuit-eared male Samoyed puppy.'), imageAlt: 'Biscuit-eared male Samoyed puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Plush girl', href: whatsappLink('Hi! I\'d like more photos and the price for the plush female Samoyed puppy.'), imageAlt: 'Plush female Samoyed puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div id="hdb" class="relative scroll-mt-40">
+    <ScatterFloat />
+    <DefBox
+      term="Can you keep a Samoyed in an HDB flat? No"
+      definition="The Samoyed is not on the HDB-approved breed list, and no licensing route changes that. HDB flats may keep one dog of an approved small breed; condos and landed homes may keep up to three dogs, subject to the estate's own rules, which is where the Sammy belongs in Singapore."
+      bridge="We tell you before the smile closes the deal. If you're in an HDB flat and love this exact snow-fox look, the Japanese Spitz is the approved-list answer: the same aesthetic at 5 to 9 kg with a genuinely manageable coat, and we stock it. Private housing readers: carry on, and read the coat section like it's a contract, because it is."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The housing rules, straight</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'HDB flat: Samoyed not approved, no exceptions we can promise',
+            'Condo / landed: up to three dogs (AVS limits of ownership)',
+            'HDB readers: the Japanese Spitz is the approved lookalike',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: <a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2">HDB-approved breeds guide</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Sammy from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Samoyed pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Samoyed Temperament: The Smile Is Real" imageAlt="Samoyed puppy playing happily with a family in a garden" imagePosition="left">
+      <p>The upturned mouth that keeps snow off a sled dog's face reads as a permanent grin, and conveniently, the temperament behind it matches. Samoyeds are genuinely friendly, gentle with children, sociable with other dogs, and bred through generations of Siberian tent-sharing to consider themselves family members with full voting rights. This is a pack dog that wants in on everything the household does.</p>
+      <p>The honest parts, from two years of matching big fluff to real routines: Sammies talk, the famous "woo-woo" is real and your estate will hear it, so early voice-training matters; they need genuine exercise, an hour daily in the cool hours; and they are mischievous when bored in ways that scale with their size. The buyers who thrive with this breed came for the smile and stayed for the work; we check for the second before celebrating the first.</p>
+      <p>Arctic cousins on our shelf: the <a href="/puppies/siberian-husky" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Siberian Husky</a> runs more independent, the Samoyed more people-fused.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="coat" class="scroll-mt-40">
+    <CaptionedBlock heading="The Coat Contract: An Arctic Coat at One Degree North" imagePosition="none" variant="card">
+      <p>Here is the section no listing writes and every Singapore Samoyed owner lives. That brilliant white double coat was engineered for minus forty, and at plus thirty-two it survives on three commitments: brushing 4 to 7 times a week, line-brushed to the skin, not skimmed over the top; an aircon-centred home life, with exercise strictly before 9am or after 6pm; and never, ever shaving, because a maintained double coat actually insulates against heat, while a shaved one wrecks the system and invites sunburn.</p>
+      <p>Add the twice-yearly coat blows, which produce enough undercoat to knit a second dog, a monthly professional groom, and mandatory thorough drying after wet walks (damp undercoat in tropical humidity breeds hot spots). If this paragraph excites rather than exhausts you, the Sammy will reward you with the best-looking dog on the street. If it exhausts you, the <a href="/puppies/japanese-spitz" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Japanese Spitz</a> exists for exactly this moment.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">The coat contract</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Brush 4-7x weekly, to the skin',
+            'Aircon-centred life; cool-hours exercise',
+            'Never shave; dry thoroughly after rain',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Samoyed Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for the smiling cloud."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 16 to 30 kg; males run distinctly larger'] },
+        { label: 'Height', values: ['Around 48 to 60 cm at the shoulder'] },
+        { label: 'Coat', values: ['Brilliant white double coat (occasionally biscuit-tinged); the most grooming-intensive coat we carry'] },
+        { label: 'Lifespan', values: ['12 to 14 years with good care'] },
+        { label: 'Exercise', values: ['About 60 minutes daily, strictly in the cool hours'] },
+        { label: 'Shedding & allergies', values: ['Heavy, with spectacular twice-yearly blows; the wrong breed for allergy-sensitive homes'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The size range is honest and wide: a petite female Sammy and a big male are almost different dogs logistically. Tell us your space and we'll match the right end of the range.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Samoyed Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="The market runs $3,500 to $8,000 behind enquiry forms. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Samoyed price commonly $3,500 to $8,000',
+            'Price usually not published; enquiry required',
+            'Import premiums common',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and budget honestly, this breed's grooming line-item is real, with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Sammy Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Samoyed leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the brush is not an accessory, it is the relationship: the daily grooming habit you start in week one is the difference between a magnificent coat and a matted problem.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Sammy's daily care, including the line-brushing technique that actually reaches the undercoat. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Samoyed Right for Your Lifestyle?"
+      subhead="We ask about your housing, your mornings, and your grooming appetite. Here's the honest short version."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Private housing, aircon, active social family', values: ['Ideal. The Sammy\'s Singapore habitat, fully described'] },
+        { label: 'You genuinely enjoy grooming as a ritual', values: ['Ideal. This breed rewards brush-lovers like nothing else'] },
+        { label: 'HDB flat', values: ['Not eligible. The Japanese Spitz is the approved-list answer, honestly a great one'] },
+        { label: 'Low-effort wishes, minimal grooming budget', values: ['Reconsider entirely. This is the highest-maintenance coat we carry'] },
+        { label: 'Allergy-sensitive household', values: ['Reconsider. The shedding is heavy and constant'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Samoyed is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your housing type and daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my housing type and daily routine. Is a Samoyed the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Samoyed vs Japanese Spitz: The Question We Answer Weekly" imagePosition="none" variant="dark">
+    <p>Yes, they look like the same dog at two zoom levels, and in Singapore the choice is usually made by your address. The <a href="/puppies/japanese-spitz" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Japanese Spitz</a> is 5 to 9 kg, HDB-approved, and carries a coat our climate merely inconveniences. The Samoyed is the full-scale original: 16 to 30 kg, private housing only, and a coat that demands the contract described above.</p>
+    <p>For HDB families the Spitz isn't the compromise, it's the correct answer. For private housing with space, aircon and genuine grooming appetite, the Samoyed conversation is worth having properly, and we'll have it honestly. With us the price, the starter kit, and the aftercare are identical either way.</p>
+    <p>Message us your housing and routine and we'll tell you which white cloud fits.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Samoyed: 16-30 kg, private housing, serious coat contract',
+          'Japanese Spitz: 5-9 kg, HDB-approved, manageable coat',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: The Technique That Actually Works" imageAlt="Samoyed having its double coat line-brushed with an undercoat rake" imagePosition="left">
+      <p>Surface brushing a Samoyed is theatre; the undercoat is where the work lives. Line brushing, parting the coat and brushing from the skin outward, section by section, is the technique we demonstrate on delivery day, paired with an undercoat rake during blows. Twenty minutes most days keeps the system healthy; skipping a fortnight creates mats close to the skin where heat and moisture do damage invisibly.</p>
+      <p>After rain or a swim, dry thoroughly, undercoat included; a chamois then a blast of the dryer's cool setting. And the rule once more, because someone asks a groomer every week: never shave a Samoyed. Trim feet and hygiene areas, brush everything else, and let the coat do the insulating it was engineered for.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Samoyed Health: What We Check Before You Take One Home" imageAlt="Samoyed puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Samoyed goes home vet-checked, vaccinated, dewormed, and microchipped. The Sammy health picture is respectable for a larger breed: hip dysplasia is the main structural watch-item, met with joint-friendly puppyhood, controlled growth feeding, no stair marathons, lean weight for life; eye checks are sensible in working lines; and heat management, covered thoroughly above, is the everyday discipline.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, portioned for controlled growth, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Your Sammy's First Week at Home" imageAlt="Samoyed puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Sammy explores the room, and we walk you through all 30+ starter-kit items in person, including the line-brushing demonstration. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm, cool and predictable. A fixed feeding routine, the toilet pads where we placed them, joint-safe floor play, and the daily brush habit starting now, while the puppy coat makes it easy practice.</p>
+    <p>Days 4 to 7: the routine sticks and the personality arrives, all of it. Book your free first lesson with an AVS-certified trainer this week; manners installed before twenty kilograms arrive are a gift to everyone. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Sammy falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Samoyed FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Samoyed" reserveMessage="Hi! I'd like to reserve a Samoyed puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

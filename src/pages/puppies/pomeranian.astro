@@ -1,0 +1,537 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Pomeranian Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Pomeranian puppies for sale in Singapore from $2,888, AVS licensed and HDB-approved. Real prices, temperament, coat care and the $500+ starter kit included. WhatsApp us.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Pomeranian cost in Singapore?',
+    answer:
+      'Pomeranian prices in Singapore commonly run from around $2,500 to $7,000 depending on colour and size, with "teacup" listings priced higher still. At Curious Tails, Pomeranian puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Pomeranian HDB-approved?',
+    answer:
+      'Yes. The Pomeranian is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and we complete the dog licensing for you at purchase, so the paperwork is handled.',
+  },
+  {
+    question: 'Do Pomeranians bark a lot?',
+    answer:
+      'Untrained, yes: the Pomeranian is a proper little watchdog that announces lifts, doorbells and corridor footsteps with enthusiasm. Trained early, that voice becomes an asset rather than a neighbour complaint. This is exactly what the free first lesson with an AVS-certified trainer is for, and we tell every Pomeranian buyer to take it seriously.',
+  },
+  {
+    question: 'How big does a Pomeranian get?',
+    answer:
+      'Most Pomeranians reach roughly 1.5 to 3.5 kg fully grown, standing about 18 to 24 cm at the shoulder. Much of the visual size is coat rather than dog. Be cautious with "teacup Pomeranian" listings promising less: no honest seller can guarantee adult size, and unusually tiny dogs carry real health trade-offs.',
+  },
+  {
+    question: 'Do Pomeranians shed? Are they OK for allergies?',
+    answer:
+      'They shed, honestly and generously. The Pomeranian carries a thick double coat that drops hair year-round and blows coat seasonally, so it is the wrong pick for an allergy-sensitive household. If you love the teddy-bear look but need low-shedding, look at the Bichon Frise or a Poodle cross instead; we will say so before you buy.',
+  },
+  {
+    question: 'Can a Pomeranian be left alone while we are at work?',
+    answer:
+      'Moderately well once settled. Pomeranians are devoted but confident little dogs, and with a safe playpen, a fixed routine, and something to chew or work on, most adapt to working households. The trade-off is the voice: a bored Pomeranian barks, so the routine and early training matter more for this breed than most.',
+  },
+  {
+    question: 'What happens after I reserve a Pomeranian?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/pomeranian',
+    title,
+    description,
+    aboutName: 'Pomeranian',
+    aboutAlternateName: 'Pomeranian dog',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Pomeranian_dog',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Pomeranian puppy',
+      url: '/puppies/pomeranian',
+      description:
+        'Pomeranian puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Pomeranian Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Pomeranian puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Pomeranian',
+    description:
+      'The Pomeranian is a toy spitz breed of roughly 1.5 to 3.5 kg with a profuse double coat, a fox-like face, and a bold, lively personality. It is a devoted, alert companion with a lifespan of 12 to 16 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Pomeranian_dog',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/pomeranian">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Pomeranian Puppies for Sale in Singapore"
+    h1Accent="Pomeranian"
+    subhead="Pomeranian prices in Singapore commonly run $2,500 to $7,000, and higher for 'teacup' listings. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Pomeranian puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-approved. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved toy breed']}
+    imageAlt="Orange Pomeranian puppy sitting in a set-up playpen at a Balestier home"
+    tagLabel="Pomeranian"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Pomeranian', href: '/puppies/pomeranian' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Pomeranian in Singapore?" imageAlt="Orange Pomeranian puppy portrait, one of the Pomeranian puppies available in Singapore" variant="mid">
+      <p>Our Pomeranian puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Pomeranian puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Pomeranian for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Pomeranian puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Pomeranian photos and prices</a>, or meet our Pomeranian puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Pomeranian Puppies"
+      headingAccent="Available"
+      subhead="A few of the Pomeranian puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Orange boy', href: whatsappLink('Hi! I\'d like more photos and the price for the orange male Pomeranian puppy.'), imageAlt: 'Orange male Pomeranian puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Pomeranian puppy.'), imageAlt: 'Cream female Pomeranian puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Sable boy', href: whatsappLink('Hi! I\'d like more photos and the price for the sable male Pomeranian puppy.'), imageAlt: 'Sable male Pomeranian puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'White girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white female Pomeranian puppy.'), imageAlt: 'White female Pomeranian puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black male Pomeranian puppy.'), imageAlt: 'Black male Pomeranian puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Orange sable girl', href: whatsappLink('Hi! I\'d like more photos and the price for the orange sable female Pomeranian puppy.'), imageAlt: 'Orange sable female Pomeranian puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Pomeranian?"
+      definition="The Pomeranian is a toy spitz breed, roughly 1.5 to 3.5 kg under a profuse double coat, with a fox-like face and plumed tail. Descended from much larger sled-dog stock, it kept the confidence of its ancestors: bold, lively, alert, and devoted, with a lifespan of 12 to 16 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Pomeranian suits owners who want a spirited, glamorous little companion and don't mind hair on the sofa."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Pomeranian at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Toy spitz with a profuse double coat',
+            'Roughly 1.5 to 3.5 kg fully grown',
+            'Bold, lively, and a proper little watchdog',
+            'Colours: orange, cream, sable, black, white and more',
+            '12 to 16 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Sizes vary by line; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Pomeranian from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Pomeranian pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Pomeranian Temperament: A Sled Dog's Confidence in 3 kg" imageAlt="Pomeranian puppy playing confidently on a living room rug" imagePosition="left">
+      <p>The Pomeranian was bred down from working spitz dogs, and nobody briefed it on the size change. This is a bold, curious, endlessly entertaining little dog that walks into a room like it owns the lease. It is devoted to its people, quick to learn tricks, and takes its self-appointed watchdog duties seriously: lifts, doorbells and corridor footsteps all get announced.</p>
+      <p>The honest part, from two years of matching puppies to families: that voice is the breed's one real management task. A Pomeranian with early training and enough to do is charming and confident; one that's bored and under-socialised becomes the corridor's news service. Start the free first training lesson early and the difference lasts a lifetime.</p>
+      <p>With calm, older children Pomeranians do well. With boisterous toddlers we say no plainly: under all that coat is a small, delicate frame. For young families, the sturdier <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a> is the kinder match, and we'll say so before you buy.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Pomeranian Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Moderately well once the routine settles. Pomeranians are devoted but carry real spitz self-assurance, so with a safe playpen, a fixed schedule, and chew work to occupy them, most handle a working household's hours.</p>
+      <p>The caveat is noise, not anxiety: a bored Pomeranian in an empty flat will find its voice, and your neighbours will describe it to you. If your home is empty 8am to 6pm and quiet independence is the priority, compare the <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> or <a href="/puppies/mini-dachshund" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Mini Dachshund</a> before deciding.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'You want a bold, entertaining companion',
+            'Adults or calm older children at home',
+            'You\'ll invest in early training for the voice',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Pomeranian Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers, including how much of that fluff is actually dog."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 1.5 to 3.5 kg; much of the visual size is coat'] },
+        { label: 'Height', values: ['Around 18 to 24 cm at the shoulder'] },
+        { label: 'Coat', values: ['Profuse double coat with a ruff; orange is classic, plus cream, sable, black, white, chocolate and more'] },
+        { label: 'Lifespan', values: ['12 to 16 years with good care'] },
+        { label: 'Exercise', values: ['About 20 to 30 minutes a day, plus indoor play; a flat is genuinely enough space'] },
+        { label: 'Shedding & allergies', values: ['Heavy: year-round shedding plus seasonal coat blows. Not the pick for allergy-sensitive homes'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        How big do Pomeranians get? Under the coat, 1.5 to 3.5 kg, which makes the breed a favourite target of "teacup" marketing. If low shedding matters more to you than the spitz look, the <a href="/puppies/bichon-frise" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Bichon Frise</a> offers the same round-faced charm with far less hair on the floor.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Pomeranian Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Pomeranian price commonly $2,500 to $7,000',
+            'Price usually not published; enquiry required',
+            '"Teacup" and rare-colour listings priced at a premium',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Pomeranian Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Pomeranian leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed two items matter from day one: the brush, because the double coat waits for no one, and the harness, because a Pomeranian's throat should never take leash pressure.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Pomeranian's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Pomeranian Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Pomeranian."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'You want a bold, entertaining little character', values: ['Ideal. Nothing in the shop has more personality per kilogram'] },
+        { label: 'Small flat, modest exercise appetite', values: ['Great fit. 20 to 30 minutes a day plus indoor play covers it'] },
+        { label: 'Working household with a settled routine', values: ['Workable. Early training for the voice is the real task, not the alone time itself'] },
+        { label: 'Home with boisterous toddlers', values: ['Reconsider. Under the coat is a delicate 2 to 3 kg frame; the sturdier Cockapoo is the kinder match'] },
+        { label: 'Allergy-sensitive household', values: ['Reconsider. Pomeranians shed heavily; a Bichon Frise or Toy Poodle is the better pick'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Pomeranian is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Pomeranian the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Pomeranian vs Japanese Spitz: Which Spitz Fits Your Home?" imagePosition="none" variant="dark">
+    <p>Same family, same pointed face and plumed tail, very different scale. The Pomeranian is a 1.5 to 3.5 kg handbag-sized spitz with a bigger grooming bill per gram; the Japanese Spitz runs 5 to 9 kg, sturdier around children, with a pure-white coat that sheds just as honestly. Both are alert, devoted, and vocal enough to need early training.</p>
+    <p>Pick the Pomeranian for portability and sheer character; pick the Japanese Spitz for a more robust family dog with the same snow-fox looks. With us the price, the starter kit, and the aftercare are identical either way.</p>
+    <p>Weighing the two? See our <a href="/puppies/japanese-spitz" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Japanese Spitz puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Pomeranian: 1.5 to 3.5 kg, maximum character, delicate frame',
+          'Japanese Spitz: 5 to 9 kg, sturdier with kids, same white-fox look',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Pomeranian in an HDB flat"
+      definition="The Pomeranian is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and at 1.5 to 3.5 kg the Pomeranian sits well inside the small-breed rules. Every Pomeranian we place has its dog licensing completed at purchase, so the paperwork is handled for you."
+      bridge="Is a Pomeranian HDB-approved? Yes, by name on the list. Just mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Pomeranian is named on the HDB-approved breed list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming the Double Coat, and Why We Don't Shave It" imageAlt="Pomeranian puppy being brushed through its double coat" imagePosition="left">
+      <p>The coat is the Pomeranian's crown and its chore. Plan on brushing 3 to 4 times a week down to the skin, not just over the top, plus a proper groom every 4 to 8 weeks. Shedding is constant and the seasonal coat blows are generous; the vacuum becomes part of the family.</p>
+      <p>One thing we tell every buyer, because Singapore groomers see the damage weekly: don't shave a Pomeranian down for the "teddy bear cut". Shaving a double coat can trigger alopecia X, patchy hair loss that may never fully grow back. Trim, tidy, and brush; never shave to the skin. In our climate the undercoat actually insulates against heat, so a well-brushed full coat is more comfortable than a shaved one.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Pomeranian Health: What We Check Before You Take One Home" imageAlt="Pomeranian puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Pomeranian goes home vet-checked, vaccinated, dewormed, and microchipped. The Pomeranian health points worth knowing: patellar luxation, the kneecap issue common to toy breeds; tracheal collapse, a weakness of the windpipe in tiny dogs, which is why your starter-kit harness is not optional and collars should never take leash pressure; dental crowding, so the oral care routine starts on day one; and alopecia X, the coat-loss condition linked to shaving, which the grooming advice above avoids.</p>
+      <p>Very young Pomeranian puppies can also run low blood sugar, which regular small meals prevent; your puppy comes home with the food it is already eating and a feeding routine to follow. For portioning guidance see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div class="scroll-mt-40">
+    <CaptionedBlock heading="The Truth About Teacup Pomeranians" imagePosition="none" variant="card">
+      <p>The Pomeranian is one of the top targets of "teacup" marketing in Singapore, because at a healthy 1.5 to 3.5 kg it is already tiny. You will see "teacup pom" listings, often at a premium. We don't sell to that label. Dogs bred to be unusually tiny carry higher risks: fragile bones, collapsing tracheas, severe dental problems, chronic low blood sugar, and shorter lives.</p>
+      <p>A healthy Pomeranian already fits in a tote bag with room for your wallet. If a seller promises a size below the healthy range and guarantees it, treat the promise as a warning, not a feature.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Teacup red flags</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Guaranteed adult weight below 1.5 kg',
+            'No mention of the parents\' actual size',
+            '"Teacup" or "micro" priced at a premium',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M18 6 6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+
+    <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+  </div>
+
+  <CaptionedBlock heading="Your Pomeranian's First Week at Home" imageAlt="Pomeranian puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Pomeranian explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and predictable. A fixed feeding routine with regular small meals, the toilet pads where we placed them, and short, gentle play. Some night whimpering is normal adjustment.</p>
+    <p>Days 4 to 7: the routine sticks, and the personality arrives. This is the window to book your free first lesson with an AVS-certified trainer, the single best investment against future yappiness; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>. For anything in between, you WhatsApp us.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            "Had such a wonderful experience bringing home our new furry family member from Curious Tails in Balestier. Honestly, Nelson and Kim couldn't have been more helpful and answered every single question we had, which made the whole thing stress-free. Our pup was clean, well-socialised, and full of energy when we brought it home. The puppy came home healthy and vet-checked, which gave us real peace of mind. A truly lovely experience from start to finish, thank you!",
+          name: 'Karen Joy Pepito',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Pomeranian falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one. Tiny breeds like the Pomeranian are smuggled most often, so check twice here."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Pomeranian FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Pomeranian" reserveMessage="Hi! I'd like to reserve a Pomeranian puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

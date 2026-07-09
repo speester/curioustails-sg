@@ -1,0 +1,511 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Silky Terrier Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Silky Terrier puppies for sale in Singapore from $2,888, AVS licensed and HDB-approved. Real prices, temperament, coat care and the $500+ starter kit included. WhatsApp us.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Silky Terrier cost in Singapore?',
+    answer:
+      'Silky Terrier prices in Singapore commonly run from around $2,500 to $5,000; the breed is uncommon here, so availability drives price as much as anything. At Curious Tails, Silky Terrier puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Silky Terrier HDB-approved?',
+    answer:
+      'Yes. The Australian Silky Terrier is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and we complete the dog licensing for you at purchase, so the paperwork is handled.',
+  },
+  {
+    question: 'What is the difference between a Silky Terrier and a Yorkie?',
+    answer:
+      'Cousins, not twins. The Silky was developed in Australia from Yorkshire Terrier crosses with Australian Terriers, and it shows: at 4 to 5 kg it is a size up from the Yorkie, sturdier-built, with a wedge-shaped head and a bit more working-terrier drive. The coats are similar, silky, low-shedding, blue and tan, which is where most of the confusion comes from.',
+  },
+  {
+    question: 'Do Silky Terriers shed? Are they good for allergies?',
+    answer:
+      'The Silky\'s fine, human-hair-like coat sheds very little, making it one of the better picks for allergy-sensitive homes, alongside the Yorkie and Maltese. No dog is truly allergen-free, so spend time with one at our Balestier shop first if allergies are severe.',
+  },
+  {
+    question: 'Can a Silky Terrier be left alone while we are at work?',
+    answer:
+      'Moderately well. Silkies have proper terrier self-sufficiency, and with a real walk before work, chew work for the day, and a settled routine, most handle a working household fine. The watchdog voice needs early training, as with every alert small breed.',
+  },
+  {
+    question: 'Are Silky Terriers good with children?',
+    answer:
+      'Better than the Yorkie, honestly, thanks to the sturdier frame, but still a small dog: great with respectful school-age children, wrong for toddlers. The play style is lively and game; a Silky will fetch until the child quits first.',
+  },
+  {
+    question: 'What happens after I reserve a Silky Terrier?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/silky-terrier',
+    title,
+    description,
+    aboutName: 'Australian Silky Terrier',
+    aboutAlternateName: 'Silky Terrier',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Australian_Silky_Terrier',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Silky Terrier puppy',
+      url: '/puppies/silky-terrier',
+      description:
+        'Silky Terrier puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Silky Terrier Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Silky Terrier puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Australian Silky Terrier',
+    description:
+      'The Australian Silky Terrier is a small terrier of roughly 4 to 5 kg with a fine, silky, low-shedding blue-and-tan coat, developed in Australia from Yorkshire and Australian Terrier stock. Lively, bold and devoted, it has a lifespan of 13 to 15 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Australian_Silky_Terrier',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/silky-terrier">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Silky Terrier Puppies for Sale in Singapore"
+    h1Accent="Silky Terrier"
+    subhead="Silky Terrier prices in Singapore commonly run $2,500 to $5,000. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Silky Terrier puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-approved. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved toy terrier']}
+    imageAlt="Blue and tan Silky Terrier puppy sitting in a set-up playpen at a Balestier home"
+    tagLabel="Silky Terrier"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Silky Terrier', href: '/puppies/silky-terrier' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Silky Terrier in Singapore?" imageAlt="Blue and tan Silky Terrier puppy portrait, one of the Silky Terrier puppies available in Singapore" variant="mid">
+      <p>Silky Terriers are uncommon in Singapore, so litters are announced and reserved fast; we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Silky Terrier puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Silky Terrier for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Silky Terrier puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Silky Terrier photos and prices</a>, or meet our Silky Terrier puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Silky Terrier Puppies"
+      headingAccent="Available"
+      subhead="A few of the Silky Terrier puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Blue & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the blue and tan male Silky Terrier puppy.'), imageAlt: 'Blue and tan male Silky Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Silver & tan girl', href: whatsappLink('Hi! I\'d like more photos and the price for the silver and tan female Silky Terrier puppy.'), imageAlt: 'Silver and tan female Silky Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Grey & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the grey and tan male Silky Terrier puppy.'), imageAlt: 'Grey and tan male Silky Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Petite girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite female Silky Terrier puppy.'), imageAlt: 'Petite female Silky Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Blue & tan girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue and tan female Silky Terrier puppy.'), imageAlt: 'Blue and tan female Silky Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Bold boy', href: whatsappLink('Hi! I\'d like more photos and the price for the bold male Silky Terrier puppy.'), imageAlt: 'Bold male Silky Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Silky Terrier?"
+      definition="The Australian Silky Terrier is a small terrier of roughly 4 to 5 kg, developed in Australia around 1900 from Yorkshire Terrier and Australian Terrier stock. It wears a fine, silky, low-shedding blue-and-tan coat over a build that is noticeably sturdier than a Yorkie's, with a lively, bold temperament and a lifespan of 13 to 15 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Silky suits owners who love the Yorkie look but want a little more substance and a little more terrier."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Silky Terrier at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Australia\'s toy terrier, Yorkie\'s sturdier cousin',
+            'Roughly 4 to 5 kg fully grown',
+            'Fine, silky, low-shedding blue & tan coat',
+            'Lively, bold, proper terrier spark',
+            '13 to 15 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Sizes vary by line; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Silky Terrier from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Silky pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Silky Terrier Temperament: More Terrier Than the Coat Lets On" imageAlt="Silky Terrier puppy playing keenly with a toy at home" imagePosition="left">
+      <p>The glamorous coat misleads people. Underneath it, the Silky is a genuine working terrier, bred in Australia with ratting jobs in mind, and the temperament follows: keen, quick, plucky, and busier than the average lapdog by a comfortable margin. It plays with real intent, investigates everything, and appoints itself doorbell correspondent unless taught otherwise.</p>
+      <p>The honest part, from two years of matching puppies to families: the Silky needs more from your day than a Maltese or Shih Tzu, about 45 minutes of walks plus genuine play, and it keeps a terrier's chase instinct, so leashes matter around birds and cats. Meet those needs and you get a devoted, entertaining companion that stays puppyish for a decade.</p>
+      <p>For the same look with less drive, the <a href="/puppies/yorkshire-terrier" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Yorkshire Terrier</a> is the softer sibling; for more drive still, the <a href="/puppies/jack-russell-terrier" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Jack Russell</a>.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Silky Terrier Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Moderately well, with the terrier contract honoured: a real walk before work, chew work and a puzzle feeder for the day, and another outing after. Silkies are self-sufficient by temperament; it's unspent energy, not solitude, that gets them into trouble.</p>
+      <p>The voice is the thing to train early; an alert terrier in a quiet flat will find material. If your mornings can't fit the walk, the calmer <a href="/puppies/shih-tzu" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shih Tzu</a> suits the routine better, and we'll say so.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'You want the Yorkie look, sturdier build',
+            'Active household with daily walks',
+            'Low-shedding coat matters to you',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Silky Terrier Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for the Yorkie's Australian cousin."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 4 to 5 kg; a solid size up from the Yorkie'] },
+        { label: 'Height', values: ['Around 23 to 26 cm at the shoulder'] },
+        { label: 'Coat', values: ['Fine, straight, silky single coat; blue and tan, with silver-grey variations'] },
+        { label: 'Lifespan', values: ['13 to 15 years with good care'] },
+        { label: 'Exercise', values: ['About 45 minutes a day plus play; livelier than the classic lapdogs'] },
+        { label: 'Shedding & allergies', values: ['Very low-shedding; one of the good picks for allergy-sensitive homes'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The extra kilogram over the Yorkie matters more than it sounds: it's the difference between "handle with care" and "can join family life properly". If you've been torn between the two breeds, that sturdiness is usually the deciding fact.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Silky Terrier Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Silky Terrier price commonly $2,500 to $5,000',
+            'Rare locally; often confused with Yorkies in listings',
+            'Price usually not published; enquiry required',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Silky Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Silky Terrier leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the comb is the daily tool, silk tangles, and the harness protects a small terrier throat that will absolutely hit the end of a leash chasing a myna.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Silky's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Silky Terrier Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Silky."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'You love the Yorkie look but have kids', values: ['Great fit. The extra sturdiness is exactly what young hands need'] },
+        { label: 'Allergy-sensitive household', values: ['Great fit. Very low-shedding silky coat'] },
+        { label: 'Active household with daily walks', values: ['Good fit. The terrier drive gets spent and the charm shows'] },
+        { label: 'Home with toddlers', values: ['Reconsider. Sturdier than a Yorkie, still only 4 to 5 kg; the Shih Tzu is safer'] },
+        { label: 'Sedentary home, minimal walks', values: ['Reconsider. Terrier energy without an outlet turns into the voice'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Silky is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Silky Terrier the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Silky Terrier vs Yorkie: Choosing Between the Cousins" imagePosition="none" variant="dark">
+    <p>Same silky low-shedding coat family, same blue-and-tan palette, one practical fork: size and drive. The Yorkie is 2 to 3.5 kg of fine-boned classic glamour, best in adult or calm households. The Silky is 4 to 5 kg, sturdier, and carries a notch more working-terrier energy, which buys you more resilience around family life at the cost of a little more exercise.</p>
+    <p>Our plain rule: children or a more active routine, Silky; smallest possible companion for a quieter home, Yorkie. With us the price, the starter kit, and the aftercare are identical either way.</p>
+    <p>Weighing the two? See our <a href="/puppies/yorkshire-terrier" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Yorkshire Terrier puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Silky: 4 to 5 kg, sturdier, a notch more drive',
+          'Yorkie: 2 to 3.5 kg, finer-boned, calmer homes',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Silky Terrier in an HDB flat"
+      definition="The Australian Silky Terrier is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and the Silky sits comfortably inside the small-breed rules. Every Silky we place has its dog licensing completed at purchase, so the paperwork is handled for you."
+      bridge="Is a Silky Terrier HDB-approved? Yes, by name on the list (as the Australian Silky Terrier). Just mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Australian Silky Terrier is named on the HDB-approved breed list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: Silk Wants a Comb, Not a Salon" imageAlt="Silky Terrier puppy having its long coat combed through" imagePosition="left">
+      <p>The Silky coat behaves like the Yorkie's: barely sheds, happily tangles. Most Singapore Silkies live in a practical trimmed cut, which brings the routine down to a comb-through 2 to 3 times a week and a tidy-up trim every 6 to 8 weeks. Kept long, upgrade to daily combing; the silk mats quietly if ignored.</p>
+      <p>No undercoat means no coat blows and quick drying after rainy walks, both blessings here. The daily ten-second habits are the toy-breed standards: eye area check and tooth-brushing, with everything needed in your starter kit.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Silky Terrier Health: What We Check Before You Take One Home" imageAlt="Silky Terrier puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Silky goes home vet-checked, vaccinated, dewormed, and microchipped. The breed is robust, working-terrier roots again, with a short list worth knowing: patellar luxation, the small-breed kneecap issue; dental crowding, met with the day-one brushing habit; tracheal sensitivity, which is why the harness rule applies; and Legg-Calvé-Perthes in some lines, as with most small terriers.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Your Silky's First Week at Home" imageAlt="Silky Terrier puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Silky explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and predictable. A fixed feeding routine, the toilet pads where we placed them, and short, structured play; the terrier curiosity will want to inspect everything, so supervise the first explorations.</p>
+    <p>Days 4 to 7: the routine sticks and the spark shows. Book your free first lesson with an AVS-certified trainer this week; the voice and the leash manners are best shaped now. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Silky falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one. Tiny breeds like the Silky are smuggled most often, so check twice here."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Silky Terrier FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Silky Terrier" reserveMessage="Hi! I'd like to reserve a Silky Terrier puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

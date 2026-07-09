@@ -1,0 +1,487 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Pomsky Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Pomsky puppies for sale in Singapore from $2,888 all-in. Honest first: Pomskies are NOT HDB-approved despite the size, and adult size genuinely varies. We match honestly.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Size Truth', href: '#size-truth' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Is a Pomsky HDB-approved?',
+    answer:
+      'No, and this catches people out constantly: small does not mean approved. The HDB list works by breed, not by weight, and as a Husky cross the Pomsky is not on it at any size. Condos and landed homes may keep up to three dogs. HDB readers who love the spitz look: the Pomeranian — literally one of the Pomsky\'s parents — and the Japanese Spitz are both on the approved list, and we stock both.',
+  },
+  {
+    question: 'How big will a Pomsky actually get?',
+    answer:
+      'Honestly: somewhere between 4 and 14 kg, and anyone who guarantees a number is selling hope. Generation shifts the odds ("F1b" means a pup bred back toward the Pomeranian side, so smaller is likelier), but genetics deals every litter a range. Our approach: we show you the parents, tell you the honest estimate, and never charge a "tiny" premium for a promise nobody can keep.',
+  },
+  {
+    question: 'How much does a Pomsky cost in Singapore?',
+    answer:
+      'Pomsky prices in Singapore commonly run $4,000 to $10,000, with "tiny" and "teacup" generation marketing at the top. At Curious Tails, Pomsky puppies are $2,888 to $4,488 regardless of generation, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Do Pomskies howl like Huskies?',
+    answer:
+      'Often, yes — the Husky voice frequently comes along in the cross, scaled down but recognisable, along with a talent for "talking". Owners find it charming; neighbours vary. If estate silence matters, factor the soundtrack in honestly before you fall for the markings.',
+  },
+  {
+    question: 'Do Pomskies shed?',
+    answer:
+      'Heavily. Both parents are double-coated spitz breeds, so the cross sheds year-round and blows coat seasonally. Brushing 3 to 4 times a week manages it, never shave a double coat in our climate, and allergy-sensitive homes should look at our low-shedding breeds instead.',
+  },
+  {
+    question: 'Why do Pomskies get rehomed in Singapore?',
+    answer:
+      'Two surprises, both preventable: the puppy grows bigger than the "tiny" marketing promised, or the Husky energy and voice arrive in full. Search the breed locally and the rehoming posts sit right beside the sellers. This page states both surprises upfront so that our Pomskies never join them.',
+  },
+  {
+    question: 'What happens after I reserve a Pomsky?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/pomsky',
+    title,
+    description,
+    aboutName: 'Pomsky',
+    aboutAlternateName: 'Pomeranian Husky mix',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Pomsky',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Pomsky puppy',
+      url: '/puppies/pomsky',
+      description:
+        'Pomsky puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Pomsky Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Pomsky puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Pomsky',
+    description:
+      'The Pomsky is a designer cross between a Pomeranian and a Siberian Husky, typically 4 to 14 kg depending on generation, wearing husky markings at a fraction of the scale. As a husky cross it is not HDB-eligible despite its size, and it carries real spitz energy and voice, with a lifespan of 12 to 15 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Pomsky',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/pomsky">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Pomsky Puppies for Sale in Singapore"
+    h1Accent="Pomsky"
+    subhead="Two honest facts before the mini-husky face wins: Pomskies are NOT HDB-approved — small doesn't change the breed list — and adult size genuinely varies, whatever 'tiny pomsky' listings promise. Market prices run $4,000 to $10,000; ours are $2,888 to $4,488 all-in, honesty included."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Pomsky puppies."
+    secondaryCtaLabel="Read the size truth first"
+    secondaryCtaHref="#size-truth"
+    priceAnchor="From $2,888 all-in. Private housing only. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing cross']}
+    imageAlt="Husky-marked Pomsky puppy with blue eyes in a set-up playpen at a Singapore home"
+    tagLabel="Pomsky"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Pomsky', href: '/puppies/pomsky' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Pomsky in Singapore?" imageAlt="Husky-marked Pomsky puppy portrait, one of the Pomsky puppies available in Singapore" variant="mid">
+      <p>Our Pomsky puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop, we'll send you photos, gender, age, markings, and exact prices for the Pomsky puppies available now, along with the thing that matters most for this cross: photos of the parents and an honest size estimate.</p>
+      <p>Unlike the listings you'll compare us against, we tell you the number upfront: every Pomsky for sale in Singapore here is between $2,888 and $4,488, whatever the generation, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Pomsky puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Pomsky photos and prices</a>, or meet our Pomsky puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Pomsky Puppies"
+      headingAccent="Available"
+      subhead="A few of the Pomsky puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, parent photos and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Grey & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the grey and white male Pomsky puppy.'), imageAlt: 'Grey and white male Pomsky puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Blue-eyed girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue-eyed female Pomsky puppy.'), imageAlt: 'Blue-eyed female Pomsky puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Pomsky puppy.'), imageAlt: 'Black and white male Pomsky puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Red & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white female Pomsky puppy.'), imageAlt: 'Red and white female Pomsky puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Husky-masked boy', href: whatsappLink('Hi! I\'d like more photos and the price for the husky-masked male Pomsky puppy.'), imageAlt: 'Husky-masked male Pomsky puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Cream & grey girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream and grey female Pomsky puppy.'), imageAlt: 'Cream and grey female Pomsky puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div id="hdb" class="relative scroll-mt-40">
+    <ScatterFloat />
+    <DefBox
+      term="Is a Pomsky HDB-approved? No — small doesn't mean approved"
+      definition="The HDB list works by breed, not by bathroom scale, and as a Siberian Husky cross the Pomsky is not on it at any size. HDB flats may keep one dog of an approved small breed; condos and landed homes may keep up to three dogs, subject to the estate's own rules."
+      bridge="This is the fact that catches Pomsky buyers out most, so it goes first. The consolation is genuinely good: the Pomeranian — one of this cross's actual parents — IS on the approved list with all the spitz character intact, and the Japanese Spitz covers the fluffy-white brief at approved-list size. We stock both. Private-housing readers: carry on to the size truth below."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The housing rules, straight</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'HDB flat: Pomsky not eligible at any size (husky cross)',
+            'Condo / landed: up to three dogs (AVS limits of ownership)',
+            'HDB spitz-lovers: the Pomeranian parent IS approved',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: <a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2">HDB-approved breeds guide</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Pomsky from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Pomsky pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="size-truth" class="scroll-mt-40">
+    <CaptionedBlock heading="The Size Truth: What 'Tiny Pomsky' Marketing Won't Tell You" imageAlt="Pomsky puppy beside its Pomeranian and Husky parents for size comparison" imagePosition="left">
+      <p>Here's the conversation every Pomsky listing avoids. This cross's adults range from 4 kg to 14 kg, and the spread is not a defect, it's genetics doing what genetics does when you cross a 2 kg breed with a 25 kg one. "Generation" labels shift the odds: an F1 (half-half) trends toward the middle, an F1b (bred back toward the Pomeranian) trends smaller, but trends are not promises, and every honest breeder has watched a "tiny" litter produce a 12-kilo surprise.</p>
+      <p>Our approach is the only honest one available: we show you both parents, give you our genuine estimate with its genuine uncertainty, and price every Pomsky inside the same printed range, no "tiny" premium for a promise nobody can keep. Buyers who need a guaranteed adult size should choose a purebred, and we'll say exactly that in the shop: the <a href="/puppies/pomeranian" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Pomeranian</a> delivers certainty at 1.5 to 3.5 kg, HDB-approved into the bargain.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Who a Pomsky Genuinely Suits" imagePosition="none" variant="card">
+      <p>The right Pomsky home has private housing, honest affection for spitz character, energy, voice, mischief, a routine with 45 to 60 minutes of real daily exercise in the cool hours, and, crucially, flexible expectations about the adult in the puppy. If a 12-kilo outcome would feel like a breach of contract rather than a bigger dog to love, this is the wrong cross for you, and better to know now.</p>
+      <p>Get those four right and the Pomsky delivers something genuinely rare: husky beauty at liveable scale, with a personality that keeps the whole household entertained for fifteen years.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Private housing; the HDB question is settled',
+            'You\'d love the dog at 5 kg or 12 kg',
+            'Spitz energy and voice sound fun, not scary',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Pomsky Temperament: The Husky Came Along" imageAlt="Pomsky puppy mid-zoomies across a living room" imagePosition="left">
+      <p>The marketing sells the Pomsky as a Pomeranian-sized Husky, and the part it forgets is that the Husky software often installs itself along with the markings: real energy, a talent for escape worth auditing your gates over, an independent streak in training, and, frequently, the famous voice, howls and "talking" at half volume but full commitment. The Pomeranian side contributes boldness, alertness, and its own operatic register.</p>
+      <p>None of this is a complaint; it's a character sheet. The Pomsky is playful, striking, funny, and devoted to its household. It's also a genuine spitz with genuine spitz needs, and the buyers who treat it as animated decor are the ones writing next year's rehoming posts. Meet the needs, 45 to 60 minutes of daily exercise, early voice-training, an escape-proofed home, and this cross is a fifteen-year delight.</p>
+      <p>Want more or less of the inheritance? The <a href="/puppies/siberian-husky" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Siberian Husky</a> is the full edition; the <a href="/puppies/pomeranian" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Pomeranian</a> is the HDB-legal pocket version.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Pomsky Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers, ranges included, for the variable cross."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Honestly: 4 to 14 kg depending on generation and parents; we show you both and estimate honestly'] },
+        { label: 'Height', values: ['Around 25 to 40 cm at the shoulder, same caveat'] },
+        { label: 'Coat', values: ['Double spitz coat with husky markings; grey, black, red and cream with white; eyes blue, brown or one of each'] },
+        { label: 'Lifespan', values: ['12 to 15 years'] },
+        { label: 'Exercise', values: ['About 45 to 60 minutes daily in the cool hours; the husky half is real'] },
+        { label: 'Shedding & allergies', values: ['Heavy: two double-coated parents means year-round shedding plus blows. Not an allergy pick'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Those famous husky eyes carry over often, blue, amber, and the mismatched pair are all common, and none of them, whatever a listing implies, predicts size, temperament or price. Ours are all priced inside the same printed range.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Pomsky Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="The market runs $4,000 to $10,000 with 'tiny' premiums on top. Here's ours in writing: $2,888 to $4,488, all-in, whatever the generation."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Pomsky price commonly $4,000 to $10,000',
+            '"Tiny" and generation labels priced at premiums',
+            'Size implied or promised; parents rarely shown',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here, generation premiums excluded',
+            'Parents shown, size estimated honestly',
+            '$500+ starter kit, free delivery and setup included',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Pomsky Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Pomsky leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this cross the brush signs the double-coat contract from week one, and the harness matters because the husky side will absolutely test the end of a leash.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item, plus the spitz special: a quick escape-proofing look at gates, doors and balcony access, because the Pomsky inherited the Houdini gene at half scale. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Pomsky Right for Your Lifestyle?"
+      subhead="We ask about your housing and your size expectations before your heart gets a vote."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Private housing, flexible about adult size', values: ['Ideal. Husky beauty at liveable scale, honestly sold'] },
+        { label: 'Active household that enjoys spitz character', values: ['Great fit. The energy and the voice become features'] },
+        { label: 'HDB flat', values: ['Not eligible at any size — the Pomeranian parent is the approved answer'] },
+        { label: 'You need a guaranteed adult size', values: ['Choose a purebred instead; we\'ll say the same in the shop'] },
+        { label: 'Noise-sensitive walls, sedentary routine', values: ['Reconsider. The husky inheritance is real at any scale'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Pomsky is your match?"
+    body="We'd rather talk you out of the wrong cross than sell you a size surprise. Message us your housing and expectations and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my housing type and what I'm expecting size-wise. Is a Pomsky right for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Pomsky vs Its Parents: Husky or Pomeranian Instead?" imagePosition="none" variant="dark">
+    <p>Rare luxury: both parents of this cross live on our own shelf, so the comparison is one conversation. The <a href="/puppies/pomeranian" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Pomeranian</a> gives you certainty, 1.5 to 3.5 kg guaranteed, full spitz character, and HDB approval. The <a href="/puppies/siberian-husky" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Siberian Husky</a> gives you the full athlete, private housing and a genuine sporting routine required. The Pomsky sits between: private housing, moderate athletics, and the size lottery disclosed above.</p>
+    <p>Decision shortcut: HDB flat, Pomeranian, no contest. Private housing plus a running habit, consider the real Husky. Private housing plus flexible expectations, the Pomsky earns its place. With us the price, the starter kit, and the aftercare are identical across all three.</p>
+    <p>Message us your housing and routine and we'll place you on the right branch of this family tree.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Pomeranian: certain size, HDB-approved parent',
+          'Husky: the full athlete, private housing',
+          'Pomsky: the middle, size lottery included',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming and Heat: Spitz Coat Rules at Half Scale" imageAlt="Pomsky puppy having its double coat brushed" imagePosition="left">
+      <p>Two double-coated parents means the coat contract arrives regardless of which size the lottery dealt: brushing 3 to 4 times a week to the skin, daily through the seasonal blows, thorough drying after rain, and never shaving, the maintained double coat insulates against our heat, a shaved one wrecks the system.</p>
+      <p>The heat rules are the standard spitz set: exercise before 9am or after 6pm, ventilated or air-conditioned afternoons, water everywhere. Smaller Pomskies carry the heat more easily than their full-Husky parent, but the physiology is the same family, so the habits are too.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Pomsky Health: What We Check Before You Take One Home" imageAlt="Pomsky puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Pomsky goes home vet-checked, vaccinated, dewormed, and microchipped. The health picture draws from both sides of the family: patellar luxation from the Pomeranian branch, worth the standard small-dog kneecap awareness; eye checks from the Husky branch, where juvenile cataracts run in some lines; and dental care scaled to whichever jaw size the lottery produced, starting day one either way.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week; portions track the adult size as it reveals itself. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Your Pomsky's First Week at Home" imageAlt="Pomsky puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Pomsky explores the room, the escape audit is done together, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and structured. A fixed feeding routine, the toilet pads where we placed them, and short play bursts; the spitz spark shows early, so channel it gently from the start.</p>
+    <p>Days 4 to 7: the routine sticks, and possibly the first tiny howl debuts. Book your free first lesson with an AVS-certified trainer this week; early voice and leash work pays off for fifteen years. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Had such a wonderful experience bringing home our new furry family member from Curious Tails in Balestier. Honestly, Nelson and Kim couldn't have been more helpful and answered every single question we had, which made the whole thing stress-free. Our pup was clean, well-socialised, and full of energy when we brought it home. The puppy came home healthy and vet-checked, which gave us real peace of mind. A truly lovely experience from start to finish, thank you!",
+          name: 'Karen Joy Pepito',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Pomsky falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Trendy crosses like the Pomsky attract exactly the grey-market trade the registry exists to stop, and puppies sold outside licensed channels are often smuggled without vaccination; buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Pomsky FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Pomsky" reserveMessage="Hi! I'd like to reserve a Pomsky puppy — parents' photos please!" />
+
+  <Schema {schemas} />
+</BaseLayout>

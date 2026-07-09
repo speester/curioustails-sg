@@ -1,0 +1,537 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Yorkshire Terrier Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Yorkshire Terrier puppies for sale in Singapore from $2,888, AVS licensed and HDB-approved. Real prices, temperament, silky coat care and the $500+ starter kit included.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Yorkshire Terrier cost in Singapore?',
+    answer:
+      'Yorkie prices in Singapore commonly run from around $2,500 to $6,000, with "teacup" listings priced higher still. At Curious Tails, Yorkshire Terrier puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Yorkshire Terrier HDB-approved?',
+    answer:
+      'Yes. The Yorkshire Terrier is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and we complete the dog licensing for you at purchase, so the paperwork is handled.',
+  },
+  {
+    question: 'Do Yorkies shed? Are they good for allergies?',
+    answer:
+      'The Yorkie is one of the classic low-shedding breeds: its fine, silky coat grows like human hair and drops very little. That makes it a strong pick for allergy-sensitive homes, alongside the Maltese and the Poodle crosses. No dog is truly allergen-free, so spend time with one at our Balestier shop first if allergies are severe.',
+  },
+  {
+    question: 'How big does a Yorkshire Terrier get?',
+    answer:
+      'Most Yorkies reach roughly 2 to 3.5 kg fully grown, standing about 18 to 23 cm at the shoulder. That is already one of the smallest breeds in the world; treat any "teacup Yorkie" promise of less with suspicion, because no honest seller can guarantee adult size and the health trade-offs of extreme miniaturisation are real.',
+  },
+  {
+    question: 'Can a Yorkie be left alone while we are at work?',
+    answer:
+      'Moderately well. Yorkies are terriers, not velcro lapdogs: they bond hard but keep a busy, self-directed streak, and with a safe playpen, a settled routine, and things to do, most handle a working household. The management point is the voice; an under-stimulated Yorkie narrates the corridor, so early training matters.',
+  },
+  {
+    question: 'Are Yorkshire Terriers good with children?',
+    answer:
+      'With calm, older children, yes; the bold personality is a hit. With boisterous toddlers, honestly, no: at 2 to 3.5 kg a Yorkie is delicate, and a fall or squeeze genuinely injures. For young families we usually point to the sturdier Cockapoo or Shih Tzu instead, and we will say so before you buy.',
+  },
+  {
+    question: 'What happens after I reserve a Yorkshire Terrier?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/yorkshire-terrier',
+    title,
+    description,
+    aboutName: 'Yorkshire Terrier',
+    aboutAlternateName: 'Yorkie',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Yorkshire_Terrier',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Yorkshire Terrier puppy',
+      url: '/puppies/yorkshire-terrier',
+      description:
+        'Yorkshire Terrier puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Yorkshire Terrier Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Yorkshire Terrier puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Yorkshire Terrier',
+    description:
+      'The Yorkshire Terrier is a toy terrier breed of roughly 2 to 3.5 kg with a fine, silky, low-shedding blue-and-tan coat and a bold, affectionate temperament far larger than its frame. Lifespan is typically 13 to 16 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Yorkshire_Terrier',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/yorkshire-terrier">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Yorkshire Terrier Puppies for Sale in Singapore"
+    h1Accent="Yorkshire Terrier"
+    subhead="Yorkie prices in Singapore commonly run $2,500 to $6,000, and higher for 'teacup' listings. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Yorkshire Terrier puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-approved. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved toy breed']}
+    imageAlt="Blue and tan Yorkshire Terrier puppy sitting in a set-up playpen at a Balestier home"
+    tagLabel="Yorkie"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Yorkshire Terrier', href: '/puppies/yorkshire-terrier' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Yorkshire Terrier in Singapore?" imageAlt="Blue and tan Yorkshire Terrier puppy portrait, one of the Yorkie puppies available in Singapore" variant="mid">
+      <p>Our Yorkshire Terrier puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Yorkie puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Yorkshire Terrier for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Yorkshire Terrier puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Yorkie photos and prices</a>, or meet our Yorkshire Terrier puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Yorkshire Terrier Puppies"
+      headingAccent="Available"
+      subhead="A few of the Yorkie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Blue & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the blue and tan male Yorkshire Terrier puppy.'), imageAlt: 'Blue and tan male Yorkshire Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Blue & gold girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue and gold female Yorkshire Terrier puppy.'), imageAlt: 'Blue and gold female Yorkshire Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Black & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and tan male Yorkshire Terrier puppy.'), imageAlt: 'Black and tan male Yorkshire Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Petite girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite female Yorkshire Terrier puppy.'), imageAlt: 'Petite female Yorkshire Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Silky-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the silky-coat male Yorkshire Terrier puppy.'), imageAlt: 'Silky-coat male Yorkshire Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Black & gold girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and gold female Yorkshire Terrier puppy.'), imageAlt: 'Black and gold female Yorkshire Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Yorkshire Terrier?"
+      definition="The Yorkshire Terrier is a toy terrier breed of roughly 2 to 3.5 kg, developed in the mills of northern England as a ratter and refined into one of the world's favourite companions. It carries a fine, silky, low-shedding blue-and-tan coat and a personality several sizes larger than the dog, with a lifespan of 13 to 16 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Yorkie suits a specific home well: adults or older children who want a bold, portable companion with a low-shedding coat."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Yorkie at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Toy terrier: bold ratter heritage',
+            'Roughly 2 to 3.5 kg fully grown',
+            'Fine, silky, low-shedding coat',
+            'Blue & tan; puppies born black & tan',
+            '13 to 16 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Sizes vary by line; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Yorkie from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Yorkie pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Yorkshire Terrier Temperament: A Working Terrier in a Silk Coat" imageAlt="Yorkshire Terrier puppy exploring confidently at home" imagePosition="left">
+      <p>The show ring made the Yorkie glamorous, but the mills made it first, and the working terrier is still in there: brave to the point of comedy, busy, curious, and convinced it is the household's chief of security. This is not a passive lapdog; it is a small adventurer that also happens to love laps.</p>
+      <p>The honest part, from two years of matching puppies to families: that terrier confidence needs early shaping. A well-socialised Yorkie is outgoing and charming everywhere it goes; an under-socialised one appoints itself alarm system, and at HDB corridor acoustics, that matters. Start the free first training lesson early and stay consistent, and you get the charming version.</p>
+      <p>With calm older children the Yorkie does well. With toddlers, we say no plainly: 2 to 3.5 kg is delicate. The sturdier <a href="/puppies/shih-tzu" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shih Tzu</a> or <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a> is the kinder family pick.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Yorkie Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Moderately well, and better than the velcro companion breeds. A Yorkie's terrier self-sufficiency means solitude itself isn't the problem; under-stimulation is. Leave a safe playpen, chew work, and a settled routine, and most Yorkies adapt to a working household's hours.</p>
+      <p>Two caveats: the voice, which needs training before boredom finds it, and the size, which means aircon chill and safe furniture heights matter more than for bigger dogs. If maximum independence is the goal, compare the <a href="/puppies/mini-dachshund" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Mini Dachshund</a> before deciding.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Adults or calm older children at home',
+            'You want low-shedding in a tiny package',
+            'You enjoy a bold little character',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Yorkshire Terrier Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers, including the ones the teacup listings skip."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 2 to 3.5 kg; among the smallest breeds in the world'] },
+        { label: 'Height', values: ['Around 18 to 23 cm at the shoulder'] },
+        { label: 'Coat', values: ['Fine, silky, hair-like and low-shedding; classic blue & tan, with puppies born black & tan and lightening with age'] },
+        { label: 'Lifespan', values: ['13 to 16 years with good care'] },
+        { label: 'Exercise', values: ['About 30 minutes a day, plus indoor play; a flat is genuinely enough space'] },
+        { label: 'Shedding & allergies', values: ['Very low-shedding; one of the classic picks for allergy-sensitive homes'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        A note on colour: don't be surprised that Yorkie puppies are born black and tan; the signature steel-blue develops over the first year or two. And on size, 2 to 3.5 kg is already tiny; the "teacup" section below covers why we don't promise less.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Yorkie Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Yorkie price commonly $2,500 to $6,000',
+            'Price usually not published; enquiry required',
+            '"Teacup" listings priced at a premium',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Yorkie Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Yorkshire Terrier leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For a Yorkie two items do heavy lifting: the harness, because a 3 kg throat should never take leash pressure, and the oral care set, because dental disease is this breed's number-one lifelong issue.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Yorkie's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Yorkshire Terrier Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Yorkie."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Adults wanting a bold, portable companion', values: ['Ideal. Maximum character, minimum kilograms, low-shedding coat'] },
+        { label: 'Allergy-sensitive household', values: ['Great fit. The silky coat is one of the classic low-shedding options'] },
+        { label: 'Working household with a settled routine', values: ['Workable. Terrier self-sufficiency helps; train the voice early'] },
+        { label: 'Home with boisterous toddlers', values: ['Reconsider. At 2 to 3.5 kg a Yorkie is delicate; the sturdier Shih Tzu is the kinder match'] },
+        { label: 'You want instant, eager obedience', values: ['Adjust expectations. Terriers negotiate; keep sessions short, fun and rewarding'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Yorkie is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Yorkshire Terrier the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Yorkie vs Silky Terrier: The Cousins Everyone Mixes Up" imagePosition="none" variant="dark">
+    <p>They share ancestry and the flowing coat, and Singapore listings regularly confuse them. The honest differences: the Yorkshire Terrier is smaller at 2 to 3.5 kg with a finer, silkier coat; the Silky Terrier, an Australian development from Yorkie crosses, runs 4 to 5 kg, slightly sturdier, with a touch more working-terrier drive. Day to day they live very similarly: low-shedding, alert, bold beyond their size.</p>
+    <p>Pick the Yorkie for the smaller frame and the classic look; pick the Silky if you want the same style with a bit more substance around children. With us the price, the starter kit, and the aftercare are identical either way.</p>
+    <p>Weighing the two? See our <a href="/puppies/silky-terrier" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Silky Terrier puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Yorkie: 2 to 3.5 kg, finest coat, classic blue & tan',
+          'Silky Terrier: 4 to 5 kg, sturdier, same low-shedding style',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Yorkshire Terrier in an HDB flat"
+      definition="The Yorkshire Terrier is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and at 2 to 3.5 kg the Yorkie sits deep inside the small-breed rules. Every Yorkie we place has its dog licensing completed at purchase, so the paperwork is handled for you."
+      bridge="Is a Yorkshire Terrier HDB-approved? Yes, by name on the list. Just mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Yorkshire Terrier is named on the HDB-approved breed list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: Silk Is Beautiful and It Tangles" imageAlt="Yorkshire Terrier puppy having its silky coat combed" imagePosition="left">
+      <p>The Yorkie coat behaves like fine human hair: it barely sheds, and it tangles for a living. Kept long it needs daily combing and a genuine commitment; kept in the sensible puppy cut, which is what nearly every Singapore Yorkie wears, it needs a comb-through 2 to 3 times a week and a salon trim every 4 to 6 weeks.</p>
+      <p>The daily ten-second habits: a face check to keep hair out of the eyes (or the classic topknot if you keep it longer), and the tooth-brushing routine, which for this breed matters more than any coat care; more on that below. All the starting tools are in your kit.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Yorkie Health: What We Check Before You Take One Home" imageAlt="Yorkshire Terrier puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Yorkshire Terrier goes home vet-checked, vaccinated, dewormed, and microchipped. The Yorkie health points worth knowing: dental disease is the breed's biggest lifelong issue, a tiny jaw crowds teeth badly, so brushing starts day one, not after the first bad vet visit; tracheal collapse, the toy-breed windpipe weakness, which is why the harness rule is absolute; patellar luxation, the small-breed kneecap issue; and in very young puppies, low blood sugar, which regular small meals prevent.</p>
+      <p>Worth asking any seller about: liver shunt (portosystemic shunt) appears in Yorkie lines more than most breeds, and a proper vet check catches the signs early. Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. For portioning guidance see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div class="scroll-mt-40">
+    <CaptionedBlock heading="The Truth About Teacup Yorkies" imagePosition="none" variant="card">
+      <p>The Yorkie sits near the top of every "teacup" price list in Singapore, because the breed is already tiny and the market rewards "even tinier". We don't sell to that label. Dogs bred to be unusually small carry higher risks: fragile bones, worse dental crowding, collapsing tracheas, chronic low blood sugar, and shorter lives.</p>
+      <p>A healthy Yorkie at 2 to 3.5 kg already travels in a tote bag and naps in a shoebox. If a seller guarantees an adult weight below that range, treat the promise as a warning, not a feature.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Teacup red flags</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Guaranteed adult weight below 2 kg',
+            'No mention of the parents\' actual size',
+            '"Teacup" or "micro" priced at a premium',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M18 6 6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+
+    <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+  </div>
+
+  <CaptionedBlock heading="Your Yorkie's First Week at Home" imageAlt="Yorkshire Terrier puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Yorkie explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm, warm and close. Tiny puppies chill easily under aircon, so a warm bed corner matters, along with a fixed feeding routine of regular small meals and the toilet pads where we placed them. Some night whimpering is normal adjustment.</p>
+    <p>Days 4 to 7: the routine sticks, and the terrier turns up. Book your free first lesson with an AVS-certified trainer this week; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>. For anything in between, you WhatsApp us.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Yorkie falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one. Tiny breeds like the Yorkie are smuggled most often, so check twice here."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Yorkshire Terrier FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Yorkshire Terrier" reserveMessage="Hi! I'd like to reserve a Yorkshire Terrier puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

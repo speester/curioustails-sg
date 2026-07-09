@@ -1,0 +1,511 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Havanese Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Havanese puppies for sale in Singapore from $2,888, AVS licensed and HDB-approved. Cuba’s velcro companion honestly profiled: temperament, colours, coat care, and the $500+ starter kit.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Havanese cost in Singapore?',
+    answer:
+      'Havanese prices in Singapore commonly run from around $3,000 to $6,500, with a rare-breed premium because litters here are infrequent. At Curious Tails, Havanese puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Havanese HDB-approved?',
+    answer:
+      'Yes. The Havanese is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and we complete the dog licensing for you at purchase, so the paperwork is handled.',
+  },
+  {
+    question: 'Are Havanese really "velcro dogs"?',
+    answer:
+      'Yes, and we say it plainly because it decides the match. The Havanese was bred for centuries to be its family’s constant companion, and it takes the job literally: it follows you from room to room and prefers a lap within reach. For homes with daytime company that is the whole charm; for empty weekday flats it is the wrong breed, and we will say so.',
+  },
+  {
+    question: 'Can a Havanese be left alone while we are at work?',
+    answer:
+      'Only with honest preparation. A Havanese copes with a hybrid-work routine if alone-time is trained gradually from week one and the day includes real engagement before and after. A home that is empty 8am to 6pm every weekday should choose the Cavapoo or Shih Tzu instead — both handle that routine far more gracefully.',
+  },
+  {
+    question: 'Do Havanese shed? Are they good for allergies?',
+    answer:
+      'The Havanese carries a silky, lightweight coat that sheds very little, making it one of the friendlier picks for allergy-sensitive homes. No dog is truly allergen-free, whatever an overseas list promises, so spend time with one at our Balestier shop first if allergies are severe.',
+  },
+  {
+    question: 'What colours do Havanese come in?',
+    answer:
+      'Nearly all of them, which is unique in its family: chocolate, black, cream, gold, sable, silver and parti combinations all appear, sometimes in one litter. If a specific colour matters to you, tell us early and we will let you know what upcoming litters carry.',
+  },
+  {
+    question: 'What happens after I reserve a Havanese?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/havanese',
+    title,
+    description,
+    aboutName: 'Havanese',
+    aboutAlternateName: "Cuba's national dog",
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Havanese_dog',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Havanese puppy',
+      url: '/puppies/havanese',
+      description:
+        'Havanese puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Havanese Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Havanese puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Havanese',
+    description:
+      'The Havanese is Cuba’s national dog, a small bichon-family companion of roughly 4.5 to 7 kg with a long, silky, low-shedding coat that comes in nearly every colour. It is cheerful, clever and famously people-attached, with a lifespan of 13 to 16 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Havanese_dog',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/havanese">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Havanese Puppies for Sale in Singapore"
+    h1Accent="Havanese"
+    subhead="Havanese prices in Singapore commonly run $3,000 to $6,500 when you can find one at all. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Havanese puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-approved. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved companion breed']}
+    imageAlt="Chocolate Havanese puppy sitting in a set-up playpen at a Balestier home"
+    tagLabel="Havanese"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Havanese', href: '/puppies/havanese' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Havanese in Singapore?" imageAlt="Chocolate Havanese puppy portrait, one of the Havanese puppies available in Singapore" variant="mid">
+      <p>The Havanese is genuinely rare in Singapore: litters are infrequent and reserved fast, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Havanese puppies available now, or tell you honestly when the next litter is expected.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Havanese for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Havanese puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Havanese photos and prices</a>, or meet our Havanese puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Havanese Puppies"
+      headingAccent="Available"
+      subhead="A few of the Havanese puppies looking for a home right now, across the breed's famous colour range. Tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Chocolate boy', href: whatsappLink('Hi! I\'d like more photos and the price for the chocolate male Havanese puppy.'), imageAlt: 'Chocolate male Havanese puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Havanese puppy.'), imageAlt: 'Cream female Havanese puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Havanese puppy.'), imageAlt: 'Black and white parti Havanese puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Gold sable girl', href: whatsappLink('Hi! I\'d like more photos and the price for the gold sable female Havanese puppy.'), imageAlt: 'Gold sable female Havanese puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Silver boy', href: whatsappLink('Hi! I\'d like more photos and the price for the silver male Havanese puppy.'), imageAlt: 'Silver male Havanese puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Cream & gold girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream and gold female Havanese puppy.'), imageAlt: 'Cream and gold female Havanese puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Havanese?"
+      definition="The Havanese is Cuba's national dog, a small bichon-family companion of roughly 4.5 to 7 kg with a long, silky, low-shedding coat that, unusually for its family, comes in nearly every colour. Bred for centuries as the constant companion of Havana households, it is cheerful, clever and famously people-attached, with a lifespan of 13 to 16 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Havanese suits homes with daytime company that want a bright, trainable companion in a coat colour nobody else at the dog run will have."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Havanese at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            "Cuba's national dog, bichon family",
+            'Roughly 4.5 to 7 kg fully grown',
+            'The bichon that comes in colours',
+            'Cheerful, clever, famously people-attached',
+            '13 to 16 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Sizes vary by line; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Havanese from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Havanese pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Havanese Temperament: Cuba's Professional Companion" imageAlt="Havanese puppy performing a trick for its family in the living room" imagePosition="left">
+      <p>The Havanese spent centuries as the house companion of Havana families, with a sideline in circus work, and both halves of that history live on. From the companion side: a cheerful, affectionate dog that adores children, accepts other pets, and reads its household's moods with uncanny accuracy. From the circus side: genuine cleverness and a love of learning tricks that makes this one of the most entertaining small breeds to train.</p>
+      <p>The honest part, from two years of matching companion breeds to families: the Havanese is a true velcro dog, and we use that term precisely. It follows you from room to room, settles wherever you settle, and measures a good day in hours spent near its people. In a home with daytime company that devotion is the entire appeal; in an empty weekday flat it curdles into distress. This page says so twice because it is the one thing that decides the match.</p>
+      <p>Its <a href="/puppies/bichon-frise" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Bichon Frise</a> cousin shares the sunny temperament in classic white; the Havanese adds colours and a notch more spark.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Havanese Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Here's the honest version: this is a company-first breed, and a home that is empty 8am to 6pm every weekday is the wrong home for it. A hybrid or flexible routine can work, with alone-time trained gradually from week one, real engagement before and after work, and enrichment during, but the Havanese will never be the breed that treats an empty flat as nap time.</p>
+      <p>If your weekdays are fully away, the <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> or <a href="/puppies/shih-tzu" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shih Tzu</a> suits that routine far better, and we'd rather point you there than place a Havanese badly.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Someone is home much of most days',
+            'You enjoy trick training and games',
+            'Family with children or other pets',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Havanese Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for Cuba's companion."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 4.5 to 7 kg; sturdy for a toy-group dog'] },
+        { label: 'Height', values: ['Around 23 to 27 cm at the shoulder'] },
+        { label: 'Coat', values: ['Long, silky, lightweight double coat; chocolate, black, cream, gold, sable, silver and parti — nearly every colour, unique in its family'] },
+        { label: 'Lifespan', values: ['13 to 16 years; a notably long-lived, robust breed'] },
+        { label: 'Exercise', values: ['About 30 to 45 minutes a day plus play and trick work'] },
+        { label: 'Shedding & allergies', values: ['Very low-shedding; a friendly pick for allergy-sensitive homes, though no dog is allergen-free'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The colour range deserves its billing: most of the bichon family comes in white, full stop, while Havanese litters can hold chocolate, sable and parti pups side by side. If you've always wanted the low-shedding companion coat in something other than white, this is the breed that offers it; the <a href="/puppies/maltese" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Maltese</a> is the classic white alternative at a daintier size.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Havanese Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Havanese price commonly $3,000 to $6,500',
+            'Rare-breed premium; litters infrequent, waitlists common',
+            'Price usually not published; enquiry required',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Havanese Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Havanese leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the comb sees daily-adjacent use, silk tangles quietly, and the toys become trick-training props for the quickest student in the bichon family.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Havanese's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Havanese Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Havanese."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Someone home much of the day', values: ['Ideal. The velcro devotion becomes the whole charm'] },
+        { label: 'Family with children or other pets', values: ['Great fit. Cheerful, sturdy for its size, and endlessly game'] },
+        { label: 'You enjoy training tricks and games', values: ['Ideal. Circus history is real; this breed loves to learn'] },
+        { label: 'Allergy-sensitive household', values: ['Good fit. Very low-shedding silk; visit first if severe'] },
+        { label: 'Empty flat 8am to 6pm weekdays', values: ['Reconsider honestly. A company-first breed suffers there; the Cavapoo copes far better'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Havanese is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Havanese the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Havanese vs Coton de Tulear: The Rare-Breed Island Pair" imagePosition="none" variant="dark">
+    <p>Two island companions, Cuba and Madagascar, that ended up on the same Singapore rare-breed shortlists, and genuinely close cousins in temperament: both cheerful, both people-attached, both low-shedding. The honest differences: the Havanese comes in nearly every colour and carries a notch more spark and trainability; the Coton is white (with that unique cottony coat texture), a shade calmer, and arguably the softer lap presence of the two.</p>
+    <p>Colour choice and trick-training appetite point to the Havanese; maximum-mellow white fluff points to the Coton. Both need company through the day, so neither escapes the routine question. With us the price, the starter kit, and the aftercare are identical either way.</p>
+    <p>Weighing the two? See our <a href="/puppies/coton-de-tulear" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Coton de Tulear puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Havanese: every colour, sparkier, loves trick work',
+          'Coton: white cottony coat, a shade calmer',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Havanese in an HDB flat"
+      definition="The Havanese is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and at 4.5 to 7 kg the Havanese sits comfortably inside the small-breed rules. Every Havanese we place has its dog licensing completed at purchase, so the paperwork is handled for you."
+      bridge="Is a Havanese HDB-approved? Yes, by name on the list. Just mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Havanese is named on the HDB-approved breed list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: Silk, Kept Sensible in the Tropics" imageAlt="Havanese puppy having its silky coat combed through" imagePosition="left">
+      <p>Overseas Havanese guides describe full-length show coats and corded styles, and you can ignore all of it: in Singapore's humidity the sensible Havanese lives in a puppy cut. That brings the routine to a brush 2 to 3 times a week with a weekly comb-through to the skin, a salon trim every 4 to 6 weeks, and quick drying after rainy walks; the lightweight coat dries faster than it looks like it should.</p>
+      <p>The daily ten-second habit is an eye-area wipe on cream and light-gold faces to stay ahead of tear staining. Everything you need to start is in your kit, and we show you the routine on delivery day.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Havanese Health: What We Check Before You Take One Home" imageAlt="Havanese puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Havanese goes home vet-checked, vaccinated, dewormed, and microchipped. Health is one of this breed's best stories: the Havanese is robust and long-lived, which the 13-to-16-year expectancy reflects. The short watch-list: patellar luxation, the small-breed kneecap issue; eye checks, sensible in any toy breed line; and dental care in a small jaw, met with the day-one brushing habit.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. For portioning guidance see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Your Havanese's First Week at Home" imageAlt="Havanese puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Havanese explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and close. This breed settles through proximity: the playpen where it can see people, a fixed feeding routine, and the toilet pads where we placed them. Some night whimpering is normal adjustment.</p>
+    <p>Days 4 to 7: the routine sticks, and two habits start now while they're easy: book your free first lesson with an AVS-certified trainer, and practise short, boring departures, five minutes at a time, because a velcro breed's alone-time skills are built early or not at all. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            "Our search for the perfect puppy ended the moment we stepped into Curious Tails's Balestier store. Nelson was so patient with all our questions and gave us great value with everything bundled in and surprised us with loads of free extras. Our pup was clean, well-socialised, and full of energy when we brought it home. Everything from the health records to the paperwork was handled seamlessly. Thank you Curious Tails for such a wonderful start to pet parenthood!",
+          name: 'Po Xian Lee',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Havanese falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Rare breeds like the Havanese attract grey-market imports precisely because local litters are scarce, and puppies sold outside licensed channels are often smuggled without vaccination; buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Havanese FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Havanese" reserveMessage="Hi! I'd like to reserve a Havanese puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

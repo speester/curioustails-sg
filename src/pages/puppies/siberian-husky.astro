@@ -1,0 +1,487 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Siberian Husky Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Siberian Husky puppies for sale in Singapore from $2,888 all-in. Honest first: not HDB-approved, and an Arctic athlete in the tropics is a serious commitment. We match honestly.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Reality Check', href: '#reality' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Can I keep a Siberian Husky in an HDB flat?',
+    answer:
+      'No. The Husky is not on the HDB-approved breed list, and we won\'t pretend otherwise — a husky was literally in the news after being rescued from a 35th-floor HDB flat, which is the cautionary tale in one headline. Condos and landed homes may keep up to three dogs. And if you love the look at a smaller scale, the Pomsky exists, though it is a husky cross and also not HDB-eligible.',
+  },
+  {
+    question: 'How much does a Husky cost in Singapore?',
+    answer:
+      'The top-ranking Husky listing in Singapore quotes $7,000 to $15,000, which tells you what the market thinks of this breed\'s hype. At Curious Tails, Siberian Husky puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer. The real cost of a Husky was never the price tag anyway; it\'s the daily routine, and we\'d rather you budget for that.',
+  },
+  {
+    question: 'Is Singapore too hot for a Husky?',
+    answer:
+      'Liveable, with the full contract honoured: an aircon-centred home through every afternoon, athletic exercise strictly in the early morning and evening cool, a properly brushed and never-shaved double coat, and honest vigilance for heat stress. That is a serious, daily, 13-year commitment, and most households who ask us this question honestly cannot make it — which is exactly why we ask it back.',
+  },
+  {
+    question: 'How much exercise does a Husky need?',
+    answer:
+      'A genuine 60 to 90 minutes of athletic exercise daily — running, cycling alongside, serious hiking — in the cool hours, every day, for over a decade. This breed was built to pull sleds across Siberia; a stroll around the block is a warm-up it politely ignores. Under-exercised Huskies dig, chew, howl and escape, in roughly that order.',
+  },
+  {
+    question: 'Do Huskies bark?',
+    answer:
+      'Rarely — they howl, "talk", and broadcast opinions instead, sometimes at impressive volume and length. Husky owners find the conversations charming; neighbours vary. If you live wall-to-wall with noise-sensitive neighbours, factor the soundtrack in honestly.',
+  },
+  {
+    question: 'Why are so many Huskies rehomed in Singapore?',
+    answer:
+      'Because the eyes sell the dog and the routine keeps it, and too many buyers get the first without planning the second. Search this breed locally and half the results are adoption posts — that is the after-photo of impulse purchases. This page is written the way it is so that our Huskies never join them: if the reality check reads like your actual lifestyle, wonderful; if not, we\'ll happily match you to a breed that fits.',
+  },
+  {
+    question: 'What happens after I reserve a Husky?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave, including an escape-proofing check of gates, fences and doors.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/siberian-husky',
+    title,
+    description,
+    aboutName: 'Siberian Husky',
+    aboutAlternateName: 'Husky',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Siberian_Husky',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Siberian Husky puppy',
+      url: '/puppies/siberian-husky',
+      description:
+        'Siberian Husky puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Siberian Husky Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Husky puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Siberian Husky',
+    description:
+      'The Siberian Husky is an Arctic sled dog of roughly 16 to 27 kg with a thick double coat, striking eyes and a friendly, independent, famously mischievous temperament. Bred to run vast distances, it is not on Singapore\'s HDB-approved list and suits private housing with a genuinely athletic routine, with a lifespan of 12 to 14 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Siberian_Husky',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/siberian-husky">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Siberian Husky Puppies for Sale in Singapore"
+    h1Accent="Siberian Husky"
+    subhead="The honest part first, and this page means it more than any other: Huskies are not HDB-approved, and an Arctic athlete at one degree north is a serious daily commitment. The top local listing quotes $7,000 to $15,000; ours are $2,888 to $4,488 all-in — because the real cost of a Husky was never the price tag. It's the routine."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Siberian Husky puppies."
+    secondaryCtaLabel="Read the reality check first"
+    secondaryCtaHref="#reality"
+    priceAnchor="From $2,888 all-in. Private housing only. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing athletic breed']}
+    imageAlt="Grey and white Siberian Husky puppy with blue eyes in a set-up playpen at a Singapore home"
+    tagLabel="Husky"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Siberian Husky', href: '/puppies/siberian-husky' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Siberian Husky in Singapore?" imageAlt="Grey and white Siberian Husky puppy portrait, one of the Husky puppies available in Singapore" variant="mid">
+      <p>Our Husky puppies in Singapore arrive and are reserved quickly, and Husky buyers get our most careful matching conversation, because no breed we carry has a wider gap between the photo people fall for and the routine the dog needs. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Husky puppies available now, right after we've talked about your mornings.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Siberian Husky for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Siberian Husky puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Husky photos and prices</a>, or meet our Husky puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Husky Puppies"
+      headingAccent="Available"
+      subhead="A few of the Husky puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Grey & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the grey and white male Husky puppy.'), imageAlt: 'Grey and white male Siberian Husky puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Black & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white female Husky puppy.'), imageAlt: 'Black and white female Siberian Husky puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Red & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white male Husky puppy.'), imageAlt: 'Red and white male Siberian Husky puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Blue-eyed girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue-eyed female Husky puppy.'), imageAlt: 'Blue-eyed female Siberian Husky puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Agouti boy', href: whatsappLink('Hi! I\'d like more photos and the price for the agouti male Husky puppy.'), imageAlt: 'Agouti male Siberian Husky puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Bi-eyed girl', href: whatsappLink('Hi! I\'d like more photos and the price for the bi-eyed female Husky puppy.'), imageAlt: 'Bi-eyed female Siberian Husky puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div id="hdb" class="relative scroll-mt-40">
+    <ScatterFloat />
+    <DefBox
+      term="Can you keep a Husky in an HDB flat? No"
+      definition="The Siberian Husky is not on the HDB-approved breed list, and no licensing route changes that. HDB flats may keep one dog of an approved small breed; condos and landed homes may keep up to three dogs, subject to the estate's own rules. This one made the news: a husky had to be rescued from a 35th-floor HDB flat — the rule exists for the dog's sake as much as the neighbours'."
+      bridge="If you love the wolf look at a smaller scale, the Pomsky is the half-size remix, though as a husky cross it is also private-housing only. HDB readers should see the approved-breeds guide; private-housing readers, the reality check below is the real gate on this page."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The housing rules, straight</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'HDB flat: Husky not approved, no exceptions we can promise',
+            'Condo / landed: up to three dogs (AVS limits of ownership)',
+            'Pomsky: the smaller remix, still private-housing only',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: <a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2">HDB-approved breeds guide</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Husky from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Husky pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="reality" class="scroll-mt-40">
+    <CaptionedBlock heading="The Reality Check: An Arctic Athlete at One Degree North" imageAlt="Siberian Husky running with its owner on an early morning park connector" imagePosition="left">
+      <p>Search this breed in Singapore and half the results are adoption and rehoming posts. That is not a coincidence; it is the after-photo of impulse purchases, and it is why this section sits before any selling. The Husky was bred to pull sleds across Siberia, and the engine came with the eyes: this breed needs 60 to 90 minutes of genuinely athletic exercise, running, cycling alongside, proper hiking, every day, in our early-morning and evening cool, for twelve-plus years. A walk around the block does not count, and the dog will tell you so through your furniture.</p>
+      <p>Add the climate contract: an aircon-centred home through every Singapore afternoon, a double coat brushed religiously and never shaved, and honest vigilance for heat stress. The owners who thrive with Huskies here are runners and cyclists with private housing who wanted a training partner; for them this breed is a joy that no other quite matches. If that's you, welcome; the rest of this page is yours. If it isn't, we'll say so kindly and point you somewhere honest — the <a href="/puppies/jack-russell-terrier" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Jack Russell</a> is the HDB-legal athlete, at a tenth of the logistics.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Who Genuinely Thrives With a Husky Here" imagePosition="none" variant="card">
+      <p>From two years of interviews with Husky hopefuls, the homes that work share four traits: private housing with secure fencing (this breed treats gaps as invitations), a human athlete who already runs or cycles at dawn, reliable aircon through the afternoons, and neighbours, or distance from them, that can absorb the occasional howled opinion.</p>
+      <p>We ask about all four before we talk about puppies, and we'd rather lose the sale than see our dog in next year's adoption posts. That's the whole policy.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'You already run or cycle, mornings, daily',
+            'Private housing with secure fencing',
+            'Aircon afternoons are non-negotiable to you too',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Husky Temperament: Friendly, Free-Spirited, Full Volume" imageAlt="Siberian Husky puppy mid-play, mouth open in a husky grin" imagePosition="left">
+      <p>Past the reality check, here's the dog people fall for, and rightly: the Husky is one of the friendliest large breeds in existence, delighted by strangers, children and other dogs alike, with zero guard-dog suspicion in its body and a sense of humour that generates most of the internet's best dog videos. It is affectionate without being needy, pack-oriented, and endlessly entertaining.</p>
+      <p>The quirks come with the package. Recall is theoretical: a running Husky does not hear you, so leashes are for life. Escape artistry is genetic: doors, gates and fences all get audited by a professional, and we do that audit with you on delivery day. And the voice: Huskies rarely bark, they howl and "talk", conversations owners treasure and estates hear. None of this trains out; all of it channels, and the free first lesson starts that work.</p>
+      <p>Arctic shelf-mates: the <a href="/puppies/samoyed" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Samoyed</a> is the people-fused extrovert to the Husky's free spirit; the <a href="/puppies/pomsky" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Pomsky</a> is the look at half scale with a gentler routine.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Husky Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for the Arctic athlete."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 16 to 27 kg of lean sled-dog muscle; females run lighter'] },
+        { label: 'Height', values: ['Around 51 to 60 cm at the shoulder'] },
+        { label: 'Coat', values: ['Thick double coat; black, grey, red and agouti with white; eyes blue, brown, amber or one of each'] },
+        { label: 'Lifespan', values: ['12 to 14 years; a notably sound working breed'] },
+        { label: 'Exercise', values: ['60 to 90 minutes of athletic work daily, strictly in the cool hours'] },
+        { label: 'Shedding & allergies', values: ['Heavy, with serious twice-yearly blows; the wrong breed for allergy-sensitive homes'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The famous eyes deserve their footnote: blue, amber, brown and bi-eyed are all standard-issue Husky, none rarer or "premium" whatever a listing implies, and every combination comes with the same routine printed above.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Husky Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="The top-ranking local listing quotes $7,000 to $15,000. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Top listing quotes $7,000 to $15,000 for a Husky',
+            'Hype pricing on eye colour and "rare" coats',
+            'No exercise or climate honesty before purchase',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with playpen setup and an escape-proofing check',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price a third of the market's top quote? Because we don't price hype, and we'd rather spend the difference on matching this breed to homes that keep it. Compare inclusions on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and budget the routine with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Husky Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Husky leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the harness and leash are primary equipment, they'll log more kilometres than any other breed's, and the brush signs the coat contract from week one.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item, plus the Husky special: an escape-proofing walk of your gates, fences and door habits, because prevention beats posters. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Husky Right for Your Lifestyle?"
+      subhead="The sharpest matching table on our site, because this breed earns it."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Runner or cyclist, private housing, secure fencing', values: ['Ideal. This is the training partner you\'ve been looking for'] },
+        { label: 'Active family, private housing, aircon standard', values: ['Workable, if one adult owns the athletic routine personally'] },
+        { label: 'HDB flat', values: ['Not eligible, full stop, and genuinely unkind to the dog'] },
+        { label: 'First dog, or sedentary routine', values: ['Reconsider entirely. This is the most demanding breed we carry'] },
+        { label: 'You loved the eyes on Instagram', values: ['We understand. Read the reality check twice, then message us honestly'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Husky is your match?"
+    body="This page would rather talk you out of the wrong breed than see our dog in next year's adoption posts. Message us your real routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my honest housing and exercise routine. Is a Siberian Husky realistic for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Husky vs Pomsky vs Samoyed: The Arctic Shelf" imagePosition="none" variant="dark">
+    <p>Three Arctic looks, three different deals. The Husky is the full athlete: maximum engine, maximum independence, the training-partner breed. The <a href="/puppies/pomsky" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Pomsky</a> is the look at half scale with a genuinely gentler routine, though still a private-housing cross with real energy. The <a href="/puppies/samoyed" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Samoyed</a> trades the free spirit for people-fused devotion, similar coat contract, opposite attachment style.</p>
+    <p>All three are private-housing breeds with the tropical coat rules, and with us the price, the starter kit, and the aftercare are identical across the shelf. The choice is honest self-assessment: how much engine, how much independence, how much coat.</p>
+    <p>Message us your routine and we'll match you to the right amount of Arctic.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Husky: full athlete, free spirit, howls',
+          'Pomsky: half scale, gentler routine, still private housing',
+          'Samoyed: people-fused, same coat work, warmer soul',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming and Heat: The Arctic Coat Contract" imageAlt="Siberian Husky having its double coat brushed with an undercoat rake" imagePosition="left">
+      <p>The Husky coat contract matches our other Arctic breeds: brush 3 to 4 times a week down to the skin, daily during the two annual blows (which are biblical), dry thoroughly after rain, and never shave, a maintained double coat insulates against our heat, a shaved one wrecks the system and invites sunburn. Between blows the Husky is surprisingly self-cleaning; the workload is rhythm, not filth.</p>
+      <p>The heat rules ride along: athletic work before 9am or after 6pm only, aircon or serious ventilation through every afternoon, water everywhere, and know the emergency signs — relentless heavy panting, a very dark tongue, wobbliness. Cool water on the body, aircon, vet, in that order.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Husky Health: What We Check Before You Take One Home" imageAlt="Siberian Husky puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Husky goes home vet-checked, vaccinated, dewormed, and microchipped, and here's the breed's good news: generations of honest working selection made the Siberian Husky one of the soundest medium-large breeds in existence. The short watch-list: hips, standard for the size, met with joint-friendly puppyhood and lean weight; and eyes, where juvenile cataracts run in some lines, worth asking about, as we do.</p>
+      <p>Feeding is simple and famously economical, sled dogs convert food efficiently: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Your Husky's First Week at Home" imageAlt="Siberian Husky puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, and for this breed the setup includes the escape audit: gates, fence lines, door habits, balcony access, checked together before the puppy explores. The playpen, bed, water, and toys are ready first. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and structured. A fixed feeding routine, the toilet pads where we placed them, and short play sessions; the engine arrives before the training does, so channel it gently from the start.</p>
+    <p>Days 4 to 7: the routine sticks, and the two lifelong habits begin: the cool-hours exercise slot enters the family calendar permanently, and the free first lesson with an AVS-certified trainer gets booked, non-negotiable for a dog headed to 25 kilograms of enthusiasm. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Husky falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Siberian Husky FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Siberian Husky" reserveMessage="Hi! I'd like to reserve a Siberian Husky puppy — and yes, I've read the reality check." />
+
+  <Schema {schemas} />
+</BaseLayout>

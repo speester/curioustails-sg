@@ -1,0 +1,536 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Japanese Chin Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Japanese Chin puppies for sale in Singapore from $2,888, AVS licensed and HDB-approved. The cat-like toy dog honestly profiled: temperament, heat care and the $500+ starter kit.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Japanese Chin cost in Singapore?',
+    answer:
+      'Japanese Chin quotes in Singapore commonly run $3,000 to $6,000 when a litter appears at all, because the breed is genuinely rare here. At Curious Tails, Japanese Chin puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Japanese Chin HDB-approved?',
+    answer:
+      'Yes. The Japanese Chin is named on the HDB-approved breed list (historically as the Japanese Spaniel), so you can keep one in an HDB flat, and its near-silence makes it one of the most neighbour-friendly choices on the entire list. We complete the dog licensing for you at purchase.',
+  },
+  {
+    question: 'Do Japanese Chins bark?',
+    answer:
+      'Barely, and it is the breed\'s flat-living superpower. The Chin is the quietest breed we carry: it may murmur at genuine events, but the corridor commentary that needs training out of most toy breeds simply is not in this one. For noise-sensitive blocks and light-sleeping households, that is worth more than any other trait on this page.',
+  },
+  {
+    question: 'Can a Japanese Chin be left alone while we are at work?',
+    answer:
+      'Yes, better than almost any toy breed, thanks to the famous cat-like independence: a Chin treats a quiet weekday as personal time, not abandonment. The one condition is temperature, because this is a flat-faced breed: the room it spends the day in must stay cool and ventilated, with water always available.',
+  },
+  {
+    question: 'Why is the Japanese Chin called cat-like?',
+    answer:
+      'Because the label is literal. Chins climb to sofa backs and window perches, wash their faces with their paws, keep themselves remarkably clean, move with a cat\'s grace, and love their people on their own initiative rather than by neediness. Many Chins even live happily with actual cats, who seem to recognise the kinship.',
+  },
+  {
+    question: 'How does a flat-faced Chin cope with Singapore heat?',
+    answer:
+      'With the same rules as every short-muzzled breed: walks in the early morning or evening only, never midday; shade and water on every outing; and a cool, ventilated room through the afternoon. The Chin\'s modest exercise needs make the rules easy to live by, but they are rules, not suggestions.',
+  },
+  {
+    question: 'What happens after I reserve a Japanese Chin?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/japanese-chin',
+    title,
+    description,
+    aboutName: 'Japanese Chin',
+    aboutAlternateName: 'Japanese Spaniel',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Japanese_Chin',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Japanese Chin puppy',
+      url: '/puppies/japanese-chin',
+      description:
+        'Japanese Chin puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Japanese Chin Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Japanese Chin puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Japanese Chin',
+    description:
+      'The Japanese Chin is an ancient toy companion of roughly 2 to 4.5 kg, bred for Japanese imperial courts, with a silky single coat, a flat face, and the most famously cat-like temperament in dogs: quiet, graceful, self-grooming and independently devoted. Lifespan is typically 12 to 14 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Japanese_Chin',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/japanese-chin">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Japanese Chin Puppies for Sale in Singapore"
+    h1Accent="Japanese Chin"
+    subhead="The quietest dog we carry, and quite possibly the most cat-like dog in existence. Japanese Chin quotes in Singapore run $3,000 to $6,000 when a litter appears; ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Japanese Chin puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-approved. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved quiet breed']}
+    imageAlt="Black and white Japanese Chin puppy perched elegantly in a set-up playpen at a Balestier home"
+    tagLabel="Japanese Chin"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Japanese Chin', href: '/puppies/japanese-chin' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Japanese Chin in Singapore?" imageAlt="Black and white Japanese Chin puppy portrait, one of the Chin puppies available in Singapore" variant="mid">
+      <p>The Japanese Chin is one of the rarest breeds we carry: litters are intermittent and usually spoken for early, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for any Chin puppies available now, or tell you honestly when the next litter is expected.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Japanese Chin for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Japanese Chin puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Japanese Chin photos and prices</a>, or meet our Chin puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Japanese Chin Puppies"
+      headingAccent="Available"
+      subhead="A few of the Chin puppies looking for a home right now. Litters are rare and move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Japanese Chin puppy.'), imageAlt: 'Black and white male Japanese Chin puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Red & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white female Japanese Chin puppy.'), imageAlt: 'Red and white female Japanese Chin puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Sable & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the sable and white male Japanese Chin puppy.'), imageAlt: 'Sable and white male Japanese Chin puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Black & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white female Japanese Chin puppy.'), imageAlt: 'Black and white female Japanese Chin puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Petite boy', href: whatsappLink('Hi! I\'d like more photos and the price for the petite male Japanese Chin puppy.'), imageAlt: 'Petite male Japanese Chin puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Elegant girl', href: whatsappLink('Hi! I\'d like more photos and the price for the elegant female Japanese Chin puppy.'), imageAlt: 'Elegant female Japanese Chin puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Japanese Chin?"
+      definition="The Japanese Chin is an ancient toy companion of roughly 2 to 4.5 kg, bred to grace Japanese imperial courts, where it was considered less a dog than a small work of art. It carries a silky single coat, a flat face, and the most famously cat-like temperament in dogs: quiet, graceful, self-grooming and independently devoted, with a lifespan of 12 to 14 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Chin suits a specific home beautifully: quiet adults, working households with a cool room, and, genuinely, homes that already have a cat."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Japanese Chin at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Imperial Japan\'s living work of art',
+            'Roughly 2 to 4.5 kg fully grown',
+            'The most cat-like temperament in dogs',
+            'The quietest breed we carry',
+            '12 to 14 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Sizes vary by line; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Chin from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Chin pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Chin Temperament: The Cat-Like Label, Decoded" imageAlt="Japanese Chin puppy perched gracefully on the back of a sofa" imagePosition="left">
+      <p>Every breed guide calls the Chin cat-like and then moves on; here's what the label actually means at home. Your Chin will climb: sofa backs, window perches, anywhere with a view and elevation. It will groom itself, washing its face with a paw so convincingly that first-time owners film it. It will spend most of the day in graceful, near-silent self-possession, and it will love you on its own initiative, arriving for affection rather than begging for it. The famous "Chin spin", a delighted pirouette when happy, is its one flamboyance.</p>
+      <p>The honest part, from two years of matching toys to households: this temperament suits some homes perfectly and puzzles others. Quiet adults and gentle routines get an exquisite companion; households wanting a fetch-mad, eager-to-please people-pleaser should look at the <a href="/puppies/papillon" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Papillon</a> instead. And with boisterous toddlers we say no plainly: at 2 to 4.5 kg with prominent eyes, the Chin is built for admiration, not wrestling.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Chin Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Yes, and better than almost anything else in the toy group. The cat-like independence is genuine: a Chin treats a quiet weekday as personal time, naps on its chosen perch, and greets your return with composed delight rather than desperate relief. For working households that want a toy companion without separation drama, this breed is the quiet answer.</p>
+      <p>The one non-negotiable is temperature: a flat-faced dog must spend the day in a cool, ventilated room, fan or aircon through the afternoon, water everywhere. That's the deal with every short-muzzled breed here.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Quiet adult household, calm routines',
+            'Working household with a cool room',
+            'You have, or love, cats',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Chin Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for the imperial miniature."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 2 to 4.5 kg; fine-boned and feather-light'] },
+        { label: 'Height', values: ['Around 20 to 27 cm at the shoulder'] },
+        { label: 'Coat', values: ['Silky, straight single coat; black & white is classic, plus red & white and sable & white'] },
+        { label: 'Lifespan', values: ['12 to 14 years with good care'] },
+        { label: 'Exercise', values: ['About 20 to 30 minutes of gentle walking a day, in the cool hours, plus indoor play'] },
+        { label: 'Shedding & allergies', values: ['Moderate single-coat shedding; middle of the pack for allergy-conscious homes'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        A note on names: older references, including the HDB list, call this breed the Japanese Spaniel; same dog, same elegance. If you love the size but want maximum trainability instead of maximum composure, the <a href="/puppies/chihuahua" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Chihuahua</a> and Papillon flank it on our shelf.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Japanese Chin Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number, when they have the breed at all. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Chin quotes commonly $3,000 to $6,000 when available',
+            'Rare locally; long gaps between litters',
+            'Price usually not published; enquiry required',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Chin Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Japanese Chin leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the harness is non-negotiable, no flat-faced throat should take leash pressure, and the wet wipes serve the daily check those large, expressive eyes deserve.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Chin's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Japanese Chin Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Chin."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Quiet adults wanting an elegant, low-noise companion', values: ['Ideal. The Chin\'s natural court, minus the emperor'] },
+        { label: 'Working household with a cool room', values: ['Great fit. Cat-like independence handles alone time with composure'] },
+        { label: 'Noise-sensitive block or light sleepers', values: ['Ideal. The quietest breed on the HDB-approved list'] },
+        { label: 'Home with a cat', values: ['Genuinely good fit. Many Chins and cats become perch-sharing allies'] },
+        { label: 'Boisterous toddlers or midday-outdoor lifestyle', values: ['Reconsider. Fine bones, prominent eyes and a flat face all argue otherwise'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Chin is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Japanese Chin the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Japanese Chin vs Pekingese: Two Imperial Toys" imagePosition="none" variant="dark">
+    <p>Both breeds graced Asian imperial courts, both wear flat faces, and both nap like it's a royal duty, so the cross-shopping is natural. The honest differences: the Chin is lighter (2 to 4.5 kg against the Peke's 3 to 6), dramatically easier to groom (silky single coat versus the Peke's mane), quieter still, and cat-agile where the Peke is stately. The <a href="/puppies/pekingese" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Pekingese</a> counters with more substance, more coat drama, and arguably more gravitas per kilogram.</p>
+    <p>Both carry the same tropical heat rules and the same one-person-household charm. Pick by coat appetite and whether you want your aristocrat stately or acrobatic. With us the price, the starter kit, and the aftercare are identical either way.</p>
+    <p>Message us your routine and we'll tell you which imperial toy actually fits it.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Chin: lighter, quieter, cat-agile, easy coat',
+          'Pekingese: more substance, more mane, more gravitas',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Japanese Chin in an HDB flat"
+      definition="The Japanese Chin is named on the HDB-approved breed list (as the Japanese Spaniel in older listings), so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and the Chin's near-silence makes it one of the most neighbour-friendly dogs on the entire list. Every Chin we place has its dog licensing completed at purchase."
+      bridge="Is a Japanese Chin HDB-approved? Yes, by name on the list, and if corridor noise is your worry, no approved breed worries less. Mind the one-dog-per-flat rule, and if you already have a dog, message us first."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Japanese Chin is named on the HDB-approved breed list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: Silk Without the Workload" imageAlt="Japanese Chin puppy having its silky single coat brushed" imagePosition="left">
+      <p>The Chin's coat looks like a commitment and isn't, which is the pleasant surprise of the breed. It's a single coat with no undercoat: brush twice a week, watch the trousers and ear fringes for the occasional tangle, and it dries quickly after rainy-day walks. There's no mandatory salon schedule, though many owners book a tidy-up every couple of months. The dog itself does some of the work, that self-grooming habit is real.</p>
+      <p>The daily ten-second habit is the eyes: large, prominent, and the breed's most delicate feature, they deserve a gentle wipe and a quick check every day. Anything squinty or weepy gets a vet look the same week. The wipes are in your starter kit.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Chin Health: What We Check Before You Take One Home" imageAlt="Japanese Chin puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Chin goes home vet-checked, vaccinated, dewormed, and microchipped. The Chin health points worth knowing: the flat face brings mild brachycephalic traits, so soft snoring is standard equipment but laboured breathing after gentle activity is a vet visit; the prominent eyes scratch more easily than most breeds' and get the daily check above; heart murmurs appear in some lines in later life, worth including in the annual vet listen from middle age; and patellar luxation, the standard small-breed kneecap issue.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. Keep the Chin lean; extra weight loads a short airway. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div class="scroll-mt-40">
+    <CaptionedBlock heading="Living Flat-Faced in Singapore: The Heat Rules" imagePosition="none" variant="card">
+      <p>The Chin wears a milder version of the flat face than a Pug, and the rules don't soften with it, because Singapore doesn't. Dogs cool themselves by panting; a short-muzzled dog pants inefficiently, and our island sits at 30-plus degrees with tropical humidity most of the year.</p>
+      <p>The rules: walks before 9am or after 6pm, gentle ones, which suits this breed's appetite anyway; shade and water on every outing; a cool, ventilated room through the afternoon; and know the emergency signs: relentless heavy panting, a very dark red tongue, wobbliness. Cool water on the body, aircon, and the vet, in that order.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">The heat rules</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Gentle walks, cool hours only',
+            'Fan or aircon through the afternoon',
+            'Keep it lean; weight loads the airway',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+
+    <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+  </div>
+
+  <CaptionedBlock heading="Your Chin's First Week at Home" imageAlt="Japanese Chin puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Chin surveys the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm, cool and unhurried. A fixed feeding routine, the toilet pads where we placed them, gentle handling, and no pressure; the Chin settles on its own schedule and rewards patience with early trust.</p>
+    <p>Days 4 to 7: the routine sticks, the first perch is claimed, and, if you're lucky, the first Chin spin debuts. Book your free first lesson with an AVS-certified trainer this week; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Had such a wonderful experience bringing home our new furry family member from Curious Tails in Balestier. Honestly, Nelson and Kim couldn't have been more helpful and answered every single question we had, which made the whole thing stress-free. Our pup was clean, well-socialised, and full of energy when we brought it home. The puppy came home healthy and vet-checked, which gave us real peace of mind. A truly lovely experience from start to finish, thank you!",
+          name: 'Karen Joy Pepito',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Chin falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. A breed this rare attracts grey-market imports, and puppies sold outside licensed channels are often smuggled without vaccination; buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Japanese Chin FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Japanese Chin" reserveMessage="Hi! I'd like to reserve a Japanese Chin puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

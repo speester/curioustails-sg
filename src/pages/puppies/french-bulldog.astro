@@ -1,0 +1,506 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'French Bulldog Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'French Bulldog puppies for sale in Singapore from $2,888 all-in. Honest part first: Frenchies are not HDB-approved. Private housing? We match you. HDB? Meet the Boston Terrier.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'Heat Rules', href: '#heat' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Can I keep a French Bulldog in an HDB flat?',
+    answer:
+      'No. The French Bulldog is not on the HDB-approved breed list, and we won\'t pretend otherwise or promise workarounds. Condos and landed homes may keep up to three dogs, so a Frenchie is very much on the table there. HDB readers: the Boston Terrier gives you the same bat-eared, flat-faced charm and IS on the approved list — we stock both.',
+  },
+  {
+    question: 'How much does a French Bulldog cost in Singapore?',
+    answer:
+      'Frenchie prices in Singapore run famously wide, commonly $4,000 to $10,000, with "exotic" colours like blue and lilac marketed at the top. At Curious Tails, French Bulldog puppies are $2,888 to $4,488 regardless of colour fashion, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'How do Frenchies cope with Singapore heat?',
+    answer:
+      'This is the most heat-vulnerable breed we carry, and we say so plainly. The rules are strict and non-negotiable: short walks in the early morning or evening only, never midday; shade and water on every outing; a cool, ventilated room with fan or aircon through every afternoon; and a lean body weight for life. Managed this way, Frenchies live happily here. Pushed through heat, they are in genuine danger, fast.',
+  },
+  {
+    question: 'Can a Frenchie be left alone while we are at work?',
+    answer:
+      'Moderately well. Frenchies are sociable but world-class nappers, and a settled routine with a safe playpen suits their genuinely low energy. The non-negotiable is the room: cool and ventilated all day, because a flat-faced dog must never sit out a Singapore afternoon in a hot space.',
+  },
+  {
+    question: 'Why are some Frenchies $10,000 and others $3,000?',
+    answer:
+      'Colour marketing, mostly. "Blue", "lilac" and "merle" Frenchies are sold at steep premiums, and some of those dilute colours carry their own skin issues. We don\'t play that game: our Frenchies are priced $2,888 to $4,488 by our standard range, not by colour hype, and we\'ll tell you honestly what any coat colour does and doesn\'t mean.',
+  },
+  {
+    question: 'Can French Bulldogs swim?',
+    answer:
+      'No, and for condo households this matters: a Frenchie\'s heavy front and short muzzle make it sink, quickly. Treat every pool deck, and even a deep bathtub, as a supervised-only zone, and if your condo life revolves around the pool, factor that in before choosing this breed.',
+  },
+  {
+    question: 'What happens after I reserve a French Bulldog?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/french-bulldog',
+    title,
+    description,
+    aboutName: 'French Bulldog',
+    aboutAlternateName: 'Frenchie',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/French_Bulldog',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'French Bulldog puppy',
+      url: '/puppies/french-bulldog',
+      description:
+        'French Bulldog puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'French Bulldog Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every French Bulldog puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'French Bulldog',
+    description:
+      'The French Bulldog is a compact companion breed of roughly 9 to 13 kg with bat ears, a flat face and an easygoing, comic temperament. One of the world\'s most popular breeds, it is not on Singapore\'s HDB-approved list and suits private housing, with a lifespan of 10 to 12 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/French_Bulldog',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/french-bulldog">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="French Bulldog Puppies for Sale in Singapore"
+    h1Accent="French Bulldog"
+    subhead="The honest part first: Frenchies are not HDB-approved, so this page is for condo and landed homes — HDB readers, meet the Boston Terrier below. Frenchie prices here run $4,000 to $10,000 with colour hype; ours are $2,888 to $4,488, with the $500+ starter kit, free delivery and setup, and a free first training lesson included."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available French Bulldog puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. Private housing only. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing breed']}
+    imageAlt="Fawn French Bulldog puppy sitting in a set-up playpen at a Singapore condo"
+    tagLabel="Frenchie"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'French Bulldog', href: '/puppies/french-bulldog' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a French Bulldog in Singapore?" imageAlt="Fawn French Bulldog puppy portrait, one of the Frenchie puppies available in Singapore" variant="mid">
+      <p>Our French Bulldog puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Frenchie puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every French Bulldog for sale in Singapore here is between $2,888 and $4,488, whatever the coat colour, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available French Bulldog puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Frenchie photos and prices</a>, or meet our French Bulldog puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available French Bulldog Puppies"
+      headingAccent="Available"
+      subhead="A few of the Frenchie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn male French Bulldog puppy.'), imageAlt: 'Fawn male French Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Brindle girl', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle female French Bulldog puppy.'), imageAlt: 'Brindle female French Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Pied boy', href: whatsappLink('Hi! I\'d like more photos and the price for the pied male French Bulldog puppy.'), imageAlt: 'Pied male French Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female French Bulldog puppy.'), imageAlt: 'Cream female French Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Fawn pied boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn pied male French Bulldog puppy.'), imageAlt: 'Fawn pied male French Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Brindle & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle and white female French Bulldog puppy.'), imageAlt: 'Brindle and white female French Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div id="hdb" class="relative scroll-mt-40">
+    <ScatterFloat />
+    <DefBox
+      term="Can you keep a French Bulldog in an HDB flat? No"
+      definition="The French Bulldog is not on the HDB-approved breed list, at any weight, and no licensing route changes that. HDB flats may keep one dog of an approved small breed; condos and landed homes may keep up to three dogs, subject to the estate's own rules, which is where the Frenchie belongs in Singapore."
+      bridge="We tell you this before you fall for the ears, not after. If you're in an HDB flat and love this exact look, the Boston Terrier is the approved-list cousin with the same bat ears and tuxedo charm, and we stock it; if you're in private housing, carry on, the rest of this page is for you."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The housing rules, straight</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'HDB flat: Frenchie not approved, no exceptions we can promise',
+            'Condo / landed: up to three dogs (AVS limits of ownership)',
+            'HDB readers: the Boston Terrier is the approved lookalike',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: <a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2">HDB-approved breeds guide</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Frenchie from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Frenchie pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Frenchie Temperament: The Easy Half of the Deal" imageAlt="French Bulldog puppy playing gently with a family in a condo living room" imagePosition="left">
+      <p>Nobody needs this page to sell them a Frenchie's personality; the world's most popular breed got there on charm. Easygoing, comic, sturdy with children, quiet by companion-breed standards, and blessed with an energy ceiling low enough that a genuinely busy household can still meet it: twenty minutes of cool-hour walking and some living-room comedy covers the day.</p>
+      <p>The honest part, from two years of matching buyers who arrive pre-sold: the Frenchie's temperament is the easy half of the deal. The other half is the two disciplines this page keeps returning to, housing (settled above) and heat (settled below), plus a companionship need that makes empty 8am-to-6pm homes a poor fit. Buyers who accept all three get one of the most likeable dogs ever bred.</p>
+      <p>Want the charm with easier breathing and HDB legality? That's the <a href="/puppies/boston-terrier" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Boston Terrier</a>, honestly.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Frenchie Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Moderately well. Frenchies are sociable but profoundly gifted nappers, and a settled routine in a safe playpen suits the breed's actual energy level. Most treat a quiet weekday as scheduled rest, with the sociability spent generously on evenings and weekends.</p>
+      <p>The non-negotiable is the room itself: cool, ventilated, shaded, water everywhere, fan or aircon running through the afternoon. A flat-faced dog in a hot enclosed space is an emergency waiting to happen, and this breed wears the flattest face of all.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Private housing with reliable aircon',
+            'You want big charm on a low exercise budget',
+            'Family with kids; Frenchies are sturdy and patient',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Frenchie Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for the world's favourite bat ears."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 9 to 13 kg, kept lean — and lean is a health requirement, not aesthetics'] },
+        { label: 'Height', values: ['Around 28 to 33 cm at the shoulder'] },
+        { label: 'Coat', values: ['Short, smooth; fawn, brindle, pied and cream are the classic, health-sound colours'] },
+        { label: 'Lifespan', values: ['10 to 12 years with good weight and heat management'] },
+        { label: 'Exercise', values: ['About 20 to 30 minutes a day in the cool hours; the lowest requirement among our private-housing breeds'] },
+        { label: 'Shedding & allergies', values: ['Moderate year-round shedding; not the pick for allergy-sensitive homes'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        On "exotic" colours, since the market pushes them hard: blue, lilac and merle Frenchies are marketed at steep premiums, and some dilute colours carry their own skin problems. We stock the classic, health-sound colours and price every one inside the same printed range. If you're comparing sizes upward, the English Bulldog is the heavyweight cousin.<!-- TODO: link /puppies/english-bulldog once built -->
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="French Bulldog Price in Singapore: What Drives the Spread"
+      headingAccent="Price"
+      subhead="The market runs $4,000 to $10,000 and makes you enquire anyway. Here's ours in writing: $2,888 to $4,488, all-in, whatever the colour."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Frenchie price commonly $4,000 to $10,000',
+            '"Blue", "lilac" and "merle" priced at steep premiums',
+            'Price usually not published; enquiry required',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here, colour hype excluded',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Frenchie Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every French Bulldog leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed three items lead: the harness, because no flat-faced throat should ever take leash pressure; the measuring cup, because a lean Frenchie is a breathing Frenchie; and the wet wipes for the daily fold ritual.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Frenchie's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Frenchie Right for Your Lifestyle?"
+      subhead="We ask about your housing before your heart gets a vote. Here's the honest short version for a French Bulldog."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Condo or landed home with reliable aircon', values: ['Ideal. This is the Frenchie\'s Singapore habitat'] },
+        { label: 'Family with children, low-exercise wishes', values: ['Great fit. Sturdy, patient, comic, and done after a short walk'] },
+        { label: 'HDB flat', values: ['Not eligible, full stop. The Boston Terrier is the approved lookalike, and it\'s a genuinely good swap'] },
+        { label: 'Midday-outdoor or jogging lifestyle', values: ['Wrong breed entirely. Flat faces and heat exertion don\'t mix'] },
+        { label: 'Pool-centric condo life', values: ['Plan carefully. Frenchies cannot swim; the pool deck is a supervised-only zone'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Frenchie is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your housing type and daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my housing type and daily routine. Is a French Bulldog the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Frenchie vs Boston Terrier: The Rules Decide" imagePosition="none" variant="dark">
+    <p>Visually they're cousins; administratively they live on different planets. The Boston Terrier is on the HDB-approved list; the French Bulldog is not, full stop, and for most Singapore buyers that single line ends the comparison. The Boston also happens to be lighter, more athletic, and generally easier-breathing thanks to a slightly longer muzzle.</p>
+    <p>For private housing where both are legal, it's a fair fight: the Frenchie is stockier, more famous, and arguably the bigger personality; the Boston is nimbler and rarer. Both demand the same disciplined heat care. With us the price, the starter kit, and the aftercare are identical either way, and the <a href="/puppies/pug" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Pug</a> rounds out the flat-faced shortlist for HDB homes.</p>
+    <p>Weighing them? See our <a href="/puppies/boston-terrier" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Boston Terrier puppies</a>, or message us your housing and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Frenchie: private housing only, stockier, most famous',
+          'Boston: HDB-approved, lighter, easier breathing',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: Easy Coat, One Daily Ritual" imageAlt="French Bulldog puppy having its facial folds gently cleaned" imagePosition="left">
+      <p>Coat care is a weekly once-over with a soft brush and an occasional bath; the short coat manages itself apart from honest moderate shedding. No salon schedule, no mats. The bat ears, unlike most companion breeds' drop ears, stay open and ventilated, one genuinely low-maintenance feature in our humidity.</p>
+      <p>The daily ritual is the folds: those facial wrinkles trap moisture, and in tropical air a neglected fold turns sore within days. Thirty seconds with a wipe, then dry, every day. Add nails and the tooth-brushing habit and that's the entire manual.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Frenchie Health: The Honest List" imageAlt="French Bulldog puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Frenchie goes home vet-checked, vaccinated, dewormed, and microchipped, and this is the breed where informed ownership matters most, so here is the list stated plainly. Brachycephalic airway syndrome: the flattest face in our shop breathes the least efficiently, which is why heat discipline and lean weight are lifelong requirements, and why snoring is normal but laboured breathing after mild activity is a vet visit. The spine: Frenchies carry a higher rate of back issues (IVDD), so no stair marathons, no leaping from furniture, and a harness always. Skin folds: daily ritual, above.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week; measured portions from the very first meal, because every extra hundred grams loads that short airway. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="heat" class="scroll-mt-40">
+    <CaptionedBlock heading="Living Flat-Faced in Singapore: The Strictest Heat Rules on This Site" imagePosition="none" variant="card">
+      <p>Every flat-faced breed page we write carries heat rules; the Frenchie's carry an extra underline, because this is the most heat-vulnerable breed we sell. Dogs cool themselves by panting, the Frenchie pants least efficiently of all, and Singapore is 30-plus degrees with tropical humidity most of the year.</p>
+      <p>The rules: short walks before 9am or after 6pm only, never midday, ever; shade and water on every outing; a cool, ventilated room with fan or aircon through every afternoon; lean body weight for life; and, unique to this breed among our lineup, no unsupervised water, because Frenchies cannot swim. Emergency signs: relentless heavy panting, a very dark red tongue, wobbliness. Cool water on the body, aircon, and the vet, in that order, fast.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">The heat rules</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Short walks, cool hours only, never midday',
+            'Aircon or fan through every afternoon',
+            'Lean for life; no unsupervised pool access',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+
+    <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+  </div>
+
+  <CaptionedBlock heading="Your Frenchie's First Week at Home" imageAlt="French Bulldog puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Frenchie explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm, cool and predictable. Measured portions from the first meal, the toilet pads where we placed them, the fold-wipe ritual starting immediately, and the aircon doing its quiet work. The snoring is permanent equipment; most owners come to love it.</p>
+    <p>Days 4 to 7: the routine sticks and the comedy begins. Book your free first lesson with an AVS-certified trainer this week; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Frenchie falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Few breeds attract smugglers like the world's most famous one: Frenchie puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="French Bulldog FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="French Bulldog" reserveMessage="Hi! I'd like to reserve a French Bulldog puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

@@ -1,0 +1,537 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Pekingese Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Pekingese puppies for sale in Singapore from $2,888, AVS licensed and HDB-approved. Real prices, temperament, coat and heat care and the $500+ starter kit included.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Pekingese cost in Singapore?',
+    answer:
+      'Pekingese prices in Singapore commonly run from around $2,500 to $5,500; the breed is uncommon here, which keeps prices firm. At Curious Tails, Pekingese puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Pekingese HDB-approved?',
+    answer:
+      'Yes. The Pekingese is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and we complete the dog licensing for you at purchase, so the paperwork is handled.',
+  },
+  {
+    question: 'Can a Pekingese be left alone while we are at work?',
+    answer:
+      'Better than almost any breed we carry. The Pekingese is dignified, self-contained, and entirely comfortable with its own company; a quiet weekday alone suits its temperament naturally. The one condition is the room: it must stay cool and ventilated, because this is a flat-faced, heavy-coated breed and Singapore afternoons are not its native climate.',
+  },
+  {
+    question: 'Are Pekingese affectionate?',
+    answer:
+      'Deeply, but on their own terms. A Pekingese bonds hard to its people and enjoys company and laps, yet it keeps a cat-like independence: it comes to you as often as you come to it. If you want a dog that worships and follows, look at the Cavalier; if you appreciate a companion with self-possession, the Peke is a joy.',
+  },
+  {
+    question: 'How do Pekingese cope with Singapore heat?',
+    answer:
+      'This is the breed\'s main management task: a flat face and a heavy double coat in a tropical climate. The rules are absolute: walks in the early morning or evening only, a cool ventilated room through the day, water always available, and never shave the coat, which insulates against heat when kept brushed. Managed this way, Pekes live comfortably here.',
+  },
+  {
+    question: 'Are Pekingese good with children?',
+    answer:
+      'With calm, respectful children, fine. With toddlers, honestly, no: the Peke\'s dignity does not appreciate grabbing, its prominent eyes are vulnerable, and its patience for rough handling is short. This breed suits adults, seniors and quiet homes best, and we will say so before you buy.',
+  },
+  {
+    question: 'What happens after I reserve a Pekingese?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/pekingese',
+    title,
+    description,
+    aboutName: 'Pekingese',
+    aboutAlternateName: 'Pekingese dog',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Pekingese',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Pekingese puppy',
+      url: '/puppies/pekingese',
+      description:
+        'Pekingese puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Pekingese Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Pekingese puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Pekingese',
+    description:
+      'The Pekingese is an ancient Chinese palace breed of roughly 3 to 6 kg with a lion-like mane, flat face and famously dignified, independent temperament. Bred as an imperial companion, it has a lifespan of 12 to 14 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Pekingese',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/pekingese">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Pekingese Puppies for Sale in Singapore"
+    h1Accent="Pekingese"
+    subhead="Pekingese prices in Singapore commonly run $2,500 to $5,500. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Pekingese puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-approved. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved companion breed']}
+    imageAlt="Golden Pekingese puppy with a lion mane sitting in a set-up playpen at a Balestier home"
+    tagLabel="Pekingese"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Pekingese', href: '/puppies/pekingese' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Pekingese in Singapore?" imageAlt="Golden Pekingese puppy portrait, one of the Pekingese puppies available in Singapore" variant="mid">
+      <p>Pekingese are uncommon in Singapore, so litters are announced and reserved fast; we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Pekingese puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Pekingese for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Pekingese puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Pekingese photos and prices</a>, or meet our Pekingese puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Pekingese Puppies"
+      headingAccent="Available"
+      subhead="A few of the Pekingese puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Golden boy', href: whatsappLink('Hi! I\'d like more photos and the price for the golden male Pekingese puppy.'), imageAlt: 'Golden male Pekingese puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Pekingese puppy.'), imageAlt: 'Cream female Pekingese puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black male Pekingese puppy.'), imageAlt: 'Black male Pekingese puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Fawn brindle girl', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn brindle female Pekingese puppy.'), imageAlt: 'Fawn brindle female Pekingese puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Red sable boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red sable male Pekingese puppy.'), imageAlt: 'Red sable male Pekingese puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Parti-colour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the parti-colour female Pekingese puppy.'), imageAlt: 'Parti-colour female Pekingese puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Pekingese?"
+      definition="The Pekingese is one of the oldest dog breeds in existence, bred for over a thousand years as the exclusive companion of the Chinese imperial court. Roughly 3 to 6 kg under a lion-like double coat, it carries a flat face, a rolling gait, and the most self-possessed temperament in the toy group, with a lifespan of 12 to 14 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Pekingese suits a specific home beautifully: quiet, adult, and appreciative of a companion with opinions and dignity."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Pekingese at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Ancient imperial companion breed',
+            'Roughly 3 to 6 kg under the mane',
+            'Dignified, independent, quietly devoted',
+            'Low exercise; high coat care',
+            '12 to 14 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Sizes vary by line; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Pekingese from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Pekingese pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Pekingese Temperament: A Thousand Years of Knowing Its Worth" imageAlt="Pekingese puppy sitting regally on a cushion at home" imagePosition="left">
+      <p>The Pekingese was bred to sit beside emperors, and no one has since informed it of any change in circumstances. This is the most dignified dog we carry: calm, self-possessed, quietly affectionate with its chosen people, and utterly uninterested in performing for approval. Owners describe it accurately as the most cat-like of dogs, and for the right person that's precisely the appeal.</p>
+      <p>The honest part, from two years of matching puppies to families: the independence cuts both ways. A Peke is wonderfully undemanding, but it is also stubborn in a way that makes toilet training slower and recall theoretical. Training works through patience, food and respect, never through drilling. And its tolerance for disrespectful handling, from toddlers especially, is short.</p>
+      <p>If you want the palace-dog history with more eagerness to please, the <a href="/puppies/shih-tzu" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shih Tzu</a> is the friendlier-to-train cousin, and we'll tell you honestly which fits your home.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Pekingese Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Yes, and with more genuine composure than any other toy breed we carry. The Peke's self-contained temperament means an empty weekday is simply quiet time; there's no separation drama, no anxious chewing, no protest concert for the corridor.</p>
+      <p>The single non-negotiable is climate: a flat-faced dog under a heavy double coat must spend the day in a cool, ventilated room. Fan or aircon through the afternoon, water everywhere, and the arrangement suits everyone.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Quiet adult or senior household',
+            'You appreciate independence over neediness',
+            'You can keep its room cool all day',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Pekingese Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for the lion dog."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 3 to 6 kg; surprisingly solid and low-slung for the size'] },
+        { label: 'Height', values: ['Around 15 to 23 cm at the shoulder'] },
+        { label: 'Coat', values: ['Long, profuse double coat with the signature mane; gold, red, sable, cream, black and parti-colours'] },
+        { label: 'Lifespan', values: ['12 to 14 years with good heat and eye care'] },
+        { label: 'Exercise', values: ['About 20 to 30 minutes of gentle strolling a day, in the cool hours; the lowest requirement in our lineup'] },
+        { label: 'Shedding & allergies', values: ['Sheds generously, with seasonal blows; not the pick for allergy-sensitive homes'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The Pekingese has the lowest exercise requirement of any breed we carry, which makes it a genuine option for homes that other breeds' walk schedules rule out. The trade is the coat: what you save in walking time you reinvest in brushing.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Pekingese Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Pekingese price commonly $2,500 to $5,500',
+            'Rare locally; availability comes and goes',
+            'Price usually not published; enquiry required',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Pekingese Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Pekingese leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the brush is the headline item, the mane waits for no one, and the wet wipes serve the daily face-fold and eye routine that keeps a flat-faced breed comfortable here.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Pekingese's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Pekingese Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Pekingese."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Quiet adult or senior household', values: ['Ideal. Calm, low-exercise, quietly devoted; the Peke\'s natural habitat'] },
+        { label: 'Working household with a cool room', values: ['Great fit. The most composed alone-time breed we carry'] },
+        { label: 'You want minimal walking', values: ['Ideal. Twenty gentle minutes in the cool hours covers it'] },
+        { label: 'Family with young children', values: ['Reconsider. The Peke\'s dignity and prominent eyes don\'t suit grabbing hands; the Shih Tzu is the family palace dog'] },
+        { label: 'Allergy-sensitive household, or you hate vacuuming', values: ['Reconsider. That mane sheds generously; a Toy Poodle keeps floors cleaner'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Pekingese is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Pekingese the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Pekingese vs Shih Tzu: Two Palace Dogs, Two Personalities" imagePosition="none" variant="dark">
+    <p>Both breeds served Chinese courts, both wear long coats over flat faces, and both nap professionally, so the cross-shopping writes itself. The honest split: the Shih Tzu is the sociable one, friendlier to strangers, more tolerant of children, easier to train. The Pekingese is the connoisseur's pick: more independent, more dignified, lower-energy still, and bonded more selectively.</p>
+    <p>Families should take the Shih Tzu; quiet adult households that like a companion with self-possession should meet the Peke before deciding anything. With us the price, the starter kit, and the aftercare are identical either way.</p>
+    <p>Weighing the two? See our <a href="/puppies/shih-tzu" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shih Tzu puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Pekingese: more independent, quieter, adult homes',
+          'Shih Tzu: more sociable, kid-tolerant, easier to train',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Pekingese in an HDB flat"
+      definition="The Pekingese is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and the Peke's small size, low exercise needs and quiet manner make it one of the most flat-suited breeds on the list. Every Pekingese we place has its dog licensing completed at purchase, so the paperwork is handled for you."
+      bridge="Is a Pekingese HDB-approved? Yes, by name on the list. Just mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Pekingese is named on the HDB-approved breed list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: The Mane Is a Commitment" imageAlt="Pekingese puppy having its mane brushed through" imagePosition="left">
+      <p>Here's where the low-exercise budget gets spent instead. The Pekingese double coat needs brushing 3 to 4 times a week down to the skin, daily during coat blows, plus a tidy-up groom every 6 to 8 weeks. Many Singapore owners keep the body coat trimmed to a manageable length, which is sensible; what you must not do is shave to the skin, which damages double-coat regrowth and removes the insulation that actually helps against our heat.</p>
+      <p>The daily ten-second rituals: a wipe through the facial fold above the nose, and an eye check, because the Peke's prominent eyes collect the day. Both habits are quick, both matter, and both use items already in your starter kit.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Pekingese Health: What We Check Before You Take One Home" imageAlt="Pekingese puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Pekingese goes home vet-checked, vaccinated, dewormed, and microchipped. The Peke health points worth knowing: brachycephalic airway traits, so snoring is standard but laboured breathing after gentle activity is a vet visit; the eyes, large and prominent, are the breed's most vulnerable feature, and anything squinty, weepy or cloudy gets checked the same week; heat sensitivity, covered honestly in the card below; and patellar luxation, the small-breed kneecap issue.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. Keep the Peke lean; extra weight loads a flat-faced airway. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div class="scroll-mt-40">
+    <CaptionedBlock heading="Living Flat-Faced in Singapore: The Heat Rules" imagePosition="none" variant="card">
+      <p>The Pekingese carries the double challenge of a flat face and a heavy coat, so the heat rules on this page are not suggestions. Dogs cool themselves by panting; a brachycephalic dog pants inefficiently, and a thick undercoat holds warmth against the skin when it's matted, which is why brushing is also heat care.</p>
+      <p>The rules: walks before 9am or after 6pm only, and gentle ones; a cool, ventilated room through the afternoon, fan or aircon; water available everywhere; and the coat kept brushed, never shaved. The emergency signs: relentless heavy panting, a very dark red tongue, wobbliness. Cool water on the body, aircon, and the vet, in that order.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">The heat rules</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Gentle walks, cool hours only',
+            'Fan or aircon through the afternoon',
+            'Brushed coat, never shaved',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+
+    <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+  </div>
+
+  <CaptionedBlock heading="Your Pekingese's First Week at Home" imageAlt="Pekingese puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Pekingese surveys the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm, cool and unhurried. A fixed feeding routine, the toilet pads where we placed them, and no pressure to perform; the Peke settles on its own schedule and rewards patience.</p>
+    <p>Days 4 to 7: the household hierarchy is quietly assessed and, ideally, approved. Book your free first lesson with an AVS-certified trainer this week; with an independent breed, early gentle structure pays off doubly. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+          name: 'Andrew Mak',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Pekingese falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Pekingese FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Pekingese" reserveMessage="Hi! I'd like to reserve a Pekingese puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

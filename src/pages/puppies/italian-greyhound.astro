@@ -1,0 +1,537 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Italian Greyhound Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Italian Greyhound puppies for sale in Singapore from $2,888, AVS licensed and HDB-approved. Real prices, temperament, fragile-leg honesty and the $500+ starter kit.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does an Italian Greyhound cost in Singapore?',
+    answer:
+      'Italian Greyhound prices in Singapore commonly run from around $3,000 to $6,500; the breed is rare here and demand has grown fast. At Curious Tails, Italian Greyhound puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is an Italian Greyhound HDB-approved?',
+    answer:
+      'Yes. The Italian Greyhound is named on the HDB-approved breed list, so you can keep one in an HDB flat, unlike its larger Whippet and Greyhound cousins. HDB allows one dog of an approved breed per flat, and we complete the dog licensing for you at purchase.',
+  },
+  {
+    question: 'Are Italian Greyhounds fragile?',
+    answer:
+      'Honestly, yes, in one specific way: young IGs have long, fine leg bones, and leaps from sofas or careless roughhousing cause fractures in this breed far more than any other we carry. The rules that prevent it are simple, no jumping from height while growing, no rough play with big dogs, ramps or steps for furniture, and adult IGs are far sturdier than the puppy stage suggests.',
+  },
+  {
+    question: 'Can an Italian Greyhound be left alone while we are at work?',
+    answer:
+      'This is a velcro breed, so it takes preparation. IGs bond intensely and prefer their people within leaning distance; an empty weekday home works only with gradual alone-time training from week one, a cosy warm setup, and genuine engagement mornings and evenings. If your home is empty 8am to 6pm and nobody works from home, the Cavapoo or Mini Dachshund handles it far better.',
+  },
+  {
+    question: 'Do Italian Greyhounds do well in Singapore\'s climate?',
+    answer:
+      'Wonderfully, and this is the breed\'s quiet advantage here. IGs shiver through European winters in sweaters; our year-round warmth is exactly what that thin coat and low body fat were built for. Aircon set very cold is the one thing to moderate; give it a blanket nest and it is the most climate-happy breed we carry.',
+  },
+  {
+    question: 'Do Italian Greyhounds shed?',
+    answer:
+      'Barely. The ultra-short, fine coat is close to the lowest-shedding non-curly coat that exists, and grooming is a weekly wipe-down. The one care item that genuinely matters is teeth: IGs are notoriously prone to dental disease, so daily brushing is the real grooming routine.',
+  },
+  {
+    question: 'What happens after I reserve an Italian Greyhound?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/italian-greyhound',
+    title,
+    description,
+    aboutName: 'Italian Greyhound',
+    aboutAlternateName: 'IG, Iggy',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Italian_Greyhound',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Italian Greyhound puppy',
+      url: '/puppies/italian-greyhound',
+      description:
+        'Italian Greyhound puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Italian Greyhound Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Italian Greyhound puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Italian Greyhound',
+    description:
+      'The Italian Greyhound is the smallest sighthound, roughly 3.5 to 5 kg, with an ultra-short fine coat, an elegant curved silhouette, and a gentle, deeply affectionate temperament. Bred as a companion for two thousand years, it has a lifespan of 13 to 15 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Italian_Greyhound',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/italian-greyhound">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Italian Greyhound Puppies for Sale in Singapore"
+    h1Accent="Italian Greyhound"
+    subhead="Italian Greyhound prices in Singapore commonly run $3,000 to $6,500. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Italian Greyhound puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-approved. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved sighthound']}
+    imageAlt="Fawn Italian Greyhound puppy curled in a blanket nest in a set-up playpen at a Balestier home"
+    tagLabel="Italian Greyhound"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Italian Greyhound', href: '/puppies/italian-greyhound' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy an Italian Greyhound in Singapore?" imageAlt="Fawn Italian Greyhound puppy portrait, one of the IG puppies available in Singapore" variant="mid">
+      <p>Italian Greyhounds are rare in Singapore and social media has made them rarer on shelves, so litters are reserved fast; we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the IG puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Italian Greyhound for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Italian Greyhound puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Italian Greyhound photos and prices</a>, or meet our IG puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Italian Greyhound Puppies"
+      headingAccent="Available"
+      subhead="A few of the IG puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn male Italian Greyhound puppy.'), imageAlt: 'Fawn male Italian Greyhound puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Blue girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue female Italian Greyhound puppy.'), imageAlt: 'Blue female Italian Greyhound puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Italian Greyhound puppy.'), imageAlt: 'Cream male Italian Greyhound puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Blue & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue and white female Italian Greyhound puppy.'), imageAlt: 'Blue and white female Italian Greyhound puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Italian Greyhound puppy.'), imageAlt: 'Red male Italian Greyhound puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Italian Greyhound puppy.'), imageAlt: 'Black female Italian Greyhound puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is an Italian Greyhound?"
+      definition="The Italian Greyhound is the smallest of the sighthounds, roughly 3.5 to 5 kg of elegant curves and sprinting muscle, bred as an aristocrat's companion for two millennia. It pairs an ultra-short, barely-shedding coat with one of the most affectionate, people-bonded temperaments in the dog world, and a lifespan of 13 to 15 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the IG suits gentle households that are actually home: it gives Renaissance-portrait elegance and asks for warmth, softness and company in return."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Italian Greyhound at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The smallest sighthound: 3.5 to 5 kg',
+            'Ultra-short coat, barely sheds',
+            'Deeply affectionate; a true velcro breed',
+            'Sprints in bursts, naps professionally',
+            '13 to 15 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Sizes vary by line; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their IG from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'IG pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="IG Temperament: Two Speeds, Sprint and Snuggle" imageAlt="Italian Greyhound puppy curled against its owner on the sofa" imagePosition="left">
+      <p>The Italian Greyhound runs on exactly two settings. Setting one is the sighthound sprint: sudden, spectacular laps of the living room at speeds nothing else this size can touch, over in ninety seconds. Setting two, which occupies the other twenty-three hours, is professional-grade snuggling, preferably under a blanket, ideally against a person. There is no setting in between, and owners love it that way.</p>
+      <p>The honest parts, from two years of matching puppies to families: this is the most people-bonded breed we carry after the Cavalier, so empty-all-day homes need honest reflection first. It is also sensitive: harsh voices shut an IG down where a terrier would shrug, so this is a gentle-hands, gentle-words household's dog. And the chase instinct is real; leashes stay on outdoors, because a sprinting IG does not hear recall.</p>
+      <p>Want the elegance with more independence? The <a href="/puppies/miniature-pinscher" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Min Pin</a> wears a similar sleek coat with a tougher attitude.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can an Italian Greyhound Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>This is the breed's honest weakness, second only to the Cavalier's. IGs attach intensely, and an empty weekday home distresses an unprepared one; the complaints come as crying and anxious chewing. It can work, with gradual alone-time training from the first week, a warm blanket-nest setup, and genuinely engaged mornings and evenings, but we place IGs carefully.</p>
+      <p>If your home is empty 8am to 6pm, tell us honestly and we'll steer you to the <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> or <a href="/puppies/mini-dachshund" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Mini Dachshund</a> instead; better one honest conversation than an anxious dog.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Someone home much of the day',
+            'Gentle, calm household; adults or older kids',
+            'You want elegance with minimal grooming',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Italian Greyhound Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for the miniature sighthound."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 3.5 to 5 kg; long-legged and featherlight'] },
+        { label: 'Height', values: ['Around 32 to 38 cm at the shoulder; taller than its weight suggests'] },
+        { label: 'Coat', values: ['Ultra-short and fine; fawn, blue, cream, red, black, often with white'] },
+        { label: 'Lifespan', values: ['13 to 15 years with good care, especially dental'] },
+        { label: 'Exercise', values: ['30 to 45 minutes daily plus sprint bursts; then the sofa reclaims it'] },
+        { label: 'Shedding & allergies', values: ['Among the lowest-shedding smooth coats there is; a good allergy-conscious pick'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        One genuine Singapore advantage: the IG's thin coat and low body fat, a liability in Europe where the breed lives in sweaters, are perfectly matched to our climate. This may be the only city where an Italian Greyhound never needs a wardrobe.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Italian Greyhound Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'IG price commonly $3,000 to $6,500',
+            'Rare locally; social-media demand keeps prices high',
+            'Price usually not published; enquiry required',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every IG Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Italian Greyhound leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For an IG two items lead: the soft bed, which becomes the blanket nest this breed organises its life around, and the oral care set, because IG teeth need daily attention more than any other breed we carry.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your IG's daily care, including furniture-safety setup for those growing legs. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is an Italian Greyhound Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for an IG."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Gentle household with daytime company', values: ['Ideal. The IG\'s dream home: warmth, laps, and people in reach'] },
+        { label: 'Allergy-sensitive household', values: ['Great fit. Minimal shedding, minimal dander spread'] },
+        { label: 'You want elegance without grooming bills', values: ['Ideal. A weekly wipe-down is the entire coat routine'] },
+        { label: 'Empty home 8am to 6pm', values: ['Reconsider honestly. This velcro breed suffers alone; a Cavapoo copes far better'] },
+        { label: 'Boisterous toddlers or rough big dogs at home', values: ['Reconsider. Growing IG legs and rough play are how fractures happen'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the IG is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is an Italian Greyhound the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Italian Greyhound vs Whippet: Size, and the HDB Line" imagePosition="none" variant="dark">
+    <p>Same family silhouette at two scales, and in Singapore the housing rules split them: the Italian Greyhound is on the HDB-approved list; the Whippet, at 9 to 14 kg, is not. Flat dwellers who love the sighthound look have their answer already, and it's a good one.</p>
+    <p>For private housing, the fuller comparison: the Whippet is sturdier, a fraction calmer, and better with young children; the IG is more portable, more velcro, and even lighter to keep. Both are gentle, both sprint, both nap for a living. With us the price, the starter kit, and the aftercare are identical either way.</p>
+    <p>In private housing and weighing both? Ask us about our Whippet puppies<!-- TODO: link /puppies/whippet once built -->, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Italian Greyhound: 3.5 to 5 kg, HDB-approved, most velcro',
+          'Whippet: 9 to 14 kg, private housing only, sturdier',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping an Italian Greyhound in an HDB flat"
+      definition="The Italian Greyhound is named on the HDB-approved breed list, so you can keep one in an HDB flat, the only sighthound with that privilege. HDB allows one dog of an approved breed per flat. Every IG we place has its dog licensing completed at purchase, so the paperwork is handled for you."
+      bridge="Is an Italian Greyhound HDB-approved? Yes, by name on the list. Just mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Italian Greyhound is named on the HDB-approved breed list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: A Wipe-Down and a Toothbrush" imageAlt="Italian Greyhound puppy getting a gentle coat wipe and tooth brushing" imagePosition="left">
+      <p>The IG coat asks for a weekly once-over with a soft mitt and an occasional bath; it dries in minutes and mats are physically impossible. There is no easier coat in the shop.</p>
+      <p>The real grooming routine is dental, and we say this with feeling: Italian Greyhounds are notorious for dental disease, more than any breed we carry, and daily brushing from day one is the difference between a healthy 15-year-old mouth and repeated extractions by age six. The brush, paste, and wipes are in your starter kit; use them like the coat depends on it, because the dog's comfort genuinely does.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="IG Health: What We Check Before You Take One Home" imageAlt="Italian Greyhound puppy at a veterinary health check before going home" variant="mid">
+      <p>Every IG goes home vet-checked, vaccinated, dewormed, and microchipped. The IG health picture has two headlines and a short list. Headline one: teeth, covered above, brush daily. Headline two: young leg bones, covered honestly in the card below. The short list: patellar luxation, progressive retinal atrophy in some lines, and a sighthound quirk worth telling any vet, the breed's sensitivity to certain anaesthetics, which sighthound-aware clinics manage routinely.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. Don't mistake the visible ribs of a healthy sighthound for thinness; this breed is built lean. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div class="scroll-mt-40">
+    <CaptionedBlock heading="The Leg Talk: Honest Rules for the First Year" imagePosition="none" variant="card">
+      <p>Every honest IG page includes this conversation. Young Italian Greyhounds carry adult-length leg bones on puppy-density skeletons, and the breed's one real vulnerability is fractures from falls and collisions in the first year: a leap off the sofa, a tumble down steps, a heavy playmate's mistimed pounce.</p>
+      <p>The prevention is unglamorous and completely effective: no jumping from furniture height while growing (ramps and cushions exist for exactly this), no unsupervised stairs, no rough play with much larger dogs, and traction mats on slippery tiles. Past the first year, an adult IG is a far tougher athlete than its silhouette suggests; the care window is the puppy stage, and we walk you through the setup on delivery day.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">First-year leg rules</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'No leaping from sofa height; use ramps',
+            'No rough play with big dogs',
+            'Traction mats on slippery floors',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+
+    <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+  </div>
+
+  <CaptionedBlock heading="Your IG's First Week at Home" imageAlt="Italian Greyhound puppy settling into a blanket nest during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your IG explores the room, with the blanket nest arranged and the furniture-safety setup checked. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm, warm and close. A fixed feeding routine, the toilet pads where we placed them, gentle handling, and blankets; IGs settle through cosiness and proximity.</p>
+    <p>Days 4 to 7: the routine sticks, the first living-room sprints debut, and alone-time practice starts now, five boring minutes at a time, while it's easy. Book your free first lesson with an AVS-certified trainer this week; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your IG falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one. Trendy rare breeds like the IG attract exactly this trade, so check twice here."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Italian Greyhound FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Italian Greyhound" reserveMessage="Hi! I'd like to reserve an Italian Greyhound puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

@@ -1,0 +1,486 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Border Collie Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Border Collie puppies for sale in Singapore from $2,888 all-in. Honest first: not HDB-approved (appeals don\'t change it), and the world\'s smartest breed needs a real job.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'The Job', href: '#job' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Can I keep a Border Collie in an HDB flat?',
+    answer:
+      'No, and because people genuinely ask this on forums: there is no appeal route that changes the breed list. The Border Collie is not on the HDB-approved list, full stop. Condos and landed homes may keep up to three dogs. HDB readers who want a herding brain: the Shetland Sheepdog IS on the approved list, and it is the honest answer to this exact wish.',
+  },
+  {
+    question: 'How much does a Border Collie cost in Singapore?',
+    answer:
+      'Border Collie imports in Singapore are usually enquiry-gated, with quotes commonly landing between $4,000 and $9,000 for show-line imports. At Curious Tails, Border Collie puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'How much mental stimulation does a Border Collie actually need?',
+    answer:
+      'As much as the walks, and that is the part every seller skips: daily training sessions, puzzle work, trick chains or dog sports are not enrichment for this breed, they are the job it was bred to clock into. A Border Collie with a busy body and an idle mind is still unemployed, and unemployed geniuses renovate. Plan 30+ minutes of genuine brain-work daily, on top of an hour of exercise.',
+  },
+  {
+    question: 'Will a Border Collie herd my children?',
+    answer:
+      'The instinct is real: the crouch, the stare, the circling, and sometimes a heel-nip to move stragglers along, and running children read as straggling sheep. It redirects beautifully with early training onto balls and games, but families should know the software ships installed. For a gentler family herder, the Sheltie carries a softer copy of the same instincts.',
+  },
+  {
+    question: 'Is Singapore too hot for a Border Collie?',
+    answer:
+      'Manageable, honestly, and easier than our Arctic breeds: the collie coat is moderate, and the rules are the standard ones, exercise in the early morning and evening cool, never midday exertion, water and shade always, and never shave the double coat. The heat is not the hard part of this breed; the brain is.',
+  },
+  {
+    question: 'Why do Border Collies get rehomed in Singapore?',
+    answer:
+      'Search the breed locally and adoption posts outrank the sellers — that is the honest answer in one screenshot. Buyers fall for the smartest-breed reputation, discover the smartest breed needs a daily job, and the dog pays for the mismatch. This page is written to prevent exactly that: if the job requirement reads like your idea of fun, this is your dog; if it reads like a chore, we\'ll match you kindly to something else.',
+  },
+  {
+    question: 'What happens after I reserve a Border Collie?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/border-collie',
+    title,
+    description,
+    aboutName: 'Border Collie',
+    aboutAlternateName: 'Collie',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Border_Collie',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Border Collie puppy',
+      url: '/puppies/border-collie',
+      description:
+        'Border Collie puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Border Collie Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Border Collie puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Border Collie',
+    description:
+      'The Border Collie is a medium herding breed of roughly 14 to 20 kg, universally ranked the most intelligent dog in the world, bred to work sheep from dawn to dusk on the Anglo-Scottish borders. It is not on Singapore\'s HDB-approved list and suits private housing with genuine daily physical and mental work, with a lifespan of 12 to 15 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Border_Collie',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/border-collie">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Border Collie Puppies for Sale in Singapore"
+    h1Accent="Border Collie"
+    subhead="The honest part first: Border Collies are not HDB-approved — and no, appeals don't change the breed list — and the world's smartest dog arrives expecting a job. Import quotes here run $4,000 to $9,000 behind enquiry forms; ours are $2,888 to $4,488 all-in, with the honesty included free."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Border Collie puppies."
+    secondaryCtaLabel="Read the job requirement first"
+    secondaryCtaHref="#job"
+    priceAnchor="From $2,888 all-in. Private housing only. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing working breed']}
+    imageAlt="Black and white Border Collie puppy with a focused gaze in a set-up playpen at a Singapore home"
+    tagLabel="Border Collie"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Border Collie', href: '/puppies/border-collie' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Border Collie in Singapore?" imageAlt="Black and white Border Collie puppy portrait, one of the Border Collie puppies available in Singapore" variant="mid">
+      <p>Our Border Collie puppies in Singapore arrive and are reserved quickly, and, like our Husky buyers, Collie buyers get our most careful matching conversation, because the gap between the smartest-breed reputation and the daily reality fills Singapore's adoption boards. As an AVS licensed pet shop, we'll send you photos, gender, age, colour, and exact prices for the Border Collie puppies available now, right after we've talked about what the dog will do all day.</p>
+      <p>Unlike the import listings you'll compare us against, we tell you the number upfront: every Border Collie for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Border Collie puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Border Collie photos and prices</a>, or meet our Collie puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Border Collie Puppies"
+      headingAccent="Available"
+      subhead="A few of the Border Collie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Border Collie puppy.'), imageAlt: 'Black and white male Border Collie puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Blue merle girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue merle female Border Collie puppy.'), imageAlt: 'Blue merle female Border Collie puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Red & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white male Border Collie puppy.'), imageAlt: 'Red and white male Border Collie puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Blue girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue female Border Collie puppy.'), imageAlt: 'Blue female Border Collie puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Smooth-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the smooth-coat male Border Collie puppy.'), imageAlt: 'Smooth-coat male Border Collie puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Black & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white female Border Collie puppy.'), imageAlt: 'Black and white female Border Collie puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div id="hdb" class="relative scroll-mt-40">
+    <ScatterFloat />
+    <DefBox
+      term="Can you keep a Border Collie in an HDB flat? No — and appeals don't change it"
+      definition="The Border Collie is not on the HDB-approved breed list, and because the question genuinely circulates on local forums: there is no appeal route that adds a breed to the list for your flat. HDB flats may keep one dog of an approved small breed; condos and landed homes may keep up to three dogs, subject to the estate's own rules."
+      bridge="Here's the part the forums don't tell you: the herding brain you're after already exists on the approved list. The Shetland Sheepdog is a genuine herding intelligence, top-ten ranked, family-devoted, flat-legal, and we stock it. Private housing readers: carry on to the job requirement below, which is this page's real gate."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The housing rules, straight</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'HDB flat: Border Collie not approved; no appeal route exists',
+            'Condo / landed: up to three dogs (AVS limits of ownership)',
+            'HDB herding-brain seekers: the Sheltie IS on the list',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: <a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2">HDB-approved breeds guide</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Collie from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Border Collie pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="job" class="scroll-mt-40">
+    <CaptionedBlock heading="The Job Requirement: Employing the World's Smartest Dog" imageAlt="Border Collie working through a training exercise with its owner" imagePosition="left">
+      <p>Search this breed in Singapore and the adoption posts outrank the sellers. That's not bad luck; it's what happens when the world's smartest dog is hired for a position that doesn't exist. The Border Collie was bred to work sheep from dawn to dusk, and the brain came with the deal: this dog needs an hour of real exercise daily AND, the part every listing skips, thirty-plus minutes of genuine mental work: training chains, puzzle feeders, trick sessions, dog sports. The brain is the bigger appetite. Feed only the legs and you still have an unemployed genius, and unemployed geniuses renovate.</p>
+      <p>The owners who thrive with Collies here are trainers at heart: people who find teaching a dog forty tricks fun rather than homework, with private housing and cool-hours availability. For them, nothing else compares, this breed learns anything, loves the work, and partners like no other. If that's you, welcome. If it isn't, the honest alternatives: the <a href="/puppies/sheltie" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Sheltie</a> for a herding brain on an achievable budget, the <a href="/puppies/jack-russell-terrier" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Jack Russell</a> for HDB-legal athleticism, and our <a href="/puppies/siberian-husky" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Husky page</a> if you want to read this same honesty about legs instead of brains.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Who Genuinely Thrives With a Border Collie Here" imagePosition="none" variant="card">
+      <p>From our matching interviews, the Collie homes that work share three traits: someone who genuinely enjoys daily training as a hobby (not a chore to schedule), private housing with cool-hours exercise built into the family rhythm, and honest acceptance that this dog will always need employment, at two years old and at ten.</p>
+      <p>Singapore actually serves this breed better than people expect, park connectors for the legs, and a growing dog-sports and agility scene for the brain, but only for owners who use them. We ask before we sell; it's why our dogs don't end up in the adoption posts.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Training is your idea of fun, daily',
+            'Private housing, cool-hours availability',
+            'You want a working partner, not a pet that decorates',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Collie Temperament: The Herding Software Ships Installed" imageAlt="Border Collie puppy in the classic herding crouch during play" imagePosition="left">
+      <p>Live with a Border Collie and you live with the herding sequence: the crouch, the hypnotic stare (shepherds call it "the eye"), the wide arcing runs, and occasionally a heel-nip to move a straggler along. In a flat, the sheep get recast: bikes, joggers, the robot vacuum, and, families should hear this plainly, running children. None of it is aggression; all of it is software, and early training redirects it beautifully onto balls and frisbees, but it ships installed and doesn't uninstall.</p>
+      <p>Beyond the instincts: an intense, sensitive, deeply loyal partner that bonds through work, reads your body language like a script, and is gentle-natured under the focus. Harsh handling wounds this breed; games and jobs win everything. The free first lesson with an AVS-certified trainer is where the redirect training starts, and for this breed we book it in week one, not week three.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Collie Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for the world's smartest dog."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 14 to 20 kg of wiry working muscle'] },
+        { label: 'Height', values: ['Around 46 to 56 cm at the shoulder'] },
+        { label: 'Coat', values: ['Rough (feathered) or smooth; black & white is classic, plus blue, red, and the merles'] },
+        { label: 'Lifespan', values: ['12 to 15 years; a sound, long-lived working breed'] },
+        { label: 'Exercise', values: ['60+ minutes physical plus 30+ minutes mental work, daily, in the cool hours'] },
+        { label: 'Shedding & allergies', values: ['Moderate double-coat shedding with seasonal blows; not an allergy pick'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        On colours, since "blue border collie" is one of the most-searched variations here: blue, and the striking merles, are standard-issue collie genetics, beautiful and no rarer in temperament. We price every colour inside the same printed range and match by routine, not palette.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Border Collie Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="The import listings make you enquire; quotes commonly land $4,000 to $9,000. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Import quotes commonly $4,000 to $9,000',
+            'Show-line marketing, price on enquiry',
+            'No lifestyle matching or job-requirement honesty',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Collie Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Border Collie leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed, reread that last category: the toys are not toys, they are the first training equipment, and on delivery day we show you how each becomes a job.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Collie's daily employment. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Border Collie Right for Your Lifestyle?"
+      subhead="The matching table we mean most, alongside the Husky's."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Training-as-hobby human, private housing', values: ['Ideal. The most rewarding working partnership in dogs'] },
+        { label: 'Interested in agility or dog sports', values: ['Ideal. Singapore\'s growing scene was practically built for this breed'] },
+        { label: 'HDB flat', values: ['Not eligible, and no appeal changes that. The Sheltie is the flat-legal herding brain'] },
+        { label: 'Busy professionals wanting a smart pet', values: ['Reconsider honestly. Smart without employment is the problem, not the feature'] },
+        { label: 'Young kids who love to run', values: ['Plan carefully. The herding software will notice them; early redirect training is mandatory'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Border Collie is your match?"
+    body="This page would rather talk you out of the wrong breed than see our dog in the adoption posts. Message us your real routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my honest housing and daily routine. Is a Border Collie realistic for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Border Collie vs Sheltie: The Herding Question, Both Directions" imagePosition="none" variant="dark">
+    <p>Our <a href="/puppies/sheltie" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Sheltie page</a> sends flat-dwelling herding-brain seekers here when they have private housing; this page sends them back when they don't. The honest split: the Border Collie is the full working intensity, the sharpest mind in dogs demanding genuine daily employment, private housing only. The Sheltie is the same family of intelligence at a genuinely achievable budget, gentler, smaller, HDB-approved.</p>
+    <p>We talk more people from Collie to Sheltie than the reverse, and the ones who stay Collie-bound are exactly the homes that should. With us the price, the starter kit, and the aftercare are identical either way.</p>
+    <p>Message us your housing and your honest appetite for daily training, and we'll point you at the right end of the herding shelf.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Border Collie: full working intensity, private housing only',
+          'Sheltie: herding brain, achievable budget, HDB-approved',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: The Easy Part of This Breed" imageAlt="Border Collie having its moderate double coat brushed" imagePosition="left">
+      <p>For once on this page, good news that costs nothing: the Collie coat is the manageable end of double-coated. Brush 2 to 3 times a week, step up during the seasonal blows, dry properly after rain, and never shave; the smooth-coat variety is easier still. No salon schedule required, though a tidy-up every couple of months keeps the feathering civilised.</p>
+      <p>The maintenance budget for this breed was never going to the groomer anyway; it goes to training classes, puzzle toys and agility fees, and it's the best money a Collie owner spends.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Collie Health: What We Check Before You Take One Home" imageAlt="Border Collie puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Border Collie goes home vet-checked, vaccinated, dewormed, and microchipped, and the breed brings working-line soundness: generations selected for function built one of the healthiest medium breeds there is. The watch-list we ask about, and you should ask any seller about: Collie eye anomaly, the inherited eye condition of herding lines; hips, standard diligence for an athletic breed, met with joint-friendly puppyhood; and epilepsy, which surfaces in some lines and deserves an honest question rather than silence.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, portioned to the actual work done, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Your Collie's First Week at Home" imageAlt="Border Collie puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Collie maps the room, and it will map the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and structured. A fixed feeding routine, the toilet pads where we placed them, and short, gentle play. You'll notice the watching immediately; the puppy is already learning your patterns, so make them good ones.</p>
+    <p>Days 4 to 7: the routine sticks and employment begins: first tiny training games, thirty seconds at a time, and the free first lesson with an AVS-certified trainer booked now, not later, because a Collie's education begins whether or not anyone is teaching. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            "Our search for the perfect puppy ended the moment we stepped into Curious Tails's Balestier store. Nelson was so patient with all our questions and gave us great value with everything bundled in and surprised us with loads of free extras. Our pup was clean, well-socialised, and full of energy when we brought it home. Everything from the health records to the paperwork was handled seamlessly. Thank you Curious Tails for such a wonderful start to pet parenthood!",
+          name: 'Po Xian Lee',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Collie falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Border Collie FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Border Collie" reserveMessage="Hi! I'd like to reserve a Border Collie puppy — and yes, I've read the job requirement." />
+
+  <Schema {schemas} />
+</BaseLayout>

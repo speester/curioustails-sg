@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/chow-chow/1-red-chow-chow-puppy-with-its-lion-mane-sitting-in-a-set.webp';
+import imgScene1 from '../../assets/chow-chow/2-red-chow-chow-puppy-portrait-one-of-the-chow-puppies-av.webp';
+import imgScene2 from '../../assets/chow-chow/3-chow-chow-puppy-sitting-composed-and-dignified-in-a-liv.webp';
+import imgScene3 from '../../assets/chow-chow/4-chow-chow-having-its-dense-mane-brushed-through.webp';
+import imgScene4 from '../../assets/chow-chow/5-chow-chow-puppy-at-a-veterinary-health-check-before-goi.webp';
+import imgScene5 from '../../assets/chow-chow/6-chow-chow-puppy-settling-into-a-set-up-playpen-during-i.webp';
+import imgCard1 from '../../assets/chow-chow/7-red-male-chow-chow-puppy-available-in-singapore.webp';
+import imgCard2 from '../../assets/chow-chow/8-cream-female-chow-chow-puppy-available-in-singapore.webp';
+import imgCard3 from '../../assets/chow-chow/9-black-male-chow-chow-puppy-available-in-singapore.webp';
+import imgCard4 from '../../assets/chow-chow/10-cinnamon-female-chow-chow-puppy-available-in-singapore.webp';
+import imgCard5 from '../../assets/chow-chow/11-red-female-chow-chow-puppy-available-in-singapore.webp';
+import imgCard6 from '../../assets/chow-chow/12-blue-male-chow-chow-puppy-available-in-singapore.webp';
 
 const title = 'Chow Chow Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing breed']}
-    imageAlt="Red Chow Chow puppy with its lion mane sitting in a set-up playpen at a Singapore home"
+    imageAlt="Red Chow Chow puppy with its lion mane sitting in a set-up playpen at a Singapore home" imageSrc={imgHero}
     tagLabel="Chow Chow"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Chow Chow in Singapore?" imageAlt="Red Chow Chow puppy portrait, one of the Chow puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Chow Chow in Singapore?" imageAlt="Red Chow Chow puppy portrait, one of the Chow puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Chow Chow puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Chow puppies available now.</p>
       <p>One thing to know upfront: we interview Chow buyers as much as they interview us, because this breed's biggest risk is being bought for its looks by homes expecting a different soul. Every Chow for sale in Singapore here is between $2,888 and $4,488, printed, and the temperament conversation comes free with it. Book a viewing at our Balestier shop, or after you reserve with a deposit we board your puppy for free until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Chow puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Chow Chow puppy.'), imageAlt: 'Red male Chow Chow puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Chow Chow puppy.'), imageAlt: 'Cream female Chow Chow puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black male Chow Chow puppy.'), imageAlt: 'Black male Chow Chow puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Cinnamon girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cinnamon female Chow Chow puppy.'), imageAlt: 'Cinnamon female Chow Chow puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Red girl', href: whatsappLink('Hi! I\'d like more photos and the price for the red female Chow Chow puppy.'), imageAlt: 'Red female Chow Chow puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Blue boy', href: whatsappLink('Hi! I\'d like more photos and the price for the blue male Chow Chow puppy.'), imageAlt: 'Blue male Chow Chow puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Chow Chow puppy.'), imageAlt: 'Red male Chow Chow puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Chow Chow puppy.'), imageAlt: 'Cream female Chow Chow puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black male Chow Chow puppy.'), imageAlt: 'Black male Chow Chow puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Cinnamon girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cinnamon female Chow Chow puppy.'), imageAlt: 'Cinnamon female Chow Chow puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Red girl', href: whatsappLink('Hi! I\'d like more photos and the price for the red female Chow Chow puppy.'), imageAlt: 'Red female Chow Chow puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Blue boy', href: whatsappLink('Hi! I\'d like more photos and the price for the blue male Chow Chow puppy.'), imageAlt: 'Blue male Chow Chow puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Chow Temperament: The Look and the Soul Are Different Animals" imageAlt="Chow Chow puppy sitting composed and dignified in a living room" imagePosition="left">
+    <CaptionedBlock heading="Chow Temperament: The Look and the Soul Are Different Animals" imageAlt="Chow Chow puppy sitting composed and dignified in a living room" imageSrc={imgScene2} imagePosition="left">
       <p>Here is the most important paragraph on this page. The Chow Chow looks like a teddy bear and is nothing of the sort: behind the mane lives a dignified, independent, cat-souled aristocrat that chooses its people, guards its household quietly, and regards the rest of the world with polite indifference. It is fastidiously clean, almost silent indoors, and affectionate strictly on its own initiative, a temperament cat-lovers recognise instantly and retriever-lovers find baffling.</p>
       <p>The honest part, from two years of watching looks-driven mismatches: buyers who expect the bear to cuddle on demand end up disappointed, and a disappointed Chow home helps no one. If you want visible, always-on affection, the <a href="/puppies/samoyed" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Samoyed</a> or <a href="/puppies/golden-retriever" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Golden Retriever</a> will make you far happier. If quiet, self-possessed, chosen-few devotion sounds like your kind of relationship, very little in the dog world matches a well-raised Chow.</p>
       <p>Small-scale readers drawn to exactly this soul: the <a href="/puppies/japanese-chin" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Japanese Chin</a> is the approved-list cat-soul, at a twentieth of the coat.</p>
@@ -364,7 +376,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming and Heat: The Tropics Contract" imageAlt="Chow Chow having its dense mane brushed through" imagePosition="left">
+    <CaptionedBlock heading="Grooming and Heat: The Tropics Contract" imageAlt="Chow Chow having its dense mane brushed through" imageSrc={imgScene3} imagePosition="left">
       <p>The Chow's coat contract mirrors our Samoyed page, and we'll summarise rather than soften it: brushing 3 to 4 times a week down to the skin, daily during the twice-yearly blows; a professional groom roughly monthly; thorough drying after wet walks, because damp undercoat in tropical humidity breeds skin trouble invisibly; and never shaving, because a maintained double coat insulates against our heat while a shaved one wrecks the system.</p>
       <p>The heat rules are the standard heavy-coat set: walks before 9am or after 6pm only, an aircon-centred home through the afternoons, water everywhere, and vigilance for heavy panting or wobbliness. The Chow's saving grace is its modest exercise appetite, keeping the contract is genuinely easier than with the athletic Arctic breeds.</p>
     </CaptionedBlock>
@@ -372,14 +384,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Chow Health: What We Check Before You Take One Home" imageAlt="Chow Chow puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Chow Health: What We Check Before You Take One Home" imageAlt="Chow Chow puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Chow goes home vet-checked, vaccinated, dewormed, and microchipped. The Chow health points worth knowing: entropion, an inward-rolling eyelid the breed's deep-set eyes predispose it to, is the breed-specific watch-item, any persistent squinting or tearing gets a vet look early, when correction is simple; hip and elbow dysplasia run in heavyweight breeds, met with joint-friendly puppyhood and lean weight for life; and heat management, covered above, is the everyday discipline.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, portioned for controlled growth, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Chow's First Week at Home" imageAlt="Chow Chow puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Chow's First Week at Home" imageAlt="Chow Chow puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Chow conducts its dignified inspection, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm and unhurried, and let the Chow set the pace of acquaintance; this breed decides about people on its own schedule, and rushing it backfires. Fixed feeding routine, toilet pads where we placed them, gentle daily handling.</p>
     <p>Days 4 to 7: the routine sticks, and the most important project of Chow ownership begins: book your free first lesson with an AVS-certified trainer now, and start the gentle, wide socialisation that decides who this dog becomes. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

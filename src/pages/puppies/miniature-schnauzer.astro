@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/miniature-schnauzer/1-salt-and-pepper-miniature-schnauzer-puppy-sitting-in-a.webp';
+import imgScene1 from '../../assets/miniature-schnauzer/2-salt-and-pepper-miniature-schnauzer-puppy-portrait-one.webp';
+import imgScene2 from '../../assets/miniature-schnauzer/3-miniature-schnauzer-puppy-playing-fetch-in-a-living-roo.webp';
+import imgScene3 from '../../assets/miniature-schnauzer/4-miniature-schnauzer-puppy-having-its-beard-combed-durin.webp';
+import imgScene4 from '../../assets/miniature-schnauzer/5-miniature-schnauzer-puppy-at-a-veterinary-health-check.webp';
+import imgScene5 from '../../assets/miniature-schnauzer/6-miniature-schnauzer-puppy-settling-into-a-set-up-plaype.webp';
+import imgCard1 from '../../assets/miniature-schnauzer/7-salt-and-pepper-male-miniature-schnauzer-puppy-availabl.webp';
+import imgCard2 from '../../assets/miniature-schnauzer/8-black-and-silver-female-miniature-schnauzer-puppy-avail.webp';
+import imgCard3 from '../../assets/miniature-schnauzer/9-solid-black-male-miniature-schnauzer-puppy-available-in.webp';
+import imgCard4 from '../../assets/miniature-schnauzer/10-white-female-miniature-schnauzer-puppy-available-in-sin.webp';
+import imgCard5 from '../../assets/miniature-schnauzer/11-salt-and-pepper-female-miniature-schnauzer-puppy-availa.webp';
+import imgCard6 from '../../assets/miniature-schnauzer/12-black-and-silver-male-miniature-schnauzer-puppy-availab.webp';
 
 const title = 'Miniature Schnauzer Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved small breed']}
-    imageAlt="Salt and pepper Miniature Schnauzer puppy sitting in a set-up playpen at a Balestier home"
+    imageAlt="Salt and pepper Miniature Schnauzer puppy sitting in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Mini Schnauzer"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Miniature Schnauzer in Singapore?" imageAlt="Salt and pepper Miniature Schnauzer puppy portrait, one of the Mini Schnauzer puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Miniature Schnauzer in Singapore?" imageAlt="Salt and pepper Miniature Schnauzer puppy portrait, one of the Mini Schnauzer puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Miniature Schnauzer puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Mini Schnauzer puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Miniature Schnauzer for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Mini Schnauzer puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Salt & pepper boy', href: whatsappLink('Hi! I\'d like more photos and the price for the salt and pepper male Miniature Schnauzer puppy.'), imageAlt: 'Salt and pepper male Miniature Schnauzer puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Black & silver girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and silver female Miniature Schnauzer puppy.'), imageAlt: 'Black and silver female Miniature Schnauzer puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Solid black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the solid black male Miniature Schnauzer puppy.'), imageAlt: 'Solid black male Miniature Schnauzer puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'White girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white female Miniature Schnauzer puppy.'), imageAlt: 'White female Miniature Schnauzer puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Salt & pepper girl', href: whatsappLink('Hi! I\'d like more photos and the price for the salt and pepper female Miniature Schnauzer puppy.'), imageAlt: 'Salt and pepper female Miniature Schnauzer puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Black & silver boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and silver male Miniature Schnauzer puppy.'), imageAlt: 'Black and silver male Miniature Schnauzer puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Salt & pepper boy', href: whatsappLink('Hi! I\'d like more photos and the price for the salt and pepper male Miniature Schnauzer puppy.'), imageAlt: 'Salt and pepper male Miniature Schnauzer puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Black & silver girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and silver female Miniature Schnauzer puppy.'), imageAlt: 'Black and silver female Miniature Schnauzer puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Solid black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the solid black male Miniature Schnauzer puppy.'), imageAlt: 'Solid black male Miniature Schnauzer puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'White girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white female Miniature Schnauzer puppy.'), imageAlt: 'White female Miniature Schnauzer puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Salt & pepper girl', href: whatsappLink('Hi! I\'d like more photos and the price for the salt and pepper female Miniature Schnauzer puppy.'), imageAlt: 'Salt and pepper female Miniature Schnauzer puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Black & silver boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and silver male Miniature Schnauzer puppy.'), imageAlt: 'Black and silver male Miniature Schnauzer puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Miniature Schnauzer Temperament: Terrier Fire, Family Heart" imageAlt="Miniature Schnauzer puppy playing fetch in a living room" imagePosition="left">
+    <CaptionedBlock heading="Miniature Schnauzer Temperament: Terrier Fire, Family Heart" imageAlt="Miniature Schnauzer puppy playing fetch in a living room" imageSrc={imgScene2} imagePosition="left">
       <p>The Mini Schnauzer was bred to clear rats off German farms, and it kept the job's personality: brave, busy, endlessly curious, and convinced it's supervising the household. Unlike many terriers, though, it was also bred to work alongside the family, so all that fire comes wrapped in genuine affection. This is a dog that plays hard with the kids, then falls asleep against your leg.</p>
       <p>The honest part, from two years of matching puppies to families: a Schnauzer needs its energy spent, both legs and brain. Forty-five minutes of proper walking a day plus games at home keeps the spirit charming; skip it and the watchdog instinct fills the vacuum with commentary. The chase instinct is real too; this is a leash-first breed around birds and cats.</p>
       <p>For a mellower small family dog with similar low shedding, compare the <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a>; for the same spirit in a softer coat, the <a href="/puppies/bichonpoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Bichonpoo</a>.</p>
@@ -395,7 +407,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: The Wiry Coat and the Famous Beard" imageAlt="Miniature Schnauzer puppy having its beard combed during grooming" imagePosition="left">
+    <CaptionedBlock heading="Grooming: The Wiry Coat and the Famous Beard" imageAlt="Miniature Schnauzer puppy having its beard combed during grooming" imageSrc={imgScene3} imagePosition="left">
       <p>The Schnauzer coat is low-shedding but not low-maintenance. Plan on brushing 2 to 3 times a week, a clip at the groomer every 4 to 6 weeks to keep the pet coat tidy, and, the part nobody warns you about, daily beard duty. That handsome beard collects water, food and adventure, and a quick comb and wipe after meals keeps it from smelling like everything it's been dipped in.</p>
       <p>In our humidity, keep the body coat clipped short and the furnishings (legs and beard) combed through so they never mat. The grooming tools to start are all in your starter kit, and we'll show you the beard routine on delivery day.</p>
     </CaptionedBlock>
@@ -403,7 +415,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Miniature Schnauzer Health: What We Check Before You Take One Home" imageAlt="Miniature Schnauzer puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Miniature Schnauzer Health: What We Check Before You Take One Home" imageAlt="Miniature Schnauzer puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Miniature Schnauzer goes home vet-checked, vaccinated, dewormed, and microchipped. The Schnauzer health points worth knowing: the breed handles dietary fat poorly, with pancreatitis and high blood fats (hyperlipidaemia) its best-known risks, so the feeding rules below are genuinely important; bladder stones occur more often than in most breeds, and generous fresh water every day is the cheap insurance; and eye conditions such as cataracts appear in some lines, worth a look at any adult dog's eyes you're shown.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. For portioning guidance see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
@@ -436,7 +448,7 @@ const schemas = [
     <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
   </div>
 
-  <CaptionedBlock heading="Your Mini Schnauzer's First Week at Home" imageAlt="Miniature Schnauzer puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Mini Schnauzer's First Week at Home" imageAlt="Miniature Schnauzer puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Schnauzer explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm and predictable. A fixed feeding routine, the toilet pads where we placed them, and short, gentle play. Some night whimpering is normal adjustment, and this confident breed usually settles quickly.</p>
     <p>Days 4 to 7: the routine sticks, and the personality arrives on schedule. Book your free first lesson with an AVS-certified trainer this week; early manners are what separate a charming Schnauzer from a loud one. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>. For anything in between, you WhatsApp us.</p>

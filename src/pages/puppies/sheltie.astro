@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/sheltie/1-sable-and-white-shetland-sheepdog-puppy-sitting-in-a-se.webp';
+import imgScene1 from '../../assets/sheltie/2-sable-and-white-sheltie-puppy-portrait-one-of-the-shetl.webp';
+import imgScene2 from '../../assets/sheltie/3-sheltie-puppy-focused-on-a-training-game-at-home.webp';
+import imgScene3 from '../../assets/sheltie/4-sheltie-puppy-having-its-double-coat-line-brushed.webp';
+import imgScene4 from '../../assets/sheltie/5-sheltie-puppy-at-a-veterinary-health-check-before-going.webp';
+import imgScene5 from '../../assets/sheltie/6-sheltie-puppy-settling-into-a-set-up-playpen-during-its.webp';
+import imgCard1 from '../../assets/sheltie/7-sable-and-white-male-shetland-sheepdog-puppy-available.webp';
+import imgCard2 from '../../assets/sheltie/8-tricolour-female-shetland-sheepdog-puppy-available-in-s.webp';
+import imgCard3 from '../../assets/sheltie/9-blue-merle-male-shetland-sheepdog-puppy-available-in-si.webp';
+import imgCard4 from '../../assets/sheltie/10-sable-female-shetland-sheepdog-puppy-available-in-singa.webp';
+import imgCard5 from '../../assets/sheltie/11-tricolour-male-shetland-sheepdog-puppy-available-in-sin.webp';
+import imgCard6 from '../../assets/sheltie/12-blue-merle-female-shetland-sheepdog-puppy-available-in.webp';
 
 const title = 'Sheltie Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved herding breed']}
-    imageAlt="Sable and white Shetland Sheepdog puppy sitting in a set-up playpen at a Balestier home"
+    imageAlt="Sable and white Shetland Sheepdog puppy sitting in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Sheltie"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Sheltie in Singapore?" imageAlt="Sable and white Sheltie puppy portrait, one of the Shetland Sheepdog puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Sheltie in Singapore?" imageAlt="Sable and white Sheltie puppy portrait, one of the Shetland Sheepdog puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Shelties are uncommon in Singapore, so litters are announced and reserved fast; we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Sheltie puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Shetland Sheepdog for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Sheltie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Sable & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the sable and white male Sheltie puppy.'), imageAlt: 'Sable and white male Shetland Sheepdog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Tricolour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tricolour female Sheltie puppy.'), imageAlt: 'Tricolour female Shetland Sheepdog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Blue merle boy', href: whatsappLink('Hi! I\'d like more photos and the price for the blue merle male Sheltie puppy.'), imageAlt: 'Blue merle male Shetland Sheepdog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Sable girl', href: whatsappLink('Hi! I\'d like more photos and the price for the sable female Sheltie puppy.'), imageAlt: 'Sable female Shetland Sheepdog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Tricolour boy', href: whatsappLink('Hi! I\'d like more photos and the price for the tricolour male Sheltie puppy.'), imageAlt: 'Tricolour male Shetland Sheepdog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Blue merle girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue merle female Sheltie puppy.'), imageAlt: 'Blue merle female Shetland Sheepdog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Sable & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the sable and white male Sheltie puppy.'), imageAlt: 'Sable and white male Shetland Sheepdog puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Tricolour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tricolour female Sheltie puppy.'), imageAlt: 'Tricolour female Shetland Sheepdog puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Blue merle boy', href: whatsappLink('Hi! I\'d like more photos and the price for the blue merle male Sheltie puppy.'), imageAlt: 'Blue merle male Shetland Sheepdog puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Sable girl', href: whatsappLink('Hi! I\'d like more photos and the price for the sable female Sheltie puppy.'), imageAlt: 'Sable female Shetland Sheepdog puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Tricolour boy', href: whatsappLink('Hi! I\'d like more photos and the price for the tricolour male Sheltie puppy.'), imageAlt: 'Tricolour male Shetland Sheepdog puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Blue merle girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue merle female Sheltie puppy.'), imageAlt: 'Blue merle female Shetland Sheepdog puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Sheltie Temperament: A Gentle Genius That Needs a Job" imageAlt="Sheltie puppy focused on a training game at home" imagePosition="left">
+    <CaptionedBlock heading="Sheltie Temperament: A Gentle Genius That Needs a Job" imageAlt="Sheltie puppy focused on a training game at home" imageSrc={imgScene2} imagePosition="left">
       <p>The Sheltie pairs two qualities that rarely coexist: a working brain ranked in the world's top ten, and a temperament so gentle and eager to please that harshness of any kind wounds it. It learns cues in a handful of repetitions, reads its household like weather, and would genuinely rather do things with you, training, fetch patterns, trick chains, than do anything alone.</p>
       <p>The honest part, from two years of matching puppies to families: this brain and body were built for a workday, and a Sheltie without daily physical and mental output turns its talents to shadow-chasing and, above all, the voice. That's the trade this breed offers: the most rewarding trainable companion on the HDB list, in exchange for a real daily commitment. Take the deal only if you mean it.</p>
       <p>If you want the intelligence with a smaller exercise bill, the <a href="/puppies/toy-poodle" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Toy Poodle</a> or <a href="/puppies/papillon" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Papillon</a> deliver it at toy scale.</p>
@@ -395,7 +407,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: The Mane Is Weekly Homework" imageAlt="Sheltie puppy having its double coat line-brushed" imagePosition="left">
+    <CaptionedBlock heading="Grooming: The Mane Is Weekly Homework" imageAlt="Sheltie puppy having its double coat line-brushed" imageSrc={imgScene3} imagePosition="left">
       <p>The Sheltie coat is the Collie look on subscription: brush 2 to 3 times a week down to the skin, working in layers, with daily sessions during the twice-yearly coat blows. Skip a fortnight and mats form quietly behind the ears and in the trousers. A tidy-up groom every 6 to 8 weeks keeps things civilised, and, the double-coat rule as always, never shave it; the coat insulates against our heat when kept brushed, and shaving damages regrowth.</p>
       <p>Expect real hair in the flat. The vacuum joins the family, the lint roller lives by the door, and Sheltie people decide it's worth it, but decide with open eyes.</p>
     </CaptionedBlock>
@@ -403,7 +415,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Sheltie Health: What We Check Before You Take One Home" imageAlt="Sheltie puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Sheltie Health: What We Check Before You Take One Home" imageAlt="Sheltie puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Sheltie goes home vet-checked, vaccinated, dewormed, and microchipped. The Sheltie health points worth knowing: eye conditions run in herding lines, Collie eye anomaly and progressive retinal atrophy, so ask any seller about eye checks, as you should for every herding breed; hip dysplasia appears occasionally; and, the one to write down, many Shelties carry the MDR1 gene variant, which makes certain common drugs, including some dewormers and anti-diarrhoeals, dangerous at normal doses. Tell every vet your dog is a Sheltie before any prescription; a simple cheek-swab test settles it definitively.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
@@ -436,7 +448,7 @@ const schemas = [
     <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
   </div>
 
-  <CaptionedBlock heading="Your Sheltie's First Week at Home" imageAlt="Sheltie puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Sheltie's First Week at Home" imageAlt="Sheltie puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Sheltie explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm, gentle and predictable; this sensitive breed reads household stress like a book, so a quiet settling window pays off doubly. Fixed feeding routine, toilet pads where we placed them, soft voices.</p>
     <p>Days 4 to 7: the routine sticks and the studying begins. Book your free first lesson with an AVS-certified trainer this week without fail, and start the quiet-training pattern immediately; for a Sheltie both are foundational, not optional. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

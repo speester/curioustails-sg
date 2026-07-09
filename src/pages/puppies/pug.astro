@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/pug/1-fawn-pug-puppy-sitting-in-a-set-up-playpen-at-a-balesti.webp';
+import imgScene1 from '../../assets/pug/2-fawn-pug-puppy-portrait-one-of-the-pug-puppies-availabl.webp';
+import imgScene2 from '../../assets/pug/3-pug-puppy-playing-gently-with-a-family-at-home.webp';
+import imgScene3 from '../../assets/pug/4-pug-puppy-having-its-facial-wrinkles-gently-cleaned.webp';
+import imgScene4 from '../../assets/pug/5-pug-puppy-at-a-veterinary-health-check-before-going-hom.webp';
+import imgScene5 from '../../assets/pug/6-pug-puppy-settling-into-a-set-up-playpen-during-its-fir.webp';
+import imgCard1 from '../../assets/pug/7-fawn-male-pug-puppy-available-in-singapore.webp';
+import imgCard2 from '../../assets/pug/8-fawn-female-pug-puppy-available-in-singapore.webp';
+import imgCard3 from '../../assets/pug/9-black-male-pug-puppy-available-in-singapore.webp';
+import imgCard4 from '../../assets/pug/10-black-female-pug-puppy-available-in-singapore.webp';
+import imgCard5 from '../../assets/pug/11-apricot-fawn-male-pug-puppy-available-in-singapore.webp';
+import imgCard6 from '../../assets/pug/12-silver-fawn-female-pug-puppy-available-in-singapore.webp';
 
 const title = 'Pug Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved companion breed']}
-    imageAlt="Fawn Pug puppy sitting in a set-up playpen at a Balestier home"
+    imageAlt="Fawn Pug puppy sitting in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Pug"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Pug in Singapore?" imageAlt="Fawn Pug puppy portrait, one of the Pug puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Pug in Singapore?" imageAlt="Fawn Pug puppy portrait, one of the Pug puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Pug puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Pug puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Pug for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Pug puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn male Pug puppy.'), imageAlt: 'Fawn male Pug puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Fawn girl', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn female Pug puppy.'), imageAlt: 'Fawn female Pug puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black male Pug puppy.'), imageAlt: 'Black male Pug puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Pug puppy.'), imageAlt: 'Black female Pug puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Apricot fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot fawn male Pug puppy.'), imageAlt: 'Apricot fawn male Pug puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Silver fawn girl', href: whatsappLink('Hi! I\'d like more photos and the price for the silver fawn female Pug puppy.'), imageAlt: 'Silver fawn female Pug puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn male Pug puppy.'), imageAlt: 'Fawn male Pug puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Fawn girl', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn female Pug puppy.'), imageAlt: 'Fawn female Pug puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black male Pug puppy.'), imageAlt: 'Black male Pug puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Pug puppy.'), imageAlt: 'Black female Pug puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Apricot fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot fawn male Pug puppy.'), imageAlt: 'Apricot fawn male Pug puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Silver fawn girl', href: whatsappLink('Hi! I\'d like more photos and the price for the silver fawn female Pug puppy.'), imageAlt: 'Silver fawn female Pug puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Pug Temperament: Multum in Parvo, a Lot of Dog in a Little Space" imageAlt="Pug puppy playing gently with a family at home" imagePosition="left">
+    <CaptionedBlock heading="Pug Temperament: Multum in Parvo, a Lot of Dog in a Little Space" imageAlt="Pug puppy playing gently with a family at home" imageSrc={imgScene2} imagePosition="left">
       <p>The breed's Latin motto translates to "a lot in a little", and it's accurate. The Pug is a full-sized personality in a compact body: even-tempered, sociable with everyone from toddlers to grandparents, stubborn only about comfort, and genuinely funny in a way that makes Pug owners lifelong Pug owners. It doesn't guard, doesn't hunt, and holds no grudges; company is the whole job description, and it's excellent at it.</p>
       <p>The honest part, from two years of matching puppies to families: the Pug's easygoing nature hides two non-negotiables. It must stay cool, because the flat face makes heat genuinely dangerous here, and it must stay lean, because a Pug will eat anything, look at you like it's starving, and gain weight faster than any breed we carry. Owners who hold those two lines get one of the best companion dogs in existence.</p>
       <p>If you want the same family-friendly nature with lower heat sensitivity, look at the <a href="/puppies/shih-tzu" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shih Tzu</a>, which carries a milder version of the flat-face trade-off.</p>
@@ -395,7 +407,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: Easy Coat, One Daily Ritual" imageAlt="Pug puppy having its facial wrinkles gently cleaned" imagePosition="left">
+    <CaptionedBlock heading="Grooming: Easy Coat, One Daily Ritual" imageAlt="Pug puppy having its facial wrinkles gently cleaned" imageSrc={imgScene3} imagePosition="left">
       <p>Coat care is the easy part: a weekly brush (which also helps manage the honestly impressive shedding) and an occasional bath. No mats, no salon schedule, no topknots.</p>
       <p>The part that actually matters is the wrinkles. Those famous facial folds trap moisture, and in our humidity a neglected fold turns red and sore within days. The ritual: a gentle wipe through every fold daily, then dry; thirty seconds total, and the wet wipes for it are in your starter kit. Add a weekly nail trim and the day-one tooth-brushing habit and that's the entire Pug grooming manual.</p>
     </CaptionedBlock>
@@ -403,7 +415,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Pug Health: What We Check Before You Take One Home" imageAlt="Pug puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Pug Health: What We Check Before You Take One Home" imageAlt="Pug puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Pug goes home vet-checked, vaccinated, dewormed, and microchipped. The Pug health points worth knowing, stated plainly because this breed deserves informed owners: brachycephalic airway syndrome, the flat-face breathing trade-off, which makes heat and overexertion the two things to manage for life; obesity, the most common and most preventable Pug problem, controlled entirely by your portion discipline; the prominent eyes, which scratch easily and deserve a vet look at the first sign of squinting; and skin fold dermatitis, prevented by the daily wrinkle ritual above.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. For portioning guidance, which matters more for the Pug than any breed we carry, see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
@@ -436,7 +448,7 @@ const schemas = [
     <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
   </div>
 
-  <CaptionedBlock heading="Your Pug's First Week at Home" imageAlt="Pug puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Pug's First Week at Home" imageAlt="Pug puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Pug explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm, cool and predictable. A fixed feeding routine with measured portions from the very first meal, the toilet pads where we placed them, and the wrinkle-wipe ritual starting immediately so it becomes normal. Some night snoring is not adjustment; that's permanent, and most owners come to love it.</p>
     <p>Days 4 to 7: the routine sticks. Book your free first lesson with an AVS-certified trainer this week; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>. For anything in between, you WhatsApp us.</p>

@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/shih-tzu/1-gold-and-white-shih-tzu-puppy-sitting-in-a-set-up-playp.webp';
+import imgScene1 from '../../assets/shih-tzu/2-gold-and-white-shih-tzu-puppy-portrait-one-of-the-shih.webp';
+import imgScene2 from '../../assets/shih-tzu/3-shih-tzu-puppy-relaxing-on-a-caregiver-s-lap-at-home.webp';
+import imgScene3 from '../../assets/shih-tzu/4-shih-tzu-puppy-having-its-long-coat-brushed-and-face-ti.webp';
+import imgScene4 from '../../assets/shih-tzu/5-shih-tzu-puppy-at-a-veterinary-health-check-before-goin.webp';
+import imgScene5 from '../../assets/shih-tzu/6-shih-tzu-puppy-settling-into-a-set-up-playpen-during-it.webp';
+import imgCard1 from '../../assets/shih-tzu/7-gold-and-white-male-shih-tzu-puppy-available-in-singapo.webp';
+import imgCard2 from '../../assets/shih-tzu/8-black-and-white-female-shih-tzu-puppy-available-in-sing.webp';
+import imgCard3 from '../../assets/shih-tzu/9-brindle-male-shih-tzu-puppy-available-in-singapore.webp';
+import imgCard4 from '../../assets/shih-tzu/10-liver-and-white-female-shih-tzu-puppy-available-in-sing.webp';
+import imgCard5 from '../../assets/shih-tzu/11-solid-gold-male-shih-tzu-puppy-available-in-singapore.webp';
+import imgCard6 from '../../assets/shih-tzu/12-tri-colour-female-shih-tzu-puppy-available-in-singapore.webp';
 
 const title = 'Shih Tzu Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved companion breed']}
-    imageAlt="Gold and white Shih Tzu puppy sitting in a set-up playpen at a Balestier home"
+    imageAlt="Gold and white Shih Tzu puppy sitting in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Shih Tzu"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Shih Tzu in Singapore?" imageAlt="Gold and white Shih Tzu puppy portrait, one of the Shih Tzu puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Shih Tzu in Singapore?" imageAlt="Gold and white Shih Tzu puppy portrait, one of the Shih Tzu puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Shih Tzu puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Shih Tzu puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Shih Tzu for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Shih Tzu puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Gold & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the gold and white male Shih Tzu puppy.'), imageAlt: 'Gold and white male Shih Tzu puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Black & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white female Shih Tzu puppy.'), imageAlt: 'Black and white female Shih Tzu puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Brindle boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle male Shih Tzu puppy.'), imageAlt: 'Brindle male Shih Tzu puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Liver & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the liver and white female Shih Tzu puppy.'), imageAlt: 'Liver and white female Shih Tzu puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Solid gold boy', href: whatsappLink('Hi! I\'d like more photos and the price for the solid gold male Shih Tzu puppy.'), imageAlt: 'Solid gold male Shih Tzu puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Tri-colour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tri-colour female Shih Tzu puppy.'), imageAlt: 'Tri-colour female Shih Tzu puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Gold & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the gold and white male Shih Tzu puppy.'), imageAlt: 'Gold and white male Shih Tzu puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Black & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white female Shih Tzu puppy.'), imageAlt: 'Black and white female Shih Tzu puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Brindle boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle male Shih Tzu puppy.'), imageAlt: 'Brindle male Shih Tzu puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Liver & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the liver and white female Shih Tzu puppy.'), imageAlt: 'Liver and white female Shih Tzu puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Solid gold boy', href: whatsappLink('Hi! I\'d like more photos and the price for the solid gold male Shih Tzu puppy.'), imageAlt: 'Solid gold male Shih Tzu puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Tri-colour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tri-colour female Shih Tzu puppy.'), imageAlt: 'Tri-colour female Shih Tzu puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Shih Tzu Temperament: A Thousand Years of Being Good Company" imageAlt="Shih Tzu puppy relaxing on a caregiver's lap at home" imagePosition="left">
+    <CaptionedBlock heading="Shih Tzu Temperament: A Thousand Years of Being Good Company" imageAlt="Shih Tzu puppy relaxing on a caregiver's lap at home" imageSrc={imgScene2} imagePosition="left">
       <p>Some breeds were shaped to herd, hunt or guard, and keep those instincts in a flat. The Shih Tzu was shaped for centuries to sit with people and be pleasant about it, and that history is exactly what you live with: an affectionate, even-tempered, slightly comic companion that likes everyone it meets and holds no strong opinions about squirrels.</p>
       <p>The honest part, from two years of matching puppies to families: the Shih Tzu's one training quirk is a gentle stubborn streak. It isn't defiance; it's a lapdog's honest confusion about why anyone would do anything on command. Short, cheerful, treat-led sessions work; drill-sergeant repetition doesn't. Toilet training in particular takes a few weeks longer than a Poodle cross, and knowing that upfront saves frustration.</p>
       <p>With children the Shih Tzu is one of our safest picks: sturdier than the true toys and famously tolerant. If you want the same family fit with faster trainability, compare the <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a>.</p>
@@ -395,7 +407,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: Long Coat, or the Sensible Puppy Cut" imageAlt="Shih Tzu puppy having its long coat brushed and face tidied" imagePosition="left">
+    <CaptionedBlock heading="Grooming: Long Coat, or the Sensible Puppy Cut" imageAlt="Shih Tzu puppy having its long coat brushed and face tidied" imageSrc={imgScene3} imagePosition="left">
       <p>Left long, the Shih Tzu coat is a genuine commitment: daily brushing to the skin, a topknot to keep hair out of the eyes, and mats forming anywhere you skip. Almost every Singapore Shih Tzu lives in a puppy cut instead, and we recommend it without hesitation: brush 2 to 3 times a week, salon groom every 4 to 6 weeks, and everyone's happier, the dog included, in our humidity.</p>
       <p>The daily non-negotiable is the face: those large eyes and facial folds need a quick wipe each day to prevent tear staining and skin irritation. The wipes are in your starter kit, and it takes ten seconds once it's habit.</p>
     </CaptionedBlock>
@@ -403,7 +415,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Shih Tzu Health: What We Check Before You Take One Home" imageAlt="Shih Tzu puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Shih Tzu Health: What We Check Before You Take One Home" imageAlt="Shih Tzu puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Shih Tzu goes home vet-checked, vaccinated, dewormed, and microchipped. The Shih Tzu health points worth knowing: the short muzzle means brachycephalic airway traits, so snoring is normal but laboured breathing after mild activity is a vet visit; the large, prominent eyes scratch more easily than most breeds', so anything weepy or squinty gets checked early; patellar luxation, the small-breed kneecap issue; and dental crowding in the short jaw, which the day-one oral care routine manages.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. For portioning guidance see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
@@ -436,7 +448,7 @@ const schemas = [
     <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
   </div>
 
-  <CaptionedBlock heading="Your Shih Tzu's First Week at Home" imageAlt="Shih Tzu puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Shih Tzu's First Week at Home" imageAlt="Shih Tzu puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Shih Tzu explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm, cool and predictable. A fixed feeding routine, the toilet pads where we placed them, and the daily face-wipe habit starting immediately. Some night whimpering is normal adjustment.</p>
     <p>Days 4 to 7: the routine sticks. Book your free first lesson with an AVS-certified trainer this week; the Shih Tzu's gentle stubborn streak is easiest to shape early. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>. For anything in between, you WhatsApp us.</p>

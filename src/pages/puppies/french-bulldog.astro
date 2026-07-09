@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/french-bulldog/1-fawn-french-bulldog-puppy-sitting-in-a-set-up-playpen-a.webp';
+import imgScene1 from '../../assets/french-bulldog/2-fawn-french-bulldog-puppy-portrait-one-of-the-frenchie.webp';
+import imgScene2 from '../../assets/french-bulldog/3-french-bulldog-puppy-playing-gently-with-a-family-in-a.webp';
+import imgScene3 from '../../assets/french-bulldog/4-french-bulldog-puppy-having-its-facial-folds-gently-cle.webp';
+import imgScene4 from '../../assets/french-bulldog/5-french-bulldog-puppy-at-a-veterinary-health-check-befor.webp';
+import imgScene5 from '../../assets/french-bulldog/6-french-bulldog-puppy-settling-into-a-set-up-playpen-dur.webp';
+import imgCard1 from '../../assets/french-bulldog/7-fawn-male-french-bulldog-puppy-available-in-singapore.webp';
+import imgCard2 from '../../assets/french-bulldog/8-brindle-female-french-bulldog-puppy-available-in-singap.webp';
+import imgCard3 from '../../assets/french-bulldog/9-pied-male-french-bulldog-puppy-available-in-singapore.webp';
+import imgCard4 from '../../assets/french-bulldog/10-cream-female-french-bulldog-puppy-available-in-singapor.webp';
+import imgCard5 from '../../assets/french-bulldog/11-fawn-pied-male-french-bulldog-puppy-available-in-singap.webp';
+import imgCard6 from '../../assets/french-bulldog/12-brindle-and-white-female-french-bulldog-puppy-available.webp';
 
 const title = 'French Bulldog Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing breed']}
-    imageAlt="Fawn French Bulldog puppy sitting in a set-up playpen at a Singapore condo"
+    imageAlt="Fawn French Bulldog puppy sitting in a set-up playpen at a Singapore condo" imageSrc={imgHero}
     tagLabel="Frenchie"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a French Bulldog in Singapore?" imageAlt="Fawn French Bulldog puppy portrait, one of the Frenchie puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a French Bulldog in Singapore?" imageAlt="Fawn French Bulldog puppy portrait, one of the Frenchie puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our French Bulldog puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Frenchie puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every French Bulldog for sale in Singapore here is between $2,888 and $4,488, whatever the coat colour, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Frenchie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn male French Bulldog puppy.'), imageAlt: 'Fawn male French Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Brindle girl', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle female French Bulldog puppy.'), imageAlt: 'Brindle female French Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Pied boy', href: whatsappLink('Hi! I\'d like more photos and the price for the pied male French Bulldog puppy.'), imageAlt: 'Pied male French Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female French Bulldog puppy.'), imageAlt: 'Cream female French Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Fawn pied boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn pied male French Bulldog puppy.'), imageAlt: 'Fawn pied male French Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Brindle & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle and white female French Bulldog puppy.'), imageAlt: 'Brindle and white female French Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn male French Bulldog puppy.'), imageAlt: 'Fawn male French Bulldog puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Brindle girl', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle female French Bulldog puppy.'), imageAlt: 'Brindle female French Bulldog puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Pied boy', href: whatsappLink('Hi! I\'d like more photos and the price for the pied male French Bulldog puppy.'), imageAlt: 'Pied male French Bulldog puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female French Bulldog puppy.'), imageAlt: 'Cream female French Bulldog puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Fawn pied boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn pied male French Bulldog puppy.'), imageAlt: 'Fawn pied male French Bulldog puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Brindle & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle and white female French Bulldog puppy.'), imageAlt: 'Brindle and white female French Bulldog puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Frenchie Temperament: The Easy Half of the Deal" imageAlt="French Bulldog puppy playing gently with a family in a condo living room" imagePosition="left">
+    <CaptionedBlock heading="Frenchie Temperament: The Easy Half of the Deal" imageAlt="French Bulldog puppy playing gently with a family in a condo living room" imageSrc={imgScene2} imagePosition="left">
       <p>Nobody needs this page to sell them a Frenchie's personality; the world's most popular breed got there on charm. Easygoing, comic, sturdy with children, quiet by companion-breed standards, and blessed with an energy ceiling low enough that a genuinely busy household can still meet it: twenty minutes of cool-hour walking and some living-room comedy covers the day.</p>
       <p>The honest part, from two years of matching buyers who arrive pre-sold: the Frenchie's temperament is the easy half of the deal. The other half is the two disciplines this page keeps returning to, housing (settled above) and heat (settled below), plus a companionship need that makes empty 8am-to-6pm homes a poor fit. Buyers who accept all three get one of the most likeable dogs ever bred.</p>
       <p>Want the charm with easier breathing and HDB legality? That's the <a href="/puppies/boston-terrier" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Boston Terrier</a>, honestly.</p>
@@ -364,7 +376,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: Easy Coat, One Daily Ritual" imageAlt="French Bulldog puppy having its facial folds gently cleaned" imagePosition="left">
+    <CaptionedBlock heading="Grooming: Easy Coat, One Daily Ritual" imageAlt="French Bulldog puppy having its facial folds gently cleaned" imageSrc={imgScene3} imagePosition="left">
       <p>Coat care is a weekly once-over with a soft brush and an occasional bath; the short coat manages itself apart from honest moderate shedding. No salon schedule, no mats. The bat ears, unlike most companion breeds' drop ears, stay open and ventilated, one genuinely low-maintenance feature in our humidity.</p>
       <p>The daily ritual is the folds: those facial wrinkles trap moisture, and in tropical air a neglected fold turns sore within days. Thirty seconds with a wipe, then dry, every day. Add nails and the tooth-brushing habit and that's the entire manual.</p>
     </CaptionedBlock>
@@ -372,7 +384,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Frenchie Health: The Honest List" imageAlt="French Bulldog puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Frenchie Health: The Honest List" imageAlt="French Bulldog puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Frenchie goes home vet-checked, vaccinated, dewormed, and microchipped, and this is the breed where informed ownership matters most, so here is the list stated plainly. Brachycephalic airway syndrome: the flattest face in our shop breathes the least efficiently, which is why heat discipline and lean weight are lifelong requirements, and why snoring is normal but laboured breathing after mild activity is a vet visit. The spine: Frenchies carry a higher rate of back issues (IVDD), so no stair marathons, no leaping from furniture, and a harness always. Skin folds: daily ritual, above.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week; measured portions from the very first meal, because every extra hundred grams loads that short airway. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
@@ -405,7 +417,7 @@ const schemas = [
     <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
   </div>
 
-  <CaptionedBlock heading="Your Frenchie's First Week at Home" imageAlt="French Bulldog puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Frenchie's First Week at Home" imageAlt="French Bulldog puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Frenchie explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm, cool and predictable. Measured portions from the first meal, the toilet pads where we placed them, the fold-wipe ritual starting immediately, and the aircon doing its quiet work. The snoring is permanent equipment; most owners come to love it.</p>
     <p>Days 4 to 7: the routine sticks and the comedy begins. Book your free first lesson with an AVS-certified trainer this week; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

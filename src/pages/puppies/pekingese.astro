@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/pekingese/1-golden-pekingese-puppy-with-a-lion-mane-sitting-in-a-se.webp';
+import imgScene1 from '../../assets/pekingese/2-golden-pekingese-puppy-portrait-one-of-the-pekingese-pu.webp';
+import imgScene2 from '../../assets/pekingese/3-pekingese-puppy-sitting-regally-on-a-cushion-at-home.webp';
+import imgScene3 from '../../assets/pekingese/4-pekingese-puppy-having-its-mane-brushed-through.webp';
+import imgScene4 from '../../assets/pekingese/5-pekingese-puppy-at-a-veterinary-health-check-before-goi.webp';
+import imgScene5 from '../../assets/pekingese/6-pekingese-puppy-settling-into-a-set-up-playpen-during-i.webp';
+import imgCard1 from '../../assets/pekingese/7-golden-male-pekingese-puppy-available-in-singapore.webp';
+import imgCard2 from '../../assets/pekingese/8-cream-female-pekingese-puppy-available-in-singapore.webp';
+import imgCard3 from '../../assets/pekingese/9-black-male-pekingese-puppy-available-in-singapore.webp';
+import imgCard4 from '../../assets/pekingese/10-fawn-brindle-female-pekingese-puppy-available-in-singap.webp';
+import imgCard5 from '../../assets/pekingese/11-red-sable-male-pekingese-puppy-available-in-singapore.webp';
+import imgCard6 from '../../assets/pekingese/12-parti-colour-female-pekingese-puppy-available-in-singap.webp';
 
 const title = 'Pekingese Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved companion breed']}
-    imageAlt="Golden Pekingese puppy with a lion mane sitting in a set-up playpen at a Balestier home"
+    imageAlt="Golden Pekingese puppy with a lion mane sitting in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Pekingese"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Pekingese in Singapore?" imageAlt="Golden Pekingese puppy portrait, one of the Pekingese puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Pekingese in Singapore?" imageAlt="Golden Pekingese puppy portrait, one of the Pekingese puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Pekingese are uncommon in Singapore, so litters are announced and reserved fast; we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Pekingese puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Pekingese for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Pekingese puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Golden boy', href: whatsappLink('Hi! I\'d like more photos and the price for the golden male Pekingese puppy.'), imageAlt: 'Golden male Pekingese puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Pekingese puppy.'), imageAlt: 'Cream female Pekingese puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black male Pekingese puppy.'), imageAlt: 'Black male Pekingese puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Fawn brindle girl', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn brindle female Pekingese puppy.'), imageAlt: 'Fawn brindle female Pekingese puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Red sable boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red sable male Pekingese puppy.'), imageAlt: 'Red sable male Pekingese puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Parti-colour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the parti-colour female Pekingese puppy.'), imageAlt: 'Parti-colour female Pekingese puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Golden boy', href: whatsappLink('Hi! I\'d like more photos and the price for the golden male Pekingese puppy.'), imageAlt: 'Golden male Pekingese puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Pekingese puppy.'), imageAlt: 'Cream female Pekingese puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black male Pekingese puppy.'), imageAlt: 'Black male Pekingese puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Fawn brindle girl', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn brindle female Pekingese puppy.'), imageAlt: 'Fawn brindle female Pekingese puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Red sable boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red sable male Pekingese puppy.'), imageAlt: 'Red sable male Pekingese puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Parti-colour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the parti-colour female Pekingese puppy.'), imageAlt: 'Parti-colour female Pekingese puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Pekingese Temperament: A Thousand Years of Knowing Its Worth" imageAlt="Pekingese puppy sitting regally on a cushion at home" imagePosition="left">
+    <CaptionedBlock heading="Pekingese Temperament: A Thousand Years of Knowing Its Worth" imageAlt="Pekingese puppy sitting regally on a cushion at home" imageSrc={imgScene2} imagePosition="left">
       <p>The Pekingese was bred to sit beside emperors, and no one has since informed it of any change in circumstances. This is the most dignified dog we carry: calm, self-possessed, quietly affectionate with its chosen people, and utterly uninterested in performing for approval. Owners describe it accurately as the most cat-like of dogs, and for the right person that's precisely the appeal.</p>
       <p>The honest part, from two years of matching puppies to families: the independence cuts both ways. A Peke is wonderfully undemanding, but it is also stubborn in a way that makes toilet training slower and recall theoretical. Training works through patience, food and respect, never through drilling. And its tolerance for disrespectful handling, from toddlers especially, is short.</p>
       <p>If you want the palace-dog history with more eagerness to please, the <a href="/puppies/shih-tzu" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shih Tzu</a> is the friendlier-to-train cousin, and we'll tell you honestly which fits your home.</p>
@@ -395,7 +407,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: The Mane Is a Commitment" imageAlt="Pekingese puppy having its mane brushed through" imagePosition="left">
+    <CaptionedBlock heading="Grooming: The Mane Is a Commitment" imageAlt="Pekingese puppy having its mane brushed through" imageSrc={imgScene3} imagePosition="left">
       <p>Here's where the low-exercise budget gets spent instead. The Pekingese double coat needs brushing 3 to 4 times a week down to the skin, daily during coat blows, plus a tidy-up groom every 6 to 8 weeks. Many Singapore owners keep the body coat trimmed to a manageable length, which is sensible; what you must not do is shave to the skin, which damages double-coat regrowth and removes the insulation that actually helps against our heat.</p>
       <p>The daily ten-second rituals: a wipe through the facial fold above the nose, and an eye check, because the Peke's prominent eyes collect the day. Both habits are quick, both matter, and both use items already in your starter kit.</p>
     </CaptionedBlock>
@@ -403,7 +415,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Pekingese Health: What We Check Before You Take One Home" imageAlt="Pekingese puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Pekingese Health: What We Check Before You Take One Home" imageAlt="Pekingese puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Pekingese goes home vet-checked, vaccinated, dewormed, and microchipped. The Peke health points worth knowing: brachycephalic airway traits, so snoring is standard but laboured breathing after gentle activity is a vet visit; the eyes, large and prominent, are the breed's most vulnerable feature, and anything squinty, weepy or cloudy gets checked the same week; heat sensitivity, covered honestly in the card below; and patellar luxation, the small-breed kneecap issue.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. Keep the Peke lean; extra weight loads a flat-faced airway. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
@@ -436,7 +448,7 @@ const schemas = [
     <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
   </div>
 
-  <CaptionedBlock heading="Your Pekingese's First Week at Home" imageAlt="Pekingese puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Pekingese's First Week at Home" imageAlt="Pekingese puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Pekingese surveys the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm, cool and unhurried. A fixed feeding routine, the toilet pads where we placed them, and no pressure to perform; the Peke settles on its own schedule and rewards patience.</p>
     <p>Days 4 to 7: the household hierarchy is quietly assessed and, ideally, approved. Book your free first lesson with an AVS-certified trainer this week; with an independent breed, early gentle structure pays off doubly. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

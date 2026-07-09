@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/beagle/1-beagle-puppy-sitting-in-a-set-up-playpen-at-a-singapore.webp';
+import imgScene1 from '../../assets/beagle/2-beagle-puppy-portrait-one-of-the-beagle-puppies-availab.webp';
+import imgScene2 from '../../assets/beagle/3-beagle-puppy-playing-happily-with-children-in-a-garden.webp';
+import imgScene3 from '../../assets/beagle/4-beagle-following-a-scent-trail-with-its-nose-to-the-gro.webp';
+import imgScene4 from '../../assets/beagle/5-beagle-puppy-at-a-veterinary-health-check-before-going.webp';
+import imgScene5 from '../../assets/beagle/6-beagle-puppy-settling-into-a-set-up-playpen-during-its.webp';
+import imgCard1 from '../../assets/beagle/7-tri-colour-male-beagle-puppy-available-in-singapore.webp';
+import imgCard2 from '../../assets/beagle/8-lemon-and-white-female-beagle-puppy-available-in-singap.webp';
+import imgCard3 from '../../assets/beagle/9-tri-colour-female-beagle-puppy-available-in-singapore.webp';
+import imgCard4 from '../../assets/beagle/10-chocolate-tri-male-beagle-puppy-available-in-singapore.webp';
+import imgCard5 from '../../assets/beagle/11-second-tri-colour-female-beagle-puppy-available-in-sing.webp';
+import imgCard6 from '../../assets/beagle/12-lemon-and-white-male-beagle-puppy-available-in-singapor.webp';
 
 const title = 'Beagle Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -135,7 +147,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing family hound']}
-    imageAlt="Beagle puppy sitting in a set-up playpen at a Singapore condo"
+    imageAlt="Beagle puppy sitting in a set-up playpen at a Singapore condo" imageSrc={imgHero}
     tagLabel="Beagle"
     proofChip="5.0 on Google"
   >
@@ -145,7 +157,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Beagle in Singapore?" imageAlt="Beagle puppy portrait, one of the Beagle puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Beagle in Singapore?" imageAlt="Beagle puppy portrait, one of the Beagle puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Beagle puppies in Singapore are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, markings, and exact prices for the Beagle puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Beagle for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -158,12 +170,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Beagle puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Tri-colour boy', href: whatsappLink('Hi! I\'d like more photos and the price for the tri-colour male Beagle puppy.'), imageAlt: 'Tri-colour male Beagle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Lemon girl', href: whatsappLink('Hi! I\'d like more photos and the price for the lemon and white female Beagle puppy.'), imageAlt: 'Lemon and white female Beagle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Tri-colour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tri-colour female Beagle puppy.'), imageAlt: 'Tri-colour female Beagle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Chocolate tri boy', href: whatsappLink('Hi! I\'d like more photos and the price for the chocolate tri Beagle puppy.'), imageAlt: 'Chocolate tri male Beagle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '9 weeks' },
-        { title: 'Tri-colour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the second tri-colour female Beagle puppy.'), imageAlt: 'Second tri-colour female Beagle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Lemon boy', href: whatsappLink('Hi! I\'d like more photos and the price for the lemon and white male Beagle puppy.'), imageAlt: 'Lemon and white male Beagle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Tri-colour boy', href: whatsappLink('Hi! I\'d like more photos and the price for the tri-colour male Beagle puppy.'), imageAlt: 'Tri-colour male Beagle puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Lemon girl', href: whatsappLink('Hi! I\'d like more photos and the price for the lemon and white female Beagle puppy.'), imageAlt: 'Lemon and white female Beagle puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Tri-colour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tri-colour female Beagle puppy.'), imageAlt: 'Tri-colour female Beagle puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
+        { title: 'Chocolate tri boy', href: whatsappLink('Hi! I\'d like more photos and the price for the chocolate tri Beagle puppy.'), imageAlt: 'Chocolate tri male Beagle puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '9 weeks' },
+        { title: 'Tri-colour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the second tri-colour female Beagle puppy.'), imageAlt: 'Second tri-colour female Beagle puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Lemon boy', href: whatsappLink('Hi! I\'d like more photos and the price for the lemon and white male Beagle puppy.'), imageAlt: 'Lemon and white male Beagle puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
   </div>
@@ -213,7 +225,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Beagle Temperament: Merry, Sturdy, and Endlessly Curious" imageAlt="Beagle puppy playing happily with children in a garden" imagePosition="left">
+    <CaptionedBlock heading="Beagle Temperament: Merry, Sturdy, and Endlessly Curious" imageAlt="Beagle puppy playing happily with children in a garden" imageSrc={imgScene2} imagePosition="left">
       <p>The Beagle is a genuinely great family dog, and its fans are devoted for good reason: merry, friendly, sturdy enough for boisterous kids, and small enough to scoop up, with a happy, even temperament and no guarding hang-ups. It gets on with everyone, dogs and people alike, and its curiosity makes every day an adventure. Compact, robust and cheerful, it packs a lot of dog into a manageable size.</p>
       <p>The honest footnotes, and this breed has real ones. First, the Beagle is a pack hound that hates being alone; it wants company and, ideally, a busy household. Second, it is food-obsessed to a fault, which is a gift for training and a hazard for waistlines and bins. Third, it is independent and scent-driven, so training takes patience and a sense of humour: this is not a Border Collie waiting on your every word. Fourth, see the nose-and-voice section next, because those two traits define daily life with a Beagle.</p>
     </CaptionedBlock>
@@ -242,7 +254,7 @@ const schemas = [
   </div>
 
   <div id="nose" class="scroll-mt-40">
-    <CaptionedBlock heading="The Nose and the Voice: What Every Beagle Owner Lives" imageAlt="Beagle following a scent trail with its nose to the ground on a walk" imagePosition="left">
+    <CaptionedBlock heading="The Nose and the Voice: What Every Beagle Owner Lives" imageAlt="Beagle following a scent trail with its nose to the ground on a walk" imageSrc={imgScene3} imagePosition="left">
       <p>Two traits define this breed, and no honest page hides them. The nose first: the Beagle has one of the finest noses in the dog world, and it rules the dog. On a scent, a Beagle can go temporarily deaf to its own name, which is why it is a leash-first dog in any open space, why your garden must be genuinely secure, and why a food-driven training approach works far better than expecting obedience to beat an interesting smell. Channel the nose with scent games and puzzle feeders and you have a happy, tired dog.</p>
       <p>The voice second: Beagles were bred to bay across open country, and they can be loud. A well-exercised, well-trained Beagle in a busy home is much quieter than the stereotype, but the potential is there, and in a condo with shared walls it is a genuine factor to weigh honestly before you buy. We would rather you plan for the voice than be surprised by it, and we will talk you through managing it.</p>
     </CaptionedBlock>
@@ -341,14 +353,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Beagle Health: What We Check and What to Watch" imageAlt="Beagle puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Beagle Health: What We Check and What to Watch" imageAlt="Beagle puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Beagle goes home vet-checked, vaccinated, dewormed, and microchipped. Beagles are a robust, long-lived breed, and the biggest health lever is one you control completely: weight. This is a food-obsessed dog that will happily become overweight, and obesity drives most of the joint and back problems the breed can face, so measured portions and no free-feeding are the golden rule. Beyond that, keep the ears checked (the drop ears like a clean, dry environment) and the eyes clear.</p>
       <p>Feeding is simple but discipline matters: your puppy comes with the food it is already eating, portioned correctly, and treats must be counted into the day's total, not added on top. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Beagle's First Week at Home" imageAlt="Beagle puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Beagle's First Week at Home" imageAlt="Beagle puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you. The playpen, bed, water, and toys are set up before your Beagle explores the room, and we walk you through all 30+ starter-kit items in person, including the portion-control plan. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm and contained. A fixed feeding routine with measured portions, the toilet pads where we placed them, and a secure space so that busy nose can't lead your puppy into trouble.</p>
     <p>Days 4 to 7: the routine sticks, and now is the time to start. Book your free first lesson with an AVS-certified trainer to build recall and settle the vocal habits early, using the Beagle's love of food to your advantage. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/labradoodle/1-labradoodle-puppy-sitting-in-a-set-up-playpen-at-a-sing.webp';
+import imgScene1 from '../../assets/labradoodle/2-labradoodle-puppy-portrait-one-of-the-labradoodle-puppi.webp';
+import imgScene2 from '../../assets/labradoodle/3-labradoodle-puppy-playing-happily-with-a-family-in-a-ga.webp';
+import imgScene3 from '../../assets/labradoodle/4-labradoodle-having-its-fleece-coat-brushed-and-clipped.webp';
+import imgScene4 from '../../assets/labradoodle/5-labradoodle-puppy-at-a-veterinary-health-check-before-g.webp';
+import imgScene5 from '../../assets/labradoodle/6-labradoodle-puppy-settling-into-a-set-up-playpen-during.webp';
+import imgCard1 from '../../assets/labradoodle/7-chocolate-male-labradoodle-puppy-available-in-singapore.webp';
+import imgCard2 from '../../assets/labradoodle/8-caramel-female-labradoodle-puppy-available-in-singapore.webp';
+import imgCard3 from '../../assets/labradoodle/9-cream-male-labradoodle-puppy-available-in-singapore.webp';
+import imgCard4 from '../../assets/labradoodle/10-black-female-labradoodle-puppy-available-in-singapore.webp';
+import imgCard5 from '../../assets/labradoodle/11-apricot-female-labradoodle-puppy-available-in-singapore.webp';
+import imgCard6 from '../../assets/labradoodle/12-caramel-male-labradoodle-puppy-available-in-singapore.webp';
 
 const title = 'Labradoodle Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -135,7 +147,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Low-shedding family cross']}
-    imageAlt="Labradoodle puppy sitting in a set-up playpen at a Singapore condo"
+    imageAlt="Labradoodle puppy sitting in a set-up playpen at a Singapore condo" imageSrc={imgHero}
     tagLabel="Labradoodle"
     proofChip="5.0 on Google"
   >
@@ -145,7 +157,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Labradoodle in Singapore?" imageAlt="Labradoodle puppy portrait, one of the Labradoodle puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Labradoodle in Singapore?" imageAlt="Labradoodle puppy portrait, one of the Labradoodle puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Labradoodle puppies in Singapore are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and exact prices for the Labradoodle puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Labradoodle for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -158,12 +170,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Labradoodle puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Chocolate boy', href: whatsappLink('Hi! I\'d like more photos and the price for the chocolate male Labradoodle puppy.'), imageAlt: 'Chocolate male Labradoodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Caramel girl', href: whatsappLink('Hi! I\'d like more photos and the price for the caramel female Labradoodle puppy.'), imageAlt: 'Caramel female Labradoodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Labradoodle puppy.'), imageAlt: 'Cream male Labradoodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Labradoodle puppy.'), imageAlt: 'Black female Labradoodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Labradoodle puppy.'), imageAlt: 'Apricot female Labradoodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Caramel boy', href: whatsappLink('Hi! I\'d like more photos and the price for the caramel male Labradoodle puppy.'), imageAlt: 'Caramel male Labradoodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Chocolate boy', href: whatsappLink('Hi! I\'d like more photos and the price for the chocolate male Labradoodle puppy.'), imageAlt: 'Chocolate male Labradoodle puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Caramel girl', href: whatsappLink('Hi! I\'d like more photos and the price for the caramel female Labradoodle puppy.'), imageAlt: 'Caramel female Labradoodle puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Labradoodle puppy.'), imageAlt: 'Cream male Labradoodle puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Labradoodle puppy.'), imageAlt: 'Black female Labradoodle puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Labradoodle puppy.'), imageAlt: 'Apricot female Labradoodle puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Caramel boy', href: whatsappLink('Hi! I\'d like more photos and the price for the caramel male Labradoodle puppy.'), imageAlt: 'Caramel male Labradoodle puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
   </div>
@@ -213,7 +225,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Labradoodle Temperament: The Original Doodle" imageAlt="Labradoodle puppy playing happily with a family in a garden" imagePosition="left">
+    <CaptionedBlock heading="Labradoodle Temperament: The Original Doodle" imageAlt="Labradoodle puppy playing happily with a family in a garden" imageSrc={imgScene2} imagePosition="left">
       <p>The Labradoodle started it all — first bred in Australia to be a low-shedding guide dog — and the temperament shows its working roots: friendly, outgoing, quick to learn and eager to please. It bonds hard to its family, loves people and other dogs, and brings a cheerful, can-do energy to everything it does. For an active household that wants a low-shedding dog with a bit of get-up-and-go, it is a wonderful match.</p>
       <p>The honest footnotes. First, that Labrador energy is real: the Labradoodle is often a touch livelier than its Goldendoodle cousin, and it needs the daily exercise and mental work to match. Second, it is deeply social and does not enjoy long days alone. Third, as with any cross, temperament varies a little puppy to puppy, so we tell you what we actually see in each one.</p>
       <p>Comparing the family? The <a href="/puppies/goldendoodle" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Goldendoodle</a> is the Golden-based, often mellower cousin, and the <a href="/puppies/golden-retriever" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Golden Retriever</a> is the fully-predictable, heavy-shedding original. All three share our price and aftercare.</p>
@@ -243,7 +255,7 @@ const schemas = [
   </div>
 
   <div id="coat" class="scroll-mt-40">
-    <CaptionedBlock heading="The Coat: Fleece, Wool or Hair, and What Each Means" imageAlt="Labradoodle having its fleece coat brushed and clipped at a groomer" imagePosition="left">
+    <CaptionedBlock heading="The Coat: Fleece, Wool or Hair, and What Each Means" imageAlt="Labradoodle having its fleece coat brushed and clipped at a groomer" imageSrc={imgScene3} imagePosition="left">
       <p>Labradoodle coats come in three broad types, and honest owners learn theirs early. Fleece is the soft, wavy coat most people picture, low-shedding and easy to love. Wool is curlier and tightest-shedding, often the best bet for allergy-sensitive homes. Hair coats are flatter, more Labrador-like, and shed more. The more Poodle in the mix, the more likely you are to get a low-shedding fleece or wool coat, and we tell you honestly what each puppy is showing.</p>
       <p>Whichever you get, the trade is the same as for any doodle: low shedding means the coat keeps growing, and a growing coat mats without work. Plan on brushing several times a week down to the skin, and a professional groom every 6 to 8 weeks. Owners who budget for the salon adore the low-shed life; owners who expect wash-and-go get a shock at the first mat.</p>
     </CaptionedBlock>
@@ -366,14 +378,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Labradoodle Health: What We Check and What to Watch" imageAlt="Labradoodle puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Labradoodle Health: What We Check and What to Watch" imageAlt="Labradoodle puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Labradoodle goes home vet-checked, vaccinated, dewormed, and microchipped. Crossbreeds often benefit from hybrid vigour, but honest owners still watch what both parent breeds can pass on: hips and elbows in the larger sizes, so controlled growth and no forced running before maturity; eyes, worth a vet's routine check; and ears, because a hairy, floppy doodle ear traps moisture in our humidity and needs regular checking and gentle cleaning. Keeping the coat around the ears trimmed helps a lot.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, portioned for its size, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Labradoodle's First Week at Home" imageAlt="Labradoodle puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Labradoodle's First Week at Home" imageAlt="Labradoodle puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you. The playpen, bed, water, and toys are set up before your Labradoodle explores the room, and we walk you through all 30+ starter-kit items in person, including the coat-care routine. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm. A fixed feeding routine with measured portions, the toilet pads where we placed them, and gentle play that helps your puppy settle into its new room.</p>
     <p>Days 4 to 7: the routine sticks, and now is the time to build good habits. Book your free first lesson with an AVS-certified trainer to channel that Labrador energy early, and start short, positive brushing sessions so your Labradoodle grows up loving its grooming. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

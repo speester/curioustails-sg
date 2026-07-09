@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/westie/1-west-highland-white-terrier-puppy-sitting-in-a-set-up-p.webp';
+import imgScene1 from '../../assets/westie/2-white-westie-puppy-portrait-one-of-the-west-highland-te.webp';
+import imgScene2 from '../../assets/westie/3-westie-puppy-standing-confidently-on-a-living-room-rug.webp';
+import imgScene3 from '../../assets/westie/4-westie-puppy-being-brushed-through-its-white-double-coa.webp';
+import imgScene4 from '../../assets/westie/5-westie-puppy-at-a-veterinary-health-check-before-going.webp';
+import imgScene5 from '../../assets/westie/6-westie-puppy-settling-into-a-set-up-playpen-during-its.webp';
+import imgCard1 from '../../assets/westie/7-male-west-highland-white-terrier-puppy-available-in-sin.webp';
+import imgCard2 from '../../assets/westie/8-female-west-highland-white-terrier-puppy-available-in-s.webp';
+import imgCard3 from '../../assets/westie/9-plush-coat-male-westie-puppy-available-in-singapore.webp';
+import imgCard4 from '../../assets/westie/10-petite-female-westie-puppy-available-in-singapore.webp';
+import imgCard5 from '../../assets/westie/11-bold-male-westie-puppy-available-in-singapore.webp';
+import imgCard6 from '../../assets/westie/12-snowy-female-westie-puppy-available-in-singapore.webp';
 
 const title = 'Westie Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved terrier']}
-    imageAlt="West Highland White Terrier puppy sitting in a set-up playpen at a Balestier home"
+    imageAlt="West Highland White Terrier puppy sitting in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Westie"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Westie in Singapore?" imageAlt="White Westie puppy portrait, one of the West Highland Terrier puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Westie in Singapore?" imageAlt="White Westie puppy portrait, one of the West Highland Terrier puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Westies are less common in Singapore than the Poodle crosses, so litters are announced and reserved fast; we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Westie puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every West Highland White Terrier for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Westie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Confident boy', href: whatsappLink('Hi! I\'d like more photos and the price for the male Westie puppy.'), imageAlt: 'Male West Highland White Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Sweet-faced girl', href: whatsappLink('Hi! I\'d like more photos and the price for the female Westie puppy.'), imageAlt: 'Female West Highland White Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Plush-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the plush-coat male Westie puppy.'), imageAlt: 'Plush-coat male Westie puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Petite girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite female Westie puppy.'), imageAlt: 'Petite female Westie puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Bold boy', href: whatsappLink('Hi! I\'d like more photos and the price for the bold male Westie puppy.'), imageAlt: 'Bold male Westie puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Snowy girl', href: whatsappLink('Hi! I\'d like more photos and the price for the snowy female Westie puppy.'), imageAlt: 'Snowy female Westie puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Confident boy', href: whatsappLink('Hi! I\'d like more photos and the price for the male Westie puppy.'), imageAlt: 'Male West Highland White Terrier puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Sweet-faced girl', href: whatsappLink('Hi! I\'d like more photos and the price for the female Westie puppy.'), imageAlt: 'Female West Highland White Terrier puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Plush-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the plush-coat male Westie puppy.'), imageAlt: 'Plush-coat male Westie puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Petite girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite female Westie puppy.'), imageAlt: 'Petite female Westie puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Bold boy', href: whatsappLink('Hi! I\'d like more photos and the price for the bold male Westie puppy.'), imageAlt: 'Bold male Westie puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Snowy girl', href: whatsappLink('Hi! I\'d like more photos and the price for the snowy female Westie puppy.'), imageAlt: 'Snowy female Westie puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Westie Temperament: Confidence in a White Coat" imageAlt="Westie puppy standing confidently on a living room rug" imagePosition="left">
+    <CaptionedBlock heading="Westie Temperament: Confidence in a White Coat" imageAlt="Westie puppy standing confidently on a living room rug" imageSrc={imgScene2} imagePosition="left">
       <p>The Westie carries itself like it owns a small estate in the Highlands and is merely wintering in your flat. This is a genuinely confident dog: cheerful, curious, sturdy, and self-possessed in a way the velcro companion breeds never are. It loves its family without needing to be held by them, greets the world with interest, and takes its self-appointed vermin-patrol duties seriously.</p>
       <p>The honest part, from two years of matching puppies to families: the independence that makes the Westie easy to live with also means it negotiates. Recall, off-switch barking, leaving the neighbour's cat unremarked, all trainable, all requiring more patience than a Poodle cross would ask. Terrier people find this charming; obedience perfectionists find it maddening. Know which you are.</p>
       <p>For similar sturdiness with more biddability, compare the <a href="/puppies/miniature-schnauzer" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Miniature Schnauzer</a>; for a softer, people-focused white dog, the <a href="/puppies/bichon-frise" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Bichon Frise</a>.</p>
@@ -395,7 +407,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: A Harsh Coat That Works Hard for You" imageAlt="Westie puppy being brushed through its white double coat" imagePosition="left">
+    <CaptionedBlock heading="Grooming: A Harsh Coat That Works Hard for You" imageAlt="Westie puppy being brushed through its white double coat" imageSrc={imgScene3} imagePosition="left">
       <p>The Westie's harsh outer coat is functional gear: it repels dirt surprisingly well, sheds very little, and keeps the dog looking respectable on a modest routine. Plan on brushing 2 to 3 times a week, and a groom every 4 to 6 weeks; pet Westies here are clipped rather than hand-stripped, which softens the coat over time but suits our climate and budgets fine.</p>
       <p>Keep baths modest and the shampoo gentle: over-washing dries the skin, and this is the one breed where skin comes before coat in every grooming decision. Ears, nails and daily teeth round out the routine, all with tools from your starter kit.</p>
     </CaptionedBlock>
@@ -403,14 +415,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Westie Health: What We Check Before You Take One Home" imageAlt="Westie puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Westie Health: What We Check Before You Take One Home" imageAlt="Westie puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Westie goes home vet-checked, vaccinated, dewormed, and microchipped. The main conversation for this breed is skin: Westies are prone to atopic dermatitis, itchy, allergic skin that our humidity can aggravate. Not every Westie gets it, but every owner should watch for the early signs, paw licking, ear rubbing, pink or darkened skin, because early vet care keeps it a minor nuisance rather than a chronic misery. Gentle shampoo, thorough drying after wet walks, and flea prevention are the daily defences.</p>
       <p>Beyond skin, the list is standard small-breed fare: patellar luxation and, in some lines, Legg-Calvé-Perthes hip condition. Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Westie's First Week at Home" imageAlt="Westie puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Westie's First Week at Home" imageAlt="Westie puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Westie explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm and predictable. A fixed feeding routine, the toilet pads where we placed them, and short, gentle play. The Westie's confidence means it usually settles faster than most; don't mistake the composure for not needing the routine.</p>
     <p>Days 4 to 7: the routine sticks and the terrier opinions arrive. Book your free first lesson with an AVS-certified trainer this week; early consistency is everything with an independent breed. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

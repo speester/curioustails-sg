@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/shihpoo/1-cream-shihpoo-puppy-sitting-in-a-set-up-playpen-at-a-ba.webp';
+import imgScene1 from '../../assets/shihpoo/2-cream-shihpoo-puppy-portrait-one-of-the-shihpoo-puppies.webp';
+import imgScene2 from '../../assets/shihpoo/3-shihpoo-puppy-playing-gently-on-a-living-room-rug.webp';
+import imgScene3 from '../../assets/shihpoo/4-shihpoo-puppy-being-brushed-through-its-soft-wavy-coat.webp';
+import imgScene4 from '../../assets/shihpoo/5-shihpoo-puppy-at-a-veterinary-health-check-before-going.webp';
+import imgScene5 from '../../assets/shihpoo/6-shihpoo-puppy-settling-into-a-set-up-playpen-during-its.webp';
+import imgCard1 from '../../assets/shihpoo/7-cream-male-shihpoo-puppy-available-in-singapore.webp';
+import imgCard2 from '../../assets/shihpoo/8-apricot-female-shihpoo-puppy-available-in-singapore.webp';
+import imgCard3 from '../../assets/shihpoo/9-black-and-white-male-shihpoo-puppy-available-in-singapo.webp';
+import imgCard4 from '../../assets/shihpoo/10-gold-female-shihpoo-puppy-available-in-singapore.webp';
+import imgCard5 from '../../assets/shihpoo/11-brown-and-white-male-shihpoo-puppy-available-in-singapo.webp';
+import imgCard6 from '../../assets/shihpoo/12-cream-and-white-female-shihpoo-puppy-available-in-singa.webp';
 
 const title = 'Shihpoo Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-friendly toy cross']}
-    imageAlt="Cream Shihpoo puppy sitting in a set-up playpen at a Balestier home"
+    imageAlt="Cream Shihpoo puppy sitting in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Shihpoo"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Shihpoo in Singapore?" imageAlt="Cream Shihpoo puppy portrait, one of the Shihpoo puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Shihpoo in Singapore?" imageAlt="Cream Shihpoo puppy portrait, one of the Shihpoo puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Shihpoo puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Shihpoo puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Shihpoo for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Shihpoo puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Shihpoo puppy.'), imageAlt: 'Cream male Shihpoo puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Shihpoo puppy.'), imageAlt: 'Apricot female Shihpoo puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Shihpoo puppy.'), imageAlt: 'Black and white male Shihpoo puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Gold girl', href: whatsappLink('Hi! I\'d like more photos and the price for the gold female Shihpoo puppy.'), imageAlt: 'Gold female Shihpoo puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Brown & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brown and white male Shihpoo puppy.'), imageAlt: 'Brown and white male Shihpoo puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Cream & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream and white female Shihpoo puppy.'), imageAlt: 'Cream and white female Shihpoo puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Shihpoo puppy.'), imageAlt: 'Cream male Shihpoo puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Shihpoo puppy.'), imageAlt: 'Apricot female Shihpoo puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Shihpoo puppy.'), imageAlt: 'Black and white male Shihpoo puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Gold girl', href: whatsappLink('Hi! I\'d like more photos and the price for the gold female Shihpoo puppy.'), imageAlt: 'Gold female Shihpoo puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Brown & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brown and white male Shihpoo puppy.'), imageAlt: 'Brown and white male Shihpoo puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Cream & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream and white female Shihpoo puppy.'), imageAlt: 'Cream and white female Shihpoo puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Shihpoo Temperament: The Chill Parent's Charm, the Smart Parent's Brain" imageAlt="Shihpoo puppy playing gently on a living room rug" imagePosition="left">
+    <CaptionedBlock heading="Shihpoo Temperament: The Chill Parent's Charm, the Smart Parent's Brain" imageAlt="Shihpoo puppy playing gently on a living room rug" imageSrc={imgScene2} imagePosition="left">
       <p>The Shihpoo inherits from two very different job descriptions. From the Shih Tzu side comes a thousand years of professional companionship: easygoing, affectionate, happy on a lap, unbothered by a quiet afternoon. From the Poodle side comes the spark: quicker learning, more playfulness, and a livelier interest in games than a purebred Shih Tzu usually shows.</p>
       <p>The honest part, from two years of matching crosses to families: individual Shihpoos land at different points between the parents. Some are nappers with occasional zoomies; some are busy little students with a nap habit. We tell you honestly where each puppy in a litter sits, because we've watched them, and matching the right pup to your routine matters more with crosses than with predictable purebreds.</p>
       <p>Comparing crosses? The <a href="/puppies/maltipoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Maltipoo</a> is the daintier, more people-dependent cousin; the <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> the more independent one.</p>
@@ -395,7 +407,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: Soft Coats Tangle Quietly" imageAlt="Shihpoo puppy being brushed through its soft wavy coat" imagePosition="left">
+    <CaptionedBlock heading="Grooming: Soft Coats Tangle Quietly" imageAlt="Shihpoo puppy being brushed through its soft wavy coat" imageSrc={imgScene3} imagePosition="left">
       <p>The Shihpoo's soft, low-shedding coat is the low-allergen dream with one string attached: hair that doesn't fall out stays in and knots. Plan on brushing every other day, a comb-through weekly to the skin, and a salon groom every 4 to 6 weeks; nearly every Singapore Shihpoo lives happily in a puppy cut.</p>
       <p>The daily ten-second habit is the face: most Shihpoos inherit expressive Shih Tzu eyes that appreciate a quick wipe to prevent tear staining. Everything you need to start is in the kit, and we show you the routine on delivery day.</p>
     </CaptionedBlock>
@@ -403,14 +415,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Shihpoo Health: What We Check Before You Take One Home" imageAlt="Shihpoo puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Shihpoo Health: What We Check Before You Take One Home" imageAlt="Shihpoo puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Shihpoo goes home vet-checked, vaccinated, dewormed, and microchipped. Cross-breed vigour helps, drawing from two long-lived parents, and the points worth knowing come from both sides: patellar luxation, the small-breed kneecap issue; eye care, from the Shih Tzu's prominent-eye inheritance, milder in the cross but worth the daily wipe; and dental crowding in smaller jaws, met with the day-one brushing habit.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Shihpoo's First Week at Home" imageAlt="Shihpoo puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Shihpoo's First Week at Home" imageAlt="Shihpoo puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Shihpoo explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm and predictable. A fixed feeding routine, the toilet pads where we placed them, short gentle play, and the face-wipe habit starting now. Some night whimpering is normal adjustment.</p>
     <p>Days 4 to 7: the routine sticks and the personality mix reveals itself, nap-lover, little student, or both. Book your free first lesson with an AVS-certified trainer this week; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

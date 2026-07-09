@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/italian-greyhound/1-fawn-italian-greyhound-puppy-curled-in-a-blanket-nest-i.webp';
+import imgScene1 from '../../assets/italian-greyhound/2-fawn-italian-greyhound-puppy-portrait-one-of-the-ig-pup.webp';
+import imgScene2 from '../../assets/italian-greyhound/3-italian-greyhound-puppy-curled-against-its-owner-on-the.webp';
+import imgScene3 from '../../assets/italian-greyhound/4-italian-greyhound-puppy-getting-a-gentle-coat-wipe-and.webp';
+import imgScene4 from '../../assets/italian-greyhound/5-italian-greyhound-puppy-at-a-veterinary-health-check-be.webp';
+import imgScene5 from '../../assets/italian-greyhound/6-italian-greyhound-puppy-settling-into-a-blanket-nest-du.webp';
+import imgCard1 from '../../assets/italian-greyhound/7-fawn-male-italian-greyhound-puppy-available-in-singapor.webp';
+import imgCard2 from '../../assets/italian-greyhound/8-blue-female-italian-greyhound-puppy-available-in-singap.webp';
+import imgCard3 from '../../assets/italian-greyhound/9-cream-male-italian-greyhound-puppy-available-in-singapo.webp';
+import imgCard4 from '../../assets/italian-greyhound/10-blue-and-white-female-italian-greyhound-puppy-available.webp';
+import imgCard5 from '../../assets/italian-greyhound/11-red-male-italian-greyhound-puppy-available-in-singapore.webp';
+import imgCard6 from '../../assets/italian-greyhound/12-black-female-italian-greyhound-puppy-available-in-singa.webp';
 
 const title = 'Italian Greyhound Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved sighthound']}
-    imageAlt="Fawn Italian Greyhound puppy curled in a blanket nest in a set-up playpen at a Balestier home"
+    imageAlt="Fawn Italian Greyhound puppy curled in a blanket nest in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Italian Greyhound"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy an Italian Greyhound in Singapore?" imageAlt="Fawn Italian Greyhound puppy portrait, one of the IG puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy an Italian Greyhound in Singapore?" imageAlt="Fawn Italian Greyhound puppy portrait, one of the IG puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Italian Greyhounds are rare in Singapore and social media has made them rarer on shelves, so litters are reserved fast; we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the IG puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Italian Greyhound for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the IG puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn male Italian Greyhound puppy.'), imageAlt: 'Fawn male Italian Greyhound puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Blue girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue female Italian Greyhound puppy.'), imageAlt: 'Blue female Italian Greyhound puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Italian Greyhound puppy.'), imageAlt: 'Cream male Italian Greyhound puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Blue & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue and white female Italian Greyhound puppy.'), imageAlt: 'Blue and white female Italian Greyhound puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Italian Greyhound puppy.'), imageAlt: 'Red male Italian Greyhound puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Italian Greyhound puppy.'), imageAlt: 'Black female Italian Greyhound puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn male Italian Greyhound puppy.'), imageAlt: 'Fawn male Italian Greyhound puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Blue girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue female Italian Greyhound puppy.'), imageAlt: 'Blue female Italian Greyhound puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Italian Greyhound puppy.'), imageAlt: 'Cream male Italian Greyhound puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Blue & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue and white female Italian Greyhound puppy.'), imageAlt: 'Blue and white female Italian Greyhound puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Italian Greyhound puppy.'), imageAlt: 'Red male Italian Greyhound puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Italian Greyhound puppy.'), imageAlt: 'Black female Italian Greyhound puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="IG Temperament: Two Speeds, Sprint and Snuggle" imageAlt="Italian Greyhound puppy curled against its owner on the sofa" imagePosition="left">
+    <CaptionedBlock heading="IG Temperament: Two Speeds, Sprint and Snuggle" imageAlt="Italian Greyhound puppy curled against its owner on the sofa" imageSrc={imgScene2} imagePosition="left">
       <p>The Italian Greyhound runs on exactly two settings. Setting one is the sighthound sprint: sudden, spectacular laps of the living room at speeds nothing else this size can touch, over in ninety seconds. Setting two, which occupies the other twenty-three hours, is professional-grade snuggling, preferably under a blanket, ideally against a person. There is no setting in between, and owners love it that way.</p>
       <p>The honest parts, from two years of matching puppies to families: this is the most people-bonded breed we carry after the Cavalier, so empty-all-day homes need honest reflection first. It is also sensitive: harsh voices shut an IG down where a terrier would shrug, so this is a gentle-hands, gentle-words household's dog. And the chase instinct is real; leashes stay on outdoors, because a sprinting IG does not hear recall.</p>
       <p>Want the elegance with more independence? The <a href="/puppies/miniature-pinscher" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Min Pin</a> wears a similar sleek coat with a tougher attitude.</p>
@@ -395,7 +407,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: A Wipe-Down and a Toothbrush" imageAlt="Italian Greyhound puppy getting a gentle coat wipe and tooth brushing" imagePosition="left">
+    <CaptionedBlock heading="Grooming: A Wipe-Down and a Toothbrush" imageAlt="Italian Greyhound puppy getting a gentle coat wipe and tooth brushing" imageSrc={imgScene3} imagePosition="left">
       <p>The IG coat asks for a weekly once-over with a soft mitt and an occasional bath; it dries in minutes and mats are physically impossible. There is no easier coat in the shop.</p>
       <p>The real grooming routine is dental, and we say this with feeling: Italian Greyhounds are notorious for dental disease, more than any breed we carry, and daily brushing from day one is the difference between a healthy 15-year-old mouth and repeated extractions by age six. The brush, paste, and wipes are in your starter kit; use them like the coat depends on it, because the dog's comfort genuinely does.</p>
     </CaptionedBlock>
@@ -403,7 +415,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="IG Health: What We Check Before You Take One Home" imageAlt="Italian Greyhound puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="IG Health: What We Check Before You Take One Home" imageAlt="Italian Greyhound puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every IG goes home vet-checked, vaccinated, dewormed, and microchipped. The IG health picture has two headlines and a short list. Headline one: teeth, covered above, brush daily. Headline two: young leg bones, covered honestly in the card below. The short list: patellar luxation, progressive retinal atrophy in some lines, and a sighthound quirk worth telling any vet, the breed's sensitivity to certain anaesthetics, which sighthound-aware clinics manage routinely.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. Don't mistake the visible ribs of a healthy sighthound for thinness; this breed is built lean. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
@@ -436,7 +448,7 @@ const schemas = [
     <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
   </div>
 
-  <CaptionedBlock heading="Your IG's First Week at Home" imageAlt="Italian Greyhound puppy settling into a blanket nest during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your IG's First Week at Home" imageAlt="Italian Greyhound puppy settling into a blanket nest during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your IG explores the room, with the blanket nest arranged and the furniture-safety setup checked. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm, warm and close. A fixed feeding routine, the toilet pads where we placed them, gentle handling, and blankets; IGs settle through cosiness and proximity.</p>
     <p>Days 4 to 7: the routine sticks, the first living-room sprints debut, and alone-time practice starts now, five boring minutes at a time, while it's easy. Book your free first lesson with an AVS-certified trainer this week; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

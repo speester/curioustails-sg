@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/goldendoodle/1-goldendoodle-puppy-sitting-in-a-set-up-playpen-at-a-sin.webp';
+import imgScene1 from '../../assets/goldendoodle/2-goldendoodle-puppy-portrait-one-of-the-goldendoodle-pup.webp';
+import imgScene2 from '../../assets/goldendoodle/3-goldendoodle-puppy-playing-gently-with-children-in-a-ga.webp';
+import imgScene3 from '../../assets/goldendoodle/4-goldendoodle-having-its-curly-coat-brushed-and-clipped.webp';
+import imgScene4 from '../../assets/goldendoodle/5-goldendoodle-puppy-at-a-veterinary-health-check-before.webp';
+import imgScene5 from '../../assets/goldendoodle/6-goldendoodle-puppy-settling-into-a-set-up-playpen-durin.webp';
+import imgCard1 from '../../assets/goldendoodle/7-apricot-male-goldendoodle-puppy-available-in-singapore.webp';
+import imgCard2 from '../../assets/goldendoodle/8-cream-female-goldendoodle-puppy-available-in-singapore.webp';
+import imgCard3 from '../../assets/goldendoodle/9-red-male-goldendoodle-puppy-available-in-singapore.webp';
+import imgCard4 from '../../assets/goldendoodle/10-gold-female-goldendoodle-puppy-available-in-singapore.webp';
+import imgCard5 from '../../assets/goldendoodle/11-apricot-female-goldendoodle-puppy-available-in-singapor.webp';
+import imgCard6 from '../../assets/goldendoodle/12-cream-male-goldendoodle-puppy-available-in-singapore.webp';
 
 const title = 'Goldendoodle Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Low-shedding family cross']}
-    imageAlt="Goldendoodle puppy sitting in a set-up playpen at a Singapore condo"
+    imageAlt="Goldendoodle puppy sitting in a set-up playpen at a Singapore condo" imageSrc={imgHero}
     tagLabel="Goldendoodle"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Goldendoodle in Singapore?" imageAlt="Goldendoodle puppy portrait, one of the Goldendoodle puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Goldendoodle in Singapore?" imageAlt="Goldendoodle puppy portrait, one of the Goldendoodle puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Goldendoodle puppies in Singapore are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and exact prices for the Goldendoodle puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Goldendoodle for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Goldendoodle puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Apricot boy', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot male Goldendoodle puppy.'), imageAlt: 'Apricot male Goldendoodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Goldendoodle puppy.'), imageAlt: 'Cream female Goldendoodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Goldendoodle puppy.'), imageAlt: 'Red male Goldendoodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Gold girl', href: whatsappLink('Hi! I\'d like more photos and the price for the gold female Goldendoodle puppy.'), imageAlt: 'Gold female Goldendoodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Goldendoodle puppy.'), imageAlt: 'Apricot female Goldendoodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Goldendoodle puppy.'), imageAlt: 'Cream male Goldendoodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Apricot boy', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot male Goldendoodle puppy.'), imageAlt: 'Apricot male Goldendoodle puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Goldendoodle puppy.'), imageAlt: 'Cream female Goldendoodle puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Goldendoodle puppy.'), imageAlt: 'Red male Goldendoodle puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Gold girl', href: whatsappLink('Hi! I\'d like more photos and the price for the gold female Goldendoodle puppy.'), imageAlt: 'Gold female Goldendoodle puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Goldendoodle puppy.'), imageAlt: 'Apricot female Goldendoodle puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Goldendoodle puppy.'), imageAlt: 'Cream male Goldendoodle puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Goldendoodle Temperament: Golden Warmth, Poodle Brains" imageAlt="Goldendoodle puppy playing gently with children in a garden" imagePosition="left">
+    <CaptionedBlock heading="Goldendoodle Temperament: Golden Warmth, Poodle Brains" imageAlt="Goldendoodle puppy playing gently with children in a garden" imageSrc={imgScene2} imagePosition="left">
       <p>The Goldendoodle inherits the best of a famous pairing: the Golden Retriever's gentle, people-loving nature and the Poodle's quick, trainable intelligence. The result is a sociable, affectionate family dog that bonds hard, learns fast, and treats visitors as friends it hasn't met yet. For many Singapore families it's the dream — the Golden they always wanted, without the fur on every surface.</p>
       <p>The honest footnotes. First, this is a deeply social cross that wants to be part of family life, not left alone all week; boredom and loneliness turn its cleverness into mischief. Second, both parent breeds are active, so the exercise below is real, not a formality. Third, a crossbreed's temperament can vary a little between puppies, so we tell you what we see in each one rather than reciting a brochure.</p>
       <p>Cross-shopping the original? The <a href="/puppies/golden-retriever" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Golden Retriever</a> gives you complete predictability and heavy shedding; the <a href="/puppies/labradoodle" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Labradoodle</a> is the Labrador-based cousin. All three sit in the same price range with us.</p>
@@ -248,7 +260,7 @@ const schemas = [
   </div>
 
   <div id="coat" class="scroll-mt-40">
-    <CaptionedBlock heading="The Coat: Low-Shedding, High-Maintenance, Honestly" imageAlt="Goldendoodle having its curly coat brushed and clipped at a groomer" imagePosition="left">
+    <CaptionedBlock heading="The Coat: Low-Shedding, High-Maintenance, Honestly" imageAlt="Goldendoodle having its curly coat brushed and clipped at a groomer" imageSrc={imgScene3} imagePosition="left">
       <p>This is the section that sells the breed and the one most listings gloss over. The Goldendoodle's wavy-to-curly coat is genuinely low-shedding, which is the whole appeal, and for many allergy-sensitive homes it's a real answer where a Golden never could be. Coats vary: the more Poodle in the mix (an F1b, for instance), the curlier and lower-shedding it tends to be. We'll tell you honestly what each puppy's coat looks like it will become.</p>
       <p>But here's the trade, stated plainly: a coat that doesn't shed is a coat that keeps growing, and a growing coat mats without work. Plan on brushing several times a week down to the skin, and a professional groom every 6 to 8 weeks. You are swapping the vacuum for a grooming budget, not escaping maintenance altogether. Owners who go in expecting that love the breed; owners who don't get a surprise at the first matting.</p>
     </CaptionedBlock>
@@ -371,14 +383,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Goldendoodle Health: What We Check and What to Watch" imageAlt="Goldendoodle puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Goldendoodle Health: What We Check and What to Watch" imageAlt="Goldendoodle puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Goldendoodle goes home vet-checked, vaccinated, dewormed, and microchipped. Crossbreeds often benefit from hybrid vigour, but honest owners still watch the risks both parent breeds carry: hip and elbow joints in the larger sizes, so controlled growth and no forced running before maturity; and ears, because a hairy, floppy Doodle ear traps moisture in our humidity and needs regular checking and gentle cleaning. Keeping the coat around the ears trimmed helps.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, portioned for its size, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Goldendoodle's First Week at Home" imageAlt="Goldendoodle puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Goldendoodle's First Week at Home" imageAlt="Goldendoodle puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you. The playpen, bed, water, and toys are set up before your Goldendoodle explores the room, and we walk you through all 30+ starter-kit items in person, including the coat-care routine. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm. A fixed feeding routine with measured portions, the toilet pads where we placed them, and gentle play that helps your puppy settle into its new room.</p>
     <p>Days 4 to 7: the routine sticks, and now is the time to build good habits. Book your free first lesson with an AVS-certified trainer, and start short, positive brushing sessions so your Doodle grows up loving the grooming it will need for life. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

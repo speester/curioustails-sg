@@ -28,6 +28,17 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/english-bulldog/1-english-bulldog-puppy-sitting-in-a-set-up-playpen-at-a.webp';
+import imgScene1 from '../../assets/english-bulldog/2-english-bulldog-puppy-portrait-one-of-the-bulldog-puppi.webp';
+import imgScene2 from '../../assets/english-bulldog/3-english-bulldog-puppy-relaxing-calmly-with-children-ind.webp';
+import imgScene3 from '../../assets/english-bulldog/4-english-bulldog-puppy-at-a-veterinary-health-check-befo.webp';
+import imgScene4 from '../../assets/english-bulldog/5-english-bulldog-puppy-settling-into-a-set-up-playpen-du.webp';
+import imgCard1 from '../../assets/english-bulldog/6-fawn-and-white-male-english-bulldog-puppy-available-in.webp';
+import imgCard2 from '../../assets/english-bulldog/7-brindle-female-english-bulldog-puppy-available-in-singa.webp';
+import imgCard3 from '../../assets/english-bulldog/8-white-and-fawn-male-english-bulldog-puppy-available-in.webp';
+import imgCard4 from '../../assets/english-bulldog/9-red-and-white-female-english-bulldog-puppy-available-in.webp';
+import imgCard5 from '../../assets/english-bulldog/10-fawn-female-english-bulldog-puppy-available-in-singapor.webp';
+import imgCard6 from '../../assets/english-bulldog/11-brindle-and-white-male-english-bulldog-puppy-available.webp';
 
 const title = 'English Bulldog Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -135,7 +146,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing gentle heavyweight']}
-    imageAlt="English Bulldog puppy sitting in a set-up playpen at a Singapore condo"
+    imageAlt="English Bulldog puppy sitting in a set-up playpen at a Singapore condo" imageSrc={imgHero}
     tagLabel="English Bulldog"
     proofChip="5.0 on Google"
   >
@@ -145,7 +156,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy an English Bulldog in Singapore?" imageAlt="English Bulldog puppy portrait, one of the Bulldog puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy an English Bulldog in Singapore?" imageAlt="English Bulldog puppy portrait, one of the Bulldog puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our English Bulldog puppies in Singapore are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Bulldog puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every English Bulldog for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price, against a market that routinely asks two to four times as much. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -158,12 +169,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Bulldog puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Fawn & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn and white male English Bulldog puppy.'), imageAlt: 'Fawn and white male English Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Brindle girl', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle female English Bulldog puppy.'), imageAlt: 'Brindle female English Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'White & fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white and fawn male English Bulldog puppy.'), imageAlt: 'White and fawn male English Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Red & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white female English Bulldog puppy.'), imageAlt: 'Red and white female English Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Fawn girl', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn female English Bulldog puppy.'), imageAlt: 'Fawn female English Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Brindle & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle and white male English Bulldog puppy.'), imageAlt: 'Brindle and white male English Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Fawn & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn and white male English Bulldog puppy.'), imageAlt: 'Fawn and white male English Bulldog puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Brindle girl', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle female English Bulldog puppy.'), imageAlt: 'Brindle female English Bulldog puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'White & fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white and fawn male English Bulldog puppy.'), imageAlt: 'White and fawn male English Bulldog puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Red & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white female English Bulldog puppy.'), imageAlt: 'Red and white female English Bulldog puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Fawn girl', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn female English Bulldog puppy.'), imageAlt: 'Fawn female English Bulldog puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Brindle & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle and white male English Bulldog puppy.'), imageAlt: 'Brindle and white male English Bulldog puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
   </div>
@@ -243,7 +254,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="English Bulldog Temperament: The Gentle Comedian" imageAlt="English Bulldog puppy relaxing calmly with children indoors" imagePosition="left">
+    <CaptionedBlock heading="English Bulldog Temperament: The Gentle Comedian" imageAlt="English Bulldog puppy relaxing calmly with children indoors" imageSrc={imgScene2} imagePosition="left">
       <p>Behind the tough-guy face is one of the softest hearts in dogdom. The English Bulldog is gentle, affectionate, patient with children and endearingly comical, a low-energy companion that wants little more than to be near its people, preferably on the coolest patch of floor. Calm, loyal and dignified, it fits beautifully into a quiet home and is famously good with kids who understand not to rough-house in the heat.</p>
       <p>The honest footnotes. First, this is a companion breed that hates being alone all day; its whole purpose is company. Second, the stubborn streak is real but gentle, and patient, food-motivated training wins the day. Third, the heat-care and health realities above and below are not optional reading, they are the breed. Get those right and the Bulldog rewards you with years of unhurried, devoted, funny companionship.</p>
       <p>Drawn to the flat-faced look at a smaller size? The <a href="/puppies/french-bulldog" class="underline underline-offset-2 text-[var(--color-accent-hover)]">French Bulldog</a> is the compact cousin, with the same heat rules and the same honest pricing from us.</p>
@@ -365,14 +376,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="English Bulldog Health: The Honest Conversation" imageAlt="English Bulldog puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="English Bulldog Health: The Honest Conversation" imageAlt="English Bulldog puppy at a veterinary health check before going home" imageSrc={imgScene3} variant="mid">
       <p>Every Bulldog goes home vet-checked, vaccinated, dewormed, and microchipped, and this breed deserves the most honest health section we write. The English Bulldog is a much-loved companion, but it carries real, well-documented considerations: as a brachycephalic breed it can have compromised breathing, especially in heat; the skin folds need regular cleaning to avoid irritation; the joints and hips deserve care and a lean weight; and the lifespan, around 8 to 10 years, is shorter than most. We do not hide any of this, because a Bulldog bought with eyes open and cared for well is a joy, while one bought on impulse is heartbreak waiting to happen.</p>
       <p>What we do about it: we choose the healthiest-structured puppies we can, keep the price honest so your budget goes to care rather than markup, and set you up with a clear routine, cool environment, fold care, weight control and prompt vet attention for any breathing concern. Feeding comes with the food it is already eating, portioned for a lean build. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your English Bulldog's First Week at Home" imageAlt="English Bulldog puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your English Bulldog's First Week at Home" imageAlt="English Bulldog puppy settling into a set-up playpen during its first week home" imageSrc={imgScene4} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, and we make sure the resting spot is cool from the start. The playpen, bed, water, and toys are set up before your Bulldog explores the room, and we walk you through all 30+ starter-kit items in person, including the heat and skin-fold routines. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm and cool. A fixed feeding routine with measured portions, the toilet pads where we placed them, gentle floor play only, and a close eye on temperature through the afternoon.</p>
     <p>Days 4 to 7: the routine sticks. Book your free first lesson with an AVS-certified trainer, and lock in the daily wrinkle-clean and cool-hours walk habits now, so lifelong Bulldog care becomes second nature. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

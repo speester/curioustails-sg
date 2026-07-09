@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/cocker-spaniel/1-cocker-spaniel-puppy-sitting-in-a-set-up-playpen-at-a-s.webp';
+import imgScene1 from '../../assets/cocker-spaniel/2-cocker-spaniel-puppy-portrait-one-of-the-cocker-puppies.webp';
+import imgScene2 from '../../assets/cocker-spaniel/3-cocker-spaniel-puppy-playing-gently-with-children-in-a.webp';
+import imgScene3 from '../../assets/cocker-spaniel/4-cocker-spaniel-having-its-long-ears-and-silky-coat-groo.webp';
+import imgScene4 from '../../assets/cocker-spaniel/5-cocker-spaniel-puppy-at-a-veterinary-health-check-befor.webp';
+import imgScene5 from '../../assets/cocker-spaniel/6-cocker-spaniel-puppy-settling-into-a-set-up-playpen-dur.webp';
+import imgCard1 from '../../assets/cocker-spaniel/7-golden-male-cocker-spaniel-puppy-available-in-singapore.webp';
+import imgCard2 from '../../assets/cocker-spaniel/8-black-and-tan-female-cocker-spaniel-puppy-available-in.webp';
+import imgCard3 from '../../assets/cocker-spaniel/9-blue-roan-male-cocker-spaniel-puppy-available-in-singap.webp';
+import imgCard4 from '../../assets/cocker-spaniel/10-chocolate-female-cocker-spaniel-puppy-available-in-sing.webp';
+import imgCard5 from '../../assets/cocker-spaniel/11-golden-female-cocker-spaniel-puppy-available-in-singapo.webp';
+import imgCard6 from '../../assets/cocker-spaniel/12-black-male-cocker-spaniel-puppy-available-in-singapore.webp';
 
 const title = 'Cocker Spaniel Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -135,7 +147,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing family breed']}
-    imageAlt="Cocker Spaniel puppy sitting in a set-up playpen at a Singapore condo"
+    imageAlt="Cocker Spaniel puppy sitting in a set-up playpen at a Singapore condo" imageSrc={imgHero}
     tagLabel="Cocker Spaniel"
     proofChip="5.0 on Google"
   >
@@ -145,7 +157,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Cocker Spaniel in Singapore?" imageAlt="Cocker Spaniel puppy portrait, one of the Cocker puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Cocker Spaniel in Singapore?" imageAlt="Cocker Spaniel puppy portrait, one of the Cocker puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Cocker Spaniel puppies in Singapore are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Cocker puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Cocker Spaniel for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -158,12 +170,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Cocker puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Golden boy', href: whatsappLink('Hi! I\'d like more photos and the price for the golden male Cocker Spaniel puppy.'), imageAlt: 'Golden male Cocker Spaniel puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Black & tan girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and tan female Cocker Spaniel puppy.'), imageAlt: 'Black and tan female Cocker Spaniel puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Roan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the roan male Cocker Spaniel puppy.'), imageAlt: 'Blue roan male Cocker Spaniel puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Chocolate girl', href: whatsappLink('Hi! I\'d like more photos and the price for the chocolate female Cocker Spaniel puppy.'), imageAlt: 'Chocolate female Cocker Spaniel puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Golden girl', href: whatsappLink('Hi! I\'d like more photos and the price for the golden female Cocker Spaniel puppy.'), imageAlt: 'Golden female Cocker Spaniel puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black male Cocker Spaniel puppy.'), imageAlt: 'Black male Cocker Spaniel puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Golden boy', href: whatsappLink('Hi! I\'d like more photos and the price for the golden male Cocker Spaniel puppy.'), imageAlt: 'Golden male Cocker Spaniel puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Black & tan girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and tan female Cocker Spaniel puppy.'), imageAlt: 'Black and tan female Cocker Spaniel puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Roan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the roan male Cocker Spaniel puppy.'), imageAlt: 'Blue roan male Cocker Spaniel puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Chocolate girl', href: whatsappLink('Hi! I\'d like more photos and the price for the chocolate female Cocker Spaniel puppy.'), imageAlt: 'Chocolate female Cocker Spaniel puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Golden girl', href: whatsappLink('Hi! I\'d like more photos and the price for the golden female Cocker Spaniel puppy.'), imageAlt: 'Golden female Cocker Spaniel puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black male Cocker Spaniel puppy.'), imageAlt: 'Black male Cocker Spaniel puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
   </div>
@@ -213,7 +225,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Cocker Spaniel Temperament: The Merry Family Dog" imageAlt="Cocker Spaniel puppy playing gently with children in a garden" imagePosition="left">
+    <CaptionedBlock heading="Cocker Spaniel Temperament: The Merry Family Dog" imageAlt="Cocker Spaniel puppy playing gently with children in a garden" imageSrc={imgScene2} imagePosition="left">
       <p>The Cocker earned its nickname honestly: the "merry Cocker" is cheerful, affectionate and sociable to its core, with a perpetually wagging tail and a soft spot for its people. Gentle with children, friendly with strangers and other dogs, and eager to please, it is a sporting breed with a companion's heart, and one of the loveliest family dogs a private-housing home can choose.</p>
       <p>The honest footnotes, from two years of matching families to dogs. First, this is a sensitive, people-oriented breed that does not thrive left alone all week; it wants to be with you. Second, the sporting heritage is real, so a proper daily walk is part of the deal, not a nice-to-have. Third, the grooming and ear care below are the true ongoing commitment, and the reason some owners underestimate the breed.</p>
       <p>Give a Cocker company, exercise and consistent grooming, and you get a devoted, joyful shadow for a decade and more.</p>
@@ -243,7 +255,7 @@ const schemas = [
   </div>
 
   <div id="ears" class="scroll-mt-40">
-    <CaptionedBlock heading="Those Ears and That Coat: Care in Our Humidity" imageAlt="Cocker Spaniel having its long ears and silky coat groomed" imagePosition="left">
+    <CaptionedBlock heading="Those Ears and That Coat: Care in Our Humidity" imageAlt="Cocker Spaniel having its long ears and silky coat groomed" imageSrc={imgScene3} imagePosition="left">
       <p>The Cocker's long, feathered, low-hanging ears are its signature and its weak spot. In Singapore's humidity they trap heat and moisture beautifully, which is exactly what an ear infection needs to take hold, so this breed's owners learn one weekly habit early: lift the ear, check and clean, keep the canal hair trimmed, and dry the ears thoroughly after every swim or bath. It takes minutes and prevents the single most common Cocker vet visit.</p>
       <p>The silky coat is the other commitment. It needs brushing several times a week to stay mat-free, especially the feathering on the ears, legs and belly, and a professional groom every 6 to 8 weeks. None of it is hard, but all of it is regular, and owners who plan for it enjoy the breed at its best. It is why the brush and the ear cleaner are among the working tools in the starter kit.</p>
     </CaptionedBlock>
@@ -342,14 +354,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Cocker Spaniel Health: What We Check and What to Watch" imageAlt="Cocker Spaniel puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Cocker Spaniel Health: What We Check and What to Watch" imageAlt="Cocker Spaniel puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Cocker goes home vet-checked, vaccinated, dewormed, and microchipped. The breed's watch-points are well known and mostly manageable: ears first and foremost, for the humidity reasons above; eyes, where the breed can carry a few hereditary conditions worth a vet's routine check; and weight, because a merry Cocker will happily eat its way to problems if portions aren't controlled. Keep the ears clean, the eyes checked and the waistline honest, and most Cockers live long, cheerful lives.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, portioned for its size, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Cocker Spaniel's First Week at Home" imageAlt="Cocker Spaniel puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Cocker Spaniel's First Week at Home" imageAlt="Cocker Spaniel puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you. The playpen, bed, water, and toys are set up before your Cocker explores the room, and we walk you through all 30+ starter-kit items in person, including the ear-and-coat routine. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm. A fixed feeding routine with measured portions, the toilet pads where we placed them, and gentle play that helps your puppy settle into its new room.</p>
     <p>Days 4 to 7: the routine sticks, and now is the time to build good habits. Book your free first lesson with an AVS-certified trainer, and start short, positive handling of the ears and coat so your Cocker grows up loving the grooming it will need for life. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

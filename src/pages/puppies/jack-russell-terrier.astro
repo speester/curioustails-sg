@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/jack-russell-terrier/1-white-and-tan-jack-russell-terrier-puppy-sitting-in-a-s.webp';
+import imgScene1 from '../../assets/jack-russell-terrier/2-white-and-tan-jack-russell-terrier-puppy-portrait-one-o.webp';
+import imgScene2 from '../../assets/jack-russell-terrier/3-jack-russell-terrier-puppy-sprinting-after-a-ball-at-a.webp';
+import imgScene3 from '../../assets/jack-russell-terrier/4-jack-russell-terrier-puppy-being-brushed-after-a-walk.webp';
+import imgScene4 from '../../assets/jack-russell-terrier/5-jack-russell-terrier-puppy-at-a-veterinary-health-check.webp';
+import imgScene5 from '../../assets/jack-russell-terrier/6-jack-russell-puppy-settling-into-a-set-up-playpen-durin.webp';
+import imgCard1 from '../../assets/jack-russell-terrier/7-white-and-tan-male-jack-russell-terrier-puppy-available.webp';
+import imgCard2 from '../../assets/jack-russell-terrier/8-tricolour-female-jack-russell-terrier-puppy-available-i.webp';
+import imgCard3 from '../../assets/jack-russell-terrier/9-broken-coat-male-jack-russell-terrier-puppy-available-i.webp';
+import imgCard4 from '../../assets/jack-russell-terrier/10-white-and-black-female-jack-russell-terrier-puppy-avail.webp';
+import imgCard5 from '../../assets/jack-russell-terrier/11-smooth-coat-male-jack-russell-terrier-puppy-available-i.webp';
+import imgCard6 from '../../assets/jack-russell-terrier/12-rough-coat-female-jack-russell-terrier-puppy-available.webp';
 
 const title = 'Jack Russell Terrier Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved working terrier']}
-    imageAlt="White and tan Jack Russell Terrier puppy sitting in a set-up playpen at a Balestier home"
+    imageAlt="White and tan Jack Russell Terrier puppy sitting in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Jack Russell"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Jack Russell in Singapore?" imageAlt="White and tan Jack Russell Terrier puppy portrait, one of the Jack Russell puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Jack Russell in Singapore?" imageAlt="White and tan Jack Russell Terrier puppy portrait, one of the Jack Russell puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Jack Russell puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and exact prices for the Jack Russell Terrier puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Jack Russell for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Jack Russell puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'White & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white and tan male Jack Russell puppy.'), imageAlt: 'White and tan male Jack Russell Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Tricolour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tricolour female Jack Russell puppy.'), imageAlt: 'Tricolour female Jack Russell Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Broken-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the broken-coat male Jack Russell puppy.'), imageAlt: 'Broken-coat male Jack Russell Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'White & black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white and black female Jack Russell puppy.'), imageAlt: 'White and black female Jack Russell Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Smooth-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the smooth-coat male Jack Russell puppy.'), imageAlt: 'Smooth-coat male Jack Russell Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Rough-coat girl', href: whatsappLink('Hi! I\'d like more photos and the price for the rough-coat female Jack Russell puppy.'), imageAlt: 'Rough-coat female Jack Russell Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'White & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white and tan male Jack Russell puppy.'), imageAlt: 'White and tan male Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Tricolour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tricolour female Jack Russell puppy.'), imageAlt: 'Tricolour female Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Broken-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the broken-coat male Jack Russell puppy.'), imageAlt: 'Broken-coat male Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'White & black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white and black female Jack Russell puppy.'), imageAlt: 'White and black female Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Smooth-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the smooth-coat male Jack Russell puppy.'), imageAlt: 'Smooth-coat male Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Rough-coat girl', href: whatsappLink('Hi! I\'d like more photos and the price for the rough-coat female Jack Russell puppy.'), imageAlt: 'Rough-coat female Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Jack Russell Temperament: A Big Dog's Engine in a Small Chassis" imageAlt="Jack Russell Terrier puppy sprinting after a ball at a park connector" imagePosition="left">
+    <CaptionedBlock heading="Jack Russell Temperament: A Big Dog's Engine in a Small Chassis" imageAlt="Jack Russell Terrier puppy sprinting after a ball at a park connector" imageSrc={imgScene2} imagePosition="left">
       <p>Everything about the Jack Russell is calibrated for work: the athleticism, the fearlessness, the problem-solving brain that treats a closed door as a puzzle rather than an answer. For the right owner, someone who runs, hikes the park connectors, or genuinely enjoys daily training, this is the most rewarding dog on our list: funny, devoted, tireless, and clever enough to learn anything you can teach.</p>
       <p>The honest part, and we put it plainly because this breed generates more mismatches than any other: the energy is not a phase, not "puppy energy", and not negotiable. A Jack Russell needs a hard hour a day, every day, for its whole long life, plus mental work. The prey drive is real too: leashes near birds and cats, and think carefully if you keep small pets.</p>
       <p>Wondering if you actually want this much dog? The <a href="/puppies/mini-dachshund" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Mini Dachshund</a> offers terrier-adjacent character at half the throttle, and the <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a> is the forgiving family pick.</p>
@@ -395,7 +407,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: Five Minutes a Week, Honestly" imageAlt="Jack Russell Terrier puppy being brushed after a walk" imagePosition="left">
+    <CaptionedBlock heading="Grooming: Five Minutes a Week, Honestly" imageAlt="Jack Russell Terrier puppy being brushed after a walk" imageSrc={imgScene3} imagePosition="left">
       <p>Grooming is where the Jack Russell hands you back all the time the exercise takes. The smooth coat needs a weekly once-over with a brush; broken and rough coats add an occasional tidy-up. No salon schedule, no mats, no topknots, and baths only when the adventures demand it.</p>
       <p>Two honest notes: the white coat sheds more visibly than people expect, especially smooth coats, so the brush is really shed-control; and this breed's grooming budget goes to nail trims instead, because all that running needs well-kept feet. Both tools are in your starter kit.</p>
     </CaptionedBlock>
@@ -403,7 +415,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Jack Russell Health: What We Check Before You Take One Home" imageAlt="Jack Russell Terrier puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Jack Russell Health: What We Check Before You Take One Home" imageAlt="Jack Russell Terrier puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Jack Russell goes home vet-checked, vaccinated, dewormed, and microchipped. Health is the breed's proudest statistic: bred for function rather than looks, the Jack Russell is one of the soundest dogs in existence, which is how it earns that 13-to-16-year lifespan. The short list worth knowing: patellar luxation, the small-dog kneecap issue; lens luxation, an inherited eye condition in some lines, worth asking about; and Legg-Calvé-Perthes, a hip condition occasionally seen in small terriers.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. Portion to the actual exercise done; see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
@@ -436,7 +448,7 @@ const schemas = [
     <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
   </div>
 
-  <CaptionedBlock heading="Your Jack Russell's First Week at Home" imageAlt="Jack Russell puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Jack Russell's First Week at Home" imageAlt="Jack Russell puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Jack Russell explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm and predictable, which for this breed means structured play in short bursts, a fixed feeding routine, and the toilet pads where we placed them. Don't let the puppy leap off furniture while joints are growing, and yes, it will try.</p>
     <p>Days 4 to 7: the routine sticks and the engine warms up. Book your free first lesson with an AVS-certified trainer this week without fail; for this breed early training is the difference between a partner and a project. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

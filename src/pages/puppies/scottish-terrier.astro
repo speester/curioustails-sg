@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/scottish-terrier/1-black-scottish-terrier-puppy-sitting-in-a-set-up-plaype.webp';
+import imgScene1 from '../../assets/scottish-terrier/2-black-scottish-terrier-puppy-portrait-one-of-the-scotti.webp';
+import imgScene2 from '../../assets/scottish-terrier/3-scottish-terrier-puppy-surveying-the-living-room-with-c.webp';
+import imgScene3 from '../../assets/scottish-terrier/4-scottish-terrier-puppy-having-its-wiry-coat-and-beard-c.webp';
+import imgScene4 from '../../assets/scottish-terrier/5-scottish-terrier-puppy-at-a-veterinary-health-check-bef.webp';
+import imgScene5 from '../../assets/scottish-terrier/6-scottish-terrier-puppy-settling-into-a-set-up-playpen-d.webp';
+import imgCard1 from '../../assets/scottish-terrier/7-black-male-scottish-terrier-puppy-available-in-singapor.webp';
+import imgCard2 from '../../assets/scottish-terrier/8-black-female-scottish-terrier-puppy-available-in-singap.webp';
+import imgCard3 from '../../assets/scottish-terrier/9-brindle-male-scottish-terrier-puppy-available-in-singap.webp';
+import imgCard4 from '../../assets/scottish-terrier/10-wheaten-female-scottish-terrier-puppy-available-in-sing.webp';
+import imgCard5 from '../../assets/scottish-terrier/11-brindle-female-scottish-terrier-puppy-available-in-sing.webp';
+import imgCard6 from '../../assets/scottish-terrier/12-wheaten-male-scottish-terrier-puppy-available-in-singap.webp';
 
 const title = 'Scottish Terrier Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved terrier']}
-    imageAlt="Black Scottish Terrier puppy sitting in a set-up playpen at a Balestier home"
+    imageAlt="Black Scottish Terrier puppy sitting in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Scottie"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Scottish Terrier in Singapore?" imageAlt="Black Scottish Terrier puppy portrait, one of the Scottie puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Scottish Terrier in Singapore?" imageAlt="Black Scottish Terrier puppy portrait, one of the Scottie puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Scotties are rare in Singapore and litters are infrequent, so availability moves fast; we keep it live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Scottish Terrier puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Scottish Terrier for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Scottie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black male Scottish Terrier puppy.'), imageAlt: 'Black male Scottish Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Scottish Terrier puppy.'), imageAlt: 'Black female Scottish Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Brindle boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle male Scottish Terrier puppy.'), imageAlt: 'Brindle male Scottish Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Wheaten girl', href: whatsappLink('Hi! I\'d like more photos and the price for the wheaten female Scottish Terrier puppy.'), imageAlt: 'Wheaten female Scottish Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Brindle girl', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle female Scottish Terrier puppy.'), imageAlt: 'Brindle female Scottish Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Wheaten boy', href: whatsappLink('Hi! I\'d like more photos and the price for the wheaten male Scottish Terrier puppy.'), imageAlt: 'Wheaten male Scottish Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black male Scottish Terrier puppy.'), imageAlt: 'Black male Scottish Terrier puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Scottish Terrier puppy.'), imageAlt: 'Black female Scottish Terrier puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Brindle boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle male Scottish Terrier puppy.'), imageAlt: 'Brindle male Scottish Terrier puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Wheaten girl', href: whatsappLink('Hi! I\'d like more photos and the price for the wheaten female Scottish Terrier puppy.'), imageAlt: 'Wheaten female Scottish Terrier puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Brindle girl', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle female Scottish Terrier puppy.'), imageAlt: 'Brindle female Scottish Terrier puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Wheaten boy', href: whatsappLink('Hi! I\'d like more photos and the price for the wheaten male Scottish Terrier puppy.'), imageAlt: 'Wheaten male Scottish Terrier puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Scottie Temperament: The Diehard Earns Its Nickname" imageAlt="Scottish Terrier puppy surveying the living room with composure" imagePosition="left">
+    <CaptionedBlock heading="Scottie Temperament: The Diehard Earns Its Nickname" imageAlt="Scottish Terrier puppy surveying the living room with composure" imageSrc={imgScene2} imagePosition="left">
       <p>Victorian soldiers nicknamed the breed "the Diehard", and a century and a half later nothing has changed. The Scottie is resolute, self-possessed, and loyal in a selective, considered way: it chooses its people, holds them close, and regards the rest of the world with polite disinterest. It doesn't perform, doesn't fawn, and doesn't do anything it hasn't privately agreed to; owners describe living with one as sharing a flat with a small, opinionated Highland laird.</p>
       <p>The honest part, from two years of matching puppies to families: the independence is the whole product. Training is a negotiation conducted in treats and mutual respect, recall is theoretical near anything scurrying, and the digging instinct is genetic, so sacrifice a corner of any planter box now. In exchange you get a low-shedding, composed, quietly devoted companion that handles alone time better than nearly anything we sell.</p>
       <p>For more biddability in the same silhouette family, the <a href="/puppies/miniature-schnauzer" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Mini Schnauzer</a>; for the cheerful white cousin, the <a href="/puppies/westie" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Westie</a>.</p>
@@ -395,7 +407,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: Keeping the Tweed in Order" imageAlt="Scottish Terrier puppy having its wiry coat and beard combed" imagePosition="left">
+    <CaptionedBlock heading="Grooming: Keeping the Tweed in Order" imageAlt="Scottish Terrier puppy having its wiry coat and beard combed" imageSrc={imgScene3} imagePosition="left">
       <p>The Scottie coat is low-shedding but not no-work: brush 2 to 3 times a week, with particular attention to the beard, leg furnishings and skirt where tangles start, and a proper groom every 6 to 8 weeks. Show dogs are hand-stripped; pet Scotties here are clipped, which softens the coat over time and suits our climate and budgets perfectly well.</p>
       <p>The beard collects meals and investigations, so a quick daily comb-and-wipe keeps it presentable, and in our humidity, dry the undercarriage properly after wet-grass walks. All the starting tools are in your kit.</p>
     </CaptionedBlock>
@@ -403,14 +415,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Scottie Health: What We Check Before You Take One Home" imageAlt="Scottish Terrier puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Scottie Health: What We Check Before You Take One Home" imageAlt="Scottish Terrier puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Scottie goes home vet-checked, vaccinated, dewormed, and microchipped. The Scottie health points worth knowing, honestly: "Scottie cramp", a harmless, odd-looking gait hiccup under excitement that needs no treatment, just recognition; von Willebrand's disease, a clotting disorder in some lines, worth asking about before any surgery; and the one serious item, the breed carries a higher-than-average rate of bladder cancer in later life, which is why we tell every Scottie owner the same simple habit: take any blood in the urine seriously, at any age, and ask your vet about it early. Early detection changes outcomes.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Scottie's First Week at Home" imageAlt="Scottish Terrier puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Scottie's First Week at Home" imageAlt="Scottish Terrier puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Scottie conducts its inspection, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm and predictable. A fixed feeding routine, the toilet pads where we placed them, and unhurried acquaintance; the Scottie decides about people on its own schedule, and rushing it backfires.</p>
     <p>Days 4 to 7: the routine sticks and the household is formally adopted. Book your free first lesson with an AVS-certified trainer this week; with an independent breed, early respectful structure is worth double. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

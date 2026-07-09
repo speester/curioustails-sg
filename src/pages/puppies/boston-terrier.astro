@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/boston-terrier/1-black-and-white-boston-terrier-puppy-sitting-in-a-set-u.webp';
+import imgScene1 from '../../assets/boston-terrier/2-black-and-white-boston-terrier-puppy-portrait-one-of-th.webp';
+import imgScene2 from '../../assets/boston-terrier/3-boston-terrier-puppy-playing-gently-with-a-child-at-hom.webp';
+import imgScene3 from '../../assets/boston-terrier/4-boston-terrier-puppy-getting-a-quick-weekly-brush.webp';
+import imgScene4 from '../../assets/boston-terrier/5-boston-terrier-puppy-at-a-veterinary-health-check-befor.webp';
+import imgScene5 from '../../assets/boston-terrier/6-boston-terrier-puppy-settling-into-a-set-up-playpen-dur.webp';
+import imgCard1 from '../../assets/boston-terrier/7-black-and-white-male-boston-terrier-puppy-available-in.webp';
+import imgCard2 from '../../assets/boston-terrier/8-seal-and-white-female-boston-terrier-puppy-available-in.webp';
+import imgCard3 from '../../assets/boston-terrier/9-brindle-and-white-male-boston-terrier-puppy-available-i.webp';
+import imgCard4 from '../../assets/boston-terrier/10-tuxedo-marked-female-boston-terrier-puppy-available-in.webp';
+import imgCard5 from '../../assets/boston-terrier/11-compact-male-boston-terrier-puppy-available-in-singapor.webp';
+import imgCard6 from '../../assets/boston-terrier/12-sweet-faced-female-boston-terrier-puppy-available-in-si.webp';
 
 const title = 'Boston Terrier Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved companion breed']}
-    imageAlt="Black and white Boston Terrier puppy sitting in a set-up playpen at a Balestier home"
+    imageAlt="Black and white Boston Terrier puppy sitting in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Boston Terrier"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Boston Terrier in Singapore?" imageAlt="Black and white Boston Terrier puppy portrait, one of the Boston Terrier puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Boston Terrier in Singapore?" imageAlt="Black and white Boston Terrier puppy portrait, one of the Boston Terrier puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Boston Terriers are uncommon in Singapore, so litters are announced and reserved fast; we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Boston Terrier puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Boston Terrier for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Boston Terrier puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Boston Terrier puppy.'), imageAlt: 'Black and white male Boston Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Seal & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the seal and white female Boston Terrier puppy.'), imageAlt: 'Seal and white female Boston Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Brindle & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle and white male Boston Terrier puppy.'), imageAlt: 'Brindle and white male Boston Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Tuxedo girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tuxedo-marked female Boston Terrier puppy.'), imageAlt: 'Tuxedo-marked female Boston Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Compact boy', href: whatsappLink('Hi! I\'d like more photos and the price for the compact male Boston Terrier puppy.'), imageAlt: 'Compact male Boston Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Sweet-faced girl', href: whatsappLink('Hi! I\'d like more photos and the price for the sweet-faced female Boston Terrier puppy.'), imageAlt: 'Sweet-faced female Boston Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Boston Terrier puppy.'), imageAlt: 'Black and white male Boston Terrier puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Seal & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the seal and white female Boston Terrier puppy.'), imageAlt: 'Seal and white female Boston Terrier puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Brindle & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle and white male Boston Terrier puppy.'), imageAlt: 'Brindle and white male Boston Terrier puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Tuxedo girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tuxedo-marked female Boston Terrier puppy.'), imageAlt: 'Tuxedo-marked female Boston Terrier puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Compact boy', href: whatsappLink('Hi! I\'d like more photos and the price for the compact male Boston Terrier puppy.'), imageAlt: 'Compact male Boston Terrier puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Sweet-faced girl', href: whatsappLink('Hi! I\'d like more photos and the price for the sweet-faced female Boston Terrier puppy.'), imageAlt: 'Sweet-faced female Boston Terrier puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Boston Terrier Temperament: The Gentleman Earns the Name" imageAlt="Boston Terrier puppy playing gently with a child at home" imagePosition="left">
+    <CaptionedBlock heading="Boston Terrier Temperament: The Gentleman Earns the Name" imageAlt="Boston Terrier puppy playing gently with a child at home" imageSrc={imgScene2} imagePosition="left">
       <p>Despite the name, the Boston is no terrier in temperament; it was bred down from fighting stock into pure companionship over a century ago, and what remains is one of the kindest, most companionable dogs in the small-to-medium bracket. Bostons are gentle with children, easy with other dogs, comic without being chaotic, and tuned to their people's moods in a way owners never stop remarking on.</p>
       <p>The honest part, from two years of matching puppies to families: the Boston is livelier than its dapper image, a good 30 to 60 minutes of daily activity keeps it right, and it is people-oriented enough that it wants real evening engagement, not just a bowl and a corner. Add the flat-face heat rules below and that's genuinely the whole caution list.</p>
       <p>Comparing family options? The <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a> is our other first-recommendation family dog, low-shedding where the Boston is easy-grooming.</p>
@@ -395,7 +407,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: The Tuxedo Maintains Itself" imageAlt="Boston Terrier puppy getting a quick weekly brush" imagePosition="left">
+    <CaptionedBlock heading="Grooming: The Tuxedo Maintains Itself" imageAlt="Boston Terrier puppy getting a quick weekly brush" imageSrc={imgScene3} imagePosition="left">
       <p>Coat care is a weekly once-over with a soft brush and an occasional bath; the tuxedo stays crisp on its own. No mats, no salon schedule, no coat blows. This is one of the three easiest coats we carry.</p>
       <p>The actual routine lives on the face: those large, prominent eyes collect dust and deserve a daily ten-second wipe and check, and any facial folds get the same treatment to stay dry and comfortable in our humidity. Nails, ears and daily teeth complete the list, all with starter-kit tools.</p>
     </CaptionedBlock>
@@ -403,7 +415,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Boston Terrier Health: What We Check Before You Take One Home" imageAlt="Boston Terrier puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Boston Terrier Health: What We Check Before You Take One Home" imageAlt="Boston Terrier puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Boston goes home vet-checked, vaccinated, dewormed, and microchipped. The Boston health points worth knowing: brachycephalic airway traits, milder than a Pug's on average but real, making heat and overexertion the lifelong management items; the eyes, the breed's most vulnerable feature, prominent enough that scratches and ulcers happen, so anything squinty gets a vet look the same week; and patellar luxation, the usual small-breed kneecap issue.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week; keep the Boston lean, because extra weight loads a short airway. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
@@ -436,7 +448,7 @@ const schemas = [
     <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
   </div>
 
-  <CaptionedBlock heading="Your Boston's First Week at Home" imageAlt="Boston Terrier puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Boston's First Week at Home" imageAlt="Boston Terrier puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Boston explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm, cool and predictable. A fixed feeding routine with measured portions, the toilet pads where we placed them, and the daily eye-check habit starting immediately. A little snoring is standard equipment, not a symptom.</p>
     <p>Days 4 to 7: the routine sticks and the comedy begins. Book your free first lesson with an AVS-certified trainer this week; Bostons are eager students and early wins compound. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

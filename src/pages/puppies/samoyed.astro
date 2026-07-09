@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/samoyed/1-white-samoyed-puppy-with-the-classic-sammy-smile-in-a-s.webp';
+import imgScene1 from '../../assets/samoyed/2-white-samoyed-puppy-portrait-one-of-the-samoyed-puppies.webp';
+import imgScene2 from '../../assets/samoyed/3-samoyed-puppy-playing-happily-with-a-family-in-a-garden.webp';
+import imgScene3 from '../../assets/samoyed/4-samoyed-having-its-double-coat-line-brushed-with-an-und.webp';
+import imgScene4 from '../../assets/samoyed/5-samoyed-puppy-at-a-veterinary-health-check-before-going.webp';
+import imgScene5 from '../../assets/samoyed/6-samoyed-puppy-settling-into-a-set-up-playpen-during-its.webp';
+import imgCard1 from '../../assets/samoyed/7-white-male-samoyed-puppy-available-in-singapore.webp';
+import imgCard2 from '../../assets/samoyed/8-white-female-samoyed-puppy-available-in-singapore.webp';
+import imgCard3 from '../../assets/samoyed/9-cream-tinged-male-samoyed-puppy-available-in-singapore.webp';
+import imgCard4 from '../../assets/samoyed/10-fluffy-female-samoyed-puppy-available-in-singapore.webp';
+import imgCard5 from '../../assets/samoyed/11-biscuit-eared-male-samoyed-puppy-available-in-singapore.webp';
+import imgCard6 from '../../assets/samoyed/12-plush-female-samoyed-puppy-available-in-singapore.webp';
 
 const title = 'Samoyed Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing breed']}
-    imageAlt="White Samoyed puppy with the classic Sammy smile in a set-up playpen at a Singapore home"
+    imageAlt="White Samoyed puppy with the classic Sammy smile in a set-up playpen at a Singapore home" imageSrc={imgHero}
     tagLabel="Samoyed"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Samoyed in Singapore?" imageAlt="White Samoyed puppy portrait, one of the Samoyed puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Samoyed in Singapore?" imageAlt="White Samoyed puppy portrait, one of the Samoyed puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Samoyed puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Sammy puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Samoyed for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Sammy puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Snow-white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the male Samoyed puppy.'), imageAlt: 'White male Samoyed puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Smiley girl', href: whatsappLink('Hi! I\'d like more photos and the price for the female Samoyed puppy.'), imageAlt: 'White female Samoyed puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Cream-tinged boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream-tinged male Samoyed puppy.'), imageAlt: 'Cream-tinged male Samoyed puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Fluffy girl', href: whatsappLink('Hi! I\'d like more photos and the price for the fluffy female Samoyed puppy.'), imageAlt: 'Fluffy female Samoyed puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Biscuit-eared boy', href: whatsappLink('Hi! I\'d like more photos and the price for the biscuit-eared male Samoyed puppy.'), imageAlt: 'Biscuit-eared male Samoyed puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Plush girl', href: whatsappLink('Hi! I\'d like more photos and the price for the plush female Samoyed puppy.'), imageAlt: 'Plush female Samoyed puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Snow-white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the male Samoyed puppy.'), imageAlt: 'White male Samoyed puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Smiley girl', href: whatsappLink('Hi! I\'d like more photos and the price for the female Samoyed puppy.'), imageAlt: 'White female Samoyed puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Cream-tinged boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream-tinged male Samoyed puppy.'), imageAlt: 'Cream-tinged male Samoyed puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Fluffy girl', href: whatsappLink('Hi! I\'d like more photos and the price for the fluffy female Samoyed puppy.'), imageAlt: 'Fluffy female Samoyed puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Biscuit-eared boy', href: whatsappLink('Hi! I\'d like more photos and the price for the biscuit-eared male Samoyed puppy.'), imageAlt: 'Biscuit-eared male Samoyed puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Plush girl', href: whatsappLink('Hi! I\'d like more photos and the price for the plush female Samoyed puppy.'), imageAlt: 'Plush female Samoyed puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Samoyed Temperament: The Smile Is Real" imageAlt="Samoyed puppy playing happily with a family in a garden" imagePosition="left">
+    <CaptionedBlock heading="Samoyed Temperament: The Smile Is Real" imageAlt="Samoyed puppy playing happily with a family in a garden" imageSrc={imgScene2} imagePosition="left">
       <p>The upturned mouth that keeps snow off a sled dog's face reads as a permanent grin, and conveniently, the temperament behind it matches. Samoyeds are genuinely friendly, gentle with children, sociable with other dogs, and bred through generations of Siberian tent-sharing to consider themselves family members with full voting rights. This is a pack dog that wants in on everything the household does.</p>
       <p>The honest parts, from two years of matching big fluff to real routines: Sammies talk, the famous "woo-woo" is real and your estate will hear it, so early voice-training matters; they need genuine exercise, an hour daily in the cool hours; and they are mischievous when bored in ways that scale with their size. The buyers who thrive with this breed came for the smile and stayed for the work; we check for the second before celebrating the first.</p>
       <p>Arctic cousins on our shelf: the <a href="/puppies/siberian-husky" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Siberian Husky</a> runs more independent, the Samoyed more people-fused.</p>
@@ -366,7 +378,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: The Technique That Actually Works" imageAlt="Samoyed having its double coat line-brushed with an undercoat rake" imagePosition="left">
+    <CaptionedBlock heading="Grooming: The Technique That Actually Works" imageAlt="Samoyed having its double coat line-brushed with an undercoat rake" imageSrc={imgScene3} imagePosition="left">
       <p>Surface brushing a Samoyed is theatre; the undercoat is where the work lives. Line brushing, parting the coat and brushing from the skin outward, section by section, is the technique we demonstrate on delivery day, paired with an undercoat rake during blows. Twenty minutes most days keeps the system healthy; skipping a fortnight creates mats close to the skin where heat and moisture do damage invisibly.</p>
       <p>After rain or a swim, dry thoroughly, undercoat included; a chamois then a blast of the dryer's cool setting. And the rule once more, because someone asks a groomer every week: never shave a Samoyed. Trim feet and hygiene areas, brush everything else, and let the coat do the insulating it was engineered for.</p>
     </CaptionedBlock>
@@ -374,14 +386,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Samoyed Health: What We Check Before You Take One Home" imageAlt="Samoyed puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Samoyed Health: What We Check Before You Take One Home" imageAlt="Samoyed puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Samoyed goes home vet-checked, vaccinated, dewormed, and microchipped. The Sammy health picture is respectable for a larger breed: hip dysplasia is the main structural watch-item, met with joint-friendly puppyhood, controlled growth feeding, no stair marathons, lean weight for life; eye checks are sensible in working lines; and heat management, covered thoroughly above, is the everyday discipline.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, portioned for controlled growth, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Sammy's First Week at Home" imageAlt="Samoyed puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Sammy's First Week at Home" imageAlt="Samoyed puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Sammy explores the room, and we walk you through all 30+ starter-kit items in person, including the line-brushing demonstration. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm, cool and predictable. A fixed feeding routine, the toilet pads where we placed them, joint-safe floor play, and the daily brush habit starting now, while the puppy coat makes it easy practice.</p>
     <p>Days 4 to 7: the routine sticks and the personality arrives, all of it. Book your free first lesson with an AVS-certified trainer this week; manners installed before twenty kilograms arrive are a gift to everyone. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

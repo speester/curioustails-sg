@@ -28,6 +28,19 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/golden-retriever/1-golden-retriever-puppy-sitting-in-a-set-up-playpen-at-a.webp';
+import imgScene1 from '../../assets/golden-retriever/2-golden-retriever-puppy-portrait-one-of-the-golden-puppi.webp';
+import imgScene2 from '../../assets/golden-retriever/3-golden-retriever-puppy-playing-gently-with-children-in.webp';
+import imgScene3 from '../../assets/golden-retriever/4-golden-retriever-on-a-morning-walk-along-a-park-connect.webp';
+import imgScene4 from '../../assets/golden-retriever/5-golden-retriever-having-its-double-coat-brushed-with-an.webp';
+import imgScene5 from '../../assets/golden-retriever/6-golden-retriever-puppy-at-a-veterinary-health-check-bef.webp';
+import imgScene6 from '../../assets/golden-retriever/7-golden-retriever-puppy-settling-into-a-set-up-playpen-d.webp';
+import imgCard1 from '../../assets/golden-retriever/8-golden-male-golden-retriever-puppy-available-in-singapo.webp';
+import imgCard2 from '../../assets/golden-retriever/9-cream-female-golden-retriever-puppy-available-in-singap.webp';
+import imgCard3 from '../../assets/golden-retriever/10-deep-gold-male-golden-retriever-puppy-available-in-sing.webp';
+import imgCard4 from '../../assets/golden-retriever/11-light-golden-female-golden-retriever-puppy-available-in.webp';
+import imgCard5 from '../../assets/golden-retriever/12-golden-female-golden-retriever-puppy-available-in-singa.webp';
+import imgCard6 from '../../assets/golden-retriever/13-cream-male-golden-retriever-puppy-available-in-singapor.webp';
 
 const title = 'Golden Retriever Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +153,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing family breed']}
-    imageAlt="Golden Retriever puppy sitting in a set-up playpen at a Singapore condo"
+    imageAlt="Golden Retriever puppy sitting in a set-up playpen at a Singapore condo" imageSrc={imgHero}
     tagLabel="Golden Retriever"
     proofChip="5.0 on Google"
   >
@@ -150,7 +163,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Golden Retriever in Singapore?" imageAlt="Golden Retriever puppy portrait, one of the Golden puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Golden Retriever in Singapore?" imageAlt="Golden Retriever puppy portrait, one of the Golden puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Golden Retriever puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat shade, and exact prices for the Golden puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Golden Retriever for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready — a genuine help if you're mid-renovation.</p>
       <p>
@@ -163,12 +176,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Golden puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Golden boy', href: whatsappLink('Hi! I\'d like more photos and the price for the golden male Golden Retriever puppy.'), imageAlt: 'Golden male Golden Retriever puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Golden Retriever puppy.'), imageAlt: 'Cream female Golden Retriever puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Deep gold boy', href: whatsappLink('Hi! I\'d like more photos and the price for the deep gold male Golden Retriever puppy.'), imageAlt: 'Deep gold male Golden Retriever puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Light golden girl', href: whatsappLink('Hi! I\'d like more photos and the price for the light golden female Golden Retriever puppy.'), imageAlt: 'Light golden female Golden Retriever puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Golden girl', href: whatsappLink('Hi! I\'d like more photos and the price for the golden female Golden Retriever puppy.'), imageAlt: 'Golden female Golden Retriever puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Golden Retriever puppy.'), imageAlt: 'Cream male Golden Retriever puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Golden boy', href: whatsappLink('Hi! I\'d like more photos and the price for the golden male Golden Retriever puppy.'), imageAlt: 'Golden male Golden Retriever puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Golden Retriever puppy.'), imageAlt: 'Cream female Golden Retriever puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Deep gold boy', href: whatsappLink('Hi! I\'d like more photos and the price for the deep gold male Golden Retriever puppy.'), imageAlt: 'Deep gold male Golden Retriever puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Light golden girl', href: whatsappLink('Hi! I\'d like more photos and the price for the light golden female Golden Retriever puppy.'), imageAlt: 'Light golden female Golden Retriever puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Golden girl', href: whatsappLink('Hi! I\'d like more photos and the price for the golden female Golden Retriever puppy.'), imageAlt: 'Golden female Golden Retriever puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Golden Retriever puppy.'), imageAlt: 'Cream male Golden Retriever puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +231,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Golden Temperament: The Benchmark, Honestly Footnoted" imageAlt="Golden Retriever puppy playing gently with children in a garden" imagePosition="left">
+    <CaptionedBlock heading="Golden Temperament: The Benchmark, Honestly Footnoted" imageAlt="Golden Retriever puppy playing gently with children in a garden" imageSrc={imgScene2} imagePosition="left">
       <p>Every family-dog list on earth starts here, and the reputation is earned: gentle with children, eager to please, quick to train, sociable with everything that breathes. The Golden doesn't guard, doesn't hold grudges, and treats every visitor as a long-lost friend. If your picture of "family dog" came from a movie, it was probably this breed.</p>
       <p>The honest footnotes, from two years of matching families to dogs: first, the calm adult Golden everyone falls for takes about two years to arrive, and the puppy that precedes it is thirty kilograms of boisterous enthusiasm that needs training from week one. Second, this is a deeply social breed: it wants to be part of family life, not decoration for it, and homes where the dog would be alone and unengaged most of the week should choose differently. Third, the exercise section below is not optional reading.</p>
       <p>Want the temperament with a low-shedding coat? That's the <a href="/puppies/goldendoodle" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Goldendoodle</a>, honestly compared further down.</p>
@@ -248,7 +261,7 @@ const schemas = [
   </div>
 
   <div id="exercise" class="scroll-mt-40">
-    <CaptionedBlock heading="The Exercise Contract: An Hour a Day, in Our Heat" imageAlt="Golden Retriever on a morning walk along a park connector" imagePosition="left">
+    <CaptionedBlock heading="The Exercise Contract: An Hour a Day, in Our Heat" imageAlt="Golden Retriever on a morning walk along a park connector" imageSrc={imgScene3} imagePosition="left">
       <p>Here's the section no listing writes and every Golden owner lives. This breed needs a genuine hour of daily exercise, minimum, for a decade, and in Singapore that hour has rules: a proper walk before 9am, another after 6pm, and never hard exertion in the midday furnace. Under-exercise a Golden and the surplus converts directly into chewed furniture, weight gain, and a dog too big to ignore being bored.</p>
       <p>The good news is uniquely Golden: this breed loves water the way it loves food, and swimming is the perfect tropical pressure valve. Dog pools and dog-friendly stretches of beach let a Golden burn an hour's energy in twenty cool minutes, and a swimming Golden is the happiest animal in Singapore. Budget for it; it's cheaper than a new sofa.</p>
     </CaptionedBlock>
@@ -371,7 +384,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: The Double Coat in the Tropics" imageAlt="Golden Retriever having its double coat brushed with an undercoat rake" imagePosition="left">
+    <CaptionedBlock heading="Grooming: The Double Coat in the Tropics" imageAlt="Golden Retriever having its double coat brushed with an undercoat rake" imageSrc={imgScene4} imagePosition="left">
       <p>The golden coat is a commitment stated in kilograms per year. Brush 3 to 4 times a week with a proper undercoat rake, daily during the twice-yearly coat blows, and accept that golden hair becomes a household condiment. Baths monthly or after sea swims, with thorough drying, a damp undercoat in tropical humidity is how hot spots start.</p>
       <p>And the rule we repeat on every double-coated page, because Singapore groomers still get asked weekly: never shave a Golden. The coat insulates against heat as well as cold, protects the skin from sun, and shaving wrecks how it grows back. Brush it, don't shave it.</p>
     </CaptionedBlock>
@@ -379,14 +392,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Golden Health: What We Check and What to Watch" imageAlt="Golden Retriever puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Golden Health: What We Check and What to Watch" imageAlt="Golden Retriever puppy at a veterinary health check before going home" imageSrc={imgScene5} variant="mid">
       <p>Every Golden goes home vet-checked, vaccinated, dewormed, and microchipped. The Golden health conversation has two parts, and honest pages have both. The manageable part: hip and elbow dysplasia run in large breeds, so puppyhood is joint-protective by design, controlled growth feeding, no stair marathons, no forced running before maturity, and a lean weight for life. The part that deserves plain words: Goldens carry higher cancer rates than most breeds, typically in later life, and the practical response is early, regular senior checks from around age seven, when catching things early genuinely changes outcomes.</p>
       <p>Feeding is simple but breed-specific: your puppy comes with the large-breed food it is already eating, portioned for controlled growth, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Golden's First Week at Home" imageAlt="Golden Retriever puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Golden's First Week at Home" imageAlt="Golden Retriever puppy settling into a set-up playpen during its first week home" imageSrc={imgScene6} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Golden explores the room, and we walk you through all 30+ starter-kit items in person, including the large-breed feeding plan. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm and joint-safe. A fixed feeding routine with measured portions, the toilet pads where we placed them, and play that stays on the floor, no leaping, no stairs, while those big-breed joints are growing.</p>
     <p>Days 4 to 7: the routine sticks, and for a dog headed to thirty kilograms this is the non-negotiable week: book your free first lesson with an AVS-certified trainer now, because manners installed at five kilos are a gift at thirty. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/miniature-pinscher/1-red-miniature-pinscher-puppy-standing-proudly-in-a-set.webp';
+import imgScene1 from '../../assets/miniature-pinscher/2-red-miniature-pinscher-puppy-portrait-one-of-the-min-pi.webp';
+import imgScene2 from '../../assets/miniature-pinscher/3-miniature-pinscher-puppy-trotting-proudly-across-a-livi.webp';
+import imgScene3 from '../../assets/miniature-pinscher/4-miniature-pinscher-puppy-getting-a-quick-coat-wipe-down.webp';
+import imgScene4 from '../../assets/miniature-pinscher/5-miniature-pinscher-puppy-at-a-veterinary-health-check-b.webp';
+import imgScene5 from '../../assets/miniature-pinscher/6-miniature-pinscher-puppy-settling-into-a-set-up-playpen.webp';
+import imgCard1 from '../../assets/miniature-pinscher/7-red-male-miniature-pinscher-puppy-available-in-singapor.webp';
+import imgCard2 from '../../assets/miniature-pinscher/8-black-and-rust-female-miniature-pinscher-puppy-availabl.webp';
+import imgCard3 from '../../assets/miniature-pinscher/9-chocolate-and-rust-male-miniature-pinscher-puppy-availa.webp';
+import imgCard4 from '../../assets/miniature-pinscher/10-stag-red-female-miniature-pinscher-puppy-available-in-s.webp';
+import imgCard5 from '../../assets/miniature-pinscher/11-black-and-rust-male-miniature-pinscher-puppy-available.webp';
+import imgCard6 from '../../assets/miniature-pinscher/12-red-female-miniature-pinscher-puppy-available-in-singap.webp';
 
 const title = 'Miniature Pinscher Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved toy breed']}
-    imageAlt="Red Miniature Pinscher puppy standing proudly in a set-up playpen at a Balestier home"
+    imageAlt="Red Miniature Pinscher puppy standing proudly in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Min Pin"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Miniature Pinscher in Singapore?" imageAlt="Red Miniature Pinscher puppy portrait, one of the Min Pin puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Miniature Pinscher in Singapore?" imageAlt="Red Miniature Pinscher puppy portrait, one of the Min Pin puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Miniature Pinscher puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Min Pin puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Miniature Pinscher for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Min Pin puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Miniature Pinscher puppy.'), imageAlt: 'Red male Miniature Pinscher puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Black & rust girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and rust female Miniature Pinscher puppy.'), imageAlt: 'Black and rust female Miniature Pinscher puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Chocolate & rust boy', href: whatsappLink('Hi! I\'d like more photos and the price for the chocolate and rust male Miniature Pinscher puppy.'), imageAlt: 'Chocolate and rust male Miniature Pinscher puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Stag red girl', href: whatsappLink('Hi! I\'d like more photos and the price for the stag red female Miniature Pinscher puppy.'), imageAlt: 'Stag red female Miniature Pinscher puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Black & rust boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and rust male Miniature Pinscher puppy.'), imageAlt: 'Black and rust male Miniature Pinscher puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Red girl', href: whatsappLink('Hi! I\'d like more photos and the price for the red female Miniature Pinscher puppy.'), imageAlt: 'Red female Miniature Pinscher puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Miniature Pinscher puppy.'), imageAlt: 'Red male Miniature Pinscher puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Black & rust girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and rust female Miniature Pinscher puppy.'), imageAlt: 'Black and rust female Miniature Pinscher puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Chocolate & rust boy', href: whatsappLink('Hi! I\'d like more photos and the price for the chocolate and rust male Miniature Pinscher puppy.'), imageAlt: 'Chocolate and rust male Miniature Pinscher puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Stag red girl', href: whatsappLink('Hi! I\'d like more photos and the price for the stag red female Miniature Pinscher puppy.'), imageAlt: 'Stag red female Miniature Pinscher puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Black & rust boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and rust male Miniature Pinscher puppy.'), imageAlt: 'Black and rust male Miniature Pinscher puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Red girl', href: whatsappLink('Hi! I\'d like more photos and the price for the red female Miniature Pinscher puppy.'), imageAlt: 'Red female Miniature Pinscher puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Min Pin Temperament: The King of Toys Rules His Flat" imageAlt="Miniature Pinscher puppy trotting proudly across a living room" imagePosition="left">
+    <CaptionedBlock heading="Min Pin Temperament: The King of Toys Rules His Flat" imageAlt="Miniature Pinscher puppy trotting proudly across a living room" imageSrc={imgScene2} imagePosition="left">
       <p>The Min Pin's nickname isn't marketing; it's a personality report. This is a fearless, curious, self-assured little dog that patrols its home like a landlord, investigates everything, and moves with that unmistakable high-stepping trot that makes strangers stop and ask. It is loyal and playful with its family, reserved with strangers, and convinced beyond argument of its own importance.</p>
       <p>The honest part, from two years of matching puppies to families: the Min Pin is more dog than its size suggests, in every direction. More energy, more independence, more voice, and famously more escape talent; this breed treats gaps in doors, low gates and unattended balconies as personal challenges. Secure the flat, spend the energy daily, train the voice early, and you get a devoted little character with a 15-year warranty.</p>
       <p>If the attitude appeals but the energy doesn't, the <a href="/puppies/chihuahua" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Chihuahua</a> offers big-dog personality at half the throttle; the <a href="/puppies/mini-dachshund" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Mini Dachshund</a> splits the difference.</p>
@@ -395,7 +407,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: The Easiest Coat in the Shop" imageAlt="Miniature Pinscher puppy getting a quick coat wipe-down" imagePosition="left">
+    <CaptionedBlock heading="Grooming: The Easiest Coat in the Shop" imageAlt="Miniature Pinscher puppy getting a quick coat wipe-down" imageSrc={imgScene3} imagePosition="left">
       <p>Grooming a Min Pin is a weekly wipe with a soft brush or grooming mitt, an occasional bath, and done; the sleek coat polishes itself. There is no salon schedule, no mats, no coat blow, and in our climate no drying drama after rain. This is genuinely the lowest-grooming dog we carry, sharing the title with the smooth-coat Chihuahua.</p>
       <p>The maintenance budget goes to nails, which grow fast on a dog this active, and the daily tooth-brushing habit every small jaw needs. Both tools are in your starter kit, and both take minutes a week.</p>
     </CaptionedBlock>
@@ -403,14 +415,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Min Pin Health: What We Check Before You Take One Home" imageAlt="Miniature Pinscher puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Min Pin Health: What We Check Before You Take One Home" imageAlt="Miniature Pinscher puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Min Pin goes home vet-checked, vaccinated, dewormed, and microchipped. Health is a strong suit: the breed is robust and long-lived, which its 12-to-16-year expectancy reflects. The short list worth knowing: patellar luxation, the standard small-breed kneecap issue; Legg-Calvé-Perthes, a hip condition seen occasionally in small breeds; and dental crowding, met with the day-one brushing habit.</p>
       <p>The practical health work with a Min Pin is injury prevention rather than illness: this fearless breed will leap from heights it shouldn't and squeeze through gaps it found first. Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Min Pin's First Week at Home" imageAlt="Miniature Pinscher puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Min Pin's First Week at Home" imageAlt="Miniature Pinscher puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Min Pin inspects the premises, and we walk you through all 30+ starter-kit items in person, including the escape-proofing check. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm and predictable. A fixed feeding routine, the toilet pads where we placed them, and supervised exploration; assume anything reachable will be investigated and act accordingly.</p>
     <p>Days 4 to 7: the routine sticks and the King settles into his territory. Book your free first lesson with an AVS-certified trainer this week; early boundaries are everything with a clever, confident breed. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

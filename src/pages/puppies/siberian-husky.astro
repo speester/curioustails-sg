@@ -28,6 +28,19 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/siberian-husky/1-grey-and-white-siberian-husky-puppy-with-blue-eyes-in-a.webp';
+import imgScene1 from '../../assets/siberian-husky/2-grey-and-white-siberian-husky-puppy-portrait-one-of-the.webp';
+import imgScene2 from '../../assets/siberian-husky/3-siberian-husky-running-with-its-owner-on-an-early-morni.webp';
+import imgScene3 from '../../assets/siberian-husky/4-siberian-husky-puppy-mid-play-mouth-open-in-a-husky-gri.webp';
+import imgScene4 from '../../assets/siberian-husky/5-siberian-husky-having-its-double-coat-brushed-with-an-u.webp';
+import imgScene5 from '../../assets/siberian-husky/6-siberian-husky-puppy-at-a-veterinary-health-check-befor.webp';
+import imgScene6 from '../../assets/siberian-husky/7-siberian-husky-puppy-settling-into-a-set-up-playpen-dur.webp';
+import imgCard1 from '../../assets/siberian-husky/8-grey-and-white-male-siberian-husky-puppy-available-in-s.webp';
+import imgCard2 from '../../assets/siberian-husky/9-black-and-white-female-siberian-husky-puppy-available-i.webp';
+import imgCard3 from '../../assets/siberian-husky/10-red-and-white-male-siberian-husky-puppy-available-in-si.webp';
+import imgCard4 from '../../assets/siberian-husky/11-blue-eyed-female-siberian-husky-puppy-available-in-sing.webp';
+import imgCard5 from '../../assets/siberian-husky/12-agouti-male-siberian-husky-puppy-available-in-singapore.webp';
+import imgCard6 from '../../assets/siberian-husky/13-bi-eyed-female-siberian-husky-puppy-available-in-singap.webp';
 
 const title = 'Siberian Husky Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +153,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing athletic breed']}
-    imageAlt="Grey and white Siberian Husky puppy with blue eyes in a set-up playpen at a Singapore home"
+    imageAlt="Grey and white Siberian Husky puppy with blue eyes in a set-up playpen at a Singapore home" imageSrc={imgHero}
     tagLabel="Husky"
     proofChip="5.0 on Google"
   >
@@ -150,7 +163,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Siberian Husky in Singapore?" imageAlt="Grey and white Siberian Husky puppy portrait, one of the Husky puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Siberian Husky in Singapore?" imageAlt="Grey and white Siberian Husky puppy portrait, one of the Husky puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Husky puppies in Singapore arrive and are reserved quickly, and Husky buyers get our most careful matching conversation, because no breed we carry has a wider gap between the photo people fall for and the routine the dog needs. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Husky puppies available now, right after we've talked about your mornings.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Siberian Husky for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +176,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Husky puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Grey & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the grey and white male Husky puppy.'), imageAlt: 'Grey and white male Siberian Husky puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Black & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white female Husky puppy.'), imageAlt: 'Black and white female Siberian Husky puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Red & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white male Husky puppy.'), imageAlt: 'Red and white male Siberian Husky puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Blue-eyed girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue-eyed female Husky puppy.'), imageAlt: 'Blue-eyed female Siberian Husky puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Agouti boy', href: whatsappLink('Hi! I\'d like more photos and the price for the agouti male Husky puppy.'), imageAlt: 'Agouti male Siberian Husky puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Bi-eyed girl', href: whatsappLink('Hi! I\'d like more photos and the price for the bi-eyed female Husky puppy.'), imageAlt: 'Bi-eyed female Siberian Husky puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Grey & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the grey and white male Husky puppy.'), imageAlt: 'Grey and white male Siberian Husky puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Black & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white female Husky puppy.'), imageAlt: 'Black and white female Siberian Husky puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Red & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white male Husky puppy.'), imageAlt: 'Red and white male Siberian Husky puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Blue-eyed girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue-eyed female Husky puppy.'), imageAlt: 'Blue-eyed female Siberian Husky puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Agouti boy', href: whatsappLink('Hi! I\'d like more photos and the price for the agouti male Husky puppy.'), imageAlt: 'Agouti male Siberian Husky puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Bi-eyed girl', href: whatsappLink('Hi! I\'d like more photos and the price for the bi-eyed female Husky puppy.'), imageAlt: 'Bi-eyed female Siberian Husky puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +231,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="reality" class="scroll-mt-40">
-    <CaptionedBlock heading="The Reality Check: An Arctic Athlete at One Degree North" imageAlt="Siberian Husky running with its owner on an early morning park connector" imagePosition="left">
+    <CaptionedBlock heading="The Reality Check: An Arctic Athlete at One Degree North" imageAlt="Siberian Husky running with its owner on an early morning park connector" imageSrc={imgScene2} imagePosition="left">
       <p>Search this breed in Singapore and half the results are adoption and rehoming posts. That is not a coincidence; it is the after-photo of impulse purchases, and it is why this section sits before any selling. The Husky was bred to pull sleds across Siberia, and the engine came with the eyes: this breed needs 60 to 90 minutes of genuinely athletic exercise, running, cycling alongside, proper hiking, every day, in our early-morning and evening cool, for twelve-plus years. A walk around the block does not count, and the dog will tell you so through your furniture.</p>
       <p>Add the climate contract: an aircon-centred home through every Singapore afternoon, a double coat brushed religiously and never shaved, and honest vigilance for heat stress. The owners who thrive with Huskies here are runners and cyclists with private housing who wanted a training partner; for them this breed is a joy that no other quite matches. If that's you, welcome; the rest of this page is yours. If it isn't, we'll say so kindly and point you somewhere honest — the <a href="/puppies/jack-russell-terrier" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Jack Russell</a> is the HDB-legal athlete, at a tenth of the logistics.</p>
     </CaptionedBlock>
@@ -247,7 +260,7 @@ const schemas = [
   </div>
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Husky Temperament: Friendly, Free-Spirited, Full Volume" imageAlt="Siberian Husky puppy mid-play, mouth open in a husky grin" imagePosition="left">
+    <CaptionedBlock heading="Husky Temperament: Friendly, Free-Spirited, Full Volume" imageAlt="Siberian Husky puppy mid-play, mouth open in a husky grin" imageSrc={imgScene3} imagePosition="left">
       <p>Past the reality check, here's the dog people fall for, and rightly: the Husky is one of the friendliest large breeds in existence, delighted by strangers, children and other dogs alike, with zero guard-dog suspicion in its body and a sense of humour that generates most of the internet's best dog videos. It is affectionate without being needy, pack-oriented, and endlessly entertaining.</p>
       <p>The quirks come with the package. Recall is theoretical: a running Husky does not hear you, so leashes are for life. Escape artistry is genetic: doors, gates and fences all get audited by a professional, and we do that audit with you on delivery day. And the voice: Huskies rarely bark, they howl and "talk", conversations owners treasure and estates hear. None of this trains out; all of it channels, and the free first lesson starts that work.</p>
       <p>Arctic shelf-mates: the <a href="/puppies/samoyed" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Samoyed</a> is the people-fused extrovert to the Husky's free spirit; the <a href="/puppies/pomsky" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Pomsky</a> is the look at half scale with a gentler routine.</p>
@@ -371,7 +384,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming and Heat: The Arctic Coat Contract" imageAlt="Siberian Husky having its double coat brushed with an undercoat rake" imagePosition="left">
+    <CaptionedBlock heading="Grooming and Heat: The Arctic Coat Contract" imageAlt="Siberian Husky having its double coat brushed with an undercoat rake" imageSrc={imgScene4} imagePosition="left">
       <p>The Husky coat contract matches our other Arctic breeds: brush 3 to 4 times a week down to the skin, daily during the two annual blows (which are biblical), dry thoroughly after rain, and never shave, a maintained double coat insulates against our heat, a shaved one wrecks the system and invites sunburn. Between blows the Husky is surprisingly self-cleaning; the workload is rhythm, not filth.</p>
       <p>The heat rules ride along: athletic work before 9am or after 6pm only, aircon or serious ventilation through every afternoon, water everywhere, and know the emergency signs — relentless heavy panting, a very dark tongue, wobbliness. Cool water on the body, aircon, vet, in that order.</p>
     </CaptionedBlock>
@@ -379,14 +392,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Husky Health: What We Check Before You Take One Home" imageAlt="Siberian Husky puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Husky Health: What We Check Before You Take One Home" imageAlt="Siberian Husky puppy at a veterinary health check before going home" imageSrc={imgScene5} variant="mid">
       <p>Every Husky goes home vet-checked, vaccinated, dewormed, and microchipped, and here's the breed's good news: generations of honest working selection made the Siberian Husky one of the soundest medium-large breeds in existence. The short watch-list: hips, standard for the size, met with joint-friendly puppyhood and lean weight; and eyes, where juvenile cataracts run in some lines, worth asking about, as we do.</p>
       <p>Feeding is simple and famously economical, sled dogs convert food efficiently: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Husky's First Week at Home" imageAlt="Siberian Husky puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Husky's First Week at Home" imageAlt="Siberian Husky puppy settling into a set-up playpen during its first week home" imageSrc={imgScene6} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, and for this breed the setup includes the escape audit: gates, fence lines, door habits, balcony access, checked together before the puppy explores. The playpen, bed, water, and toys are ready first. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm and structured. A fixed feeding routine, the toilet pads where we placed them, and short play sessions; the engine arrives before the training does, so channel it gently from the start.</p>
     <p>Days 4 to 7: the routine sticks, and the two lifelong habits begin: the cool-hours exercise slot enters the family calendar permanently, and the free first lesson with an AVS-certified trainer gets booked, non-negotiable for a dog headed to 25 kilograms of enthusiasm. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

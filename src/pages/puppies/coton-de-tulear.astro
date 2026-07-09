@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/coton-de-tulear/1-white-coton-de-tulear-puppy-with-a-cotton-textured-coat.webp';
+import imgScene1 from '../../assets/coton-de-tulear/2-white-coton-de-tulear-puppy-portrait-one-of-the-coton-p.webp';
+import imgScene2 from '../../assets/coton-de-tulear/3-coton-de-tulear-puppy-clowning-on-its-hind-legs-for-its.webp';
+import imgScene3 from '../../assets/coton-de-tulear/4-coton-de-tulear-puppy-having-its-cotton-textured-coat-c.webp';
+import imgScene4 from '../../assets/coton-de-tulear/5-coton-de-tulear-puppy-at-a-veterinary-health-check-befo.webp';
+import imgScene5 from '../../assets/coton-de-tulear/6-coton-de-tulear-puppy-settling-into-a-set-up-playpen-du.webp';
+import imgCard1 from '../../assets/coton-de-tulear/7-white-male-coton-de-tulear-puppy-available-in-singapore.webp';
+import imgCard2 from '../../assets/coton-de-tulear/8-white-female-coton-de-tulear-puppy-available-in-singapo.webp';
+import imgCard3 from '../../assets/coton-de-tulear/9-white-and-champagne-male-coton-de-tulear-puppy-availabl.webp';
+import imgCard4 from '../../assets/coton-de-tulear/10-grey-eared-female-coton-de-tulear-puppy-available-in-si.webp';
+import imgCard5 from '../../assets/coton-de-tulear/11-cotton-coat-male-coton-de-tulear-puppy-available-in-sin.webp';
+import imgCard6 from '../../assets/coton-de-tulear/12-petite-female-coton-de-tulear-puppy-available-in-singap.webp';
 
 const title = 'Coton de Tulear Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved rare breed']}
-    imageAlt="White Coton de Tulear puppy with a cotton-textured coat sitting in a set-up playpen at a Balestier home"
+    imageAlt="White Coton de Tulear puppy with a cotton-textured coat sitting in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Coton de Tulear"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Coton de Tulear in Singapore?" imageAlt="White Coton de Tulear puppy portrait, one of the Coton puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Coton de Tulear in Singapore?" imageAlt="White Coton de Tulear puppy portrait, one of the Coton puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>The Coton de Tulear is the rarest breed we carry: the global population is small, local litters are intermittent, and pups are usually reserved before they're weaned. We keep availability live on WhatsApp rather than on a page that goes stale; as an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for any Coton puppies available now, or tell you honestly when the next litter is expected.</p>
       <p>Unlike the import quotes you'll compare us against, we tell you the number upfront: every Coton de Tulear for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Coton puppies looking for a home right now. Litters are rare and move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Snow-white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white male Coton de Tulear puppy.'), imageAlt: 'White male Coton de Tulear puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'White girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white female Coton de Tulear puppy.'), imageAlt: 'White female Coton de Tulear puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'White & champagne boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white and champagne male Coton puppy.'), imageAlt: 'White and champagne male Coton de Tulear puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Grey-eared girl', href: whatsappLink('Hi! I\'d like more photos and the price for the grey-eared female Coton puppy.'), imageAlt: 'Grey-eared female Coton de Tulear puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Cotton-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cotton-coat male Coton puppy.'), imageAlt: 'Cotton-coat male Coton de Tulear puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Petite girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite female Coton puppy.'), imageAlt: 'Petite female Coton de Tulear puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Snow-white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white male Coton de Tulear puppy.'), imageAlt: 'White male Coton de Tulear puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'White girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white female Coton de Tulear puppy.'), imageAlt: 'White female Coton de Tulear puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'White & champagne boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white and champagne male Coton puppy.'), imageAlt: 'White and champagne male Coton de Tulear puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Grey-eared girl', href: whatsappLink('Hi! I\'d like more photos and the price for the grey-eared female Coton puppy.'), imageAlt: 'Grey-eared female Coton de Tulear puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Cotton-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cotton-coat male Coton puppy.'), imageAlt: 'Cotton-coat male Coton de Tulear puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Petite girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite female Coton puppy.'), imageAlt: 'Petite female Coton de Tulear puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Coton Temperament: Madagascar's Court Jester" imageAlt="Coton de Tulear puppy clowning on its hind legs for its family" imagePosition="left">
+    <CaptionedBlock heading="Coton Temperament: Madagascar's Court Jester" imageAlt="Coton de Tulear puppy clowning on its hind legs for its family" imageSrc={imgScene2} imagePosition="left">
       <p>The Coton earned its place in Madagascan noble houses the same way it will earn its place in yours: by being effortlessly delightful. This is a cheerful, clownish little companion famous for two party tricks it teaches itself, walking on its hind legs when pleased, and a repertoire of soft chatty vocalisations owners swear amount to conversation. It is gentle with children, easy with other pets, and bonds to its household with the deep attachment of a breed that has never had any job except companionship.</p>
       <p>The honest part, from two years of matching companion breeds to families: that attachment is the whole animal. Like its <a href="/puppies/havanese" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Havanese</a> cousin, the Coton is a company-first breed, and homes that are empty all weekday should not buy one, however rare and tempting the litter. Homes with daytime presence get one of the sweetest companions in existence, for longer than nearly any other breed can promise.</p>
     </CaptionedBlock>
@@ -394,7 +406,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: Cotton in the Tropics" imageAlt="Coton de Tulear puppy having its cotton-textured coat combed" imagePosition="left">
+    <CaptionedBlock heading="Grooming: Cotton in the Tropics" imageAlt="Coton de Tulear puppy having its cotton-textured coat combed" imageSrc={imgScene3} imagePosition="left">
       <p>Overseas Coton guides describe flowing floor-length show coats; ignore them, as every sensible Singapore owner does. In our humidity the Coton lives in a puppy cut, which brings the routine to a comb-through 2 to 3 times a week, always down to the skin, because cotton texture mats close to the body where a glance misses it, plus a salon trim every 4 to 6 weeks.</p>
       <p>Two tropics-specific habits: dry the coat properly after rainy walks, damp cotton is where trouble starts, and give the face its daily ten-second wipe to keep the white bright. Everything you need is in the starter kit.</p>
     </CaptionedBlock>
@@ -402,14 +414,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Coton Health: What We Check Before You Take One Home" imageAlt="Coton de Tulear puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Coton Health: What We Check Before You Take One Home" imageAlt="Coton de Tulear puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Coton goes home vet-checked, vaccinated, dewormed, and microchipped. Health is the breed's superpower: the Coton is one of the soundest, longest-lived dogs in existence, and its 14-to-17-year expectancy is the proof. The short watch-list is standard small-breed fare: patellar luxation, sensible eye checks, and dental care in a small jaw, met with the day-one brushing habit.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. For portioning guidance see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Coton's First Week at Home" imageAlt="Coton de Tulear puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Coton's First Week at Home" imageAlt="Coton de Tulear puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Coton explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm and close. This breed settles through proximity: the playpen where it can see people, a fixed feeding routine, and the toilet pads where we placed them. The chatty little vocalisations start early; enjoy them, they're the breed introducing itself.</p>
     <p>Days 4 to 7: the routine sticks, and two habits start now: book your free first lesson with an AVS-certified trainer, and practise short, boring departures, five minutes at a time, because a company-first breed's alone-time skills are built early or not at all. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

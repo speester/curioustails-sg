@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/japanese-spitz/1-white-japanese-spitz-puppy-sitting-in-a-set-up-playpen.webp';
+import imgScene1 from '../../assets/japanese-spitz/2-white-japanese-spitz-puppy-portrait-one-of-the-japanese.webp';
+import imgScene2 from '../../assets/japanese-spitz/3-japanese-spitz-puppy-playing-with-a-family-in-the-livin.webp';
+import imgScene3 from '../../assets/japanese-spitz/4-japanese-spitz-puppy-being-brushed-through-its-white-do.webp';
+import imgScene4 from '../../assets/japanese-spitz/5-japanese-spitz-puppy-at-a-veterinary-health-check-befor.webp';
+import imgScene5 from '../../assets/japanese-spitz/6-japanese-spitz-puppy-settling-into-a-set-up-playpen-dur.webp';
+import imgCard1 from '../../assets/japanese-spitz/7-white-male-japanese-spitz-puppy-available-in-singapore.webp';
+import imgCard2 from '../../assets/japanese-spitz/8-white-female-japanese-spitz-puppy-available-in-singapor.webp';
+import imgCard3 from '../../assets/japanese-spitz/9-fluffy-male-japanese-spitz-puppy-available-in-singapore.webp';
+import imgCard4 from '../../assets/japanese-spitz/10-petite-female-japanese-spitz-puppy-available-in-singapo.webp';
+import imgCard5 from '../../assets/japanese-spitz/11-plush-coat-male-japanese-spitz-puppy-available-in-singa.webp';
+import imgCard6 from '../../assets/japanese-spitz/12-smiley-female-japanese-spitz-puppy-available-in-singapo.webp';
 
 const title = 'Japanese Spitz Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved family breed']}
-    imageAlt="White Japanese Spitz puppy sitting in a set-up playpen at a Balestier home"
+    imageAlt="White Japanese Spitz puppy sitting in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Japanese Spitz"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Japanese Spitz in Singapore?" imageAlt="White Japanese Spitz puppy portrait, one of the Japanese Spitz puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Japanese Spitz in Singapore?" imageAlt="White Japanese Spitz puppy portrait, one of the Japanese Spitz puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Japanese Spitz puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Japanese Spitz puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Japanese Spitz for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Japanese Spitz puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Snow-white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the male Japanese Spitz puppy.'), imageAlt: 'White male Japanese Spitz puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Snow-white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the female Japanese Spitz puppy.'), imageAlt: 'White female Japanese Spitz puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Fluffy boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fluffy male Japanese Spitz puppy.'), imageAlt: 'Fluffy male Japanese Spitz puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Petite girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite female Japanese Spitz puppy.'), imageAlt: 'Petite female Japanese Spitz puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Plush-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the plush-coat male Japanese Spitz puppy.'), imageAlt: 'Plush-coat male Japanese Spitz puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Smiley girl', href: whatsappLink('Hi! I\'d like more photos and the price for the smiley female Japanese Spitz puppy.'), imageAlt: 'Smiley female Japanese Spitz puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Snow-white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the male Japanese Spitz puppy.'), imageAlt: 'White male Japanese Spitz puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Snow-white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the female Japanese Spitz puppy.'), imageAlt: 'White female Japanese Spitz puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Fluffy boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fluffy male Japanese Spitz puppy.'), imageAlt: 'Fluffy male Japanese Spitz puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Petite girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite female Japanese Spitz puppy.'), imageAlt: 'Petite female Japanese Spitz puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Plush-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the plush-coat male Japanese Spitz puppy.'), imageAlt: 'Plush-coat male Japanese Spitz puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Smiley girl', href: whatsappLink('Hi! I\'d like more photos and the price for the smiley female Japanese Spitz puppy.'), imageAlt: 'Smiley female Japanese Spitz puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Japanese Spitz Temperament: The Cheerful All-Rounder" imageAlt="Japanese Spitz puppy playing with a family in the living room" imagePosition="left">
+    <CaptionedBlock heading="Japanese Spitz Temperament: The Cheerful All-Rounder" imageAlt="Japanese Spitz puppy playing with a family in the living room" imageSrc={imgScene2} imagePosition="left">
       <p>The Japanese Spitz was bred to be exactly one thing: an ideal family companion, and a century of selection shows. This is a cheerful, devoted, genuinely funny dog that adores its household, plays as long as the children can, and settles beside whoever sits down first. Owners describe the breed's grin as permanent, and they're not wrong.</p>
       <p>The honest parts, from two years of matching puppies to families: there's a brief reserve with strangers, which good early socialisation turns into polite curiosity rather than suspicion, and there's a proper spitz voice: doorbells and corridor sounds get announced until you teach otherwise. Both are standard puppy homework, and the free first training lesson with an AVS-certified trainer covers exactly that.</p>
       <p>If you're comparing cheerful family dogs, the <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a> is the low-shedding alternative; the Japanese Spitz wins on looks and sturdiness but sheds honestly.</p>
@@ -395,7 +407,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: The Self-Cleaning White Coat (Mostly)" imageAlt="Japanese Spitz puppy being brushed through its white double coat" imagePosition="left">
+    <CaptionedBlock heading="Grooming: The Self-Cleaning White Coat (Mostly)" imageAlt="Japanese Spitz puppy being brushed through its white double coat" imageSrc={imgScene3} imagePosition="left">
       <p>Here's the breed's best-kept secret: that pure-white coat is far easier than it looks. The texture resists dirt the way a good raincoat resists water; mud dries, falls out, and the dog walks back in white. Baths stay occasional, every 4 to 6 weeks or so, because over-washing strips the coat's own protection.</p>
       <p>The honest work is volume, not stains: brush 2 to 3 times a week down to the skin, daily during seasonal coat blows, and make peace with white hair on dark clothing. As with all double-coated breeds, never shave it; the coat insulates against our heat as well as cold, and shaving damages how it grows back. A tidy trim is fine; the clippers are not.</p>
     </CaptionedBlock>
@@ -403,14 +415,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Japanese Spitz Health: What We Check Before You Take One Home" imageAlt="Japanese Spitz puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Japanese Spitz Health: What We Check Before You Take One Home" imageAlt="Japanese Spitz puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Japanese Spitz goes home vet-checked, vaccinated, dewormed, and microchipped. Health-wise this breed is one of the best stories we get to tell: it is famously robust, with few inherited problems. The points worth knowing are patellar luxation, the kneecap issue shared across small breeds, and runny eyes in some individuals, where daily wipes keep tear staining off the white face; the wipes are in your starter kit.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. For portioning guidance see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Japanese Spitz's First Week at Home" imageAlt="Japanese Spitz puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Japanese Spitz's First Week at Home" imageAlt="Japanese Spitz puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Japanese Spitz explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm and predictable. A fixed feeding routine, the toilet pads where we placed them, and short, gentle play. Some night whimpering is normal adjustment.</p>
     <p>Days 4 to 7: the routine sticks, and the grin becomes permanent. Book your free first lesson with an AVS-certified trainer this week; early work on the spitz voice pays off for a decade. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>. For anything in between, you WhatsApp us.</p>

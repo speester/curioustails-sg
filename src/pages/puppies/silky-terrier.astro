@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/silky-terrier/1-blue-and-tan-silky-terrier-puppy-sitting-in-a-set-up-pl.webp';
+import imgScene1 from '../../assets/silky-terrier/2-blue-and-tan-silky-terrier-puppy-portrait-one-of-the-si.webp';
+import imgScene2 from '../../assets/silky-terrier/3-silky-terrier-puppy-playing-keenly-with-a-toy-at-home.webp';
+import imgScene3 from '../../assets/silky-terrier/4-silky-terrier-puppy-having-its-long-coat-combed-through.webp';
+import imgScene4 from '../../assets/silky-terrier/5-silky-terrier-puppy-at-a-veterinary-health-check-before.webp';
+import imgScene5 from '../../assets/silky-terrier/6-silky-terrier-puppy-settling-into-a-set-up-playpen-duri.webp';
+import imgCard1 from '../../assets/silky-terrier/7-blue-and-tan-male-silky-terrier-puppy-available-in-sing.webp';
+import imgCard2 from '../../assets/silky-terrier/8-silver-and-tan-female-silky-terrier-puppy-available-in.webp';
+import imgCard3 from '../../assets/silky-terrier/9-grey-and-tan-male-silky-terrier-puppy-available-in-sing.webp';
+import imgCard4 from '../../assets/silky-terrier/10-petite-female-silky-terrier-puppy-available-in-singapor.webp';
+import imgCard5 from '../../assets/silky-terrier/11-blue-and-tan-female-silky-terrier-puppy-available-in-si.webp';
+import imgCard6 from '../../assets/silky-terrier/12-bold-male-silky-terrier-puppy-available-in-singapore.webp';
 
 const title = 'Silky Terrier Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved toy terrier']}
-    imageAlt="Blue and tan Silky Terrier puppy sitting in a set-up playpen at a Balestier home"
+    imageAlt="Blue and tan Silky Terrier puppy sitting in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Silky Terrier"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Silky Terrier in Singapore?" imageAlt="Blue and tan Silky Terrier puppy portrait, one of the Silky Terrier puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Silky Terrier in Singapore?" imageAlt="Blue and tan Silky Terrier puppy portrait, one of the Silky Terrier puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Silky Terriers are uncommon in Singapore, so litters are announced and reserved fast; we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Silky Terrier puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Silky Terrier for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Silky Terrier puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Blue & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the blue and tan male Silky Terrier puppy.'), imageAlt: 'Blue and tan male Silky Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Silver & tan girl', href: whatsappLink('Hi! I\'d like more photos and the price for the silver and tan female Silky Terrier puppy.'), imageAlt: 'Silver and tan female Silky Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Grey & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the grey and tan male Silky Terrier puppy.'), imageAlt: 'Grey and tan male Silky Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Petite girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite female Silky Terrier puppy.'), imageAlt: 'Petite female Silky Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Blue & tan girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue and tan female Silky Terrier puppy.'), imageAlt: 'Blue and tan female Silky Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Bold boy', href: whatsappLink('Hi! I\'d like more photos and the price for the bold male Silky Terrier puppy.'), imageAlt: 'Bold male Silky Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Blue & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the blue and tan male Silky Terrier puppy.'), imageAlt: 'Blue and tan male Silky Terrier puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Silver & tan girl', href: whatsappLink('Hi! I\'d like more photos and the price for the silver and tan female Silky Terrier puppy.'), imageAlt: 'Silver and tan female Silky Terrier puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Grey & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the grey and tan male Silky Terrier puppy.'), imageAlt: 'Grey and tan male Silky Terrier puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Petite girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite female Silky Terrier puppy.'), imageAlt: 'Petite female Silky Terrier puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Blue & tan girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue and tan female Silky Terrier puppy.'), imageAlt: 'Blue and tan female Silky Terrier puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Bold boy', href: whatsappLink('Hi! I\'d like more photos and the price for the bold male Silky Terrier puppy.'), imageAlt: 'Bold male Silky Terrier puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Silky Terrier Temperament: More Terrier Than the Coat Lets On" imageAlt="Silky Terrier puppy playing keenly with a toy at home" imagePosition="left">
+    <CaptionedBlock heading="Silky Terrier Temperament: More Terrier Than the Coat Lets On" imageAlt="Silky Terrier puppy playing keenly with a toy at home" imageSrc={imgScene2} imagePosition="left">
       <p>The glamorous coat misleads people. Underneath it, the Silky is a genuine working terrier, bred in Australia with ratting jobs in mind, and the temperament follows: keen, quick, plucky, and busier than the average lapdog by a comfortable margin. It plays with real intent, investigates everything, and appoints itself doorbell correspondent unless taught otherwise.</p>
       <p>The honest part, from two years of matching puppies to families: the Silky needs more from your day than a Maltese or Shih Tzu, about 45 minutes of walks plus genuine play, and it keeps a terrier's chase instinct, so leashes matter around birds and cats. Meet those needs and you get a devoted, entertaining companion that stays puppyish for a decade.</p>
       <p>For the same look with less drive, the <a href="/puppies/yorkshire-terrier" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Yorkshire Terrier</a> is the softer sibling; for more drive still, the <a href="/puppies/jack-russell-terrier" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Jack Russell</a>.</p>
@@ -395,7 +407,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: Silk Wants a Comb, Not a Salon" imageAlt="Silky Terrier puppy having its long coat combed through" imagePosition="left">
+    <CaptionedBlock heading="Grooming: Silk Wants a Comb, Not a Salon" imageAlt="Silky Terrier puppy having its long coat combed through" imageSrc={imgScene3} imagePosition="left">
       <p>The Silky coat behaves like the Yorkie's: barely sheds, happily tangles. Most Singapore Silkies live in a practical trimmed cut, which brings the routine down to a comb-through 2 to 3 times a week and a tidy-up trim every 6 to 8 weeks. Kept long, upgrade to daily combing; the silk mats quietly if ignored.</p>
       <p>No undercoat means no coat blows and quick drying after rainy walks, both blessings here. The daily ten-second habits are the toy-breed standards: eye area check and tooth-brushing, with everything needed in your starter kit.</p>
     </CaptionedBlock>
@@ -403,14 +415,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Silky Terrier Health: What We Check Before You Take One Home" imageAlt="Silky Terrier puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Silky Terrier Health: What We Check Before You Take One Home" imageAlt="Silky Terrier puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Silky goes home vet-checked, vaccinated, dewormed, and microchipped. The breed is robust, working-terrier roots again, with a short list worth knowing: patellar luxation, the small-breed kneecap issue; dental crowding, met with the day-one brushing habit; tracheal sensitivity, which is why the harness rule applies; and Legg-Calvé-Perthes in some lines, as with most small terriers.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Silky's First Week at Home" imageAlt="Silky Terrier puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Silky's First Week at Home" imageAlt="Silky Terrier puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Silky explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm and predictable. A fixed feeding routine, the toilet pads where we placed them, and short, structured play; the terrier curiosity will want to inspect everything, so supervise the first explorations.</p>
     <p>Days 4 to 7: the routine sticks and the spark shows. Book your free first lesson with an AVS-certified trainer this week; the voice and the leash manners are best shaped now. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

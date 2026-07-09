@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/yorkshire-terrier/1-blue-and-tan-yorkshire-terrier-puppy-sitting-in-a-set-u.webp';
+import imgScene1 from '../../assets/yorkshire-terrier/2-blue-and-tan-yorkshire-terrier-puppy-portrait-one-of-th.webp';
+import imgScene2 from '../../assets/yorkshire-terrier/3-yorkshire-terrier-puppy-exploring-confidently-at-home.webp';
+import imgScene3 from '../../assets/yorkshire-terrier/4-yorkshire-terrier-puppy-having-its-silky-coat-combed.webp';
+import imgScene4 from '../../assets/yorkshire-terrier/5-yorkshire-terrier-puppy-at-a-veterinary-health-check-be.webp';
+import imgScene5 from '../../assets/yorkshire-terrier/6-yorkshire-terrier-puppy-settling-into-a-set-up-playpen.webp';
+import imgCard1 from '../../assets/yorkshire-terrier/7-blue-and-tan-male-yorkshire-terrier-puppy-available-in.webp';
+import imgCard2 from '../../assets/yorkshire-terrier/8-blue-and-gold-female-yorkshire-terrier-puppy-available.webp';
+import imgCard3 from '../../assets/yorkshire-terrier/9-black-and-tan-male-yorkshire-terrier-puppy-available-in.webp';
+import imgCard4 from '../../assets/yorkshire-terrier/10-petite-female-yorkshire-terrier-puppy-available-in-sing.webp';
+import imgCard5 from '../../assets/yorkshire-terrier/11-silky-coat-male-yorkshire-terrier-puppy-available-in-si.webp';
+import imgCard6 from '../../assets/yorkshire-terrier/12-black-and-gold-female-yorkshire-terrier-puppy-available.webp';
 
 const title = 'Yorkshire Terrier Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved toy breed']}
-    imageAlt="Blue and tan Yorkshire Terrier puppy sitting in a set-up playpen at a Balestier home"
+    imageAlt="Blue and tan Yorkshire Terrier puppy sitting in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Yorkie"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Yorkshire Terrier in Singapore?" imageAlt="Blue and tan Yorkshire Terrier puppy portrait, one of the Yorkie puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Yorkshire Terrier in Singapore?" imageAlt="Blue and tan Yorkshire Terrier puppy portrait, one of the Yorkie puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Yorkshire Terrier puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Yorkie puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Yorkshire Terrier for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Yorkie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Blue & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the blue and tan male Yorkshire Terrier puppy.'), imageAlt: 'Blue and tan male Yorkshire Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Blue & gold girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue and gold female Yorkshire Terrier puppy.'), imageAlt: 'Blue and gold female Yorkshire Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Black & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and tan male Yorkshire Terrier puppy.'), imageAlt: 'Black and tan male Yorkshire Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Petite girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite female Yorkshire Terrier puppy.'), imageAlt: 'Petite female Yorkshire Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Silky-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the silky-coat male Yorkshire Terrier puppy.'), imageAlt: 'Silky-coat male Yorkshire Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Black & gold girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and gold female Yorkshire Terrier puppy.'), imageAlt: 'Black and gold female Yorkshire Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Blue & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the blue and tan male Yorkshire Terrier puppy.'), imageAlt: 'Blue and tan male Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Blue & gold girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue and gold female Yorkshire Terrier puppy.'), imageAlt: 'Blue and gold female Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Black & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and tan male Yorkshire Terrier puppy.'), imageAlt: 'Black and tan male Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Petite girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite female Yorkshire Terrier puppy.'), imageAlt: 'Petite female Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Silky-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the silky-coat male Yorkshire Terrier puppy.'), imageAlt: 'Silky-coat male Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Black & gold girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and gold female Yorkshire Terrier puppy.'), imageAlt: 'Black and gold female Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Yorkshire Terrier Temperament: A Working Terrier in a Silk Coat" imageAlt="Yorkshire Terrier puppy exploring confidently at home" imagePosition="left">
+    <CaptionedBlock heading="Yorkshire Terrier Temperament: A Working Terrier in a Silk Coat" imageAlt="Yorkshire Terrier puppy exploring confidently at home" imageSrc={imgScene2} imagePosition="left">
       <p>The show ring made the Yorkie glamorous, but the mills made it first, and the working terrier is still in there: brave to the point of comedy, busy, curious, and convinced it is the household's chief of security. This is not a passive lapdog; it is a small adventurer that also happens to love laps.</p>
       <p>The honest part, from two years of matching puppies to families: that terrier confidence needs early shaping. A well-socialised Yorkie is outgoing and charming everywhere it goes; an under-socialised one appoints itself alarm system, and at HDB corridor acoustics, that matters. Start the free first training lesson early and stay consistent, and you get the charming version.</p>
       <p>With calm older children the Yorkie does well. With toddlers, we say no plainly: 2 to 3.5 kg is delicate. The sturdier <a href="/puppies/shih-tzu" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shih Tzu</a> or <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a> is the kinder family pick.</p>
@@ -395,7 +407,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: Silk Is Beautiful and It Tangles" imageAlt="Yorkshire Terrier puppy having its silky coat combed" imagePosition="left">
+    <CaptionedBlock heading="Grooming: Silk Is Beautiful and It Tangles" imageAlt="Yorkshire Terrier puppy having its silky coat combed" imageSrc={imgScene3} imagePosition="left">
       <p>The Yorkie coat behaves like fine human hair: it barely sheds, and it tangles for a living. Kept long it needs daily combing and a genuine commitment; kept in the sensible puppy cut, which is what nearly every Singapore Yorkie wears, it needs a comb-through 2 to 3 times a week and a salon trim every 4 to 6 weeks.</p>
       <p>The daily ten-second habits: a face check to keep hair out of the eyes (or the classic topknot if you keep it longer), and the tooth-brushing routine, which for this breed matters more than any coat care; more on that below. All the starting tools are in your kit.</p>
     </CaptionedBlock>
@@ -403,7 +415,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Yorkie Health: What We Check Before You Take One Home" imageAlt="Yorkshire Terrier puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Yorkie Health: What We Check Before You Take One Home" imageAlt="Yorkshire Terrier puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Yorkshire Terrier goes home vet-checked, vaccinated, dewormed, and microchipped. The Yorkie health points worth knowing: dental disease is the breed's biggest lifelong issue, a tiny jaw crowds teeth badly, so brushing starts day one, not after the first bad vet visit; tracheal collapse, the toy-breed windpipe weakness, which is why the harness rule is absolute; patellar luxation, the small-breed kneecap issue; and in very young puppies, low blood sugar, which regular small meals prevent.</p>
       <p>Worth asking any seller about: liver shunt (portosystemic shunt) appears in Yorkie lines more than most breeds, and a proper vet check catches the signs early. Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. For portioning guidance see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
@@ -436,7 +448,7 @@ const schemas = [
     <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
   </div>
 
-  <CaptionedBlock heading="Your Yorkie's First Week at Home" imageAlt="Yorkshire Terrier puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Yorkie's First Week at Home" imageAlt="Yorkshire Terrier puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Yorkie explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm, warm and close. Tiny puppies chill easily under aircon, so a warm bed corner matters, along with a fixed feeding routine of regular small meals and the toilet pads where we placed them. Some night whimpering is normal adjustment.</p>
     <p>Days 4 to 7: the routine sticks, and the terrier turns up. Book your free first lesson with an AVS-certified trainer this week; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>. For anything in between, you WhatsApp us.</p>

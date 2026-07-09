@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/papillon/1-white-and-sable-papillon-puppy-with-butterfly-ears-sitt.webp';
+import imgScene1 from '../../assets/papillon/2-white-and-sable-papillon-puppy-portrait-one-of-the-papi.webp';
+import imgScene2 from '../../assets/papillon/3-papillon-puppy-learning-a-trick-during-play-at-home.webp';
+import imgScene3 from '../../assets/papillon/4-papillon-puppy-having-its-silky-coat-and-ear-fringes-co.webp';
+import imgScene4 from '../../assets/papillon/5-papillon-puppy-at-a-veterinary-health-check-before-goin.webp';
+import imgScene5 from '../../assets/papillon/6-papillon-puppy-settling-into-a-set-up-playpen-during-it.webp';
+import imgCard1 from '../../assets/papillon/7-white-and-sable-male-papillon-puppy-available-in-singap.webp';
+import imgCard2 from '../../assets/papillon/8-tricolour-female-papillon-puppy-available-in-singapore.webp';
+import imgCard3 from '../../assets/papillon/9-white-and-red-male-papillon-puppy-available-in-singapor.webp';
+import imgCard4 from '../../assets/papillon/10-white-and-black-female-papillon-puppy-available-in-sing.webp';
+import imgCard5 from '../../assets/papillon/11-sable-male-papillon-puppy-available-in-singapore.webp';
+import imgCard6 from '../../assets/papillon/12-female-papillon-puppy-with-classic-butterfly-ears-avail.webp';
 
 const title = 'Papillon Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved toy breed']}
-    imageAlt="White and sable Papillon puppy with butterfly ears sitting in a set-up playpen at a Balestier home"
+    imageAlt="White and sable Papillon puppy with butterfly ears sitting in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Papillon"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Papillon in Singapore?" imageAlt="White and sable Papillon puppy portrait, one of the Papillon puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Papillon in Singapore?" imageAlt="White and sable Papillon puppy portrait, one of the Papillon puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Papillons are genuinely uncommon in Singapore, so litters are announced and reserved fast; we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Papillon puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Papillon for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Papillon puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'White & sable boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white and sable male Papillon puppy.'), imageAlt: 'White and sable male Papillon puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Tricolour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tricolour female Papillon puppy.'), imageAlt: 'Tricolour female Papillon puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'White & red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white and red male Papillon puppy.'), imageAlt: 'White and red male Papillon puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'White & black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white and black female Papillon puppy.'), imageAlt: 'White and black female Papillon puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Sable boy', href: whatsappLink('Hi! I\'d like more photos and the price for the sable male Papillon puppy.'), imageAlt: 'Sable male Papillon puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Butterfly-eared girl', href: whatsappLink('Hi! I\'d like more photos and the price for the female Papillon puppy with the classic butterfly ears.'), imageAlt: 'Female Papillon puppy with classic butterfly ears available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'White & sable boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white and sable male Papillon puppy.'), imageAlt: 'White and sable male Papillon puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Tricolour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tricolour female Papillon puppy.'), imageAlt: 'Tricolour female Papillon puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'White & red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white and red male Papillon puppy.'), imageAlt: 'White and red male Papillon puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'White & black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white and black female Papillon puppy.'), imageAlt: 'White and black female Papillon puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Sable boy', href: whatsappLink('Hi! I\'d like more photos and the price for the sable male Papillon puppy.'), imageAlt: 'Sable male Papillon puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Butterfly-eared girl', href: whatsappLink('Hi! I\'d like more photos and the price for the female Papillon puppy with the classic butterfly ears.'), imageAlt: 'Female Papillon puppy with classic butterfly ears available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Papillon Temperament: A Border Collie's Brain at Handbag Scale" imageAlt="Papillon puppy learning a trick during play at home" imagePosition="left">
+    <CaptionedBlock heading="Papillon Temperament: A Border Collie's Brain at Handbag Scale" imageAlt="Papillon puppy learning a trick during play at home" imageSrc={imgScene2} imagePosition="left">
       <p>Intelligence rankings put the Papillon in the world's top ten, ahead of German Shepherds, and it is the only toy breed on that list. Living with one means living with a dog that learns your routines in a weekend, reads your moods better than some housemates, and treats trick training as the best game ever invented. Papillon owners end up teaching spins, weaves and name-the-toy games not because the dog needs it on paper, but because the dog keeps asking.</p>
       <p>The honest part, from two years of matching puppies to families: that brain is a daily appetite, not a party trick. A Papillon with nothing to learn becomes a tiny, extremely effective alarm system with opinions about every corridor sound. Ten minutes of training twice a day keeps the genius charming; the free first lesson with an AVS-certified trainer shows you exactly how.</p>
       <p>If you love the intelligence but want a more easygoing package, the <a href="/puppies/toy-poodle" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Toy Poodle</a> is the natural comparison, and we sell both honestly.</p>
@@ -395,7 +407,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: Glamour on an Amateur's Schedule" imageAlt="Papillon puppy having its silky coat and ear fringes combed" imagePosition="left">
+    <CaptionedBlock heading="Grooming: Glamour on an Amateur's Schedule" imageAlt="Papillon puppy having its silky coat and ear fringes combed" imageSrc={imgScene3} imagePosition="left">
       <p>Here's the Papillon's best-kept practical secret: all that silk is a single coat with no undercoat, which means light shedding, rare mats, and no mandatory salon schedule. A comb-through 2 to 3 times a week, a little extra attention to the ear fringes and the trousers where tangles start, and an occasional bath keeps a Papillon looking like it has a stylist on retainer.</p>
       <p>The daily ten-second habits are the usual toy-breed pair: a quick eye wipe, and tooth-brushing, which matters for every small jaw. Everything you need to start is in the kit.</p>
     </CaptionedBlock>
@@ -403,14 +415,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Papillon Health: What We Check Before You Take One Home" imageAlt="Papillon puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Papillon Health: What We Check Before You Take One Home" imageAlt="Papillon puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Papillon goes home vet-checked, vaccinated, dewormed, and microchipped. Health is a genuine strength: the Papillon is one of the soundest toy breeds, which its 13-to-16-year lifespan reflects. The short list worth knowing: patellar luxation, the standard small-breed kneecap issue; dental crowding, met with the day-one brushing habit; and progressive retinal atrophy in some lines, worth asking about, as with most toy breeds.</p>
       <p>Mind the fine bones while young: no leaping from sofa height, and supervise around bigger dogs. Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Papillon's First Week at Home" imageAlt="Papillon puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Papillon's First Week at Home" imageAlt="Papillon puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Papillon explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm and predictable. A fixed feeding routine, the toilet pads where we placed them, and short, gentle play. Some night whimpering is normal adjustment; Papillons settle fast once the routine reads as safe.</p>
     <p>Days 4 to 7: the routine sticks, and the studying begins; you'll see it watching you work things out. Book your free first lesson with an AVS-certified trainer this week and give that brain its first official job. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

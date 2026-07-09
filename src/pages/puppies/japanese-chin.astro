@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/japanese-chin/1-black-and-white-japanese-chin-puppy-perched-elegantly-i.webp';
+import imgScene1 from '../../assets/japanese-chin/2-black-and-white-japanese-chin-puppy-portrait-one-of-the.webp';
+import imgScene2 from '../../assets/japanese-chin/3-japanese-chin-puppy-perched-gracefully-on-the-back-of-a.webp';
+import imgScene3 from '../../assets/japanese-chin/4-japanese-chin-puppy-having-its-silky-single-coat-brushe.webp';
+import imgScene4 from '../../assets/japanese-chin/5-japanese-chin-puppy-at-a-veterinary-health-check-before.webp';
+import imgScene5 from '../../assets/japanese-chin/6-japanese-chin-puppy-settling-into-a-set-up-playpen-duri.webp';
+import imgCard1 from '../../assets/japanese-chin/7-black-and-white-male-japanese-chin-puppy-available-in-s.webp';
+import imgCard2 from '../../assets/japanese-chin/8-red-and-white-female-japanese-chin-puppy-available-in-s.webp';
+import imgCard3 from '../../assets/japanese-chin/9-sable-and-white-male-japanese-chin-puppy-available-in-s.webp';
+import imgCard4 from '../../assets/japanese-chin/10-black-and-white-female-japanese-chin-puppy-available-in.webp';
+import imgCard5 from '../../assets/japanese-chin/11-petite-male-japanese-chin-puppy-available-in-singapore.webp';
+import imgCard6 from '../../assets/japanese-chin/12-elegant-female-japanese-chin-puppy-available-in-singapo.webp';
 
 const title = 'Japanese Chin Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved quiet breed']}
-    imageAlt="Black and white Japanese Chin puppy perched elegantly in a set-up playpen at a Balestier home"
+    imageAlt="Black and white Japanese Chin puppy perched elegantly in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Japanese Chin"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Japanese Chin in Singapore?" imageAlt="Black and white Japanese Chin puppy portrait, one of the Chin puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Japanese Chin in Singapore?" imageAlt="Black and white Japanese Chin puppy portrait, one of the Chin puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>The Japanese Chin is one of the rarest breeds we carry: litters are intermittent and usually spoken for early, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for any Chin puppies available now, or tell you honestly when the next litter is expected.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Japanese Chin for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Chin puppies looking for a home right now. Litters are rare and move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Japanese Chin puppy.'), imageAlt: 'Black and white male Japanese Chin puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Red & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white female Japanese Chin puppy.'), imageAlt: 'Red and white female Japanese Chin puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Sable & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the sable and white male Japanese Chin puppy.'), imageAlt: 'Sable and white male Japanese Chin puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Black & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white female Japanese Chin puppy.'), imageAlt: 'Black and white female Japanese Chin puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Petite boy', href: whatsappLink('Hi! I\'d like more photos and the price for the petite male Japanese Chin puppy.'), imageAlt: 'Petite male Japanese Chin puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Elegant girl', href: whatsappLink('Hi! I\'d like more photos and the price for the elegant female Japanese Chin puppy.'), imageAlt: 'Elegant female Japanese Chin puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Japanese Chin puppy.'), imageAlt: 'Black and white male Japanese Chin puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Red & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white female Japanese Chin puppy.'), imageAlt: 'Red and white female Japanese Chin puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Sable & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the sable and white male Japanese Chin puppy.'), imageAlt: 'Sable and white male Japanese Chin puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Black & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white female Japanese Chin puppy.'), imageAlt: 'Black and white female Japanese Chin puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Petite boy', href: whatsappLink('Hi! I\'d like more photos and the price for the petite male Japanese Chin puppy.'), imageAlt: 'Petite male Japanese Chin puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Elegant girl', href: whatsappLink('Hi! I\'d like more photos and the price for the elegant female Japanese Chin puppy.'), imageAlt: 'Elegant female Japanese Chin puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Chin Temperament: The Cat-Like Label, Decoded" imageAlt="Japanese Chin puppy perched gracefully on the back of a sofa" imagePosition="left">
+    <CaptionedBlock heading="Chin Temperament: The Cat-Like Label, Decoded" imageAlt="Japanese Chin puppy perched gracefully on the back of a sofa" imageSrc={imgScene2} imagePosition="left">
       <p>Every breed guide calls the Chin cat-like and then moves on; here's what the label actually means at home. Your Chin will climb: sofa backs, window perches, anywhere with a view and elevation. It will groom itself, washing its face with a paw so convincingly that first-time owners film it. It will spend most of the day in graceful, near-silent self-possession, and it will love you on its own initiative, arriving for affection rather than begging for it. The famous "Chin spin", a delighted pirouette when happy, is its one flamboyance.</p>
       <p>The honest part, from two years of matching toys to households: this temperament suits some homes perfectly and puzzles others. Quiet adults and gentle routines get an exquisite companion; households wanting a fetch-mad, eager-to-please people-pleaser should look at the <a href="/puppies/papillon" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Papillon</a> instead. And with boisterous toddlers we say no plainly: at 2 to 4.5 kg with prominent eyes, the Chin is built for admiration, not wrestling.</p>
     </CaptionedBlock>
@@ -394,7 +406,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: Silk Without the Workload" imageAlt="Japanese Chin puppy having its silky single coat brushed" imagePosition="left">
+    <CaptionedBlock heading="Grooming: Silk Without the Workload" imageAlt="Japanese Chin puppy having its silky single coat brushed" imageSrc={imgScene3} imagePosition="left">
       <p>The Chin's coat looks like a commitment and isn't, which is the pleasant surprise of the breed. It's a single coat with no undercoat: brush twice a week, watch the trousers and ear fringes for the occasional tangle, and it dries quickly after rainy-day walks. There's no mandatory salon schedule, though many owners book a tidy-up every couple of months. The dog itself does some of the work, that self-grooming habit is real.</p>
       <p>The daily ten-second habit is the eyes: large, prominent, and the breed's most delicate feature, they deserve a gentle wipe and a quick check every day. Anything squinty or weepy gets a vet look the same week. The wipes are in your starter kit.</p>
     </CaptionedBlock>
@@ -402,7 +414,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Chin Health: What We Check Before You Take One Home" imageAlt="Japanese Chin puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Chin Health: What We Check Before You Take One Home" imageAlt="Japanese Chin puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Chin goes home vet-checked, vaccinated, dewormed, and microchipped. The Chin health points worth knowing: the flat face brings mild brachycephalic traits, so soft snoring is standard equipment but laboured breathing after gentle activity is a vet visit; the prominent eyes scratch more easily than most breeds' and get the daily check above; heart murmurs appear in some lines in later life, worth including in the annual vet listen from middle age; and patellar luxation, the standard small-breed kneecap issue.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. Keep the Chin lean; extra weight loads a short airway. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
@@ -435,7 +447,7 @@ const schemas = [
     <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
   </div>
 
-  <CaptionedBlock heading="Your Chin's First Week at Home" imageAlt="Japanese Chin puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Chin's First Week at Home" imageAlt="Japanese Chin puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Chin surveys the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm, cool and unhurried. A fixed feeding routine, the toilet pads where we placed them, gentle handling, and no pressure; the Chin settles on its own schedule and rewards patience with early trust.</p>
     <p>Days 4 to 7: the routine sticks, the first perch is claimed, and, if you're lucky, the first Chin spin debuts. Book your free first lesson with an AVS-certified trainer this week; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/cavalier-king-charles-spaniel/1-blenheim-cavalier-king-charles-spaniel-puppy-sitting-in.webp';
+import imgScene1 from '../../assets/cavalier-king-charles-spaniel/2-blenheim-cavalier-king-charles-spaniel-puppy-portrait-o.webp';
+import imgScene2 from '../../assets/cavalier-king-charles-spaniel/3-cavalier-king-charles-spaniel-puppy-cuddled-on-a-family.webp';
+import imgScene3 from '../../assets/cavalier-king-charles-spaniel/4-cavalier-king-charles-spaniel-puppy-having-its-silky-ea.webp';
+import imgScene4 from '../../assets/cavalier-king-charles-spaniel/5-cavalier-king-charles-spaniel-puppy-at-a-veterinary-hea.webp';
+import imgScene5 from '../../assets/cavalier-king-charles-spaniel/6-cavalier-puppy-settling-into-a-set-up-playpen-during-it.webp';
+import imgCard1 from '../../assets/cavalier-king-charles-spaniel/7-blenheim-male-cavalier-king-charles-spaniel-puppy-avail.webp';
+import imgCard2 from '../../assets/cavalier-king-charles-spaniel/8-tricolour-female-cavalier-king-charles-spaniel-puppy-av.webp';
+import imgCard3 from '../../assets/cavalier-king-charles-spaniel/9-ruby-male-cavalier-king-charles-spaniel-puppy-available.webp';
+import imgCard4 from '../../assets/cavalier-king-charles-spaniel/10-black-and-tan-female-cavalier-king-charles-spaniel-pupp.webp';
+import imgCard5 from '../../assets/cavalier-king-charles-spaniel/11-blenheim-female-cavalier-king-charles-spaniel-puppy-ava.webp';
+import imgCard6 from '../../assets/cavalier-king-charles-spaniel/12-tricolour-male-cavalier-king-charles-spaniel-puppy-avai.webp';
 
 const title = 'Cavalier King Charles Spaniel Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved toy spaniel']}
-    imageAlt="Blenheim Cavalier King Charles Spaniel puppy sitting in a set-up playpen at a Balestier home"
+    imageAlt="Blenheim Cavalier King Charles Spaniel puppy sitting in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Cavalier"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Cavalier in Singapore?" imageAlt="Blenheim Cavalier King Charles Spaniel puppy portrait, one of the Cavalier puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Cavalier in Singapore?" imageAlt="Blenheim Cavalier King Charles Spaniel puppy portrait, one of the Cavalier puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Cavalier puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Cavalier King Charles Spaniel puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Cavalier for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Cavalier puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Blenheim boy', href: whatsappLink('Hi! I\'d like more photos and the price for the Blenheim male Cavalier puppy.'), imageAlt: 'Blenheim male Cavalier King Charles Spaniel puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Tricolour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tricolour female Cavalier puppy.'), imageAlt: 'Tricolour female Cavalier King Charles Spaniel puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Ruby boy', href: whatsappLink('Hi! I\'d like more photos and the price for the ruby male Cavalier puppy.'), imageAlt: 'Ruby male Cavalier King Charles Spaniel puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Black & tan girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and tan female Cavalier puppy.'), imageAlt: 'Black and tan female Cavalier King Charles Spaniel puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Blenheim girl', href: whatsappLink('Hi! I\'d like more photos and the price for the Blenheim female Cavalier puppy.'), imageAlt: 'Blenheim female Cavalier King Charles Spaniel puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Tricolour boy', href: whatsappLink('Hi! I\'d like more photos and the price for the tricolour male Cavalier puppy.'), imageAlt: 'Tricolour male Cavalier King Charles Spaniel puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Blenheim boy', href: whatsappLink('Hi! I\'d like more photos and the price for the Blenheim male Cavalier puppy.'), imageAlt: 'Blenheim male Cavalier King Charles Spaniel puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Tricolour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tricolour female Cavalier puppy.'), imageAlt: 'Tricolour female Cavalier King Charles Spaniel puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Ruby boy', href: whatsappLink('Hi! I\'d like more photos and the price for the ruby male Cavalier puppy.'), imageAlt: 'Ruby male Cavalier King Charles Spaniel puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Black & tan girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and tan female Cavalier puppy.'), imageAlt: 'Black and tan female Cavalier King Charles Spaniel puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Blenheim girl', href: whatsappLink('Hi! I\'d like more photos and the price for the Blenheim female Cavalier puppy.'), imageAlt: 'Blenheim female Cavalier King Charles Spaniel puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Tricolour boy', href: whatsappLink('Hi! I\'d like more photos and the price for the tricolour male Cavalier puppy.'), imageAlt: 'Tricolour male Cavalier King Charles Spaniel puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Cavalier Temperament: Bred for Four Centuries to Love You" imageAlt="Cavalier King Charles Spaniel puppy cuddled on a family sofa" imagePosition="left">
+    <CaptionedBlock heading="Cavalier Temperament: Bred for Four Centuries to Love You" imageAlt="Cavalier King Charles Spaniel puppy cuddled on a family sofa" imageSrc={imgScene2} imagePosition="left">
       <p>Most breeds were bred to do something. The Cavalier was bred to be with someone, and four centuries of that selection produced the most reliably gentle, affectionate dog we carry. It loves your children, your visitors, your other dog, and quite possibly your cat. It doesn't guard, rarely barks with intent, and its idea of a perfect day is following you from room to room, then falling asleep touching some part of you.</p>
       <p>The honest part, from two years of matching puppies to families: that devotion has no off switch. A Cavalier alone in an empty flat from 8am to 6pm is not a mildly disappointed dog; it is a genuinely distressed one, and the crying and chewed skirting boards are how you find out. This is the single most important question we ask Cavalier buyers, and we'd rather lose the sale than place this breed in an empty home.</p>
       <p>If your weekdays are away and the Cavalier's sweetness is what drew you, the <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> exists for exactly this reason.</p>
@@ -395,7 +407,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: Silk, Feathering, and Those Ears" imageAlt="Cavalier King Charles Spaniel puppy having its silky ears brushed" imagePosition="left">
+    <CaptionedBlock heading="Grooming: Silk, Feathering, and Those Ears" imageAlt="Cavalier King Charles Spaniel puppy having its silky ears brushed" imageSrc={imgScene3} imagePosition="left">
       <p>The Cavalier coat is genuinely low-effort for how good it looks: brush 2 to 3 times a week, paying attention to the feathering behind the ears and legs where tangles start, an occasional bath, and no clipping required, though many Singapore owners keep the feathering trimmed for the humidity. Expect moderate year-round shedding.</p>
       <p>The real weekly appointment is the ears. Long, heavy drop ears trap warmth and moisture, our climate's speciality, and unchecked they brew infections. Once a week: lift, look, sniff, and wipe with the cleanser from your starter kit. Yeasty smell or head shaking means a vet visit, early, when it's cheap and simple.</p>
     </CaptionedBlock>
@@ -403,14 +415,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Cavalier Health: What We Check Before You Take One Home" imageAlt="Cavalier King Charles Spaniel puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Cavalier Health: What We Check Before You Take One Home" imageAlt="Cavalier King Charles Spaniel puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Cavalier goes home vet-checked, vaccinated, dewormed, and microchipped. And then there is the conversation every honest Cavalier page must have: mitral valve disease. This heart condition affects Cavaliers at far higher rates than almost any breed, typically emerging in middle age, and it is the main reason the breed's lifespan is quoted as 10 to 14 rather than 14 to 16. It is not a reason to avoid the breed; it is a reason to own one knowingly: annual vet checks that include listening to the heart, from around age five, catch it early, and modern management gives affected dogs good years.</p>
       <p>The rest of the list is manageable: weekly ear care as above, eye checks for this large-eyed breed, and weight discipline, because a plump Cavalier's heart works harder. Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Cavalier's First Week at Home" imageAlt="Cavalier puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Cavalier's First Week at Home" imageAlt="Cavalier puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Cavalier explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm and close. This breed settles through proximity: the playpen where it can see people, a fixed feeding routine, and the toilet pads where we placed them. Some night whimpering is normal adjustment, and Cavaliers settle fastest of all when they can hear you.</p>
     <p>Days 4 to 7: the routine sticks, and the shadow behaviour begins; enjoy it. Book your free first lesson with an AVS-certified trainer this week, and start practising short, boring departures now, five minutes at a time, so alone-time skills grow before they're needed. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

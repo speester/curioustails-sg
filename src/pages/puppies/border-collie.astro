@@ -28,6 +28,19 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/border-collie/1-black-and-white-border-collie-puppy-with-a-focused-gaze.webp';
+import imgScene1 from '../../assets/border-collie/2-black-and-white-border-collie-puppy-portrait-one-of-the.webp';
+import imgScene2 from '../../assets/border-collie/3-border-collie-working-through-a-training-exercise-with.webp';
+import imgScene3 from '../../assets/border-collie/4-border-collie-puppy-in-the-classic-herding-crouch-durin.webp';
+import imgScene4 from '../../assets/border-collie/5-border-collie-having-its-moderate-double-coat-brushed.webp';
+import imgScene5 from '../../assets/border-collie/6-border-collie-puppy-at-a-veterinary-health-check-before.webp';
+import imgScene6 from '../../assets/border-collie/7-border-collie-puppy-settling-into-a-set-up-playpen-duri.webp';
+import imgCard1 from '../../assets/border-collie/8-black-and-white-male-border-collie-puppy-available-in-s.webp';
+import imgCard2 from '../../assets/border-collie/9-blue-merle-female-border-collie-puppy-available-in-sing.webp';
+import imgCard3 from '../../assets/border-collie/10-red-and-white-male-border-collie-puppy-available-in-sin.webp';
+import imgCard4 from '../../assets/border-collie/11-blue-female-border-collie-puppy-available-in-singapore.webp';
+import imgCard5 from '../../assets/border-collie/12-smooth-coat-male-border-collie-puppy-available-in-singa.webp';
+import imgCard6 from '../../assets/border-collie/13-black-and-white-female-border-collie-puppy-available-in.webp';
 
 const title = 'Border Collie Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +153,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing working breed']}
-    imageAlt="Black and white Border Collie puppy with a focused gaze in a set-up playpen at a Singapore home"
+    imageAlt="Black and white Border Collie puppy with a focused gaze in a set-up playpen at a Singapore home" imageSrc={imgHero}
     tagLabel="Border Collie"
     proofChip="5.0 on Google"
   >
@@ -150,7 +163,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Border Collie in Singapore?" imageAlt="Black and white Border Collie puppy portrait, one of the Border Collie puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Border Collie in Singapore?" imageAlt="Black and white Border Collie puppy portrait, one of the Border Collie puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Border Collie puppies in Singapore arrive and are reserved quickly, and, like our Husky buyers, Collie buyers get our most careful matching conversation, because the gap between the smartest-breed reputation and the daily reality fills Singapore's adoption boards. As an AVS licensed pet shop, we'll send you photos, gender, age, colour, and exact prices for the Border Collie puppies available now, right after we've talked about what the dog will do all day.</p>
       <p>Unlike the import listings you'll compare us against, we tell you the number upfront: every Border Collie for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +176,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Border Collie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Border Collie puppy.'), imageAlt: 'Black and white male Border Collie puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Blue merle girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue merle female Border Collie puppy.'), imageAlt: 'Blue merle female Border Collie puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Red & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white male Border Collie puppy.'), imageAlt: 'Red and white male Border Collie puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Blue girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue female Border Collie puppy.'), imageAlt: 'Blue female Border Collie puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Smooth-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the smooth-coat male Border Collie puppy.'), imageAlt: 'Smooth-coat male Border Collie puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Black & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white female Border Collie puppy.'), imageAlt: 'Black and white female Border Collie puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Border Collie puppy.'), imageAlt: 'Black and white male Border Collie puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Blue merle girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue merle female Border Collie puppy.'), imageAlt: 'Blue merle female Border Collie puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Red & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white male Border Collie puppy.'), imageAlt: 'Red and white male Border Collie puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Blue girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue female Border Collie puppy.'), imageAlt: 'Blue female Border Collie puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Smooth-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the smooth-coat male Border Collie puppy.'), imageAlt: 'Smooth-coat male Border Collie puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Black & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white female Border Collie puppy.'), imageAlt: 'Black and white female Border Collie puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +231,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="job" class="scroll-mt-40">
-    <CaptionedBlock heading="The Job Requirement: Employing the World's Smartest Dog" imageAlt="Border Collie working through a training exercise with its owner" imagePosition="left">
+    <CaptionedBlock heading="The Job Requirement: Employing the World's Smartest Dog" imageAlt="Border Collie working through a training exercise with its owner" imageSrc={imgScene2} imagePosition="left">
       <p>Search this breed in Singapore and the adoption posts outrank the sellers. That's not bad luck; it's what happens when the world's smartest dog is hired for a position that doesn't exist. The Border Collie was bred to work sheep from dawn to dusk, and the brain came with the deal: this dog needs an hour of real exercise daily AND, the part every listing skips, thirty-plus minutes of genuine mental work: training chains, puzzle feeders, trick sessions, dog sports. The brain is the bigger appetite. Feed only the legs and you still have an unemployed genius, and unemployed geniuses renovate.</p>
       <p>The owners who thrive with Collies here are trainers at heart: people who find teaching a dog forty tricks fun rather than homework, with private housing and cool-hours availability. For them, nothing else compares, this breed learns anything, loves the work, and partners like no other. If that's you, welcome. If it isn't, the honest alternatives: the <a href="/puppies/sheltie" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Sheltie</a> for a herding brain on an achievable budget, the <a href="/puppies/jack-russell-terrier" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Jack Russell</a> for HDB-legal athleticism, and our <a href="/puppies/siberian-husky" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Husky page</a> if you want to read this same honesty about legs instead of brains.</p>
     </CaptionedBlock>
@@ -247,7 +260,7 @@ const schemas = [
   </div>
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Collie Temperament: The Herding Software Ships Installed" imageAlt="Border Collie puppy in the classic herding crouch during play" imagePosition="left">
+    <CaptionedBlock heading="Collie Temperament: The Herding Software Ships Installed" imageAlt="Border Collie puppy in the classic herding crouch during play" imageSrc={imgScene3} imagePosition="left">
       <p>Live with a Border Collie and you live with the herding sequence: the crouch, the hypnotic stare (shepherds call it "the eye"), the wide arcing runs, and occasionally a heel-nip to move a straggler along. In a flat, the sheep get recast: bikes, joggers, the robot vacuum, and, families should hear this plainly, running children. None of it is aggression; all of it is software, and early training redirects it beautifully onto balls and frisbees, but it ships installed and doesn't uninstall.</p>
       <p>Beyond the instincts: an intense, sensitive, deeply loyal partner that bonds through work, reads your body language like a script, and is gentle-natured under the focus. Harsh handling wounds this breed; games and jobs win everything. The free first lesson with an AVS-certified trainer is where the redirect training starts, and for this breed we book it in week one, not week three.</p>
     </CaptionedBlock>
@@ -370,7 +383,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: The Easy Part of This Breed" imageAlt="Border Collie having its moderate double coat brushed" imagePosition="left">
+    <CaptionedBlock heading="Grooming: The Easy Part of This Breed" imageAlt="Border Collie having its moderate double coat brushed" imageSrc={imgScene4} imagePosition="left">
       <p>For once on this page, good news that costs nothing: the Collie coat is the manageable end of double-coated. Brush 2 to 3 times a week, step up during the seasonal blows, dry properly after rain, and never shave; the smooth-coat variety is easier still. No salon schedule required, though a tidy-up every couple of months keeps the feathering civilised.</p>
       <p>The maintenance budget for this breed was never going to the groomer anyway; it goes to training classes, puzzle toys and agility fees, and it's the best money a Collie owner spends.</p>
     </CaptionedBlock>
@@ -378,14 +391,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Collie Health: What We Check Before You Take One Home" imageAlt="Border Collie puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Collie Health: What We Check Before You Take One Home" imageAlt="Border Collie puppy at a veterinary health check before going home" imageSrc={imgScene5} variant="mid">
       <p>Every Border Collie goes home vet-checked, vaccinated, dewormed, and microchipped, and the breed brings working-line soundness: generations selected for function built one of the healthiest medium breeds there is. The watch-list we ask about, and you should ask any seller about: Collie eye anomaly, the inherited eye condition of herding lines; hips, standard diligence for an athletic breed, met with joint-friendly puppyhood; and epilepsy, which surfaces in some lines and deserves an honest question rather than silence.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, portioned to the actual work done, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Collie's First Week at Home" imageAlt="Border Collie puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Collie's First Week at Home" imageAlt="Border Collie puppy settling into a set-up playpen during its first week home" imageSrc={imgScene6} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Collie maps the room, and it will map the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm and structured. A fixed feeding routine, the toilet pads where we placed them, and short, gentle play. You'll notice the watching immediately; the puppy is already learning your patterns, so make them good ones.</p>
     <p>Days 4 to 7: the routine sticks and employment begins: first tiny training games, thirty seconds at a time, and the free first lesson with an AVS-certified trainer booked now, not later, because a Collie's education begins whether or not anyone is teaching. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/cavachon/1-apricot-and-white-cavachon-puppy-sitting-in-a-set-up-pl.webp';
+import imgScene1 from '../../assets/cavachon/2-apricot-and-white-cavachon-puppy-portrait-one-of-the-ca.webp';
+import imgScene2 from '../../assets/cavachon/3-cavachon-puppy-cuddling-calmly-with-a-child-on-a-sofa.webp';
+import imgScene3 from '../../assets/cavachon/4-cavachon-puppy-being-brushed-through-its-soft-wavy-coat.webp';
+import imgScene4 from '../../assets/cavachon/5-cavachon-puppy-at-a-veterinary-health-check-before-goin.webp';
+import imgScene5 from '../../assets/cavachon/6-cavachon-puppy-settling-into-a-set-up-playpen-during-it.webp';
+import imgCard1 from '../../assets/cavachon/7-apricot-and-white-male-cavachon-puppy-available-in-sing.webp';
+import imgCard2 from '../../assets/cavachon/8-cream-female-cavachon-puppy-available-in-singapore.webp';
+import imgCard3 from '../../assets/cavachon/9-blenheim-marked-male-cavachon-puppy-available-in-singap.webp';
+import imgCard4 from '../../assets/cavachon/10-white-female-cavachon-puppy-available-in-singapore.webp';
+import imgCard5 from '../../assets/cavachon/11-sable-and-white-male-cavachon-puppy-available-in-singap.webp';
+import imgCard6 from '../../assets/cavachon/12-apricot-female-cavachon-puppy-available-in-singapore.webp';
 
 const title = 'Cavachon Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-friendly toy cross']}
-    imageAlt="Apricot and white Cavachon puppy sitting in a set-up playpen at a Balestier home"
+    imageAlt="Apricot and white Cavachon puppy sitting in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Cavachon"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Cavachon in Singapore?" imageAlt="Apricot and white Cavachon puppy portrait, one of the Cavachon puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Cavachon in Singapore?" imageAlt="Apricot and white Cavachon puppy portrait, one of the Cavachon puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Cavachon puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Cavachon puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Cavachon for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Cavachon puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Apricot & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot and white male Cavachon puppy.'), imageAlt: 'Apricot and white male Cavachon puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Cavachon puppy.'), imageAlt: 'Cream female Cavachon puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Blenheim-marked boy', href: whatsappLink('Hi! I\'d like more photos and the price for the Blenheim-marked male Cavachon puppy.'), imageAlt: 'Blenheim-marked male Cavachon puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'White girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white female Cavachon puppy.'), imageAlt: 'White female Cavachon puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Sable & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the sable and white male Cavachon puppy.'), imageAlt: 'Sable and white male Cavachon puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Cavachon puppy.'), imageAlt: 'Apricot female Cavachon puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Apricot & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot and white male Cavachon puppy.'), imageAlt: 'Apricot and white male Cavachon puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Cavachon puppy.'), imageAlt: 'Cream female Cavachon puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Blenheim-marked boy', href: whatsappLink('Hi! I\'d like more photos and the price for the Blenheim-marked male Cavachon puppy.'), imageAlt: 'Blenheim-marked male Cavachon puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'White girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white female Cavachon puppy.'), imageAlt: 'White female Cavachon puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Sable & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the sable and white male Cavachon puppy.'), imageAlt: 'Sable and white male Cavachon puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Cavachon puppy.'), imageAlt: 'Apricot female Cavachon puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Cavachon Temperament: Two Companion Breeds, One Gentle Result" imageAlt="Cavachon puppy cuddling calmly with a child on a sofa" imagePosition="left">
+    <CaptionedBlock heading="Cavachon Temperament: Two Companion Breeds, One Gentle Result" imageAlt="Cavachon puppy cuddling calmly with a child on a sofa" imageSrc={imgScene2} imagePosition="left">
       <p>Most crosses blend a companion breed with a working one. The Cavachon blends two dogs that were each bred for centuries to do nothing but be wonderful company, the Cavalier from English courts, the Bichon from Mediterranean merchant ships, and the result is exactly what you'd predict: the gentlest, most people-oriented cross in our shop. It loves children, accepts other pets, greets visitors like returning family, and barks so little that "watchdog" doesn't appear anywhere in this page.</p>
       <p>The honest part, from two years of matching crosses to families: all that devotion needs somewhere to go. A Cavachon does best in a home with daytime company, a family with staggered schedules, someone working from home, a helper, or retirees, and the homes we've placed them in that work all share that trait. The <a href="/puppies/bichon-frise" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Bichon Frise</a> side adds a sunnier adaptability than the purebred Cavalier, but this is still a dog that measures its day in proximity to you.</p>
       <p>Every Cavachon litter also spreads between its parents, some pups landing bouncier and more Bichon, some softer and more Cavalier. We watch each litter daily and will tell you honestly where each puppy sits.</p>
@@ -395,7 +407,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: The Teddy Coat Has a Schedule" imageAlt="Cavachon puppy being brushed through its soft wavy coat" imagePosition="left">
+    <CaptionedBlock heading="Grooming: The Teddy Coat Has a Schedule" imageAlt="Cavachon puppy being brushed through its soft wavy coat" imageSrc={imgScene3} imagePosition="left">
       <p>The Cavachon's soft, low-shedding coat runs on the same deal as its cousin crosses: hair that doesn't fall out stays in and tangles instead. The schedule that keeps it comfortable in our humidity: a brush every other day, a comb-through to the skin weekly, and a salon groom every 4 to 6 weeks; nearly every Singapore Cavachon lives happily in a puppy cut.</p>
       <p>Two ten-second habits round it out: a weekly lift-look-sniff of those drop ears, warmth plus humidity is how ear trouble starts, and a daily eye wipe on light-coloured faces to stay ahead of tear staining. The cleanser and wipes are already in your starter kit.</p>
     </CaptionedBlock>
@@ -403,14 +415,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Cavachon Health: What We Check Before You Take One Home" imageAlt="Cavachon puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Cavachon Health: What We Check Before You Take One Home" imageAlt="Cavachon puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Cavachon goes home vet-checked, vaccinated, dewormed, and microchipped. And because honest pages answer the question buyers actually have: yes, the Cavalier parent carries a known heart condition (mitral valve disease), and crossing to a <a href="/puppies/cavalier-king-charles-spaniel" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavalier</a> line lowers, but does not erase, that inheritance. The practical habit is the same one we give Cavalier owners: from around age five, make sure the annual vet visit includes a proper listen to the heart. Early detection changes everything, and most Cavachons live their 12 to 15 years untroubled.</p>
       <p>The rest is routine small-breed fare: weekly ear care, kneecaps (patellar luxation), and dental habits from day one. Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Cavachon's First Week at Home" imageAlt="Cavachon puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Cavachon's First Week at Home" imageAlt="Cavachon puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Cavachon explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm and close. This cross settles through proximity: the playpen where it can see people, a fixed feeding routine, and the toilet pads where we placed them. Some night whimpering is normal adjustment.</p>
     <p>Days 4 to 7: the routine sticks, and two habits start now while they're easy: book your free first lesson with an AVS-certified trainer, and practise short, boring departures, five minutes at a time, so alone-time skills grow before they're ever needed. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/toy-poodle/1-red-toy-poodle-puppy-sitting-in-a-set-up-playpen-at-a-b.webp';
+import imgScene1 from '../../assets/toy-poodle/2-apricot-toy-poodle-puppy-portrait-one-of-the-toy-poodle.webp';
+import imgScene2 from '../../assets/toy-poodle/3-toy-poodle-puppy-learning-a-cue-during-play-at-home.webp';
+import imgScene3 from '../../assets/toy-poodle/4-toy-poodle-puppy-being-brushed-during-a-coat-care-sessi.webp';
+import imgScene4 from '../../assets/toy-poodle/5-toy-poodle-puppy-at-a-veterinary-health-check-before-go.webp';
+import imgScene5 from '../../assets/toy-poodle/6-toy-poodle-puppy-settling-into-a-set-up-playpen-during.webp';
+import imgCard1 from '../../assets/toy-poodle/7-red-male-toy-poodle-puppy-available-in-singapore.webp';
+import imgCard2 from '../../assets/toy-poodle/8-apricot-female-toy-poodle-puppy-available-in-singapore.webp';
+import imgCard3 from '../../assets/toy-poodle/9-cream-male-toy-poodle-puppy-available-in-singapore.webp';
+import imgCard4 from '../../assets/toy-poodle/10-black-female-toy-poodle-puppy-available-in-singapore.webp';
+import imgCard5 from '../../assets/toy-poodle/11-white-male-toy-poodle-puppy-available-in-singapore.webp';
+import imgCard6 from '../../assets/toy-poodle/12-silver-female-toy-poodle-puppy-available-in-singapore.webp';
 
 const title = 'Toy Poodle Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -140,7 +152,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved toy breed']}
-    imageAlt="Red Toy Poodle puppy sitting in a set-up playpen at a Balestier home"
+    imageAlt="Red Toy Poodle puppy sitting in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Toy Poodle"
     proofChip="5.0 on Google"
   >
@@ -150,7 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Toy Poodle in Singapore?" imageAlt="Apricot Toy Poodle puppy portrait, one of the Toy Poodle puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Toy Poodle in Singapore?" imageAlt="Apricot Toy Poodle puppy portrait, one of the Toy Poodle puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Toy Poodles are the most requested breed in the shop, so our litters arrive and are reserved quickly, and we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Toy Poodle puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Toy Poodle for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -163,12 +175,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Toy Poodle puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Toy Poodle puppy.'), imageAlt: 'Red male Toy Poodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Toy Poodle puppy.'), imageAlt: 'Apricot female Toy Poodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Toy Poodle puppy.'), imageAlt: 'Cream male Toy Poodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Toy Poodle puppy.'), imageAlt: 'Black female Toy Poodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'White boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white male Toy Poodle puppy.'), imageAlt: 'White male Toy Poodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Silver girl', href: whatsappLink('Hi! I\'d like more photos and the price for the silver female Toy Poodle puppy.'), imageAlt: 'Silver female Toy Poodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Toy Poodle puppy.'), imageAlt: 'Red male Toy Poodle puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Toy Poodle puppy.'), imageAlt: 'Apricot female Toy Poodle puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Toy Poodle puppy.'), imageAlt: 'Cream male Toy Poodle puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Toy Poodle puppy.'), imageAlt: 'Black female Toy Poodle puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'White boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white male Toy Poodle puppy.'), imageAlt: 'White male Toy Poodle puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Silver girl', href: whatsappLink('Hi! I\'d like more photos and the price for the silver female Toy Poodle puppy.'), imageAlt: 'Silver female Toy Poodle puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
   </div>
@@ -218,7 +230,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Toy Poodle Temperament: The Smart One" imageAlt="Toy Poodle puppy learning a cue during play at home" imagePosition="left">
+    <CaptionedBlock heading="Toy Poodle Temperament: The Smart One" imageAlt="Toy Poodle puppy learning a cue during play at home" imageSrc={imgScene2} imagePosition="left">
       <p>Everything people say about Poodle intelligence is true, and living with it is the point most listings skip. A Toy Poodle learns your household's routine in days: where the treats live, which sound is the lift door, what you do before a walk. Training feels less like teaching and more like agreeing on the rules together, which is exactly why first-time owners do so well with them.</p>
       <p>The honest part, from two years of matching puppies to families: that brain is a subscription, not a purchase. A Toy Poodle with nothing to do invents jobs you didn't ask for, usually loud ones. Ten minutes of trick work or a puzzle feeder does more for a Poodle's behaviour than an extra hour of sofa time, and the free first training lesson with an AVS-certified trainer shows you exactly how to run those ten minutes.</p>
       <p>With children the Toy Poodle is playful and gentle, though at 3 to 4.5 kg it suits calm kids better than rowdy ones. For a sturdier family all-rounder, look at the <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a>, which carries the same Poodle smarts in a more robust frame.</p>
@@ -395,7 +407,7 @@ const schemas = [
   </div>
 
   <div id="grooming" class="scroll-mt-40">
-    <CaptionedBlock heading="Grooming: The Trade for That Low-Shedding Coat" imageAlt="Toy Poodle puppy being brushed during a coat care session" imagePosition="left">
+    <CaptionedBlock heading="Grooming: The Trade for That Low-Shedding Coat" imageAlt="Toy Poodle puppy being brushed during a coat care session" imageSrc={imgScene3} imagePosition="left">
       <p>Here's the deal the Poodle offers: almost nothing on your floor, in exchange for a real grooming routine. The curly coat traps loose hair instead of dropping it, which is exactly why it mats if ignored. Plan on brushing every other day, a proper comb-through weekly, and a salon groom every 4 to 6 weeks; most Singapore owners budget $70 to $100 per session for a toy breed.</p>
       <p>In our humidity, keep the coat clipped shorter than the show-ring look and dry your puppy properly after rainy-day walks. Tear staining shows on light-coloured Poodles; the wipes in your starter kit handle it as a daily ten-second habit rather than a problem.</p>
     </CaptionedBlock>
@@ -403,7 +415,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Toy Poodle Health: What We Check Before You Take One Home" imageAlt="Toy Poodle puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Toy Poodle Health: What We Check Before You Take One Home" imageAlt="Toy Poodle puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Toy Poodle goes home vet-checked, vaccinated, dewormed, and microchipped. The Toy Poodle health points worth knowing: patellar luxation, the kneecap issue common to all toy breeds, which is why we discourage sofa-diving while joints grow; progressive retinal atrophy, an inherited eye condition the breed carries, worth asking about in any Poodle line; dental crowding, because small jaws need the oral care routine from day one; and Legg-Calvé-Perthes, a hip condition seen occasionally in toy breeds.</p>
       <p>None of this changes the headline: a well-bred Toy Poodle is one of the longest-lived dogs you can own, with 14 to 17 years the normal expectation. Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. For portioning guidance see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
@@ -436,7 +448,7 @@ const schemas = [
     <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
   </div>
 
-  <CaptionedBlock heading="Your Toy Poodle's First Week at Home" imageAlt="Toy Poodle puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Toy Poodle's First Week at Home" imageAlt="Toy Poodle puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Toy Poodle explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm and predictable. A fixed feeding routine, the toilet pads where we placed them, and short, gentle play. Some night whimpering is normal adjustment, and Poodle puppies settle fast once the routine reads as safe.</p>
     <p>Days 4 to 7: the routine sticks, and this brain starts looking for work. This is the window to book your free first lesson with an AVS-certified trainer; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>. For anything in between, you WhatsApp us.</p>

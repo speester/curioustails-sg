@@ -28,6 +28,18 @@ import {
   serviceSchema,
 } from '../../lib/schema';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/whippet/1-whippet-puppy-sitting-in-a-set-up-playpen-at-a-singapor.webp';
+import imgScene1 from '../../assets/whippet/2-whippet-puppy-portrait-one-of-the-whippet-puppies-avail.webp';
+import imgScene2 from '../../assets/whippet/3-whippet-puppy-curled-up-softly-on-a-sofa-beside-its-fam.webp';
+import imgScene3 from '../../assets/whippet/4-whippet-sprinting-at-full-stretch-across-an-enclosed-fi.webp';
+import imgScene4 from '../../assets/whippet/5-whippet-puppy-at-a-veterinary-health-check-before-going.webp';
+import imgScene5 from '../../assets/whippet/6-whippet-puppy-settling-into-a-set-up-playpen-during-its.webp';
+import imgCard1 from '../../assets/whippet/7-fawn-male-whippet-puppy-available-in-singapore.webp';
+import imgCard2 from '../../assets/whippet/8-blue-female-whippet-puppy-available-in-singapore.webp';
+import imgCard3 from '../../assets/whippet/9-brindle-male-whippet-puppy-available-in-singapore.webp';
+import imgCard4 from '../../assets/whippet/10-white-and-fawn-female-whippet-puppy-available-in-singap.webp';
+import imgCard5 from '../../assets/whippet/11-black-female-whippet-puppy-available-in-singapore.webp';
+import imgCard6 from '../../assets/whippet/12-fawn-and-white-male-whippet-puppy-available-in-singapor.webp';
 
 const title = 'Whippet Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -135,7 +147,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing gentle sighthound']}
-    imageAlt="Whippet puppy sitting in a set-up playpen at a Singapore condo"
+    imageAlt="Whippet puppy sitting in a set-up playpen at a Singapore condo" imageSrc={imgHero}
     tagLabel="Whippet"
     proofChip="5.0 on Google"
   >
@@ -145,7 +157,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Whippet in Singapore?" imageAlt="Whippet puppy portrait, one of the Whippet puppies available in Singapore" variant="mid">
+    <CaptionedBlock heading="Looking to Buy a Whippet in Singapore?" imageAlt="Whippet puppy portrait, one of the Whippet puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Whippet puppies in Singapore are rare and reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Whippet puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Whippet for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
@@ -158,12 +170,12 @@ const schemas = [
       headingAccent="Available"
       subhead="A few of the Whippet puppies looking for a home right now. Litters are limited, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn male Whippet puppy.'), imageAlt: 'Fawn male Whippet puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Blue girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue female Whippet puppy.'), imageAlt: 'Blue female Whippet puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Brindle boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle male Whippet puppy.'), imageAlt: 'Brindle male Whippet puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'White & fawn girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white and fawn female Whippet puppy.'), imageAlt: 'White and fawn female Whippet puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Whippet puppy.'), imageAlt: 'Black female Whippet puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Fawn & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn and white male Whippet puppy.'), imageAlt: 'Fawn and white male Whippet puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn male Whippet puppy.'), imageAlt: 'Fawn male Whippet puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Blue girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue female Whippet puppy.'), imageAlt: 'Blue female Whippet puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Brindle boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle male Whippet puppy.'), imageAlt: 'Brindle male Whippet puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'White & fawn girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white and fawn female Whippet puppy.'), imageAlt: 'White and fawn female Whippet puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Whippet puppy.'), imageAlt: 'Black female Whippet puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Fawn & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn and white male Whippet puppy.'), imageAlt: 'Fawn and white male Whippet puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
   </div>
@@ -213,7 +225,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Whippet Temperament: The Gentle, Quiet Sighthound" imageAlt="Whippet puppy curled up softly on a sofa beside its family" imagePosition="left">
+    <CaptionedBlock heading="Whippet Temperament: The Gentle, Quiet Sighthound" imageAlt="Whippet puppy curled up softly on a sofa beside its family" imageSrc={imgScene2} imagePosition="left">
       <p>Owners describe the Whippet with the same word again and again: gentle. It is a sensitive, affectionate, quiet dog that adores its people and asks for very little, happiest pressed against you on the sofa. It rarely barks, gets on with other dogs, and brings a calm, elegant presence to a home that belies the sprinter hiding inside. For a private-housing family who wants a big-dog character in a low-drama package, it is a hidden gem.</p>
       <p>The honest footnotes. First, that sensitivity cuts both ways: Whippets do not enjoy harsh handling or being left alone all day, and they thrive on gentle, positive training and real companionship. Second, they are lean and thin-coated, so they feel both heat and strong air-conditioning, and appreciate soft bedding and a warm spot away from a cold vent. Third, see the next section, because the chase instinct is the one trait a Whippet home must plan around.</p>
       <p>If you love the sighthound elegance at a smaller scale, the <a href="/puppies/italian-greyhound" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Italian Greyhound</a> is the toy-sized cousin, with the same gentle nature and the same honest pricing from us.</p>
@@ -243,7 +255,7 @@ const schemas = [
   </div>
 
   <div id="chase" class="scroll-mt-40">
-    <CaptionedBlock heading="Calm Indoors, Lightning Outdoors: The Two Sides of a Whippet" imageAlt="Whippet sprinting at full stretch across an enclosed field" imagePosition="left">
+    <CaptionedBlock heading="Calm Indoors, Lightning Outdoors: The Two Sides of a Whippet" imageAlt="Whippet sprinting at full stretch across an enclosed field" imageSrc={imgScene3} imagePosition="left">
       <p>The Whippet's charm is a genuine contradiction. Indoors it is one of the laziest, most serene dogs you will ever meet, a devoted couch companion that seems to run on standby. Outdoors, given the space, it explodes into one of the fastest domestic animals on earth, reaching around 50 km/h in a few strides. Understanding both sides is the key to a happy Whippet: it needs the sprint to earn the serenity.</p>
       <p>Which brings the one rule every Whippet home lives by: the chase instinct is hard-wired. A sighthound is built to pursue anything that darts, and at full speed no recall on earth will bring it back in time. So a Whippet is a leash-first dog in any open area, a secure garden is worth its weight in gold, and a safe, enclosed space to sprint is the ideal. Singapore's public leash law suits the breed perfectly. Respect the chase, and the Whippet gives you the easiest indoor life of any athletic dog.</p>
     </CaptionedBlock>
@@ -342,14 +354,14 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="health" class="scroll-mt-40">
-    <CaptionedBlock heading="Whippet Health: What We Check and What to Watch" imageAlt="Whippet puppy at a veterinary health check before going home" variant="mid">
+    <CaptionedBlock heading="Whippet Health: What We Check and What to Watch" imageAlt="Whippet puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Whippet goes home vet-checked, vaccinated, dewormed, and microchipped. Whippets are one of the healthier, longer-lived breeds we carry, with few of the structural problems that trouble more exaggerated dogs. The honest watch-points are gentle ones: the thin skin bruises and nicks more easily than a thick-coated dog\'s, so play areas should be free of sharp hazards; the lean build means Whippets can be sensitive to some anaesthetics and to cold, both worth a quick word with your vet; and as a deep-chested breed, sensible feeding routines around exercise are wise.</p>
       <p>Feeding is simple: your puppy comes with the food it is already eating, portioned for a naturally lean frame, and any change should be gradual over a week. Do not mistake a Whippet\'s slim silhouette for underweight; this breed is meant to be lithe. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Whippet's First Week at Home" imageAlt="Whippet puppy settling into a set-up playpen during its first week home" imagePosition="left">
+  <CaptionedBlock heading="Your Whippet's First Week at Home" imageAlt="Whippet puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, and we make sure the bed is soft and warm from the start. The playpen, bed, water, and toys are set up before your Whippet explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
     <p>Days 1 to 3: keep it calm and cosy. A fixed feeding routine with measured portions, the toilet pads where we placed them, gentle play, and a warm resting spot away from the aircon draught.</p>
     <p>Days 4 to 7: the routine sticks, and now is the time to build gentle habits. Book your free first lesson with an AVS-certified trainer to start positive recall and leash manners early, and settle the calm-indoors routine this breed is famous for. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>

@@ -1,0 +1,479 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Goldendoodle Puppy for Sale Singapore | Curious Tails';
+const description =
+  'Goldendoodle puppies for sale in Singapore from $2,888 all-in. Honest part first: Goldendoodles are not HDB-approved. The low-shedding golden cross, real prices, grooming truth and the $500+ starter kit.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Coat & Grooming', href: '#coat' },
+  { label: 'Size', href: '#size' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Can I keep a Goldendoodle in an HDB flat?',
+    answer:
+      'No. The Goldendoodle is a cross of two non-approved breeds, the Golden Retriever and the Poodle, and it is not on the HDB-approved list at any size. Condos and landed homes may keep up to three dogs, which is where the Goldendoodle belongs in Singapore. HDB readers: our HDB-approved breeds guide maps the low-shedding companion crosses that IS on the list, like the Maltipoo and Cavapoo.',
+  },
+  {
+    question: 'How much does a Goldendoodle cost in Singapore?',
+    answer:
+      'Goldendoodle prices in Singapore commonly run $4,000 to $8,000, with multigenerational and mini sizes at the top. At Curious Tails, Goldendoodle puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Do Goldendoodles really not shed?',
+    answer:
+      'Low-shedding is the honest phrase, not no-shedding. A Goldendoodle with a wavier or curlier coat, especially an F1b with more Poodle in the mix, sheds very little and suits many allergy-sensitive homes; a flatter-coated one sheds more. No cross is a cast-iron guarantee, so we tell you each puppy\'s coat type honestly rather than promising hypoallergenic magic. Either way it is a world away from a Golden\'s heavy shed.',
+  },
+  {
+    question: 'How much grooming does a Goldendoodle need?',
+    answer:
+      'This is the real trade-off, and every honest Doodle page says so: a low-shed coat is a high-maintenance coat. It does not drop hair on your sofa, but it grows continuously and mats without work, so plan on brushing several times a week and a professional groom every 6 to 8 weeks. You swap the vacuum for a salon schedule. Budget it before you buy.',
+  },
+  {
+    question: 'How big does a Goldendoodle get?',
+    answer:
+      'It depends on the Poodle parent. Medium and standard Goldendoodles commonly reach 15 to 30 kg, while mini Goldendoodles (from a toy or miniature Poodle) stay smaller. We tell you the expected adult size for each litter honestly, because a cross\'s size can vary and you deserve to plan for the dog you\'ll actually have.',
+  },
+  {
+    question: 'How much exercise does a Goldendoodle need?',
+    answer:
+      'A genuine hour a day for most, split across the cool hours: a proper walk before 9am and another after 6pm, never hard midday exertion. Both parent breeds are active and clever, so mental work, training games and a puzzle feeder keep the Doodle brain busy. Many love water, so a dog-friendly swim is a perfect Singapore energy-burner.',
+  },
+  {
+    question: 'What happens after I reserve a Goldendoodle?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items, including the coat-care routine, before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/goldendoodle',
+    title,
+    description,
+    aboutName: 'Goldendoodle',
+    aboutAlternateName: 'Groodle',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Goldendoodle',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Goldendoodle puppy',
+      url: '/puppies/goldendoodle',
+      description:
+        'Goldendoodle puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Goldendoodle Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Goldendoodle puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Goldendoodle',
+    description:
+      'The Goldendoodle is a Golden Retriever and Poodle cross bred for a friendly, trainable temperament and a low-shedding coat. Adult size ranges from mini to standard, roughly 10 to 30 kg. It is not on Singapore\'s HDB-approved list and suits private housing, with a lifespan of about 10 to 15 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Goldendoodle',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/goldendoodle">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Goldendoodle Puppies for Sale in Singapore"
+    h1Accent="Goldendoodle"
+    subhead="The honest part first: Goldendoodles are not HDB-approved, so this page is for condo and landed homes. The draw is real — a Golden's warmth with a low-shedding coat — and so is the trade: a salon schedule instead of a vacuum. Prices here run $4,000 to $8,000 elsewhere; ours are $2,888 to $4,488, all-in."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Goldendoodle puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. Private housing only. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Low-shedding family cross']}
+    imageAlt="Goldendoodle puppy sitting in a set-up playpen at a Singapore condo"
+    tagLabel="Goldendoodle"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Goldendoodle', href: '/puppies/goldendoodle' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Goldendoodle in Singapore?" imageAlt="Goldendoodle puppy portrait, one of the Goldendoodle puppies available in Singapore" variant="mid">
+      <p>Our Goldendoodle puppies in Singapore are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and exact prices for the Goldendoodle puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Goldendoodle for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Goldendoodle puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Goldendoodle photos and prices</a>, or meet our Goldendoodle puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Goldendoodle Puppies"
+      headingAccent="Available"
+      subhead="A few of the Goldendoodle puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Apricot boy', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot male Goldendoodle puppy.'), imageAlt: 'Apricot male Goldendoodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Goldendoodle puppy.'), imageAlt: 'Cream female Goldendoodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Goldendoodle puppy.'), imageAlt: 'Red male Goldendoodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Gold girl', href: whatsappLink('Hi! I\'d like more photos and the price for the gold female Goldendoodle puppy.'), imageAlt: 'Gold female Goldendoodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Goldendoodle puppy.'), imageAlt: 'Apricot female Goldendoodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Goldendoodle puppy.'), imageAlt: 'Cream male Goldendoodle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div id="hdb" class="relative scroll-mt-40">
+    <ScatterFloat />
+    <DefBox
+      term="Can you keep a Goldendoodle in an HDB flat? No"
+      definition="The Goldendoodle is a cross of two non-approved breeds, the Golden Retriever and the Poodle, and it is not on the HDB-approved breed list at any size. HDB flats may keep one dog of an approved small breed; condos and landed homes may keep up to three dogs, subject to the estate's own rules, which is where the Goldendoodle belongs in Singapore."
+      bridge="We tell you this before you fall for the photos. If you're set on a low-shedding companion but live in an HDB flat, our HDB-approved breeds guide maps the crosses that ARE on the list, the Maltipoo and Cavapoo among them. Private housing readers: carry on, the rest of this page is yours."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The housing rules, straight</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'HDB flat: Goldendoodle not approved',
+            'Condo / landed: up to three dogs (AVS limits of ownership)',
+            'HDB readers: try the Maltipoo or Cavapoo instead',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: <a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2">HDB-approved breeds guide</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Goldendoodle from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Goldendoodle pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Goldendoodle Temperament: Golden Warmth, Poodle Brains" imageAlt="Goldendoodle puppy playing gently with children in a garden" imagePosition="left">
+      <p>The Goldendoodle inherits the best of a famous pairing: the Golden Retriever's gentle, people-loving nature and the Poodle's quick, trainable intelligence. The result is a sociable, affectionate family dog that bonds hard, learns fast, and treats visitors as friends it hasn't met yet. For many Singapore families it's the dream — the Golden they always wanted, without the fur on every surface.</p>
+      <p>The honest footnotes. First, this is a deeply social cross that wants to be part of family life, not left alone all week; boredom and loneliness turn its cleverness into mischief. Second, both parent breeds are active, so the exercise below is real, not a formality. Third, a crossbreed's temperament can vary a little between puppies, so we tell you what we see in each one rather than reciting a brochure.</p>
+      <p>Cross-shopping the original? The <a href="/puppies/golden-retriever" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Golden Retriever</a> gives you complete predictability and heavy shedding; the <a href="/puppies/labradoodle" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Labradoodle</a> is the Labrador-based cousin. All three sit in the same price range with us.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Goldendoodle Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Moderately, once mature and genuinely exercised, but this is a companion cross that thrives on company. A well-exercised adult naps through a workday contentedly; an under-exercised or lonely one gets anxious and destructive. Weekends and evenings that belong to the dog are the real contract here.</p>
+      <p>The room needs the usual tropical basics — ventilation, shade, water — plus a puzzle toy to occupy that busy brain, and the exercise and grooming routines below decide the rest.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Private housing and a sociable, active family',
+            'You want low shedding and accept the grooming',
+            'Someone walks and engages the dog daily',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="coat" class="scroll-mt-40">
+    <CaptionedBlock heading="The Coat: Low-Shedding, High-Maintenance, Honestly" imageAlt="Goldendoodle having its curly coat brushed and clipped at a groomer" imagePosition="left">
+      <p>This is the section that sells the breed and the one most listings gloss over. The Goldendoodle's wavy-to-curly coat is genuinely low-shedding, which is the whole appeal, and for many allergy-sensitive homes it's a real answer where a Golden never could be. Coats vary: the more Poodle in the mix (an F1b, for instance), the curlier and lower-shedding it tends to be. We'll tell you honestly what each puppy's coat looks like it will become.</p>
+      <p>But here's the trade, stated plainly: a coat that doesn't shed is a coat that keeps growing, and a growing coat mats without work. Plan on brushing several times a week down to the skin, and a professional groom every 6 to 8 weeks. You are swapping the vacuum for a grooming budget, not escaping maintenance altogether. Owners who go in expecting that love the breed; owners who don't get a surprise at the first matting.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Goldendoodle Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for a cross whose size depends on its Poodle parent."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Mini roughly 10 to 15 kg; medium and standard 15 to 30 kg'] },
+        { label: 'Height', values: ['Around 35 to 60 cm at the shoulder, by size variant'] },
+        { label: 'Coat', values: ['Wavy to curly, low-shedding; cream, gold, apricot or red'] },
+        { label: 'Lifespan', values: ['About 10 to 15 years, smaller sizes tending to live longer'] },
+        { label: 'Exercise', values: ['Around an hour daily in the cool hours; loves water and games'] },
+        { label: 'Grooming', values: ['Brush several times a week; professional groom every 6 to 8 weeks'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Because a cross's adult size can vary, we tell you the expected size for each specific litter, so you can plan for the dog you'll actually have, not a guess.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Goldendoodle Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="The market runs $4,000 to $8,000. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Goldendoodle price commonly $4,000 to $8,000',
+            'Mini and multigenerational sizes priced higher',
+            'Inclusions rarely spelt out',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and factor the ongoing grooming cost with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Goldendoodle Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Goldendoodle leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this coat the brush is the tool that earns its keep, and on delivery day we show you how to keep that curly coat mat-free between grooms.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Goldendoodle's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Goldendoodle Right for Your Lifestyle?"
+      subhead="We ask about your housing, your grooming budget and your mornings before your heart gets a vote. Here's the honest short version."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Private housing, active family, wants low shedding', values: ['Ideal. This is exactly the household the cross was created for'] },
+        { label: 'Allergy-sensitive home', values: ['Often a great fit, especially a curlier F1b; meet the pup first to be sure'] },
+        { label: 'HDB flat', values: ['Not eligible. See the Maltipoo or Cavapoo for the approved low-shed option'] },
+        { label: 'Wants low-shed but no grooming budget', values: ['Reconsider. Low shedding means regular grooming; the cost is real'] },
+        { label: 'Sedentary household, no daily walker', values: ['Reconsider. Both parent breeds are active and clever'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Goldendoodle is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your housing type and daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my housing type and daily routine. Is a Goldendoodle the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Goldendoodle vs Golden Retriever vs Labradoodle" imagePosition="none" variant="dark">
+    <p>Three ways to the same warm, family temperament, with one real choice at the centre: coat. The <a href="/puppies/golden-retriever" class="underline underline-offset-2">Golden Retriever</a> is the fully predictable original and pays for it in heavy, year-round shedding. The Goldendoodle trades a little of that predictability for a low-shedding coat and a salon schedule. The <a href="/puppies/labradoodle" class="underline underline-offset-2">Labradoodle</a> is the Labrador-based version of the same idea, often a touch more energetic.</p>
+    <p>All three are private-housing breeds in Singapore, all need real daily exercise, and with us the price, the starter kit, and the aftercare are identical. Allergies or hair-free floors point to a Doodle; benchmark predictability points to the Golden. Message us your priorities and we'll tell you straight which fits.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Golden: fully predictable, heavy shedding',
+          'Goldendoodle: low-shed coat, salon schedule, some variance',
+          'Labradoodle: Lab-based, often a little more energetic',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Goldendoodle Health: What We Check and What to Watch" imageAlt="Goldendoodle puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Goldendoodle goes home vet-checked, vaccinated, dewormed, and microchipped. Crossbreeds often benefit from hybrid vigour, but honest owners still watch the risks both parent breeds carry: hip and elbow joints in the larger sizes, so controlled growth and no forced running before maturity; and ears, because a hairy, floppy Doodle ear traps moisture in our humidity and needs regular checking and gentle cleaning. Keeping the coat around the ears trimmed helps.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, portioned for its size, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Your Goldendoodle's First Week at Home" imageAlt="Goldendoodle puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you. The playpen, bed, water, and toys are set up before your Goldendoodle explores the room, and we walk you through all 30+ starter-kit items in person, including the coat-care routine. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm. A fixed feeding routine with measured portions, the toilet pads where we placed them, and gentle play that helps your puppy settle into its new room.</p>
+    <p>Days 4 to 7: the routine sticks, and now is the time to build good habits. Book your free first lesson with an AVS-certified trainer, and start short, positive brushing sessions so your Doodle grows up loving the grooming it will need for life. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            "Had such a wonderful experience bringing home our new furry family member from Curious Tails in Balestier. Honestly, Nelson and Kim couldn't have been more helpful and answered every single question we had, which made the whole thing stress-free. Our pup was clean, well-socialised, and full of energy when we brought it home. The puppy came home healthy and vet-checked, which gave us real peace of mind. A truly lovely experience from start to finish, thank you!",
+          name: 'Karen Joy Pepito',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Goldendoodle falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Goldendoodle FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Goldendoodle" reserveMessage="Hi! I'd like to reserve a Goldendoodle puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

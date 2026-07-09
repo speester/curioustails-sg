@@ -1,0 +1,473 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'English Bulldog Puppy for Sale Singapore | Curious Tails';
+const description =
+  'English Bulldog puppies for sale in Singapore from $2,888 all-in. Honest parts first: Bulldogs are not HDB-approved and need the strictest heat care of any breed we carry. Real prices against a $6,000 to $12,000 market.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Heat Care', href: '#heat' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size', href: '#size' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Can I keep an English Bulldog in an HDB flat?',
+    answer:
+      'No. The English Bulldog is not on the HDB-approved breed list. Condos and landed homes may keep up to three dogs, subject to the estate\'s own rules, which is where the Bulldog belongs in Singapore. HDB readers who love the flat-faced look: the Boston Terrier and Pug give you comparable charm and ARE on the approved list, and our HDB-approved breeds guide maps them out.',
+  },
+  {
+    question: 'How much does an English Bulldog cost in Singapore?',
+    answer:
+      'English Bulldog prices in Singapore are famously high, commonly $6,000 to $12,000 and sometimes more, because the breed is difficult and expensive to breed. At Curious Tails, English Bulldog puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'How do English Bulldogs cope with Singapore heat?',
+    answer:
+      'This is the most heat-vulnerable breed we carry, and we say so plainly. As a flat-faced brachycephalic breed, the Bulldog cannot cool itself efficiently, so the rules are strict and non-negotiable: walks only in the early morning or evening, never midday; a cool, air-conditioned or well-ventilated room through every hot afternoon; shade and water on every outing; and a lean body weight for life. Managed this way, Bulldogs live contentedly here. Pushed through heat, they are in genuine, fast danger.',
+  },
+  {
+    question: 'Are English Bulldogs healthy? What should I know before buying?',
+    answer:
+      'Honesty matters here more than on any other page. The English Bulldog is a wonderful companion, but it is a breed with real, well-documented health considerations, breathing, skin folds, joints and a shorter lifespan among them. None of this should be hidden by a seller. We choose the healthiest-structured puppies we can, keep the price honest, and tell you exactly what lifelong care looks like, so you go in with open eyes and a plan, not a surprise.',
+  },
+  {
+    question: 'How much exercise does an English Bulldog need?',
+    answer:
+      'Refreshingly little, which suits its low-energy nature, but timing is everything. Two short, gentle walks in the cool hours are plenty; this is not a jogging companion and should never be exercised in the heat of the day. Mental enrichment and gentle play indoors round out its needs. The Bulldog\'s idea of a perfect day is a cool floor and its favourite people nearby.',
+  },
+  {
+    question: 'What happens after I reserve an English Bulldog?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items, including the skin-fold and heat-care routine, before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/english-bulldog',
+    title,
+    description,
+    aboutName: 'English Bulldog',
+    aboutAlternateName: 'British Bulldog',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Bulldog',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'English Bulldog puppy',
+      url: '/puppies/english-bulldog',
+      description:
+        'English Bulldog puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'English Bulldog Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every English Bulldog puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'English Bulldog',
+    description:
+      'The English Bulldog, or British Bulldog, is a gentle, low-energy flat-faced companion of roughly 18 to 25 kg. As a brachycephalic breed it needs strict heat management in the tropics. It is not on Singapore\'s HDB-approved list and suits private housing, with a lifespan of about 8 to 10 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Bulldog',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/english-bulldog">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="English Bulldog Puppies for Sale in Singapore"
+    h1Accent="English Bulldog"
+    subhead="The honest parts first: Bulldogs are not HDB-approved, and they need the strictest heat care of any breed we carry. Loved and managed right, the Bulldog is a gentle, comic, devoted companion. Prices here run $6,000 to $12,000 and up; ours are $2,888 to $4,488, with the $500+ starter kit, free delivery and setup, and a free first training lesson included."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available English Bulldog puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. Private housing only. Heat and health explained, not glossed over."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing gentle heavyweight']}
+    imageAlt="English Bulldog puppy sitting in a set-up playpen at a Singapore condo"
+    tagLabel="English Bulldog"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'English Bulldog', href: '/puppies/english-bulldog' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy an English Bulldog in Singapore?" imageAlt="English Bulldog puppy portrait, one of the Bulldog puppies available in Singapore" variant="mid">
+      <p>Our English Bulldog puppies in Singapore are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Bulldog puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every English Bulldog for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price, against a market that routinely asks two to four times as much. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available English Bulldog puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Bulldog photos and prices</a>, or meet our English Bulldog puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available English Bulldog Puppies"
+      headingAccent="Available"
+      subhead="A few of the Bulldog puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Fawn & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn and white male English Bulldog puppy.'), imageAlt: 'Fawn and white male English Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Brindle girl', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle female English Bulldog puppy.'), imageAlt: 'Brindle female English Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'White & fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white and fawn male English Bulldog puppy.'), imageAlt: 'White and fawn male English Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Red & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white female English Bulldog puppy.'), imageAlt: 'Red and white female English Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Fawn girl', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn female English Bulldog puppy.'), imageAlt: 'Fawn female English Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Brindle & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle and white male English Bulldog puppy.'), imageAlt: 'Brindle and white male English Bulldog puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div id="hdb" class="relative scroll-mt-40">
+    <ScatterFloat />
+    <DefBox
+      term="Can you keep an English Bulldog in an HDB flat? No"
+      definition="The English Bulldog is not on the HDB-approved breed list. HDB flats may keep one dog of an approved small breed; condos and landed homes may keep up to three dogs, subject to the estate's own rules, which is where the Bulldog belongs in Singapore."
+      bridge="We tell you this before you fall for the photos. HDB readers who love the flat-faced, wrinkly charm: the Boston Terrier and Pug deliver it and ARE on the approved list, and our HDB-approved breeds guide maps them out. Private housing readers: carry on, but the heat-care section below is the most important thing on this page."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The housing rules, straight</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'HDB flat: English Bulldog not approved',
+            'Condo / landed: up to three dogs (AVS limits of ownership)',
+            'HDB readers: try the Boston Terrier or Pug instead',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: <a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2">HDB-approved breeds guide</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="heat" class="relative scroll-mt-40">
+    <PawTrail />
+    <DefBox
+      term="The heat rule comes first: the English Bulldog is our most heat-vulnerable breed"
+      definition="As a flat-faced brachycephalic breed, the English Bulldog cannot cool itself the way a longer-nosed dog can, and Singapore's climate is the single biggest thing to manage. Walks belong to the early morning and evening only, never the midday sun; a cool, air-conditioned or well-ventilated room is essential through every hot afternoon; shade and water go on every outing; and a lean weight matters for life."
+      bridge="We put this before the temperament and even the price, because it is the difference between a Bulldog that thrives here and one that is in danger. It is not hard once it is habit, and thousands of Bulldogs live happily in Singapore this way, but it is non-negotiable, and any seller who waves it away is not looking after your dog. If your household can't guarantee a cool space on hot days, this is honestly the wrong breed."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-coral-500)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/70" style="letter-spacing: 0.08em;">The heat rules, non-negotiable</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Walks in the early morning or evening only',
+            'Cool, ventilated or air-conditioned room every afternoon',
+            'Shade and water on every single outing',
+            'Keep lean; never exercise in midday heat',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/90">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-white" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their English Bulldog from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Bulldog pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="English Bulldog Temperament: The Gentle Comedian" imageAlt="English Bulldog puppy relaxing calmly with children indoors" imagePosition="left">
+      <p>Behind the tough-guy face is one of the softest hearts in dogdom. The English Bulldog is gentle, affectionate, patient with children and endearingly comical, a low-energy companion that wants little more than to be near its people, preferably on the coolest patch of floor. Calm, loyal and dignified, it fits beautifully into a quiet home and is famously good with kids who understand not to rough-house in the heat.</p>
+      <p>The honest footnotes. First, this is a companion breed that hates being alone all day; its whole purpose is company. Second, the stubborn streak is real but gentle, and patient, food-motivated training wins the day. Third, the heat-care and health realities above and below are not optional reading, they are the breed. Get those right and the Bulldog rewards you with years of unhurried, devoted, funny companionship.</p>
+      <p>Drawn to the flat-faced look at a smaller size? The <a href="/puppies/french-bulldog" class="underline underline-offset-2 text-[var(--color-accent-hover)]">French Bulldog</a> is the compact cousin, with the same heat rules and the same honest pricing from us.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can an English Bulldog Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Moderately, provided the room stays cool. Bulldogs are low-energy and famously fond of a long nap, so a settled adult copes with a workday better than a busier breed would, but the non-negotiable is the environment: a flat-faced dog must never sit out a Singapore afternoon in a hot room. Cool space first, company a close second.</p>
+      <p>A safe playpen, water, and a cool floor set your Bulldog up for the day, and the heat rules above decide everything else.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Private housing with a cool, air-conditioned space',
+            'You want a calm, low-energy companion',
+            'You accept the heat and health commitment',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="English Bulldog Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for a low-slung, muscular companion."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 18 to 25 kg; a heavy, muscular dog on short legs'] },
+        { label: 'Height', values: ['Around 31 to 40 cm at the shoulder'] },
+        { label: 'Coat', values: ['Short, smooth, low-grooming; fawn, white, red, brindle and pied'] },
+        { label: 'Lifespan', values: ['About 8 to 10 years; realistic, and worth knowing before you commit'] },
+        { label: 'Exercise', values: ['Two short, gentle cool-hour walks; never midday, never strenuous'] },
+        { label: 'Heat tolerance', values: ['Low: the most heat-sensitive breed we carry; a cool room is essential'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The coat is wonderfully low-maintenance, but the wrinkles are not: the facial and nose folds need wiping clean and drying a few times a week to prevent skin-fold irritation in our humidity. A minute of care, regularly.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="English Bulldog Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="The market runs $6,000 to $12,000 and beyond. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Bulldog price commonly $6,000 to $12,000, sometimes more',
+            'One of the priciest breeds to buy in Singapore',
+            'Inclusions rarely spelt out',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price a fraction of the market? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Do factor in this breed's realistic vet care when you plan: compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and budget honestly with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Bulldog Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every English Bulldog leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the fold-cleaning routine and a cool resting spot matter as much as any toy, and on delivery day we show you the wrinkle care hands-on.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Bulldog's daily care, including the heat and skin-fold routines. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is an English Bulldog Right for Your Lifestyle?"
+      subhead="We ask about your cooling, your company and your care budget before your heart gets a vote. Here's the honest short version."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Private housing, cool home, someone around often', values: ['Ideal. A calm, comic, devoted companion in its element'] },
+        { label: 'Wants a low-energy, low-exercise dog', values: ['Great fit, as long as the heat and health care are kept up'] },
+        { label: 'HDB flat', values: ['Not eligible. See the Boston Terrier or Pug for the approved flat-faced option'] },
+        { label: 'No air-conditioning, hot flat', values: ['Reconsider honestly. A cool space is not optional for this breed'] },
+        { label: 'Wants a jogging or hiking buddy', values: ['Wrong breed. The Bulldog is a cool-floor companion, not an athlete'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Bulldog is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your housing, your cooling setup and your routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my housing type and daily routine. Is an English Bulldog the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="English Bulldog Health: The Honest Conversation" imageAlt="English Bulldog puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Bulldog goes home vet-checked, vaccinated, dewormed, and microchipped, and this breed deserves the most honest health section we write. The English Bulldog is a much-loved companion, but it carries real, well-documented considerations: as a brachycephalic breed it can have compromised breathing, especially in heat; the skin folds need regular cleaning to avoid irritation; the joints and hips deserve care and a lean weight; and the lifespan, around 8 to 10 years, is shorter than most. We do not hide any of this, because a Bulldog bought with eyes open and cared for well is a joy, while one bought on impulse is heartbreak waiting to happen.</p>
+      <p>What we do about it: we choose the healthiest-structured puppies we can, keep the price honest so your budget goes to care rather than markup, and set you up with a clear routine, cool environment, fold care, weight control and prompt vet attention for any breathing concern. Feeding comes with the food it is already eating, portioned for a lean build. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Your English Bulldog's First Week at Home" imageAlt="English Bulldog puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, and we make sure the resting spot is cool from the start. The playpen, bed, water, and toys are set up before your Bulldog explores the room, and we walk you through all 30+ starter-kit items in person, including the heat and skin-fold routines. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and cool. A fixed feeding routine with measured portions, the toilet pads where we placed them, gentle floor play only, and a close eye on temperature through the afternoon.</p>
+    <p>Days 4 to 7: the routine sticks. Book your free first lesson with an AVS-certified trainer, and lock in the daily wrinkle-clean and cool-hours walk habits now, so lifelong Bulldog care becomes second nature. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            "Had such a wonderful experience bringing home our new furry family member from Curious Tails in Balestier. Honestly, Nelson and Kim couldn't have been more helpful and answered every single question we had, which made the whole thing stress-free. Our pup was clean, well-socialised, and full of energy when we brought it home. The puppy came home healthy and vet-checked, which gave us real peace of mind. A truly lovely experience from start to finish, thank you!",
+          name: 'Karen Joy Pepito',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Bulldog falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="English Bulldog FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="English Bulldog" reserveMessage="Hi! I'd like to reserve an English Bulldog puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

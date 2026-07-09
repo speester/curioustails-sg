@@ -1,0 +1,449 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Beagle Puppy for Sale Singapore | Curious Tails';
+const description =
+  'Beagle puppies for sale in Singapore from $2,888 all-in. Honest part first: Beagles are not HDB-approved, and they are a vocal scent hound. Real prices, the nose-and-voice truth, and the $500+ starter kit.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Nose & Voice', href: '#nose' },
+  { label: 'Size', href: '#size' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Can I keep a Beagle in an HDB flat?',
+    answer:
+      'No. The Beagle is a scent hound and is not on the HDB-approved list. Condos and landed homes may keep up to three dogs, subject to the estate\'s own rules, which is where the Beagle belongs in Singapore. HDB readers: our HDB-approved breeds guide maps the approved small breeds that fit both the rules and flat living.',
+  },
+  {
+    question: 'How much does a Beagle cost in Singapore?',
+    answer:
+      'Beagle prices in Singapore commonly run $2,500 to $5,000, with tri-colour and pocket sizes quoted at the top. At Curious Tails, Beagle puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Are Beagles noisy? Will my neighbours mind?',
+    answer:
+      'Beagles are a vocal breed, and honesty here saves everyone grief. They bark, and famously they bay and howl, a carrying hound sound bred for the hunt. A well-exercised, well-trained Beagle that is not left bored and alone is far quieter, but if you share thin walls with sensitive neighbours, this is a real factor to weigh before you buy, not after the first complaint.',
+  },
+  {
+    question: 'Do Beagles run off? Can I let mine off-leash?',
+    answer:
+      'The nose runs the Beagle, and once it locks onto a scent it can go deaf to everything, including you. Treat every Beagle as a leash-first dog in open areas, keep your garden or yard genuinely secure, and never trust a recall to beat an interesting smell. Note too that in Singapore every dog must be leashed in public places, which suits the Beagle perfectly.',
+  },
+  {
+    question: 'How much exercise does a Beagle need in our heat?',
+    answer:
+      'A solid hour a day, split across the cool hours: a proper walk before 9am and another after 6pm, never hard midday exertion. A Beagle walk is a sniffing expedition as much as a march, and that mental work tires them as much as the steps. A tired Beagle is a quiet, well-behaved Beagle; a bored one bays and gets creative.',
+  },
+  {
+    question: 'What happens after I reserve a Beagle?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/beagle',
+    title,
+    description,
+    aboutName: 'Beagle',
+    aboutAlternateName: 'Beagle Hound',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Beagle',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Beagle puppy',
+      url: '/puppies/beagle',
+      description:
+        'Beagle puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Beagle Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Beagle puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Beagle',
+    description:
+      'The Beagle is a small-to-medium scent hound of roughly 9 to 11 kg, merry, curious and famously nose-driven and vocal. Friendly and food-motivated, it is not on Singapore\'s HDB-approved list and suits private housing, with a lifespan of about 12 to 15 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Beagle',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/beagle">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Beagle Puppies for Sale in Singapore"
+    h1Accent="Beagle"
+    subhead="The honest parts first: Beagles are not HDB-approved, and they are a vocal, nose-led scent hound. Loved right, the merry Beagle is a brilliant, sturdy family dog — but the voice and the nose are real, so weigh them before you fall for the ears. Prices here run $2,500 to $5,000 elsewhere; ours are $2,888 to $4,488, all-in."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Beagle puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. Private housing only. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing family hound']}
+    imageAlt="Beagle puppy sitting in a set-up playpen at a Singapore condo"
+    tagLabel="Beagle"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Beagle', href: '/puppies/beagle' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Beagle in Singapore?" imageAlt="Beagle puppy portrait, one of the Beagle puppies available in Singapore" variant="mid">
+      <p>Our Beagle puppies in Singapore are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, markings, and exact prices for the Beagle puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Beagle for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Beagle puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Beagle photos and prices</a>, or meet our Beagle puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Beagle Puppies"
+      headingAccent="Available"
+      subhead="A few of the Beagle puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Tri-colour boy', href: whatsappLink('Hi! I\'d like more photos and the price for the tri-colour male Beagle puppy.'), imageAlt: 'Tri-colour male Beagle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Lemon girl', href: whatsappLink('Hi! I\'d like more photos and the price for the lemon and white female Beagle puppy.'), imageAlt: 'Lemon and white female Beagle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Tri-colour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tri-colour female Beagle puppy.'), imageAlt: 'Tri-colour female Beagle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
+        { title: 'Chocolate tri boy', href: whatsappLink('Hi! I\'d like more photos and the price for the chocolate tri Beagle puppy.'), imageAlt: 'Chocolate tri male Beagle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '9 weeks' },
+        { title: 'Tri-colour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the second tri-colour female Beagle puppy.'), imageAlt: 'Second tri-colour female Beagle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Lemon boy', href: whatsappLink('Hi! I\'d like more photos and the price for the lemon and white male Beagle puppy.'), imageAlt: 'Lemon and white male Beagle puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div id="hdb" class="relative scroll-mt-40">
+    <ScatterFloat />
+    <DefBox
+      term="Can you keep a Beagle in an HDB flat? No"
+      definition="The Beagle is a scent hound and is not on the HDB-approved breed list. HDB flats may keep one dog of an approved small breed; condos and landed homes may keep up to three dogs, subject to the estate's own rules, which is where the Beagle belongs in Singapore."
+      bridge="We tell you this before you fall for the photos. If you love the Beagle's merry character but live in an HDB flat, our HDB-approved breeds guide maps the approved small breeds that fit both the rules and flat living. Private housing readers: carry on, but read the nose-and-voice section below with clear eyes."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The housing rules, straight</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'HDB flat: Beagle not approved',
+            'Condo / landed: up to three dogs (AVS limits of ownership)',
+            'HDB readers: see the approved alternatives guide below',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: <a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2">HDB-approved breeds guide</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Beagle from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Beagle pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Beagle Temperament: Merry, Sturdy, and Endlessly Curious" imageAlt="Beagle puppy playing happily with children in a garden" imagePosition="left">
+      <p>The Beagle is a genuinely great family dog, and its fans are devoted for good reason: merry, friendly, sturdy enough for boisterous kids, and small enough to scoop up, with a happy, even temperament and no guarding hang-ups. It gets on with everyone, dogs and people alike, and its curiosity makes every day an adventure. Compact, robust and cheerful, it packs a lot of dog into a manageable size.</p>
+      <p>The honest footnotes, and this breed has real ones. First, the Beagle is a pack hound that hates being alone; it wants company and, ideally, a busy household. Second, it is food-obsessed to a fault, which is a gift for training and a hazard for waistlines and bins. Third, it is independent and scent-driven, so training takes patience and a sense of humour: this is not a Border Collie waiting on your every word. Fourth, see the nose-and-voice section next, because those two traits define daily life with a Beagle.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Beagle Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Not happily, and this is the honest heart of the breed. Beagles are pack animals that struggle with long solitude, and a lonely, bored Beagle is exactly the one that bays, howls and empties the bin. They do best in busy homes where someone is around much of the day, or with a midday walker and a dog-savvy routine.</p>
+      <p>The room needs the usual tropical basics — ventilation, shade, water — plus food-puzzle toys to occupy that nose, and the exercise contract below decides the rest.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Private housing and a busy, present family',
+            'You accept a vocal, scent-driven hound',
+            'Someone is around much of the day, or a midday walker',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="nose" class="scroll-mt-40">
+    <CaptionedBlock heading="The Nose and the Voice: What Every Beagle Owner Lives" imageAlt="Beagle following a scent trail with its nose to the ground on a walk" imagePosition="left">
+      <p>Two traits define this breed, and no honest page hides them. The nose first: the Beagle has one of the finest noses in the dog world, and it rules the dog. On a scent, a Beagle can go temporarily deaf to its own name, which is why it is a leash-first dog in any open space, why your garden must be genuinely secure, and why a food-driven training approach works far better than expecting obedience to beat an interesting smell. Channel the nose with scent games and puzzle feeders and you have a happy, tired dog.</p>
+      <p>The voice second: Beagles were bred to bay across open country, and they can be loud. A well-exercised, well-trained Beagle in a busy home is much quieter than the stereotype, but the potential is there, and in a condo with shared walls it is a genuine factor to weigh honestly before you buy. We would rather you plan for the voice than be surprised by it, and we will talk you through managing it.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Beagle Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for a compact, sturdy scent hound."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 9 to 11 kg; compact but solid and muscular'] },
+        { label: 'Height', values: ['Around 33 to 40 cm at the shoulder'] },
+        { label: 'Coat', values: ['Short, dense, low-maintenance; classic tri-colour, lemon, or chocolate tri'] },
+        { label: 'Lifespan', values: ['About 12 to 15 years, one of the longer-lived breeds this size'] },
+        { label: 'Exercise', values: ['An hour daily in the cool hours; sniffing counts as much as walking'] },
+        { label: 'Voice', values: ['Vocal by nature: barks, and can bay and howl; a real factor near neighbours'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        One genuine plus for busy homes: the short Beagle coat is about the lowest-maintenance grooming on this whole page, a weekly brush and the occasional bath. The commitment with this breed is time and company, not the coat.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Beagle Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="The market runs $2,500 to $5,000. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Beagle price commonly $2,500 to $5,000',
+            'Tri-colour and pocket sizes quoted higher',
+            'Inclusions rarely spelt out',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Beagle Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Beagle leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed a sturdy leash and food-puzzle toys are the tools that earn their keep, and on delivery day we talk through portion control, because a Beagle will out-eat its own good sense given the chance.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Beagle's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Beagle Right for Your Lifestyle?"
+      subhead="We ask about your housing, your neighbours and your company at home before your heart gets a vote. Here's the honest short version."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Private housing, busy family, someone home often', values: ['Ideal. A merry, sturdy, low-grooming family dog in its element'] },
+        { label: 'Landed home with a secure garden', values: ['Great fit, provided the fencing genuinely holds a determined nose'] },
+        { label: 'HDB flat', values: ['Not eligible. See the HDB-approved breeds guide for alternatives'] },
+        { label: 'Thin condo walls, sensitive neighbours', values: ['Weigh carefully. The Beagle voice is real; plan and train for it'] },
+        { label: 'Out all day, quiet household', values: ['Reconsider. A lonely pack hound bays, howls and gets into things'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Beagle is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your housing type and daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my housing type and daily routine. Is a Beagle the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Beagle Health: What We Check and What to Watch" imageAlt="Beagle puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Beagle goes home vet-checked, vaccinated, dewormed, and microchipped. Beagles are a robust, long-lived breed, and the biggest health lever is one you control completely: weight. This is a food-obsessed dog that will happily become overweight, and obesity drives most of the joint and back problems the breed can face, so measured portions and no free-feeding are the golden rule. Beyond that, keep the ears checked (the drop ears like a clean, dry environment) and the eyes clear.</p>
+      <p>Feeding is simple but discipline matters: your puppy comes with the food it is already eating, portioned correctly, and treats must be counted into the day's total, not added on top. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Your Beagle's First Week at Home" imageAlt="Beagle puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you. The playpen, bed, water, and toys are set up before your Beagle explores the room, and we walk you through all 30+ starter-kit items in person, including the portion-control plan. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and contained. A fixed feeding routine with measured portions, the toilet pads where we placed them, and a secure space so that busy nose can't lead your puppy into trouble.</p>
+    <p>Days 4 to 7: the routine sticks, and now is the time to start. Book your free first lesson with an AVS-certified trainer to build recall and settle the vocal habits early, using the Beagle's love of food to your advantage. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            "Had such a wonderful experience bringing home our new furry family member from Curious Tails in Balestier. Honestly, Nelson and Kim couldn't have been more helpful and answered every single question we had, which made the whole thing stress-free. Our pup was clean, well-socialised, and full of energy when we brought it home. The puppy came home healthy and vet-checked, which gave us real peace of mind. A truly lovely experience from start to finish, thank you!",
+          name: 'Karen Joy Pepito',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Beagle falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Beagle FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Beagle" reserveMessage="Hi! I'd like to reserve a Beagle puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

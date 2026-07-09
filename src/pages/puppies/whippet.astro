@@ -1,0 +1,450 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Whippet Puppy for Sale Singapore | Curious Tails';
+const description =
+  'Whippet puppies for sale in Singapore from $2,888 all-in. Honest part first: Whippets are not HDB-approved. The gentle sighthound, calm indoors and lightning outdoors, real prices and the $500+ starter kit.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Calm & Chase', href: '#chase' },
+  { label: 'Size', href: '#size' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Can I keep a Whippet in an HDB flat?',
+    answer:
+      'No. The Whippet is a medium sighthound and is not on the HDB-approved list. Condos and landed homes may keep up to three dogs, subject to the estate\'s own rules, which is where the Whippet belongs in Singapore. HDB readers drawn to the elegant sighthound look: our HDB-approved breeds guide maps the approved small breeds that fit both the rules and flat living.',
+  },
+  {
+    question: 'How much does a Whippet cost in Singapore?',
+    answer:
+      'Whippets are uncommon in Singapore, so litters are limited and prices commonly run $3,000 to $6,000. At Curious Tails, Whippet puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Are Whippets calm enough for apartment living?',
+    answer:
+      'Behaviourally, yes, remarkably so. The Whippet is the classic "couch potato that can hit 50 km/h": give it a good sprint and it will spend the rest of the day curled quietly on the softest surface it can find. It is gentle, quiet and undemanding indoors. The catch is not behaviour but rules: the Whippet is not HDB-approved, so it belongs in private housing.',
+  },
+  {
+    question: 'Can I let a Whippet off-leash? Do they chase?',
+    answer:
+      'Treat the Whippet as a leash-first dog in any open space. It is a sighthound with a strong instinct to chase anything that darts, and at full sprint it is faster than you can ever call back, so open-field recall is never something to gamble on. A secure garden and a leash in public, which Singapore law requires anyway, keep this gentle dog safe from its own instincts.',
+  },
+  {
+    question: 'How much exercise does a Whippet need in our heat?',
+    answer:
+      'Less total time than you might expect, but the right kind. A Whippet needs a daily chance to run and stretch those legs, ideally a hard sprint in a safe, enclosed space, plus relaxed cool-hour walks. Keep the hard running to the early morning or evening, never the midday heat, and this thin-coated breed is happy with far less marching than most dogs its size.',
+  },
+  {
+    question: 'What happens after I reserve a Whippet?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items, including soft bedding for that lean frame, before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/whippet',
+    title,
+    description,
+    aboutName: 'Whippet',
+    aboutAlternateName: 'Snap dog',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Whippet',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Whippet puppy',
+      url: '/puppies/whippet',
+      description:
+        'Whippet puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Whippet Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Whippet puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Whippet',
+    description:
+      'The Whippet is a medium sighthound of roughly 10 to 16 kg, gentle and quiet indoors and astonishingly fast outdoors. Affectionate and undemanding at home, it is not on Singapore\'s HDB-approved list and suits private housing, with a lifespan of about 12 to 15 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Whippet',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/whippet">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Whippet Puppies for Sale in Singapore"
+    h1Accent="Whippet"
+    subhead="The honest part first: Whippets are not HDB-approved, so this page is for condo and landed homes. The reward is a rare gem — gentle, quiet and undemanding indoors, lightning-fast outdoors. Whippets are uncommon here, so litters are limited; prices run $3,000 to $6,000 elsewhere, and ours are $2,888 to $4,488, all-in."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Whippet puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. Private housing only. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing gentle sighthound']}
+    imageAlt="Whippet puppy sitting in a set-up playpen at a Singapore condo"
+    tagLabel="Whippet"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Whippet', href: '/puppies/whippet' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Whippet in Singapore?" imageAlt="Whippet puppy portrait, one of the Whippet puppies available in Singapore" variant="mid">
+      <p>Our Whippet puppies in Singapore are rare and reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Whippet puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Whippet for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Whippet puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Whippet photos and prices</a>, or meet our Whippet puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Whippet Puppies"
+      headingAccent="Available"
+      subhead="A few of the Whippet puppies looking for a home right now. Litters are limited, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn male Whippet puppy.'), imageAlt: 'Fawn male Whippet puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Blue girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue female Whippet puppy.'), imageAlt: 'Blue female Whippet puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Brindle boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle male Whippet puppy.'), imageAlt: 'Brindle male Whippet puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'White & fawn girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white and fawn female Whippet puppy.'), imageAlt: 'White and fawn female Whippet puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Whippet puppy.'), imageAlt: 'Black female Whippet puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Fawn & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn and white male Whippet puppy.'), imageAlt: 'Fawn and white male Whippet puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div id="hdb" class="relative scroll-mt-40">
+    <ScatterFloat />
+    <DefBox
+      term="Can you keep a Whippet in an HDB flat? No"
+      definition="The Whippet is a medium sighthound and is not on the HDB-approved breed list, despite being one of the quietest, calmest indoor dogs there is. HDB flats may keep one dog of an approved small breed; condos and landed homes may keep up to three dogs, subject to the estate's own rules, which is where the Whippet belongs in Singapore."
+      bridge="We tell you this before you fall for the photos, because the Whippet's gentle apartment manners fool people into assuming it qualifies, and it doesn't. If you love the elegant sighthound look but live in an HDB flat, our HDB-approved breeds guide maps the approved options. Private housing readers: carry on, the rest of this page is yours."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The housing rules, straight</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'HDB flat: Whippet not approved, calm as it is',
+            'Condo / landed: up to three dogs (AVS limits of ownership)',
+            'HDB readers: see the approved alternatives guide below',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: <a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2">HDB-approved breeds guide</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Whippet from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Whippet pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Whippet Temperament: The Gentle, Quiet Sighthound" imageAlt="Whippet puppy curled up softly on a sofa beside its family" imagePosition="left">
+      <p>Owners describe the Whippet with the same word again and again: gentle. It is a sensitive, affectionate, quiet dog that adores its people and asks for very little, happiest pressed against you on the sofa. It rarely barks, gets on with other dogs, and brings a calm, elegant presence to a home that belies the sprinter hiding inside. For a private-housing family who wants a big-dog character in a low-drama package, it is a hidden gem.</p>
+      <p>The honest footnotes. First, that sensitivity cuts both ways: Whippets do not enjoy harsh handling or being left alone all day, and they thrive on gentle, positive training and real companionship. Second, they are lean and thin-coated, so they feel both heat and strong air-conditioning, and appreciate soft bedding and a warm spot away from a cold vent. Third, see the next section, because the chase instinct is the one trait a Whippet home must plan around.</p>
+      <p>If you love the sighthound elegance at a smaller scale, the <a href="/puppies/italian-greyhound" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Italian Greyhound</a> is the toy-sized cousin, with the same gentle nature and the same honest pricing from us.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Whippet Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Moderately, once settled, and better than its sensitivity might suggest, provided the day includes real company and its sprint is not skipped. A Whippet that has run and been loved will happily sleep away a quiet afternoon; a lonely, under-exercised one becomes anxious. This is a companion breed at heart, and evenings that belong to the dog are the contract.</p>
+      <p>The room needs soft, warm bedding away from a cold aircon draught, water, and a safe space, and the exercise and chase notes below decide the rest.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Private housing and a calm, affectionate home',
+            'You can give a safe daily sprint, plus cool-hour walks',
+            'You accept a leash-first, chase-driven sighthound',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="chase" class="scroll-mt-40">
+    <CaptionedBlock heading="Calm Indoors, Lightning Outdoors: The Two Sides of a Whippet" imageAlt="Whippet sprinting at full stretch across an enclosed field" imagePosition="left">
+      <p>The Whippet's charm is a genuine contradiction. Indoors it is one of the laziest, most serene dogs you will ever meet, a devoted couch companion that seems to run on standby. Outdoors, given the space, it explodes into one of the fastest domestic animals on earth, reaching around 50 km/h in a few strides. Understanding both sides is the key to a happy Whippet: it needs the sprint to earn the serenity.</p>
+      <p>Which brings the one rule every Whippet home lives by: the chase instinct is hard-wired. A sighthound is built to pursue anything that darts, and at full speed no recall on earth will bring it back in time. So a Whippet is a leash-first dog in any open area, a secure garden is worth its weight in gold, and a safe, enclosed space to sprint is the ideal. Singapore's public leash law suits the breed perfectly. Respect the chase, and the Whippet gives you the easiest indoor life of any athletic dog.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Whippet Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for a lean, elegant sighthound."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 10 to 16 kg; lean and light for its height'] },
+        { label: 'Height', values: ['Around 44 to 51 cm at the shoulder'] },
+        { label: 'Coat', values: ['Short, fine, very low-maintenance; fawn, blue, brindle, black, white and mixes'] },
+        { label: 'Lifespan', values: ['About 12 to 15 years, a healthy and long-lived breed'] },
+        { label: 'Exercise', values: ['A daily safe sprint plus relaxed cool-hour walks; less marching than most'] },
+        { label: 'Comfort', values: ['Thin coat and lean build: needs soft bedding and warmth away from cold aircon'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The fine coat is about as low-effort as grooming gets, a weekly wipe and the occasional bath, but that same thinness means a Whippet feels temperature keenly. A soft, warm bed away from the aircon draught is the one comfort this breed genuinely needs.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Whippet Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Uncommon here, so litters are limited; the market runs $3,000 to $6,000. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Whippet price commonly $3,000 to $6,000',
+            'Rare breed locally, so litters are limited',
+            'Inclusions rarely spelt out',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Whippet Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Whippet leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this lean, thin-coated breed a soft, warm bed is the item that matters most, and on delivery day we make sure the resting spot is comfortable and away from a cold draught.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Whippet's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Whippet Right for Your Lifestyle?"
+      subhead="We ask about your housing, your access to safe running space and your home life before your heart gets a vote. Here's the honest short version."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Private housing, calm home, access to safe sprint space', values: ['Ideal. The easiest indoor life of any athletic dog'] },
+        { label: 'Wants a quiet, low-shedding, low-fuss companion', values: ['Great fit. The Whippet is gentle, clean and undemanding'] },
+        { label: 'HDB flat', values: ['Not eligible, calm as the breed is. See the HDB-approved breeds guide'] },
+        { label: 'Only open, unfenced parks to exercise in', values: ['Manage carefully. The chase instinct means leash-first, always'] },
+        { label: 'Out all day, no company for the dog', values: ['Reconsider. This sensitive breed wants its people'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Whippet is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your housing type and daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my housing type and daily routine. Is a Whippet the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Whippet Health: What We Check and What to Watch" imageAlt="Whippet puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Whippet goes home vet-checked, vaccinated, dewormed, and microchipped. Whippets are one of the healthier, longer-lived breeds we carry, with few of the structural problems that trouble more exaggerated dogs. The honest watch-points are gentle ones: the thin skin bruises and nicks more easily than a thick-coated dog\'s, so play areas should be free of sharp hazards; the lean build means Whippets can be sensitive to some anaesthetics and to cold, both worth a quick word with your vet; and as a deep-chested breed, sensible feeding routines around exercise are wise.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, portioned for a naturally lean frame, and any change should be gradual over a week. Do not mistake a Whippet\'s slim silhouette for underweight; this breed is meant to be lithe. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Your Whippet's First Week at Home" imageAlt="Whippet puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, and we make sure the bed is soft and warm from the start. The playpen, bed, water, and toys are set up before your Whippet explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and cosy. A fixed feeding routine with measured portions, the toilet pads where we placed them, gentle play, and a warm resting spot away from the aircon draught.</p>
+    <p>Days 4 to 7: the routine sticks, and now is the time to build gentle habits. Book your free first lesson with an AVS-certified trainer to start positive recall and leash manners early, and settle the calm-indoors routine this breed is famous for. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            "Had such a wonderful experience bringing home our new furry family member from Curious Tails in Balestier. Honestly, Nelson and Kim couldn't have been more helpful and answered every single question we had, which made the whole thing stress-free. Our pup was clean, well-socialised, and full of energy when we brought it home. The puppy came home healthy and vet-checked, which gave us real peace of mind. A truly lovely experience from start to finish, thank you!",
+          name: 'Karen Joy Pepito',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Whippet falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Whippet FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Whippet" reserveMessage="Hi! I'd like to reserve a Whippet puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

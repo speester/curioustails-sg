@@ -1,0 +1,511 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Westie Singapore | West Highland Terrier Puppies from $2,888 | Curious Tails';
+const description =
+  'Westie (West Highland White Terrier) puppies for sale in Singapore from $2,888, AVS licensed and HDB-approved. Real prices, temperament, skin care honesty and the $500+ starter kit.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Westie cost in Singapore?',
+    answer:
+      'West Highland White Terrier prices in Singapore commonly run from around $3,000 to $6,000; the breed is less common here than the Poodle crosses, which keeps prices firm. At Curious Tails, Westie puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Westie HDB-approved?',
+    answer:
+      'Yes. The West Highland White Terrier is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and we complete the dog licensing for you at purchase, so the paperwork is handled.',
+  },
+  {
+    question: 'Do Westies shed? Are they good for allergies?',
+    answer:
+      'The Westie\'s harsh double coat sheds very little, which puts it among the better picks for allergy-sensitive homes. No dog is truly allergen-free, and the Westie\'s own skin can be sensitive (see the health section), so meet one in person at our Balestier shop before committing if allergies are the deciding factor.',
+  },
+  {
+    question: 'Can a Westie be left alone while we are at work?',
+    answer:
+      'Better than most small breeds, honestly. The Westie is a true terrier: confident, self-contained, and perfectly capable of spending a quiet day guarding the flat from imaginary rats. Give it a real walk before and after work, chew work for the day, and early training on the watchdog voice, and a working household suits it well.',
+  },
+  {
+    question: 'Are Westies stubborn? Are they hard to train?',
+    answer:
+      'They are independent rather than disobedient. A Westie learns fast but sees commands as suggestions worth evaluating, which is classic terrier. Short, upbeat, reward-based sessions win; drilling does not. The free first lesson with an AVS-certified trainer sets the right pattern from week one.',
+  },
+  {
+    question: 'Why do Westies have skin problems?',
+    answer:
+      'The breed carries a well-known tendency to atopic dermatitis, itchy, allergic skin, and Singapore\'s humidity can aggravate it. Not every Westie is affected, but every Westie owner should know the early signs: paw licking, ear rubbing, pink skin under the white coat. Caught early it is very manageable with modern vet care; ignored, it makes both dog and owner miserable.',
+  },
+  {
+    question: 'What happens after I reserve a Westie?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/westie',
+    title,
+    description,
+    aboutName: 'West Highland White Terrier',
+    aboutAlternateName: 'Westie',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/West_Highland_White_Terrier',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'West Highland White Terrier puppy',
+      url: '/puppies/westie',
+      description:
+        'Westie puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Westie Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Westie puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'West Highland White Terrier',
+    description:
+      'The West Highland White Terrier, or Westie, is a sturdy Scottish terrier breed of roughly 6 to 9 kg with a harsh white double coat and a confident, cheerful, independent temperament. Lifespan is typically 12 to 16 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/West_Highland_White_Terrier',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/westie">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Westie Puppies for Sale in Singapore"
+    h1Accent="Westie"
+    subhead="West Highland White Terrier prices in Singapore commonly run $3,000 to $6,000. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Westie puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-approved. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved terrier']}
+    imageAlt="West Highland White Terrier puppy sitting in a set-up playpen at a Balestier home"
+    tagLabel="Westie"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Westie', href: '/puppies/westie' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Westie in Singapore?" imageAlt="White Westie puppy portrait, one of the West Highland Terrier puppies available in Singapore" variant="mid">
+      <p>Westies are less common in Singapore than the Poodle crosses, so litters are announced and reserved fast; we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Westie puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every West Highland White Terrier for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Westie puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Westie photos and prices</a>, or meet our Westie puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Westie Puppies"
+      headingAccent="Available"
+      subhead="A few of the Westie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Confident boy', href: whatsappLink('Hi! I\'d like more photos and the price for the male Westie puppy.'), imageAlt: 'Male West Highland White Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Sweet-faced girl', href: whatsappLink('Hi! I\'d like more photos and the price for the female Westie puppy.'), imageAlt: 'Female West Highland White Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Plush-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the plush-coat male Westie puppy.'), imageAlt: 'Plush-coat male Westie puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Petite girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite female Westie puppy.'), imageAlt: 'Petite female Westie puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Bold boy', href: whatsappLink('Hi! I\'d like more photos and the price for the bold male Westie puppy.'), imageAlt: 'Bold male Westie puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Snowy girl', href: whatsappLink('Hi! I\'d like more photos and the price for the snowy female Westie puppy.'), imageAlt: 'Snowy female Westie puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Westie?"
+      definition="The West Highland White Terrier is a sturdy Scottish working terrier of roughly 6 to 9 kg, bred to hunt vermin in the Highlands, with the all-white coat originally selected so hunters could tell it apart from the quarry. It is confident, cheerful and independent, with a lifespan of 12 to 16 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Westie suits owners who want proper terrier character, a sturdy frame, and a low-shedding coat, and who can respect an independent mind."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Westie at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Scottish working terrier, always white',
+            'Roughly 6 to 9 kg; sturdy and square',
+            'Confident, cheerful, independent',
+            'Low-shedding harsh double coat',
+            '12 to 16 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Sizes vary by line; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Westie from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Westie pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Westie Temperament: Confidence in a White Coat" imageAlt="Westie puppy standing confidently on a living room rug" imagePosition="left">
+      <p>The Westie carries itself like it owns a small estate in the Highlands and is merely wintering in your flat. This is a genuinely confident dog: cheerful, curious, sturdy, and self-possessed in a way the velcro companion breeds never are. It loves its family without needing to be held by them, greets the world with interest, and takes its self-appointed vermin-patrol duties seriously.</p>
+      <p>The honest part, from two years of matching puppies to families: the independence that makes the Westie easy to live with also means it negotiates. Recall, off-switch barking, leaving the neighbour's cat unremarked, all trainable, all requiring more patience than a Poodle cross would ask. Terrier people find this charming; obedience perfectionists find it maddening. Know which you are.</p>
+      <p>For similar sturdiness with more biddability, compare the <a href="/puppies/miniature-schnauzer" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Miniature Schnauzer</a>; for a softer, people-focused white dog, the <a href="/puppies/bichon-frise" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Bichon Frise</a>.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Westie Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Yes, and more gracefully than most of our breeds. The Westie's terrier self-sufficiency means an empty weekday is an opportunity for professional-grade napping, not a crisis. The requirements are the usual terrier contract: a proper walk morning and evening, chew work during the day, and early training so the watchdog instinct doesn't become the corridor's news service.</p>
+      <p>If you want even lower exercise with the same independence, look at the <a href="/puppies/mini-dachshund" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Mini Dachshund</a>; if you want more athletic output, the <a href="/puppies/jack-russell-terrier" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Jack Russell</a> is the ceiling.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Working household wanting an independent dog',
+            'You like terrier character, not lapdog neediness',
+            'Low-shedding coat matters to you',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Westie Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for the Highland original."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 6 to 9 kg; compact and solid'] },
+        { label: 'Height', values: ['Around 25 to 28 cm at the shoulder'] },
+        { label: 'Coat', values: ['Harsh white outer coat over a soft undercoat; always white, that\'s the breed'] },
+        { label: 'Lifespan', values: ['12 to 16 years with good care'] },
+        { label: 'Exercise', values: ['About 45 minutes a day, plus play; moderate for a terrier'] },
+        { label: 'Shedding & allergies', values: ['Low-shedding; a good allergy-conscious pick, with the skin caveat in the health section'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The Westie sits in the sturdy middle of our lineup: more substance than the toys, less engine than the Jack Russell, and one of only a few low-shedding terriers. That combination is why the breed has fans for life.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Westie Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Westie price commonly $3,000 to $6,000',
+            'Limited local availability keeps prices firm',
+            'Price usually not published; enquiry required',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Westie Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Westie leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the gentle shampoo matters more than usual, Westie skin rewards mild products and punishes harsh ones, and the chew toys keep that busy terrier brain employed.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Westie's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Westie Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Westie."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Working household wanting independence', values: ['Great fit. One of the most alone-time-capable breeds we carry'] },
+        { label: 'Family with school-age children', values: ['Good fit. Sturdy and playful; teach mutual respect and it thrives'] },
+        { label: 'Allergy-sensitive household', values: ['Good fit with a caveat: low-shedding coat, but meet one first'] },
+        { label: 'You want instant, eager obedience', values: ['Reconsider. Terriers negotiate; the Toy Poodle or Cockapoo obeys faster'] },
+        { label: 'Sedentary home, minimal walks', values: ['Reconsider. Moderate but real exercise needs; unspent energy finds the voice'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Westie is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Westie the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Westie vs Mini Schnauzer: The Sturdy Low-Shedders" imagePosition="none" variant="dark">
+    <p>The two most cross-shopped small terrier-types in the shop, and honestly either is a fine choice; the differences are of flavour. The Westie is the truer terrier: more independent, a little more stubborn, always white. The Mini Schnauzer is more biddable and family-oriented, with four colour options and a touch more exercise appetite.</p>
+    <p>Health-wise they trade evenly: the Westie brings skin sensitivity to manage, the Schnauzer brings the strict low-fat diet rule. Both are sturdy, both low-shedding, both HDB-approved. With us the price, the starter kit, and the aftercare are identical either way.</p>
+    <p>Weighing the two? See our <a href="/puppies/miniature-schnauzer" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Miniature Schnauzer puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Westie: truer terrier independence, always white',
+          'Mini Schnauzer: more biddable, four colours',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Westie in an HDB flat"
+      definition="The West Highland White Terrier is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and the Westie's compact, sturdy build sits comfortably inside the rules. Every Westie we place has its dog licensing completed at purchase, so the paperwork is handled for you."
+      bridge="Is a Westie HDB-approved? Yes, by name on the list. Just mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The West Highland White Terrier is named on the HDB-approved breed list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: A Harsh Coat That Works Hard for You" imageAlt="Westie puppy being brushed through its white double coat" imagePosition="left">
+      <p>The Westie's harsh outer coat is functional gear: it repels dirt surprisingly well, sheds very little, and keeps the dog looking respectable on a modest routine. Plan on brushing 2 to 3 times a week, and a groom every 4 to 6 weeks; pet Westies here are clipped rather than hand-stripped, which softens the coat over time but suits our climate and budgets fine.</p>
+      <p>Keep baths modest and the shampoo gentle: over-washing dries the skin, and this is the one breed where skin comes before coat in every grooming decision. Ears, nails and daily teeth round out the routine, all with tools from your starter kit.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Westie Health: What We Check Before You Take One Home" imageAlt="Westie puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Westie goes home vet-checked, vaccinated, dewormed, and microchipped. The main conversation for this breed is skin: Westies are prone to atopic dermatitis, itchy, allergic skin that our humidity can aggravate. Not every Westie gets it, but every owner should watch for the early signs, paw licking, ear rubbing, pink or darkened skin, because early vet care keeps it a minor nuisance rather than a chronic misery. Gentle shampoo, thorough drying after wet walks, and flea prevention are the daily defences.</p>
+      <p>Beyond skin, the list is standard small-breed fare: patellar luxation and, in some lines, Legg-Calvé-Perthes hip condition. Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Your Westie's First Week at Home" imageAlt="Westie puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Westie explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and predictable. A fixed feeding routine, the toilet pads where we placed them, and short, gentle play. The Westie's confidence means it usually settles faster than most; don't mistake the composure for not needing the routine.</p>
+    <p>Days 4 to 7: the routine sticks and the terrier opinions arrive. Book your free first lesson with an AVS-certified trainer this week; early consistency is everything with an independent breed. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
+          name: 'Michi',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Westie falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Westie FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Westie" reserveMessage="Hi! I'd like to reserve a Westie puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

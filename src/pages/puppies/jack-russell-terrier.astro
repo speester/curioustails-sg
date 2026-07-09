@@ -1,0 +1,537 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Jack Russell Terrier Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Jack Russell Terrier puppies for sale in Singapore from $2,888, AVS licensed and HDB-approved. Real prices, energy honesty, temperament and the $500+ starter kit included.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Jack Russell Terrier cost in Singapore?',
+    answer:
+      'Jack Russell prices in Singapore commonly run from around $2,000 to $4,500 depending on coat type and shop. At Curious Tails, Jack Russell Terrier puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Jack Russell Terrier HDB-approved?',
+    answer:
+      'Yes. The Jack Russell Terrier is named on the HDB-approved breed list, so you can keep one in an HDB flat, which makes it the highest-energy dog on the approved list by some distance. The flat is fine; the exercise has to happen outside it. We complete the dog licensing for you at purchase.',
+  },
+  {
+    question: 'How much exercise does a Jack Russell need?',
+    answer:
+      'More than any other breed we carry: a genuine hour a day minimum, split across walks and hard play, plus mental work like training games or puzzle feeders. This was bred as a working fox terrier and the engine never idles. Under-exercised Jack Russells dig, chew, bark and escape; well-exercised ones are brilliant, hilarious companions.',
+  },
+  {
+    question: 'Can a Jack Russell be left alone while we are at work?',
+    answer:
+      'Only with the exercise contract honoured: a proper hard outing before work, enrichment during the day, and another outing after. A tired Jack Russell sleeps through a workday; a fresh one dismantles the flat, and we mean that more literally than with any other breed. If your mornings can\'t fit real exercise, choose a different breed and we\'ll happily point you to one.',
+  },
+  {
+    question: 'Are Jack Russells good with children and other pets?',
+    answer:
+      'With active, dog-savvy children, genuinely great: few breeds match a school-age kid\'s energy better. With very small children, supervise; the play is boisterous. With cats, hamsters and rabbits, be honest with yourself: this is a hunting terrier with real prey drive, and small pets are a risk we\'d rather flag now than after.',
+  },
+  {
+    question: 'Are Jack Russells easy to train?',
+    answer:
+      'They are extremely smart and learn fast, including things you didn\'t intend to teach. Training a Jack Russell is less about repetition and more about being more interesting than the environment. Keep sessions short, active and rewarding, start early, and use the free first lesson with an AVS-certified trainer to set the pattern.',
+  },
+  {
+    question: 'What happens after I reserve a Jack Russell?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/jack-russell-terrier',
+    title,
+    description,
+    aboutName: 'Jack Russell Terrier',
+    aboutAlternateName: 'Jack Russell',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Jack_Russell_Terrier',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Jack Russell Terrier puppy',
+      url: '/puppies/jack-russell-terrier',
+      description:
+        'Jack Russell Terrier puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Jack Russell Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Jack Russell puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Jack Russell Terrier',
+    description:
+      'The Jack Russell Terrier is a small working terrier of roughly 5 to 8 kg, bred in England for fox work. Mostly white with tan or black markings in smooth, broken or rough coats, it is athletic, fearless and extremely intelligent, with a lifespan of 13 to 16 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Jack_Russell_Terrier',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/jack-russell-terrier">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Jack Russell Terrier Puppies for Sale in Singapore"
+    h1Accent="Jack Russell"
+    subhead="Jack Russell prices in Singapore commonly run $2,000 to $4,500. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price. Read the energy section before you fall for the face."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Jack Russell Terrier puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-approved. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved working terrier']}
+    imageAlt="White and tan Jack Russell Terrier puppy sitting in a set-up playpen at a Balestier home"
+    tagLabel="Jack Russell"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Jack Russell Terrier', href: '/puppies/jack-russell-terrier' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Jack Russell in Singapore?" imageAlt="White and tan Jack Russell Terrier puppy portrait, one of the Jack Russell puppies available in Singapore" variant="mid">
+      <p>Our Jack Russell puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and exact prices for the Jack Russell Terrier puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Jack Russell for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Jack Russell puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Jack Russell photos and prices</a>, or meet our Jack Russell puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Jack Russell Puppies"
+      headingAccent="Available"
+      subhead="A few of the Jack Russell puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'White & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white and tan male Jack Russell puppy.'), imageAlt: 'White and tan male Jack Russell Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Tricolour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tricolour female Jack Russell puppy.'), imageAlt: 'Tricolour female Jack Russell Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Broken-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the broken-coat male Jack Russell puppy.'), imageAlt: 'Broken-coat male Jack Russell Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'White & black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white and black female Jack Russell puppy.'), imageAlt: 'White and black female Jack Russell Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Smooth-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the smooth-coat male Jack Russell puppy.'), imageAlt: 'Smooth-coat male Jack Russell Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Rough-coat girl', href: whatsappLink('Hi! I\'d like more photos and the price for the rough-coat female Jack Russell puppy.'), imageAlt: 'Rough-coat female Jack Russell Terrier puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Jack Russell Terrier?"
+      definition="The Jack Russell Terrier is a small working terrier of roughly 5 to 8 kg, developed in 19th-century England to run with hunts and go to ground after foxes. Mostly white with tan or black markings, in smooth, broken or rough coats, it is athletic, fearless, extremely intelligent, and famously long-lived at 13 to 16 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Jack Russell gets our most careful matching of all: for active owners it is a once-in-a-lifetime dog; for sedentary homes it is a renovation project."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Jack Russell at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Working terrier: the real engine',
+            'Roughly 5 to 8 kg fully grown',
+            'Smooth, broken or rough coat, mostly white',
+            'Needs an hour of real exercise daily',
+            '13 to 16 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Sizes vary by line; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Jack Russell from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Jack Russell pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Jack Russell Temperament: A Big Dog's Engine in a Small Chassis" imageAlt="Jack Russell Terrier puppy sprinting after a ball at a park connector" imagePosition="left">
+      <p>Everything about the Jack Russell is calibrated for work: the athleticism, the fearlessness, the problem-solving brain that treats a closed door as a puzzle rather than an answer. For the right owner, someone who runs, hikes the park connectors, or genuinely enjoys daily training, this is the most rewarding dog on our list: funny, devoted, tireless, and clever enough to learn anything you can teach.</p>
+      <p>The honest part, and we put it plainly because this breed generates more mismatches than any other: the energy is not a phase, not "puppy energy", and not negotiable. A Jack Russell needs a hard hour a day, every day, for its whole long life, plus mental work. The prey drive is real too: leashes near birds and cats, and think carefully if you keep small pets.</p>
+      <p>Wondering if you actually want this much dog? The <a href="/puppies/mini-dachshund" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Mini Dachshund</a> offers terrier-adjacent character at half the throttle, and the <a href="/puppies/cockapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a> is the forgiving family pick.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Jack Russell Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Yes, if and only if the exercise happens. The formula that works for our Jack Russell owners in working households: a hard 30-to-40-minute outing before work, not a stroll, a proper one; food-dispensing toys and chew work for the day; and real play or a second outing in the evening.</p>
+      <p>Skip the morning outing and the breed will spend its day on projects: excavating the sofa, auditing the bin, learning to open the playpen. We are not exaggerating for effect. If your mornings genuinely can't fit it, we'll point you at a breed that naps for a living instead.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'You run, hike or walk hard daily',
+            'You enjoy training as a hobby',
+            'Active older kids; no small pets at home',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Jack Russell Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for the hardest-working small dog in Singapore."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 5 to 8 kg of mostly muscle'] },
+        { label: 'Height', values: ['Around 25 to 30 cm at the shoulder'] },
+        { label: 'Coat', values: ['Three types: smooth, broken and rough; predominantly white with tan and/or black markings'] },
+        { label: 'Lifespan', values: ['13 to 16 years; one of the longest-lived, healthiest breeds there is'] },
+        { label: 'Exercise', values: ['60+ minutes of genuine exercise daily, plus mental work; the highest requirement in our lineup'] },
+        { label: 'Shedding & allergies', values: ['Sheds more than the coat suggests, smooth coats especially; not an allergy pick'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The lifespan deserves its own sentence: a healthy Jack Russell routinely reaches 15 or 16, which means the puppy you buy is a commitment into the 2040s, exercising daily the whole way. Beautiful deal for the right owner; read it twice if you're unsure.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Jack Russell Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Jack Russell price commonly $2,000 to $4,500',
+            'Price usually not published; enquiry required',
+            'No energy-honesty briefing before purchase',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Jack Russell Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Jack Russell leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the outdoor category is the main event: the harness and leash will see more kilometres than any other breed's, and the chew toys are load-bearing equipment, not decoration.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Jack Russell's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Jack Russell Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. For a Jack Russell we ask twice."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Runner, hiker, or daily hard walker', values: ['Ideal. This is the dog that finally keeps up with you'] },
+        { label: 'Enjoys training, agility or trick work', values: ['Ideal. The sharpest working brain in our lineup, and it loves a job'] },
+        { label: 'Active family, school-age kids, no small pets', values: ['Great fit. Boisterous, joyful play for hours'] },
+        { label: 'Working household, sedentary evenings', values: ['Reconsider honestly. Unspent Jack Russell energy becomes demolition; a Mini Dachshund or Shih Tzu fits better'] },
+        { label: 'Home with cats, rabbits or hamsters', values: ['Reconsider. The prey drive is genuine and permanent'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Jack Russell is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. This page means it more than most. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Jack Russell the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Jack Russell vs Corgi: Two Big Engines, One HDB Answer" imagePosition="none" variant="dark">
+    <p>Both are high-energy, big-personality dogs that need real daily exercise, and buyers weighing one often ask about the other. In Singapore the housing rules split them cleanly: the Jack Russell is on the HDB-approved list; the Corgi is not. If you live in a flat and want a genuinely energetic dog, the Jack Russell is the legal answer.</p>
+    <p>Beyond housing: the Corgi is heavier, sheds far more, and herds; the Jack Russell is lighter, faster, and hunts. Both need owners who exercise like they mean it. With us the price, the starter kit, and the aftercare are identical either way.</p>
+    <p>In private housing and weighing both? See our <a href="/puppies/corgi" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Corgi puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Jack Russell: 5 to 8 kg, HDB-approved, hunting drive',
+          'Corgi: 9 to 14 kg, private housing only, herding drive',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Jack Russell in an HDB flat"
+      definition="The Jack Russell Terrier is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat. The flat itself is no problem for a dog this size; the exercise contract is what makes flat life work for a working terrier. Every Jack Russell we place has its dog licensing completed at purchase."
+      bridge="Is a Jack Russell HDB-approved? Yes, by name on the list, making it the most athletic dog you can legally keep in a flat. Just mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Jack Russell is named on the HDB-approved breed list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: Five Minutes a Week, Honestly" imageAlt="Jack Russell Terrier puppy being brushed after a walk" imagePosition="left">
+      <p>Grooming is where the Jack Russell hands you back all the time the exercise takes. The smooth coat needs a weekly once-over with a brush; broken and rough coats add an occasional tidy-up. No salon schedule, no mats, no topknots, and baths only when the adventures demand it.</p>
+      <p>Two honest notes: the white coat sheds more visibly than people expect, especially smooth coats, so the brush is really shed-control; and this breed's grooming budget goes to nail trims instead, because all that running needs well-kept feet. Both tools are in your starter kit.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Jack Russell Health: What We Check Before You Take One Home" imageAlt="Jack Russell Terrier puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Jack Russell goes home vet-checked, vaccinated, dewormed, and microchipped. Health is the breed's proudest statistic: bred for function rather than looks, the Jack Russell is one of the soundest dogs in existence, which is how it earns that 13-to-16-year lifespan. The short list worth knowing: patellar luxation, the small-dog kneecap issue; lens luxation, an inherited eye condition in some lines, worth asking about; and Legg-Calvé-Perthes, a hip condition occasionally seen in small terriers.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. Portion to the actual exercise done; see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div class="scroll-mt-40">
+    <CaptionedBlock heading="The Fine Print on Singapore's Cutest Working Dog" imagePosition="none" variant="card">
+      <p>Jack Russells star in enough films and ads that the face arrives pre-sold, so here is the fine print, from people who match dogs to homes for a living. This breed can jump five times its height, dig with professional intent, learn to open latches by watching you, and hold a grudge against a squirrel for years. None of that is a defect; it's the job description it was bred for.</p>
+      <p>Channelled into exercise, games and training, those traits make the best small dog many owners will ever have. Left to idle in a quiet flat, they make viral videos of destroyed sofas. The variable isn't the dog; it's the routine you bring. That's the whole truth, and it's why we interview Jack Russell buyers as much as they interview us.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Built into the breed</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Jumps and climbs; secure the balcony',
+            'Digs and chews when under-exercised',
+            'Real prey drive around small animals',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M18 6 6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+
+    <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+  </div>
+
+  <CaptionedBlock heading="Your Jack Russell's First Week at Home" imageAlt="Jack Russell puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Jack Russell explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm and predictable, which for this breed means structured play in short bursts, a fixed feeding routine, and the toilet pads where we placed them. Don't let the puppy leap off furniture while joints are growing, and yes, it will try.</p>
+    <p>Days 4 to 7: the routine sticks and the engine warms up. Book your free first lesson with an AVS-certified trainer this week without fail; for this breed early training is the difference between a partner and a project. See <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Had such a wonderful experience bringing home our new furry family member from Curious Tails in Balestier. Honestly, Nelson and Kim couldn't have been more helpful and answered every single question we had, which made the whole thing stress-free. Our pup was clean, well-socialised, and full of energy when we brought it home. The puppy came home healthy and vet-checked, which gave us real peace of mind. A truly lovely experience from start to finish, thank you!",
+          name: 'Karen Joy Pepito',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Jack Russell falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Jack Russell Terrier FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Jack Russell Terrier" reserveMessage="Hi! I'd like to reserve a Jack Russell Terrier puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

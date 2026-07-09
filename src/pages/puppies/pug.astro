@@ -1,0 +1,537 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+
+const title = 'Pug Singapore | Puppies from $2,888 | Curious Tails';
+const description =
+  'Pug puppies for sale in Singapore from $2,888, AVS licensed and HDB-approved. Real prices, temperament, heat care for flat faces and the $500+ starter kit included.';
+
+const jumpLinks = [
+  { label: 'Available', href: '#available' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Size & Coat', href: '#size' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Grooming', href: '#grooming' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'How much does a Pug cost in Singapore?',
+    answer:
+      'Pug prices in Singapore commonly run from around $2,500 to $5,500 depending on colour and shop. At Curious Tails, Pug puppies are $2,888 to $4,488, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Is a Pug HDB-approved?',
+    answer:
+      'Yes. The Pug is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and we complete the dog licensing for you at purchase, so the paperwork is handled.',
+  },
+  {
+    question: 'Can a Pug be left alone while we are at work?',
+    answer:
+      'Reasonably well, on one condition: the room stays cool. Pugs are sociable but also world-class nappers, and a settled routine with a safe playpen suits them fine. Because the breed is flat-faced, the space it spends the day in must be ventilated and shaded; a fan or aircon in our climate is part of responsible Pug ownership, not a luxury.',
+  },
+  {
+    question: 'How do Pugs cope with Singapore heat?',
+    answer:
+      'This is the single most important thing to know. Pugs are brachycephalic, so they cool themselves poorly: walks happen early morning or evening only, never midday; water is always available; and home means a cool, ventilated room. Managed this way, Pugs live happily here. Ignored, heat stroke is a real and fast danger for this breed.',
+  },
+  {
+    question: 'Do Pugs shed?',
+    answer:
+      'Generously, yes, which surprises people who expect a short coat to mean no hair. The Pug double coat sheds year-round, and fawn Pugs shed most visibly. If low shedding is a priority, this is the wrong breed; look at the Shih Tzu or a Poodle cross instead, and we will say so before you buy.',
+  },
+  {
+    question: 'Are Pugs good with children?',
+    answer:
+      'Excellent, and famously so. The Pug is sturdy for its size, even-tempered, playful without being rough, and genuinely enjoys children. Supervise as with any puppy, but this is one of the safest small-breed choices for a family.',
+  },
+  {
+    question: 'What happens after I reserve a Pug?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/pug',
+    title,
+    description,
+    aboutName: 'Pug',
+    aboutAlternateName: 'Pug dog',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/Pug',
+    datePublished: '2026-07-09',
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  itemListSchema([
+    {
+      name: 'Pug puppy',
+      url: '/puppies/pug',
+      description:
+        'Pug puppy from an AVS licensed Singapore pet shop, priced $2,888 to $4,488 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '2888',
+    },
+  ]),
+  serviceSchema({
+    name: 'Pug Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every Pug puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2024-07-01',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'Pug',
+    description:
+      'The Pug is a small companion breed of roughly 6 to 8 kg with a short fawn or black coat, a wrinkled flat face, and a famously even, comical temperament. Bred for centuries as a companion, it has a lifespan of 12 to 15 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/Pug',
+  }),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/puppies/pug">
+  <Hero
+    eyebrow="AVS Licensed Pet Shop in Balestier"
+    h1="Pug Puppies for Sale in Singapore"
+    h1Accent="Pug"
+    subhead="Pug prices in Singapore commonly run $2,500 to $5,500. Ours are $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Pug puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $2,888 all-in. HDB-approved. No add-ons quietly billed later."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved companion breed']}
+    imageAlt="Fawn Pug puppy sitting in a set-up playpen at a Balestier home"
+    tagLabel="Pug"
+    proofChip="5.0 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies' }, { label: 'Pug', href: '/puppies/pug' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <CaptionedBlock heading="Looking to Buy a Pug in Singapore?" imageAlt="Fawn Pug puppy portrait, one of the Pug puppies available in Singapore" variant="mid">
+      <p>Our Pug puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Pug puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Pug for sale in Singapore here is between $2,888 and $4,488, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Pug puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Pug photos and prices</a>, or meet our Pug puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+
+    <ListingGrid
+      heading="Available Pug Puppies"
+      headingAccent="Available"
+      subhead="A few of the Pug puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      items={[
+        { title: 'Fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn male Pug puppy.'), imageAlt: 'Fawn male Pug puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Fawn girl', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn female Pug puppy.'), imageAlt: 'Fawn female Pug puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black male Pug puppy.'), imageAlt: 'Black male Pug puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Pug puppy.'), imageAlt: 'Black female Pug puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Apricot fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot fawn male Pug puppy.'), imageAlt: 'Apricot fawn male Pug puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Silver fawn girl', href: whatsappLink('Hi! I\'d like more photos and the price for the silver fawn female Pug puppy.'), imageAlt: 'Silver fawn female Pug puppy available in Singapore', meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+      ]}
+    />
+  </div>
+
+  <div class="relative">
+    <ScatterFloat />
+    <DefBox
+      term="What is a Pug?"
+      definition="The Pug is an ancient companion breed of roughly 6 to 8 kg, bred in China as a palace lapdog and famous ever since for its wrinkled flat face, curled tail and comic, even temperament. It comes in fawn with a black mask, or solid black, with a lifespan of 12 to 15 years."
+      bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We match by lifestyle first, and the Pug is a superb family companion for homes that will honestly commit to its two rules: keep it cool, and keep it lean."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Pug at a glance</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Roughly 6 to 8 kg; sturdy and compact',
+            'Fawn with black mask, or solid black',
+            'Even-tempered, comic, great with kids',
+            'Flat-faced: heat care is non-negotiable here',
+            '12 to 15 year lifespan',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">Sizes vary by line; ask us about a specific puppy's expected adult weight.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their Pug from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$2,888', label: 'Pug pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Pug Temperament: Multum in Parvo, a Lot of Dog in a Little Space" imageAlt="Pug puppy playing gently with a family at home" imagePosition="left">
+      <p>The breed's Latin motto translates to "a lot in a little", and it's accurate. The Pug is a full-sized personality in a compact body: even-tempered, sociable with everyone from toddlers to grandparents, stubborn only about comfort, and genuinely funny in a way that makes Pug owners lifelong Pug owners. It doesn't guard, doesn't hunt, and holds no grudges; company is the whole job description, and it's excellent at it.</p>
+      <p>The honest part, from two years of matching puppies to families: the Pug's easygoing nature hides two non-negotiables. It must stay cool, because the flat face makes heat genuinely dangerous here, and it must stay lean, because a Pug will eat anything, look at you like it's starving, and gain weight faster than any breed we carry. Owners who hold those two lines get one of the best companion dogs in existence.</p>
+      <p>If you want the same family-friendly nature with lower heat sensitivity, look at the <a href="/puppies/shih-tzu" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shih Tzu</a>, which carries a milder version of the flat-face trade-off.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a Pug Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Reasonably well. Pugs are sociable but profoundly gifted nappers, and a settled routine in a safe playpen suits the breed's actual energy level, which is modest. Most Pugs treat a quiet weekday as scheduled rest between weekend performances.</p>
+      <p>The non-negotiable is the room itself: cool, ventilated, shaded from afternoon sun, water everywhere. A flat-faced dog must never spend a Singapore afternoon in a hot enclosed space; that's the deal you sign when you choose this wonderful breed.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Family with kids; Pugs adore them',
+            'Modest exercise appetite suits your week',
+            'You can keep its room cool all day',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Pug Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers, including the shedding one."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 6 to 8 kg kept lean, and lean is the operative word'] },
+        { label: 'Height', values: ['Around 25 to 33 cm at the shoulder'] },
+        { label: 'Coat', values: ['Short, smooth double coat; fawn with black mask, or solid black'] },
+        { label: 'Lifespan', values: ['12 to 15 years with good weight and heat management'] },
+        { label: 'Exercise', values: ['About 20 to 30 minutes a day in the cool hours, plus indoor play'] },
+        { label: 'Shedding & allergies', values: ['Heavy year-round shedding despite the short coat; not the pick for allergy-sensitive homes'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The shedding genuinely surprises people: short coat, big output, especially from fawn Pugs with their double coats. If hair on the sofa is a dealbreaker, the <a href="/puppies/shih-tzu" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shih Tzu</a> or <a href="/puppies/toy-poodle" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Toy Poodle</a> covers the companion brief without it.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Pug Price in Singapore: What You'll Pay and What's Included"
+      headingAccent="Price"
+      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $2,888 to $4,488, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Pug price commonly $2,500 to $5,500',
+            'Price usually not published; enquiry required',
+            'Black Pugs often priced at a premium',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$2,888 to $4,488, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Pug Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Pug leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For a Pug the measuring cup is the quiet hero of the kit; portion discipline from day one is the single best thing you can do for this breed's health, and the harness matters because flat-faced dogs should never take pressure on the throat.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Pug's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a Pug Right for Your Lifestyle?"
+      subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Pug."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Family with children', values: ['Ideal. Sturdy, patient, comic; one of the best family small breeds there is'] },
+        { label: 'Senior or low-key household', values: ['Great fit. Modest walks and maximum companionship is the Pug\'s preferred contract'] },
+        { label: 'Working household with a cool room', values: ['Good fit. World-class nappers; the aircon or fan is the real requirement'] },
+        { label: 'Allergy-sensitive household', values: ['Reconsider. Pugs shed heavily year-round; a Shih Tzu or Poodle cross is the better pick'] },
+        { label: 'Active outdoor lifestyle, long midday walks', values: ['Reconsider. Flat faces and Singapore midday heat are a dangerous combination; a Corgi suits that life better if you have private housing'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Pug is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your daily routine and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my daily routine. Is a Pug the right fit for us?"
+    variant="dark"
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <CaptionedBlock heading="Pug vs French Bulldog: The Flat-Face Face-Off" imagePosition="none" variant="dark">
+    <p>Cross-shopped constantly, and one difference should decide it for most Singapore readers: the Pug is HDB-approved and the French Bulldog is not. If you live in a flat, the rules have already chosen for you, and happily, because the Pug is the easier keeper anyway: a size smaller, similar even temper, and the same heat rules.</p>
+    <p>For private housing, the honest comparison: the Frenchie is stockier and a little more headstrong; the Pug sheds more and clowns more. Both need the same disciplined heat management and portion control here.</p>
+    <p>Weighing the two? See our <a href="/puppies/french-bulldog" class="underline underline-offset-2 text-[var(--color-accent-hover)]">French Bulldog puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Pug: 6 to 8 kg, HDB-approved, maximum comedy',
+          'French Bulldog: 9 to 13 kg, private housing only',
+          'Same price, same starter kit, same aftercare either way',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="hdb" class="scroll-mt-40">
+    <DefBox
+      term="Keeping a Pug in an HDB flat"
+      definition="The Pug is named on the HDB-approved breed list, so you can keep one in an HDB flat. HDB allows one dog of an approved breed per flat, and the Pug's modest size and indoor temperament suit flat living well. Every Pug we place has its dog licensing completed at purchase, so the paperwork is handled for you."
+      bridge="Is a Pug HDB-approved? Yes, by name on the list, unlike its French Bulldog cousin. Just mind the one-dog-per-flat rule, and if you already have a dog, message us first so we can check your situation."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The rules in brief</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'The Pug is named on the HDB-approved breed list',
+            'One dog of an approved breed per HDB flat (AVS limits of ownership)',
+            'Condo and landed homes: up to three dogs, subject to your estate\'s own pet rules',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: Easy Coat, One Daily Ritual" imageAlt="Pug puppy having its facial wrinkles gently cleaned" imagePosition="left">
+      <p>Coat care is the easy part: a weekly brush (which also helps manage the honestly impressive shedding) and an occasional bath. No mats, no salon schedule, no topknots.</p>
+      <p>The part that actually matters is the wrinkles. Those famous facial folds trap moisture, and in our humidity a neglected fold turns red and sore within days. The ritual: a gentle wipe through every fold daily, then dry; thirty seconds total, and the wet wipes for it are in your starter kit. Add a weekly nail trim and the day-one tooth-brushing habit and that's the entire Pug grooming manual.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Pug Health: What We Check Before You Take One Home" imageAlt="Pug puppy at a veterinary health check before going home" variant="mid">
+      <p>Every Pug goes home vet-checked, vaccinated, dewormed, and microchipped. The Pug health points worth knowing, stated plainly because this breed deserves informed owners: brachycephalic airway syndrome, the flat-face breathing trade-off, which makes heat and overexertion the two things to manage for life; obesity, the most common and most preventable Pug problem, controlled entirely by your portion discipline; the prominent eyes, which scratch easily and deserve a vet look at the first sign of squinting; and skin fold dermatitis, prevented by the daily wrinkle ritual above.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. For portioning guidance, which matters more for the Pug than any breed we carry, see the <a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div class="scroll-mt-40">
+    <CaptionedBlock heading="Living Flat-Faced in Singapore: The Heat Rules" imagePosition="none" variant="card">
+      <p>We put this on every flat-faced breed page we write, because it is the difference between a thriving Pug and an emergency vet visit. Dogs cool themselves by panting; a brachycephalic dog pants inefficiently, and Singapore sits at 30-plus degrees with tropical humidity most of the year.</p>
+      <p>The rules: walks before 9am or after 6pm, never midday; shade and water on every outing; a cool, ventilated room at home, with fan or aircon through the afternoon; and know the emergency signs: relentless heavy panting, a very dark red tongue, wobbliness. Cool water on the body, aircon, and the vet, in that order.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">The heat rules</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Walks before 9am or after 6pm only',
+            'Cool, ventilated room through the afternoon',
+            'Keep it lean; extra weight makes breathing harder',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+
+    <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+  </div>
+
+  <CaptionedBlock heading="Your Pug's First Week at Home" imageAlt="Pug puppy settling into a set-up playpen during its first week home" imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Pug explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Days 1 to 3: keep it calm, cool and predictable. A fixed feeding routine with measured portions from the very first meal, the toilet pads where we placed them, and the wrinkle-wipe ritual starting immediately so it becomes normal. Some night snoring is not adjustment; that's permanent, and most owners come to love it.</p>
+    <p>Days 4 to 7: the routine sticks. Book your free first lesson with an AVS-certified trainer this week; see <a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>. For anything in between, you WhatsApp us.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <Carousel
+      heading="What Curious Tails Owners Say"
+      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
+      items={[
+        {
+          quote:
+            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
+          name: 'YihShy',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            "Had such a wonderful experience bringing home our new furry family member from Curious Tails in Balestier. Honestly, Nelson and Kim couldn't have been more helpful and answered every single question we had, which made the whole thing stress-free. Our pup was clean, well-socialised, and full of energy when we brought it home. The puppy came home healthy and vet-checked, which gave us real peace of mind. A truly lovely experience from start to finish, thank you!",
+          name: 'Karen Joy Pepito',
+          meta: 'Google review',
+        },
+        {
+          quote:
+            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. If you want peace of mind buying a puppy, this is the place.',
+          name: 'Jaden Chua',
+          meta: 'Google review',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about <a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    <p>And the safety net we're asked about most: if your Pug falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Every legitimate pet shop in Singapore is listed on the AVS public registry of licensed pet shops. Search the shop's name or licence number before paying any deposit, to anyone; if a seller isn't on the registry, they aren't licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop won't mind, and a genuine seller never will. Puppies sold outside licensed channels are often smuggled without vaccination, and buyers have been fined $7,000 for unknowingly purchasing one."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; verify it matches',
+            'Walk away from Carousell or Telegram sellers with no licence to show',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: <a href="/learn/verify-license" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Pug FAQs" items={faqItems} />
+  </div>
+
+  <FinalCta breed="Pug" reserveMessage="Hi! I'd like to reserve a Pug puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

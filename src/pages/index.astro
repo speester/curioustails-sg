@@ -20,6 +20,7 @@ import CloudDivider from '../components/decor/CloudDivider.astro';
 import ScatterFloat from '../components/decor/ScatterFloat.astro';
 import { site, whatsappLink } from '../data/site';
 import { localBusinessSchema, organizationSchema, websiteSchema, webPageSchema, personSchema, serviceSchema, reviewSchema, aggregateOfferSchema, faqPageSchema, itemListSchema, definedTermSchema } from '../lib/schema';
+import { priceForHref, fmtPrice, OVERALL_LOW, OVERALL_HIGH } from '../data/pricing';
 import heroCavapoo from '../assets/home/1-cavapoo-puppy-hero-balestier.png';
 import starterKit from '../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
 import trainingLesson from '../assets/home/3-avs-certified-trainer-puppy-training-lesson.webp';
@@ -48,60 +49,62 @@ const description =
 const breeds = [
   {
     title: 'Cavapoo', href: '/puppies/cavapoo', imageSrc: cavapooPortrait, imageAlt: 'Cavapoo puppy sitting on a light wood floor',
-    meta: 'Gentle and easygoing, a favourite for working households', tag: 'From $2,888', ctaLabel: 'View Breed',
+    meta: 'Gentle and easygoing, a favourite for working households', ctaLabel: 'View Breed',
     points: ['Gentle, easygoing temperament', 'Copes well alone during work hours', 'Low-shedding poodle-cross coat', 'HDB-approved cross'],
   },
   {
     title: 'Maltipoo', href: '/puppies/maltipoo', imageSrc: maltipooPortrait, imageAlt: 'Maltipoo puppy with a wavy cream coat',
-    meta: 'Affectionate and people focused, happiest with company at home', tag: 'From $2,888', ctaLabel: 'View Breed',
+    meta: 'Affectionate and people focused, happiest with company at home', ctaLabel: 'View Breed',
     points: ['Affectionate and people-focused', 'Happiest with company at home', 'Low-shedding, easy-care coat', 'HDB-approved cross'],
   },
   {
     title: 'Maltese', href: '/puppies/maltese', imageSrc: maltesePortrait, imageAlt: 'Maltese puppy with a silky white coat',
-    meta: 'The classic white companion, gentle and devoted to its people', tag: 'From $2,888', ctaLabel: 'View Breed',
+    meta: 'The classic white companion, gentle and devoted to its people', ctaLabel: 'View Breed',
     points: ['Gentle, devoted lap companion', 'Happiest with company at home', 'Silky white, very low-shedding coat', 'HDB-approved breed'],
   },
   {
     title: 'Mini Dachshund', href: '/puppies/mini-dachshund', imageSrc: dachshundPortrait, imageAlt: 'Cream long-haired Mini Dachshund puppy portrait',
-    meta: 'Compact, curious, and full of personality', tag: 'From $2,888', ctaLabel: 'View Breed',
+    meta: 'Compact, curious, and full of personality', ctaLabel: 'View Breed',
     points: ['Compact with a big personality', 'Curious, confident little explorer', 'Short coat, minimal grooming', 'HDB-approved small breed'],
   },
   {
     title: 'Corgi', href: '/puppies/corgi', imageSrc: corgiPortrait, imageAlt: 'Corgi puppy with upright ears',
-    meta: 'Big character in a small body, active and alert', tag: 'From $2,888', ctaLabel: 'View Breed',
+    meta: 'Big character in a small body, active and alert', ctaLabel: 'View Breed',
     points: ['Big character, active and alert', 'Needs daily exercise and play', 'Double coat, sheds regularly', 'Not HDB-approved — private property'],
   },
   {
     title: 'Shiba Inu', href: '/puppies/shiba-inu', imageSrc: shibaPortrait, imageAlt: 'Shiba Inu puppy with a fox-like face',
-    meta: 'Independent and clean, for owners who want a calmer bond', tag: 'From $2,888', ctaLabel: 'View Breed',
+    meta: 'Independent and clean, for owners who want a calmer bond', ctaLabel: 'View Breed',
     points: ['Independent, calm, cat-like nature', 'Naturally clean and tidy habits', 'Suits owners who respect space', 'Not HDB-approved — private property'],
   },
   {
     title: 'Bichonpoo', href: '/puppies/bichonpoo', imageSrc: bichonpooPortrait, imageAlt: 'Bichonpoo puppy with a white curly coat',
-    meta: 'Low shedding and playful, an easy fit for small homes', tag: 'From $2,888', ctaLabel: 'View Breed',
+    meta: 'Low shedding and playful, an easy fit for small homes', ctaLabel: 'View Breed',
     points: ['Playful, cheerful and gentle', 'Low-shedding, allergy-friendlier coat', 'Easy fit for smaller homes', 'HDB-approved cross'],
   },
   {
     title: 'Cockapoo', href: '/puppies/cockapoo', imageSrc: cockapooPortrait, imageAlt: 'Cockapoo puppy with long floppy ears',
-    meta: 'Warm and sociable, a natural with children', tag: 'From $2,888', ctaLabel: 'View Breed',
+    meta: 'Warm and sociable, a natural with children', ctaLabel: 'View Breed',
     points: ['Warm and sociable, great with kids', 'Adaptable to most daily routines', 'Low-shedding wavy coat', 'HDB-approved cross'],
   },
   {
     title: 'Bichon Frise', href: '/puppies/bichon-frise', imageSrc: bichonFrisePortrait, imageAlt: 'Bichon Frise puppy with a white curly coat',
-    meta: 'The cheerful white classic, happiest with company around', tag: 'From $2,888', ctaLabel: 'View Breed',
+    meta: 'The cheerful white classic, happiest with company around', ctaLabel: 'View Breed',
     points: ['Famously cheerful and sociable', 'Happiest with company at home', 'Curly low-shedding double coat', 'HDB-approved breed'],
   },
   {
     title: 'Cavapoochon', href: '/puppies/cavapoochon', imageSrc: cavapoochonPortrait, imageAlt: 'Cavapoochon puppy with a soft teddy-bear coat',
-    meta: 'The teddy-bear triple cross, gentle with everyone', tag: 'From $2,888', ctaLabel: 'View Breed',
+    meta: 'The teddy-bear triple cross, gentle with everyone', ctaLabel: 'View Breed',
     points: ['Gentle, adaptable family all-rounder', 'Keeps its teddy-bear puppy look', 'Low-shedding soft coat', 'HDB-friendly approved cross'],
   },
   {
     title: 'Chihuahua', href: '/puppies/chihuahua', imageSrc: chihuahuaPortrait, imageAlt: 'Chihuahua puppy with upright ears and a fawn coat',
-    meta: 'Tiny devoted companion with a big-dog personality', tag: 'From $2,888', ctaLabel: 'View Breed',
+    meta: 'Tiny devoted companion with a big-dog personality', ctaLabel: 'View Breed',
     points: ['Devoted, alert lap companion', 'The world\'s smallest breed, 1.5 to 3 kg', 'Easiest grooming in our lineup', 'HDB-approved toy breed'],
   },
 ];
+
+const pricedBreeds = breeds.map((b) => ({ ...b, tag: `From $${fmtPrice(priceForHref(b.href).low)}` }));
 
 const jumpLinks = [
   { label: 'Puppies', href: '#puppies' },
@@ -122,7 +125,7 @@ const faqItems = [
   {
     question: 'How much does a puppy cost in Singapore?',
     answer:
-      'At Curious Tails, puppies range from $2,888 to $4,488, and that price includes a $500+ starter kit, free delivery and setup, and a free first training lesson. Elsewhere, prices for comparable breeds can run higher once those extras are added separately.',
+      'At Curious Tails, puppies published from $3,288 all-in, and that price includes a $500+ starter kit, free delivery and setup, and a free first training lesson. Elsewhere, prices for comparable breeds can run higher once those extras are added separately.',
   },
   {
     question: 'How do I know if a pet shop is licensed in Singapore?',
@@ -192,16 +195,16 @@ const schemas = [
     datePublished: '2024-07-01',
   }),
   aggregateOfferSchema({
-    priceLow: '2888',
-    priceHigh: '4488',
+    priceLow: String(OVERALL_LOW),
+    priceHigh: String(OVERALL_HIGH),
     priceCurrency: 'SGD',
   }),
   faqPageSchema(faqItems),
-  itemListSchema(breeds.map((b) => ({
+  itemListSchema(pricedBreeds.map((b) => ({
     name: `${b.title} puppy`,
     url: b.href,
     description: b.meta,
-    price: 'From $2,888',
+    price: String(priceForHref(b.href).low),
     image: b.imageSrc.src,
   }))),
   definedTermSchema({
@@ -222,7 +225,7 @@ const schemas = [
     ctaMessage="Hi! I'd like to ask about your puppies."
     secondaryCtaLabel="See available puppies & pricing"
     secondaryCtaHref="#puppies"
-    priceAnchor="From $2,888, all-in — starter kit, home delivery and first training lesson included."
+    priceAnchor="From $3,288, all-in — starter kit, home delivery and first training lesson included."
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
@@ -267,8 +270,8 @@ const schemas = [
     <ListingGrid
       heading="Meet Our Puppies"
       headingAccent="Puppies"
-      subhead="Eleven breeds, each priced $2,888 to $4,488. More are added as we bring new litters home."
-      items={breeds}
+      subhead="Eleven breeds, each with its own published starting price, all-in. More are added as we bring new litters home."
+      items={pricedBreeds}
       footerCtaLabel="Not sure which breed fits you? Take the 2-minute quiz"
       footerCtaHref="/first-time-owners/breed-selector"
     />
@@ -320,7 +323,7 @@ const schemas = [
     <ComparisonSplit
       heading="Why Our Puppies Cost Less, Not More"
       headingAccent="Less"
-      subhead="$2,888 to $4,488 per puppy, all in."
+      subhead="From $3,288 per puppy, all in."
       mode="split"
       columns={[
         {
@@ -335,7 +338,7 @@ const schemas = [
         {
           heading: 'Curious Tails',
           items: [
-            '$2,888 to $4,488, starter kit included',
+            'From $3,288, starter kit included',
             '$500+ worth of starter kit items, no extra cost',
             'First training lesson free, with an AVS-certified trainer',
             'Free home delivery, with the playpen already set up',
@@ -544,7 +547,7 @@ const schemas = [
   </CaptionedBlock>
 
   <ComparisonSplit
-    heading="What You're Really Getting for $2,888 to $4,488"
+    heading="What You're Really Getting, All-In"
     mode="table"
     tableHeaders={['Included with every puppy', 'What it means for you']}
     rows={[

@@ -27,7 +27,7 @@ export const site = {
     instagram: "https://www.instagram.com/curioustails.pups/",
     facebook: "https://www.facebook.com/profile.php?id=61573140013505",
   },
-  priceRange: "$2,888–$4,488",
+  priceRange: "$3,288–$10,888",
   primaryCta: "WhatsApp us",
   license: {
     // AVS pet shop licence — the number the public verifies on the AVS registry.

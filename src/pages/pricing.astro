@@ -28,10 +28,11 @@ import {
   aggregateOfferSchema,
   faqPageSchema,
 } from '../lib/schema';
+import { OVERALL_LOW, OVERALL_HIGH } from '../data/pricing';
 
-const title = 'Puppy Pricing Singapore | $2,888 to $4,488 | Curious Tails';
+const title = 'Puppy Pricing Singapore | From $3,288 All-In | Curious Tails';
 const description =
-  'How much does a puppy cost in Singapore? Ours are $2,888 to $4,488 all-in: $500+ starter kit, free delivery and setup, and a free training lesson. WhatsApp us.';
+  'How much does a puppy cost in Singapore? Ours start from $3,288 all-in: $500+ starter kit, free delivery and setup, and a free training lesson. WhatsApp us.';
 
 const jumpLinks = [
   { label: "What's Included", href: '#included' },
@@ -47,12 +48,12 @@ const faqItems = [
   {
     question: 'How much does a puppy cost at Curious Tails?',
     answer:
-      'Every puppy is between $2,888 and $4,488, and the price always includes the 30+ item starter kit worth $500+, free home delivery with playpen setup, a free training lesson with an AVS-certified trainer, and licensing paperwork completed at purchase. The exact price depends on the individual puppy, so WhatsApp 8220 6408 for current litters.',
+      'Every puppy is priced from $3,288 all-in, varying by breed, and the price always includes the 30+ item starter kit worth $500+, free home delivery with playpen setup, a free training lesson with an AVS-certified trainer, and licensing paperwork completed at purchase. The exact price depends on the individual puppy, so WhatsApp 8220 6408 for current litters.',
   },
   {
     question: "Why don't you list an exact price for each puppy?",
     answer:
-      'Individual pricing varies with breed, coat, and age, and availability changes weekly. Publishing our committed $2,888 to $4,488 range keeps us honest, while WhatsApp gives you the live number for the specific puppy you are asking about, together with its photos and video.',
+      'Individual pricing varies with breed, coat, and age, and availability changes weekly. Publishing our prices, from $3,288 all-in, keeps us honest, while WhatsApp gives you the live number for the specific puppy you are asking about, together with its photos and video.',
   },
   {
     question: 'Do you charge extra for delivery, setup, or the training lesson?',
@@ -82,7 +83,7 @@ const faqItems = [
   {
     question: 'Is adopting cheaper than buying a puppy in Singapore?',
     answer:
-      'Yes. Adoption packages in Singapore run about $70 to $400 and are the honest answer for tight budgets. If you want a specific small breed with structured support from day one, a licensed shop is the alternative; ours is $2,888 to $4,488 with everything included.',
+      'Yes. Adoption packages in Singapore run about $70 to $400 and are the honest answer for tight budgets. If you want a specific small breed with structured support from day one, a licensed shop is the alternative; ours starts from $3,288 all-in with everything included.',
   },
 ];
 
@@ -98,7 +99,7 @@ const schemas = [
     datePublished: '2026-07-06',
     dateModified: new Date().toISOString().split('T')[0],
   }),
-  aggregateOfferSchema({ priceLow: '2888', priceHigh: '4488', priceCurrency: 'SGD' }),
+  aggregateOfferSchema({ priceLow: String(OVERALL_LOW), priceHigh: String(OVERALL_HIGH), priceCurrency: 'SGD' }),
   faqPageSchema(faqItems),
 ];
 ---
@@ -108,12 +109,12 @@ const schemas = [
     eyebrow="AVS Licensed Pet Shop in Balestier"
     h1="Puppy Pricing in Singapore: Everything Included"
     h1Accent="Pricing"
-    subhead="Most shops make you message them just to hear a number. Ours is in writing: every puppy is $2,888 to $4,488, and that already covers the $500+ starter kit, free home delivery and setup, and a free first lesson with an AVS-certified trainer."
+    subhead="Most shops make you message them just to hear a number. Ours is in writing: every puppy is priced from $3,288 all-in, and that already covers the $500+ starter kit, free home delivery and setup, and a free first lesson with an AVS-certified trainer."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! Could you share current puppy availability and prices?"
     secondaryCtaLabel="See what's included"
     secondaryCtaHref="#included"
-    priceAnchor="From $2,888 all-in. No add-ons quietly billed later."
+    priceAnchor="From $3,288 all-in. No add-ons quietly billed later."
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
@@ -131,7 +132,7 @@ const schemas = [
     <ScatterFloat />
     <DefBox
       term="How much does a puppy cost in Singapore?"
-      definition="Puppy prices in Singapore run from roughly $800 to $13,900 depending on breed, size, coat, and seller, and established shops commonly list small breeds at $3,500 to $7,800. At Curious Tails, every puppy is $2,888 to $4,488, with the $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson already inside the price."
+      definition="Puppy prices in Singapore run from roughly $800 to $13,900 depending on breed, size, coat, and seller, and established shops commonly list small breeds at $3,500 to $7,800. At Curious Tails, prices start from $3,288 all-in, with the $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson already inside the price."
       bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We publish our full price range because comparing puppy pricing in Singapore only works when someone puts a real number in writing first."
       citationLabel="Verify our licence on the AVS public registry"
       citationHref={site.license.registryUrl}
@@ -140,7 +141,7 @@ const schemas = [
         <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The number, in writing</p>
         <ul class="mt-4 space-y-3">
           {[
-            'Every puppy: $2,888 to $4,488, all-in',
+            'Every puppy: from $3,288, all-in',
             'Starter kit worth $500+, 30+ items',
             'Free home delivery and playpen setup',
             'Free first AVS-certified training lesson',
@@ -163,7 +164,7 @@ const schemas = [
   <StatStrip
     heading="Why Singapore families trust our pricing"
     stats={[
-      { value: '$2,888', label: 'puppy pricing starts here, all-in' },
+      { value: '$3,288', label: 'puppy pricing starts here, all-in' },
       { value: '$500+', label: 'starter kit included in every price' },
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
       { value: '2+', label: 'years in Balestier' },
@@ -176,7 +177,7 @@ const schemas = [
       eyebrow="One price, five inclusions"
       heading="What every Curious Tails price includes"
       headingAccent="every"
-      subhead="The sticker price is the full price. These come with every puppy, whichever breed and whichever end of the $2,888 to $4,488 range."
+      subhead="The sticker price is the full price. These come with every puppy, whichever breed and whatever the price."
       items={[
         {
           title: 'Starter kit, 30+ items',
@@ -218,7 +219,7 @@ const schemas = [
         { label: 'Cavapoo, typical Singapore market', values: ['$4,300 to $6,500'] },
         { label: 'Maltipoo, typical Singapore market', values: ['$5,000 to $9,000'] },
         { label: 'Rare and large breeds', values: ['Up to $13,900 at the top of the market'] },
-        { label: 'Curious Tails, all 40+ breeds', values: ['$2,888 to $4,488, with kit, delivery, setup, and training already included'] },
+        { label: 'Curious Tails, all 40+ breeds', values: ['From $3,288 all-in, with kit, delivery, setup, and training already included'] },
       ]}
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
@@ -267,21 +268,21 @@ const schemas = [
     <ComparisonSplit
       heading="Price Guide by Breed"
       headingAccent="Breed"
-      subhead="All 40+ breeds we carry sit inside the same published range. The market column shows what the same breed commonly costs elsewhere in Singapore."
+      subhead="Each breed has its own published all-in price. The market column shows what the same breed commonly costs elsewhere in Singapore."
       mode="table"
       tableHeaders={['Breed', 'At Curious Tails', 'Typical market']}
       rows={[
-        { label: 'Cavapoo', values: ['$2,888 to $4,488 all-in', '$4,300 to $6,500'] },
-        { label: 'Maltipoo', values: ['$2,888 to $4,488 all-in', '$5,000 to $9,000'] },
-        { label: 'Maltese', values: ['$2,888 to $4,488 all-in', 'Commonly $2,500 to $6,000'] },
-        { label: 'Mini Dachshund', values: ['$2,888 to $4,488 all-in', 'Enquiry-only at most shops'] },
-        { label: 'Corgi', values: ['$2,888 to $4,488 all-in', 'Commonly $7,880 to $8,500'] },
-        { label: 'Shiba Inu', values: ['$2,888 to $4,488 all-in', 'Enquiry-only at most shops'] },
-        { label: 'Bichonpoo', values: ['$2,888 to $4,488 all-in', 'Enquiry-only at most shops'] },
-        { label: 'Bichon Frise', values: ['$2,888 to $4,488 all-in', 'Commonly $3,000 to $7,000'] },
-        { label: 'Cavapoochon', values: ['$2,888 to $4,488 all-in', 'Rarely stocked; enquiry-only'] },
-        { label: 'Chihuahua', values: ['$2,888 to $4,488 all-in', 'Commonly $2,500 to $6,000'] },
-        { label: 'Cockapoo', values: ['$2,888 to $4,488 all-in', 'Enquiry-only at most shops'] },
+        { label: 'Cavapoo', values: ['$3,288 to $5,988 all-in', '$4,300 to $6,500'] },
+        { label: 'Maltipoo', values: ['$3,288 to $5,988 all-in', '$5,000 to $9,000'] },
+        { label: 'Maltese', values: ['$4,288 to $5,988 all-in', 'Commonly $2,500 to $6,000'] },
+        { label: 'Mini Dachshund', values: ['$4,288 to $6,088 all-in', 'Enquiry-only at most shops'] },
+        { label: 'Corgi', values: ['$3,688 to $5,500 all-in', 'Commonly $7,880 to $8,500'] },
+        { label: 'Shiba Inu', values: ['$4,788 to $6,500 all-in', 'Enquiry-only at most shops'] },
+        { label: 'Bichonpoo', values: ['$3,288 to $5,988 all-in', 'Enquiry-only at most shops'] },
+        { label: 'Bichon Frise', values: ['$3,888 to $5,988 all-in', 'Commonly $3,000 to $7,000'] },
+        { label: 'Cavapoochon', values: ['$3,688 to $4,988 all-in', 'Rarely stocked; enquiry-only'] },
+        { label: 'Chihuahua', values: ['$4,288 to $4,888 all-in', 'Commonly $2,500 to $6,000'] },
+        { label: 'Cockapoo', values: ['$3,288 to $5,300 all-in', 'Enquiry-only at most shops'] },
       ]}
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
@@ -316,7 +317,7 @@ const schemas = [
         ],
       },
       {
-        heading: 'A licensed shop at $2,888+',
+        heading: 'A licensed shop from $3,288',
         items: [
           'Licence verifiable on the AVS public registry in 60 seconds',
           'Vet-checked, vaccinated, dewormed, and microchipped before homecoming',
@@ -392,7 +393,7 @@ const schemas = [
     tableHeaders={['Your situation', 'Our honest take']}
     rows={[
       { label: 'Budget under $500', values: ['Adopt. Shelters like Action for Singapore Dogs rehome for $70 to $400, and a rehomed dog is a genuinely good dog'] },
-      { label: 'Want a specific small breed, first dog, want support', values: ['A licensed shop is your path; ours is $2,888 to $4,488 with the kit, setup, and training lesson included'] },
+      { label: 'Want a specific small breed, first dog, want support', values: ['A licensed shop is your path; ours starts from $3,288 all-in with the kit, setup, and training lesson included'] },
       { label: 'Found a $1,500 "deal" on Carousell or Telegram', values: ['Check the seller on the AVS registry before paying anything. No licence means the discount is the risk'] },
       { label: 'Torn between two breeds at different prices', values: ['Decide on routine fit, not price. WhatsApp us your 8am to 6pm reality and we will tell you straight which breed suits it'] },
     ]}
@@ -407,7 +408,7 @@ const schemas = [
       <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Our pricing philosophy</p>
       <ul class="mt-4 space-y-3">
         {[
-          'The range is published: $2,888 to $4,488',
+          'Prices are published: from $3,288 all-in',
           'Everything a first-time owner needs is inside it',
           'Routine fit decides the breed, not the price tag',
           'No pressure, no upsell, honest answers',

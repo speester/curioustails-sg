@@ -1,8 +1,52 @@
 import { site } from '../data/site';
+import { BREED_COUNT } from '../data/pricing';
 import heroImage from '../assets/home/1-cavapoo-puppy-hero-balestier.png';
 
 // Absolute URL of the hero image as actually served (hashed under /_astro/).
 const heroImageUrl = new URL(heroImage.src, site.domain).toString();
+
+// Strip currency symbols, thousands separators, and prose ("From $3,288") so
+// Offer.price is a bare numeric string — Google rejects anything else and
+// flags "Invalid price format". Non-numeric inputs like "Included" become "0".
+function toPriceValue(price: string): string {
+  const numeric = price.replace(/[^0-9.]/g, '');
+  return numeric || '0';
+}
+
+// A genuine 5-star Google review, reused as the representative review on each
+// Product so it is eligible for the review-snippet rich result and clears the
+// GSC "Missing field review" / "Missing field aggregateRating" recommendations.
+const featuredReview = {
+  author: 'Andrew Mak',
+  reviewBody:
+    "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly love what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+  datePublished: '2024-07-01',
+};
+
+function productAggregateRating() {
+  return {
+    '@type': 'AggregateRating',
+    ratingValue: site.reviews.rating,
+    reviewCount: site.reviews.count,
+    bestRating: '5',
+    worstRating: '1',
+  };
+}
+
+function productReview() {
+  return {
+    '@type': 'Review',
+    author: { '@type': 'Person', name: featuredReview.author },
+    reviewBody: featuredReview.reviewBody,
+    datePublished: featuredReview.datePublished,
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: 5,
+      bestRating: '5',
+      worstRating: '1',
+    },
+  };
+}
 
 export function localBusinessSchema() {
   return {
@@ -137,7 +181,7 @@ export function serviceSchema(opts: { name: string; description: string; price?:
     description: opts.description,
     provider: { '@id': `${site.domain}#business` },
     areaServed: { '@type': 'City', name: 'Singapore' },
-    ...(opts.price ? { offers: { '@type': 'Offer', price: opts.price, priceCurrency: 'SGD' } } : {}),
+    ...(opts.price ? { offers: { '@type': 'Offer', price: toPriceValue(opts.price), priceCurrency: 'SGD' } } : {}),
     ...(opts.image ? { image: opts.image } : {}),
   };
 }
@@ -181,7 +225,7 @@ export function aggregateOfferSchema(opts: { priceLow: string; priceHigh: string
     priceCurrency: opts.priceCurrency,
     lowPrice: opts.priceLow,
     highPrice: opts.priceHigh,
-    offerCount: 41, // live breed count
+    offerCount: BREED_COUNT, // live breed count (from src/data/pricing.ts)
   };
 }
 
@@ -214,8 +258,10 @@ export function itemListSchema(items: { name: string; url: string; description?:
         url: new URL(item.url, site.domain).toString(),
         brand: { '@type': 'Brand', name: site.businessName },
         ...(item.description ? { description: item.description } : {}),
-        ...(item.price ? { offers: { '@type': 'Offer', price: item.price, priceCurrency: 'SGD', availability: 'https://schema.org/InStock' } } : {}),
+        ...(item.price ? { offers: { '@type': 'Offer', price: toPriceValue(item.price), priceCurrency: 'SGD', availability: 'https://schema.org/InStock' } } : {}),
         ...(item.image ? { image: new URL(item.image, site.domain).toString() } : {}),
+        aggregateRating: productAggregateRating(),
+        review: productReview(),
       },
     })),
   };

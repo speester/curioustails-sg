@@ -33,6 +33,47 @@ function productAggregateRating() {
   };
 }
 
+// Live animals aren't returnable; delivery is free and island-wide. Reused on
+// every Product offer so GSC clears "Missing field hasMerchantReturnPolicy /
+// shippingDetails".
+function productReturnPolicy() {
+  return {
+    '@type': 'MerchantReturnPolicy',
+    returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
+    applicableCountry: 'SG',
+  };
+}
+
+function productShippingDetails() {
+  return {
+    '@type': 'OfferShippingDetails',
+    shippingRate: {
+      '@type': 'MonetaryAmount',
+      value: '0',
+      currency: 'SGD',
+    },
+    shippingDestination: {
+      '@type': 'DefinedRegion',
+      addressCountry: 'SG',
+    },
+    deliveryTime: {
+      '@type': 'ShippingDeliveryTime',
+      handlingTime: {
+        '@type': 'QuantitativeValue',
+        minValue: 0,
+        maxValue: 3,
+        unitCode: 'DAY',
+      },
+      transitTime: {
+        '@type': 'QuantitativeValue',
+        minValue: 0,
+        maxValue: 1,
+        unitCode: 'DAY',
+      },
+    },
+  };
+}
+
 function productReview() {
   return {
     '@type': 'Review',
@@ -258,8 +299,19 @@ export function itemListSchema(items: { name: string; url: string; description?:
         url: new URL(item.url, site.domain).toString(),
         brand: { '@type': 'Brand', name: site.businessName },
         ...(item.description ? { description: item.description } : {}),
-        ...(item.price ? { offers: { '@type': 'Offer', price: toPriceValue(item.price), priceCurrency: 'SGD', availability: 'https://schema.org/InStock' } } : {}),
-        ...(item.image ? { image: new URL(item.image, site.domain).toString() } : {}),
+        ...(item.price
+          ? {
+              offers: {
+                '@type': 'Offer',
+                price: toPriceValue(item.price),
+                priceCurrency: 'SGD',
+                availability: 'https://schema.org/InStock',
+                hasMerchantReturnPolicy: productReturnPolicy(),
+                shippingDetails: productShippingDetails(),
+              },
+            }
+          : {}),
+        image: new URL(item.image ?? heroImageUrl, site.domain).toString(),
         aggregateRating: productAggregateRating(),
         review: productReview(),
       },

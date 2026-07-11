@@ -97,7 +97,7 @@ const schemas = [
       {posts.map((post, i) => (
         <article data-reveal style={`--i:${i}`} class="clay clay-hover flex h-full flex-col overflow-hidden bg-[var(--color-surface-card)]">
           <a href={post.href} class="block">
-            <Image src={post.image} alt={post.imageAlt} class="aspect-[16/10] w-full object-cover" widths={[480, 760]} sizes="(min-width: 1024px) 430px, 90vw" loading={i === 0 ? 'eager' : 'lazy'} />
+            <Image src={post.image} alt={post.imageAlt} format="webp" class="aspect-[16/10] w-full object-cover" widths={[480, 760]} sizes="(min-width: 1024px) 430px, 90vw" loading={i === 0 ? 'eager' : 'lazy'} />
           </a>
           <div class="flex flex-1 flex-col p-6">
             <div class="flex items-center gap-2 text-xs">

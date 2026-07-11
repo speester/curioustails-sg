@@ -27,7 +27,7 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/curious-tails-icon.png" type="image/png" />
   <link rel="canonical" href={canonicalURL} />
   {noindex && <meta name="robots" content="noindex, nofollow" />}
 
@@ -82,6 +82,11 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
             });
           } else if (/(^|\/\/)(wa\.me|api\.whatsapp\.com)\//.test(href)) {
             gtag('event', 'whatsapp_click', {
+              link_url: href,
+              link_text: (link.textContent || '').trim().slice(0, 100),
+            });
+          } else if (href.startsWith('mailto:')) {
+            gtag('event', 'mailto_click', {
               link_url: href,
               link_text: (link.textContent || '').trim().slice(0, 100),
             });
@@ -143,15 +148,6 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
       });
     }
 
-    // Playful squish-press feedback on every clay button/pill.
-    if (!reducedMotion) {
-      document.querySelectorAll<HTMLElement>('.clay-btn, .clay-btn-outline, .clay-hover').forEach((el) => {
-        el.addEventListener('pointerdown', () => gsap.to(el, { scale: 0.94, duration: 0.15, ease: 'power2.out' }));
-        el.addEventListener('pointerup', () => gsap.to(el, { scale: 1, duration: 0.35, ease: 'back.out(2)' }));
-        el.addEventListener('pointerleave', () => gsap.to(el, { scale: 1, duration: 0.35, ease: 'back.out(2)' }));
-      });
-    }
-
     // Bigger "section" entrance: every other top-level section grows/fades in as
     // a whole, on top of its own internal [data-reveal] item stagger — gives the
     // page a stronger sense of moving between distinct scenes while scrolling.
@@ -172,71 +168,12 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
       });
     }
 
-    // Subtle 3D tilt-on-hover for image frames and cards marked [data-tilt].
-    // Desktop/pointer devices only; skipped entirely under reduced motion.
-    if (!reducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      document.querySelectorAll<HTMLElement>('[data-tilt]').forEach((el) => {
-        el.style.transformPerspective = '900px';
-        // Bake the element's existing static Tailwind rotate-* slant into GSAP's
-        // tracked rotation first, so animating rotationX/Y doesn't reset it to 0.
-        const matrix = getComputedStyle(el).transform;
-        let baseRotation = 0;
-        if (matrix && matrix !== 'none') {
-          const m = matrix.match(/^matrix\(([^)]+)\)/);
-          if (m) {
-            const [a, b] = m[1].split(',').map(Number);
-            baseRotation = (Math.atan2(b, a) * 180) / Math.PI;
-          }
-        }
-        gsap.set(el, { rotation: baseRotation });
-
-        const hasLift = el.classList.contains('clay-hover');
-        const setRotateX = gsap.quickTo(el, 'rotationX', { duration: 0.4, ease: 'power2.out' });
-        const setRotateY = gsap.quickTo(el, 'rotationY', { duration: 0.4, ease: 'power2.out' });
-        const setLift = gsap.quickTo(el, 'y', { duration: 0.4, ease: 'power2.out' });
-        el.addEventListener('pointermove', (e) => {
-          const r = el.getBoundingClientRect();
-          const px = (e.clientX - r.left) / r.width - 0.5;
-          const py = (e.clientY - r.top) / r.height - 0.5;
-          setRotateY(px * 10);
-          setRotateX(py * -10);
-        });
-        el.addEventListener('pointerenter', () => {
-          if (hasLift) setLift(-6);
-        });
-        el.addEventListener('pointerleave', () => {
-          setRotateX(0);
-          setRotateY(0);
-          if (hasLift) setLift(0);
-        });
-      });
-    }
-
-    // Cute cursor buddy: a little paw print that trails the mouse with a soft
-    // lag, and wags gently. Desktop pointer devices only; hides over text
-    // inputs/links so it never gets in the way of reading or clicking.
-    if (!reducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      const buddy = document.getElementById('cursor-buddy');
-      if (buddy) {
-        const setX = gsap.quickTo(buddy, 'x', { duration: 0.55, ease: 'power3.out' });
-        const setY = gsap.quickTo(buddy, 'y', { duration: 0.55, ease: 'power3.out' });
-        let shown = false;
-
-        gsap.to(buddy, { rotation: 14, duration: 1.6, ease: 'sine.inOut', yoyo: true, repeat: -1 });
-
-        window.addEventListener('pointermove', (e) => {
-          setX(e.clientX);
-          setY(e.clientY);
-          if (!shown) {
-            shown = true;
-            gsap.to(buddy, { opacity: 0.9, duration: 0.3 });
-          }
-        });
-        document.addEventListener('pointerleave', () => gsap.to(buddy, { opacity: 0, duration: 0.3 }));
-        document.addEventListener('pointerdown', () =>
-          gsap.to(buddy, { scale: 1.4, duration: 0.15, ease: 'power2.out', yoyo: true, repeat: 1 })
-        );
-      }
+    // Squish-press feedback, 3D tilt-on-hover, and the cursor buddy are all
+    // decorative pointer-only interactions with no effect on initial content,
+    // so they're split into a separate chunk and fetched after this critical
+    // script runs rather than adding to its parse/eval cost (technical-audit §1.2).
+    if (!reducedMotion) {
+      import('../scripts/hover-interactions').then(({ initHoverInteractions }) => initHoverInteractions());
     }
   </script>
 </body>

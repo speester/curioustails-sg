@@ -28,7 +28,78 @@ import {
   aggregateOfferSchema,
   faqPageSchema,
 } from '../lib/schema';
-import { OVERALL_LOW, OVERALL_HIGH } from '../data/pricing';
+import { OVERALL_LOW, OVERALL_HIGH, breedPricing, fmtPrice, type BreedSlug } from '../data/pricing';
+
+// Slug -> display name, and slug -> known typical-market text (falls back to "Enquiry-only at most shops").
+const breedDisplayNames: Record<BreedSlug, string> = {
+  'cavapoo': 'Cavapoo',
+  'maltipoo': 'Maltipoo',
+  'maltese': 'Maltese',
+  'mini-dachshund': 'Mini Dachshund',
+  'cockapoo': 'Cockapoo',
+  'bichonpoo': 'Bichonpoo',
+  'bichon-frise': 'Bichon Frise',
+  'cavapoochon': 'Cavapoochon',
+  'chihuahua': 'Chihuahua',
+  'cavachon': 'Cavachon',
+  'havanese': 'Havanese',
+  'coton-de-tulear': 'Coton de Tulear',
+  'shihpoo': 'Shihpoo',
+  'toy-poodle': 'Toy Poodle',
+  'pomeranian': 'Pomeranian',
+  'japanese-spitz': 'Japanese Spitz',
+  'shih-tzu': 'Shih Tzu',
+  'pug': 'Pug',
+  'yorkshire-terrier': 'Yorkshire Terrier',
+  'silky-terrier': 'Silky Terrier',
+  'miniature-schnauzer': 'Miniature Schnauzer',
+  'miniature-pinscher': 'Miniature Pinscher',
+  'papillon': 'Papillon',
+  'pekingese': 'Pekingese',
+  'japanese-chin': 'Japanese Chin',
+  'cavalier-king-charles-spaniel': 'Cavalier King Charles Spaniel',
+  'jack-russell-terrier': 'Jack Russell Terrier',
+  'westie': 'Westie',
+  'scottish-terrier': 'Scottish Terrier',
+  'boston-terrier': 'Boston Terrier',
+  'italian-greyhound': 'Italian Greyhound',
+  'sheltie': 'Sheltie',
+  'corgi': 'Corgi',
+  'shiba-inu': 'Shiba Inu',
+  'french-bulldog': 'French Bulldog',
+  'golden-retriever': 'Golden Retriever',
+  'samoyed': 'Samoyed',
+  'chow-chow': 'Chow Chow',
+  'siberian-husky': 'Siberian Husky',
+  'border-collie': 'Border Collie',
+  'pomsky': 'Pomsky',
+  'beagle': 'Beagle',
+  'cocker-spaniel': 'Cocker Spaniel',
+  'english-bulldog': 'English Bulldog',
+  'german-shepherd': 'German Shepherd',
+  'goldendoodle': 'Goldendoodle',
+  'labradoodle': 'Labradoodle',
+  'whippet': 'Whippet',
+};
+
+const breedMarketNotes: Partial<Record<BreedSlug, string>> = {
+  'cavapoo': '$4,300 to $6,500',
+  'maltipoo': '$5,000 to $9,000',
+  'maltese': 'Commonly $2,500 to $6,000',
+  'corgi': 'Commonly $7,880 to $8,500',
+  'bichon-frise': 'Commonly $3,000 to $7,000',
+  'chihuahua': 'Commonly $2,500 to $6,000',
+};
+
+const byBreedRows = (Object.keys(breedPricing) as BreedSlug[])
+  .sort((a, b) => breedDisplayNames[a].localeCompare(breedDisplayNames[b]))
+  .map((slug) => {
+    const { low, high } = breedPricing[slug];
+    return {
+      label: breedDisplayNames[slug],
+      values: [`$${fmtPrice(low)} to $${fmtPrice(high)} all-in`, breedMarketNotes[slug] ?? 'Enquiry-only at most shops'],
+    };
+  });
 
 const title = 'Puppy Pricing Singapore | From $3,288 All-In | Curious Tails';
 const description =
@@ -271,19 +342,7 @@ const schemas = [
       subhead="Each breed has its own published all-in price. The market column shows what the same breed commonly costs elsewhere in Singapore."
       mode="table"
       tableHeaders={['Breed', 'At Curious Tails', 'Typical market']}
-      rows={[
-        { label: 'Cavapoo', values: ['$3,288 to $5,988 all-in', '$4,300 to $6,500'] },
-        { label: 'Maltipoo', values: ['$3,288 to $5,988 all-in', '$5,000 to $9,000'] },
-        { label: 'Maltese', values: ['$4,288 to $5,988 all-in', 'Commonly $2,500 to $6,000'] },
-        { label: 'Mini Dachshund', values: ['$4,288 to $6,088 all-in', 'Enquiry-only at most shops'] },
-        { label: 'Corgi', values: ['$3,688 to $5,500 all-in', 'Commonly $7,880 to $8,500'] },
-        { label: 'Shiba Inu', values: ['$4,788 to $6,500 all-in', 'Enquiry-only at most shops'] },
-        { label: 'Bichonpoo', values: ['$3,288 to $5,988 all-in', 'Enquiry-only at most shops'] },
-        { label: 'Bichon Frise', values: ['$3,888 to $5,988 all-in', 'Commonly $3,000 to $7,000'] },
-        { label: 'Cavapoochon', values: ['$3,688 to $4,988 all-in', 'Rarely stocked; enquiry-only'] },
-        { label: 'Chihuahua', values: ['$4,288 to $4,888 all-in', 'Commonly $2,500 to $6,000'] },
-        { label: 'Cockapoo', values: ['$3,288 to $5,300 all-in', 'Enquiry-only at most shops'] },
-      ]}
+      rows={byBreedRows}
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">

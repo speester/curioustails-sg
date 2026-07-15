@@ -5,14 +5,15 @@ import path from 'path';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+const blogCreateSchedule = '0 8 * * *'; // 8:00 AM every day
 const postSchedule = '0 11 * * *'; // 11:00 AM every day
 const reviewSchedule = '0 */4 * * *'; // every 4 hours
 
-console.log('🚀 GBP Daily Scheduler Started');
-console.log('📅 Posts publish at 11:00 AM Singapore time');
-console.log('📊 Your blog will auto-post daily until all 3 articles are published');
-console.log('💡 Then it loops back to day 1, or write new blog posts for continuous daily content');
-console.log('💬 Reviews are checked every 4 hours and auto-replied via AI\n');
+console.log('🚀 Daily Automation Scheduler Started');
+console.log('📝 Blogs created at 08:00 AM Singapore time');
+console.log('📅 Blogs post to GBP at 11:00 AM Singapore time');
+console.log('💬 Reviews checked every 4 hours and auto-replied via AI\n');
+console.log('🔗 Pipeline: 8am (create blog) → 11am (post to GBP) → Repeat daily\n');
 
 function runScript(npmScript, label) {
   const now = new Date().toLocaleString('en-SG', { timeZone: 'Asia/Singapore' });
@@ -28,16 +29,23 @@ function runScript(npmScript, label) {
   });
 }
 
-cron.schedule(postSchedule, () => runScript('gbp:post', "Publishing today's post"), {
+cron.schedule(blogCreateSchedule, () => runScript('blog:create', '📝 Creating daily blog'), {
   timezone: 'Asia/Singapore'
 });
 
-cron.schedule(reviewSchedule, () => runScript('gbp:reviews', 'Checking for new reviews to reply to'), {
+cron.schedule(postSchedule, () => runScript('gbp:post', '📤 Publishing blog to GBP'), {
+  timezone: 'Asia/Singapore'
+});
+
+cron.schedule(reviewSchedule, () => runScript('gbp:reviews', '💬 Checking for new reviews'), {
   timezone: 'Asia/Singapore'
 });
 
 // Also allow manual trigger
-console.log('💡 Tip: Run "npm run gbp:post" or "npm run gbp:reviews" anytime to trigger immediately\n');
+console.log('💡 Manual Triggers:');
+console.log('   npm run blog:create   - Create blog now');
+console.log('   npm run gbp:post      - Post to GBP now');
+console.log('   npm run gbp:reviews   - Check reviews now\n');
 
 // Keep scheduler running
 process.on('SIGINT', () => {

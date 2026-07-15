@@ -14,10 +14,20 @@ const ZERNIO_BASE = config.baseURL || 'https://zernio.com/api';
 
 const GBP_ACCOUNT_ID = '6a4cab009d9472faaea42d63';
 const POSTS_LOG_PATH = path.join(__dirname, 'posts_log.json');
+const BLOGS_QUEUE_PATH = path.join(__dirname, 'blogs_queue.json');
 const DOMAIN = 'https://curioustails.sg';
 
-// Blog post titles and their key points
-const blogPosts = [
+// Load blog posts from external queue file (allows dynamic updates from blog_creator_daily.mjs)
+let blogPosts = [];
+
+function loadBlogPosts() {
+  try {
+    if (fs.existsSync(BLOGS_QUEUE_PATH)) {
+      blogPosts = JSON.parse(fs.readFileSync(BLOGS_QUEUE_PATH, 'utf-8'));
+    } else {
+      console.warn('⚠️  blogs_queue.json not found; falling back to hardcoded blogs.');
+      // Fallback: hardcoded blogs for backwards compatibility
+      blogPosts = [
   {
     slug: 'first-time-mistakes',
     file: 'first-time-mistakes.astro',
@@ -98,7 +108,13 @@ Read what actually matters when choosing, what each breed needs, and which one m
 
 📖 Compare breeds: https://curioustails.sg/blog/cavapoo-vs-maltipoo`
   }
-];
+      ];
+    }
+  } catch (error) {
+    console.error('❌ Error loading blogs_queue.json:', error.message);
+    process.exit(1);
+  }
+}
 
 async function getPostedBlogs() {
   if (!fs.existsSync(POSTS_LOG_PATH)) {
@@ -107,11 +123,29 @@ async function getPostedBlogs() {
   return JSON.parse(fs.readFileSync(POSTS_LOG_PATH, 'utf-8'));
 }
 
+function blogPageExists(blog) {
+  if (!blog.file) return true;
+  return fs.existsSync(path.join(projectRoot, 'src/pages/blog', blog.file));
+}
+
 async function getNextBlog() {
   const posted = await getPostedBlogs();
   const postedUrls = posted.map(p => p.blogUrl);
-  const next = blogPosts.find(b => !postedUrls.includes(b.url));
-  return next;
+
+  for (const blog of blogPosts) {
+    if (postedUrls.includes(blog.url)) continue;
+    if (blog.skip === true) {
+      console.log(`⏭  Skipping "${blog.title}" (marked skip: ${blog.skipReason || 'no reason given'})`);
+      continue;
+    }
+    // Never post a GBP link to a page that doesn't exist on the site.
+    if (!blogPageExists(blog)) {
+      console.warn(`⚠️  Skipping "${blog.title}" — src/pages/blog/${blog.file} not found (would 404).`);
+      continue;
+    }
+    return blog;
+  }
+  return undefined;
 }
 
 async function publishViaZernioAPI(blog) {
@@ -151,6 +185,9 @@ async function publishViaZernioAPI(blog) {
 
 async function publishPost() {
   try {
+    // Load latest blogs from external queue (allows dynamic updates)
+    loadBlogPosts();
+
     const blog = await getNextBlog();
 
     if (!blog) {

@@ -10,6 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "blog:create": "node scripts/blog_creator_daily.mjs",
     "gbp:daily": "node scripts/scheduler.mjs",
     "gbp:post": "node scripts/publish-daily-post.mjs",
     "gbp:reviews": "node scripts/reply-to-reviews.mjs"

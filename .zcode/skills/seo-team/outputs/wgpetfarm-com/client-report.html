@@ -1,0 +1,489 @@
+<title>William Goh Pet Farm — SEO Audit & Growth Plan</title>
+<style>
+  :root{
+    --bg:#f4f2e7;
+    --paper:#ffffff;
+    --ink:#1c261d;
+    --ink-soft:#4b5749;
+    --ink-faint:#818f7a;
+    --line:#dfe2d1;
+    --line-strong:#c7ceb4;
+    --accent:#b3801f;
+    --accent-deep:#7d5711;
+    --accent-soft:#f2e6c9;
+    --good:#3f7d58;
+    --good-soft:#e7f0e9;
+    --warn:#a8721f;
+    --warn-soft:#f6ecd8;
+    --bad:#a83a2e;
+    --bad-soft:#f6e4e0;
+    --serif:'Iowan Old Style',Georgia,'Palatino Linotype','Book Antiqua',serif;
+    --sans:'Segoe UI',Inter,-apple-system,BlinkMacSystemFont,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 28px 80px;}
+
+  /* ---------- COVER ---------- */
+  .cover{
+    background:linear-gradient(160deg,#141f16 0%, #203828 55%, #2c4a30 100%);
+    color:#f1f4ea;
+    padding:100px 60px 70px;
+    position:relative;
+    overflow:hidden;
+  }
+  .cover::after{
+    content:"";
+    position:absolute;
+    right:-120px;top:-120px;
+    width:420px;height:420px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(198,145,45,0.32) 0%, rgba(198,145,45,0) 70%);
+  }
+  .cover-eyebrow{
+    font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+    color:#d9b671;font-weight:600;margin-bottom:22px;
+  }
+  .cover h1{
+    font-family:var(--serif);
+    font-size:56px;
+    line-height:1.05;
+    margin:0 0 8px;
+    font-weight:400;
+    color:#f7f4e8;
+  }
+  .cover .domain{
+    font-size:19px;color:#cdd6bd;margin-bottom:36px;font-family:var(--serif);font-style:italic;
+  }
+  .cover .subtitle{
+    font-size:22px;color:#e9ecdd;font-weight:300;max-width:540px;margin-bottom:56px;
+  }
+  .cover-meta{
+    display:flex;gap:48px;flex-wrap:wrap;border-top:1px solid rgba(241,244,234,0.22);padding-top:22px;
+    font-size:14px;color:#c1c9ae;
+  }
+  .cover-meta strong{display:block;color:#f1f4ea;font-size:15px;margin-bottom:3px;font-weight:600;}
+  .motif{position:absolute;right:46px;bottom:42px;opacity:0.55;}
+
+  /* ---------- GENERIC SECTION ---------- */
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  section:last-child{border-bottom:none;}
+  .kicker{
+    font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+    font-weight:700;margin-bottom:10px;
+  }
+  h2{
+    font-family:var(--serif);font-weight:400;font-size:32px;margin:0 0 18px;color:var(--ink);
+  }
+  h3{font-family:var(--serif);font-weight:400;font-size:21px;margin:0 0 10px;color:var(--ink);}
+  p{margin:0 0 14px;color:var(--ink-soft);}
+  .lede{font-size:18px;color:var(--ink);line-height:1.65;}
+  code{background:var(--accent-soft);color:var(--accent-deep);padding:1px 6px;border-radius:4px;font-size:13.5px;}
+
+  /* ---------- EXEC SUMMARY VERDICT ---------- */
+  .verdict{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-left:5px solid var(--accent);
+    border-radius:6px;
+    padding:32px 34px;
+    margin-top:8px;
+  }
+  .verdict .stat{
+    font-family:var(--serif);
+    font-size:56px;
+    color:var(--accent-deep);
+    line-height:1;
+    margin-bottom:6px;
+  }
+  .verdict .stat-label{
+    font-size:14px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.08em;margin-bottom:22px;
+  }
+  .verdict .second-point{
+    margin-top:20px;padding-top:20px;border-top:1px solid var(--line);
+    font-size:15.5px;color:var(--ink-soft);
+  }
+  .verdict .second-point b{color:var(--ink);}
+
+  /* ---------- SCORECARD ---------- */
+  .scorecard{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:8px;}
+  .tile{
+    background:var(--paper);border:1px solid var(--line);border-radius:8px;
+    padding:20px 16px;break-inside:avoid;
+  }
+  .tile .num{font-family:var(--serif);font-size:34px;color:var(--ink);line-height:1;margin-bottom:8px;}
+  .tile .num.accent{color:var(--accent-deep);}
+  .tile .label{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--ink);margin-bottom:4px;}
+  .tile .sub{font-size:12.5px;color:var(--ink-faint);}
+  .badge{
+    display:inline-block;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:20px;
+    text-transform:uppercase;letter-spacing:.03em;
+  }
+  .badge.good{background:var(--good-soft);color:var(--good);}
+  .badge.warn{background:var(--warn-soft);color:var(--warn);}
+  .badge.bad{background:var(--bad-soft);color:var(--bad);}
+  .badge.neutral{background:var(--accent-soft);color:var(--accent-deep);}
+
+  /* ---------- FINDINGS ---------- */
+  .area{margin-bottom:40px;break-inside:avoid;}
+  .area-head{display:flex;align-items:baseline;gap:12px;margin-bottom:16px;}
+  .area-head .idx{
+    font-family:var(--serif);font-size:15px;color:var(--accent);border:1px solid var(--accent);
+    border-radius:50%;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .finding{
+    background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:20px 22px;margin-bottom:12px;
+    break-inside:avoid;
+  }
+  .finding h4{margin:0 0 8px;font-size:16px;color:var(--ink);font-weight:700;}
+  .finding .example{
+    font-size:14.5px;color:var(--ink-soft);background:var(--bg);border-radius:5px;padding:10px 13px;margin:8px 0;
+    border-left:3px solid var(--line-strong);
+  }
+  .finding .example b{color:var(--ink);}
+  .finding .fix{font-size:14.5px;color:var(--ink-soft);}
+  .finding .fix b{color:var(--good);font-weight:700;}
+
+  /* ---------- ROADMAP ---------- */
+  .roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+  .phase{
+    background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:22px 20px;break-inside:avoid;
+  }
+  .phase .range{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;}
+  .phase h3{margin-bottom:4px;}
+  .phase .theme{font-size:13.5px;color:var(--ink-faint);margin-bottom:16px;}
+  .phase ol{margin:0;padding-left:20px;}
+  .phase li{margin-bottom:10px;font-size:14.5px;color:var(--ink-soft);}
+  .phase li b{color:var(--ink);}
+
+  /* ---------- TABLE ---------- */
+  table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14.5px;}
+  th{
+    text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-faint);
+    border-bottom:2px solid var(--line-strong);padding:8px 12px;font-weight:700;
+  }
+  td{padding:12px;border-bottom:1px solid var(--line);color:var(--ink-soft);vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  td b, td strong{color:var(--ink);}
+
+  /* ---------- APPROVALS ---------- */
+  .approvals{list-style:none;margin:12px 0 0;padding:0;}
+  .approvals li{
+    display:flex;gap:14px;padding:16px 18px;background:var(--paper);border:1px solid var(--line);
+    border-radius:8px;margin-bottom:10px;break-inside:avoid;
+  }
+  .approvals .box{
+    flex-shrink:0;width:20px;height:20px;border:2px solid var(--accent);border-radius:4px;margin-top:2px;
+  }
+  .approvals .txt b{display:block;color:var(--ink);font-size:14.5px;margin-bottom:3px;}
+  .approvals .txt span{font-size:14px;color:var(--ink-soft);}
+  .tag-pending{
+    display:inline-block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;
+    color:var(--warn);background:var(--warn-soft);border-radius:20px;padding:2px 8px;margin-left:8px;
+  }
+
+  footer{padding:36px 0 10px;text-align:center;color:var(--ink-faint);font-size:12.5px;}
+
+  @media print{
+    body{background:#fff;}
+    .cover{page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    section{page-break-inside:avoid;border-bottom:none;}
+    .finding,.tile,.phase,.approvals li{page-break-inside:avoid;}
+    .wrap{padding:0 10px;}
+  }
+  @media (max-width:820px){
+    .scorecard{grid-template-columns:repeat(2,1fr);}
+    .roadmap{grid-template-columns:1fr;}
+    .cover h1{font-size:38px;}
+    .cover{padding:70px 30px 50px;}
+  }
+</style>
+
+<div class="cover">
+  <div class="cover-eyebrow">SEO Audit &amp; Growth Plan</div>
+  <h1>William Goh Pet Farm</h1>
+  <div class="domain">wgpetfarm.com</div>
+  <div class="subtitle">A full-funnel look at technical health, local presence, keyword position, and AI-search visibility — with a 90-day plan to turn the farm's real-world advantage into online rankings.</div>
+  <div class="cover-meta">
+    <div><strong>12 July 2026</strong>Report date</div>
+    <div><strong>Nelson (Owner)</strong>Prepared by</div>
+    <div><strong>Internal strategic review</strong>Document type</div>
+  </div>
+  <svg class="motif" width="100" height="100" viewBox="0 0 100 100" fill="none">
+    <path d="M50 92 L50 34" stroke="#d9b671" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+    <path d="M50 34 C38 30 30 20 30 8 C42 8 50 18 50 30" fill="#d9b671" opacity="0.55"/>
+    <path d="M50 34 C62 30 70 20 70 8 C58 8 50 18 50 30" fill="#d9b671" opacity="0.55"/>
+    <path d="M50 54 C40 50 34 42 34 32 C44 32 50 40 50 48" fill="#d9b671" opacity="0.45"/>
+    <path d="M50 54 C60 50 66 42 66 32 C56 32 50 40 50 48" fill="#d9b671" opacity="0.45"/>
+  </svg>
+</div>
+
+<div class="wrap">
+
+  <!-- EXEC SUMMARY -->
+  <section>
+    <div class="kicker">Executive Summary</div>
+    <h2>The verdict, plainly</h2>
+    <div class="verdict">
+      <div class="stat">2.0 <span style="font-size:24px;color:var(--ink-faint);">vs</span> 39.8</div>
+      <div class="stat-label">Average position on "william goh pet farm" (branded) vs. average position across the full tracked query set (Search Console, 16 months)</div>
+      <p class="lede">That gap is the clearest way to read this domain's traffic pattern: people who already know the farm's name find it almost instantly, but the site is nearly invisible to everyone searching by breed, category, or intent instead of by name. That's a fixable, page-by-page problem, not a brand problem &mdash; the local pack backs this up directly: wgpetfarm.com holds an uncontested <b>#2 local-pack slot for "pet farm singapore"</b> (210 searches/mo), proving the hyperlocal strategy works when Google has the signals to work with, yet it's <b>completely absent (0 of 3)</b> from the packs for "dog breeder singapore" (260/mo) and "puppy for sale singapore" (1,000/mo), the two highest-intent searches in its category.</p>
+      <div class="second-point">
+        <b>Second point worth flagging up front:</b> technical health here scores <b>46/100</b>, meaningfully weaker than sister property puppysingapore.com's 58/100. The two biggest drivers are a complete absence of <b>LocalBusiness schema</b> anywhere on the site and severe server response times (<b>4.1&ndash;8.5 seconds</b> time-to-first-byte on every page tested) &mdash; both of which land hardest on exactly the domain built to win local search. This is the priority fix: the farm's real, visitable premises and 4.5-star reputation are genuine assets the website currently does almost nothing to reinforce to Google.
+      </div>
+    </div>
+  </section>
+
+  <!-- SCORECARD -->
+  <section>
+    <div class="kicker">At a Glance</div>
+    <h2>Scorecard</h2>
+    <div class="scorecard">
+      <div class="tile">
+        <div class="num">46<span style="font-size:18px;color:var(--ink-faint);">/100</span></div>
+        <div class="label">Technical Health</div>
+        <div class="sub">No LocalBusiness schema; 4.1&ndash;8.5s server response time</div>
+      </div>
+      <div class="tile">
+        <div class="num accent">28<span style="font-size:18px;color:var(--ink-faint);">/100</span></div>
+        <div class="label">AI Citability</div>
+        <div class="sub">Zero AI Overview citations for Corgi, Cavapoo, or Dachshund</div>
+      </div>
+      <div class="tile">
+        <div class="num">72<span style="font-size:18px;color:var(--ink-faint);">/100</span></div>
+        <div class="label">GBP Health</div>
+        <div class="sub">Strong, claimed profile &mdash; website doesn't reinforce it</div>
+      </div>
+      <div class="tile">
+        <div class="num">495</div>
+        <div class="label">Keywords Ranked</div>
+        <div class="sub">$1,880/mo est. traffic value &middot; only 11.1% reach page 1</div>
+      </div>
+      <div class="tile">
+        <div class="num" style="font-size:26px;">4.5<span style="font-size:16px;color:var(--ink-faint);">&#9733;</span></div>
+        <div class="label">Review Rating</div>
+        <div class="sub">64 reviews &middot; 86% five-star &middot; 8 unreplied at 3&#9733; or below</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE FOUND -->
+  <section>
+    <div class="kicker">Findings</div>
+    <h2>What we found</h2>
+    <p class="lede" style="margin-bottom:32px;">Five specialists reviewed the site independently &mdash; technical crawl, keyword position, analytics, AI search visibility, and local/citations. Here is what each one found, in plain English, and what we'll do about it.</p>
+
+    <div class="area">
+      <div class="area-head"><span class="idx">1</span><h3>Technical Health</h3></div>
+
+      <div class="finding">
+        <h4>No LocalBusiness schema anywhere &mdash; on the one domain built to win local search</h4>
+        <div class="example"><b>Example:</b> every page's structured data emits only a generic <code>Organization</code> node (name + URL). No <code>LocalBusiness</code>, <code>PetStore</code>, address, phone, hours, or rating markup exists anywhere. The full NAP (name, address, phone) itself appears as plain, unmarked text on exactly one page &mdash; Contact &mdash; and nowhere else, not even the footer.</div>
+        <div class="fix"><b>What we'll do:</b> add a <code>PetStore</code>/<code>LocalBusiness</code> node carrying the confirmed GBP details (address, phone, hours, 4.5&#9733;/64 reviews) to the homepage, and add NAP + hours to the sitewide footer. This is the single highest-leverage fix on the whole audit.</div>
+      </div>
+
+      <div class="finding">
+        <h4>Every page tested loads slowly &mdash; 4.1 to 8.5 seconds before the page even starts rendering</h4>
+        <div class="example"><b>Example:</b> server response time (Lighthouse): Home 4.1s, /puppies-for-sale/ 5.4s, /cavapoo-puppies-for-sale/ 8.5s. Google's own guidance is under ~0.6s. This is a hosting/caching problem, not a content one.</div>
+        <div class="fix"><b>What we'll do:</b> a hosting and caching review &mdash; this likely blocks the crawl efficiency and Core Web Vitals gains needed for every other fix in this report to land fully.</div>
+      </div>
+
+      <div class="finding">
+        <h4>Duplicate and empty heading tags on two of the site's most important pages</h4>
+        <div class="example"><b>Example:</b> the homepage splits its H1 into two separate tags ("William Goh" then "Pet farm"); <code>/puppies-for-sale/</code> has its real H1 immediately followed by a second, completely empty <code>&lt;h1&gt;&lt;/h1&gt;</code> left over from a responsive-design artifact.</div>
+        <div class="fix"><b>What we'll do:</b> combine into one clean, keyworded H1 per page &mdash; quick template fixes, already drafted in <code>05-onpage-fixes.md</code>.</div>
+      </div>
+
+      <div class="finding">
+        <h4>Two literal typos sit in live meta descriptions</h4>
+        <div class="example"><b>Example:</b> the homepage's description reads "Over 40 years of breeding <b>exprience</b>" (missing the "e," and at 38 characters far too short to be useful); the FAQ page's description is missing its leading "W" &mdash; "...e've got answers to your puppy questions here."</div>
+        <div class="fix"><b>What we'll do:</b> rewrite both to full length with the typos fixed &mdash; ready to paste in today, no dependencies.</div>
+      </div>
+    </div>
+
+    <div class="area">
+      <div class="area-head"><span class="idx">2</span><h3>Keywords &amp; Local-Pack Position</h3></div>
+
+      <div class="finding">
+        <h4>"Pet farm singapore" is a genuine, uncontested win &mdash; and the model for what's possible</h4>
+        <div class="example"><b>Example:</b> wgpetfarm.com holds local-pack rank <b>#2 of 3</b> for "pet farm singapore" (210 searches/mo), right behind a nature-experience centre and ahead of a well-known goat farm &mdash; no direct pet-breeder competitor contests this lane at all. The site also ranks page 1 organically for "sungei tengah dog farm" and "pets farm singapore."</div>
+        <div class="fix"><b>What we'll do:</b> protect and expand this cluster &mdash; it's proof the hyperlocal strategy works once the signals are in place, and it's the template for the fixes below.</div>
+      </div>
+
+      <div class="finding">
+        <h4>Absent from the two highest-intent local packs in the category</h4>
+        <div class="example"><b>Example:</b> "dog breeder singapore" (260/mo) &mdash; Pretty Pets Kennel holds #1, wgpetfarm.com is 0/3. "puppy for sale singapore" (1,000/mo) &mdash; The Lovely Pets holds #1, wgpetfarm.com is 0/3 there too.</div>
+        <div class="fix"><b>What we'll do:</b> once the LocalBusiness schema and footer NAP are live, review GBP category weighting and posting/photo cadence against these two competitors specifically &mdash; the highest-intent searches on the whole map are currently fully ceded.</div>
+      </div>
+
+      <div class="finding">
+        <h4>The domain's biggest-volume terms are ranking far off page 1</h4>
+        <div class="example"><b>Example:</b> "vet near me" / "vets near me" (9,900 searches/mo <i>each</i> &mdash; by far the largest volume the domain touches anywhere) sit at position 69&ndash;98 on <code>/24-hour-vet-clinics/</code>. The domain's own address term, "sungei tengah" (720/mo), ranks only position 44, buried on Contact.</div>
+        <div class="fix"><b>What we'll do:</b> refresh the vet-clinics page (it carries a stale 2021 date) as a realistic referral-traffic play, and give "sungei tengah" a proper, richly-detailed home on the rewritten Contact page rather than a thin utility listing.</div>
+      </div>
+    </div>
+
+    <div class="area">
+      <div class="area-head"><span class="idx">3</span><h3>Performance &amp; Analytics</h3></div>
+
+      <div class="finding">
+        <h4>The branded-vs-non-branded split explains the whole traffic pattern</h4>
+        <div class="example"><b>Example:</b> of 996 tracked keywords, only 3 (0.3%) are branded &mdash; and all 3 rank position 1&ndash;3. The other 993 (99.7%) are category/breed terms, and the large majority sit off page 1. Estimated traffic value has fallen 56% in six months ($4,250/mo in February to $1,880/mo in July) even as the number of ranking keywords rose slightly &mdash; existing rankings are sliding down, not disappearing outright.</div>
+        <div class="fix"><b>What we'll do:</b> prioritize the 207 keywords already sitting at position 4&ndash;20 ("striking distance") &mdash; they need a push, not a rebuild, to reach page 1.</div>
+      </div>
+
+      <div class="finding">
+        <h4>The real competitor gap is The Lovely Pets, not Pretty Pets Kennel</h4>
+        <div class="example"><b>Example:</b> wgpetfarm.com actually leads Pretty Pets Kennel on both breadth and quality (495 vs. 432 keywords, 11.1% vs. 9.7% page-1). But The Lovely Pets, with fewer total keywords (411), wins <b>44.3%</b> of them on page 1 &mdash; four times wgpetfarm.com's rate &mdash; and earns 4.3x the estimated traffic value ($8,144/mo vs. $1,880/mo).</div>
+        <div class="fix"><b>What we'll do:</b> treat this as a ranking-quality problem, not a content-coverage problem &mdash; the breed pages already exist, they need to be strengthened, not replaced.</div>
+      </div>
+    </div>
+
+    <div class="area">
+      <div class="area-head"><span class="idx">4</span><h3>AI Search &amp; GEO (AI Overviews)</h3></div>
+
+      <div class="finding">
+        <h4>Zero AI Overview citations for the three breeds the homepage names as specialties</h4>
+        <div class="example"><b>Example:</b> the homepage names Corgi, Cavapoo, and Dachshund as specialty breeds, but wgpetfarm.com currently holds <b>zero</b> AI Overview citations for any of them. Competitor thelovelypets.com is cited across 47+ tracked breed-price queries, including for those same two breeds (Corgi, Dachshund) &mdash; roughly 3.5x wgpetfarm.com's citation rate for anything.</div>
+        <div class="fix"><b>What we'll do:</b> rewrite the Corgi, Cavapoo, and Dachshund pages with dense, self-contained answer paragraphs near the top (breed + HDB status + what's included + how to buy) &mdash; the shape AI Overviews lift most reliably &mdash; plus Product/FAQPage schema.</div>
+      </div>
+
+      <div class="finding">
+        <h4>The "years in business" conflict is actively degrading trust-signal extraction</h4>
+        <div class="example"><b>Example:</b> the site itself states four different figures for the same claim &mdash; homepage "over 40 years," breed-page meta descriptions "50 years," breed-page body copy "since the 1960s," and the Google Business Profile "AVS-licensed Singapore breeder since 2020." An AI system trying to answer "how long has this breeder operated" has no consistent number to pull from the site's own pages.</div>
+        <div class="fix"><b>What we'll do:</b> hold every new page to the confirmed, uncontested facts (AVS license AF23009, 4.5&#9733;/64 reviews) until the owner resolves which years figure is correct &mdash; see Small Print below. This is an open item, not a completed fix.</div>
+      </div>
+    </div>
+
+    <div class="area">
+      <div class="area-head"><span class="idx">5</span><h3>Local Presence</h3></div>
+
+      <div class="finding">
+        <h4>A similarly-named listing with a very different rating &mdash; worth the owner's awareness</h4>
+        <div class="example"><b>Example:</b> Google's "people also search" for wgpetfarm.com surfaces "William Goh Kennel" (3.2&#9733;/45 reviews, 23 Seletar West Farmway 1 &mdash; a different address entirely, in Sengkang/Seletar, not Sungei Tengah).</div>
+        <div class="fix"><b>What we'll do:</b> flag this to the owner as a conversation, not an SEO fix &mdash; it isn't correctable through wgpetfarm's own GBP listing. Worth clarifying whether it's a legacy/family-linked listing and, if so, whether to request Google differentiate or update it.</div>
+      </div>
+
+      <div class="finding">
+        <h4>8 reviews at 3-star-or-below have unknown reply status</h4>
+        <div class="example"><b>Example:</b> of 64 reviews, 55 are five-star (86%) &mdash; a genuinely strong base &mdash; but 8 sit at 3-star-or-below (5&times;1&#9733;, 2&times;2&#9733;, 1&times;3&#9733;) and reply status can't currently be checked; the profile isn't connected in Windsor.ai.</div>
+        <div class="fix"><b>What we'll do:</b> once Windsor.ai is connected (or dashboard access is granted), pull the actual review text and draft on-brand replies, prioritizing these 8 first.</div>
+      </div>
+
+      <div class="finding">
+        <h4>The GBP's listed website link uses http, not https</h4>
+        <div class="example"><b>Example:</b> DataForSEO's live pull shows the GBP website field set to <code>http://wgpetfarm.com/</code>, while the site itself correctly redirects to https.</div>
+        <div class="fix"><b>What we'll do:</b> a one-line fix in the GBP dashboard &mdash; update the listed URL to match the site's actual protocol.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section>
+    <div class="kicker">The Plan</div>
+    <h2>30 / 60 / 90-day roadmap</h2>
+    <p class="lede" style="margin-bottom:24px;">Sequenced from every specialist's own fix-order list &mdash; technical and schema first (cheapest, unlocks local-pack eligibility), then citation-recovery content, then citations and relationship items that depend on the owner or on Windsor access.</p>
+    <div class="roadmap">
+      <div class="phase">
+        <div class="range">Days 1&ndash;30</div>
+        <h3>Fix &amp; stabilize</h3>
+        <div class="theme">Schema, structure, and the hosting problem</div>
+        <ol>
+          <li><b>Add LocalBusiness/PetStore schema</b> with the confirmed NAP, hours, and 4.5&#9733;/64-review rating &mdash; the top-priority fix</li>
+          <li>Add NAP + opening hours to the <b>sitewide footer</b>, not just Contact</li>
+          <li>Fix the duplicate/empty <b>H1 bugs</b> on Home and /puppies-for-sale/</li>
+          <li>Fix the two meta-description <b>typos</b> (Home, FAQ)</li>
+          <li>Add <b>FAQPage schema</b> to /faq/ &mdash; content already exists, near-zero cost</li>
+          <li>Open a <b>server response time</b> investigation with the host &mdash; 4.1&ndash;8.5s TTFB blocks everything downstream</li>
+          <li>Embed a Google Map + visible opening hours on /contact-us/</li>
+          <li>Remove the stray FlyWP staging URL leaking into the sitewide Person schema</li>
+        </ol>
+      </div>
+      <div class="phase">
+        <div class="range">Days 31&ndash;60</div>
+        <h3>Citation recovery</h3>
+        <div class="theme">Breed pages, the visit-experience piece, GBP posts</div>
+        <ol>
+          <li>Publish <b>"Visiting William Goh Pet Farm: What to Expect"</b> &mdash; ~60&ndash;70% drafted, pending the owner's answers on visit logistics</li>
+          <li>Rewrite the <b>Corgi</b> page with an answer-capsule intro + FAQPage schema &mdash; it already ranks well organically, it just isn't being cited</li>
+          <li>Rewrite the <b>Cavapoo</b> page &mdash; the cleanest open gap; both named competitors rank weakly here (position 24&ndash;68)</li>
+          <li>Rewrite the <b>Dachshund</b> page using the same pattern once confirmed live</li>
+          <li>Roll out the 4 drafted <b>GBP posts</b> (pet-farm win, visit experience, breed specialties, Cavapoo spotlight)</li>
+          <li>Add "Dog trainer" as a GBP category; increase photo volume specifically for Corgi, Cavapoo, and Dachshund litters</li>
+        </ol>
+      </div>
+      <div class="phase">
+        <div class="range">Days 61&ndash;90</div>
+        <h3>Citations, reviews &amp; relationships</h3>
+        <div class="theme">Execute the citations plan, catch up on reviews, flag brand confusion</div>
+        <ol>
+          <li>Submit the priority <b>citations</b> &mdash; AVS/NParks public registry first, then Facebook, Instagram, Bing Places, Apple Business Connect, Yellow Pages SG</li>
+          <li>Once <b>Windsor.ai connects</b>, pull real review text and reply to all 8 sub-4-star reviews first</li>
+          <li>Have the <b>William Goh Kennel</b> brand-confusion conversation with the owner</li>
+          <li>Re-measure the 5 baseline metrics below and check how many striking-distance keywords converted to page 1</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- BASELINE -->
+  <section>
+    <div class="kicker">Measurement</div>
+    <h2>Baseline &amp; how we'll track progress</h2>
+    <p>These are the five numbers we'll re-check monthly. All are first-party (Search Console) or DataForSEO-sourced, as of 12 July 2026.</p>
+    <table>
+      <tr><th>Metric</th><th>Current baseline</th><th>What we're watching for</th></tr>
+      <tr><td><strong>Branded vs. non-branded keyword share</strong></td><td>3 branded / 993 non-branded keywords ranked</td><td>Growth in the non-branded page-1 count specifically</td></tr>
+      <tr><td><strong>Page-1 keyword count &amp; %</strong></td><td>55 keywords / 11.1%</td><td>Movement toward The Lovely Pets' 44.3% benchmark</td></tr>
+      <tr><td><strong>Estimated traffic value (ETV)</strong></td><td>$1,880/mo (down from $4,250/mo in Feb 2026)</td><td>The decline flattening, then reversing</td></tr>
+      <tr><td><strong>Striking-distance conversion rate</strong></td><td>207 non-branded keywords at rank 4&ndash;20</td><td>How many convert to page 1 each month &mdash; starting with maltipoo singapore (#4), golden retriever puppy (#9), poodle mix breeders (#9)</td></tr>
+      <tr><td><strong>GSC overall average position</strong></td><td>39.8 (16-month baseline)</td><td>This is the single number that should move as the striking-distance work lands</td></tr>
+    </table>
+  </section>
+
+  <!-- SMALL PRINT -->
+  <section>
+    <div class="kicker">Before Anything Goes Live</div>
+    <h2>What needs your sign-off</h2>
+    <p>Every recommendation in this report is a draft, not a live change. Nothing gets published, posted, or replied to without your review first &mdash; that's by design, not a bottleneck.</p>
+    <ul class="approvals">
+      <li>
+        <div class="box"></div>
+        <div class="txt"><b>The years-in-business figure <span class="tag-pending">Pending</span></b><span>The site currently states 40 years, 50 years, and "since the 1960s" in three different places, while the Google Business Profile says "since 2020." This blocks the first-fold copy on the homepage and all three specialty breed pages from being finished &mdash; we need one number, and what it actually refers to (personal breeding experience vs. this specific licensed premises), before we can write it anywhere new.</span></div>
+      </li>
+      <li>
+        <div class="box"></div>
+        <div class="txt"><b>Windsor.ai connection <span class="tag-pending">Pending</span></b><span>Not connected this run, so review text, reply status, and 90-day GBP Insights (calls, direction requests, website clicks) can't be pulled. This blocks both the review-reply queue and a fuller local-performance picture.</span></div>
+      </li>
+      <li>
+        <div class="box"></div>
+        <div class="txt"><b>The William Goh Kennel brand-confusion item</b><span>Flagged for your awareness, not something we can resolve through wgpetfarm's own GBP listing. Worth a short conversation about whether that 3.2&#9733; Seletar listing is related, and if so, what (if anything) to do about it.</span></div>
+      </li>
+      <li>
+        <div class="box"></div>
+        <div class="txt"><b>GBP post drafts</b><span>Four posts are written and ready (pet-farm local-pack win, the visit-the-farm experience, a breed-specialties round-up, a Cavapoo spotlight) &mdash; none have been posted. Review and approve before they go live.</span></div>
+      </li>
+      <li>
+        <div class="box"></div>
+        <div class="txt"><b>Content draft</b><span>"Visiting William Goh Pet Farm: What to Expect" is roughly 60&ndash;70% written, with specific gaps marked (parking/directions detail, typical visit length, family/group policy) that only you or the on-site team can answer.</span></div>
+      </li>
+      <li>
+        <div class="box"></div>
+        <div class="txt"><b>On-page copy &amp; schema changes</b><span>Every rewritten title, heading, and JSON-LD block in this audit is a recommendation on file in <code>05-onpage-fixes.md</code> &mdash; nothing has been pushed to the live site.</span></div>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    Prepared for William Goh Pet Farm (wgpetfarm.com) &middot; 12 July 2026 &middot; Internal strategic review, not for external distribution
+  </footer>
+</div>

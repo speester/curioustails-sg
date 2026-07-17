@@ -58,7 +58,7 @@ const schemas = [
       <PawPrint class="absolute right-[10%] top-[64%] h-8 w-8 text-[var(--color-coral-300)]/70 rotate-12 blob-drift-slow" />
     </div>
     <div class="relative mx-auto max-w-[1400px] px-5 sm:px-8 pt-5">
-      <Breadcrumb bare items={[{ label: 'First-Time Owners', href: '/first-time-owners' }, { label: 'Breed Selector', href: '/first-time-owners/breed-selector' }]} />
+      <Breadcrumb bare items={[{ label: 'First-Time Owners', href: '/first-time-owners/' }, { label: 'Breed Selector', href: '/first-time-owners/breed-selector/' }]} />
       <div class="mx-auto mt-8 max-w-[70ch] text-center">
         <p class="inline-flex items-center gap-2 rounded-full border-3 border-[var(--color-coral-400)] bg-white px-4 py-1.5 text-xs font-bold tracking-wide text-[var(--color-coral-600)] uppercase shadow-[0_4px_0_0_var(--color-coral-300)]" style="letter-spacing: 0.06em;">
           <PawPrint class="h-3.5 w-3.5" />
@@ -87,7 +87,7 @@ const schemas = [
   <CaptionedBlock heading="Why We Match by Routine, Not by Photo" imageAlt="Cavapoo puppy settled in her playpen after an honest breed match" imageSrc={settlingIn} imagePosition="right">
     <p>A couple once came to us set on a Maltipoo. Both work 8am to 6pm, nobody home in the day. We recommended a Cavapoo instead, similar warmth, noticeably more independent, knowing it risked the sale. They took the Cavapoo, she settled beautifully, and that honest steer became our most-quoted five-star review.</p>
     <p>That is the entire philosophy inside this quiz: the most popular breed is the wrong starting question. The right question is what your day looks like from 8am to 6pm, and the quiz asks it properly.</p>
-    <p>Whatever your result, browse <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all eleven breeds</a> with your shortlist in hand, or start from the <a href="/first-time-owners" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-time owner checklist</a> if you're at step zero.</p>
+    <p>Whatever your result, browse <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all eleven breeds</a> with your shortlist in hand, or start from the <a href="/first-time-owners/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-time owner checklist</a> if you're at step zero.</p>
   </CaptionedBlock>
 
   <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
@@ -101,7 +101,7 @@ const schemas = [
     heading="Got Your Match? Come Meet It"
     body="Can't make the trip to Balestier? WhatsApp us your quiz result and we'll send current photos and prices for your matched breeds."
     reserveMessage="Hi! The breed quiz matched me. Could you share available puppies for that breed?"
-    browseHref="/puppies"
+    browseHref="/puppies/"
   />
 
   <Schema {schemas} />
@@ -111,17 +111,17 @@ const schemas = [
     // HDB is a hard filter (Corgi/Shiba excluded); low totals yield an honest "not yet".
     type BreedKey = 'cavapoo' | 'maltipoo' | 'maltese' | 'dachshund' | 'cockapoo' | 'bichonpoo' | 'bichonfrise' | 'cavapoochon' | 'chihuahua' | 'corgi' | 'shiba';
     const breeds: Record<BreedKey, { name: string; href: string; hdb: boolean; blurb: string }> = {
-      cavapoo: { name: 'Cavapoo', href: '/puppies/cavapoo', hdb: true, blurb: 'The independent companion: our first pick for working couples.' },
-      maltipoo: { name: 'Maltipoo', href: '/puppies/maltipoo', hdb: true, blurb: 'Affectionate and people-focused; happiest with company at home.' },
-      maltese: { name: 'Maltese', href: '/puppies/maltese', hdb: true, blurb: 'The classic silky-white companion; gentle, devoted, wants company.' },
-      dachshund: { name: 'Mini Dachshund', href: '/puppies/mini-dachshund', hdb: true, blurb: 'Bold little hound; independent, comic, and compact.' },
-      cockapoo: { name: 'Cockapoo', href: '/puppies/cockapoo', hdb: true, blurb: 'The family all-rounder; kindest to first-time owners.' },
-      bichonpoo: { name: 'Bichonpoo', href: '/puppies/bichonpoo', hdb: true, blurb: 'Low-shedding sunshine; wants its people around.' },
-      bichonfrise: { name: 'Bichon Frise', href: '/puppies/bichon-frise', hdb: true, blurb: 'The cheerful white classic; loves company, needs grooming.' },
-      cavapoochon: { name: 'Cavapoochon', href: '/puppies/cavapoochon', hdb: true, blurb: 'Teddy-bear triple cross; the gentle family all-rounder.' },
-      chihuahua: { name: 'Chihuahua', href: '/puppies/chihuahua', hdb: true, blurb: 'Tiny devoted companion; best with adults or older kids.' },
-      corgi: { name: 'Corgi', href: '/puppies/corgi', hdb: false, blurb: 'Big personality, real energy; private housing only.' },
-      shiba: { name: 'Shiba Inu', href: '/puppies/shiba-inu', hdb: false, blurb: 'Independent and cat-clean; private housing only.' },
+      cavapoo: { name: 'Cavapoo', href: '/puppies/cavapoo/', hdb: true, blurb: 'The independent companion: our first pick for working couples.' },
+      maltipoo: { name: 'Maltipoo', href: '/puppies/maltipoo/', hdb: true, blurb: 'Affectionate and people-focused; happiest with company at home.' },
+      maltese: { name: 'Maltese', href: '/puppies/maltese/', hdb: true, blurb: 'The classic silky-white companion; gentle, devoted, wants company.' },
+      dachshund: { name: 'Mini Dachshund', href: '/puppies/mini-dachshund/', hdb: true, blurb: 'Bold little hound; independent, comic, and compact.' },
+      cockapoo: { name: 'Cockapoo', href: '/puppies/cockapoo/', hdb: true, blurb: 'The family all-rounder; kindest to first-time owners.' },
+      bichonpoo: { name: 'Bichonpoo', href: '/puppies/bichonpoo/', hdb: true, blurb: 'Low-shedding sunshine; wants its people around.' },
+      bichonfrise: { name: 'Bichon Frise', href: '/puppies/bichon-frise/', hdb: true, blurb: 'The cheerful white classic; loves company, needs grooming.' },
+      cavapoochon: { name: 'Cavapoochon', href: '/puppies/cavapoochon/', hdb: true, blurb: 'Teddy-bear triple cross; the gentle family all-rounder.' },
+      chihuahua: { name: 'Chihuahua', href: '/puppies/chihuahua/', hdb: true, blurb: 'Tiny devoted companion; best with adults or older kids.' },
+      corgi: { name: 'Corgi', href: '/puppies/corgi/', hdb: false, blurb: 'Big personality, real energy; private housing only.' },
+      shiba: { name: 'Shiba Inu', href: '/puppies/shiba-inu/', hdb: false, blurb: 'Independent and cat-clean; private housing only.' },
     };
 
     type Opt = { label: string; scores: Partial<Record<BreedKey, number>>; flag?: 'hdb' | 'longhours' };

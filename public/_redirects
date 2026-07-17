@@ -1,0 +1,37 @@
+# Legacy URLs from the pre-Astro site. Each one below was still indexed and
+# drawing impressions in Search Console with no route behind it — with no 404.html
+# in the build, Cloudflare served the homepage at HTTP 200, so Google never
+# learned they had moved.
+#
+# Search Console has these indexed in their trailing-slash form, so that form is
+# listed first for each. Order matters: first match wins.
+
+# Old money page. Held the "puppy for sale singapore" cluster (~1,000/mo).
+/puppy-for-sale/golden-retriever/   /puppies/golden-retriever/   301
+/puppy-for-sale/golden-retriever    /puppies/golden-retriever/   301
+/puppy-for-sale/                    /puppies/                    301
+/puppy-for-sale                     /puppies/                    301
+/puppy-for-sale/*                   /puppies/                    301
+
+# Old breed-listing structure.
+/puppies-available/                 /puppies/                    301
+/puppies-available                  /puppies/                    301
+/puppies-available/*                /puppies/                    301
+
+# Renamed pages.
+/about/                             /about-us/                   301
+/about                              /about-us/                   301
+/financing/                         /pricing/                    301
+/financing                          /pricing/                    301
+/delivery-pickup/                   /delivery/                   301
+/delivery-pickup                    /delivery/                   301
+/training-services/                 /free-training/              301
+/training-services                  /free-training/              301
+
+# Retired pages folded into existing ones.
+/book-viewing/                      /contact/                    301
+/book-viewing                       /contact/                    301
+/locations/                         /contact/                    301
+/locations                          /contact/                    301
+/support/                           /contact/                    301
+/support                            /contact/                    301

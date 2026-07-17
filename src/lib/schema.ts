@@ -5,6 +5,14 @@ import heroImage from '../assets/home/1-cavapoo-puppy-hero-balestier.png';
 // Absolute URL of the hero image as actually served (hashed under /_astro/).
 const heroImageUrl = new URL(heroImage.src, site.domain).toString();
 
+// Absolute URL of a page route. Mirrors the trailing slash that BaseLayout puts
+// on the canonical and the sitemap emits, so schema @id/url values identify the
+// same URL Google indexes. Only for routes — asset URLs must not gain a slash.
+function pageUrl(path: string): string {
+  const withSlash = path.endsWith('/') ? path : `${path}/`;
+  return new URL(withSlash, site.domain).toString();
+}
+
 // Strip currency symbols, thousands separators, and prose ("From $3,288") so
 // Offer.price is a bare numeric string — Google rejects anything else and
 // flags "Invalid price format". Non-numeric inputs like "Included" become "0".
@@ -184,8 +192,8 @@ export function webPageSchema(opts: {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    '@id': new URL(opts.path, site.domain).toString(),
-    url: new URL(opts.path, site.domain).toString(),
+    '@id': pageUrl(opts.path),
+    url: pageUrl(opts.path),
     name: opts.title,
     description: opts.description,
     isPartOf: { '@id': `${site.domain}#website` },
@@ -209,7 +217,7 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
       '@type': 'ListItem',
       position: i + 1,
       name: item.name,
-      item: new URL(item.url, site.domain).toString(),
+      item: pageUrl(item.url),
     })),
   };
 }
@@ -294,9 +302,9 @@ export function itemListSchema(items: { name: string; url: string; description?:
       position: i + 1,
       item: {
         '@type': 'Product',
-        '@id': new URL(item.url, site.domain).toString(),
+        '@id': pageUrl(item.url),
         name: item.name,
-        url: new URL(item.url, site.domain).toString(),
+        url: pageUrl(item.url),
         brand: { '@type': 'Brand', name: site.businessName },
         ...(item.description ? { description: item.description } : {}),
         ...(item.price

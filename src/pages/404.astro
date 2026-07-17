@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, whatsappLink } from '../data/site';
+
+// Without this file Astro emits no 404.html, and Cloudflare Pages falls back to
+// serving the homepage at HTTP 200 for every unmatched route — which kept dead
+// URLs indexed and left the crawlable URL space unbounded.
+
+const title = 'Page Not Found | Curious Tails';
+const description =
+  'That page has moved or no longer exists. Browse our available puppies, prices, and HDB breed guides, or WhatsApp us and we will point you to the right place.';
+
+const links = [
+  { label: 'Available puppies', href: '/puppies/', note: 'Every breed we have, with real prices.' },
+  { label: 'Prices', href: '/pricing/', note: 'What a puppy costs here, all-in.' },
+  { label: 'HDB-approved breeds', href: '/first-time-owners/hdb-breeds/', note: 'What you can keep in a flat.' },
+  { label: 'First-time owners', href: '/first-time-owners/', note: 'Start here if this is your first puppy.' },
+  { label: 'Visit us', href: '/contact/', note: `${site.address.street}, open ${site.hours.toLowerCase()}.` },
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/404" noindex>
+  <section class="mx-auto max-w-[820px] px-5 sm:px-8 pt-16 pb-20 text-center">
+    <p class="font-[family-name:var(--font-heading)] text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-coral-500)]">
+      404
+    </p>
+
+    <h1 class="mt-4 font-[family-name:var(--font-heading)] font-semibold leading-tight text-[var(--color-cream-900)]" style="font-size: clamp(2.25rem, 4vw, 3.25rem);">
+      This page has wandered off
+    </h1>
+
+    <p class="mx-auto mt-5 max-w-[560px] text-base leading-relaxed text-[var(--color-cream-700)]">
+      The page you were after has moved or no longer exists. Nothing is broken on your end —
+      here is where most people are heading.
+    </p>
+
+    <div class="clay mt-12 bg-[var(--color-surface-card)] p-6 sm:p-8 text-left">
+      <ul class="divide-y divide-[var(--color-cream-200)]">
+        {links.map((link) => (
+          <li class="py-4 first:pt-0 last:pb-0">
+            <a href={link.href} class="group flex items-baseline justify-between gap-4">
+              <span>
+                <span class="font-[family-name:var(--font-heading)] text-lg font-semibold text-[var(--color-cream-900)] underline-offset-4 group-hover:underline">
+                  {link.label}
+                </span>
+                <span class="mt-1 block text-sm leading-relaxed text-[var(--color-cream-600)]">{link.note}</span>
+              </span>
+              <span aria-hidden="true" class="text-[var(--color-coral-500)] transition-transform group-hover:translate-x-1">&rsaquo;</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <p class="mt-10 text-base leading-relaxed text-[var(--color-cream-700)]">
+      Still stuck? WhatsApp us at{' '}
+      <a
+        href={whatsappLink("Hi! I hit a broken link on your site and couldn't find what I was looking for.")}
+        class="underline underline-offset-2 text-[var(--color-accent-hover)]"
+      >
+        {site.phoneDisplay}
+      </a>{' '}
+      and Nelson or Kim will point you to the right page.
+    </p>
+  </section>
+</BaseLayout>

@@ -16,7 +16,11 @@ interface Props {
 }
 
 const { title, description, canonicalPath = '/', noindex = false, ogImage } = Astro.props;
-const canonicalURL = new URL(canonicalPath, site.domain);
+// The build emits directory-style routes and the host 308s /path to /path/, so the
+// canonical must carry the trailing slash too — otherwise it points at a redirect
+// and Google discards it in favour of its own pick.
+const canonicalPathname = canonicalPath.endsWith('/') ? canonicalPath : `${canonicalPath}/`;
+const canonicalURL = new URL(canonicalPathname, site.domain);
 const ogImageURL = new URL(ogImage ?? defaultOgImage.src, site.domain);
 // Dimensions are only known for the bundled default image.
 const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height: defaultOgImage.height };

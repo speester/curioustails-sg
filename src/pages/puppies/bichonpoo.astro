@@ -153,14 +153,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking for a Bichonpoo for Sale in Singapore?" imageAlt="White Bichonpoo puppy available in Singapore, seated portrait with a teddy-round face" imageSrc={whitePortrait} variant="mid">
-      <p>Bichonpoo litters get reserved fast, and half the listings you'll find elsewhere already wear a "reserved" tag. We keep availability live on WhatsApp instead: message us for photos, gender, age, colour, and exact prices of the Bichonpoo puppies available now.</p>
-      <p>Every Bichonpoo here is between $3,288 and $5,988, and what you see is the full price. After you reserve with a deposit, we board your puppy free, food and lodging covered, until your home is ready.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Bichonpoo puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Bichonpoo photos and prices</a>, or meet them at our Balestier shop.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available Bichonpoo Puppies"
       headingAccent="Available"
@@ -177,6 +169,14 @@ const schemas = [
         { title: 'Ivory boy', href: whatsappLink('Hi! I\'d like more photos and the price for the ivory male Bichonpoo puppy.'), imageAlt: 'Ivory white male Bichonpoo puppy trotting toward the camera', imageSrc: ivoryPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '8 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking for a Bichonpoo for Sale in Singapore?" imageAlt="White Bichonpoo puppy available in Singapore, seated portrait with a teddy-round face" imageSrc={whitePortrait} variant="mid">
+      <p>Bichonpoo litters get reserved fast, and half the listings you'll find elsewhere already wear a "reserved" tag. We keep availability live on WhatsApp instead: message us for photos, gender, age, colour, and exact prices of the Bichonpoo puppies available now.</p>
+      <p>Every Bichonpoo here is between $3,288 and $5,988, and what you see is the full price. After you reserve with a deposit, we board your puppy free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Bichonpoo puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Bichonpoo photos and prices</a>, or meet them at our Balestier shop.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div class="relative">

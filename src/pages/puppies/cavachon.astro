@@ -163,14 +163,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Cavachon in Singapore?" imageAlt="Apricot and white Cavachon puppy portrait, one of the Cavachon puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our Cavachon puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Cavachon puppies available now.</p>
-      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Cavachon for sale in Singapore here is between $3,688 and $5,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Cavachon puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Cavachon photos and prices</a>, or meet our Cavachon puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available Cavachon Puppies"
       headingAccent="Available"
@@ -184,6 +176,14 @@ const schemas = [
         { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Cavachon puppy.'), imageAlt: 'Apricot female Cavachon puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking to Buy a Cavachon in Singapore?" imageAlt="Apricot and white Cavachon puppy portrait, one of the Cavachon puppies available in Singapore" imageSrc={imgScene1} variant="mid">
+      <p>Our Cavachon puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Cavachon puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Cavachon for sale in Singapore here is between $3,688 and $5,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Cavachon puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Cavachon photos and prices</a>, or meet our Cavachon puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div class="relative">

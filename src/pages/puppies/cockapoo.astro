@@ -155,14 +155,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking for a Cockapoo for Sale in Singapore?" imageAlt="Apricot Cockapoo puppy available in Singapore, seated portrait with long ears" imageSrc={apricotPortrait} variant="mid">
-      <p>Cockapoo litters get reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. Message us for photos, gender, age, colour, and exact prices of the Cockapoo puppies available now.</p>
-      <p>Every Cockapoo here is between $3,288 and $5,300, and what you see is the full price. After you reserve with a deposit, we board your puppy free, food and lodging covered, until your home is ready.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Cockapoo puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Cockapoo photos and prices</a>, or meet them at our Balestier shop.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available Cockapoo Puppies"
       headingAccent="Available"
@@ -179,6 +171,14 @@ const schemas = [
         { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Cockapoo puppy (8 weeks).'), imageAlt: 'Deep red male Cockapoo puppy trotting toward the camera', imageSrc: redBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '8 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking for a Cockapoo for Sale in Singapore?" imageAlt="Apricot Cockapoo puppy available in Singapore, seated portrait with long ears" imageSrc={apricotPortrait} variant="mid">
+      <p>Cockapoo litters get reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. Message us for photos, gender, age, colour, and exact prices of the Cockapoo puppies available now.</p>
+      <p>Every Cockapoo here is between $3,288 and $5,300, and what you see is the full price. After you reserve with a deposit, we board your puppy free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Cockapoo puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Cockapoo photos and prices</a>, or meet them at our Balestier shop.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div class="relative">

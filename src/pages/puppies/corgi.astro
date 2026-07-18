@@ -154,14 +154,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking for a Corgi for Sale in Singapore?" imageAlt="Red and white Corgi puppy available in Singapore, seated portrait with one ear up" imageSrc={redWhitePortrait} variant="mid">
-      <p>Corgi litters are less frequent than the small crosses, so availability genuinely moves; we keep it live on WhatsApp rather than on a page that goes stale. Message us for photos, gender, age, and exact prices of the Corgi puppies available now.</p>
-      <p>Every Corgi here is between $3,688 and $5,500, full price in writing, kit and delivery and training included. One honest gate first: we will ask about your housing before anything else, because a Corgi cannot go to an HDB flat and we do not bend that rule.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Corgi puppies? I'm in private housing.")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Corgi photos and prices</a>, or visit us in Balestier.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available Corgi Puppies"
       headingAccent="Available"
@@ -178,6 +170,14 @@ const schemas = [
         { title: 'Fluffy red & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fluffy red and white male Corgi puppy.'), imageAlt: 'Fluffy long-coated red and white male Corgi puppy trotting toward the camera', imageSrc: fluffyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '8 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking for a Corgi for Sale in Singapore?" imageAlt="Red and white Corgi puppy available in Singapore, seated portrait with one ear up" imageSrc={redWhitePortrait} variant="mid">
+      <p>Corgi litters are less frequent than the small crosses, so availability genuinely moves; we keep it live on WhatsApp rather than on a page that goes stale. Message us for photos, gender, age, and exact prices of the Corgi puppies available now.</p>
+      <p>Every Corgi here is between $3,688 and $5,500, full price in writing, kit and delivery and training included. One honest gate first: we will ask about your housing before anything else, because a Corgi cannot go to an HDB flat and we do not bend that rule.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Corgi puppies? I'm in private housing.")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Corgi photos and prices</a>, or visit us in Balestier.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div id="hdb" class="relative scroll-mt-40">

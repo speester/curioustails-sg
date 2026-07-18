@@ -173,14 +173,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Scottish Terrier in Singapore?" imageAlt="Black Scottish Terrier puppy portrait, one of the Scottie puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Scotties are rare in Singapore and litters are infrequent, so availability moves fast; we keep it live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Scottish Terrier puppies available now.</p>
-      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Scottish Terrier for sale in Singapore here is between $3,588 and $4,588, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Scottish Terrier puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Scottie photos and prices</a>, or meet our Scottish Terrier puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available Scottish Terrier Puppies"
       headingAccent="Available"
@@ -194,6 +186,14 @@ const schemas = [
         { title: 'Wheaten boy', href: whatsappLink('Hi! I\'d like more photos and the price for the wheaten male Scottish Terrier puppy.'), imageAlt: 'Wheaten male Scottish Terrier puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking to Buy a Scottish Terrier in Singapore?" imageAlt="Black Scottish Terrier puppy portrait, one of the Scottie puppies available in Singapore" imageSrc={imgScene1} variant="mid">
+      <p>Scotties are rare in Singapore and litters are infrequent, so availability moves fast; we keep it live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Scottish Terrier puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Scottish Terrier for sale in Singapore here is between $3,588 and $4,588, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Scottish Terrier puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Scottie photos and prices</a>, or meet our Scottish Terrier puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div class="relative">

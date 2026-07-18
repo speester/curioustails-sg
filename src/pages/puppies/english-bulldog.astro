@@ -167,14 +167,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy an English Bulldog in Singapore?" imageAlt="English Bulldog puppy portrait, one of the Bulldog puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our English Bulldog puppies in Singapore are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Bulldog puppies available now.</p>
-      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every English Bulldog for sale in Singapore here is between $6,988 and $9,988, and what you see is the full price, against a market that routinely asks two to four times as much. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available English Bulldog puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Bulldog photos and prices</a>, or meet our English Bulldog puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available English Bulldog Puppies"
       headingAccent="Available"
@@ -188,6 +180,14 @@ const schemas = [
         { title: 'Brindle & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle and white male English Bulldog puppy.'), imageAlt: 'Brindle and white male English Bulldog puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking to Buy an English Bulldog in Singapore?" imageAlt="English Bulldog puppy portrait, one of the Bulldog puppies available in Singapore" imageSrc={imgScene1} variant="mid">
+      <p>Our English Bulldog puppies in Singapore are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Bulldog puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every English Bulldog for sale in Singapore here is between $6,988 and $9,988, and what you see is the full price, against a market that routinely asks two to four times as much. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available English Bulldog puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Bulldog photos and prices</a>, or meet our English Bulldog puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div id="hdb" class="relative scroll-mt-40">

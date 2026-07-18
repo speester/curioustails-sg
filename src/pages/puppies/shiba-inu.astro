@@ -153,14 +153,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking for a Shiba Inu for Sale in Singapore?" imageAlt="Red Shiba Inu puppy available in Singapore, seated portrait with curled tail" imageSrc={redPortrait} variant="mid">
-      <p>Shiba litters move quickly and colours vary between them, so we keep availability live on WhatsApp rather than on a page that goes stale. Message us for photos, gender, age, colour, and exact prices of the Shiba puppies available now.</p>
-      <p>Every Shiba here is between $4,788 and $6,500, full price in writing, kit and delivery and training included. Housing comes first in our conversation, because a Shiba cannot go to an HDB flat and we don't bend that rule for a sale.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Shiba Inu puppies? I'm in private housing.")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Shiba photos and prices</a>, or meet them at our Balestier shop.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available Shiba Inu Puppies"
       headingAccent="Available"
@@ -177,6 +169,14 @@ const schemas = [
         { title: 'Deep red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the deep red male Shiba Inu puppy (8 weeks).'), imageAlt: 'Deep rich red male Shiba Inu puppy trotting toward the camera', imageSrc: deepRedBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '8 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking for a Shiba Inu for Sale in Singapore?" imageAlt="Red Shiba Inu puppy available in Singapore, seated portrait with curled tail" imageSrc={redPortrait} variant="mid">
+      <p>Shiba litters move quickly and colours vary between them, so we keep availability live on WhatsApp rather than on a page that goes stale. Message us for photos, gender, age, colour, and exact prices of the Shiba puppies available now.</p>
+      <p>Every Shiba here is between $4,788 and $6,500, full price in writing, kit and delivery and training included. Housing comes first in our conversation, because a Shiba cannot go to an HDB flat and we don't bend that rule for a sale.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Shiba Inu puppies? I'm in private housing.")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Shiba photos and prices</a>, or meet them at our Balestier shop.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div id="hdb" class="relative scroll-mt-40">

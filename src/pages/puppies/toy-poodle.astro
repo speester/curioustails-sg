@@ -168,14 +168,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Toy Poodle in Singapore?" imageAlt="Apricot Toy Poodle puppy portrait, one of the Toy Poodle puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Toy Poodles are the most requested breed in the shop, so our litters arrive and are reserved quickly, and we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Toy Poodle puppies available now.</p>
-      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Toy Poodle for sale in Singapore here is between $3,488 and $5,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Toy Poodle puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Toy Poodle photos and prices</a>, or meet our Toy Poodle puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available Toy Poodle Puppies"
       headingAccent="Available"
@@ -189,6 +181,14 @@ const schemas = [
         { title: 'Silver girl', href: whatsappLink('Hi! I\'d like more photos and the price for the silver female Toy Poodle puppy.'), imageAlt: 'Silver female Toy Poodle puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking to Buy a Toy Poodle in Singapore?" imageAlt="Apricot Toy Poodle puppy portrait, one of the Toy Poodle puppies available in Singapore" imageSrc={imgScene1} variant="mid">
+      <p>Toy Poodles are the most requested breed in the shop, so our litters arrive and are reserved quickly, and we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Toy Poodle puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Toy Poodle for sale in Singapore here is between $3,488 and $5,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Toy Poodle puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Toy Poodle photos and prices</a>, or meet our Toy Poodle puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div class="relative">

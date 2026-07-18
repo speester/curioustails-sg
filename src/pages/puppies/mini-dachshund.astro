@@ -155,14 +155,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking for a Mini Dachshund for Sale in Singapore?" imageAlt="Red smooth-coat Mini Dachshund puppy available in Singapore, seated portrait" imageSrc={redPortrait} variant="mid">
-      <p>Litters arrive and get reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. Message us and we'll send photos, gender, age, coat type, and exact prices for the Mini Dachshund puppies available now.</p>
-      <p>Every Mini Dachshund puppy for sale here is between $4,288 and $6,088, and what you see is the full price. After you reserve with a deposit, we board your puppy free, food and lodging covered, until your home is ready.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Mini Dachshund puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Mini Dachshund photos and prices</a>, or book a viewing at our Balestier shop and meet them in person.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available Mini Dachshund Puppies"
       headingAccent="Available"
@@ -179,6 +171,14 @@ const schemas = [
         { title: 'Black & cream long-haired girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and cream long-haired female Mini Dachshund.'), imageAlt: 'Black and cream long-haired female Mini Dachshund puppy trotting toward the camera', imageSrc: blackCreamLonghairPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '8 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking for a Mini Dachshund for Sale in Singapore?" imageAlt="Red smooth-coat Mini Dachshund puppy available in Singapore, seated portrait" imageSrc={redPortrait} variant="mid">
+      <p>Litters arrive and get reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. Message us and we'll send photos, gender, age, coat type, and exact prices for the Mini Dachshund puppies available now.</p>
+      <p>Every Mini Dachshund puppy for sale here is between $4,288 and $6,088, and what you see is the full price. After you reserve with a deposit, we board your puppy free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Mini Dachshund puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Mini Dachshund photos and prices</a>, or book a viewing at our Balestier shop and meet them in person.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div class="relative">

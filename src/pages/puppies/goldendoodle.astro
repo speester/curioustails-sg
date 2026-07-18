@@ -168,14 +168,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Goldendoodle in Singapore?" imageAlt="Goldendoodle puppy portrait, one of the Goldendoodle puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our Goldendoodle puppies in Singapore are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and exact prices for the Goldendoodle puppies available now.</p>
-      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Goldendoodle for sale in Singapore here is between $3,800 and $4,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Goldendoodle puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Goldendoodle photos and prices</a>, or meet our Goldendoodle puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available Goldendoodle Puppies"
       headingAccent="Available"
@@ -189,6 +181,14 @@ const schemas = [
         { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Goldendoodle puppy.'), imageAlt: 'Cream male Goldendoodle puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking to Buy a Goldendoodle in Singapore?" imageAlt="Goldendoodle puppy portrait, one of the Goldendoodle puppies available in Singapore" imageSrc={imgScene1} variant="mid">
+      <p>Our Goldendoodle puppies in Singapore are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and exact prices for the Goldendoodle puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Goldendoodle for sale in Singapore here is between $3,800 and $4,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Goldendoodle puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Goldendoodle photos and prices</a>, or meet our Goldendoodle puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div id="hdb" class="relative scroll-mt-40">

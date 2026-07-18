@@ -167,14 +167,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking for a Cavapoo for Sale in Singapore?" imageAlt="Cavapoo puppy portrait, one of the Cavapoo puppies available in Singapore" imageSrc={availablePortrait} variant="mid">
-      <p>Our litters arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. Message us and we'll send photos, gender, age, and exact prices for the Cavapoo puppies available now.</p>
-      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Cavapoo puppy for sale here is between $3,288 and $5,988, and what you see is the full price. After you reserve with a deposit, we board your puppy for free, food and lodging covered, until your home is ready.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Cavapoo puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Cavapoo photos and prices</a>, or book a puppy viewing appointment at our Balestier pet shop and meet them in person.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available Cavapoo Puppies"
       headingAccent="Available"
@@ -191,6 +183,14 @@ const schemas = [
         { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Cavapoo puppy.'), imageAlt: 'Apricot female Cavapoo puppy trotting toward the camera', imageSrc: apricotGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '8 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking for a Cavapoo for Sale in Singapore?" imageAlt="Cavapoo puppy portrait, one of the Cavapoo puppies available in Singapore" imageSrc={availablePortrait} variant="mid">
+      <p>Our litters arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. Message us and we'll send photos, gender, age, and exact prices for the Cavapoo puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Cavapoo puppy for sale here is between $3,288 and $5,988, and what you see is the full price. After you reserve with a deposit, we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Cavapoo puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Cavapoo photos and prices</a>, or book a puppy viewing appointment at our Balestier pet shop and meet them in person.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div class="relative">

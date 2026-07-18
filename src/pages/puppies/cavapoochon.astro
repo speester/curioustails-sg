@@ -176,14 +176,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Cavapoochon in Singapore?" imageAlt="Apricot Cavapoochon puppy portrait, one of the Cavapoochon puppies available in Singapore" imageSrc={apricotGirlPortrait} variant="mid">
-      <p>Cavapoochon litters are genuinely rare in Singapore, and ours arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Cavapoochon puppies available now.</p>
-      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Cavapoochon for sale in Singapore here is between $3,688 and $4,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Cavapoochon puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Cavapoochon photos and prices</a>, or meet our Cavapoochon puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available Cavapoochon Puppies"
       headingAccent="Available"
@@ -200,6 +192,14 @@ const schemas = [
         { title: 'Caramel girl', href: whatsappLink('Hi! I\'d like more photos and the price for the caramel female Cavapoochon puppy.'), imageAlt: 'Caramel female Cavapoochon puppy available in Singapore', imageSrc: caramelGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '8 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking to Buy a Cavapoochon in Singapore?" imageAlt="Apricot Cavapoochon puppy portrait, one of the Cavapoochon puppies available in Singapore" imageSrc={apricotGirlPortrait} variant="mid">
+      <p>Cavapoochon litters are genuinely rare in Singapore, and ours arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Cavapoochon puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Cavapoochon for sale in Singapore here is between $3,688 and $4,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Cavapoochon puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Cavapoochon photos and prices</a>, or meet our Cavapoochon puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div class="relative">

@@ -176,14 +176,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Chihuahua in Singapore?" imageAlt="Fawn Chihuahua puppy portrait, one of the Chihuahua puppies available in Singapore" imageSrc={fawnBoyPortrait} variant="mid">
-      <p>Our Chihuahua puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and exact prices for the Chihuahua puppies available now.</p>
-      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Chihuahua for sale in Singapore here is between $4,288 and $4,888, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Chihuahua puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Chihuahua photos and prices</a>, or meet our Chihuahua puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available Chihuahua Puppies"
       headingAccent="Available"
@@ -200,6 +192,14 @@ const schemas = [
         { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Chihuahua puppy.'), imageAlt: 'Black and white male Chihuahua puppy available in Singapore', imageSrc: blackWhiteBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '8 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking to Buy a Chihuahua in Singapore?" imageAlt="Fawn Chihuahua puppy portrait, one of the Chihuahua puppies available in Singapore" imageSrc={fawnBoyPortrait} variant="mid">
+      <p>Our Chihuahua puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and exact prices for the Chihuahua puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Chihuahua for sale in Singapore here is between $4,288 and $4,888, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Chihuahua puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Chihuahua photos and prices</a>, or meet our Chihuahua puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div class="relative">

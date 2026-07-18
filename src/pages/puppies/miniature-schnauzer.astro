@@ -173,14 +173,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Miniature Schnauzer in Singapore?" imageAlt="Salt and pepper Miniature Schnauzer puppy portrait, one of the Mini Schnauzer puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our Miniature Schnauzer puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Mini Schnauzer puppies available now.</p>
-      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Miniature Schnauzer for sale in Singapore here is between $4,888 and $5,388, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Miniature Schnauzer puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Mini Schnauzer photos and prices</a>, or meet our Miniature Schnauzer puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available Miniature Schnauzer Puppies"
       headingAccent="Available"
@@ -194,6 +186,14 @@ const schemas = [
         { title: 'Black & silver boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and silver male Miniature Schnauzer puppy.'), imageAlt: 'Black and silver male Miniature Schnauzer puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking to Buy a Miniature Schnauzer in Singapore?" imageAlt="Salt and pepper Miniature Schnauzer puppy portrait, one of the Mini Schnauzer puppies available in Singapore" imageSrc={imgScene1} variant="mid">
+      <p>Our Miniature Schnauzer puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Mini Schnauzer puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Miniature Schnauzer for sale in Singapore here is between $4,888 and $5,388, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Miniature Schnauzer puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Mini Schnauzer photos and prices</a>, or meet our Miniature Schnauzer puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div class="relative">

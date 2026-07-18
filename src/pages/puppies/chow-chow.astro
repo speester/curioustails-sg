@@ -163,14 +163,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Chow Chow in Singapore?" imageAlt="Red Chow Chow puppy portrait, one of the Chow puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our Chow Chow puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Chow puppies available now.</p>
-      <p>One thing to know upfront: we interview Chow buyers as much as they interview us, because this breed's biggest risk is being bought for its looks by homes expecting a different soul. Every Chow for sale in Singapore here is between $6,888 and $10,888, printed, and the temperament conversation comes free with it. Book a viewing at our Balestier shop, or after you reserve with a deposit we board your puppy for free until your home is ready.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Chow Chow puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Chow photos and prices</a>, or meet our Chow puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available Chow Chow Puppies"
       headingAccent="Available"
@@ -184,6 +176,14 @@ const schemas = [
         { title: 'Blue boy', href: whatsappLink('Hi! I\'d like more photos and the price for the blue male Chow Chow puppy.'), imageAlt: 'Blue male Chow Chow puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking to Buy a Chow Chow in Singapore?" imageAlt="Red Chow Chow puppy portrait, one of the Chow puppies available in Singapore" imageSrc={imgScene1} variant="mid">
+      <p>Our Chow Chow puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Chow puppies available now.</p>
+      <p>One thing to know upfront: we interview Chow buyers as much as they interview us, because this breed's biggest risk is being bought for its looks by homes expecting a different soul. Every Chow for sale in Singapore here is between $6,888 and $10,888, printed, and the temperament conversation comes free with it. Book a viewing at our Balestier shop, or after you reserve with a deposit we board your puppy for free until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Chow Chow puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Chow photos and prices</a>, or meet our Chow puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div id="hdb" class="relative scroll-mt-40">

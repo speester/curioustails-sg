@@ -199,6 +199,40 @@ const schemas = [
 
   <Tabs items={jumpLinks} />
 
+  <div id="included" class="scroll-mt-40">
+    <ValueBundle
+      eyebrow="One price, five inclusions"
+      heading="What every Curious Tails price includes"
+      headingAccent="every"
+      subhead="The sticker price is the full price. These come with every puppy, whichever breed and whatever the price."
+      items={[
+        {
+          title: 'Starter kit, 30+ items',
+          body: 'Playpen, carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral care, and toys. Bought separately this is a $500+ shopping trip you skip entirely.',
+          icon: 'kit',
+          highlight: '$500+ value',
+        },
+        {
+          title: 'Free delivery and home setup',
+          body: 'We deliver island-wide free, set up the playpen before your puppy walks in, and walk you through how to use every item in the kit.',
+          icon: 'delivery',
+          highlight: 'Included',
+        },
+        {
+          title: 'Free AVS-certified training lesson',
+          body: 'Your first lesson with an AVS-Accredited Certified Dog Trainer is on us, best booked in week one while the routine is forming.',
+          icon: 'training',
+          highlight: 'Included',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-4 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Two more inclusions do not fit in a card: after your deposit we board your puppy free, food and lodging covered, until your home is ready, and the dog licensing paperwork is completed with our full assistance at purchase. Read how the free AVS-certified training lesson works and <a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">everything inside the 30+ item starter kit</a>.
+      </p>
+    </div>
+  </div>
+
   <div class="relative">
     <ScatterFloat />
     <DefBox
@@ -243,39 +277,6 @@ const schemas = [
   />
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
-  <div id="included" class="scroll-mt-40">
-    <ValueBundle
-      eyebrow="One price, five inclusions"
-      heading="What every Curious Tails price includes"
-      headingAccent="every"
-      subhead="The sticker price is the full price. These come with every puppy, whichever breed and whatever the price."
-      items={[
-        {
-          title: 'Starter kit, 30+ items',
-          body: 'Playpen, carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral care, and toys. Bought separately this is a $500+ shopping trip you skip entirely.',
-          icon: 'kit',
-          highlight: '$500+ value',
-        },
-        {
-          title: 'Free delivery and home setup',
-          body: 'We deliver island-wide free, set up the playpen before your puppy walks in, and walk you through how to use every item in the kit.',
-          icon: 'delivery',
-          highlight: 'Included',
-        },
-        {
-          title: 'Free AVS-certified training lesson',
-          body: 'Your first lesson with an AVS-Accredited Certified Dog Trainer is on us, best booked in week one while the routine is forming.',
-          icon: 'training',
-          highlight: 'Included',
-        },
-      ]}
-    />
-    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-4 pb-10">
-      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Two more inclusions do not fit in a card: after your deposit we board your puppy free, food and lodging covered, until your home is ready, and the dog licensing paperwork is completed with our full assistance at purchase. Read how the free AVS-certified training lesson works and <a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">everything inside the 30+ item starter kit</a>.
-      </p>
-    </div>
-  </div>
 
   <div id="market" class="scroll-mt-40">
     <ComparisonSplit

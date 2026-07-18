@@ -168,14 +168,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Silky Terrier in Singapore?" imageAlt="Blue and tan Silky Terrier puppy portrait, one of the Silky Terrier puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Silky Terriers are uncommon in Singapore, so litters are announced and reserved fast; we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Silky Terrier puppies available now.</p>
-      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Silky Terrier for sale in Singapore here is between $3,288 and $4,588, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Silky Terrier puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Silky Terrier photos and prices</a>, or meet our Silky Terrier puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available Silky Terrier Puppies"
       headingAccent="Available"
@@ -189,6 +181,14 @@ const schemas = [
         { title: 'Bold boy', href: whatsappLink('Hi! I\'d like more photos and the price for the bold male Silky Terrier puppy.'), imageAlt: 'Bold male Silky Terrier puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking to Buy a Silky Terrier in Singapore?" imageAlt="Blue and tan Silky Terrier puppy portrait, one of the Silky Terrier puppies available in Singapore" imageSrc={imgScene1} variant="mid">
+      <p>Silky Terriers are uncommon in Singapore, so litters are announced and reserved fast; we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Silky Terrier puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Silky Terrier for sale in Singapore here is between $3,288 and $4,588, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Silky Terrier puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Silky Terrier photos and prices</a>, or meet our Silky Terrier puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div class="relative">
@@ -244,7 +244,7 @@ const schemas = [
 
     <CaptionedBlock heading="Can a Silky Terrier Be Left Alone During Work Hours?" imagePosition="none" variant="card">
       <p>Moderately well, with the terrier contract honoured: a real walk before work, chew work and a puzzle feeder for the day, and another outing after. Silkies are self-sufficient by temperament; it's unspent energy, not solitude, that gets them into trouble.</p>
-      <p>The voice is the thing to train early; an alert terrier in a quiet flat will find material. If your mornings can't fit the walk, the calmer <a href="/puppies/shih-tzu/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shih Tzu</a> suits the routine better, and we'll say so.</p>
+      <p>The voice is the thing to train early; an alert terrier in a quiet flat will find material. If your mornings can't fit the walk, the calmer Shih Tzu suits the routine better, and we'll say so.</p>
       <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
         <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
         <ul class="mt-4 space-y-3">
@@ -318,7 +318,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on our transparent puppy pricing page, and plan the ongoing costs with the first-year puppy budget guide.
       </p>
     </div>
   </div>
@@ -327,7 +327,7 @@ const schemas = [
   <CaptionedBlock heading="The $500+ Starter Kit Every Silky Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
     <p>Every Silky Terrier leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the comb is the daily tool, silk tangles, and the harness protects a small terrier throat that will absolutely hit the end of a leash chasing a myna.</p>
     <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Silky's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
-    <p>See <a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+    <p>See the full 30+ item kit breakdown, category by category.</p>
   </CaptionedBlock>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
@@ -423,15 +423,15 @@ const schemas = [
   <div id="health" class="scroll-mt-40">
     <CaptionedBlock heading="Silky Terrier Health: What We Check Before You Take One Home" imageAlt="Silky Terrier puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Silky goes home vet-checked, vaccinated, dewormed, and microchipped. The breed is robust, working-terrier roots again, with a short list worth knowing: patellar luxation, the small-breed kneecap issue; dental crowding, met with the day-one brushing habit; tracheal sensitivity, which is why the harness rule applies; and Legg-Calvé-Perthes in some lines, as with most small terriers.</p>
-      <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the <a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the puppy health checks explained guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
   <CaptionedBlock heading="Your Silky's First Week at Home" imageAlt="Silky Terrier puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
-    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Silky explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Silky explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
     <p>Days 1 to 3: keep it calm and predictable. A fixed feeding routine, the toilet pads where we placed them, and short, structured play; the terrier curiosity will want to inspect everything, so supervise the first explorations.</p>
-    <p>Days 4 to 7: the routine sticks and the spark shows. Book your free first lesson with an AVS-certified trainer this week; the voice and the leash manners are best shaped now. See <a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+    <p>Days 4 to 7: the routine sticks and the spark shows. Book your free first lesson with an AVS-certified trainer this week; the voice and the leash manners are best shaped now. See what the free AVS-certified training lesson covers.</p>
   </CaptionedBlock>
 
   <div id="reviews" class="scroll-mt-40">
@@ -461,7 +461,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Read more about <a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+        Read more about Nelson and Kim and how the shop runs, or see all reviews on Google.
       </p>
     </div>
   </div>
@@ -513,7 +513,7 @@ const schemas = [
           ))}
         </ul>
         <p class="mt-4 text-xs text-white/50">
-          Full walkthrough: <a href="/learn/verify-license/" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+          Full walkthrough: step-by-step licence verification guide · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
         </p>
       </div>
     </DefBox>
@@ -522,6 +522,25 @@ const schemas = [
   <div id="faq" class="scroll-mt-40">
     <FAQ heading="Silky Terrier FAQs" items={faqItems} />
   </div>
+
+  <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our shop front page</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">compare every breed</a>.</p>
+  </section>
+
+  <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
+    <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+    </ul>
+  </aside>
+
 
   <FinalCta breed="Silky Terrier" reserveMessage="Hi! I'd like to reserve a Silky Terrier puppy." />
 

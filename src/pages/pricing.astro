@@ -6,6 +6,7 @@ import Tabs from '../components/Tabs.astro';
 import DefBox from '../components/DefBox.astro';
 import StatStrip from '../components/StatStrip.astro';
 import ComparisonSplit from '../components/ComparisonSplit.astro';
+import SortableTable from '../components/SortableTable.astro';
 import CaptionedBlock from '../components/CaptionedBlock.astro';
 import ValueBundle from '../components/ValueBundle.astro';
 import BannerRibbon from '../components/BannerRibbon.astro';
@@ -91,13 +92,15 @@ const breedMarketNotes: Partial<Record<BreedSlug, string>> = {
   'chihuahua': 'Commonly $2,500 to $6,000',
 };
 
-const byBreedRows = (Object.keys(breedPricing) as BreedSlug[])
+const sortableBreedRows = (Object.keys(breedPricing) as BreedSlug[])
   .sort((a, b) => breedDisplayNames[a].localeCompare(breedDisplayNames[b]))
   .map((slug) => {
     const { low, high } = breedPricing[slug];
+    const market = breedMarketNotes[slug] ?? 'Enquiry-only at most shops';
     return {
       label: breedDisplayNames[slug],
-      values: [`$${fmtPrice(low)} to $${fmtPrice(high)} all-in`, breedMarketNotes[slug] ?? 'Enquiry-only at most shops'],
+      cells: [`$${fmtPrice(low)} to $${fmtPrice(high)} all-in`, market],
+      sort: [breedDisplayNames[slug], low, market],
     };
   });
 
@@ -199,6 +202,40 @@ const schemas = [
 
   <Tabs items={jumpLinks} />
 
+  <div id="included" class="scroll-mt-40">
+    <ValueBundle
+      eyebrow="One price, five inclusions"
+      heading="What every Curious Tails price includes"
+      headingAccent="every"
+      subhead="The sticker price is the full price. These come with every puppy, whichever breed and whatever the price."
+      items={[
+        {
+          title: 'Starter kit, 30+ items',
+          body: 'Playpen, carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral care, and toys. Bought separately this is a $500+ shopping trip you skip entirely.',
+          icon: 'kit',
+          highlight: '$500+ value',
+        },
+        {
+          title: 'Free delivery and home setup',
+          body: 'We deliver island-wide free, set up the playpen before your puppy walks in, and walk you through how to use every item in the kit.',
+          icon: 'delivery',
+          highlight: 'Included',
+        },
+        {
+          title: 'Free AVS-certified training lesson',
+          body: 'Your first lesson with an AVS-Accredited Certified Dog Trainer is on us, best booked in week one while the routine is forming.',
+          icon: 'training',
+          highlight: 'Included',
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-4 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Two more inclusions do not fit in a card: after your deposit we board your puppy free, food and lodging covered, until your home is ready, and the dog licensing paperwork is completed with our full assistance at purchase. Read how the free AVS-certified training lesson works and <a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">everything inside the 30+ item starter kit</a>.
+      </p>
+    </div>
+  </div>
+
   <div class="relative">
     <ScatterFloat />
     <DefBox
@@ -243,39 +280,6 @@ const schemas = [
   />
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
-  <div id="included" class="scroll-mt-40">
-    <ValueBundle
-      eyebrow="One price, five inclusions"
-      heading="What every Curious Tails price includes"
-      headingAccent="every"
-      subhead="The sticker price is the full price. These come with every puppy, whichever breed and whatever the price."
-      items={[
-        {
-          title: 'Starter kit, 30+ items',
-          body: 'Playpen, carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral care, and toys. Bought separately this is a $500+ shopping trip you skip entirely.',
-          icon: 'kit',
-          highlight: '$500+ value',
-        },
-        {
-          title: 'Free delivery and home setup',
-          body: 'We deliver island-wide free, set up the playpen before your puppy walks in, and walk you through how to use every item in the kit.',
-          icon: 'delivery',
-          highlight: 'Included',
-        },
-        {
-          title: 'Free AVS-certified training lesson',
-          body: 'Your first lesson with an AVS-Accredited Certified Dog Trainer is on us, best booked in week one while the routine is forming.',
-          icon: 'training',
-          highlight: 'Included',
-        },
-      ]}
-    />
-    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-4 pb-10">
-      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Two more inclusions do not fit in a card: after your deposit we board your puppy free, food and lodging covered, until your home is ready, and the dog licensing paperwork is completed with our full assistance at purchase. Read <a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how the free AVS-certified training lesson works</a> and <a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">everything inside the 30+ item starter kit</a>.
-      </p>
-    </div>
-  </div>
 
   <div id="market" class="scroll-mt-40">
     <ComparisonSplit
@@ -336,13 +340,12 @@ const schemas = [
   </div>
 
   <div id="by-breed" class="scroll-mt-40">
-    <ComparisonSplit
+    <SortableTable
       heading="Price Guide by Breed"
       headingAccent="Breed"
-      subhead="Each breed has its own published all-in price. The market column shows what the same breed commonly costs elsewhere in Singapore."
-      mode="table"
-      tableHeaders={['Breed', 'At Curious Tails', 'Typical market']}
-      rows={byBreedRows}
+      subhead="Each breed has its own published all-in price. The market column shows what the same breed commonly costs elsewhere in Singapore. Tap a column heading to sort."
+      headers={['Breed', 'At Curious Tails', 'Typical market']}
+      rows={sortableBreedRows}
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
@@ -390,7 +393,7 @@ const schemas = [
   />
   <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-6">
     <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-      The $7,000 fine is real: the Straits Times covered <a href="https://www.straitstimes.com/singapore/courts-crime/dog-buyer-fined-7k-first-time-nparks-prosecuted-purchaser-over-animal-smuggling" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">the first NParks prosecution of a buyer</a>, not just the smuggler. We say this once and move on; read <a href="/learn/smuggled-puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what smuggled puppies really cost buyers</a> if you want the full picture.
+      The $7,000 fine is real: the Straits Times covered <a href="https://www.straitstimes.com/singapore/courts-crime/dog-buyer-fined-7k-first-time-nparks-prosecuted-purchaser-over-animal-smuggling" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">the first NParks prosecution of a buyer</a>, not just the smuggler. We say this once and move on; read what smuggled puppies really cost buyers if you want the full picture.
     </p>
   </div>
 
@@ -411,7 +414,7 @@ const schemas = [
     />
     <CaptionedBlock heading="Homecoming, Scheduled Around You" imageAlt="Puppy homecoming after deposit and free delivery: caregiver lowering an apricot Cavapoo puppy onto the floor of an HDB flat" imageSrc={homecoming} imagePosition="left">
       <p>The boarding step matters more than families expect: renovations overrun, trips get booked, and a puppy should not arrive into chaos. Because we board free after the deposit, your puppy comes home on the day your home is actually ready.</p>
-      <p>On that day the playpen is set up before your puppy explores the room. See <a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and playpen setup works</a> for the full picture of the day itself.</p>
+      <p>On that day the playpen is set up before your puppy explores the room. See how our free home delivery and playpen setup works for the full picture of the day itself.</p>
     </CaptionedBlock>
   </div>
 
@@ -421,7 +424,7 @@ const schemas = [
     <CaptionedBlock heading="Your First-Year Budget Beyond the Purchase Price" imagePosition="none">
       <p>The purchase is the biggest single number, but the first year adds its own line items, and you should see them before you commit, not after. Expect the AVS dog licence from $15 a year ($35 one-time for a sterilised dog), food from roughly $340 to $2,430 a year depending on size and diet, routine vet care around $300 to $500, and grooming around $274 a year for the low-shedding coats we carry.</p>
       <p>Add the annual booster vaccination and deworming from Year 1 onward, and pet insurance from around $316 a year if you choose it. A comfortable planning figure for a small breed's first year is $1,200 to $3,500 on top of the purchase.</p>
-      <p>What you can cross off that list: the $500+ of day-one equipment, because the starter kit covers it. For the full month-by-month numbers, use the <a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget planner</a>.</p>
+      <p>What you can cross off that list: the $500+ of day-one equipment, because the starter kit covers it. For the full month-by-month numbers, use the first-year puppy budget planner.</p>
       <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
         <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">First-year planning figures</p>
         <ul class="mt-4 space-y-3">
@@ -462,7 +465,7 @@ const schemas = [
   <CaptionedBlock heading="We Price the Match, Not the Sale" imagePosition="none" variant="dark">
     <p>A note from us, Nelson and Kim. The most expensive mistake in puppy buying is not overpaying by a few hundred dollars; it is bringing home a breed that does not fit your routine. We have talked customers out of the breed they walked in for, and one of those couples left us a five-star review for exactly that steer.</p>
     <p>So before we ever talk numbers, we ask what your day looks like from 8am to 6pm. We'd rather talk you out of the wrong breed than sell you the wrong dog.</p>
-    <p>That is the whole pricing philosophy: publish the range, include what a new owner actually needs, and let the match decide the rest. Read more about <a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how we run the shop</a>.</p>
+    <p>That is the whole pricing philosophy: publish the range, include what a new owner actually needs, and let the match decide the rest. Read more about how we run the shop.</p>
     <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
       <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Our pricing philosophy</p>
       <ul class="mt-4 space-y-3">
@@ -548,7 +551,7 @@ const schemas = [
           ))}
         </ul>
         <p class="mt-4 text-xs text-white/50">
-          Full walkthrough: <a href="/learn/verify-license/" class="underline underline-offset-2">how to verify any pet shop's AVS licence</a>
+          Full walkthrough: how to verify any pet shop's AVS licence
         </p>
       </div>
     </DefBox>
@@ -557,6 +560,23 @@ const schemas = [
   <div id="faq" class="scroll-mt-40">
     <FAQ heading="Pricing Questions, Answered" items={faqItems} />
   </div>
+
+  <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the Curious Tails homepage</a>.</p>
+  </section>
+
+  <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
+    <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/learn/smuggled-puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Smuggling red flags</a></li>
+      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+    </ul>
+  </aside>
+
 
   <FinalCta
     breed="Puppy"

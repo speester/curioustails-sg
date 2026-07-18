@@ -168,14 +168,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Cavalier in Singapore?" imageAlt="Blenheim Cavalier King Charles Spaniel puppy portrait, one of the Cavalier puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our Cavalier puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Cavalier King Charles Spaniel puppies available now.</p>
-      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Cavalier for sale in Singapore here is between $5,588 and $6,588, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Cavalier puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Cavalier photos and prices</a>, or meet our Cavalier puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available Cavalier Puppies"
       headingAccent="Available"
@@ -189,6 +181,14 @@ const schemas = [
         { title: 'Tricolour boy', href: whatsappLink('Hi! I\'d like more photos and the price for the tricolour male Cavalier puppy.'), imageAlt: 'Tricolour male Cavalier King Charles Spaniel puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking to Buy a Cavalier in Singapore?" imageAlt="Blenheim Cavalier King Charles Spaniel puppy portrait, one of the Cavalier puppies available in Singapore" imageSrc={imgScene1} variant="mid">
+      <p>Our Cavalier puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Cavalier King Charles Spaniel puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Cavalier for sale in Singapore here is between $5,588 and $6,588, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Cavalier puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Cavalier photos and prices</a>, or meet our Cavalier puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div class="relative">
@@ -283,7 +283,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        The Cavalier's adaptability is its quiet superpower: it matches an active family's pace or a retiree's, as long as its people are in view. For the same temperament in a low-shedding coat, the <a href="/puppies/cavapoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> and <a href="/puppies/cavapoochon/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoochon</a> are its most popular descendants.
+        The Cavalier's adaptability is its quiet superpower: it matches an active family's pace or a retiree's, as long as its people are in view. For the same temperament in a low-shedding coat, the Cavapoo and <a href="/puppies/cavapoochon/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoochon</a> are its most popular descendants.
       </p>
     </div>
   </div>
@@ -318,7 +318,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on our transparent puppy pricing page, and plan the ongoing costs with the first-year puppy budget guide.
       </p>
     </div>
   </div>
@@ -327,7 +327,7 @@ const schemas = [
   <CaptionedBlock heading="The $500+ Starter Kit Every Cavalier Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
     <p>Every Cavalier leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the ear cleanser earns its place fast, those beautiful drop ears need weekly attention in our humidity, and the measuring cup guards against the Cavalier's talent for gaining weight.</p>
     <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Cavalier's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
-    <p>See <a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+    <p>See the full 30+ item kit breakdown, category by category.</p>
   </CaptionedBlock>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
@@ -360,7 +360,7 @@ const schemas = [
   <CaptionedBlock heading="Cavalier vs Cavapoo: The Original or the Cross?" imagePosition="none" variant="dark">
     <p>The Cavapoo is half Cavalier, so the sweetness carries over; the Poodle half adds independence and subtracts most of the shedding. The honest trade: the purebred Cavalier is gentler still and more predictable in looks and temperament, but it needs company through the day and carries the breed's known heart risk. The Cavapoo handles working households far better and its mixed parentage broadens the health base.</p>
     <p>Our plain-language rule: someone home most of the day and you want the gentlest dog possible, Cavalier. Out at work weekdays, Cavapoo, no hesitation. With us the price, the starter kit, and the aftercare are identical either way.</p>
-    <p>Weighing the two? See our <a href="/puppies/cavapoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <p>Weighing the two? See our Cavapoo puppies, or message us your routine and we'll tell you straight.</p>
     <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
       <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
       <ul class="mt-4 space-y-3">
@@ -423,15 +423,15 @@ const schemas = [
   <div id="health" class="scroll-mt-40">
     <CaptionedBlock heading="Cavalier Health: What We Check Before You Take One Home" imageAlt="Cavalier King Charles Spaniel puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Cavalier goes home vet-checked, vaccinated, dewormed, and microchipped. And then there is the conversation every honest Cavalier page must have: mitral valve disease. This heart condition affects Cavaliers at far higher rates than almost any breed, typically emerging in middle age, and it is the main reason the breed's lifespan is quoted as 10 to 14 rather than 14 to 16. It is not a reason to avoid the breed; it is a reason to own one knowingly: annual vet checks that include listening to the heart, from around age five, catch it early, and modern management gives affected dogs good years.</p>
-      <p>The rest of the list is manageable: weekly ear care as above, eye checks for this large-eyed breed, and weight discipline, because a plump Cavalier's heart works harder. Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the <a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+      <p>The rest of the list is manageable: weekly ear care as above, eye checks for this large-eyed breed, and weight discipline, because a plump Cavalier's heart works harder. Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. See the puppy health checks explained guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
   <CaptionedBlock heading="Your Cavalier's First Week at Home" imageAlt="Cavalier puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
-    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Cavalier explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Cavalier explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
     <p>Days 1 to 3: keep it calm and close. This breed settles through proximity: the playpen where it can see people, a fixed feeding routine, and the toilet pads where we placed them. Some night whimpering is normal adjustment, and Cavaliers settle fastest of all when they can hear you.</p>
-    <p>Days 4 to 7: the routine sticks, and the shadow behaviour begins; enjoy it. Book your free first lesson with an AVS-certified trainer this week, and start practising short, boring departures now, five minutes at a time, so alone-time skills grow before they're needed. See <a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+    <p>Days 4 to 7: the routine sticks, and the shadow behaviour begins; enjoy it. Book your free first lesson with an AVS-certified trainer this week, and start practising short, boring departures now, five minutes at a time, so alone-time skills grow before they're needed. See what the free AVS-certified training lesson covers.</p>
   </CaptionedBlock>
 
   <div id="reviews" class="scroll-mt-40">
@@ -461,7 +461,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Read more about <a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+        Read more about Nelson and Kim and how the shop runs, or see all reviews on Google.
       </p>
     </div>
   </div>
@@ -513,7 +513,7 @@ const schemas = [
           ))}
         </ul>
         <p class="mt-4 text-xs text-white/50">
-          Full walkthrough: <a href="/learn/verify-license/" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+          Full walkthrough: step-by-step licence verification guide · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
         </p>
       </div>
     </DefBox>
@@ -522,6 +522,25 @@ const schemas = [
   <div id="faq" class="scroll-mt-40">
     <FAQ heading="Cavalier King Charles Spaniel FAQs" items={faqItems} />
   </div>
+
+  <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">every puppy we have ready now</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our complete breed list</a>.</p>
+  </section>
+
+  <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
+    <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+    </ul>
+  </aside>
+
 
   <FinalCta breed="Cavalier King Charles Spaniel" reserveMessage="Hi! I'd like to reserve a Cavalier King Charles Spaniel puppy." />
 

@@ -433,7 +433,7 @@ const schemas = [
             </li>
           ))}
         </ul>
-        <p class="mt-4 text-xs text-white/50">Shortcut: the <a href="/first-time-owners/breed-selector/" class="underline underline-offset-2">two-minute breed selector</a> asks these for you.</p>
+        <p class="mt-4 text-xs text-white/50">Shortcut: the two-minute breed selector asks these for you.</p>
       </div>
     </DefBox>
   </div>
@@ -506,7 +506,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        The full rules, the one-dog-per-flat limit, and what to do if your heart is set on a non-approved breed are in the <a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB-approved dog breeds guide</a>.
+        The full rules, the one-dog-per-flat limit, and what to do if your heart is set on a non-approved breed are in the HDB-approved dog breeds guide.
       </p>
     </div>
   </div>
@@ -556,6 +556,19 @@ const schemas = [
   <div id="faq" class="scroll-mt-40">
     <FAQ heading="Breed Questions, Answered" items={faqItems} />
   </div>
+
+  <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our puppy shop in Singapore</a>, or <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our Cavapoo page</a>.</p>
+  </section>
+
+  <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
+    <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <li><a href="/first-time-owners/breed-selector" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Breed selector quiz</a></li>
+      <li><a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
+    </ul>
+  </aside>
+
 
   <FinalCta
     breed="Puppy"

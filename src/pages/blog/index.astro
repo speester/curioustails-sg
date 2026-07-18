@@ -13,6 +13,7 @@ import { localBusinessSchema, personSchema, webPageSchema, itemListSchema } from
 import mistakesImg from '../../assets/home/5-cavapoo-puppy-settling-playpen-first-day.webp';
 import hdbImg from '../../assets/bichonpoo/2-bichonpoo-white-portrait.webp';
 import compareImg from '../../assets/cavapoo/2-cavapoo-puppy-portrait-available.webp';
+import fireworksImg from '../../assets/guides/3-puppy-night-routine-sleeping-pen.webp';
 
 const title = 'Blog: Puppy Guides & Honest Advice | Curious Tails';
 const description =
@@ -20,6 +21,16 @@ const description =
 
 // One entry per post. Newest first; add new posts to the top.
 const posts = [
+  {
+    title: 'Getting Your Puppy Through NDP and New Year Fireworks',
+    href: '/blog/puppy-fireworks-singapore/',
+    date: '2026-07-18',
+    tag: 'First-time owners',
+    excerpt:
+      'Why fireworks terrify puppies, the covered-playpen safe room that works, and the walk timing that avoids the worst of the night.',
+    image: fireworksImg,
+    imageAlt: 'Puppy settled calmly inside a covered playpen set up as a fireworks safe room',
+  },
   {
     title: 'Cavapoo vs Maltipoo: the Complete Breed Comparison',
     href: '/blog/cavapoo-vs-maltipoo/',
@@ -127,6 +138,11 @@ const schemas = [
     ctaMessage="Hi! I have a puppy question your blog hasn't covered yet:"
     variant="dark"
   />
+
+  <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Curious Tails</a>.</p>
+  </section>
+
 
   <FinalCta
     breed="Puppy"

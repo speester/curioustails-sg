@@ -164,14 +164,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Maltese in Singapore?" imageAlt="Maltese puppy portrait, one of the Maltese puppies available in Singapore" imageSrc={maltesePortrait} variant="mid">
-      <p>Our Maltese puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Maltese puppies available now.</p>
-      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Maltese for sale in Singapore here is between $4,288 and $5,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Maltese puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Maltese photos and prices</a>, or meet our Maltese puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available Maltese Puppies"
       headingAccent="Available"
@@ -188,6 +180,14 @@ const schemas = [
         { title: 'Ivory boy', href: whatsappLink('Hi! I\'d like more photos and the price for the ivory male Maltese puppy.'), imageAlt: 'Ivory male Maltese puppy trotting toward the camera', imageSrc: ivoryBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '9 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking to Buy a Maltese in Singapore?" imageAlt="Maltese puppy portrait, one of the Maltese puppies available in Singapore" imageSrc={maltesePortrait} variant="mid">
+      <p>Our Maltese puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Maltese puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Maltese for sale in Singapore here is between $4,288 and $5,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Maltese puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Maltese photos and prices</a>, or meet our Maltese puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div class="relative">
@@ -238,12 +238,12 @@ const schemas = [
     <CaptionedBlock heading="Maltese Temperament: Centuries of Practice at Being a Companion" imageAlt="Maltese puppy cuddled close on a caregiver's lap at home" imageSrc={companionLap} imagePosition="left">
       <p>The Maltese has done exactly one job for over two thousand years: keep its people company. It shows. This is an affectionate, bright, surprisingly playful little dog that wants to be in the same room as you, preferably on you, and gives back every bit of attention it gets.</p>
       <p>Here is the honest part we lead with, from two years of matching puppies to families: a Maltese's need for company is the single thing that decides whether the match works. In a home with someone usually around, a Maltese is a delight. In an empty home from 8am to 6pm, that same devotion can turn into whining and separation anxiety.</p>
-      <p>With gentle children the Maltese is sweet and patient, but at 3 to 4 kg it is a delicate dog; homes with boisterous toddlers are usually better served by the sturdier <a href="/puppies/cockapoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo</a>, and we'll say so.</p>
+      <p>With gentle children the Maltese is sweet and patient, but at 3 to 4 kg it is a delicate dog; homes with boisterous toddlers are usually better served by the sturdier Cockapoo, and we'll say so.</p>
     </CaptionedBlock>
 
     <CaptionedBlock heading="Can a Maltese Be Left Alone During Work Hours?" imagePosition="none" variant="card">
       <p>Honestly, this is where you should pause. The Maltese, like the Maltipoo, copes least well of our breeds with long stretches alone, because company is the whole point of the breed. If someone is home for most of the day, a family member, a retiree, a helper, or you working remotely, a Maltese thrives.</p>
-      <p>If your home is empty from 8am to 6pm every weekday, we will say so plainly, and often point you to a more independent breed instead. We'd rather talk you out of the wrong match than sell you a puppy that spends its days anxious. See our <a href="/puppies/cavapoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo puppies</a>, which handle alone time more comfortably.</p>
+      <p>If your home is empty from 8am to 6pm every weekday, we will say so plainly, and often point you to a more independent breed instead. We'd rather talk you out of the wrong match than sell you a puppy that spends its days anxious. See our Cavapoo puppies, which handle alone time more comfortably.</p>
       <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
         <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
         <ul class="mt-4 space-y-3">
@@ -317,7 +317,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on our transparent puppy pricing page, and plan the ongoing costs with the first-year puppy budget guide.
       </p>
     </div>
   </div>
@@ -326,7 +326,7 @@ const schemas = [
   <CaptionedBlock heading="The $500+ Starter Kit Every Maltese Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
     <p>Every Maltese leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For a white-coated, tear-stain-prone breed like the Maltese, the grooming tools and the eye-wipe routine start on day one.</p>
     <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Maltese's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
-    <p>See <a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+    <p>See the full 30+ item kit breakdown, category by category.</p>
   </CaptionedBlock>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
@@ -359,7 +359,7 @@ const schemas = [
   <CaptionedBlock heading="Maltese vs Maltipoo: Which One Fits Your Home?" imagePosition="none" variant="dark">
     <p>The Maltipoo is literally half Maltese, so the two share the small size, the love of company, and the tear-stain care routine. The honest differences: the purebred Maltese carries a straight, silky white coat and a more predictable adult look, while the Maltipoo's Poodle side brings a wavy coat, more colour options, and often a touch more bounce.</p>
     <p>Grooming effort is similar either way, and with us the price, the starter kit, and the aftercare are identical. If nobody is home during weekdays, neither is the right pick, and we'll steer you to a more independent breed instead of taking the sale.</p>
-    <p>Weighing the two? See our <a href="/puppies/maltipoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Maltipoo puppies</a>, or message us your routine and we'll tell you straight.</p>
+    <p>Weighing the two? See our Maltipoo puppies, or message us your routine and we'll tell you straight.</p>
     <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
       <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
       <ul class="mt-4 space-y-3">
@@ -422,7 +422,7 @@ const schemas = [
   <div id="health" class="scroll-mt-40">
     <CaptionedBlock heading="Maltese Health: What We Check Before You Take One Home" imageAlt="Maltese puppy at a veterinary health check before going home" imageSrc={malteseVet} variant="mid">
       <p>Every Maltese goes home vet-checked, vaccinated, dewormed, and microchipped. The Maltese health points worth knowing are a small few: patellar luxation, a kneecap issue common to toy breeds; dental crowding, because a small jaw leaves little room for teeth, so the oral care items in your kit matter; and tear staining, which is cosmetic and manageable. We say this once, plainly, so you hear it from your seller and not from a forum later.</p>
-      <p>Feeding is simple: your puppy comes with the small-breed food it is already eating, and any change should be gradual over a week. Tiny puppies also need regular meals to keep blood sugar steady, one more reason we don't sell to the "teacup" label. For portioning guidance see the <a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+      <p>Feeding is simple: your puppy comes with the small-breed food it is already eating, and any change should be gradual over a week. Tiny puppies also need regular meals to keep blood sugar steady, one more reason we don't sell to the "teacup" label. For portioning guidance see the puppy health checks explained guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
@@ -454,9 +454,9 @@ const schemas = [
   </div>
 
   <CaptionedBlock heading="Your Maltese's First Week at Home" imageAlt="Maltese puppy settling into a set-up playpen during its first week home" imageSrc={malteseSettling} imagePosition="left">
-    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Maltese explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Maltese explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
     <p>Days 1 to 3: keep it calm and close. Maltese settle fastest with gentle company nearby, a fixed feeding routine, and the toilet pads where we placed them. Some night whimpering is normal adjustment.</p>
-    <p>Days 4 to 7: the routine sticks. This is the window to book your free first lesson with an AVS-certified trainer; see <a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>. For anything in between, you WhatsApp us.</p>
+    <p>Days 4 to 7: the routine sticks. This is the window to book your free first lesson with an AVS-certified trainer; see what the free AVS-certified training lesson covers. For anything in between, you WhatsApp us.</p>
   </CaptionedBlock>
 
   <div id="reviews" class="scroll-mt-40">
@@ -486,7 +486,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Read more about <a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+        Read more about Nelson and Kim and how the shop runs, or see all reviews on Google.
       </p>
     </div>
   </div>
@@ -538,7 +538,7 @@ const schemas = [
           ))}
         </ul>
         <p class="mt-4 text-xs text-white/50">
-          Full walkthrough: <a href="/learn/verify-license/" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+          Full walkthrough: step-by-step licence verification guide · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
         </p>
       </div>
     </DefBox>
@@ -547,6 +547,25 @@ const schemas = [
   <div id="faq" class="scroll-mt-40">
     <FAQ heading="Maltese FAQs" items={faqItems} />
   </div>
+
+  <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">browse from the homepage</a>, <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">other breeds in our care</a>, or <a href="/puppies/shih-tzu" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shih Tzu puppies</a>.</p>
+  </section>
+
+  <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
+    <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+    </ul>
+  </aside>
+
 
   <FinalCta breed="Maltese" reserveMessage="Hi! I'd like to reserve a Maltese puppy." />
 

@@ -153,14 +153,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking for a Shiba Inu for Sale in Singapore?" imageAlt="Red Shiba Inu puppy available in Singapore, seated portrait with curled tail" imageSrc={redPortrait} variant="mid">
-      <p>Shiba litters move quickly and colours vary between them, so we keep availability live on WhatsApp rather than on a page that goes stale. Message us for photos, gender, age, colour, and exact prices of the Shiba puppies available now.</p>
-      <p>Every Shiba here is between $4,788 and $6,500, full price in writing, kit and delivery and training included. Housing comes first in our conversation, because a Shiba cannot go to an HDB flat and we don't bend that rule for a sale.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Shiba Inu puppies? I'm in private housing.")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Shiba photos and prices</a>, or meet them at our Balestier shop.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available Shiba Inu Puppies"
       headingAccent="Available"
@@ -177,6 +169,14 @@ const schemas = [
         { title: 'Deep red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the deep red male Shiba Inu puppy (8 weeks).'), imageAlt: 'Deep rich red male Shiba Inu puppy trotting toward the camera', imageSrc: deepRedBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '8 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking for a Shiba Inu for Sale in Singapore?" imageAlt="Red Shiba Inu puppy available in Singapore, seated portrait with curled tail" imageSrc={redPortrait} variant="mid">
+      <p>Shiba litters move quickly and colours vary between them, so we keep availability live on WhatsApp rather than on a page that goes stale. Message us for photos, gender, age, colour, and exact prices of the Shiba puppies available now.</p>
+      <p>Every Shiba here is between $4,788 and $6,500, full price in writing, kit and delivery and training included. Housing comes first in our conversation, because a Shiba cannot go to an HDB flat and we don't bend that rule for a sale.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Shiba Inu puppies? I'm in private housing.")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Shiba photos and prices</a>, or meet them at our Balestier shop.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div id="hdb" class="relative scroll-mt-40">
@@ -205,7 +205,7 @@ const schemas = [
           ))}
         </ul>
         <p class="mt-4 text-xs text-white/50">
-          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: <a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2">the full HDB-approved breeds list</a>
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: the full HDB-approved breeds list
         </p>
       </div>
     </DefBox>
@@ -293,7 +293,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Shiba forums here regularly ask whether a $1,300-plus listing can be real; the useful answer is a process, not a guess: check the seller on the registry before falling in love, and see <a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how to verify any seller's licence</a>. The full deposit-to-homecoming process is on <a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>.
+        Shiba forums here regularly ask whether a $1,300-plus listing can be real; the useful answer is a process, not a guess: check the seller on the registry before falling in love, and see how to verify any seller's licence. The full deposit-to-homecoming process is on our transparent puppy pricing page.
       </p>
     </div>
   </div>
@@ -315,8 +315,8 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <div id="alternatives" class="scroll-mt-40">
     <CaptionedBlock heading="In an HDB Flat? Approved Alternatives with a Similar Spirit" imagePosition="none" variant="mid">
-      <p>If it is the Shiba's independence you love, the <a href="/puppies/mini-dachshund/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Mini Dachshund</a> is the closest HDB-approved spirit we carry: self-possessed, bold, and comfortable with alone time. If it is the composed, low-fuss companionship, a <a href="/puppies/cavapoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> gives you calm independence with a softer learning curve.</p>
-      <p>Match on routine, not silhouette: take the <a href="/first-time-owners/breed-selector/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">two-minute breed selector</a> or message us your weekday and we'll shortlist honestly.</p>
+      <p>If it is the Shiba's independence you love, the Mini Dachshund is the closest HDB-approved spirit we carry: self-possessed, bold, and comfortable with alone time. If it is the composed, low-fuss companionship, a Cavapoo gives you calm independence with a softer learning curve.</p>
+      <p>Match on routine, not silhouette: take the two-minute breed selector or message us your weekday and we'll shortlist honestly.</p>
       <div slot="side" class="clay h-full bg-[var(--color-surface-card)] p-6 sm:p-8">
         <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">If you loved the Shiba's...</p>
         <ul class="mt-4 space-y-3">
@@ -368,9 +368,9 @@ const schemas = [
 
   <div id="first-week" class="scroll-mt-40">
     <CaptionedBlock heading="Your Shiba's First Week at Home" imagePosition="none" variant="card">
-      <p>Day 0: we deliver free, usually morning or evening, with the playpen set up before your Shiba explores; see <a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>. Shibas assess new territory carefully; give it the dignity of a quiet first survey.</p>
+      <p>Day 0: we deliver free, usually morning or evening, with the playpen set up before your Shiba explores; see how our free home delivery and setup works. Shibas assess new territory carefully; give it the dignity of a quiet first survey.</p>
       <p>Days 1 to 3: same food, fixed times, minimal fuss. A Shiba respects calm competence, and toilet training usually clicks embarrassingly fast.</p>
-      <p>Days 4 to 7: book the free first lesson; see <a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free training lesson covers</a>. Early, rewards-based work matters double with an independent breed.</p>
+      <p>Days 4 to 7: book the free first lesson; see what the free training lesson covers. Early, rewards-based work matters double with an independent breed.</p>
       <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
         <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Shiba week one, in brief</p>
         <ul class="mt-4 space-y-3">
@@ -445,7 +445,7 @@ const schemas = [
           ))}
         </ul>
         <p class="mt-4 text-xs text-white/50">
-          Full walkthrough: <a href="/learn/verify-license/" class="underline underline-offset-2">step-by-step licence verification guide</a>
+          Full walkthrough: step-by-step licence verification guide
         </p>
       </div>
     </DefBox>
@@ -454,6 +454,23 @@ const schemas = [
   <div id="faq" class="scroll-mt-40">
     <FAQ heading="Shiba Inu FAQs" items={faqItems} />
   </div>
+
+  <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Singapore puppies ready for reservation</a>, <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our full range of breeds</a>, or <a href="/puppies/pomsky" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Pomsky puppies</a>.</p>
+  </section>
+
+  <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
+    <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <li><a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
+      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/breed-selector" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Breed selector quiz</a></li>
+      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+    </ul>
+  </aside>
+
 
   <FinalCta breed="Shiba Inu" reserveMessage="Hi! I'd like to reserve a Shiba Inu puppy. I'm in private housing." />
 

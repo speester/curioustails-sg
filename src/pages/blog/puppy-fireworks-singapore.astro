@@ -1,0 +1,222 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import DefBox from '../../components/DefBox.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site } from '../../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+import fireworksSafeRoom from '../../assets/puppy-fireworks-singapore/1-puppy-fireworks-safe-room-playpen-den.webp';
+import fireworksNight from '../../assets/puppy-fireworks-singapore/2-puppy-fireworks-night-calm-caregiver.webp';
+import fireworksWalk from '../../assets/puppy-fireworks-singapore/3-puppy-daytime-walk-before-fireworks-singapore.webp';
+
+const title = 'Dog Scared of Fireworks in Singapore? A Puppy Owner\'s Plan | Curious Tails';
+const description =
+  'Is your dog scared of fireworks in Singapore? A step-by-step plan for National Day and the New Year countdown: build a safe room, desensitise early, and get your puppy through the night calm.';
+const datePublished = '2026-07-18';
+
+const faqItems = [
+  {
+    question: 'Why is my puppy so scared of fireworks?',
+    answer:
+      'Fireworks are sudden, loud, and unpredictable, and your puppy hears them far more sharply than you do. To a young dog with no context for the noise, each bang reads as danger. It is a normal fear response, not a fault, and early preparation makes it much easier to manage.',
+  },
+  {
+    question: 'When are the fireworks in Singapore I should prepare for?',
+    answer:
+      'The two big, predictable seasons are National Day (9 August, plus the parade rehearsals on Saturdays in the weeks before it) and the New Year countdown at Marina Bay on 31 December. Check the official National Day Parade schedule each year so a rehearsal night is not your puppy\'s first surprise.',
+  },
+  {
+    question: 'Should I comfort my dog during fireworks or ignore it?',
+    answer:
+      'Comfort it. The old idea that soothing a scared dog rewards fear is a myth. If your puppy wants to be near you, sit with it and stay calm and quiet. What you avoid is fussing, panicking, or dragging it out to face the noise.',
+  },
+  {
+    question: 'Can I still walk my puppy on a fireworks night?',
+    answer:
+      'Do the main walk earlier in the day, well before any displays start. On National Day itself, skip the evening walk. If a last toilet trip is unavoidable, keep it short, leashed, and close to home so a sudden bang cannot send a frightened puppy bolting.',
+  },
+  {
+    question: 'How far ahead of National Day should I start desensitisation?',
+    answer:
+      'Give yourself three to four weeks. Play firework sounds at very low volume during meals and play, then raise the volume slowly only while your puppy stays relaxed. Pair every sound with treats so the bang starts to predict something good instead of something scary.',
+  },
+  {
+    question: 'Will my puppy grow out of being scared of fireworks?',
+    answer:
+      'Many puppies improve each season when you prepare early and keep every experience calm. Left unmanaged, the fear can also deepen year on year. Panic that risks injury or escape, or that will not settle for hours, is worth a conversation with your vet.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/blog/puppy-fireworks-singapore',
+    title,
+    description,
+    aboutName: 'Fireworks fear in dogs',
+    aboutAlternateName: 'dog scared of fireworks',
+    datePublished,
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/blog/puppy-fireworks-singapore">
+  <section class="bg-[var(--color-peach-100)] pb-10 pt-2">
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pt-5">
+      <Breadcrumb bare items={[{ label: 'Blog', href: '/blog/' }, { label: 'Puppies and fireworks', href: '/blog/puppy-fireworks-singapore/' }]} />
+      <div class="mx-auto mt-8 max-w-[75ch]">
+        <p class="text-xs font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">Blog · Puppy care</p>
+        <h1 class="mt-3 font-[family-name:var(--font-heading)] font-semibold leading-[1.08] text-[var(--color-cream-900)]" style="font-size: clamp(2.2rem, 4.5vw, 3.5rem);">
+          Getting Your Puppy Through NDP and New Year Fireworks
+        </h1>
+        <p class="mt-4 text-sm text-[var(--color-cream-600)]">
+          By Nelson &amp; Kim, Curious Tails · Published {datePublished} · Written for the first National Day with a new puppy in the house
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <DefBox
+    term="Dog scared of fireworks in Singapore? Start here"
+    definition="A dog scared of fireworks is showing noise phobia, a normal stress response to sudden loud bangs. The plan is the same every season: give your puppy a covered safe room with the aircon on, stay calm yourself, and start gentle sound desensitisation three to four weeks before National Day. Most puppies settle far better when the loud night is not their first surprise."
+    bridge="Below is the Singapore fireworks calendar, the safe-room setup, a week-by-week desensitisation plan, and the checklist for the night itself. If the fireworks are tonight, jump to the calm-down checklist first."
+    citationLabel="Verify our licence on the AVS public registry"
+    citationHref={site.license.registryUrl}
+  >
+    <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">If the fireworks are tonight</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Set up a quiet, covered safe room now',
+          'Close the windows, curtains, aircon on',
+          'Feed and toilet before it gets dark',
+          'Turn on the TV or a fan for steady noise',
+          'Stay calm; sit with your puppy, no fuss',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </DefBox>
+
+  <CaptionedBlock heading="Why Do Fireworks Terrify Puppies?" imagePosition="none">
+    <p>Fireworks scare puppies because the bangs are loud, sudden, and make no sense to a young dog. Puppies hear a much wider, sharper range of sound than we do, so a display that feels festive to you can feel like an attack to them. There is nothing wrong with a puppy that hides.</p>
+    <p>In a Singapore high-rise it is louder still. Sound bounces between HDB blocks, rolls up from the ground, and arrives from a direction your puppy cannot see. A dog that copes fine with a passing thunderclap can come undone when the booms keep coming for twenty minutes straight.</p>
+    <p>The good news: fear of fireworks is one of the most manageable problems in a puppy's first year. You cannot stop the fireworks, but you can change what they mean to your dog, and you can control the room it hears them from.</p>
+  </CaptionedBlock>
+
+  <ComparisonSplit
+    heading="Singapore's Fireworks Calendar: The Nights to Prepare For"
+    headingAccent="When"
+    subhead="Fireworks are tightly controlled here, so the big displays are predictable. That is your advantage."
+    mode="table"
+    tableHeaders={['Occasion', 'When', 'What to expect']}
+    rows={[
+      { label: 'NDP rehearsals', values: ['Saturdays through July and early August', 'Full fireworks in the evening; often your puppy\'s real first exposure'] },
+      { label: 'National Day', values: ['9 August', 'The loudest, longest display of the year, plus flypasts'] },
+      { label: "New Year's Eve", values: ['31 December, midnight at Marina Bay', 'Countdown fireworks; loud citywide if you live near the bay'] },
+      { label: 'Festival and event nights', values: ['Occasional, through the year', 'Smaller displays and firecracker sounds around some celebrations'] },
+    ]}
+  />
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+      Dates and venues shift a little each year, so check the <a href="https://www.ndp.gov.sg" rel="nofollow noopener" target="_blank" class="underline underline-offset-2 text-[var(--color-accent-hover)]">official National Day Parade schedule</a> and mark the rehearsal Saturdays. If you prepare for the rehearsals, the ninth of August is never the first bang your puppy hears.
+    </p>
+  </div>
+
+  <CaptionedBlock heading="How Do You Build a Safe Room for a Scared Puppy?" imageAlt="Cream puppy resting in a covered playpen safe room on a Singapore fireworks night" imageSrc={fireworksSafeRoom} imagePosition="right">
+    <p>A safe room is simply the quietest interior space in your home with your puppy's playpen inside it and the outside muffled out. Pick a room away from the windows, draw the curtains, shut the windows, and turn the aircon on to soften the bangs. Most owners already have everything they need.</p>
+    <p>That is the part we love: <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the playpen that comes in every starter kit</a> is already your puppy's den. Add the familiar bed, a bowl of water, a favourite chew, and a worn t-shirt that smells of you. Cover part of the pen with a light blanket so it feels like a burrow.</p>
+    <p>When we set up the playpen at a home delivery, we place it in the calmest corner for exactly this reason. Let your puppy choose to go in and out. Never shut it inside and walk away, because a safe room only works if it feels like shelter, not a trap.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="How Early Should You Start Desensitisation?" imagePosition="none" variant="card">
+    <p>Start three to four weeks before National Day. Desensitisation means teaching your puppy that firework sounds are boring and safe, one small step at a time, long before the real night arrives. Rushed in a single evening it does not work, so give it a proper runway.</p>
+    <p>Here is the simple version we share with owners:</p>
+    <ol class="mt-2 ml-5 list-decimal space-y-2 text-[var(--color-cream-800)]">
+      <li><strong>Week 1:</strong> play firework or thunderstorm sounds at very low volume during meals and play, so the noise arrives alongside good things.</li>
+      <li><strong>Weeks 2 to 3:</strong> nudge the volume up a little only while your puppy stays relaxed. If it tenses, you have gone too fast; drop back a step.</li>
+      <li><strong>Every session:</strong> reward calm with a treat or gentle praise. You are pairing the bang with something good, so it starts to predict a snack, not a threat.</li>
+      <li><strong>Final week:</strong> practise in the safe room itself, so the space and the sound become a settled, familiar pair.</li>
+    </ol>
+    <p class="mt-3">Keep sessions short and end on a calm note. Slow and boring beats fast and frightening every time.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="What Do You Do on the Night Itself?" imageAlt="Cream puppy calm beside a caregiver as fireworks sound outside in Singapore" imageSrc={fireworksNight} imagePosition="left">
+    <p>On the night, get everything settled before the first bang. Feed and toilet your puppy while it is still light, ready the safe room, put steady background noise on, keep the lights low, and stay relaxed yourself. Your calm is the strongest signal your puppy has that nothing is actually wrong.</p>
+    <p>The calm-down checklist we give owners:</p>
+    <ul class="mt-2 ml-5 list-disc space-y-2 text-[var(--color-cream-800)]">
+      <li>Feed dinner and do the last toilet trip before dark, before displays start.</li>
+      <li>Safe room ready, curtains drawn, windows shut, aircon or a fan running.</li>
+      <li>Turn on the TV, a radio, or white noise to blur the edges of the bangs.</li>
+      <li>Sit with your puppy if it comes to you; speak softly, keep your body loose.</li>
+      <li>Check the collar tag and that microchip details are current, in case of a bolt.</li>
+    </ul>
+    <p class="mt-3">If your puppy chooses to hide, let it. A dog hiding in its den is coping, not misbehaving. Your job is company and calm, not a cure in one evening.</p>
+  </CaptionedBlock>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <CaptionedBlock heading="What Should You Never Do?" imagePosition="none" variant="card">
+    <p>Never punish a frightened puppy, and never force it to face the noise. Fear is not disobedience, so scolding a trembling dog only tells it that scary nights come with your anger too. Dragging it out to the balcony to watch the display does not toughen it up; it makes next year worse.</p>
+    <p>The mistakes we see most, and the gentle fix for each:</p>
+    <ul class="mt-2 ml-5 list-disc space-y-2 text-[var(--color-cream-800)]">
+      <li><strong>Scolding the fear:</strong> stay quiet and neutral instead. Calm company, not correction.</li>
+      <li><strong>Forcing exposure:</strong> let your puppy retreat to its safe room and settle at its own pace.</li>
+      <li><strong>Believing comfort spoils them:</strong> it does not. Soothing a scared puppy is fine and often helps.</li>
+      <li><strong>Leaving a first-season puppy alone:</strong> its first big display is not the night to be out.</li>
+    </ul>
+    <p class="mt-3">Get those four right and you have avoided the errors that turn a nervous puppy into a firework-phobic adult dog.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="When Is It More Than Nerves?" imagePosition="none">
+    <p>Most puppies get a little easier each season when you prepare early and keep every experience calm. It becomes more than nerves when the panic risks harm: frantic escape attempts, injury, drooling and shaking that will not settle for hours, or a fear that clearly deepens year on year. That is the point to bring in a professional.</p>
+    <p>Your vet can rule out anything medical and, for severe noise phobia, advise on anxiety aids or medication. Please do not reach for human sedatives or leftover pills; the wrong thing can leave a dog frightened and unable to move. For the training side, the free first lesson with our AVS-certified trainer is a good place to start a longer counter-conditioning plan.</p>
+    <p>There is no shame in asking for help. Fireworks fear is common, and the earlier you act, the kinder each season gets.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Your Puppy's First Fireworks Season" imageAlt="Cream puppy on a daytime Singapore walk before evening fireworks" imageSrc={fireworksWalk} imagePosition="right" variant="mid">
+    <p>A puppy that already lives by a steady daily rhythm handles a loud night far better than one that does not. The safe room you build for fireworks is the same one that helps with thunderstorms and general settling, so the effort pays off well beyond August.</p>
+    <p>If your puppy is still finding its feet at home, walk through <a href="/first-time-owners/puppy-care-101" class="underline underline-offset-2 text-[var(--color-accent-hover)]">your first-weeks settling routine</a> first. A confident, settled puppy has far less to fear when the sky starts booming.</p>
+  </CaptionedBlock>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Fireworks and Your Dog: Common Questions" items={faqItems} />
+  </div>
+
+  <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">More help getting settled: browse <a href="/blog" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the rest of our blog</a>, or start again from <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our puppy shop homepage</a>.</p>
+  </section>
+
+  <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
+    <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free first training lesson</a></li>
+      <li><a href="/first-time-owners/puppy-care-101" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Puppy care 101</a></li>
+      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">The 30-item starter kit</a></li>
+    </ul>
+  </aside>
+
+  <FinalCta
+    breed="Puppy"
+    heading="We're Here Through the Loud Nights Too"
+    body="If your puppy is struggling with the fireworks, message us. Free post-purchase support is part of every Curious Tails puppy, and we would rather help you through the night than sell you anything."
+    reserveMessage="Hi! My puppy is scared of the fireworks. Here's what's happening:"
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

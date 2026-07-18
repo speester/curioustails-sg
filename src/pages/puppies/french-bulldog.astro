@@ -163,14 +163,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a French Bulldog in Singapore?" imageAlt="Fawn French Bulldog puppy portrait, one of the Frenchie puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our French Bulldog puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Frenchie puppies available now.</p>
-      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every French Bulldog for sale in Singapore here is between $6,800 and $8,800, whatever the coat colour, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available French Bulldog puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Frenchie photos and prices</a>, or meet our French Bulldog puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available French Bulldog Puppies"
       headingAccent="Available"
@@ -184,6 +176,14 @@ const schemas = [
         { title: 'Brindle & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle and white female French Bulldog puppy.'), imageAlt: 'Brindle and white female French Bulldog puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking to Buy a French Bulldog in Singapore?" imageAlt="Fawn French Bulldog puppy portrait, one of the Frenchie puppies available in Singapore" imageSrc={imgScene1} variant="mid">
+      <p>Our French Bulldog puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Frenchie puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every French Bulldog for sale in Singapore here is between $6,800 and $8,800, whatever the coat colour, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available French Bulldog puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Frenchie photos and prices</a>, or meet our French Bulldog puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div id="hdb" class="relative scroll-mt-40">
@@ -212,7 +212,7 @@ const schemas = [
           ))}
         </ul>
         <p class="mt-4 text-xs text-white/50">
-          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: <a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2">HDB-approved breeds guide</a>
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: HDB-approved breeds guide
         </p>
       </div>
     </DefBox>
@@ -313,7 +313,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and plan the ongoing costs with the <a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on our transparent puppy pricing page, and plan the ongoing costs with the first-year puppy budget guide.
       </p>
     </div>
   </div>
@@ -322,7 +322,7 @@ const schemas = [
   <CaptionedBlock heading="The $500+ Starter Kit Every Frenchie Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
     <p>Every French Bulldog leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed three items lead: the harness, because no flat-faced throat should ever take leash pressure; the measuring cup, because a lean Frenchie is a breathing Frenchie; and the wet wipes for the daily fold ritual.</p>
     <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Frenchie's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
-    <p>See <a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+    <p>See the full 30+ item kit breakdown, category by category.</p>
   </CaptionedBlock>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
@@ -355,7 +355,7 @@ const schemas = [
   <CaptionedBlock heading="Frenchie vs Boston Terrier: The Rules Decide" imagePosition="none" variant="dark">
     <p>Visually they're cousins; administratively they live on different planets. The Boston Terrier is on the HDB-approved list; the French Bulldog is not, full stop, and for most Singapore buyers that single line ends the comparison. The Boston also happens to be lighter, more athletic, and generally easier-breathing thanks to a slightly longer muzzle.</p>
     <p>For private housing where both are legal, it's a fair fight: the Frenchie is stockier, more famous, and arguably the bigger personality; the Boston is nimbler and rarer. Both demand the same disciplined heat care. With us the price, the starter kit, and the aftercare are identical either way, and the <a href="/puppies/pug/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Pug</a> rounds out the flat-faced shortlist for HDB homes.</p>
-    <p>Weighing them? See our <a href="/puppies/boston-terrier/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Boston Terrier puppies</a>, or message us your housing and we'll tell you straight.</p>
+    <p>Weighing them? See our Boston Terrier puppies, or message us your housing and we'll tell you straight.</p>
     <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
       <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
       <ul class="mt-4 space-y-3">
@@ -387,7 +387,7 @@ const schemas = [
   <div id="health" class="scroll-mt-40">
     <CaptionedBlock heading="Frenchie Health: The Honest List" imageAlt="French Bulldog puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Frenchie goes home vet-checked, vaccinated, dewormed, and microchipped, and this is the breed where informed ownership matters most, so here is the list stated plainly. Brachycephalic airway syndrome: the flattest face in our shop breathes the least efficiently, which is why heat discipline and lean weight are lifelong requirements, and why snoring is normal but laboured breathing after mild activity is a vet visit. The spine: Frenchies carry a higher rate of back issues (IVDD), so no stair marathons, no leaping from furniture, and a harness always. Skin folds: daily ritual, above.</p>
-      <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week; measured portions from the very first meal, because every extra hundred grams loads that short airway. See the <a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week; measured portions from the very first meal, because every extra hundred grams loads that short airway. See the puppy health checks explained guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
@@ -419,9 +419,9 @@ const schemas = [
   </div>
 
   <CaptionedBlock heading="Your Frenchie's First Week at Home" imageAlt="French Bulldog puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
-    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Frenchie explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Frenchie explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
     <p>Days 1 to 3: keep it calm, cool and predictable. Measured portions from the first meal, the toilet pads where we placed them, the fold-wipe ritual starting immediately, and the aircon doing its quiet work. The snoring is permanent equipment; most owners come to love it.</p>
-    <p>Days 4 to 7: the routine sticks and the comedy begins. Book your free first lesson with an AVS-certified trainer this week; see <a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+    <p>Days 4 to 7: the routine sticks and the comedy begins. Book your free first lesson with an AVS-certified trainer this week; see what the free AVS-certified training lesson covers.</p>
   </CaptionedBlock>
 
   <div id="reviews" class="scroll-mt-40">
@@ -451,7 +451,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Read more about <a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+        Read more about Nelson and Kim and how the shop runs, or see all reviews on Google.
       </p>
     </div>
   </div>
@@ -503,7 +503,7 @@ const schemas = [
           ))}
         </ul>
         <p class="mt-4 text-xs text-white/50">
-          Full walkthrough: <a href="/learn/verify-license/" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+          Full walkthrough: step-by-step licence verification guide · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
         </p>
       </div>
     </DefBox>
@@ -512,6 +512,26 @@ const schemas = [
   <div id="faq" class="scroll-mt-40">
     <FAQ heading="French Bulldog FAQs" items={faqItems} />
   </div>
+
+  <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the main Curious Tails page</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our other puppy breeds</a>.</p>
+  </section>
+
+  <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
+    <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <li><a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
+      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+    </ul>
+  </aside>
+
 
   <FinalCta breed="French Bulldog" reserveMessage="Hi! I'd like to reserve a French Bulldog puppy." />
 

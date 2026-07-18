@@ -123,6 +123,33 @@ const schemas = [
 
   <Tabs items={jumpLinks} />
 
+  <div id="breakdown" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Starter Kit Itemized Value Breakdown"
+      headingAccent="Itemized"
+      subhead="Every item in the kit, priced individually. 30 items, $533 in total — included with every puppy."
+      mode="table"
+      tableHeaders={['Category', 'Items included', 'Value']}
+      rows={[
+        { label: 'Housing & comfort', values: ['Play pen ($90), dog bed ($18)', '$108'] },
+        { label: 'Grooming', values: ['Shampoo ($26), paw cleaner ($23), dry shampoo ($21), ear cleanser ($15), brush ($12), shower scrub ($12), towel ($10), nail cutter ($3), wet wipes ($2)', '$124'] },
+        { label: 'Outdoor', values: ['Leash ($30), harness ($25), water bottle ($17), poop bags ($6)', '$78'] },
+        { label: 'Toilet training', values: ['Odor removal spray ($18), pee tray ($17), pee training aid ($15), pee pads ($13)', '$63'] },
+        { label: 'Transport', values: ['Carrier ($50)', '$50'] },
+        { label: 'Oral health', values: ['Mouth wash ($17), tooth paste ($15), tooth brush ($12), teeth wipes ($5)', '$49'] },
+        { label: 'Feeding', values: ['Food bowl ($18), puppy kibbles ($23), measure cup ($1)', '$42'] },
+        { label: 'Toys & play', values: ['Soft toy ($13), chew toy ($3), chew bone ($3)', '$19'] },
+        { label: 'Total', values: ['30 items, everything above — included with every puppy', '$533'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Values are what each item costs at retail, bought individually. The kit is never billed as an add-on: the full $533 set comes home with your puppy inside the price, from $3,288 all-in.
+      </p>
+    </div>
+  </div>
+
+
   <div class="relative">
     <ScatterFloat />
     <DefBox
@@ -209,7 +236,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        The full week-by-week routine, feeding times, toilet schedule, and what is normal at 3am, is in our <a href="/first-time-owners/puppy-care-101/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">week-by-week puppy care guide</a>.
+        The full week-by-week routine, feeding times, toilet schedule, and what is normal at 3am, is in our week-by-week puppy care guide.
       </p>
     </div>
   </div>
@@ -254,33 +281,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        The kit is one reason <a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing</a> reads lower than it is: the price, from $3,288 all-in, already covers what other buyers spend again after leaving the shop. For everything beyond day one, plan with the <a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget planner</a>.
-      </p>
-    </div>
-  </div>
-
-  <div id="breakdown" class="scroll-mt-40">
-    <ComparisonSplit
-      heading="Starter Kit Itemized Value Breakdown"
-      headingAccent="Itemized"
-      subhead="Every item in the kit, priced individually. 30 items, $533 in total — included with every puppy."
-      mode="table"
-      tableHeaders={['Category', 'Items included', 'Value']}
-      rows={[
-        { label: 'Housing & comfort', values: ['Play pen ($90), dog bed ($18)', '$108'] },
-        { label: 'Grooming', values: ['Shampoo ($26), paw cleaner ($23), dry shampoo ($21), ear cleanser ($15), brush ($12), shower scrub ($12), towel ($10), nail cutter ($3), wet wipes ($2)', '$124'] },
-        { label: 'Outdoor', values: ['Leash ($30), harness ($25), water bottle ($17), poop bags ($6)', '$78'] },
-        { label: 'Toilet training', values: ['Odor removal spray ($18), pee tray ($17), pee training aid ($15), pee pads ($13)', '$63'] },
-        { label: 'Transport', values: ['Carrier ($50)', '$50'] },
-        { label: 'Oral health', values: ['Mouth wash ($17), tooth paste ($15), tooth brush ($12), teeth wipes ($5)', '$49'] },
-        { label: 'Feeding', values: ['Food bowl ($18), puppy kibbles ($23), measure cup ($1)', '$42'] },
-        { label: 'Toys & play', values: ['Soft toy ($13), chew toy ($3), chew bone ($3)', '$19'] },
-        { label: 'Total', values: ['30 items, everything above — included with every puppy', '$533'] },
-      ]}
-    />
-    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
-      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Values are what each item costs at retail, bought individually. The kit is never billed as an add-on: the full $533 set comes home with your puppy inside the price, from $3,288 all-in.
+        The kit is one reason <a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing</a> reads lower than it is: the price, from $3,288 all-in, already covers what other buyers spend again after leaving the shop. For everything beyond day one, plan with the first-year puppy budget planner.
       </p>
     </div>
   </div>
@@ -318,7 +319,7 @@ const schemas = [
     <CaptionedBlock heading="The Walkthrough: We Show You How to Use Every Item" imageAlt="Starter kit walkthrough at home: staff hands demonstrating a kit item to a new owner beside the set-up playpen" imageSrc={kitWalkthrough} imagePosition="right">
       <p>A box of 30 items helps nobody if you are guessing at 11pm. So before we leave your home, we go through each item in person: how the pad holder clips, how much food per meal, how the harness adjusts, which toy is for teething and which is for the playpen at night.</p>
       <p>Here is what two years of doing this taught us: most first-time owners think they need a lot of information upfront. What they actually need is a simple routine to follow and someone to call when they are unsure. The walkthrough gives you the routine; our WhatsApp gives you the someone.</p>
-      <p>The kit walkthrough pairs with <a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the free AVS-certified training lesson</a>, best booked in week one while the routine is forming.</p>
+      <p>The kit walkthrough pairs with the free AVS-certified training lesson, best booked in week one while the routine is forming.</p>
     </CaptionedBlock>
   </div>
 
@@ -327,7 +328,7 @@ const schemas = [
   <CaptionedBlock heading="What NOT to Buy Before Your Puppy Arrives" imagePosition="none" variant="card">
     <p>The most common day-one mistake is over-buying. Skip adult-size gear (your puppy will outgrow two sizes before it matters), skip a second food brand (diet continuity beats variety), and skip duplicate beds and toy piles (one bed the puppy owns beats three it ignores).</p>
     <p>Hold your extras budget until after the walkthrough. Once you have seen what the kit covers and how your actual puppy behaves in your actual home, the gaps, if any, are obvious and cheap to fill.</p>
-    <p>If you are still budgeting for the bigger picture, the <a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year cost breakdown</a> covers what genuinely comes later: licensing, vet visits, grooming.</p>
+    <p>If you are still budgeting for the bigger picture, the first-year cost breakdown covers what genuinely comes later: licensing, vet visits, grooming.</p>
     <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
       <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Save your money on</p>
       <ul class="mt-4 space-y-3">
@@ -385,6 +386,20 @@ const schemas = [
   <div id="faq" class="scroll-mt-40">
     <FAQ heading="Starter Kit Questions, Answered" items={faqItems} />
   </div>
+
+  <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the start of your puppy search</a>.</p>
+  </section>
+
+  <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
+    <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <li><a href="/first-time-owners/puppy-care-101" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Puppy care 101</a></li>
+      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+    </ul>
+  </aside>
+
 
   <FinalCta
     breed="Puppy"

@@ -163,14 +163,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking to Buy a Labradoodle in Singapore?" imageAlt="Labradoodle puppy portrait, one of the Labradoodle puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our Labradoodle puppies in Singapore are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and exact prices for the Labradoodle puppies available now.</p>
-      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Labradoodle for sale in Singapore here is between $3,488 and $4,800, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Labradoodle puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Labradoodle photos and prices</a>, or meet our Labradoodle puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available Labradoodle Puppies"
       headingAccent="Available"
@@ -184,6 +176,14 @@ const schemas = [
         { title: 'Caramel boy', href: whatsappLink('Hi! I\'d like more photos and the price for the caramel male Labradoodle puppy.'), imageAlt: 'Caramel male Labradoodle puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking to Buy a Labradoodle in Singapore?" imageAlt="Labradoodle puppy portrait, one of the Labradoodle puppies available in Singapore" imageSrc={imgScene1} variant="mid">
+      <p>Our Labradoodle puppies in Singapore are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and exact prices for the Labradoodle puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Labradoodle for sale in Singapore here is between $3,488 and $4,800, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Labradoodle puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Labradoodle photos and prices</a>, or meet our Labradoodle puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div id="hdb" class="relative scroll-mt-40">
@@ -212,7 +212,7 @@ const schemas = [
           ))}
         </ul>
         <p class="mt-4 text-xs text-white/50">
-          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: <a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2">HDB-approved breeds guide</a>
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: HDB-approved breeds guide
         </p>
       </div>
     </DefBox>
@@ -234,7 +234,7 @@ const schemas = [
     <CaptionedBlock heading="Labradoodle Temperament: The Original Doodle" imageAlt="Labradoodle puppy playing happily with a family in a garden" imageSrc={imgScene2} imagePosition="left">
       <p>The Labradoodle started it all — first bred in Australia to be a low-shedding guide dog — and the temperament shows its working roots: friendly, outgoing, quick to learn and eager to please. It bonds hard to its family, loves people and other dogs, and brings a cheerful, can-do energy to everything it does. For an active household that wants a low-shedding dog with a bit of get-up-and-go, it is a wonderful match.</p>
       <p>The honest footnotes. First, that Labrador energy is real: the Labradoodle is often a touch livelier than its Goldendoodle cousin, and it needs the daily exercise and mental work to match. Second, it is deeply social and does not enjoy long days alone. Third, as with any cross, temperament varies a little puppy to puppy, so we tell you what we actually see in each one.</p>
-      <p>Comparing the family? The <a href="/puppies/goldendoodle/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Goldendoodle</a> is the Golden-based, often mellower cousin, and the <a href="/puppies/golden-retriever/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Golden Retriever</a> is the fully-predictable, heavy-shedding original. All three share our price and aftercare.</p>
+      <p>Comparing the family? The <a href="/puppies/goldendoodle/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Goldendoodle</a> is the Golden-based, often mellower cousin, and the Golden Retriever is the fully-predictable, heavy-shedding original. All three share our price and aftercare.</p>
     </CaptionedBlock>
 
     <CaptionedBlock heading="Can a Labradoodle Be Left Alone During Work Hours?" imagePosition="none" variant="card">
@@ -320,7 +320,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on <a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>, and factor the ongoing grooming cost with the <a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a>.
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on our transparent puppy pricing page, and factor the ongoing grooming cost with the first-year puppy budget guide.
       </p>
     </div>
   </div>
@@ -329,7 +329,7 @@ const schemas = [
   <CaptionedBlock heading="The $500+ Starter Kit Every Labradoodle Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
     <p>Every Labradoodle leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this coat the brush earns its keep, and on delivery day we show you how to keep that fleece or wool mat-free between grooms.</p>
     <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Labradoodle's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
-    <p>See <a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full 30+ item kit breakdown</a>, category by category.</p>
+    <p>See the full 30+ item kit breakdown, category by category.</p>
   </CaptionedBlock>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
@@ -360,7 +360,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
   <CaptionedBlock heading="Labradoodle vs Goldendoodle vs Golden Retriever" imagePosition="none" variant="dark">
-    <p>Three routes to a friendly, family temperament, separated by two questions: coat and energy. The <a href="/puppies/golden-retriever/" class="underline underline-offset-2">Golden Retriever</a> is the fully predictable original, mellow and heavy-shedding. The <a href="/puppies/goldendoodle/" class="underline underline-offset-2">Goldendoodle</a> is the Golden-based doodle, low-shedding and generally soft-natured. The Labradoodle is the Labrador-based doodle: low-shedding too, and typically the liveliest of the three.</p>
+    <p>Three routes to a friendly, family temperament, separated by two questions: coat and energy. The Golden Retriever is the fully predictable original, mellow and heavy-shedding. The Goldendoodle is the Golden-based doodle, low-shedding and generally soft-natured. The Labradoodle is the Labrador-based doodle: low-shedding too, and typically the liveliest of the three.</p>
     <p>All are private-housing breeds in Singapore, all need real daily exercise, and with us the price, the starter kit, and the aftercare are identical. Choose on the dog, not the budget: message us your energy levels and grooming appetite and we'll point you to the right one.</p>
     <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
       <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
@@ -386,15 +386,15 @@ const schemas = [
   <div id="health" class="scroll-mt-40">
     <CaptionedBlock heading="Labradoodle Health: What We Check and What to Watch" imageAlt="Labradoodle puppy at a veterinary health check before going home" imageSrc={imgScene4} variant="mid">
       <p>Every Labradoodle goes home vet-checked, vaccinated, dewormed, and microchipped. Crossbreeds often benefit from hybrid vigour, but honest owners still watch what both parent breeds can pass on: hips and elbows in the larger sizes, so controlled growth and no forced running before maturity; eyes, worth a vet's routine check; and ears, because a hairy, floppy doodle ear traps moisture in our humidity and needs regular checking and gentle cleaning. Keeping the coat around the ears trimmed helps a lot.</p>
-      <p>Feeding is simple: your puppy comes with the food it is already eating, portioned for its size, and any change should be gradual over a week. See the <a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy health checks explained</a> guide.</p>
+      <p>Feeding is simple: your puppy comes with the food it is already eating, portioned for its size, and any change should be gradual over a week. See the puppy health checks explained guide.</p>
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
   <CaptionedBlock heading="Your Labradoodle's First Week at Home" imageAlt="Labradoodle puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
-    <p>Day 0: we deliver, free, at a time that suits you. The playpen, bed, water, and toys are set up before your Labradoodle explores the room, and we walk you through all 30+ starter-kit items in person, including the coat-care routine. Learn more about <a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+    <p>Day 0: we deliver, free, at a time that suits you. The playpen, bed, water, and toys are set up before your Labradoodle explores the room, and we walk you through all 30+ starter-kit items in person, including the coat-care routine. Learn more about how our free home delivery and setup works.</p>
     <p>Days 1 to 3: keep it calm. A fixed feeding routine with measured portions, the toilet pads where we placed them, and gentle play that helps your puppy settle into its new room.</p>
-    <p>Days 4 to 7: the routine sticks, and now is the time to build good habits. Book your free first lesson with an AVS-certified trainer to channel that Labrador energy early, and start short, positive brushing sessions so your Labradoodle grows up loving its grooming. See <a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free AVS-certified training lesson covers</a>.</p>
+    <p>Days 4 to 7: the routine sticks, and now is the time to build good habits. Book your free first lesson with an AVS-certified trainer to channel that Labrador energy early, and start short, positive brushing sessions so your Labradoodle grows up loving its grooming. See what the free AVS-certified training lesson covers.</p>
   </CaptionedBlock>
 
   <div id="reviews" class="scroll-mt-40">
@@ -424,7 +424,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Read more about <a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Nelson and Kim</a> and how the shop runs, or see all reviews on Google.
+        Read more about Nelson and Kim and how the shop runs, or see all reviews on Google.
       </p>
     </div>
   </div>
@@ -476,7 +476,7 @@ const schemas = [
           ))}
         </ul>
         <p class="mt-4 text-xs text-white/50">
-          Full walkthrough: <a href="/learn/verify-license/" class="underline underline-offset-2">step-by-step licence verification guide</a> · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+          Full walkthrough: step-by-step licence verification guide · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
         </p>
       </div>
     </DefBox>
@@ -485,6 +485,26 @@ const schemas = [
   <div id="faq" class="scroll-mt-40">
     <FAQ heading="Labradoodle FAQs" items={faqItems} />
   </div>
+
+  <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">browse from the homepage</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our breed catalogue</a>.</p>
+  </section>
+
+  <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
+    <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <li><a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
+      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+    </ul>
+  </aside>
+
 
   <FinalCta breed="Labradoodle" reserveMessage="Hi! I'd like to reserve a Labradoodle puppy." />
 

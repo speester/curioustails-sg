@@ -155,14 +155,6 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <CaptionedBlock heading="Looking for a Mini Dachshund for Sale in Singapore?" imageAlt="Red smooth-coat Mini Dachshund puppy available in Singapore, seated portrait" imageSrc={redPortrait} variant="mid">
-      <p>Litters arrive and get reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. Message us and we'll send photos, gender, age, coat type, and exact prices for the Mini Dachshund puppies available now.</p>
-      <p>Every Mini Dachshund puppy for sale here is between $4,288 and $6,088, and what you see is the full price. After you reserve with a deposit, we board your puppy free, food and lodging covered, until your home is ready.</p>
-      <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Mini Dachshund puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Mini Dachshund photos and prices</a>, or book a viewing at our Balestier shop and meet them in person.
-      </p>
-    </CaptionedBlock>
-
     <ListingGrid
       heading="Available Mini Dachshund Puppies"
       headingAccent="Available"
@@ -179,6 +171,14 @@ const schemas = [
         { title: 'Black & cream long-haired girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and cream long-haired female Mini Dachshund.'), imageAlt: 'Black and cream long-haired female Mini Dachshund puppy trotting toward the camera', imageSrc: blackCreamLonghairPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '8 weeks' },
       ]}
     />
+
+    <CaptionedBlock heading="Looking for a Mini Dachshund for Sale in Singapore?" imageAlt="Red smooth-coat Mini Dachshund puppy available in Singapore, seated portrait" imageSrc={redPortrait} variant="mid">
+      <p>Litters arrive and get reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. Message us and we'll send photos, gender, age, coat type, and exact prices for the Mini Dachshund puppies available now.</p>
+      <p>Every Mini Dachshund puppy for sale here is between $4,288 and $6,088, and what you see is the full price. After you reserve with a deposit, we board your puppy free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Mini Dachshund puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Mini Dachshund photos and prices</a>, or book a viewing at our Balestier shop and meet them in person.
+      </p>
+    </CaptionedBlock>
   </div>
 
   <div class="relative">
@@ -235,7 +235,7 @@ const schemas = [
     <CaptionedBlock heading="Can a Mini Dachshund Be Left Alone During Work Hours?" imagePosition="none" variant="card">
       <p>Yes, better than most small companion crosses, provided the routine is built from day one. A dachshund that treats its playpen as territory settles into alone time rather than fretting through it, and that setup is exactly what we build in your home on delivery day.</p>
       <p>The honest caveat: a bored dachshund digs, chews, and announces its opinions. A walk before you leave and a food-puzzle toy in the pen are not optional extras; they are the difference between a calm flat and a redecorated one.</p>
-      <p>Not sure the fit is right? Take the <a href="/first-time-owners/breed-selector/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">two-minute breed selector</a>, or message us your actual weekday and we'll tell you straight.</p>
+      <p>Not sure the fit is right? Take the two-minute breed selector, or message us your actual weekday and we'll tell you straight.</p>
       <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
         <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Alone-time checklist</p>
         <ul class="mt-4 space-y-3">
@@ -314,7 +314,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        The full market picture, deposit process, and what every dollar covers are on <a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing page</a>. Budgeting past day one? The <a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year puppy budget guide</a> lays out food, vet, and grooming numbers before you commit.
+        The full market picture, deposit process, and what every dollar covers are on our transparent puppy pricing page. Budgeting past day one? The first-year puppy budget guide lays out food, vet, and grooming numbers before you commit.
       </p>
     </div>
   </div>
@@ -322,7 +322,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <CaptionedBlock heading="The $500+ Starter Kit Every Mini Dachshund Goes Home With" imagePosition="none" variant="mid">
     <p>Every Mini Dachshund leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral care, and toys. For this breed, the harness in the outdoor set matters most: dachshunds walk on harnesses, never neck collars, to protect that long spine.</p>
-    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your dachshund's daily care. See <a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">everything inside the starter kit</a>, item by item.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your dachshund's daily care. See everything inside the starter kit, item by item.</p>
     <div slot="side" class="clay h-full bg-[var(--color-surface-card)] p-6 sm:p-8">
       <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Dachshund-critical kit items</p>
       <ul class="mt-4 space-y-3">
@@ -403,7 +403,7 @@ const schemas = [
           ))}
         </ul>
         <p class="mt-4 text-xs text-white/50">
-          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: <a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2">HDB-approved dog breeds guide</a>
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: HDB-approved dog breeds guide
         </p>
       </div>
     </DefBox>
@@ -437,16 +437,16 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Every puppy goes home vet-checked, vaccinated, dewormed, and microchipped; <a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our puppy health checks explained</a> covers what we screen and why. First-time owners must also complete the <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">free online pet ownership course</a> before licensing.
+        Every puppy goes home vet-checked, vaccinated, dewormed, and microchipped; our puppy health checks explained covers what we screen and why. First-time owners must also complete the <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">free online pet ownership course</a> before licensing.
       </p>
     </div>
   </div>
 
   <div id="first-week" class="scroll-mt-40">
     <CaptionedBlock heading="Your Mini Dachshund's First Week at Home" imagePosition="none">
-      <p>Day 0: we deliver free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your puppy explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about <a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how our free home delivery and setup works</a>.</p>
+      <p>Day 0: we deliver free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your puppy explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
       <p>Days 1 to 3: keep it calm. Same food, fixed feeding times, toilet pads where we placed them, gentle short play. Some night whimpering is normal adjustment, not distress.</p>
-      <p>Days 4 to 7: the routine starts sticking, and this is the window to book your free first lesson; see <a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what the free training lesson covers</a>. For everything in between, you WhatsApp us and get a real reply.</p>
+      <p>Days 4 to 7: the routine starts sticking, and this is the window to book your free first lesson; see what the free training lesson covers. For everything in between, you WhatsApp us and get a real reply.</p>
       <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
         <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Week one, in five lines</p>
         <ul class="mt-4 space-y-3">
@@ -543,7 +543,7 @@ const schemas = [
           ))}
         </ul>
         <p class="mt-4 text-xs text-white/50">
-          Full walkthrough: <a href="/learn/verify-license/" class="underline underline-offset-2">step-by-step licence verification guide</a>
+          Full walkthrough: step-by-step licence verification guide
         </p>
       </div>
     </DefBox>
@@ -552,6 +552,26 @@ const schemas = [
   <div id="faq" class="scroll-mt-40">
     <FAQ heading="Mini Dachshund FAQs" items={faqItems} />
   </div>
+
+  <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the Curious Tails front page</a>, <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">other breeds in our care</a>, or <a href="/puppies/corgi" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Corgi puppies</a>.</p>
+  </section>
+
+  <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
+    <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <li><a href="/first-time-owners/breed-selector" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Breed selector quiz</a></li>
+      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
+      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+    </ul>
+  </aside>
+
 
   <FinalCta breed="Mini Dachshund" reserveMessage="Hi! I'd like to reserve a Mini Dachshund puppy." />
 

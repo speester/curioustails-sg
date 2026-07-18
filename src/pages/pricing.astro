@@ -6,6 +6,7 @@ import Tabs from '../components/Tabs.astro';
 import DefBox from '../components/DefBox.astro';
 import StatStrip from '../components/StatStrip.astro';
 import ComparisonSplit from '../components/ComparisonSplit.astro';
+import SortableTable from '../components/SortableTable.astro';
 import CaptionedBlock from '../components/CaptionedBlock.astro';
 import ValueBundle from '../components/ValueBundle.astro';
 import BannerRibbon from '../components/BannerRibbon.astro';
@@ -91,13 +92,15 @@ const breedMarketNotes: Partial<Record<BreedSlug, string>> = {
   'chihuahua': 'Commonly $2,500 to $6,000',
 };
 
-const byBreedRows = (Object.keys(breedPricing) as BreedSlug[])
+const sortableBreedRows = (Object.keys(breedPricing) as BreedSlug[])
   .sort((a, b) => breedDisplayNames[a].localeCompare(breedDisplayNames[b]))
   .map((slug) => {
     const { low, high } = breedPricing[slug];
+    const market = breedMarketNotes[slug] ?? 'Enquiry-only at most shops';
     return {
       label: breedDisplayNames[slug],
-      values: [`$${fmtPrice(low)} to $${fmtPrice(high)} all-in`, breedMarketNotes[slug] ?? 'Enquiry-only at most shops'],
+      cells: [`$${fmtPrice(low)} to $${fmtPrice(high)} all-in`, market],
+      sort: [breedDisplayNames[slug], low, market],
     };
   });
 
@@ -337,13 +340,12 @@ const schemas = [
   </div>
 
   <div id="by-breed" class="scroll-mt-40">
-    <ComparisonSplit
+    <SortableTable
       heading="Price Guide by Breed"
       headingAccent="Breed"
-      subhead="Each breed has its own published all-in price. The market column shows what the same breed commonly costs elsewhere in Singapore."
-      mode="table"
-      tableHeaders={['Breed', 'At Curious Tails', 'Typical market']}
-      rows={byBreedRows}
+      subhead="Each breed has its own published all-in price. The market column shows what the same breed commonly costs elsewhere in Singapore. Tap a column heading to sort."
+      headers={['Breed', 'At Curious Tails', 'Typical market']}
+      rows={sortableBreedRows}
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">

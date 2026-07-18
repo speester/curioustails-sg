@@ -1,0 +1,52 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Caption,Arial,104,&H00FFFFFF&,&H00FFFFFF&,&H00000000,&H64000000,-1,0,0,0,100,100,1,0,1,7,2,2,80,80,540,1
+Style: Headline,Arial Black,84,&H005B79F4&,&H005B79F4&,&H00FFFFFF,&H64000000,-1,0,0,0,100,100,1,0,1,8,3,8,80,80,300,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:02.40,Headline,,0,0,0,,Fireworks start before Aug 9
+Dialogue: 0,0:00:00.12,0:00:01.11,Caption,,0,0,0,,Your puppy's
+Dialogue: 0,0:00:01.11,0:00:01.58,Caption,,0,0,0,,first
+Dialogue: 0,0:00:01.58,0:00:02.57,Caption,,0,0,0,,National Day?
+Dialogue: 0,0:00:02.57,0:00:03.43,Caption,,0,0,0,,Don't wait
+Dialogue: 0,0:00:03.43,0:00:04.09,Caption,,0,0,0,,for the
+Dialogue: 0,0:00:04.09,0:00:04.89,Caption,,0,0,0,,{\c&H005B79F4&}ninth.{\c&H00FFFFFF&} The
+Dialogue: 0,0:00:04.89,0:00:05.61,Caption,,0,0,0,,fireworks
+Dialogue: 0,0:00:05.61,0:00:06.54,Caption,,0,0,0,,start {\c&H005B79F4&}weeks{\c&H00FFFFFF&}
+Dialogue: 0,0:00:06.54,0:00:07.40,Caption,,0,0,0,,{\c&H005B79F4&}earlier,{\c&H00FFFFFF&} on
+Dialogue: 0,0:00:07.40,0:00:08.46,Caption,,0,0,0,,the {\c&H005B79F4&}rehearsal{\c&H00FFFFFF&}
+Dialogue: 0,0:00:08.46,0:00:09.45,Caption,,0,0,0,,nights. Build
+Dialogue: 0,0:00:09.45,0:00:10.05,Caption,,0,0,0,,a {\c&H005B79F4&}safe{\c&H00FFFFFF&}
+Dialogue: 0,0:00:10.05,0:00:10.78,Caption,,0,0,0,,{\c&H005B79F4&}room{\c&H00FFFFFF&} now.
+Dialogue: 0,0:00:10.78,0:00:11.37,Caption,,0,0,0,,{\c&H005B79F4&}Playpen,{\c&H00FFFFFF&}
+Dialogue: 0,0:00:11.37,0:00:12.04,Caption,,0,0,0,,{\c&H005B79F4&}curtains{\c&H00FFFFFF&}
+Dialogue: 0,0:00:12.04,0:00:13.03,Caption,,0,0,0,,drawn, {\c&H005B79F4&}aircon{\c&H00FFFFFF&}
+Dialogue: 0,0:00:13.03,0:00:13.76,Caption,,0,0,0,,on. Start
+Dialogue: 0,0:00:13.76,0:00:14.22,Caption,,0,0,0,,sound
+Dialogue: 0,0:00:14.22,0:00:14.88,Caption,,0,0,0,,training
+Dialogue: 0,0:00:14.88,0:00:15.81,Caption,,0,0,0,,{\c&H005B79F4&}three{\c&H00FFFFFF&} {\c&H005B79F4&}weeks{\c&H00FFFFFF&}
+Dialogue: 0,0:00:15.81,0:00:16.47,Caption,,0,0,0,,out. {\c&H005B79F4&}Low{\c&H00FFFFFF&}
+Dialogue: 0,0:00:16.47,0:00:17.00,Caption,,0,0,0,,{\c&H005B79F4&}volume,{\c&H00FFFFFF&}
+Dialogue: 0,0:00:17.00,0:00:17.93,Caption,,0,0,0,,{\c&H005B79F4&}treats,{\c&H00FFFFFF&} {\c&H005B79F4&}calm.{\c&H00FFFFFF&}
+Dialogue: 0,0:00:17.93,0:00:18.79,Caption,,0,0,0,,Walk {\c&H005B79F4&}early,{\c&H00FFFFFF&}
+Dialogue: 0,0:00:18.79,0:00:19.65,Caption,,0,0,0,,feed {\c&H005B79F4&}early,{\c&H00FFFFFF&}
+Dialogue: 0,0:00:19.65,0:00:20.44,Caption,,0,0,0,,then just
+Dialogue: 0,0:00:20.44,0:00:21.17,Caption,,0,0,0,,{\c&H005B79F4&}sit{\c&H00FFFFFF&} with
+Dialogue: 0,0:00:21.17,0:00:22.03,Caption,,0,0,0,,them. Don't
+Dialogue: 0,0:00:22.03,0:00:22.83,Caption,,0,0,0,,{\c&H005B79F4&}scold{\c&H00FFFFFF&} the
+Dialogue: 0,0:00:22.83,0:00:23.82,Caption,,0,0,0,,fear. Comfort
+Dialogue: 0,0:00:23.82,0:00:24.88,Caption,,0,0,0,,doesn't {\c&H005B79F4&}spoil{\c&H00FFFFFF&}
+Dialogue: 0,0:00:24.88,0:00:25.74,Caption,,0,0,0,,your puppy.
+Dialogue: 0,0:00:25.74,0:00:26.27,Caption,,0,0,0,,Do it
+Dialogue: 0,0:00:26.27,0:00:27.06,Caption,,0,0,0,,{\c&H005B79F4&}early,{\c&H00FFFFFF&} and
+Dialogue: 0,0:00:27.06,0:00:27.86,Caption,,0,0,0,,the {\c&H005B79F4&}ninth{\c&H00FFFFFF&}
+Dialogue: 0,0:00:27.86,0:00:28.52,Caption,,0,0,0,,is just
+Dialogue: 0,0:00:28.52,0:00:29.12,Caption,,0,0,0,,another
+Dialogue: 0,0:00:29.12,0:00:29.93,Caption,,0,0,0,,{\c&H005B79F4&}night.{\c&H00FFFFFF&}

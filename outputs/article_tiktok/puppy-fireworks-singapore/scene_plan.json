@@ -1,0 +1,19 @@
+{
+  "slug": "puppy-fireworks-singapore",
+  "duration_sec": 30.2,
+  "resolution": "1080x1920",
+  "fps": 30,
+  "look": "UGC-warm stills (Ken Burns on generated on-brand stills)",
+  "voice": "en-SG-LunaNeural (Singapore accent), rate +22%",
+  "accent_color": "#F4795B (coral)",
+  "headline_overlay": "Fireworks start before Aug 9",
+  "loop_pair": "scene 1 (safe-room den) <-> final scene (safe-room den)",
+  "caption_timing": "synthesised proportional word timing (edge-tts 7.x emits no WordBoundary for these voices); caption text equals script.txt exactly",
+  "segments": [
+    { "scene": 1, "image": "1-puppy-fireworks-safe-room-playpen-den.webp", "fraction": 0.30, "voiceover_phrase": "Your puppy's first National Day? Don't wait for the ninth. The fireworks start weeks earlier...", "visual_intent": "Calm puppy in covered playpen den — hook + strong thumbnail", "motion": "slow push-in" },
+    { "scene": 2, "image": "2-puppy-fireworks-night-calm-caregiver.webp", "fraction": 0.20, "voiceover_phrase": "...on the rehearsal nights. Build a safe room now. Playpen, curtains drawn, aircon on.", "visual_intent": "Night calm beside caregiver — safe-room + reassurance", "motion": "slow push-in" },
+    { "scene": 3, "image": "3-puppy-daytime-walk-before-fireworks-singapore.webp", "fraction": 0.18, "voiceover_phrase": "Start sound training three weeks out. Low volume, treats, calm. Walk early, feed early...", "visual_intent": "Daytime walk — routine + walk-timing beat", "motion": "slow push-in" },
+    { "scene": 4, "image": "2-puppy-fireworks-night-calm-caregiver.webp", "fraction": 0.16, "voiceover_phrase": "...then just sit with them. Don't scold the fear. Comfort doesn't spoil your puppy.", "visual_intent": "Comfort myth-buster — caregiver hand on calm puppy", "motion": "slow push-in" },
+    { "scene": 5, "image": "1-puppy-fireworks-safe-room-playpen-den.webp", "fraction": 0.16, "voiceover_phrase": "Do it early, and the ninth is just another night.", "visual_intent": "Payoff — return to the den, closes the loop", "motion": "slow push-in" }
+  ]
+}

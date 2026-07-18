@@ -10,10 +10,9 @@ import Schema from '../../components/Schema.astro';
 import PawTrail from '../../components/decor/PawTrail.astro';
 import { site } from '../../data/site';
 import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
-// Placeholder imports (swapped for fireworks-specific art in image-gen stage).
-import safeRoomImg from '../../assets/guides/3-puppy-night-routine-sleeping-pen.webp';
-import kitImg from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
-import trainerImg from '../../assets/home/3-avs-certified-trainer-puppy-training-lesson.webp';
+import fireworksSafeRoom from '../../assets/puppy-fireworks-singapore/1-puppy-fireworks-safe-room-playpen-den.webp';
+import fireworksNight from '../../assets/puppy-fireworks-singapore/2-puppy-fireworks-night-calm-caregiver.webp';
+import fireworksWalk from '../../assets/puppy-fireworks-singapore/3-puppy-daytime-walk-before-fireworks-singapore.webp';
 
 const title = 'Dog Scared of Fireworks in Singapore? A Puppy Owner\'s Plan | Curious Tails';
 const description =
@@ -138,7 +137,7 @@ const schemas = [
     </p>
   </div>
 
-  <CaptionedBlock heading="How Do You Build a Safe Room for a Scared Puppy?" imageAlt="Puppy settled calmly inside a covered playpen set up as a fireworks safe room" imageSrc={safeRoomImg} imagePosition="right">
+  <CaptionedBlock heading="How Do You Build a Safe Room for a Scared Puppy?" imageAlt="Cream puppy resting in a covered playpen safe room on a Singapore fireworks night" imageSrc={fireworksSafeRoom} imagePosition="right">
     <p>A safe room is simply the quietest interior space in your home with your puppy's playpen inside it and the outside muffled out. Pick a room away from the windows, draw the curtains, shut the windows, and turn the aircon on to soften the bangs. Most owners already have everything they need.</p>
     <p>That is the part we love: <a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the playpen that comes in every starter kit</a> is already your puppy's den. Add the familiar bed, a bowl of water, a favourite chew, and a worn t-shirt that smells of you. Cover part of the pen with a light blanket so it feels like a burrow.</p>
     <p>When we set up the playpen at a home delivery, we place it in the calmest corner for exactly this reason. Let your puppy choose to go in and out. Never shut it inside and walk away, because a safe room only works if it feels like shelter, not a trap.</p>
@@ -156,7 +155,7 @@ const schemas = [
     <p class="mt-3">Keep sessions short and end on a calm note. Slow and boring beats fast and frightening every time.</p>
   </CaptionedBlock>
 
-  <CaptionedBlock heading="What Do You Do on the Night Itself?" imageAlt="Starter kit items laid out at home, the calm setup a puppy needs before fireworks begin" imageSrc={kitImg} imagePosition="left">
+  <CaptionedBlock heading="What Do You Do on the Night Itself?" imageAlt="Cream puppy calm beside a caregiver as fireworks sound outside in Singapore" imageSrc={fireworksNight} imagePosition="left">
     <p>On the night, get everything settled before the first bang. Feed and toilet your puppy while it is still light, ready the safe room, put steady background noise on, keep the lights low, and stay relaxed yourself. Your calm is the strongest signal your puppy has that nothing is actually wrong.</p>
     <p>The calm-down checklist we give owners:</p>
     <ul class="mt-2 ml-5 list-disc space-y-2 text-[var(--color-cream-800)]">
@@ -171,7 +170,7 @@ const schemas = [
 
   <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
 
-  <CaptionedBlock heading="What Should You Never Do?" imageAlt="Owner sitting calmly beside a puppy, the gentle handling that helps most during fireworks" imageSrc={trainerImg} imagePosition="right" variant="card">
+  <CaptionedBlock heading="What Should You Never Do?" imagePosition="none" variant="card">
     <p>Never punish a frightened puppy, and never force it to face the noise. Fear is not disobedience, so scolding a trembling dog only tells it that scary nights come with your anger too. Dragging it out to the balcony to watch the display does not toughen it up; it makes next year worse.</p>
     <p>The mistakes we see most, and the gentle fix for each:</p>
     <ul class="mt-2 ml-5 list-disc space-y-2 text-[var(--color-cream-800)]">
@@ -189,7 +188,7 @@ const schemas = [
     <p>There is no shame in asking for help. Fireworks fear is common, and the earlier you act, the kinder each season gets.</p>
   </CaptionedBlock>
 
-  <CaptionedBlock heading="Your Puppy's First Fireworks Season" imagePosition="none" variant="mid">
+  <CaptionedBlock heading="Your Puppy's First Fireworks Season" imageAlt="Cream puppy on a daytime Singapore walk before evening fireworks" imageSrc={fireworksWalk} imagePosition="right" variant="mid">
     <p>A puppy that already lives by a steady daily rhythm handles a loud night far better than one that does not. The safe room you build for fireworks is the same one that helps with thunderstorms and general settling, so the effort pays off well beyond August.</p>
     <p>If your puppy is still finding its feet at home, walk through <a href="/first-time-owners/puppy-care-101" class="underline underline-offset-2 text-[var(--color-accent-hover)]">your first-weeks settling routine</a> first. A confident, settled puppy has far less to fear when the sky starts booming.</p>
   </CaptionedBlock>

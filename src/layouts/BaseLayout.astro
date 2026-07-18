@@ -108,7 +108,9 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
   </div>
   <Header />
   <main id="main">
-    <slot />
+    <article>
+      <slot />
+    </article>
   </main>
   <Footer />
   <StickyMobileCTA />
@@ -157,7 +159,7 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
     // page a stronger sense of moving between distinct scenes while scrolling.
     if (!reducedMotion) {
       const topSections = Array.from(
-        document.querySelectorAll<HTMLElement>('#main > section, #main > div:not([data-reveal]) > section')
+        document.querySelectorAll<HTMLElement>('#main > article > section, #main > article > div:not([data-reveal]) > section')
       );
       topSections.forEach((el, i) => {
         if (i % 2 === 0) return; // alternate: skip every other section

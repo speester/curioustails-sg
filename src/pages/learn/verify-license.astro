@@ -175,7 +175,7 @@ const schemas = [
 
   <CaptionedBlock heading="What 'Licensed' Actually Guarantees You" imagePosition="none" variant="mid">
     <p>The licence is not a sticker; it is a set of enforceable obligations. A licensed shop is subject to welfare inspections of how animals are housed and sold, must assess every buyer through the mandatory Pet Purchase Declaration before a sale, must meet health, vaccination, and microchipping standards, and re-earns the licence through annual renewal.</p>
-    <p>That is a strong floor, and it is the floor that smuggled-puppy sellers are pricing against when their listings run cheap. It is not a substitute for reading the individual puppy's paperwork, which is its own 5-minute skill: see <a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">health checks and vaccination records explained</a>.</p>
+    <p>That is a strong floor, and it is the floor that smuggled-puppy sellers are pricing against when their listings run cheap. It is not a substitute for reading the individual puppy's paperwork, which is its own 5-minute skill: see health checks and vaccination records explained.</p>
     <p>The obligations are public: <a href="https://avs.nparks.gov.sg/businesses/pet-shop-owners/licensing-conditions/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">AVS licensing conditions</a>.</p>
   </CaptionedBlock>
 
@@ -213,8 +213,8 @@ const schemas = [
 
   <CaptionedBlock heading="If the Check Fails: What To Actually Do" imagePosition="none" variant="card">
     <p>Stop, and transfer nothing: no "small deposit to hold", no "transport fee". The Straits Times covered <a href="https://www.straitstimes.com/singapore/courts-crime/dog-buyer-fined-7k-first-time-nparks-prosecuted-purchaser-over-animal-smuggling" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">the first prosecution of a buyer</a>, fined $7,000 over a smuggled dog, so an unlisted seller is your legal exposure too.</p>
-    <p>If the listing looks like smuggling (below-market price, cross-border hints, no paperwork), report it to AVS through their feedback channels; the case files in <a href="/learn/smuggled-puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our smuggled-puppies guide</a> show exactly why that matters.</p>
-    <p>Then buy from a seller who passes. There are enough licensed shops in Singapore, <a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">ours included</a>, that nobody needs the unlisted one.</p>
+    <p>If the listing looks like smuggling (below-market price, cross-border hints, no paperwork), report it to AVS through their feedback channels; the case files in our smuggled-puppies guide show exactly why that matters.</p>
+    <p>Then buy from a seller who passes. There are enough licensed shops in Singapore, ours included, that nobody needs the unlisted one.</p>
     <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
       <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Failed check protocol</p>
       <ul class="mt-4 space-y-3">
@@ -246,6 +246,20 @@ const schemas = [
   <div id="faq" class="scroll-mt-40">
     <FAQ heading="Verification Questions, Answered" items={faqItems} />
   </div>
+
+  <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full Curious Tails site</a>, <a href="/learn" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our pet safety library</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">browse every breed</a>.</p>
+  </section>
+
+  <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
+    <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/learn/smuggled-puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Smuggling red flags</a></li>
+      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+    </ul>
+  </aside>
+
 
   <FinalCta
     breed="Puppy"

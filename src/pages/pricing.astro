@@ -99,6 +99,7 @@ const sortableBreedRows = (Object.keys(breedPricing) as BreedSlug[])
     const market = breedMarketNotes[slug] ?? 'Enquiry-only at most shops';
     return {
       label: breedDisplayNames[slug],
+      href: `/puppies/${slug}/`,
       cells: [`$${fmtPrice(low)} to $${fmtPrice(high)} all-in`, market],
       sort: [breedDisplayNames[slug], low, market],
     };
@@ -153,6 +154,31 @@ const faqItems = [
     question: 'Can you hold my puppy if my home is not ready yet?',
     answer:
       'Yes. After your deposit, we board your puppy free of charge, lodging and food both covered, until you are ready. Delivery is then scheduled around your availability, usually mornings or evenings.',
+  },
+  {
+    question: 'How much does a Cavapoo cost in Singapore?',
+    answer:
+      'The Cavapoo price in Singapore commonly runs $4,300 to $6,500 at established shops. At Curious Tails, Cavapoo puppies are $3,288 to $5,988 all-in, with the $500+ starter kit, free delivery and setup, and a free AVS-certified training lesson already inside the price.',
+  },
+  {
+    question: 'How much does a Bichon Frise cost in Singapore?',
+    answer:
+      'Bichon Frise prices in Singapore commonly run $3,000 to $7,000. At Curious Tails, Bichon Frise puppies are $3,888 to $5,988 all-in, including the starter kit, delivery and setup, and the free training lesson.',
+  },
+  {
+    question: 'How much does a Chihuahua cost in Singapore?',
+    answer:
+      'Chihuahua prices in Singapore commonly run $2,500 to $6,000. At Curious Tails, Chihuahua puppies are $4,288 to $4,888 all-in, with the starter kit, free delivery and setup, and the free training lesson included.',
+  },
+  {
+    question: 'How much does a Corgi cost in Singapore?',
+    answer:
+      'Corgi prices in Singapore commonly run $7,880 to $8,500 at established shops. At Curious Tails, Corgi puppies are $3,688 to $5,500 all-in. Note that the Corgi is not an HDB-approved breed, so it needs private housing.',
+  },
+  {
+    question: 'How much does a Cockapoo cost in Singapore?',
+    answer:
+      'At Curious Tails, Cockapoo puppies are $3,288 to $5,300 all-in, including the $500+ starter kit, free home delivery and playpen setup, and the free first lesson with an AVS-certified trainer.',
   },
   {
     question: 'Is adopting cheaper than buying a puppy in Singapore?',
@@ -349,7 +375,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        The exact price for an individual puppy depends on its coat, colour, and age, which is why we quote per puppy on WhatsApp rather than pinning stale numbers here. Start with our <a href="/puppies/cavapoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo puppies</a> or <a href="/puppies/maltipoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Maltipoo puppies</a> pages for breed-level detail, or browse <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all 40+ breeds we carry</a>. A note for HDB residents: Corgi and Shiba Inu are not HDB-approved breeds, and we will tell you that before you fall for a photo, not after.
+        The exact price for an individual puppy depends on its coat, colour, and age, which is why we quote per puppy on WhatsApp rather than pinning stale numbers here. Start with our <a href="/puppies/cavapoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo puppies</a>, <a href="/puppies/maltipoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Maltipoo puppies</a>, <a href="/puppies/chihuahua/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Chihuahua puppies</a>, <a href="/puppies/bichon-frise/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Bichon Frise puppies</a>, or <a href="/puppies/cockapoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cockapoo puppies</a> pages for breed-level detail, or browse <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all 40+ breeds we carry</a>. A note for HDB residents: Corgi and Shiba Inu are not HDB-approved breeds, and we will tell you that before you fall for a photo, not after.
       </p>
     </div>
   </div>

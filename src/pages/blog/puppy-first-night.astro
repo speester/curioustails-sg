@@ -1,0 +1,234 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import DefBox from '../../components/DefBox.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+import nightRoutine from '../../assets/guides/3-puppy-night-routine-sleeping-pen.webp';
+import playpenSetup from '../../assets/home/4-playpen-setup-delivery-home-balestier.webp';
+import firstDaySettling from '../../assets/home/8-puppy-first-24-hours-settling-playpen.webp';
+
+const title = "Your Puppy's First Night Home: What to Expect | Curious Tails";
+const description =
+  "What actually happens on a puppy's first night home in Singapore: the crying, the playpen setup, when to respond and when to let them settle. Real routine from CT placements.";
+const datePublished = '2026-07-19';
+
+const faqItems = [
+  {
+    question: 'How long does a puppy cry on the first night?',
+    answer:
+      'Most puppies settle within 20 to 40 minutes of lights-out once the playpen is set up right: warm corner, worn t-shirt with your scent, pad away from the sleeping area. A few keep going longer, especially if the pen is in an unfamiliar room away from the family.',
+  },
+  {
+    question: 'Should I let my puppy sleep in bed with me on the first night?',
+    answer:
+      'No. It feels kind in the moment, but it teaches the puppy that crying gets it a spot in your bed, a habit that takes far longer to undo than the one restless night it was meant to fix. Keep the pen close to your bed instead, not in it.',
+  },
+  {
+    question: 'Where should the playpen go on night one?',
+    answer:
+      "Next to your bed, or in the room you sleep in. A puppy alone in another room cries longer and louder because it can't see or smell anyone. Within earshot and eyeshot is the whole trick.",
+  },
+  {
+    question: 'What if my puppy wakes up crying at 2am?',
+    answer:
+      "Check for a toilet need first; a young puppy genuinely can't hold it all night. Take them out calmly, no play, no fuss, then straight back into the pen. Sustained crying with no toilet need usually settles on its own within a few minutes if you don't rush in every time.",
+  },
+  {
+    question: 'Is it normal for a puppy to refuse food on the first night?',
+    answer:
+      'Yes, a skipped first meal is common and not a concern on its own. It becomes a concern only if it stretches past a full day, or comes with lethargy, vomiting, or diarrhoea; those get a vet call.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/blog/puppy-first-night',
+    title,
+    description,
+    aboutName: "Puppy's first night home",
+    aboutAlternateName: 'puppy first night home',
+    datePublished,
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/blog/puppy-first-night" ogImage="/assets/guides/og-first-time-owners.jpg">
+  <section class="bg-[var(--color-peach-100)] pb-10 pt-2">
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pt-5">
+      <Breadcrumb bare items={[{ label: 'Blog', href: '/blog/' }, { label: 'First Night Home', href: '/blog/puppy-first-night/' }]} />
+      <div class="mx-auto mt-8 max-w-[75ch]">
+        <p class="text-xs font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">Blog · First-time owners</p>
+        <h1 class="mt-3 font-[family-name:var(--font-heading)] font-semibold leading-[1.08] text-[var(--color-cream-900)]" style="font-size: clamp(2.2rem, 4.5vw, 3.5rem);">
+          Surviving Your Puppy's First Night at Home
+        </h1>
+        <p class="mt-4 text-sm text-[var(--color-cream-600)]">
+          By Nelson &amp; Kim, Curious Tails · Published {datePublished} · From real delivery-day setups
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <DefBox
+    term="What happens on a puppy's first night home?"
+    definition="Most puppies cry for the first 20 to 40 minutes after lights-out, then settle if the playpen is set up right: pen next to your bed, a warm covered corner, a worn t-shirt with your scent, and a wee pad well away from the sleeping area. Respond to sustained crying, since it often means a toilet need, but don't rush in for every whimper, or the puppy learns crying always brings you running."
+    bridge="This is not theory. It is the routine we walk every family through at the door, on delivery day, before we leave."
+    citationLabel="Verify our licence on the AVS public registry"
+    citationHref={site.license.registryUrl}
+  >
+    <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Night one, in short</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Pen next to your bed, not in another room',
+          'A worn t-shirt beats any $40 toy',
+          'Respond to sustained crying, not every whimper',
+          'No bed-sharing, even for one night',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </DefBox>
+
+  <CaptionedBlock heading="What the First Night Actually Looks Like" imageAlt="Puppy playpen set up at home in Balestier, ready before delivery" imageSrc={playpenSetup} imagePosition="right">
+    <p>The car ride home is usually the calmest part of the day; puppies tend to sleep against a warm body. The chaos starts a few hours later, once the novelty of a new home wears off and the sun goes down.</p>
+    <p>By evening, expect a burst of zoomies followed by a crash. Lights-out is when the crying usually starts, somewhere between 20 minutes and an hour after you settle them into the pen. Most puppies quiet down on their own once they realise the room is still, the family is still nearby, and nothing bad is happening.</p>
+    <p>Around 2am to 4am, a genuine toilet wake-up is common for young puppies. That is different from settling-in crying, and it needs a response.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Setting Up the Playpen Before You Collect the Puppy" imagePosition="none" variant="card">
+    <p>Do this before you leave to pick the puppy up, not after you get home exhausted at 9pm. Position the pen in the room you actually sleep in, ideally within arm's reach of the bed. A pen in the living room or a spare room, out of sight and smell, produces the loudest, longest crying we see.</p>
+    <p>Line one corner with the bed and blanket, keep the pad and tray at the opposite end, and set water within reach but not next to the bed. Dim, not dark; a small night light helps more than most owners expect.</p>
+    <p>Our 30+ item starter kit covers the whole pen setup, and we build it with you at the door on delivery day, so night one starts with the pen already right.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Pen checklist before pickup</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Bed in the sleeping corner',
+          'Pad and tray at the far end',
+          'Water within reach, not by the bed',
+          'Positioned in your bedroom',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="The Scent Trick: Why a Worn T-Shirt Beats a $40 Toy" imageAlt="Puppy settled in the playpen on its first day, close to family scent" imageSrc={firstDaySettling} imagePosition="left" variant="card">
+    <p>Four days ago, this puppy was sleeping in a warm pile of littermates. That is the loss night one is really about, not the new house, not the new food; the missing warmth and smell of company.</p>
+    <p>A t-shirt you have actually worn, unwashed, tucked into the bed corner, does more to settle a puppy than any heartbeat toy or plush on the market. It smells like a person, and a person is what the puppy is missing. Swap it for a fresh one after a few days once the puppy has bonded to your scent directly.</p>
+    <p>We tell every family this at the handover, and it is the single cheapest fix in this whole guide.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="When to Respond to Crying, and When to Let It Ride Out" imagePosition="none" variant="mid">
+    <p>Short whimpers in the first 20 to 40 minutes after lights-out are adjustment, not distress. Going in every time teaches the fastest, most durable lesson a puppy learns in its first week: crying works, every time, no exceptions.</p>
+    <p>Sustained crying that doesn't taper off after several minutes is different, and especially at 2am to 4am, it is usually a genuine toilet need. AVS's own dog care guidance is consistent with what we see on delivery days: calm, consistent responses build confidence; frantic or inconsistent ones build anxiety.</p>
+    <p>The <a href="https://avs.nparks.gov.sg/pets/caring-for-a-pet/dog-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">AVS dog training and care guidance</a> covers the same principle for the weeks that follow, and our free first lesson with an AVS-certified trainer builds on it directly.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-surface-card)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Respond vs ride out</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Short whimper, first hour: ride it out',
+          'Sustained crying, 2am to 4am: check toilet',
+          'Escalating panic (not just noise): check on them',
+          'Quiet after checking: back into the pen',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="The 2am Toilet Wake-Up, Without Starting a Bad Habit" imagePosition="none" variant="card">
+    <p>When the 2am cry is a genuine toilet need, keep the whole trip boring on purpose. No lights blazing, no play, no baby voice, no cuddle session. Carry the puppy straight to the pad or outside, wait, then straight back into the pen.</p>
+    <p>Exciting 2am trips teach a puppy that waking up is fun, which turns one toilet break into a nightly play session within a week. Boring trips teach the opposite: toilet, then back to sleep, nothing more happens.</p>
+    <p>This single habit, kept boring from night one, is usually the difference between a puppy sleeping through by week three and one still waking the household at month two.</p>
+  </CaptionedBlock>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <CaptionedBlock heading="What Not to Do on Night One" imageAlt="Puppy asleep calmly in its own pen overnight, the routine holding" imageSrc={nightRoutine} imagePosition="right" variant="dark">
+    <p>Bed-sharing is the big one. It feels like the kind thing to do at 3am, and it is also the fastest way to create a dog that cannot sleep alone at all by month two, which then needs weeks of separate, harder retraining to undo.</p>
+    <p>Room-hopping is the second trap: moving the pen to wherever the crying stops that night. Pick one spot before pickup day and keep it there for at least the first two weeks, even on the rough nights.</p>
+    <p>And don't punish the crying. It is not defiance; it is a four-month-old animal that lost its entire family four days ago. Calm and consistent beats stern every time.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Skip these on night one</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Bed-sharing, even just once',
+          'Moving the pen mid-week',
+          'Scolding or raising your voice',
+          'A second, "extra comforting" nightly rescue',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="How Night One Sets the Pattern for Week One" imagePosition="none" variant="card">
+    <p>Families who keep the pen fixed, the trips boring, and the responses calm are usually through the crying phase within three to five nights. Families who bend the rules on night one, understandably, in the moment, tend to still be negotiating with a puppy at 2am two weeks later.</p>
+    <p>None of this needs to be figured out alone. If a puppy from us falls sick within the first 5 days, it comes straight back to us and we nurse it; and for the routine questions, WhatsApp is open every day we're not asleep either.</p>
+    <p>The fuller week-by-week routine, including feeding and toilet-training schedules, is in the <a href="/first-time-owners/puppy-care-101/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppy care 101 guide</a>.</p>
+  </CaptionedBlock>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="First Night Home Questions" items={faqItems} />
+  </div>
+
+  <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Curious about the handover itself? See how <a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">home delivery and setup</a> works, or browse <a href="/blog" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the rest of our puppy guides</a>.</p>
+  </section>
+
+  <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
+    <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Home delivery &amp; setup</a></li>
+      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/first-time-owners/puppy-care-101" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Puppy care 101</a></li>
+      <li><a href="/blog/first-time-mistakes" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-time owner mistakes</a></li>
+      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Puppy price list, all-in</a></li>
+    </ul>
+  </aside>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Ready for Night One?"
+    body="Every puppy of ours goes home with the pen already set up and the routine walked through at your door. Ask us anything before pickup day."
+    reserveMessage="Hi! Getting ready for our puppy's first night home. Question:"
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

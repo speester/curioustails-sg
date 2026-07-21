@@ -49,62 +49,68 @@ const description =
 const breeds = [
   {
     title: 'Cavapoo', href: '/puppies/cavapoo/', imageSrc: cavapooPortrait, imageAlt: 'Cavapoo puppy sitting on a light wood floor',
-    meta: 'Gentle and easygoing, a favourite for working households', ctaLabel: 'View Breed',
+    meta: 'Gentle and easygoing, a favourite for working households',
     points: ['Gentle, easygoing temperament', 'Copes well alone during work hours', 'Low-shedding poodle-cross coat', 'HDB-approved cross'],
   },
   {
     title: 'Maltipoo', href: '/puppies/maltipoo/', imageSrc: maltipooPortrait, imageAlt: 'Maltipoo puppy with a wavy cream coat',
-    meta: 'Affectionate and people focused, happiest with company at home', ctaLabel: 'View Breed',
+    meta: 'Affectionate and people focused, happiest with company at home',
     points: ['Affectionate and people-focused', 'Happiest with company at home', 'Low-shedding, easy-care coat', 'HDB-approved cross'],
   },
   {
     title: 'Maltese', href: '/puppies/maltese/', imageSrc: maltesePortrait, imageAlt: 'Maltese puppy with a silky white coat',
-    meta: 'The classic white companion, gentle and devoted to its people', ctaLabel: 'View Breed',
+    meta: 'The classic white companion, gentle and devoted to its people',
     points: ['Gentle, devoted lap companion', 'Happiest with company at home', 'Silky white, very low-shedding coat', 'HDB-approved breed'],
   },
   {
     title: 'Mini Dachshund', href: '/puppies/mini-dachshund/', imageSrc: dachshundPortrait, imageAlt: 'Cream long-haired Mini Dachshund puppy portrait',
-    meta: 'Compact, curious, and full of personality', ctaLabel: 'View Breed',
+    meta: 'Compact, curious, and full of personality',
     points: ['Compact with a big personality', 'Curious, confident little explorer', 'Short coat, minimal grooming', 'HDB-approved small breed'],
   },
   {
     title: 'Corgi', href: '/puppies/corgi/', imageSrc: corgiPortrait, imageAlt: 'Corgi puppy with upright ears',
-    meta: 'Big character in a small body, active and alert', ctaLabel: 'View Breed',
+    meta: 'Big character in a small body, active and alert',
     points: ['Big character, active and alert', 'Needs daily exercise and play', 'Double coat, sheds regularly', 'Not HDB-approved — private property'],
   },
   {
     title: 'Shiba Inu', href: '/puppies/shiba-inu/', imageSrc: shibaPortrait, imageAlt: 'Shiba Inu puppy with a fox-like face',
-    meta: 'Independent and clean, for owners who want a calmer bond', ctaLabel: 'View Breed',
+    meta: 'Independent and clean, for owners who want a calmer bond',
     points: ['Independent, calm, cat-like nature', 'Naturally clean and tidy habits', 'Suits owners who respect space', 'Not HDB-approved — private property'],
   },
   {
     title: 'Bichonpoo', href: '/puppies/bichonpoo/', imageSrc: bichonpooPortrait, imageAlt: 'Bichonpoo puppy with a white curly coat',
-    meta: 'Low shedding and playful, an easy fit for small homes', ctaLabel: 'View Breed',
+    meta: 'Low shedding and playful, an easy fit for small homes',
     points: ['Playful, cheerful and gentle', 'Low-shedding, allergy-friendlier coat', 'Easy fit for smaller homes', 'HDB-approved cross'],
   },
   {
     title: 'Cockapoo', href: '/puppies/cockapoo/', imageSrc: cockapooPortrait, imageAlt: 'Cockapoo puppy with long floppy ears',
-    meta: 'Warm and sociable, a natural with children', ctaLabel: 'View Breed',
+    meta: 'Warm and sociable, a natural with children',
     points: ['Warm and sociable, great with kids', 'Adaptable to most daily routines', 'Low-shedding wavy coat', 'HDB-approved cross'],
   },
   {
     title: 'Bichon Frise', href: '/puppies/bichon-frise/', imageSrc: bichonFrisePortrait, imageAlt: 'Bichon Frise puppy with a white curly coat',
-    meta: 'The cheerful white classic, happiest with company around', ctaLabel: 'View Breed',
+    meta: 'The cheerful white classic, happiest with company around',
     points: ['Famously cheerful and sociable', 'Happiest with company at home', 'Curly low-shedding double coat', 'HDB-approved breed'],
   },
   {
     title: 'Cavapoochon', href: '/puppies/cavapoochon/', imageSrc: cavapoochonPortrait, imageAlt: 'Cavapoochon puppy with a soft teddy-bear coat',
-    meta: 'The teddy-bear triple cross, gentle with everyone', ctaLabel: 'View Breed',
+    meta: 'The teddy-bear triple cross, gentle with everyone',
     points: ['Gentle, adaptable family all-rounder', 'Keeps its teddy-bear puppy look', 'Low-shedding soft coat', 'HDB-friendly approved cross'],
   },
   {
     title: 'Chihuahua', href: '/puppies/chihuahua/', imageSrc: chihuahuaPortrait, imageAlt: 'Chihuahua puppy with upright ears and a fawn coat',
-    meta: 'Tiny devoted companion with a big-dog personality', ctaLabel: 'View Breed',
+    meta: 'Tiny devoted companion with a big-dog personality',
     points: ['Devoted, alert lap companion', 'The world\'s smallest breed, 1.5 to 3 kg', 'Easiest grooming in our lineup', 'HDB-approved toy breed'],
   },
 ];
 
-const pricedBreeds = breeds.map((b) => ({ ...b, tag: `From $${fmtPrice(priceForHref(b.href).low)}` }));
+// Breed-specific CTA text so card anchors describe the target page (helps
+// Google attribute breed queries to the breed pages instead of the homepage).
+const pricedBreeds = breeds.map((b) => ({
+  ...b,
+  tag: `From $${fmtPrice(priceForHref(b.href).low)}`,
+  ctaLabel: `View ${b.title} Puppies`,
+}));
 
 const jumpLinks = [
   { label: 'Puppies', href: '#puppies' },

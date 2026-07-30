@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -29,15 +30,8 @@ import {
 import heroDachshund from '../../assets/mini-dachshund/1-mini-dachshund-puppy-hero-playpen-balestier.webp';
 import redPortrait from '../../assets/mini-dachshund/2-mini-dachshund-red-smooth-portrait.webp';
 import chocoPortrait from '../../assets/mini-dachshund/3-mini-dachshund-chocolate-tan-portrait.webp';
-import creamPortrait from '../../assets/mini-dachshund/4-mini-dachshund-cream-longhair-portrait.webp';
 import rampCare from '../../assets/mini-dachshund/5-mini-dachshund-ramp-sofa-back-care.webp';
 import harnessWalk from '../../assets/mini-dachshund/6-mini-dachshund-harness-walk-park.webp';
-import blackTanSmoothPortrait from '../../assets/mini-dachshund/7-mini-dachshund-black-tan-smooth-portrait.webp';
-import silverDapplePortrait from '../../assets/mini-dachshund/8-mini-dachshund-silver-dapple-portrait.webp';
-import shadedRedPortrait from '../../assets/mini-dachshund/9-mini-dachshund-shaded-red-portrait.webp';
-import creamSmoothPortrait from '../../assets/mini-dachshund/10-mini-dachshund-cream-smooth-portrait.webp';
-import chocolateDapplePortrait from '../../assets/mini-dachshund/11-mini-dachshund-chocolate-dapple-portrait.webp';
-import blackCreamLonghairPortrait from '../../assets/mini-dachshund/12-mini-dachshund-black-cream-longhair-portrait.webp';
 
 import { breedPricing, fmtPrice } from '../../data/pricing';
 
@@ -51,7 +45,7 @@ const description =
   `Mini Dachshund price in Singapore (${monthStamp}): $${fmtPrice(price.low)} to $${fmtPrice(price.high)} all-in, AVS licensed and HDB-approved. Back-care basics and the $500+ starter kit included.`;
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -163,22 +157,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Mini Dachshund Puppies"
-      headingAccent="Available"
-      subhead="A few of the Mini Dachshunds recently looking for homes. Litters move fast, so tap any pup to WhatsApp us for the latest photos, video and health records."
-      items={[
-        { title: 'Felix — Red smooth Boy', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Felix, the red smooth-coat male Mini Dachshund.'), imageAlt: 'Red smooth-coat male Mini Dachshund puppy available in Singapore', imageSrc: redPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Sakura — Chocolate & tan Girl', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Sakura, the chocolate and tan female Mini Dachshund.'), imageAlt: 'Chocolate and tan female Mini Dachshund puppy resting on a blanket', imageSrc: chocoPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Sasha — Cream long-haired Girl', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Sasha, the cream long-haired female Mini Dachshund.'), imageAlt: 'Cream long-haired female Mini Dachshund puppy on a cotton mat', imageSrc: creamPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Fergus — Black & tan Boy', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Fergus, the black and tan smooth-coat male Mini Dachshund.'), imageAlt: 'Black and tan smooth-coat male Mini Dachshund puppy sitting with a head tilt', imageSrc: blackTanSmoothPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '9 weeks' },
-        { title: 'Filo — Silver dapple Boy', price: 5088, href: whatsappLink('Hi! I\'d like more photos and the price for Filo, the silver dapple male Mini Dachshund.'), imageAlt: 'Silver dapple smooth-coat male Mini Dachshund puppy lying on a pastel blanket', imageSrc: silverDapplePortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Scarlett — Shaded red Girl', price: 5288, href: whatsappLink('Hi! I\'d like more photos and the price for Scarlett, the shaded red female Mini Dachshund.'), imageAlt: 'Shaded red smooth-coat female Mini Dachshund puppy standing alert', imageSrc: shadedRedPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-        { title: 'Frankie — Cream smooth Boy', price: 5488, href: whatsappLink('Hi! I\'d like more photos and the price for Frankie, the English cream smooth-coat male Mini Dachshund.'), imageAlt: 'English cream smooth-coat male Mini Dachshund puppy playing with a plush toy', imageSrc: creamSmoothPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '10 weeks' },
-        { title: 'Shelby — Chocolate dapple Girl', price: 5688, href: whatsappLink('Hi! I\'d like more photos and the price for Shelby, the chocolate dapple female Mini Dachshund.'), imageAlt: 'Chocolate dapple female Mini Dachshund puppy sitting on a cotton mat', imageSrc: chocolateDapplePortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Sienna — Black & cream long-haired Girl', price: 5888, href: whatsappLink('Hi! I\'d like more photos and the price for Sienna, the black and cream long-haired female Mini Dachshund.'), imageAlt: 'Black and cream long-haired female Mini Dachshund puppy trotting toward the camera', imageSrc: blackCreamLonghairPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '8 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="mini-dachshund" breedName="Mini Dachshund" />
 
     <CaptionedBlock heading="Looking for a Mini Dachshund for Sale in Singapore?" imageAlt="Red smooth-coat Mini Dachshund puppy available in Singapore, seated portrait" imageSrc={redPortrait} variant="mid">
       <p>Litters arrive and get reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. Message us and we'll send photos, gender, age, coat type, and a short walkthrough video for the Mini Dachshund puppies available now.</p>

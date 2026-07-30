@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/jack-russell-terrier/3-jack-russell-terrier-
 import imgScene3 from '../../assets/jack-russell-terrier/4-jack-russell-terrier-puppy-being-brushed-after-a-walk.webp';
 import imgScene4 from '../../assets/jack-russell-terrier/5-jack-russell-terrier-puppy-at-a-veterinary-health-check.webp';
 import imgScene5 from '../../assets/jack-russell-terrier/6-jack-russell-puppy-settling-into-a-set-up-playpen-durin.webp';
-import imgCard1 from '../../assets/jack-russell-terrier/7-white-and-tan-male-jack-russell-terrier-puppy-available.webp';
-import imgCard2 from '../../assets/jack-russell-terrier/8-tricolour-female-jack-russell-terrier-puppy-available-i.webp';
-import imgCard3 from '../../assets/jack-russell-terrier/9-broken-coat-male-jack-russell-terrier-puppy-available-i.webp';
-import imgCard4 from '../../assets/jack-russell-terrier/10-white-and-black-female-jack-russell-terrier-puppy-avail.webp';
-import imgCard5 from '../../assets/jack-russell-terrier/11-smooth-coat-male-jack-russell-terrier-puppy-available-i.webp';
-import imgCard6 from '../../assets/jack-russell-terrier/12-rough-coat-female-jack-russell-terrier-puppy-available.webp';
 
 const title = 'Jack Russell Terrier Puppy for Sale Singapore';
 const description =
   'Jack Russell Terrier puppies for sale in Singapore from $3,888, AVS licensed and HDB-approved. Real prices, temperament and honest energy expectations.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -168,19 +163,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Jack Russell Puppies"
-      headingAccent="Available"
-      subhead="A few of the Jack Russell puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Chip — White & tan Boy', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Chip, the white and tan male Jack Russell puppy.'), imageAlt: 'White and tan male Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Nikki — Tricolour Girl', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Nikki, the tricolour female Jack Russell puppy.'), imageAlt: 'Tricolour female Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Chowder — Broken-coat Boy', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Chowder, the broken-coat male Jack Russell puppy.'), imageAlt: 'Broken-coat male Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Nori — White & black Girl', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Nori, the white and black female Jack Russell puppy.'), imageAlt: 'White and black female Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Churro — Smooth-coat Boy', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Churro, the smooth-coat male Jack Russell puppy.'), imageAlt: 'Smooth-coat male Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Opal — Rough-coat Girl', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Opal, the rough-coat female Jack Russell puppy.'), imageAlt: 'Rough-coat female Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="jack-russell-terrier" breedName="Jack Russell" />
 
     <CaptionedBlock heading="Looking to Buy a Jack Russell in Singapore?" imageAlt="White and tan Jack Russell Terrier puppy portrait, one of the Jack Russell puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Jack Russell puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and a short walkthrough video for the Jack Russell Terrier puppies available now.</p>

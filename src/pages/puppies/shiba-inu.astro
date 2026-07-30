@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -29,22 +30,15 @@ import {
 import heroShiba from '../../assets/shiba-inu/1-shiba-inu-puppy-hero-playpen-home.webp';
 import redPortrait from '../../assets/shiba-inu/2-shiba-red-portrait.webp';
 import blackTanPortrait from '../../assets/shiba-inu/3-shiba-black-tan-portrait.webp';
-import creamPortrait from '../../assets/shiba-inu/4-shiba-cream-portrait.webp';
 import voidDeckWalk from '../../assets/shiba-inu/5-shiba-void-deck-leash-walk.webp';
 import coatBlowBrush from '../../assets/shiba-inu/6-shiba-coat-blow-brushing.webp';
-import redGirlPortrait from '../../assets/shiba-inu/7-shiba-red-girl-portrait.webp';
-import sesameBoyPortrait from '../../assets/shiba-inu/8-shiba-sesame-boy-portrait.webp';
-import blackTanBoyPortrait from '../../assets/shiba-inu/9-shiba-black-tan-boy-portrait.webp';
-import creamGirlPortrait from '../../assets/shiba-inu/10-shiba-cream-girl-portrait.webp';
-import redSesameGirlPortrait from '../../assets/shiba-inu/11-shiba-red-sesame-girl-portrait.webp';
-import deepRedBoyPortrait from '../../assets/shiba-inu/12-shiba-deep-red-boy-portrait.webp';
 
 const title = 'Shiba Inu Puppy for Sale Singapore | Curious Tails';
 const description =
   'Shiba Inu puppies for sale in Singapore from $4,788 all-in. Straight facts first: Shibas are not HDB-approved. Private housing? Talk to us. HDB? See alternatives.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'HDB Rules', href: '#hdb' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Shedding', href: '#size' },
@@ -153,22 +147,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Shiba Inu Puppies"
-      headingAccent="Available"
-      subhead="A few of the Shibas recently looking for homes. Tap any pup to WhatsApp us for the latest photos, video and health records."
-      items={[
-        { title: 'Maverick — Red Boy', price: 4788, href: whatsappLink('Hi! I\'d like more photos and the price for Maverick, the red male Shiba Inu puppy.'), imageAlt: 'Red male Shiba Inu puppy available in Singapore', imageSrc: redPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Alba — Black & tan Girl', price: 4988, href: whatsappLink('Hi! I\'d like more photos and the price for Alba, the black and tan female Shiba Inu puppy.'), imageAlt: 'Black and tan female Shiba Inu puppy lying on a cotton mat', imageSrc: blackTanPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Miso — Cream Boy', price: 5188, href: whatsappLink('Hi! I\'d like more photos and the price for Miso, the cream male Shiba Inu puppy.'), imageAlt: 'Cream male Shiba Inu puppy standing alert on cream tiles', imageSrc: creamPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Amber — Red Girl', price: 5388, href: whatsappLink('Hi! I\'d like more photos and the price for Amber, the red female Shiba Inu puppy.'), imageAlt: 'Red female Shiba Inu puppy with white urajiro markings sitting with a head tilt', imageSrc: redGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Mochi — Sesame Boy', price: 5588, href: whatsappLink('Hi! I\'d like more photos and the price for Mochi, the sesame male Shiba Inu puppy.'), imageAlt: 'Sesame male Shiba Inu puppy lying on a pastel blanket', imageSrc: sesameBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Monty — Black & tan Boy', price: 5788, href: whatsappLink('Hi! I\'d like more photos and the price for Monty, the black and tan male Shiba Inu puppy.'), imageAlt: 'Black and tan male Shiba Inu puppy standing alert with ears perked', imageSrc: blackTanBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
-        { title: 'Angel — Cream Girl', price: 5988, href: whatsappLink('Hi! I\'d like more photos and the price for Angel, the cream female Shiba Inu puppy.'), imageAlt: 'Cream female Shiba Inu puppy playing with a plush toy', imageSrc: creamGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Annie — Red sesame Girl', price: 6188, href: whatsappLink('Hi! I\'d like more photos and the price for Annie, the red sesame female Shiba Inu puppy.'), imageAlt: 'Red sesame female Shiba Inu puppy sitting on a cotton mat', imageSrc: redSesameGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Moose — Deep red Boy', price: 6388, href: whatsappLink('Hi! I\'d like more photos and the price for Moose, the deep red male Shiba Inu puppy (8 weeks).'), imageAlt: 'Deep rich red male Shiba Inu puppy trotting toward the camera', imageSrc: deepRedBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '8 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="shiba-inu" breedName="Shiba Inu" />
 
     <CaptionedBlock heading="Looking for a Shiba Inu for Sale in Singapore?" imageAlt="Red Shiba Inu puppy available in Singapore, seated portrait with curled tail" imageSrc={redPortrait} variant="mid">
       <p>Shiba litters move quickly and colours vary between them, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. Message us for photos, gender, age, colour, and a short walkthrough video of the Shiba puppies available now.</p>

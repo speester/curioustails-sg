@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/havanese/3-havanese-puppy-performing-a-trick
 import imgScene3 from '../../assets/havanese/4-havanese-puppy-having-its-silky-coat-combed-through.webp';
 import imgScene4 from '../../assets/havanese/5-havanese-puppy-at-a-veterinary-health-check-before-goin.webp';
 import imgScene5 from '../../assets/havanese/6-havanese-puppy-settling-into-a-set-up-playpen-during-it.webp';
-import imgCard1 from '../../assets/havanese/7-chocolate-male-havanese-puppy-available-in-singapore.webp';
-import imgCard2 from '../../assets/havanese/8-cream-female-havanese-puppy-available-in-singapore.webp';
-import imgCard3 from '../../assets/havanese/9-black-and-white-parti-havanese-puppy-available-in-singa.webp';
-import imgCard4 from '../../assets/havanese/10-gold-sable-female-havanese-puppy-available-in-singapore.webp';
-import imgCard5 from '../../assets/havanese/11-silver-male-havanese-puppy-available-in-singapore.webp';
-import imgCard6 from '../../assets/havanese/12-cream-and-gold-female-havanese-puppy-available-in-singa.webp';
 
 const title = 'Havanese Puppy for Sale Singapore | Curious Tails';
 const description =
   'Havanese puppies for sale in Singapore from $5,700, AVS licensed and HDB-approved. Cuba\'s velcro companion: temperament, colours and coat care.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -163,19 +158,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Havanese Puppies"
-      headingAccent="Available"
-      subhead="A few of the Havanese puppies looking for a home right now, across the breed's famous colour range. Tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Bosco — Chocolate Boy', price: 5788, href: whatsappLink('Hi! I\'d like more photos and the price for Bosco, the chocolate male Havanese puppy.'), imageAlt: 'Chocolate male Havanese puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Millie — Cream Girl', price: 5888, href: whatsappLink('Hi! I\'d like more photos and the price for Millie, the cream female Havanese puppy.'), imageAlt: 'Cream female Havanese puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Brownie — Black & white Boy', price: 5988, href: whatsappLink('Hi! I\'d like more photos and the price for Brownie, the black and white male Havanese puppy.'), imageAlt: 'Black and white parti Havanese puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Minnie — Gold sable Girl', price: 6088, href: whatsappLink('Hi! I\'d like more photos and the price for Minnie, the gold sable female Havanese puppy.'), imageAlt: 'Gold sable female Havanese puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Buster — Silver Boy', price: 6188, href: whatsappLink('Hi! I\'d like more photos and the price for Buster, the silver male Havanese puppy.'), imageAlt: 'Silver male Havanese puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Mimi — Cream & gold Girl', price: 6288, href: whatsappLink('Hi! I\'d like more photos and the price for Mimi, the cream and gold female Havanese puppy.'), imageAlt: 'Cream and gold female Havanese puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="havanese" breedName="Havanese" />
 
     <CaptionedBlock heading="Looking to Buy a Havanese in Singapore?" imageAlt="Chocolate Havanese puppy portrait, one of the Havanese puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>The Havanese is genuinely rare in Singapore: litters are infrequent and reserved fast, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Havanese puppies available now, or tell you honestly when the next litter is expected.</p>

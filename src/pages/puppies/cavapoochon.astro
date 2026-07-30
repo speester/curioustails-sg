@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -33,14 +34,6 @@ import cavapoochonGrooming from '../../assets/cavapoochon/3-cavapoochon-puppy-gr
 import cavapoochonVet from '../../assets/cavapoochon/4-cavapoochon-puppy-vet-health-check.webp';
 import cavapoochonSettling from '../../assets/cavapoochon/5-cavapoochon-puppy-settling-playpen.webp';
 import apricotGirlPortrait from '../../assets/cavapoochon/6-cavapoochon-puppy-apricot-female-portrait.webp';
-import redBoyPortrait from '../../assets/cavapoochon/7-cavapoochon-puppy-red-male-portrait.webp';
-import creamGirlPortrait from '../../assets/cavapoochon/8-cavapoochon-puppy-cream-female-portrait.webp';
-import apricotWhiteBoyPortrait from '../../assets/cavapoochon/9-cavapoochon-puppy-apricot-white-male-portrait.webp';
-import goldGirlPortrait from '../../assets/cavapoochon/10-cavapoochon-puppy-gold-female-portrait.webp';
-import redWhiteBoyPortrait from '../../assets/cavapoochon/11-cavapoochon-puppy-red-white-male-portrait.webp';
-import creamBoyPortrait from '../../assets/cavapoochon/12-cavapoochon-puppy-cream-male-portrait.webp';
-import apricotBoyPortrait from '../../assets/cavapoochon/13-cavapoochon-puppy-apricot-male-portrait.webp';
-import caramelGirlPortrait from '../../assets/cavapoochon/14-cavapoochon-puppy-caramel-female-portrait.webp';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
 
 const title = 'Cavapoochon Puppy for Sale Singapore | Curious Tails';
@@ -48,7 +41,7 @@ const description =
   'Cavapoochon puppies for sale in Singapore from $3,688, AVS licensed and HDB-friendly. The teddy-bear triple cross: real prices and grooming truth.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -176,22 +169,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Cavapoochon Puppies"
-      headingAccent="Available"
-      subhead="A few of the Cavapoochon puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Peaches — Apricot Girl', price: 3688, href: whatsappLink('Hi! I\'d like more photos and the price for Peaches, the apricot female Cavapoochon puppy.'), imageAlt: 'Apricot female Cavapoochon puppy available in Singapore', imageSrc: apricotGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Dexter — Red Boy', price: 3788, href: whatsappLink('Hi! I\'d like more photos and the price for Dexter, the red male Cavapoochon puppy.'), imageAlt: 'Red male Cavapoochon puppy available in Singapore', imageSrc: redBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '10 weeks' },
-        { title: 'Cookie — Cream Girl', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Cookie, the cream female Cavapoochon puppy.'), imageAlt: 'Cream female Cavapoochon puppy available in Singapore', imageSrc: creamGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Bentley — Apricot & white Boy', price: 3988, href: whatsappLink('Hi! I\'d like more photos and the price for Bentley, the apricot and white male Cavapoochon puppy.'), imageAlt: 'Apricot and white male Cavapoochon puppy available in Singapore', imageSrc: apricotWhiteBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '9 weeks' },
-        { title: 'Honey — Gold Girl', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Honey, the gold female Cavapoochon puppy.'), imageAlt: 'Warm golden female Cavapoochon puppy available in Singapore', imageSrc: goldGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Winston — Red & white Boy', price: 4188, href: whatsappLink('Hi! I\'d like more photos and the price for Winston, the red and white male Cavapoochon puppy.'), imageAlt: 'Red and white male Cavapoochon puppy available in Singapore', imageSrc: redWhiteBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
-        { title: 'Archie — Cream Boy', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Archie, the cream male Cavapoochon puppy.'), imageAlt: 'Cream male Cavapoochon puppy available in Singapore', imageSrc: creamBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '10 weeks' },
-        { title: 'Marley — Apricot Boy', price: 4388, href: whatsappLink('Hi! I\'d like more photos and the price for Marley, the apricot male Cavapoochon puppy.'), imageAlt: 'Apricot male Cavapoochon puppy available in Singapore', imageSrc: apricotBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Cocoa — Caramel Girl', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Cocoa, the caramel female Cavapoochon puppy.'), imageAlt: 'Caramel female Cavapoochon puppy available in Singapore', imageSrc: caramelGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '8 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="cavapoochon" breedName="Cavapoochon" />
 
     <CaptionedBlock heading="Looking to Buy a Cavapoochon in Singapore?" imageAlt="Apricot Cavapoochon puppy portrait, one of the Cavapoochon puppies available in Singapore" imageSrc={apricotGirlPortrait} variant="mid">
       <p>Cavapoochon litters are genuinely rare in Singapore, and ours arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and a short walkthrough video for the Cavapoochon puppies available now.</p>

@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/whippet/3-whippet-puppy-curled-up-softly-on-
 import imgScene3 from '../../assets/whippet/4-whippet-sprinting-at-full-stretch-across-an-enclosed-fi.webp';
 import imgScene4 from '../../assets/whippet/5-whippet-puppy-at-a-veterinary-health-check-before-going.webp';
 import imgScene5 from '../../assets/whippet/6-whippet-puppy-settling-into-a-set-up-playpen-during-its.webp';
-import imgCard1 from '../../assets/whippet/7-fawn-male-whippet-puppy-available-in-singapore.webp';
-import imgCard2 from '../../assets/whippet/8-blue-female-whippet-puppy-available-in-singapore.webp';
-import imgCard3 from '../../assets/whippet/9-brindle-male-whippet-puppy-available-in-singapore.webp';
-import imgCard4 from '../../assets/whippet/10-white-and-fawn-female-whippet-puppy-available-in-singap.webp';
-import imgCard5 from '../../assets/whippet/11-black-female-whippet-puppy-available-in-singapore.webp';
-import imgCard6 from '../../assets/whippet/12-fawn-and-white-male-whippet-puppy-available-in-singapor.webp';
 
 const title = 'Whippet Puppy for Sale Singapore | Curious Tails';
 const description =
   'Whippet puppies for sale in Singapore from $4,580 all-in. Not HDB-approved. The gentle sighthound: calm indoors, lightning outdoors, honestly priced.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'HDB Rules', href: '#hdb' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
@@ -163,19 +158,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Whippet Puppies"
-      headingAccent="Available"
-      subhead="A few of the Whippet puppies looking for a home right now. Litters are limited, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Peanut — Fawn Boy', price: 4588, href: whatsappLink('Hi! I\'d like more photos and the price for Peanut, the fawn male Whippet puppy.'), imageAlt: 'Fawn male Whippet puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Bubbles — Blue Girl', price: 4788, href: whatsappLink('Hi! I\'d like more photos and the price for Bubbles, the blue female Whippet puppy.'), imageAlt: 'Blue female Whippet puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Pedro — Brindle Boy', price: 4988, href: whatsappLink('Hi! I\'d like more photos and the price for Pedro, the brindle male Whippet puppy.'), imageAlt: 'Brindle male Whippet puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Buffy — White & fawn Girl', price: 5188, href: whatsappLink('Hi! I\'d like more photos and the price for Buffy, the white and fawn female Whippet puppy.'), imageAlt: 'White and fawn female Whippet puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Buttons — Black Girl', price: 5388, href: whatsappLink('Hi! I\'d like more photos and the price for Buttons, the black female Whippet puppy.'), imageAlt: 'Black female Whippet puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Percy — Fawn & white Boy', price: 5588, href: whatsappLink('Hi! I\'d like more photos and the price for Percy, the fawn and white male Whippet puppy.'), imageAlt: 'Fawn and white male Whippet puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="whippet" breedName="Whippet" />
 
     <CaptionedBlock heading="Looking to Buy a Whippet in Singapore?" imageAlt="Whippet puppy portrait, one of the Whippet puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Whippet puppies in Singapore are rare and reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Whippet puppies available now.</p>

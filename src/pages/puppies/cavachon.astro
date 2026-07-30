@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/cavachon/3-cavachon-puppy-cuddling-calmly-wi
 import imgScene3 from '../../assets/cavachon/4-cavachon-puppy-being-brushed-through-its-soft-wavy-coat.webp';
 import imgScene4 from '../../assets/cavachon/5-cavachon-puppy-at-a-veterinary-health-check-before-goin.webp';
 import imgScene5 from '../../assets/cavachon/6-cavachon-puppy-settling-into-a-set-up-playpen-during-it.webp';
-import imgCard1 from '../../assets/cavachon/7-apricot-and-white-male-cavachon-puppy-available-in-sing.webp';
-import imgCard2 from '../../assets/cavachon/8-cream-female-cavachon-puppy-available-in-singapore.webp';
-import imgCard3 from '../../assets/cavachon/9-blenheim-marked-male-cavachon-puppy-available-in-singap.webp';
-import imgCard4 from '../../assets/cavachon/10-white-female-cavachon-puppy-available-in-singapore.webp';
-import imgCard5 from '../../assets/cavachon/11-sable-and-white-male-cavachon-puppy-available-in-singap.webp';
-import imgCard6 from '../../assets/cavachon/12-apricot-female-cavachon-puppy-available-in-singapore.webp';
 
 const title = 'Cavachon Puppy for Sale Singapore | Curious Tails';
 const description =
   'Cavachon puppies for sale in Singapore from $3,688, AVS licensed and HDB-friendly. Cavachon vs Cavapoo honestly compared, plus coat care in our humidity.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -163,19 +158,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Cavachon Puppies"
-      headingAccent="Available"
-      subhead="A few of the Cavachon puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Finn — Apricot & white Boy', price: 3688, href: whatsappLink('Hi! I\'d like more photos and the price for Finn, the apricot and white male Cavachon puppy.'), imageAlt: 'Apricot and white male Cavachon puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Willow — Cream Girl', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Willow, the cream female Cavachon puppy.'), imageAlt: 'Cream female Cavachon puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Louie — Blenheim-marked Boy', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Louie, the Blenheim-marked male Cavachon puppy.'), imageAlt: 'Blenheim-marked male Cavachon puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Ellie — White Girl', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Ellie, the white female Cavachon puppy.'), imageAlt: 'White female Cavachon puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Murphy — Sable & white Boy', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Murphy, the sable and white male Cavachon puppy.'), imageAlt: 'Sable and white male Cavachon puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Piper — Apricot Girl', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Piper, the apricot female Cavachon puppy.'), imageAlt: 'Apricot female Cavachon puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="cavachon" breedName="Cavachon" />
 
     <CaptionedBlock heading="Looking to Buy a Cavachon in Singapore?" imageAlt="Apricot and white Cavachon puppy portrait, one of the Cavachon puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Cavachon puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Cavachon puppies available now.</p>

@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/labradoodle/3-labradoodle-puppy-playing-happ
 import imgScene3 from '../../assets/labradoodle/4-labradoodle-having-its-fleece-coat-brushed-and-clipped.webp';
 import imgScene4 from '../../assets/labradoodle/5-labradoodle-puppy-at-a-veterinary-health-check-before-g.webp';
 import imgScene5 from '../../assets/labradoodle/6-labradoodle-puppy-settling-into-a-set-up-playpen-during.webp';
-import imgCard1 from '../../assets/labradoodle/7-chocolate-male-labradoodle-puppy-available-in-singapore.webp';
-import imgCard2 from '../../assets/labradoodle/8-caramel-female-labradoodle-puppy-available-in-singapore.webp';
-import imgCard3 from '../../assets/labradoodle/9-cream-male-labradoodle-puppy-available-in-singapore.webp';
-import imgCard4 from '../../assets/labradoodle/10-black-female-labradoodle-puppy-available-in-singapore.webp';
-import imgCard5 from '../../assets/labradoodle/11-apricot-female-labradoodle-puppy-available-in-singapore.webp';
-import imgCard6 from '../../assets/labradoodle/12-caramel-male-labradoodle-puppy-available-in-singapore.webp';
 
 const title = 'Labradoodle Puppy for Sale Singapore | Curious Tails';
 const description =
   'Labradoodle puppies for sale in Singapore from $3,488 all-in. Not HDB-approved. The original doodle: low-shedding, lively, and honestly priced.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'HDB Rules', href: '#hdb' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
@@ -163,19 +158,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Labradoodle Puppies"
-      headingAccent="Available"
-      subhead="A few of the Labradoodle puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Curry — Chocolate Boy', price: 3488, href: whatsappLink('Hi! I\'d like more photos and the price for Curry, the chocolate male Labradoodle puppy.'), imageAlt: 'Chocolate male Labradoodle puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Plum — Caramel Girl', price: 3688, href: whatsappLink('Hi! I\'d like more photos and the price for Plum, the caramel female Labradoodle puppy.'), imageAlt: 'Caramel female Labradoodle puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Dash — Cream Boy', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Dash, the cream male Labradoodle puppy.'), imageAlt: 'Cream male Labradoodle puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Primrose — Black Girl', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Primrose, the black female Labradoodle puppy.'), imageAlt: 'Black female Labradoodle puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Queenie — Apricot Girl', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Queenie, the apricot female Labradoodle puppy.'), imageAlt: 'Apricot female Labradoodle puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Django — Caramel Boy', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Django, the caramel male Labradoodle puppy.'), imageAlt: 'Caramel male Labradoodle puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="labradoodle" breedName="Labradoodle" />
 
     <CaptionedBlock heading="Looking to Buy a Labradoodle in Singapore?" imageAlt="Labradoodle puppy portrait, one of the Labradoodle puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Labradoodle puppies in Singapore are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and a short walkthrough video for the Labradoodle puppies available now.</p>

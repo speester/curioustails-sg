@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/goldendoodle/3-goldendoodle-puppy-playing-ge
 import imgScene3 from '../../assets/goldendoodle/4-goldendoodle-having-its-curly-coat-brushed-and-clipped.webp';
 import imgScene4 from '../../assets/goldendoodle/5-goldendoodle-puppy-at-a-veterinary-health-check-before.webp';
 import imgScene5 from '../../assets/goldendoodle/6-goldendoodle-puppy-settling-into-a-set-up-playpen-durin.webp';
-import imgCard1 from '../../assets/goldendoodle/7-apricot-male-goldendoodle-puppy-available-in-singapore.webp';
-import imgCard2 from '../../assets/goldendoodle/8-cream-female-goldendoodle-puppy-available-in-singapore.webp';
-import imgCard3 from '../../assets/goldendoodle/9-red-male-goldendoodle-puppy-available-in-singapore.webp';
-import imgCard4 from '../../assets/goldendoodle/10-gold-female-goldendoodle-puppy-available-in-singapore.webp';
-import imgCard5 from '../../assets/goldendoodle/11-apricot-female-goldendoodle-puppy-available-in-singapor.webp';
-import imgCard6 from '../../assets/goldendoodle/12-cream-male-goldendoodle-puppy-available-in-singapore.webp';
 
 const title = 'Goldendoodle Puppy for Sale Singapore | Curious Tails';
 const description =
   'Goldendoodle puppies for sale in Singapore from $3,800 all-in. Not HDB-approved. The low-shedding golden cross, with the grooming truth up front.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'HDB Rules', href: '#hdb' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
@@ -168,19 +163,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Goldendoodle Puppies"
-      headingAccent="Available"
-      subhead="A few of the Goldendoodle puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Blue — Apricot Boy', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Blue, the apricot male Goldendoodle puppy.'), imageAlt: 'Apricot male Goldendoodle puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Marnie — Cream Girl', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Marnie, the cream female Goldendoodle puppy.'), imageAlt: 'Cream female Goldendoodle puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Bolt — Red Boy', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Bolt, the red male Goldendoodle puppy.'), imageAlt: 'Red male Goldendoodle puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Matilda — Gold Girl', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Matilda, the gold female Goldendoodle puppy.'), imageAlt: 'Gold female Goldendoodle puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Mika — Apricot Girl', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Mika, the apricot female Goldendoodle puppy.'), imageAlt: 'Apricot female Goldendoodle puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Boomer — Cream Boy', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Boomer, the cream male Goldendoodle puppy.'), imageAlt: 'Cream male Goldendoodle puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="goldendoodle" breedName="Goldendoodle" />
 
     <CaptionedBlock heading="Looking to Buy a Goldendoodle in Singapore?" imageAlt="Goldendoodle puppy portrait, one of the Goldendoodle puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Goldendoodle puppies in Singapore are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and a short walkthrough video for the Goldendoodle puppies available now.</p>

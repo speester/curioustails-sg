@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -35,19 +36,13 @@ import imgScene3 from '../../assets/pomsky/4-pomsky-puppy-mid-zoomies-across-a-l
 import imgScene4 from '../../assets/pomsky/5-pomsky-puppy-having-its-double-coat-brushed.webp';
 import imgScene5 from '../../assets/pomsky/6-pomsky-puppy-at-a-veterinary-health-check-before-going.webp';
 import imgScene6 from '../../assets/pomsky/7-pomsky-puppy-settling-into-a-set-up-playpen-during-its.webp';
-import imgCard1 from '../../assets/pomsky/8-grey-and-white-male-pomsky-puppy-available-in-singapore.webp';
-import imgCard2 from '../../assets/pomsky/9-blue-eyed-female-pomsky-puppy-available-in-singapore.webp';
-import imgCard3 from '../../assets/pomsky/10-black-and-white-male-pomsky-puppy-available-in-singapor.webp';
-import imgCard4 from '../../assets/pomsky/11-red-and-white-female-pomsky-puppy-available-in-singapor.webp';
-import imgCard5 from '../../assets/pomsky/12-husky-masked-male-pomsky-puppy-available-in-singapore.webp';
-import imgCard6 from '../../assets/pomsky/13-cream-and-grey-female-pomsky-puppy-available-in-singapo.webp';
 
 const title = 'Pomsky Puppy for Sale Singapore | Curious Tails';
 const description =
   'Pomsky puppies for sale in Singapore from $5,500 all-in. Not HDB-approved despite the size, and adult size genuinely varies. We match honestly.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'HDB Rules', href: '#hdb' },
   { label: 'Size Truth', href: '#size-truth' },
   { label: 'Price', href: '#price' },
@@ -164,19 +159,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Pomsky Puppies"
-      headingAccent="Available"
-      subhead="A few of the Pomsky puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and parent photos, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Indy — Grey & white Boy', price: 5588, href: whatsappLink('Hi! I\'d like more photos and the price for Indy, the grey and white male Pomsky puppy.'), imageAlt: 'Grey and white male Pomsky puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Ube — Blue-eyed Girl', price: 5688, href: whatsappLink('Hi! I\'d like more photos and the price for Ube, the blue-eyed female Pomsky puppy.'), imageAlt: 'Blue-eyed female Pomsky puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Jelly — Black & white Boy', price: 5788, href: whatsappLink('Hi! I\'d like more photos and the price for Jelly, the black and white male Pomsky puppy.'), imageAlt: 'Black and white male Pomsky puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Velvet — Red & white Girl', price: 5888, href: whatsappLink('Hi! I\'d like more photos and the price for Velvet, the red and white female Pomsky puppy.'), imageAlt: 'Red and white female Pomsky puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Jimmy — Husky-masked Boy', price: 5988, href: whatsappLink('Hi! I\'d like more photos and the price for Jimmy, the husky-masked male Pomsky puppy.'), imageAlt: 'Husky-masked male Pomsky puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Vera — Cream & grey Girl', price: 6088, href: whatsappLink('Hi! I\'d like more photos and the price for Vera, the cream and grey female Pomsky puppy.'), imageAlt: 'Cream and grey female Pomsky puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="pomsky" breedName="Pomsky" />
 
     <CaptionedBlock heading="Looking to Buy a Pomsky in Singapore?" imageAlt="Husky-marked Pomsky puppy portrait, one of the Pomsky puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Pomsky puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop, we'll send you photos, gender, age, markings, and a short walkthrough video for the Pomsky puppies available now, along with the thing that matters most for this cross: photos of the parents and an honest size estimate.</p>

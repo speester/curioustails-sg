@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/samoyed/3-samoyed-puppy-playing-happily-with
 import imgScene3 from '../../assets/samoyed/4-samoyed-having-its-double-coat-line-brushed-with-an-und.webp';
 import imgScene4 from '../../assets/samoyed/5-samoyed-puppy-at-a-veterinary-health-check-before-going.webp';
 import imgScene5 from '../../assets/samoyed/6-samoyed-puppy-settling-into-a-set-up-playpen-during-its.webp';
-import imgCard1 from '../../assets/samoyed/7-white-male-samoyed-puppy-available-in-singapore.webp';
-import imgCard2 from '../../assets/samoyed/8-white-female-samoyed-puppy-available-in-singapore.webp';
-import imgCard3 from '../../assets/samoyed/9-cream-tinged-male-samoyed-puppy-available-in-singapore.webp';
-import imgCard4 from '../../assets/samoyed/10-fluffy-female-samoyed-puppy-available-in-singapore.webp';
-import imgCard5 from '../../assets/samoyed/11-biscuit-eared-male-samoyed-puppy-available-in-singapore.webp';
-import imgCard6 from '../../assets/samoyed/12-plush-female-samoyed-puppy-available-in-singapore.webp';
 
 const title = 'Samoyed Puppy for Sale Singapore | Curious Tails';
 const description =
   'Samoyed puppies for sale in Singapore from $5,500 all-in. Not HDB-approved, and the Arctic coat is real work here. Private housing? We match you.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'HDB Rules', href: '#hdb' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
@@ -163,19 +158,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Samoyed Puppies"
-      headingAccent="Available"
-      subhead="A few of the Sammy puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Kobe — Snow-white Boy', price: 5588, href: whatsappLink('Hi! I\'d like more photos and the price for Kobe, the male Samoyed puppy.'), imageAlt: 'White male Samoyed puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Whisper — Smiley Girl', price: 5788, href: whatsappLink('Hi! I\'d like more photos and the price for Whisper, the female Samoyed puppy.'), imageAlt: 'White female Samoyed puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Kopi — Cream-tinged Boy', price: 5988, href: whatsappLink('Hi! I\'d like more photos and the price for Kopi, the cream-tinged male Samoyed puppy.'), imageAlt: 'Cream-tinged male Samoyed puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Wisteria — Fluffy Girl', price: 6188, href: whatsappLink('Hi! I\'d like more photos and the price for Wisteria, the fluffy female Samoyed puppy.'), imageAlt: 'Fluffy female Samoyed puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Laksa — Biscuit-eared Boy', price: 6388, href: whatsappLink('Hi! I\'d like more photos and the price for Laksa, the biscuit-eared male Samoyed puppy.'), imageAlt: 'Biscuit-eared male Samoyed puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Yara — Plush Girl', price: 6588, href: whatsappLink('Hi! I\'d like more photos and the price for Yara, the plush female Samoyed puppy.'), imageAlt: 'Plush female Samoyed puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="samoyed" breedName="Samoyed" />
 
     <CaptionedBlock heading="Looking to Buy a Samoyed in Singapore?" imageAlt="White Samoyed puppy portrait, one of the Samoyed puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Samoyed puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and a short walkthrough video for the Sammy puppies available now.</p>

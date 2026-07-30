@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -33,19 +34,13 @@ import imgScene1 from '../../assets/english-bulldog/2-english-bulldog-puppy-port
 import imgScene2 from '../../assets/english-bulldog/3-english-bulldog-puppy-relaxing-calmly-with-children-ind.webp';
 import imgScene3 from '../../assets/english-bulldog/4-english-bulldog-puppy-at-a-veterinary-health-check-befo.webp';
 import imgScene4 from '../../assets/english-bulldog/5-english-bulldog-puppy-settling-into-a-set-up-playpen-du.webp';
-import imgCard1 from '../../assets/english-bulldog/6-fawn-and-white-male-english-bulldog-puppy-available-in.webp';
-import imgCard2 from '../../assets/english-bulldog/7-brindle-female-english-bulldog-puppy-available-in-singa.webp';
-import imgCard3 from '../../assets/english-bulldog/8-white-and-fawn-male-english-bulldog-puppy-available-in.webp';
-import imgCard4 from '../../assets/english-bulldog/9-red-and-white-female-english-bulldog-puppy-available-in.webp';
-import imgCard5 from '../../assets/english-bulldog/10-fawn-female-english-bulldog-puppy-available-in-singapor.webp';
-import imgCard6 from '../../assets/english-bulldog/11-brindle-and-white-male-english-bulldog-puppy-available.webp';
 
 const title = 'English Bulldog Puppy for Sale Singapore | Curious Tails';
 const description =
   'English Bulldog puppies for sale in Singapore from $6,988 all-in. Not HDB-approved, and they need the strictest heat care of any breed we carry.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'HDB Rules', href: '#hdb' },
   { label: 'Heat Care', href: '#heat' },
   { label: 'Price', href: '#price' },
@@ -167,19 +162,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available English Bulldog Puppies"
-      headingAccent="Available"
-      subhead="A few of the Bulldog puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Ziggy — Fawn & white Boy', price: 6988, href: whatsappLink('Hi! I\'d like more photos and the price for Ziggy, the fawn and white male English Bulldog puppy.'), imageAlt: 'Fawn and white male English Bulldog puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Juno — Brindle Girl', price: 7188, href: whatsappLink('Hi! I\'d like more photos and the price for Juno, the brindle female English Bulldog puppy.'), imageAlt: 'Brindle female English Bulldog puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Ace — White & fawn Boy', price: 7388, href: whatsappLink('Hi! I\'d like more photos and the price for Ace, the white and fawn male English Bulldog puppy.'), imageAlt: 'White and fawn male English Bulldog puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Kiki — Red & white Girl', price: 7588, href: whatsappLink('Hi! I\'d like more photos and the price for Kiki, the red and white female English Bulldog puppy.'), imageAlt: 'Red and white female English Bulldog puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Kira — Fawn Girl', price: 7788, href: whatsappLink('Hi! I\'d like more photos and the price for Kira, the fawn female English Bulldog puppy.'), imageAlt: 'Fawn female English Bulldog puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Alfie — Brindle & white Boy', price: 7988, href: whatsappLink('Hi! I\'d like more photos and the price for Alfie, the brindle and white male English Bulldog puppy.'), imageAlt: 'Brindle and white male English Bulldog puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="english-bulldog" breedName="English Bulldog" />
 
     <CaptionedBlock heading="Looking to Buy an English Bulldog in Singapore?" imageAlt="English Bulldog puppy portrait, one of the Bulldog puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our English Bulldog puppies in Singapore are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Bulldog puppies available now.</p>

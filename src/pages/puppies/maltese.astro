@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -33,12 +34,6 @@ import maltesePortrait from '../../assets/maltese/3-maltese-puppy-portrait-avail
 import malteseGrooming from '../../assets/maltese/4-maltese-puppy-grooming-tear-stain-care.webp';
 import malteseVet from '../../assets/maltese/5-maltese-puppy-vet-health-check.webp';
 import malteseSettling from '../../assets/maltese/6-maltese-puppy-settling-playpen.webp';
-import whiteBoyPortrait from '../../assets/maltese/7-maltese-white-boy-portrait.webp';
-import ivoryGirlPortrait from '../../assets/maltese/8-maltese-ivory-girl-portrait.webp';
-import creamEarsBoyPortrait from '../../assets/maltese/9-maltese-cream-ears-boy-portrait.webp';
-import snowGirlPortrait from '../../assets/maltese/10-maltese-snow-girl-portrait.webp';
-import silkyGirlPortrait from '../../assets/maltese/11-maltese-silky-girl-portrait.webp';
-import ivoryBoyPortrait from '../../assets/maltese/12-maltese-ivory-boy-portrait.webp';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
 
 const title = 'Maltese Puppy for Sale Singapore | Curious Tails';
@@ -46,7 +41,7 @@ const description =
   'Maltese puppies for sale in Singapore from $4,288, AVS licensed and HDB-approved. Real prices, temperament, grooming and the $500+ starter kit included. WhatsApp us.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -164,22 +159,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Maltese Puppies"
-      headingAccent="Available"
-      subhead="A few of the Maltese puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Rain — Snow-white Girl', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Rain, the snow-white female Maltese puppy.'), imageAlt: 'Snow-white female Maltese puppy available in Singapore', imageSrc: maltesePortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Dobby — White Boy', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Dobby, the white male Maltese puppy.'), imageAlt: 'White male Maltese puppy cuddled close on a caregiver\'s lap', imageSrc: companionLap, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '11 weeks' },
-        { title: 'Raisin — Cream-white Girl', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Raisin, the cream-white female Maltese puppy.'), imageAlt: 'Cream-white female Maltese puppy during grooming and eye care', imageSrc: malteseGrooming, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Domino — Pure white Boy', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Domino, the pure white male Maltese puppy (8 weeks).'), imageAlt: 'Pure white male Maltese puppy sitting with a head tilt', imageSrc: whiteBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '8 weeks' },
-        { title: 'Rey — Ivory Girl', price: 5088, href: whatsappLink('Hi! I\'d like more photos and the price for Rey, the ivory female Maltese puppy.'), imageAlt: 'Ivory female Maltese puppy lying on a pastel blanket', imageSrc: ivoryGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Donut — White & cream Boy', price: 5288, href: whatsappLink('Hi! I\'d like more photos and the price for Donut, the white and cream male Maltese puppy.'), imageAlt: 'White male Maltese puppy with pale cream ears standing alert', imageSrc: creamEarsBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Rhea — Petite white Girl', price: 5488, href: whatsappLink('Hi! I\'d like more photos and the price for Rhea, the petite white female Maltese puppy.'), imageAlt: 'Petite snow-white female Maltese puppy playing with a plush toy', imageSrc: snowGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-        { title: 'Ripley — Silky-coat Girl', price: 5688, href: whatsappLink('Hi! I\'d like more photos and the price for Ripley, the silky-coat female Maltese puppy.'), imageAlt: 'White female Maltese puppy with a longer silky coat sitting on a cotton mat', imageSrc: silkyGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Dumpling — Ivory Boy', price: 5888, href: whatsappLink('Hi! I\'d like more photos and the price for Dumpling, the ivory male Maltese puppy.'), imageAlt: 'Ivory male Maltese puppy trotting toward the camera', imageSrc: ivoryBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '9 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="maltese" breedName="Maltese" />
 
     <CaptionedBlock heading="Looking to Buy a Maltese in Singapore?" imageAlt="Maltese puppy portrait, one of the Maltese puppies available in Singapore" imageSrc={maltesePortrait} variant="mid">
       <p>Our Maltese puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and a short walkthrough video for the Maltese puppies available now.</p>

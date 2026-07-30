@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -35,19 +36,13 @@ import imgScene3 from '../../assets/golden-retriever/4-golden-retriever-on-a-mor
 import imgScene4 from '../../assets/golden-retriever/5-golden-retriever-having-its-double-coat-brushed-with-an.webp';
 import imgScene5 from '../../assets/golden-retriever/6-golden-retriever-puppy-at-a-veterinary-health-check-bef.webp';
 import imgScene6 from '../../assets/golden-retriever/7-golden-retriever-puppy-settling-into-a-set-up-playpen-d.webp';
-import imgCard1 from '../../assets/golden-retriever/8-golden-male-golden-retriever-puppy-available-in-singapo.webp';
-import imgCard2 from '../../assets/golden-retriever/9-cream-female-golden-retriever-puppy-available-in-singap.webp';
-import imgCard3 from '../../assets/golden-retriever/10-deep-gold-male-golden-retriever-puppy-available-in-sing.webp';
-import imgCard4 from '../../assets/golden-retriever/11-light-golden-female-golden-retriever-puppy-available-in.webp';
-import imgCard5 from '../../assets/golden-retriever/12-golden-female-golden-retriever-puppy-available-in-singa.webp';
-import imgCard6 from '../../assets/golden-retriever/13-cream-male-golden-retriever-puppy-available-in-singapor.webp';
 
 const title = 'Golden Retriever Puppy for Sale Singapore | Curious Tails';
 const description =
   'Golden Retriever puppies for sale in Singapore from $4,588 all-in. Not HDB-approved. Real prices, the exercise reality and heat care in our climate.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'HDB Rules', href: '#hdb' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
@@ -164,19 +159,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Golden Retriever Puppies"
-      headingAccent="Available"
-      subhead="A few of the Golden puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Beau — Golden Boy', price: 4588, href: whatsappLink('Hi! I\'d like more photos and the price for Beau, the golden male Golden Retriever puppy.'), imageAlt: 'Golden male Golden Retriever puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Lottie — Cream Girl', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Lottie, the cream female Golden Retriever puppy.'), imageAlt: 'Cream female Golden Retriever puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Benny — Deep gold Boy', price: 4788, href: whatsappLink('Hi! I\'d like more photos and the price for Benny, the deep gold male Golden Retriever puppy.'), imageAlt: 'Deep gold male Golden Retriever puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Lulu — Light golden Girl', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Lulu, the light golden female Golden Retriever puppy.'), imageAlt: 'Light golden female Golden Retriever puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Maisie — Golden Girl', price: 4988, href: whatsappLink('Hi! I\'d like more photos and the price for Maisie, the golden female Golden Retriever puppy.'), imageAlt: 'Golden female Golden Retriever puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Biscuit — Cream Boy', price: 5088, href: whatsappLink('Hi! I\'d like more photos and the price for Biscuit, the cream male Golden Retriever puppy.'), imageAlt: 'Cream male Golden Retriever puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="golden-retriever" breedName="Golden Retriever" />
 
     <CaptionedBlock heading="Looking to Buy a Golden Retriever in Singapore?" imageAlt="Golden Retriever puppy portrait, one of the Golden puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Golden Retriever puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat shade, and a short walkthrough video for the Golden puppies available now.</p>

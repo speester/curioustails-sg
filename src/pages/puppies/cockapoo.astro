@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -28,23 +29,15 @@ import {
 } from '../../lib/schema';
 import heroCockapoo from '../../assets/cockapoo/1-cockapoo-puppy-hero-playpen-home.webp';
 import apricotPortrait from '../../assets/cockapoo/2-cockapoo-apricot-portrait.webp';
-import redPortrait from '../../assets/cockapoo/3-cockapoo-red-portrait.webp';
-import creamPortrait from '../../assets/cockapoo/4-cockapoo-cream-portrait.webp';
 import familyFetch from '../../assets/cockapoo/5-cockapoo-family-play-fetch.webp';
 import earCheck from '../../assets/cockapoo/6-cockapoo-ear-check-care.webp';
-import chocolatePortrait from '../../assets/cockapoo/7-cockapoo-chocolate-portrait.webp';
-import blackPortrait from '../../assets/cockapoo/8-cockapoo-black-portrait.webp';
-import goldenPortrait from '../../assets/cockapoo/9-cockapoo-golden-portrait.webp';
-import partiPortrait from '../../assets/cockapoo/10-cockapoo-parti-portrait.webp';
-import apricotGirlPortrait from '../../assets/cockapoo/11-cockapoo-apricot-portrait.webp';
-import redBoyPortrait from '../../assets/cockapoo/12-cockapoo-red-portrait.webp';
 
 const title = 'Cockapoo Puppy for Sale Singapore | Curious Tails';
 const description =
   'Cockapoo puppies for sale in Singapore from $3,288 all-in. Family-friendly, low-shedding, HDB-approved, and forgiving for first-time owners. Starter kit included.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -155,22 +148,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Cockapoo Puppies"
-      headingAccent="Available"
-      subhead="A few of the Cockapoos recently looking for homes. Tap any pup to WhatsApp us for the latest photos, video and health records."
-      items={[
-        { title: 'Jax — Apricot Boy', price: 3288, href: whatsappLink('Hi! I\'d like more photos and the price for Jax, the apricot male Cockapoo puppy.'), imageAlt: 'Apricot male Cockapoo puppy available in Singapore', imageSrc: apricotPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Daffy — Red Girl', price: 3488, href: whatsappLink('Hi! I\'d like more photos and the price for Daffy, the red female Cockapoo puppy.'), imageAlt: 'Red female Cockapoo puppy playing with a rope toy', imageSrc: redPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Koda — Cream Boy', price: 3688, href: whatsappLink('Hi! I\'d like more photos and the price for Koda, the cream male Cockapoo puppy.'), imageAlt: 'Cream male Cockapoo puppy trotting on cream tiles', imageSrc: creamPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Fern — Chocolate Girl', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Fern, the chocolate female Cockapoo puppy.'), imageAlt: 'Chocolate brown female Cockapoo puppy sitting with a head tilt', imageSrc: chocolatePortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Loki — Black Boy', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Loki, the black male Cockapoo puppy.'), imageAlt: 'Black male Cockapoo puppy lying on a pastel blanket', imageSrc: blackPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Fiona — Golden Girl', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Fiona, the golden female Cockapoo puppy.'), imageAlt: 'Warm golden female Cockapoo puppy standing alert', imageSrc: goldenPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-        { title: 'Pip — Cream & white Boy', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Pip, the cream and white parti male Cockapoo puppy.'), imageAlt: 'Cream and white parti-colour male Cockapoo puppy playing with a plush toy', imageSrc: partiPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '9 weeks' },
-        { title: 'Freya — Apricot Girl', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Freya, the apricot female Cockapoo puppy.'), imageAlt: 'Apricot female Cockapoo puppy sitting on a cotton mat', imageSrc: apricotGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Ranger — Red Boy', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Ranger, the red male Cockapoo puppy (8 weeks).'), imageAlt: 'Deep red male Cockapoo puppy trotting toward the camera', imageSrc: redBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '8 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="cockapoo" breedName="Cockapoo" />
 
     <CaptionedBlock heading="Looking for a Cockapoo for Sale in Singapore?" imageAlt="Apricot Cockapoo puppy available in Singapore, seated portrait with long ears" imageSrc={apricotPortrait} variant="mid">
       <p>Cockapoo litters get reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. Message us for photos, gender, age, colour, and a short walkthrough video of the Cockapoo puppies available now.</p>

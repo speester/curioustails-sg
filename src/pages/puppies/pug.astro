@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/pug/3-pug-puppy-playing-gently-with-a-family
 import imgScene3 from '../../assets/pug/4-pug-puppy-having-its-facial-wrinkles-gently-cleaned.webp';
 import imgScene4 from '../../assets/pug/5-pug-puppy-at-a-veterinary-health-check-before-going-hom.webp';
 import imgScene5 from '../../assets/pug/6-pug-puppy-settling-into-a-set-up-playpen-during-its-fir.webp';
-import imgCard1 from '../../assets/pug/7-fawn-male-pug-puppy-available-in-singapore.webp';
-import imgCard2 from '../../assets/pug/8-fawn-female-pug-puppy-available-in-singapore.webp';
-import imgCard3 from '../../assets/pug/9-black-male-pug-puppy-available-in-singapore.webp';
-import imgCard4 from '../../assets/pug/10-black-female-pug-puppy-available-in-singapore.webp';
-import imgCard5 from '../../assets/pug/11-apricot-fawn-male-pug-puppy-available-in-singapore.webp';
-import imgCard6 from '../../assets/pug/12-silver-fawn-female-pug-puppy-available-in-singapore.webp';
 
 const title = 'Pug Puppy for Sale Singapore | Curious Tails';
 const description =
   'Pug puppies for sale in Singapore from $4,588, AVS licensed and HDB-approved. Real prices, temperament, heat care for flat faces and the $500+ starter kit included.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -163,19 +158,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Pug Puppies"
-      headingAccent="Available"
-      subhead="A few of the Pug puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Jinx — Fawn Boy', price: 4588, href: whatsappLink('Hi! I\'d like more photos and the price for Jinx, the fawn male Pug puppy.'), imageAlt: 'Fawn male Pug puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Violet — Fawn Girl', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Violet, the fawn female Pug puppy.'), imageAlt: 'Fawn female Pug puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Kenji — Black Boy', price: 4788, href: whatsappLink('Hi! I\'d like more photos and the price for Kenji, the black male Pug puppy.'), imageAlt: 'Black male Pug puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Wanda — Black Girl', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Wanda, the black female Pug puppy.'), imageAlt: 'Black female Pug puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Kiwi — Apricot fawn Boy', price: 4988, href: whatsappLink('Hi! I\'d like more photos and the price for Kiwi, the apricot fawn male Pug puppy.'), imageAlt: 'Apricot fawn male Pug puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Wendy — Silver fawn Girl', price: 5088, href: whatsappLink('Hi! I\'d like more photos and the price for Wendy, the silver fawn female Pug puppy.'), imageAlt: 'Silver fawn female Pug puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="pug" breedName="Pug" />
 
     <CaptionedBlock heading="Looking to Buy a Pug in Singapore?" imageAlt="Fawn Pug puppy portrait, one of the Pug puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Pug puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Pug puppies available now.</p>

@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/cavalier-king-charles-spaniel/3-cavalier-kin
 import imgScene3 from '../../assets/cavalier-king-charles-spaniel/4-cavalier-king-charles-spaniel-puppy-having-its-silky-ea.webp';
 import imgScene4 from '../../assets/cavalier-king-charles-spaniel/5-cavalier-king-charles-spaniel-puppy-at-a-veterinary-hea.webp';
 import imgScene5 from '../../assets/cavalier-king-charles-spaniel/6-cavalier-puppy-settling-into-a-set-up-playpen-during-it.webp';
-import imgCard1 from '../../assets/cavalier-king-charles-spaniel/7-blenheim-male-cavalier-king-charles-spaniel-puppy-avail.webp';
-import imgCard2 from '../../assets/cavalier-king-charles-spaniel/8-tricolour-female-cavalier-king-charles-spaniel-puppy-av.webp';
-import imgCard3 from '../../assets/cavalier-king-charles-spaniel/9-ruby-male-cavalier-king-charles-spaniel-puppy-available.webp';
-import imgCard4 from '../../assets/cavalier-king-charles-spaniel/10-black-and-tan-female-cavalier-king-charles-spaniel-pupp.webp';
-import imgCard5 from '../../assets/cavalier-king-charles-spaniel/11-blenheim-female-cavalier-king-charles-spaniel-puppy-ava.webp';
-import imgCard6 from '../../assets/cavalier-king-charles-spaniel/12-tricolour-male-cavalier-king-charles-spaniel-puppy-avai.webp';
 
 const title = 'Cavalier King Charles Spaniel Puppy for Sale Singapore';
 const description =
   'Cavalier King Charles Spaniel puppies for sale in Singapore from $5,588, AVS licensed and HDB-approved. Real prices and honest health guidance.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -168,19 +163,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Cavalier Puppies"
-      headingAccent="Available"
-      subhead="A few of the Cavalier puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Gus — Blenheim Boy', price: 5588, href: whatsappLink('Hi! I\'d like more photos and the price for Gus, the Blenheim male Cavalier puppy.'), imageAlt: 'Blenheim male Cavalier King Charles Spaniel puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Nova — Tricolour Girl', price: 5788, href: whatsappLink('Hi! I\'d like more photos and the price for Nova, the tricolour female Cavalier puppy.'), imageAlt: 'Tricolour female Cavalier King Charles Spaniel puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Ollie — Ruby Boy', price: 5988, href: whatsappLink('Hi! I\'d like more photos and the price for Ollie, the ruby male Cavalier puppy.'), imageAlt: 'Ruby male Cavalier King Charles Spaniel puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Hazel — Black & tan Girl', price: 6188, href: whatsappLink('Hi! I\'d like more photos and the price for Hazel, the black and tan female Cavalier puppy.'), imageAlt: 'Black and tan female Cavalier King Charles Spaniel puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Olive — Blenheim Girl', price: 6388, href: whatsappLink('Hi! I\'d like more photos and the price for Olive, the Blenheim female Cavalier puppy.'), imageAlt: 'Blenheim female Cavalier King Charles Spaniel puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Hugo — Tricolour Boy', price: 6588, href: whatsappLink('Hi! I\'d like more photos and the price for Hugo, the tricolour male Cavalier puppy.'), imageAlt: 'Tricolour male Cavalier King Charles Spaniel puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="cavalier-king-charles-spaniel" breedName="Cavalier" />
 
     <CaptionedBlock heading="Looking to Buy a Cavalier in Singapore?" imageAlt="Blenheim Cavalier King Charles Spaniel puppy portrait, one of the Cavalier puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Cavalier puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Cavalier King Charles Spaniel puppies available now.</p>

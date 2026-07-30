@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/toy-poodle/3-toy-poodle-puppy-learning-a-cue
 import imgScene3 from '../../assets/toy-poodle/4-toy-poodle-puppy-being-brushed-during-a-coat-care-sessi.webp';
 import imgScene4 from '../../assets/toy-poodle/5-toy-poodle-puppy-at-a-veterinary-health-check-before-go.webp';
 import imgScene5 from '../../assets/toy-poodle/6-toy-poodle-puppy-settling-into-a-set-up-playpen-during.webp';
-import imgCard1 from '../../assets/toy-poodle/7-red-male-toy-poodle-puppy-available-in-singapore.webp';
-import imgCard2 from '../../assets/toy-poodle/8-apricot-female-toy-poodle-puppy-available-in-singapore.webp';
-import imgCard3 from '../../assets/toy-poodle/9-cream-male-toy-poodle-puppy-available-in-singapore.webp';
-import imgCard4 from '../../assets/toy-poodle/10-black-female-toy-poodle-puppy-available-in-singapore.webp';
-import imgCard5 from '../../assets/toy-poodle/11-white-male-toy-poodle-puppy-available-in-singapore.webp';
-import imgCard6 from '../../assets/toy-poodle/12-silver-female-toy-poodle-puppy-available-in-singapore.webp';
 
 const title = 'Toy Poodle Puppy for Sale Singapore | Curious Tails';
 const description =
   'Toy Poodle puppies for sale in Singapore from $3,488, AVS licensed and HDB-approved. Real prices, temperament and the full range of coat colours.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -168,19 +163,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Toy Poodle Puppies"
-      headingAccent="Available"
-      subhead="A few of the Toy Poodle puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Otto — Red Boy', price: 3488, href: whatsappLink('Hi! I\'d like more photos and the price for Otto, the red male Toy Poodle puppy.'), imageAlt: 'Red male Toy Poodle puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Betsy — Apricot Girl', price: 3688, href: whatsappLink('Hi! I\'d like more photos and the price for Betsy, the apricot female Toy Poodle puppy.'), imageAlt: 'Apricot female Toy Poodle puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Ozzy — Cream Boy', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Ozzy, the cream male Toy Poodle puppy.'), imageAlt: 'Cream male Toy Poodle puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Birdie — Black Girl', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Birdie, the black female Toy Poodle puppy.'), imageAlt: 'Black female Toy Poodle puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Pancake — White Boy', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Pancake, the white male Toy Poodle puppy.'), imageAlt: 'White male Toy Poodle puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Biscotti — Silver Girl', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Biscotti, the silver female Toy Poodle puppy.'), imageAlt: 'Silver female Toy Poodle puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="toy-poodle" breedName="Toy Poodle" />
 
     <CaptionedBlock heading="Looking to Buy a Toy Poodle in Singapore?" imageAlt="Apricot Toy Poodle puppy portrait, one of the Toy Poodle puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Toy Poodles are the most requested breed in the shop, so our litters arrive and are reserved quickly, and we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Toy Poodle puppies available now.</p>

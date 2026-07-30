@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/scottish-terrier/3-scottish-terrier-puppy-su
 import imgScene3 from '../../assets/scottish-terrier/4-scottish-terrier-puppy-having-its-wiry-coat-and-beard-c.webp';
 import imgScene4 from '../../assets/scottish-terrier/5-scottish-terrier-puppy-at-a-veterinary-health-check-bef.webp';
 import imgScene5 from '../../assets/scottish-terrier/6-scottish-terrier-puppy-settling-into-a-set-up-playpen-d.webp';
-import imgCard1 from '../../assets/scottish-terrier/7-black-male-scottish-terrier-puppy-available-in-singapor.webp';
-import imgCard2 from '../../assets/scottish-terrier/8-black-female-scottish-terrier-puppy-available-in-singap.webp';
-import imgCard3 from '../../assets/scottish-terrier/9-brindle-male-scottish-terrier-puppy-available-in-singap.webp';
-import imgCard4 from '../../assets/scottish-terrier/10-wheaten-female-scottish-terrier-puppy-available-in-sing.webp';
-import imgCard5 from '../../assets/scottish-terrier/11-brindle-female-scottish-terrier-puppy-available-in-sing.webp';
-import imgCard6 from '../../assets/scottish-terrier/12-wheaten-male-scottish-terrier-puppy-available-in-singap.webp';
 
 const title = 'Scottish Terrier Puppy for Sale Singapore | Curious Tails';
 const description =
   'Scottish Terrier puppies for sale in Singapore from $3,588, AVS licensed and HDB-approved. Real prices, temperament, coat care and the $500+ starter kit included.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -173,19 +168,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Scottish Terrier Puppies"
-      headingAccent="Available"
-      subhead="A few of the Scottie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Latte — Black Boy', price: 3588, href: whatsappLink('Hi! I\'d like more photos and the price for Latte, the black male Scottish Terrier puppy.'), imageAlt: 'Black male Scottish Terrier puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Yuki — Black Girl', price: 3788, href: whatsappLink('Hi! I\'d like more photos and the price for Yuki, the black female Scottish Terrier puppy.'), imageAlt: 'Black female Scottish Terrier puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Leroy — Brindle Boy', price: 3988, href: whatsappLink('Hi! I\'d like more photos and the price for Leroy, the brindle male Scottish Terrier puppy.'), imageAlt: 'Brindle male Scottish Terrier puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Zara — Wheaten Girl', price: 4188, href: whatsappLink('Hi! I\'d like more photos and the price for Zara, the wheaten female Scottish Terrier puppy.'), imageAlt: 'Wheaten female Scottish Terrier puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Zelda — Brindle Girl', price: 4388, href: whatsappLink('Hi! I\'d like more photos and the price for Zelda, the brindle female Scottish Terrier puppy.'), imageAlt: 'Brindle female Scottish Terrier puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Linus — Wheaten Boy', price: 4588, href: whatsappLink('Hi! I\'d like more photos and the price for Linus, the wheaten male Scottish Terrier puppy.'), imageAlt: 'Wheaten male Scottish Terrier puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="scottish-terrier" breedName="Scottish Terrier" />
 
     <CaptionedBlock heading="Looking to Buy a Scottish Terrier in Singapore?" imageAlt="Black Scottish Terrier puppy portrait, one of the Scottie puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Scotties are rare in Singapore and litters are infrequent, so availability moves fast; we update this list as puppies are reserved and confirm the rest on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Scottish Terrier puppies available now.</p>

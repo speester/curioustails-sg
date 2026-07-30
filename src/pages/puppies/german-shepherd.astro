@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -35,19 +36,13 @@ import imgScene3 from '../../assets/german-shepherd/4-german-shepherd-on-a-morni
 import imgScene4 from '../../assets/german-shepherd/5-german-shepherd-having-its-double-coat-brushed-with-an.webp';
 import imgScene5 from '../../assets/german-shepherd/6-german-shepherd-puppy-at-a-veterinary-health-check-befo.webp';
 import imgScene6 from '../../assets/german-shepherd/7-german-shepherd-puppy-settling-into-a-set-up-playpen-du.webp';
-import imgCard1 from '../../assets/german-shepherd/8-black-and-tan-male-german-shepherd-puppy-available-in-s.webp';
-import imgCard2 from '../../assets/german-shepherd/9-sable-female-german-shepherd-puppy-available-in-singapo.webp';
-import imgCard3 from '../../assets/german-shepherd/10-black-and-tan-female-german-shepherd-puppy-available-in.webp';
-import imgCard4 from '../../assets/german-shepherd/11-sable-male-german-shepherd-puppy-available-in-singapore.webp';
-import imgCard5 from '../../assets/german-shepherd/12-dark-sable-male-german-shepherd-puppy-available-in-sing.webp';
-import imgCard6 from '../../assets/german-shepherd/13-second-black-and-tan-female-german-shepherd-puppy-avail.webp';
 
 const title = 'German Shepherd Puppy for Sale Singapore | Curious Tails';
 const description =
   'German Shepherd puppies for sale in Singapore from $5,988 all-in. Not HDB-approved, and a Specified dog: leash and muzzle required in public.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'HDB Rules', href: '#hdb' },
   { label: 'Muzzle Law', href: '#law' },
   { label: 'Price', href: '#price' },
@@ -174,19 +169,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available German Shepherd Puppies"
-      headingAccent="Available"
-      subhead="A few of the Shepherd puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Banjo — Black & tan Boy', price: 5988, href: whatsappLink('Hi! I\'d like more photos and the price for Banjo, the black and tan male German Shepherd puppy.'), imageAlt: 'Black and tan male German Shepherd puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Leia — Sable Girl', price: 6088, href: whatsappLink('Hi! I\'d like more photos and the price for Leia, the sable female German Shepherd puppy.'), imageAlt: 'Sable female German Shepherd puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Lilac — Black & tan Girl', price: 6188, href: whatsappLink('Hi! I\'d like more photos and the price for Lilac, the black and tan female German Shepherd puppy.'), imageAlt: 'Black and tan female German Shepherd puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Barney — Sable Boy', price: 6288, href: whatsappLink('Hi! I\'d like more photos and the price for Barney, the sable male German Shepherd puppy.'), imageAlt: 'Sable male German Shepherd puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '9 weeks' },
-        { title: 'Basil — Dark sable Boy', price: 6388, href: whatsappLink('Hi! I\'d like more photos and the price for Basil, the dark sable male German Shepherd puppy.'), imageAlt: 'Dark sable male German Shepherd puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
-        { title: 'Lily — Black & tan Girl', price: 6488, href: whatsappLink('Hi! I\'d like more photos and the price for Lily, the second black and tan female German Shepherd puppy.'), imageAlt: 'Second black and tan female German Shepherd puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
-      ]}
-    />
+    <AvailablePuppies breed="german-shepherd" breedName="German Shepherd" />
 
     <CaptionedBlock heading="Looking to Buy a German Shepherd in Singapore?" imageAlt="German Shepherd puppy portrait, one of the Shepherd puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our German Shepherd puppies in Singapore are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat pattern, and a short walkthrough video for the Shepherd puppies available now.</p>

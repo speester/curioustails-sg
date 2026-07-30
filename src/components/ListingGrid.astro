@@ -13,6 +13,7 @@ interface Item {
   points?: string[]; // quick point-form facts shown on the card
   ctaLabel?: string; // when set, renders a "View Breed"-style button instead of the WhatsApp one
   tag?: string;
+  tagVariant?: 'muted'; // lilac tag (e.g. "Recently placed") instead of the coral default
   comingSoon?: boolean; // page not built yet: render a non-clickable "Coming soon" card (no link, no 404)
   gender?: 'Male' | 'Female';
   age?: string; // e.g. "2 months"
@@ -55,7 +56,7 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
               <span
                 class:list={[
                   'absolute left-5 top-5 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold text-white',
-                  item.comingSoon
+                  item.comingSoon || item.tagVariant === 'muted'
                     ? 'bg-[var(--color-lilac-900)] shadow-[0_3px_0_0_rgba(0,0,0,0.18)]'
                     : 'bg-[var(--color-coral-500)] shadow-[0_3px_0_0_var(--color-coral-700)]',
                 ]}

@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/japanese-chin/3-japanese-chin-puppy-perched-
 import imgScene3 from '../../assets/japanese-chin/4-japanese-chin-puppy-having-its-silky-single-coat-brushe.webp';
 import imgScene4 from '../../assets/japanese-chin/5-japanese-chin-puppy-at-a-veterinary-health-check-before.webp';
 import imgScene5 from '../../assets/japanese-chin/6-japanese-chin-puppy-settling-into-a-set-up-playpen-duri.webp';
-import imgCard1 from '../../assets/japanese-chin/7-black-and-white-male-japanese-chin-puppy-available-in-s.webp';
-import imgCard2 from '../../assets/japanese-chin/8-red-and-white-female-japanese-chin-puppy-available-in-s.webp';
-import imgCard3 from '../../assets/japanese-chin/9-sable-and-white-male-japanese-chin-puppy-available-in-s.webp';
-import imgCard4 from '../../assets/japanese-chin/10-black-and-white-female-japanese-chin-puppy-available-in.webp';
-import imgCard5 from '../../assets/japanese-chin/11-petite-male-japanese-chin-puppy-available-in-singapore.webp';
-import imgCard6 from '../../assets/japanese-chin/12-elegant-female-japanese-chin-puppy-available-in-singapo.webp';
 
 const title = 'Japanese Chin Puppy for Sale Singapore | Curious Tails';
 const description =
   'Japanese Chin puppies for sale in Singapore from $3,288, AVS licensed and HDB-approved. The cat-like toy dog: temperament and heat care, honestly.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -163,19 +158,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Japanese Chin Puppies"
-      headingAccent="Available"
-      subhead="A few of the Chin puppies looking for a home right now. Litters are rare and move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Cody — Black & white Boy', price: 3288, href: whatsappLink('Hi! I\'d like more photos and the price for Cody, the black and white male Japanese Chin puppy.'), imageAlt: 'Black and white male Japanese Chin puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Paisley — Red & white Girl', price: 3488, href: whatsappLink('Hi! I\'d like more photos and the price for Paisley, the red and white female Japanese Chin puppy.'), imageAlt: 'Red and white female Japanese Chin puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Comet — Sable & white Boy', price: 3688, href: whatsappLink('Hi! I\'d like more photos and the price for Comet, the sable and white male Japanese Chin puppy.'), imageAlt: 'Sable and white male Japanese Chin puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Pearl — Black & white Girl', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Pearl, the black and white female Japanese Chin puppy.'), imageAlt: 'Black and white female Japanese Chin puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Copper — Petite Boy', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Copper, the petite male Japanese Chin puppy.'), imageAlt: 'Petite male Japanese Chin puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Peony — Elegant Girl', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Peony, the elegant female Japanese Chin puppy.'), imageAlt: 'Elegant female Japanese Chin puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="japanese-chin" breedName="Japanese Chin" />
 
     <CaptionedBlock heading="Looking to Buy a Japanese Chin in Singapore?" imageAlt="Black and white Japanese Chin puppy portrait, one of the Chin puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>The Japanese Chin is one of the rarest breeds we carry: litters are intermittent and usually spoken for early, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for any Chin puppies available now, or tell you honestly when the next litter is expected.</p>

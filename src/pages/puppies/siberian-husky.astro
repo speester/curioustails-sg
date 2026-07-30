@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -35,19 +36,13 @@ import imgScene3 from '../../assets/siberian-husky/4-siberian-husky-puppy-mid-pl
 import imgScene4 from '../../assets/siberian-husky/5-siberian-husky-having-its-double-coat-brushed-with-an-u.webp';
 import imgScene5 from '../../assets/siberian-husky/6-siberian-husky-puppy-at-a-veterinary-health-check-befor.webp';
 import imgScene6 from '../../assets/siberian-husky/7-siberian-husky-puppy-settling-into-a-set-up-playpen-dur.webp';
-import imgCard1 from '../../assets/siberian-husky/8-grey-and-white-male-siberian-husky-puppy-available-in-s.webp';
-import imgCard2 from '../../assets/siberian-husky/9-black-and-white-female-siberian-husky-puppy-available-i.webp';
-import imgCard3 from '../../assets/siberian-husky/10-red-and-white-male-siberian-husky-puppy-available-in-si.webp';
-import imgCard4 from '../../assets/siberian-husky/11-blue-eyed-female-siberian-husky-puppy-available-in-sing.webp';
-import imgCard5 from '../../assets/siberian-husky/12-agouti-male-siberian-husky-puppy-available-in-singapore.webp';
-import imgCard6 from '../../assets/siberian-husky/13-bi-eyed-female-siberian-husky-puppy-available-in-singap.webp';
 
 const title = 'Siberian Husky Puppy for Sale Singapore | Curious Tails';
 const description =
   'Siberian Husky puppies for sale in Singapore from $5,088 all-in. Not HDB-approved, and an Arctic athlete in the tropics is a serious commitment.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'HDB Rules', href: '#hdb' },
   { label: 'Reality Check', href: '#reality' },
   { label: 'Price', href: '#price' },
@@ -164,19 +159,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Husky Puppies"
-      headingAccent="Available"
-      subhead="A few of the Husky puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Nugget — Grey & white Boy', price: 5088, href: whatsappLink('Hi! I\'d like more photos and the price for Nugget, the grey and white male Husky puppy.'), imageAlt: 'Grey and white male Siberian Husky puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Ava — Black & white Girl', price: 5288, href: whatsappLink('Hi! I\'d like more photos and the price for Ava, the black and white female Husky puppy.'), imageAlt: 'Black and white female Siberian Husky puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Obi — Red & white Boy', price: 5488, href: whatsappLink('Hi! I\'d like more photos and the price for Obi, the red and white male Husky puppy.'), imageAlt: 'Red and white male Siberian Husky puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Azalea — Blue-eyed Girl', price: 5688, href: whatsappLink('Hi! I\'d like more photos and the price for Azalea, the blue-eyed female Husky puppy.'), imageAlt: 'Blue-eyed female Siberian Husky puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Odie — Agouti Boy', price: 5888, href: whatsappLink('Hi! I\'d like more photos and the price for Odie, the agouti male Husky puppy.'), imageAlt: 'Agouti male Siberian Husky puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Bambi — Bi-eyed Girl', price: 6088, href: whatsappLink('Hi! I\'d like more photos and the price for Bambi, the bi-eyed female Husky puppy.'), imageAlt: 'Bi-eyed female Siberian Husky puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="siberian-husky" breedName="Husky" />
 
     <CaptionedBlock heading="Looking to Buy a Siberian Husky in Singapore?" imageAlt="Grey and white Siberian Husky puppy portrait, one of the Husky puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Husky puppies in Singapore arrive and are reserved quickly, and Husky buyers get our most careful matching conversation, because no breed we carry has a wider gap between the photo people fall for and the routine the dog needs. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Husky puppies available now, right after we've talked about your mornings.</p>

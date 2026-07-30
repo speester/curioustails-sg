@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/beagle/3-beagle-puppy-playing-happily-with-c
 import imgScene3 from '../../assets/beagle/4-beagle-following-a-scent-trail-with-its-nose-to-the-gro.webp';
 import imgScene4 from '../../assets/beagle/5-beagle-puppy-at-a-veterinary-health-check-before-going.webp';
 import imgScene5 from '../../assets/beagle/6-beagle-puppy-settling-into-a-set-up-playpen-during-its.webp';
-import imgCard1 from '../../assets/beagle/7-tri-colour-male-beagle-puppy-available-in-singapore.webp';
-import imgCard2 from '../../assets/beagle/8-lemon-and-white-female-beagle-puppy-available-in-singap.webp';
-import imgCard3 from '../../assets/beagle/9-tri-colour-female-beagle-puppy-available-in-singapore.webp';
-import imgCard4 from '../../assets/beagle/10-chocolate-tri-male-beagle-puppy-available-in-singapore.webp';
-import imgCard5 from '../../assets/beagle/11-second-tri-colour-female-beagle-puppy-available-in-sing.webp';
-import imgCard6 from '../../assets/beagle/12-lemon-and-white-male-beagle-puppy-available-in-singapor.webp';
 
 const title = 'Beagle Puppy for Sale Singapore | Curious Tails';
 const description =
   'Beagle puppies for sale in Singapore from $3,588 all-in. Not HDB-approved, and a genuinely vocal scent hound. Real prices and the nose-and-voice truth.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'HDB Rules', href: '#hdb' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
@@ -163,19 +158,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Beagle Puppies"
-      headingAccent="Available"
-      subhead="A few of the Beagle puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Milo — Tri-colour Boy', price: 3588, href: whatsappLink('Hi! I\'d like more photos and the price for Milo, the tri-colour male Beagle puppy.'), imageAlt: 'Tri-colour male Beagle puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Bella — Lemon Girl', price: 3688, href: whatsappLink('Hi! I\'d like more photos and the price for Bella, the lemon and white female Beagle puppy.'), imageAlt: 'Lemon and white female Beagle puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Luna — Tri-colour Girl', price: 3788, href: whatsappLink('Hi! I\'d like more photos and the price for Luna, the tri-colour female Beagle puppy.'), imageAlt: 'Tri-colour female Beagle puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Max — Chocolate tri Boy', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Max, the chocolate tri Beagle puppy.'), imageAlt: 'Chocolate tri male Beagle puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '9 weeks' },
-        { title: 'Daisy — Tri-colour Girl', price: 3988, href: whatsappLink('Hi! I\'d like more photos and the price for Daisy, the second tri-colour female Beagle puppy.'), imageAlt: 'Second tri-colour female Beagle puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Charlie — Lemon Boy', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Charlie, the lemon and white male Beagle puppy.'), imageAlt: 'Lemon and white male Beagle puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="beagle" breedName="Beagle" />
 
     <CaptionedBlock heading="Looking to Buy a Beagle in Singapore?" imageAlt="Beagle puppy portrait, one of the Beagle puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Beagle puppies in Singapore are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, markings, and a short walkthrough video for the Beagle puppies available now.</p>

@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/yorkshire-terrier/3-yorkshire-terrier-puppy-
 import imgScene3 from '../../assets/yorkshire-terrier/4-yorkshire-terrier-puppy-having-its-silky-coat-combed.webp';
 import imgScene4 from '../../assets/yorkshire-terrier/5-yorkshire-terrier-puppy-at-a-veterinary-health-check-be.webp';
 import imgScene5 from '../../assets/yorkshire-terrier/6-yorkshire-terrier-puppy-settling-into-a-set-up-playpen.webp';
-import imgCard1 from '../../assets/yorkshire-terrier/7-blue-and-tan-male-yorkshire-terrier-puppy-available-in.webp';
-import imgCard2 from '../../assets/yorkshire-terrier/8-blue-and-gold-female-yorkshire-terrier-puppy-available.webp';
-import imgCard3 from '../../assets/yorkshire-terrier/9-black-and-tan-male-yorkshire-terrier-puppy-available-in.webp';
-import imgCard4 from '../../assets/yorkshire-terrier/10-petite-female-yorkshire-terrier-puppy-available-in-sing.webp';
-import imgCard5 from '../../assets/yorkshire-terrier/11-silky-coat-male-yorkshire-terrier-puppy-available-in-si.webp';
-import imgCard6 from '../../assets/yorkshire-terrier/12-black-and-gold-female-yorkshire-terrier-puppy-available.webp';
 
 const title = 'Yorkshire Terrier Puppy for Sale Singapore | Curious Tails';
 const description =
   'Yorkshire Terrier puppies for sale in Singapore from $4,688, AVS licensed and HDB-approved. Real prices, temperament and silky coat care in our humidity.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -168,19 +163,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Yorkshire Terrier Puppies"
-      headingAccent="Available"
-      subhead="A few of the Yorkie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Pesto — Blue & tan Boy', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Pesto, the blue and tan male Yorkshire Terrier puppy.'), imageAlt: 'Blue and tan male Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Calla — Blue & gold Girl', price: 4788, href: whatsappLink('Hi! I\'d like more photos and the price for Calla, the blue and gold female Yorkshire Terrier puppy.'), imageAlt: 'Blue and gold female Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Pickle — Black & tan Boy', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Pickle, the black and tan male Yorkshire Terrier puppy.'), imageAlt: 'Black and tan male Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Cami — Petite Girl', price: 4988, href: whatsappLink('Hi! I\'d like more photos and the price for Cami, the petite female Yorkshire Terrier puppy.'), imageAlt: 'Petite female Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Pluto — Silky-coat Boy', price: 5088, href: whatsappLink('Hi! I\'d like more photos and the price for Pluto, the silky-coat male Yorkshire Terrier puppy.'), imageAlt: 'Silky-coat male Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Candy — Black & gold Girl', price: 5188, href: whatsappLink('Hi! I\'d like more photos and the price for Candy, the black and gold female Yorkshire Terrier puppy.'), imageAlt: 'Black and gold female Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="yorkshire-terrier" breedName="Yorkshire Terrier" />
 
     <CaptionedBlock heading="Looking to Buy a Yorkshire Terrier in Singapore?" imageAlt="Blue and tan Yorkshire Terrier puppy portrait, one of the Yorkie puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Yorkshire Terrier puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and a short walkthrough video for the Yorkie puppies available now.</p>

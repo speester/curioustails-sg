@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/miniature-schnauzer/3-miniature-schnauzer-pu
 import imgScene3 from '../../assets/miniature-schnauzer/4-miniature-schnauzer-puppy-having-its-beard-combed-durin.webp';
 import imgScene4 from '../../assets/miniature-schnauzer/5-miniature-schnauzer-puppy-at-a-veterinary-health-check.webp';
 import imgScene5 from '../../assets/miniature-schnauzer/6-miniature-schnauzer-puppy-settling-into-a-set-up-plaype.webp';
-import imgCard1 from '../../assets/miniature-schnauzer/7-salt-and-pepper-male-miniature-schnauzer-puppy-availabl.webp';
-import imgCard2 from '../../assets/miniature-schnauzer/8-black-and-silver-female-miniature-schnauzer-puppy-avail.webp';
-import imgCard3 from '../../assets/miniature-schnauzer/9-solid-black-male-miniature-schnauzer-puppy-available-in.webp';
-import imgCard4 from '../../assets/miniature-schnauzer/10-white-female-miniature-schnauzer-puppy-available-in-sin.webp';
-import imgCard5 from '../../assets/miniature-schnauzer/11-salt-and-pepper-female-miniature-schnauzer-puppy-availa.webp';
-import imgCard6 from '../../assets/miniature-schnauzer/12-black-and-silver-male-miniature-schnauzer-puppy-availab.webp';
 
 const title = 'Miniature Schnauzer Puppy for Sale Singapore | Curious Tails';
 const description =
   'Miniature Schnauzer puppies for sale in Singapore from $4,888, AVS licensed and HDB-approved. Real prices, temperament, coat care and the $500+ starter kit included.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -173,19 +168,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Miniature Schnauzer Puppies"
-      headingAccent="Available"
-      subhead="A few of the Mini Schnauzer puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Gilbert — Salt & pepper Boy', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Gilbert, the salt and pepper male Miniature Schnauzer puppy.'), imageAlt: 'Salt and pepper male Miniature Schnauzer puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Sprinkles — Black & silver Girl', price: 4988, href: whatsappLink('Hi! I\'d like more photos and the price for Sprinkles, the black and silver female Miniature Schnauzer puppy.'), imageAlt: 'Black and silver female Miniature Schnauzer puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Goose — Solid black Boy', price: 5088, href: whatsappLink('Hi! I\'d like more photos and the price for Goose, the solid black male Miniature Schnauzer puppy.'), imageAlt: 'Solid black male Miniature Schnauzer puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Sugar — White Girl', price: 5188, href: whatsappLink('Hi! I\'d like more photos and the price for Sugar, the white female Miniature Schnauzer puppy.'), imageAlt: 'White female Miniature Schnauzer puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Sunny — Salt & pepper Girl', price: 5288, href: whatsappLink('Hi! I\'d like more photos and the price for Sunny, the salt and pepper female Miniature Schnauzer puppy.'), imageAlt: 'Salt and pepper female Miniature Schnauzer puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Gordo — Black & silver Boy', price: 5388, href: whatsappLink('Hi! I\'d like more photos and the price for Gordo, the black and silver male Miniature Schnauzer puppy.'), imageAlt: 'Black and silver male Miniature Schnauzer puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="miniature-schnauzer" breedName="Miniature Schnauzer" />
 
     <CaptionedBlock heading="Looking to Buy a Miniature Schnauzer in Singapore?" imageAlt="Salt and pepper Miniature Schnauzer puppy portrait, one of the Mini Schnauzer puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Miniature Schnauzer puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Mini Schnauzer puppies available now.</p>

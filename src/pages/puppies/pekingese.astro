@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/pekingese/3-pekingese-puppy-sitting-regally-
 import imgScene3 from '../../assets/pekingese/4-pekingese-puppy-having-its-mane-brushed-through.webp';
 import imgScene4 from '../../assets/pekingese/5-pekingese-puppy-at-a-veterinary-health-check-before-goi.webp';
 import imgScene5 from '../../assets/pekingese/6-pekingese-puppy-settling-into-a-set-up-playpen-during-i.webp';
-import imgCard1 from '../../assets/pekingese/7-golden-male-pekingese-puppy-available-in-singapore.webp';
-import imgCard2 from '../../assets/pekingese/8-cream-female-pekingese-puppy-available-in-singapore.webp';
-import imgCard3 from '../../assets/pekingese/9-black-male-pekingese-puppy-available-in-singapore.webp';
-import imgCard4 from '../../assets/pekingese/10-fawn-brindle-female-pekingese-puppy-available-in-singap.webp';
-import imgCard5 from '../../assets/pekingese/11-red-sable-male-pekingese-puppy-available-in-singapore.webp';
-import imgCard6 from '../../assets/pekingese/12-parti-colour-female-pekingese-puppy-available-in-singap.webp';
 
 const title = 'Pekingese Puppy for Sale Singapore | Curious Tails';
 const description =
   'Pekingese puppies for sale in Singapore from $5,988, AVS licensed and HDB-approved. Real prices, temperament, coat and heat care and the $500+ starter kit included.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -168,19 +163,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Pekingese Puppies"
-      headingAccent="Available"
-      subhead="A few of the Pekingese puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Hank — Golden Boy', price: 5988, href: whatsappLink('Hi! I\'d like more photos and the price for Hank, the golden male Pekingese puppy.'), imageAlt: 'Golden male Pekingese puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Tammy — Cream Girl', price: 6188, href: whatsappLink('Hi! I\'d like more photos and the price for Tammy, the cream female Pekingese puppy.'), imageAlt: 'Cream female Pekingese puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Harley — Black Boy', price: 6388, href: whatsappLink('Hi! I\'d like more photos and the price for Harley, the black male Pekingese puppy.'), imageAlt: 'Black male Pekingese puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Tessa — Fawn brindle Girl', price: 6588, href: whatsappLink('Hi! I\'d like more photos and the price for Tessa, the fawn brindle female Pekingese puppy.'), imageAlt: 'Fawn brindle female Pekingese puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Harvey — Red sable Boy', price: 6788, href: whatsappLink('Hi! I\'d like more photos and the price for Harvey, the red sable male Pekingese puppy.'), imageAlt: 'Red sable male Pekingese puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Tilly — Parti-colour Girl', price: 6988, href: whatsappLink('Hi! I\'d like more photos and the price for Tilly, the parti-colour female Pekingese puppy.'), imageAlt: 'Parti-colour female Pekingese puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="pekingese" breedName="Pekingese" />
 
     <CaptionedBlock heading="Looking to Buy a Pekingese in Singapore?" imageAlt="Golden Pekingese puppy portrait, one of the Pekingese puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Pekingese are uncommon in Singapore, so litters are announced and reserved fast; we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Pekingese puppies available now.</p>

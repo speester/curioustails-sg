@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -35,19 +36,13 @@ import imgScene3 from '../../assets/border-collie/4-border-collie-puppy-in-the-c
 import imgScene4 from '../../assets/border-collie/5-border-collie-having-its-moderate-double-coat-brushed.webp';
 import imgScene5 from '../../assets/border-collie/6-border-collie-puppy-at-a-veterinary-health-check-before.webp';
 import imgScene6 from '../../assets/border-collie/7-border-collie-puppy-settling-into-a-set-up-playpen-duri.webp';
-import imgCard1 from '../../assets/border-collie/8-black-and-white-male-border-collie-puppy-available-in-s.webp';
-import imgCard2 from '../../assets/border-collie/9-blue-merle-female-border-collie-puppy-available-in-sing.webp';
-import imgCard3 from '../../assets/border-collie/10-red-and-white-male-border-collie-puppy-available-in-sin.webp';
-import imgCard4 from '../../assets/border-collie/11-blue-female-border-collie-puppy-available-in-singapore.webp';
-import imgCard5 from '../../assets/border-collie/12-smooth-coat-male-border-collie-puppy-available-in-singa.webp';
-import imgCard6 from '../../assets/border-collie/13-black-and-white-female-border-collie-puppy-available-in.webp';
 
 const title = 'Border Collie Puppy for Sale Singapore | Curious Tails';
 const description =
   'Border Collie puppies for sale in Singapore from $5,880 all-in. Not HDB-approved, and the world\'s smartest breed genuinely needs a real job.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'HDB Rules', href: '#hdb' },
   { label: 'The Job', href: '#job' },
   { label: 'Price', href: '#price' },
@@ -164,19 +159,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Border Collie Puppies"
-      headingAccent="Available"
-      subhead="A few of the Border Collie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Oliver — Black & white Boy', price: 5888, href: whatsappLink('Hi! I\'d like more photos and the price for Oliver, the black and white male Border Collie puppy.'), imageAlt: 'Black and white male Border Collie puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Lola — Blue merle Girl', price: 6088, href: whatsappLink('Hi! I\'d like more photos and the price for Lola, the blue merle female Border Collie puppy.'), imageAlt: 'Blue merle female Border Collie puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Teddy — Red & white Boy', price: 6288, href: whatsappLink('Hi! I\'d like more photos and the price for Teddy, the red and white male Border Collie puppy.'), imageAlt: 'Red and white male Border Collie puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Rosie — Blue Girl', price: 6488, href: whatsappLink('Hi! I\'d like more photos and the price for Rosie, the blue female Border Collie puppy.'), imageAlt: 'Blue female Border Collie puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Jack — Smooth-coat Boy', price: 6688, href: whatsappLink('Hi! I\'d like more photos and the price for Jack, the smooth-coat male Border Collie puppy.'), imageAlt: 'Smooth-coat male Border Collie puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Penny — Black & white Girl', price: 6888, href: whatsappLink('Hi! I\'d like more photos and the price for Penny, the black and white female Border Collie puppy.'), imageAlt: 'Black and white female Border Collie puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="border-collie" breedName="Border Collie" />
 
     <CaptionedBlock heading="Looking to Buy a Border Collie in Singapore?" imageAlt="Black and white Border Collie puppy portrait, one of the Border Collie puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Border Collie puppies in Singapore arrive and are reserved quickly, and, like our Husky buyers, Collie buyers get our most careful matching conversation, because the gap between the smartest-breed reputation and the daily reality fills Singapore's adoption boards. As an AVS licensed pet shop, we'll send you photos, gender, age, colour, and a short walkthrough video for the Border Collie puppies available now, right after we've talked about what the dog will do all day.</p>

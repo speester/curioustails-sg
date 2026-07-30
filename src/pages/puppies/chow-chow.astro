@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/chow-chow/3-chow-chow-puppy-sitting-composed
 import imgScene3 from '../../assets/chow-chow/4-chow-chow-having-its-dense-mane-brushed-through.webp';
 import imgScene4 from '../../assets/chow-chow/5-chow-chow-puppy-at-a-veterinary-health-check-before-goi.webp';
 import imgScene5 from '../../assets/chow-chow/6-chow-chow-puppy-settling-into-a-set-up-playpen-during-i.webp';
-import imgCard1 from '../../assets/chow-chow/7-red-male-chow-chow-puppy-available-in-singapore.webp';
-import imgCard2 from '../../assets/chow-chow/8-cream-female-chow-chow-puppy-available-in-singapore.webp';
-import imgCard3 from '../../assets/chow-chow/9-black-male-chow-chow-puppy-available-in-singapore.webp';
-import imgCard4 from '../../assets/chow-chow/10-cinnamon-female-chow-chow-puppy-available-in-singapore.webp';
-import imgCard5 from '../../assets/chow-chow/11-red-female-chow-chow-puppy-available-in-singapore.webp';
-import imgCard6 from '../../assets/chow-chow/12-blue-male-chow-chow-puppy-available-in-singapore.webp';
 
 const title = 'Chow Chow Puppy for Sale Singapore | Curious Tails';
 const description =
   'Chow Chow puppies for sale in Singapore from $6,888 all-in. Not HDB-approved, and the teddy-bear look hides a dignified introvert. We match honestly.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'HDB Rules', href: '#hdb' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
@@ -163,19 +158,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Chow Chow Puppies"
-      headingAccent="Available"
-      subhead="A few of the Chow puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Diesel — Red Boy', price: 6888, href: whatsappLink('Hi! I\'d like more photos and the price for Diesel, the red male Chow Chow puppy.'), imageAlt: 'Red male Chow Chow puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Cinnamon — Cream Girl', price: 7088, href: whatsappLink('Hi! I\'d like more photos and the price for Cinnamon, the cream female Chow Chow puppy.'), imageAlt: 'Cream female Chow Chow puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Gizmo — Black Boy', price: 7288, href: whatsappLink('Hi! I\'d like more photos and the price for Gizmo, the black male Chow Chow puppy.'), imageAlt: 'Black male Chow Chow puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Clover — Cinnamon Girl', price: 7488, href: whatsappLink('Hi! I\'d like more photos and the price for Clover, the cinnamon female Chow Chow puppy.'), imageAlt: 'Cinnamon female Chow Chow puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Dahlia — Red Girl', price: 7688, href: whatsappLink('Hi! I\'d like more photos and the price for Dahlia, the red female Chow Chow puppy.'), imageAlt: 'Red female Chow Chow puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Hunter — Blue Boy', price: 7888, href: whatsappLink('Hi! I\'d like more photos and the price for Hunter, the blue male Chow Chow puppy.'), imageAlt: 'Blue male Chow Chow puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="chow-chow" breedName="Chow Chow" />
 
     <CaptionedBlock heading="Looking to Buy a Chow Chow in Singapore?" imageAlt="Red Chow Chow puppy portrait, one of the Chow puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Chow Chow puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Chow puppies available now.</p>

@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -33,14 +34,6 @@ import chihuahuaGrooming from '../../assets/chihuahua/3-chihuahua-puppy-grooming
 import chihuahuaVet from '../../assets/chihuahua/4-chihuahua-puppy-vet-health-check.webp';
 import chihuahuaSettling from '../../assets/chihuahua/5-chihuahua-puppy-settling-playpen.webp';
 import fawnBoyPortrait from '../../assets/chihuahua/6-chihuahua-puppy-fawn-male-portrait.webp';
-import blackTanGirlPortrait from '../../assets/chihuahua/7-chihuahua-puppy-black-tan-female-portrait.webp';
-import chocolateBoyPortrait from '../../assets/chihuahua/8-chihuahua-puppy-chocolate-male-portrait.webp';
-import creamLongCoatGirlPortrait from '../../assets/chihuahua/9-chihuahua-puppy-cream-long-coat-female-portrait.webp';
-import whiteBoyPortrait from '../../assets/chihuahua/10-chihuahua-puppy-white-male-portrait.webp';
-import redSableBoyPortrait from '../../assets/chihuahua/11-chihuahua-puppy-red-sable-male-portrait.webp';
-import blueFawnGirlPortrait from '../../assets/chihuahua/12-chihuahua-puppy-blue-fawn-female-portrait.webp';
-import fawnWhiteGirlPortrait from '../../assets/chihuahua/13-chihuahua-puppy-fawn-white-female-portrait.webp';
-import blackWhiteBoyPortrait from '../../assets/chihuahua/14-chihuahua-puppy-black-white-male-portrait.webp';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
 
 const title = 'Chihuahua Puppy for Sale Singapore | Curious Tails';
@@ -48,7 +41,7 @@ const description =
   'Chihuahua puppies for sale in Singapore from $4,288, AVS licensed and HDB-approved. Real prices, temperament, and both the smooth and long coat types.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -176,22 +169,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Chihuahua Puppies"
-      headingAccent="Available"
-      subhead="A few of the Chihuahua puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Oscar — Fawn Boy', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Oscar, the fawn male Chihuahua puppy.'), imageAlt: 'Fawn male Chihuahua puppy available in Singapore', imageSrc: fawnBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Mocha — Black & tan Girl', price: 4388, href: whatsappLink('Hi! I\'d like more photos and the price for Mocha, the black and tan female Chihuahua puppy.'), imageAlt: 'Black and tan female Chihuahua puppy available in Singapore', imageSrc: blackTanGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Jasper — Chocolate Boy', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Jasper, the chocolate male Chihuahua puppy.'), imageAlt: 'Chocolate male Chihuahua puppy available in Singapore', imageSrc: chocolateBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Mallow — Cream long-coat Girl', price: 4588, href: whatsappLink('Hi! I\'d like more photos and the price for Mallow, the cream long-coat female Chihuahua puppy.'), imageAlt: 'Cream long-coat female Chihuahua puppy available in Singapore', imageSrc: creamLongCoatGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Rex — White Boy', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Rex, the white male Chihuahua puppy.'), imageAlt: 'White male Chihuahua puppy available in Singapore', imageSrc: whiteBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Baxter — Red sable Boy', price: 4788, href: whatsappLink('Hi! I\'d like more photos and the price for Baxter, the red sable male Chihuahua puppy.'), imageAlt: 'Red sable male Chihuahua puppy available in Singapore', imageSrc: redSableBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
-        { title: 'Muffy — Blue fawn Girl', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Muffy, the blue fawn female Chihuahua puppy.'), imageAlt: 'Blue fawn female Chihuahua puppy available in Singapore', imageSrc: blueFawnGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Nutmeg — Fawn & white Girl', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Nutmeg, the fawn and white female Chihuahua puppy.'), imageAlt: 'Fawn and white female Chihuahua puppy available in Singapore', imageSrc: fawnWhiteGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Bandit — Black & white Boy', price: 4388, href: whatsappLink('Hi! I\'d like more photos and the price for Bandit, the black and white male Chihuahua puppy.'), imageAlt: 'Black and white male Chihuahua puppy available in Singapore', imageSrc: blackWhiteBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '8 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="chihuahua" breedName="Chihuahua" />
 
     <CaptionedBlock heading="Looking to Buy a Chihuahua in Singapore?" imageAlt="Fawn Chihuahua puppy portrait, one of the Chihuahua puppies available in Singapore" imageSrc={fawnBoyPortrait} variant="mid">
       <p>Our Chihuahua puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and a short walkthrough video for the Chihuahua puppies available now.</p>

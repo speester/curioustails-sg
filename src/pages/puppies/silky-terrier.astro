@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/silky-terrier/3-silky-terrier-puppy-playing-
 import imgScene3 from '../../assets/silky-terrier/4-silky-terrier-puppy-having-its-long-coat-combed-through.webp';
 import imgScene4 from '../../assets/silky-terrier/5-silky-terrier-puppy-at-a-veterinary-health-check-before.webp';
 import imgScene5 from '../../assets/silky-terrier/6-silky-terrier-puppy-settling-into-a-set-up-playpen-duri.webp';
-import imgCard1 from '../../assets/silky-terrier/7-blue-and-tan-male-silky-terrier-puppy-available-in-sing.webp';
-import imgCard2 from '../../assets/silky-terrier/8-silver-and-tan-female-silky-terrier-puppy-available-in.webp';
-import imgCard3 from '../../assets/silky-terrier/9-grey-and-tan-male-silky-terrier-puppy-available-in-sing.webp';
-import imgCard4 from '../../assets/silky-terrier/10-petite-female-silky-terrier-puppy-available-in-singapor.webp';
-import imgCard5 from '../../assets/silky-terrier/11-blue-and-tan-female-silky-terrier-puppy-available-in-si.webp';
-import imgCard6 from '../../assets/silky-terrier/12-bold-male-silky-terrier-puppy-available-in-singapore.webp';
 
 const title = 'Silky Terrier Puppy for Sale Singapore | Curious Tails';
 const description =
   'Silky Terrier puppies for sale in Singapore from $3,288, AVS licensed and HDB-approved. Real prices, temperament and coat care in our humidity.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -168,19 +163,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Silky Terrier Puppies"
-      headingAccent="Available"
-      subhead="A few of the Silky Terrier puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Onyx — Blue & tan Boy', price: 3288, href: whatsappLink('Hi! I\'d like more photos and the price for Onyx, the blue and tan male Silky Terrier puppy.'), imageAlt: 'Blue and tan male Silky Terrier puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Bao — Silver & tan Girl', price: 3488, href: whatsappLink('Hi! I\'d like more photos and the price for Bao, the silver and tan female Silky Terrier puppy.'), imageAlt: 'Silver and tan female Silky Terrier puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Orbit — Grey & tan Boy', price: 3688, href: whatsappLink('Hi! I\'d like more photos and the price for Orbit, the grey and tan male Silky Terrier puppy.'), imageAlt: 'Grey and tan male Silky Terrier puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Beatrix — Petite Girl', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Beatrix, the petite female Silky Terrier puppy.'), imageAlt: 'Petite female Silky Terrier puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Belle — Blue & tan Girl', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Belle, the blue and tan female Silky Terrier puppy.'), imageAlt: 'Blue and tan female Silky Terrier puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Otis — Bold Boy', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Otis, the bold male Silky Terrier puppy.'), imageAlt: 'Bold male Silky Terrier puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="silky-terrier" breedName="Silky Terrier" />
 
     <CaptionedBlock heading="Looking to Buy a Silky Terrier in Singapore?" imageAlt="Blue and tan Silky Terrier puppy portrait, one of the Silky Terrier puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Silky Terriers are uncommon in Singapore, so litters are announced and reserved fast; we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and a short walkthrough video for the Silky Terrier puppies available now.</p>

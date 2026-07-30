@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/coton-de-tulear/3-coton-de-tulear-puppy-clow
 import imgScene3 from '../../assets/coton-de-tulear/4-coton-de-tulear-puppy-having-its-cotton-textured-coat-c.webp';
 import imgScene4 from '../../assets/coton-de-tulear/5-coton-de-tulear-puppy-at-a-veterinary-health-check-befo.webp';
 import imgScene5 from '../../assets/coton-de-tulear/6-coton-de-tulear-puppy-settling-into-a-set-up-playpen-du.webp';
-import imgCard1 from '../../assets/coton-de-tulear/7-white-male-coton-de-tulear-puppy-available-in-singapore.webp';
-import imgCard2 from '../../assets/coton-de-tulear/8-white-female-coton-de-tulear-puppy-available-in-singapo.webp';
-import imgCard3 from '../../assets/coton-de-tulear/9-white-and-champagne-male-coton-de-tulear-puppy-availabl.webp';
-import imgCard4 from '../../assets/coton-de-tulear/10-grey-eared-female-coton-de-tulear-puppy-available-in-si.webp';
-import imgCard5 from '../../assets/coton-de-tulear/11-cotton-coat-male-coton-de-tulear-puppy-available-in-sin.webp';
-import imgCard6 from '../../assets/coton-de-tulear/12-petite-female-coton-de-tulear-puppy-available-in-singap.webp';
 
 const title = 'Coton de Tulear Puppy for Sale Singapore | Curious Tails';
 const description =
   'Coton de Tulear puppies for sale in Singapore from $5,888, AVS licensed and HDB-approved. Price in SGD, temperament and cotton-coat care. Our rarest breed.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -163,19 +158,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Coton de Tulear Puppies"
-      headingAccent="Available"
-      subhead="A few of the Coton puppies looking for a home right now. Litters are rare and move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Waffles — Snow-white Boy', price: 5888, href: whatsappLink('Hi! I\'d like more photos and the price for Waffles, the white male Coton de Tulear puppy.'), imageAlt: 'White male Coton de Tulear puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Ivy — White Girl', price: 6088, href: whatsappLink('Hi! I\'d like more photos and the price for Ivy, the white female Coton de Tulear puppy.'), imageAlt: 'White female Coton de Tulear puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Wally — White & champagne Boy', price: 6288, href: whatsappLink('Hi! I\'d like more photos and the price for Wally, the white and champagne male Coton puppy.'), imageAlt: 'White and champagne male Coton de Tulear puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Jasmine — Grey-eared Girl', price: 6488, href: whatsappLink('Hi! I\'d like more photos and the price for Jasmine, the grey-eared female Coton puppy.'), imageAlt: 'Grey-eared female Coton de Tulear puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Yogi — Cotton-coat Boy', price: 6688, href: whatsappLink('Hi! I\'d like more photos and the price for Yogi, the cotton-coat male Coton puppy.'), imageAlt: 'Cotton-coat male Coton de Tulear puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Josie — Petite Girl', price: 6888, href: whatsappLink('Hi! I\'d like more photos and the price for Josie, the petite female Coton puppy.'), imageAlt: 'Petite female Coton de Tulear puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="coton-de-tulear" breedName="Coton de Tulear" />
 
     <CaptionedBlock heading="Looking to Buy a Coton de Tulear in Singapore?" imageAlt="White Coton de Tulear puppy portrait, one of the Coton puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>The Coton de Tulear is the rarest breed we carry: the global population is small, local litters are intermittent, and pups are usually reserved before they're weaned. We update this list as puppies are reserved and confirm the rest on WhatsApp; as an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and a short walkthrough video for any Coton puppies available now, or tell you honestly when the next litter is expected.</p>

@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/miniature-pinscher/3-miniature-pinscher-pupp
 import imgScene3 from '../../assets/miniature-pinscher/4-miniature-pinscher-puppy-getting-a-quick-coat-wipe-down.webp';
 import imgScene4 from '../../assets/miniature-pinscher/5-miniature-pinscher-puppy-at-a-veterinary-health-check-b.webp';
 import imgScene5 from '../../assets/miniature-pinscher/6-miniature-pinscher-puppy-settling-into-a-set-up-playpen.webp';
-import imgCard1 from '../../assets/miniature-pinscher/7-red-male-miniature-pinscher-puppy-available-in-singapor.webp';
-import imgCard2 from '../../assets/miniature-pinscher/8-black-and-rust-female-miniature-pinscher-puppy-availabl.webp';
-import imgCard3 from '../../assets/miniature-pinscher/9-chocolate-and-rust-male-miniature-pinscher-puppy-availa.webp';
-import imgCard4 from '../../assets/miniature-pinscher/10-stag-red-female-miniature-pinscher-puppy-available-in-s.webp';
-import imgCard5 from '../../assets/miniature-pinscher/11-black-and-rust-male-miniature-pinscher-puppy-available.webp';
-import imgCard6 from '../../assets/miniature-pinscher/12-red-female-miniature-pinscher-puppy-available-in-singap.webp';
 
 const title = 'Miniature Pinscher Puppy for Sale Singapore | Curious Tails';
 const description =
   'Miniature Pinscher puppies for sale in Singapore from $4,988, AVS licensed and HDB-approved. Real prices, temperament and escape-artist honesty.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -168,19 +163,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Miniature Pinscher Puppies"
-      headingAccent="Available"
-      subhead="A few of the Min Pin puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Fudge — Red Boy', price: 4988, href: whatsappLink('Hi! I\'d like more photos and the price for Fudge, the red male Miniature Pinscher puppy.'), imageAlt: 'Red male Miniature Pinscher puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Sissy — Black & rust Girl', price: 5188, href: whatsappLink('Hi! I\'d like more photos and the price for Sissy, the black and rust female Miniature Pinscher puppy.'), imageAlt: 'Black and rust female Miniature Pinscher puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Gatsby — Chocolate & rust Boy', price: 5388, href: whatsappLink('Hi! I\'d like more photos and the price for Gatsby, the chocolate and rust male Miniature Pinscher puppy.'), imageAlt: 'Chocolate and rust male Miniature Pinscher puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Skye — Stag red Girl', price: 5588, href: whatsappLink('Hi! I\'d like more photos and the price for Skye, the stag red female Miniature Pinscher puppy.'), imageAlt: 'Stag red female Miniature Pinscher puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'George — Black & rust Boy', price: 5788, href: whatsappLink('Hi! I\'d like more photos and the price for George, the black and rust male Miniature Pinscher puppy.'), imageAlt: 'Black and rust male Miniature Pinscher puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Snowy — Red Girl', price: 5988, href: whatsappLink('Hi! I\'d like more photos and the price for Snowy, the red female Miniature Pinscher puppy.'), imageAlt: 'Red female Miniature Pinscher puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="miniature-pinscher" breedName="Miniature Pinscher" />
 
     <CaptionedBlock heading="Looking to Buy a Miniature Pinscher in Singapore?" imageAlt="Red Miniature Pinscher puppy portrait, one of the Min Pin puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Miniature Pinscher puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Min Pin puppies available now.</p>

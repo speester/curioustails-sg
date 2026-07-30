@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/french-bulldog/3-french-bulldog-puppy-playin
 import imgScene3 from '../../assets/french-bulldog/4-french-bulldog-puppy-having-its-facial-folds-gently-cle.webp';
 import imgScene4 from '../../assets/french-bulldog/5-french-bulldog-puppy-at-a-veterinary-health-check-befor.webp';
 import imgScene5 from '../../assets/french-bulldog/6-french-bulldog-puppy-settling-into-a-set-up-playpen-dur.webp';
-import imgCard1 from '../../assets/french-bulldog/7-fawn-male-french-bulldog-puppy-available-in-singapore.webp';
-import imgCard2 from '../../assets/french-bulldog/8-brindle-female-french-bulldog-puppy-available-in-singap.webp';
-import imgCard3 from '../../assets/french-bulldog/9-pied-male-french-bulldog-puppy-available-in-singapore.webp';
-import imgCard4 from '../../assets/french-bulldog/10-cream-female-french-bulldog-puppy-available-in-singapor.webp';
-import imgCard5 from '../../assets/french-bulldog/11-fawn-pied-male-french-bulldog-puppy-available-in-singap.webp';
-import imgCard6 from '../../assets/french-bulldog/12-brindle-and-white-female-french-bulldog-puppy-available.webp';
 
 const title = 'French Bulldog Puppy for Sale Singapore | Curious Tails';
 const description =
   'French Bulldog puppies for sale in Singapore from $6,800 all-in. Not HDB-approved, so private housing only. In an HDB flat? Meet the Boston Terrier.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'HDB Rules', href: '#hdb' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
@@ -163,19 +158,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available French Bulldog Puppies"
-      headingAccent="Available"
-      subhead="A few of the Frenchie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Apollo — Fawn Boy', price: 6888, href: whatsappLink('Hi! I\'d like more photos and the price for Apollo, the fawn male French Bulldog puppy.'), imageAlt: 'Fawn male French Bulldog puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Lacey — Brindle Girl', price: 7088, href: whatsappLink('Hi! I\'d like more photos and the price for Lacey, the brindle female French Bulldog puppy.'), imageAlt: 'Brindle female French Bulldog puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Bagel — Pied Boy', price: 7288, href: whatsappLink('Hi! I\'d like more photos and the price for Bagel, the pied male French Bulldog puppy.'), imageAlt: 'Pied male French Bulldog puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Lady — Cream Girl', price: 7488, href: whatsappLink('Hi! I\'d like more photos and the price for Lady, the cream female French Bulldog puppy.'), imageAlt: 'Cream female French Bulldog puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Bamboo — Fawn pied Boy', price: 7688, href: whatsappLink('Hi! I\'d like more photos and the price for Bamboo, the fawn pied male French Bulldog puppy.'), imageAlt: 'Fawn pied male French Bulldog puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Layla — Brindle & white Girl', price: 7888, href: whatsappLink('Hi! I\'d like more photos and the price for Layla, the brindle and white female French Bulldog puppy.'), imageAlt: 'Brindle and white female French Bulldog puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="french-bulldog" breedName="French Bulldog" />
 
     <CaptionedBlock heading="Looking to Buy a French Bulldog in Singapore?" imageAlt="Fawn French Bulldog puppy portrait, one of the Frenchie puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our French Bulldog puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Frenchie puppies available now.</p>

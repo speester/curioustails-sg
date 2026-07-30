@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/pomeranian/3-pomeranian-puppy-playing-confid
 import imgScene3 from '../../assets/pomeranian/4-pomeranian-puppy-being-brushed-through-its-double-coat.webp';
 import imgScene4 from '../../assets/pomeranian/5-pomeranian-puppy-at-a-veterinary-health-check-before-go.webp';
 import imgScene5 from '../../assets/pomeranian/6-pomeranian-puppy-settling-into-a-set-up-playpen-during.webp';
-import imgCard1 from '../../assets/pomeranian/7-orange-male-pomeranian-puppy-available-in-singapore.webp';
-import imgCard2 from '../../assets/pomeranian/8-cream-female-pomeranian-puppy-available-in-singapore.webp';
-import imgCard3 from '../../assets/pomeranian/9-sable-male-pomeranian-puppy-available-in-singapore.webp';
-import imgCard4 from '../../assets/pomeranian/10-white-female-pomeranian-puppy-available-in-singapore.webp';
-import imgCard5 from '../../assets/pomeranian/11-black-male-pomeranian-puppy-available-in-singapore.webp';
-import imgCard6 from '../../assets/pomeranian/12-orange-sable-female-pomeranian-puppy-available-in-singa.webp';
 
 const title = 'Pomeranian Puppy for Sale Singapore | Curious Tails';
 const description =
   'Pomeranian puppies for sale in Singapore from $4,888, AVS licensed and HDB-approved. Real prices, temperament and coat care in our humidity.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -168,19 +163,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Pomeranian Puppies"
-      headingAccent="Available"
-      subhead="A few of the Pomeranian puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Hershey — Orange Boy', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Hershey, the orange male Pomeranian puppy.'), imageAlt: 'Orange male Pomeranian puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Tinker — Cream Girl', price: 4988, href: whatsappLink('Hi! I\'d like more photos and the price for Tinker, the cream female Pomeranian puppy.'), imageAlt: 'Cream female Pomeranian puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Homer — Sable Boy', price: 5088, href: whatsappLink('Hi! I\'d like more photos and the price for Homer, the sable male Pomeranian puppy.'), imageAlt: 'Sable male Pomeranian puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Trixie — White Girl', price: 5188, href: whatsappLink('Hi! I\'d like more photos and the price for Trixie, the white female Pomeranian puppy.'), imageAlt: 'White female Pomeranian puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Hobbes — Black Boy', price: 5288, href: whatsappLink('Hi! I\'d like more photos and the price for Hobbes, the black male Pomeranian puppy.'), imageAlt: 'Black male Pomeranian puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Truffles — Orange sable Girl', price: 5388, href: whatsappLink('Hi! I\'d like more photos and the price for Truffles, the orange sable female Pomeranian puppy.'), imageAlt: 'Orange sable female Pomeranian puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="pomeranian" breedName="Pomeranian" />
 
     <CaptionedBlock heading="Looking to Buy a Pomeranian in Singapore?" imageAlt="Orange Pomeranian puppy portrait, one of the Pomeranian puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Pomeranian puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Pomeranian puppies available now.</p>

@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/shih-tzu/3-shih-tzu-puppy-relaxing-on-a-care
 import imgScene3 from '../../assets/shih-tzu/4-shih-tzu-puppy-having-its-long-coat-brushed-and-face-ti.webp';
 import imgScene4 from '../../assets/shih-tzu/5-shih-tzu-puppy-at-a-veterinary-health-check-before-goin.webp';
 import imgScene5 from '../../assets/shih-tzu/6-shih-tzu-puppy-settling-into-a-set-up-playpen-during-it.webp';
-import imgCard1 from '../../assets/shih-tzu/7-gold-and-white-male-shih-tzu-puppy-available-in-singapo.webp';
-import imgCard2 from '../../assets/shih-tzu/8-black-and-white-female-shih-tzu-puppy-available-in-sing.webp';
-import imgCard3 from '../../assets/shih-tzu/9-brindle-male-shih-tzu-puppy-available-in-singapore.webp';
-import imgCard4 from '../../assets/shih-tzu/10-liver-and-white-female-shih-tzu-puppy-available-in-sing.webp';
-import imgCard5 from '../../assets/shih-tzu/11-solid-gold-male-shih-tzu-puppy-available-in-singapore.webp';
-import imgCard6 from '../../assets/shih-tzu/12-tri-colour-female-shih-tzu-puppy-available-in-singapore.webp';
 
 const title = 'Shih Tzu Puppy for Sale Singapore | Curious Tails';
 const description =
   'Shih Tzu puppies for sale in Singapore from $3,988, AVS licensed and HDB-approved. Real prices, temperament and honest coat care for our heat and humidity.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -173,19 +168,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Shih Tzu Puppies"
-      headingAccent="Available"
-      subhead="A few of the Shih Tzu puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Mowgli — Gold & white Boy', price: 3988, href: whatsappLink('Hi! I\'d like more photos and the price for Mowgli, the gold and white male Shih Tzu puppy.'), imageAlt: 'Gold and white male Shih Tzu puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Aria — Black & white Girl', price: 4188, href: whatsappLink('Hi! I\'d like more photos and the price for Aria, the black and white female Shih Tzu puppy.'), imageAlt: 'Black and white female Shih Tzu puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Muffin — Brindle Boy', price: 4388, href: whatsappLink('Hi! I\'d like more photos and the price for Muffin, the brindle male Shih Tzu puppy.'), imageAlt: 'Brindle male Shih Tzu puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Ashi — Liver & white Girl', price: 4588, href: whatsappLink('Hi! I\'d like more photos and the price for Ashi, the liver and white female Shih Tzu puppy.'), imageAlt: 'Liver and white female Shih Tzu puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Nacho — Solid gold Boy', price: 4788, href: whatsappLink('Hi! I\'d like more photos and the price for Nacho, the solid gold male Shih Tzu puppy.'), imageAlt: 'Solid gold male Shih Tzu puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Aspen — Tri-colour Girl', price: 4988, href: whatsappLink('Hi! I\'d like more photos and the price for Aspen, the tri-colour female Shih Tzu puppy.'), imageAlt: 'Tri-colour female Shih Tzu puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="shih-tzu" breedName="Shih Tzu" />
 
     <CaptionedBlock heading="Looking to Buy a Shih Tzu in Singapore?" imageAlt="Gold and white Shih Tzu puppy portrait, one of the Shih Tzu puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Shih Tzu puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Shih Tzu puppies available now.</p>

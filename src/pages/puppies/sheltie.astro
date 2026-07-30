@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/sheltie/3-sheltie-puppy-focused-on-a-trainin
 import imgScene3 from '../../assets/sheltie/4-sheltie-puppy-having-its-double-coat-line-brushed.webp';
 import imgScene4 from '../../assets/sheltie/5-sheltie-puppy-at-a-veterinary-health-check-before-going.webp';
 import imgScene5 from '../../assets/sheltie/6-sheltie-puppy-settling-into-a-set-up-playpen-during-its.webp';
-import imgCard1 from '../../assets/sheltie/7-sable-and-white-male-shetland-sheepdog-puppy-available.webp';
-import imgCard2 from '../../assets/sheltie/8-tricolour-female-shetland-sheepdog-puppy-available-in-s.webp';
-import imgCard3 from '../../assets/sheltie/9-blue-merle-male-shetland-sheepdog-puppy-available-in-si.webp';
-import imgCard4 from '../../assets/sheltie/10-sable-female-shetland-sheepdog-puppy-available-in-singa.webp';
-import imgCard5 from '../../assets/sheltie/11-tricolour-male-shetland-sheepdog-puppy-available-in-sin.webp';
-import imgCard6 from '../../assets/sheltie/12-blue-merle-female-shetland-sheepdog-puppy-available-in.webp';
 
 const title = 'Sheltie Puppy for Sale Singapore | Curious Tails';
 const description =
   'Sheltie (Shetland Sheepdog) puppies for sale in Singapore from $4,988, AVS licensed and HDB-approved. Real prices, temperament and coat honesty.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -168,19 +163,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Sheltie Puppies"
-      headingAccent="Available"
-      subhead="A few of the Sheltie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Lucky — Sable & white Boy', price: 4988, href: whatsappLink('Hi! I\'d like more photos and the price for Lucky, the sable and white male Sheltie puppy.'), imageAlt: 'Sable and white male Shetland Sheepdog puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Zena — Tricolour Girl', price: 5188, href: whatsappLink('Hi! I\'d like more photos and the price for Zena, the tricolour female Sheltie puppy.'), imageAlt: 'Tricolour female Shetland Sheepdog puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Ludo — Blue merle Boy', price: 5388, href: whatsappLink('Hi! I\'d like more photos and the price for Ludo, the blue merle male Sheltie puppy.'), imageAlt: 'Blue merle male Shetland Sheepdog puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Zinnia — Sable Girl', price: 5588, href: whatsappLink('Hi! I\'d like more photos and the price for Zinnia, the sable female Sheltie puppy.'), imageAlt: 'Sable female Shetland Sheepdog puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Marbles — Tricolour Boy', price: 5788, href: whatsappLink('Hi! I\'d like more photos and the price for Marbles, the tricolour male Sheltie puppy.'), imageAlt: 'Tricolour male Shetland Sheepdog puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Abby — Blue merle Girl', price: 5988, href: whatsappLink('Hi! I\'d like more photos and the price for Abby, the blue merle female Sheltie puppy.'), imageAlt: 'Blue merle female Shetland Sheepdog puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="sheltie" breedName="Sheltie" />
 
     <CaptionedBlock heading="Looking to Buy a Sheltie in Singapore?" imageAlt="Sable and white Sheltie puppy portrait, one of the Shetland Sheepdog puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Shelties are uncommon in Singapore, so litters are announced and reserved fast; we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Sheltie puppies available now.</p>

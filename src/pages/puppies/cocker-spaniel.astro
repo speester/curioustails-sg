@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/cocker-spaniel/3-cocker-spaniel-puppy-playin
 import imgScene3 from '../../assets/cocker-spaniel/4-cocker-spaniel-having-its-long-ears-and-silky-coat-groo.webp';
 import imgScene4 from '../../assets/cocker-spaniel/5-cocker-spaniel-puppy-at-a-veterinary-health-check-befor.webp';
 import imgScene5 from '../../assets/cocker-spaniel/6-cocker-spaniel-puppy-settling-into-a-set-up-playpen-dur.webp';
-import imgCard1 from '../../assets/cocker-spaniel/7-golden-male-cocker-spaniel-puppy-available-in-singapore.webp';
-import imgCard2 from '../../assets/cocker-spaniel/8-black-and-tan-female-cocker-spaniel-puppy-available-in.webp';
-import imgCard3 from '../../assets/cocker-spaniel/9-blue-roan-male-cocker-spaniel-puppy-available-in-singap.webp';
-import imgCard4 from '../../assets/cocker-spaniel/10-chocolate-female-cocker-spaniel-puppy-available-in-sing.webp';
-import imgCard5 from '../../assets/cocker-spaniel/11-golden-female-cocker-spaniel-puppy-available-in-singapo.webp';
-import imgCard6 from '../../assets/cocker-spaniel/12-black-male-cocker-spaniel-puppy-available-in-singapore.webp';
 
 const title = 'Cocker Spaniel Puppy for Sale Singapore | Curious Tails';
 const description =
   'Cocker Spaniel puppies for sale in Singapore from $4,588 all-in. Not HDB-approved. The merry medium spaniel, plus ear-care truth for our humidity.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'HDB Rules', href: '#hdb' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
@@ -163,19 +158,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Cocker Spaniel Puppies"
-      headingAccent="Available"
-      subhead="A few of the Cocker puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Riley — Golden Boy', price: 4588, href: whatsappLink('Hi! I\'d like more photos and the price for Riley, the golden male Cocker Spaniel puppy.'), imageAlt: 'Golden male Cocker Spaniel puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Georgia — Black & tan Girl', price: 4788, href: whatsappLink('Hi! I\'d like more photos and the price for Georgia, the black and tan female Cocker Spaniel puppy.'), imageAlt: 'Black and tan female Cocker Spaniel puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Scout — Roan Boy', price: 4988, href: whatsappLink('Hi! I\'d like more photos and the price for Scout, the roan male Cocker Spaniel puppy.'), imageAlt: 'Blue roan male Cocker Spaniel puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Gigi — Chocolate Girl', price: 5188, href: whatsappLink('Hi! I\'d like more photos and the price for Gigi, the chocolate female Cocker Spaniel puppy.'), imageAlt: 'Chocolate female Cocker Spaniel puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Goldie — Golden Girl', price: 5388, href: whatsappLink('Hi! I\'d like more photos and the price for Goldie, the golden female Cocker Spaniel puppy.'), imageAlt: 'Golden female Cocker Spaniel puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Shadow — Black Boy', price: 5588, href: whatsappLink('Hi! I\'d like more photos and the price for Shadow, the black male Cocker Spaniel puppy.'), imageAlt: 'Black male Cocker Spaniel puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="cocker-spaniel" breedName="Cocker Spaniel" />
 
     <CaptionedBlock heading="Looking to Buy a Cocker Spaniel in Singapore?" imageAlt="Cocker Spaniel puppy portrait, one of the Cocker puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Cocker Spaniel puppies in Singapore are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Cocker puppies available now.</p>

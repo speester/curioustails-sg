@@ -8,6 +8,7 @@ import StatStrip from '../../components/StatStrip.astro';
 import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
@@ -34,19 +35,13 @@ import imgScene2 from '../../assets/papillon/3-papillon-puppy-learning-a-trick-d
 import imgScene3 from '../../assets/papillon/4-papillon-puppy-having-its-silky-coat-and-ear-fringes-co.webp';
 import imgScene4 from '../../assets/papillon/5-papillon-puppy-at-a-veterinary-health-check-before-goin.webp';
 import imgScene5 from '../../assets/papillon/6-papillon-puppy-settling-into-a-set-up-playpen-during-it.webp';
-import imgCard1 from '../../assets/papillon/7-white-and-sable-male-papillon-puppy-available-in-singap.webp';
-import imgCard2 from '../../assets/papillon/8-tricolour-female-papillon-puppy-available-in-singapore.webp';
-import imgCard3 from '../../assets/papillon/9-white-and-red-male-papillon-puppy-available-in-singapor.webp';
-import imgCard4 from '../../assets/papillon/10-white-and-black-female-papillon-puppy-available-in-sing.webp';
-import imgCard5 from '../../assets/papillon/11-sable-male-papillon-puppy-available-in-singapore.webp';
-import imgCard6 from '../../assets/papillon/12-female-papillon-puppy-with-classic-butterfly-ears-avail.webp';
 
 const title = 'Papillon Puppy for Sale Singapore | Curious Tails';
 const description =
   'Papillon puppies for sale in Singapore from $4,088, AVS licensed and HDB-approved. Real prices, temperament and those famous butterfly ears.';
 
 const jumpLinks = [
-  { label: 'Available', href: '#available' },
+  { label: 'Puppies', href: '#available' },
   { label: 'Price', href: '#price' },
   { label: 'Temperament', href: '#temperament' },
   { label: 'Size & Coat', href: '#size' },
@@ -168,19 +163,7 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <ListingGrid
-      heading="Available Papillon Puppies"
-      headingAccent="Available"
-      subhead="A few of the Papillon puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
-      items={[
-        { title: 'Grover — White & sable Boy', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Grover, the white and sable male Papillon puppy.'), imageAlt: 'White and sable male Papillon puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Suki — Tricolour Girl', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Suki, the tricolour female Papillon puppy.'), imageAlt: 'Tricolour female Papillon puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Gumbo — White & red Boy', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Gumbo, the white and red male Papillon puppy.'), imageAlt: 'White and red male Papillon puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Sweetie — White & black Girl', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Sweetie, the white and black female Papillon puppy.'), imageAlt: 'White and black female Papillon puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Hachi — Sable Boy', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Hachi, the sable male Papillon puppy.'), imageAlt: 'Sable male Papillon puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Tally — Butterfly-eared Girl', price: 5088, href: whatsappLink('Hi! I\'d like more photos and the price for Tally, the female Papillon puppy with the classic butterfly ears.'), imageAlt: 'Female Papillon puppy with classic butterfly ears available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
-      ]}
-    />
+    <AvailablePuppies breed="papillon" breedName="Papillon" />
 
     <CaptionedBlock heading="Looking to Buy a Papillon in Singapore?" imageAlt="White and sable Papillon puppy portrait, one of the Papillon puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Papillons are genuinely uncommon in Singapore, so litters are announced and reserved fast; we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Papillon puppies available now.</p>

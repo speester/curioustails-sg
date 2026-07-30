@@ -41,9 +41,9 @@ import imgCard4 from '../../assets/havanese/10-gold-sable-female-havanese-puppy-
 import imgCard5 from '../../assets/havanese/11-silver-male-havanese-puppy-available-in-singapore.webp';
 import imgCard6 from '../../assets/havanese/12-cream-and-gold-female-havanese-puppy-available-in-singa.webp';
 
-const title = 'Havanese Singapore | Price & Puppies | Curious Tails';
+const title = 'Havanese Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Havanese puppies for sale in Singapore from $5,700, AVS licensed and HDB-approved. Cuba’s velcro companion honestly profiled: temperament, colours, coat care, and the $500+ starter kit.';
+  'Havanese puppies for sale in Singapore from $5,700, AVS licensed and HDB-approved. Cuba\'s velcro companion: temperament, colours and coat care.';
 
 const jumpLinks = [
   { label: 'Available', href: '#available' },
@@ -98,7 +98,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/havanese',
+    path: '/puppies/havanese/',
     title,
     description,
     aboutName: 'Havanese',
@@ -110,7 +110,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Havanese puppy',
-      url: '/puppies/havanese',
+      url: '/puppies/havanese/',
       description:
         'Havanese puppy from an AVS licensed Singapore pet shop, priced $5,700 to $6,500 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '5700',
@@ -166,19 +166,19 @@ const schemas = [
     <ListingGrid
       heading="Available Havanese Puppies"
       headingAccent="Available"
-      subhead="A few of the Havanese puppies looking for a home right now, across the breed's famous colour range. Tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Havanese puppies looking for a home right now, across the breed's famous colour range. Tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Chocolate boy', href: whatsappLink('Hi! I\'d like more photos and the price for the chocolate male Havanese puppy.'), imageAlt: 'Chocolate male Havanese puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Havanese puppy.'), imageAlt: 'Cream female Havanese puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Havanese puppy.'), imageAlt: 'Black and white parti Havanese puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Gold sable girl', href: whatsappLink('Hi! I\'d like more photos and the price for the gold sable female Havanese puppy.'), imageAlt: 'Gold sable female Havanese puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Silver boy', href: whatsappLink('Hi! I\'d like more photos and the price for the silver male Havanese puppy.'), imageAlt: 'Silver male Havanese puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Cream & gold girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream and gold female Havanese puppy.'), imageAlt: 'Cream and gold female Havanese puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Bosco — Chocolate Boy', price: 5788, href: whatsappLink('Hi! I\'d like more photos and the price for Bosco, the chocolate male Havanese puppy.'), imageAlt: 'Chocolate male Havanese puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Millie — Cream Girl', price: 5888, href: whatsappLink('Hi! I\'d like more photos and the price for Millie, the cream female Havanese puppy.'), imageAlt: 'Cream female Havanese puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Brownie — Black & white Boy', price: 5988, href: whatsappLink('Hi! I\'d like more photos and the price for Brownie, the black and white male Havanese puppy.'), imageAlt: 'Black and white parti Havanese puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Minnie — Gold sable Girl', price: 6088, href: whatsappLink('Hi! I\'d like more photos and the price for Minnie, the gold sable female Havanese puppy.'), imageAlt: 'Gold sable female Havanese puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Buster — Silver Boy', price: 6188, href: whatsappLink('Hi! I\'d like more photos and the price for Buster, the silver male Havanese puppy.'), imageAlt: 'Silver male Havanese puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Mimi — Cream & gold Girl', price: 6288, href: whatsappLink('Hi! I\'d like more photos and the price for Mimi, the cream and gold female Havanese puppy.'), imageAlt: 'Cream and gold female Havanese puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Havanese in Singapore?" imageAlt="Chocolate Havanese puppy portrait, one of the Havanese puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>The Havanese is genuinely rare in Singapore: litters are infrequent and reserved fast, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Havanese puppies available now, or tell you honestly when the next litter is expected.</p>
+      <p>The Havanese is genuinely rare in Singapore: litters are infrequent and reserved fast, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Havanese puppies available now, or tell you honestly when the next litter is expected.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Havanese for sale in Singapore here is between $5,700 and $6,500, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Havanese puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Havanese photos and prices</a>, or meet our Havanese puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -519,20 +519,20 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our puppy shop in Singapore</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the whole breed range</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our puppy shop in Singapore</a>, or <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the whole breed range</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

@@ -39,9 +39,16 @@ import sableGirlPortrait from '../../assets/corgi/10-corgi-sable-girl-portrait.w
 import redTriPortrait from '../../assets/corgi/11-corgi-red-tri-portrait.webp';
 import fluffyPortrait from '../../assets/corgi/12-corgi-fluffy-portrait.webp';
 
-const title = 'Corgi Singapore | Price & Puppies | Curious Tails';
+import { breedPricing, fmtPrice } from '../../data/pricing';
+
+// Build-time freshness stamp; the daily automation deploy keeps it current.
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
+const price = breedPricing['corgi'];
+const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
+
+const title = 'Corgi Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Corgi puppies for sale in Singapore from $3,688 all-in. Honest part first: Corgis are not HDB-approved. Private housing? We match you. HDB? See the alternatives.';
+  `Corgi price in Singapore (${monthStamp}): $${fmtPrice(price.low)} to $${fmtPrice(price.high)} all-in, AVS licensed. Honest first: Corgis are not HDB-approved. Private housing? We match you.`;
 
 const jumpLinks = [
   { label: 'Available', href: '#available' },
@@ -63,6 +70,11 @@ const faqItems = [
     question: 'How much does a Corgi cost in Singapore?',
     answer:
       'The market commonly runs $6,000 to $10,000 for a Corgi. At Curious Tails, Corgi puppies are $3,688 to $5,500, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+  },
+  {
+    question: 'Pembroke or Cardigan: which Corgi is sold in Singapore?',
+    answer:
+      'Almost always a Pembroke. The two are separate breeds, split by the Kennel Club in 1934, and every Corgi puppy we have carried has been a Pembroke Welsh Corgi. The quickest tell is the tail: a Pembroke has almost none, a Cardigan carries a long bushy one. Cardigans are also longer in the body, heavier at 11 to 17 kg, with bigger rounded ears and colours a Pembroke never has, including blue merle and brindle. If a Singapore listing says only "Corgi", assume Pembroke and ask to see the paperwork.',
   },
   {
     question: 'How bad is Corgi shedding, really?',
@@ -95,7 +107,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/corgi',
+    path: '/puppies/corgi/',
     title,
     description,
     aboutName: 'Pembroke Welsh Corgi',
@@ -107,10 +119,11 @@ const schemas = [
   itemListSchema([
     {
       name: 'Corgi puppy',
-      url: '/puppies/corgi',
+      url: '/puppies/corgi/',
       description:
         'Pembroke Welsh Corgi puppy from an AVS licensed Singapore pet shop, priced $3,688 to $5,500 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included. Not HDB-approved; suited to condos and landed homes.',
-      price: '3688',
+      price: String(price.low),
+      priceHigh: String(price.high),
       image: heroCorgi.src,
     },
   ]),
@@ -157,22 +170,22 @@ const schemas = [
     <ListingGrid
       heading="Available Corgi Puppies"
       headingAccent="Available"
-      subhead="A few of the Corgis recently looking for homes. Tap any pup to WhatsApp us for the latest photos, video, and full price."
+      subhead="A few of the Corgis recently looking for homes. Tap any pup to WhatsApp us for the latest photos, video and health records."
       items={[
-        { title: 'Red & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white male Corgi puppy.'), imageAlt: 'Red and white male Pembroke Welsh Corgi puppy available in Singapore', imageSrc: redWhitePortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Tri-colour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tri-colour female Corgi puppy.'), imageAlt: 'Tri-colour female Corgi puppy lying on a cotton mat', imageSrc: triPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Sable boy', href: whatsappLink('Hi! I\'d like more photos and the price for the sable male Corgi puppy.'), imageAlt: 'Sable male Corgi puppy trotting on cream tiles', imageSrc: sablePortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Fawn & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn and white female Corgi puppy.'), imageAlt: 'Fawn and white female Pembroke Welsh Corgi puppy sitting with a head tilt', imageSrc: fawnWhitePortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Black-headed tri boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black-headed tricolour male Corgi puppy.'), imageAlt: 'Black-headed tricolour male Corgi puppy lying on a pastel blanket', imageSrc: blackTriPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Red & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white female Corgi puppy.'), imageAlt: 'Red and white female Corgi puppy standing alert with ears perked', imageSrc: redWhiteGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
-        { title: 'Sable girl', href: whatsappLink('Hi! I\'d like more photos and the price for the sable female Corgi puppy.'), imageAlt: 'Sable female Corgi puppy playing with a plush toy', imageSrc: sableGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Red-headed tri boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red-headed tricolour male Corgi puppy.'), imageAlt: 'Red-headed tricolour male Corgi puppy sitting on a cotton mat', imageSrc: redTriPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Fluffy red & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fluffy red and white male Corgi puppy.'), imageAlt: 'Fluffy long-coated red and white male Corgi puppy trotting toward the camera', imageSrc: fluffyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '8 weeks' },
+        { title: 'Sparky — Red & white Boy', price: 3688, href: whatsappLink('Hi! I\'d like more photos and the price for Sparky, the red and white male Corgi puppy.'), imageAlt: 'Red and white male Pembroke Welsh Corgi puppy available in Singapore', imageSrc: redWhitePortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Harper — Tri-colour Girl', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Harper, the tri-colour female Corgi puppy.'), imageAlt: 'Tri-colour female Corgi puppy lying on a cotton mat', imageSrc: triPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Tank — Sable Boy', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Tank, the sable male Corgi puppy.'), imageAlt: 'Sable male Corgi puppy trotting on cream tiles', imageSrc: sablePortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Heidi — Fawn & white Girl', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Heidi, the fawn and white female Corgi puppy.'), imageAlt: 'Fawn and white female Pembroke Welsh Corgi puppy sitting with a head tilt', imageSrc: fawnWhitePortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Theo — Black-headed tri Boy', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Theo, the black-headed tricolour male Corgi puppy.'), imageAlt: 'Black-headed tricolour male Corgi puppy lying on a pastel blanket', imageSrc: blackTriPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Holly — Red & white Girl', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Holly, the red and white female Corgi puppy.'), imageAlt: 'Red and white female Corgi puppy standing alert with ears perked', imageSrc: redWhiteGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Iris — Sable Girl', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Iris, the sable female Corgi puppy.'), imageAlt: 'Sable female Corgi puppy playing with a plush toy', imageSrc: sableGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Thor — Red-headed tri Boy', price: 5088, href: whatsappLink('Hi! I\'d like more photos and the price for Thor, the red-headed tricolour male Corgi puppy.'), imageAlt: 'Red-headed tricolour male Corgi puppy sitting on a cotton mat', imageSrc: redTriPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Tucker — Fluffy red & white Boy', price: 5288, href: whatsappLink('Hi! I\'d like more photos and the price for Tucker, the fluffy red and white male Corgi puppy.'), imageAlt: 'Fluffy long-coated red and white male Corgi puppy trotting toward the camera', imageSrc: fluffyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '8 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking for a Corgi for Sale in Singapore?" imageAlt="Red and white Corgi puppy available in Singapore, seated portrait with one ear up" imageSrc={redWhitePortrait} variant="mid">
-      <p>Corgi litters are less frequent than the small crosses, so availability genuinely moves; we keep it live on WhatsApp rather than on a page that goes stale. Message us for photos, gender, age, and exact prices of the Corgi puppies available now.</p>
+      <p>Corgi litters are less frequent than the small crosses, so availability genuinely moves; we update this list as puppies are reserved and confirm the rest on WhatsApp. Message us for photos, gender, age, and a short walkthrough video of the Corgi puppies available now.</p>
       <p>Every Corgi here is between $3,688 and $5,500, full price in writing, kit and delivery and training included. One honest gate first: we will ask about your housing before anything else, because a Corgi cannot go to an HDB flat and we do not bend that rule.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Corgi puppies? I'm in private housing.")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Corgi photos and prices</a>, or visit us in Balestier.
@@ -225,6 +238,12 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="Pembroke or Cardigan? Which Corgi You Are Actually Looking At" imagePosition="none" variant="mid">
+      <p>"Corgi" is two breeds, not one. The Kennel Club separated them in 1934, and the one Singapore buyers almost always meet, including every Corgi puppy we have carried, is the <strong>Pembroke Welsh Corgi</strong>. The <strong>Cardigan Welsh Corgi</strong> is the older of the two and genuinely rare here.</p>
+      <p>The fastest way to tell them apart is the back end. A Pembroke has almost no tail; a Cardigan carries a long, bushy one and always has. From there: Cardigans are longer in the body and heavier, roughly 11 to 17 kg against a Pembroke's 10 to 14, with larger rounded ears and a broader colour range that includes blue merle and brindle, which a Pembroke never has. Pembrokes run to red and white, sable, fawn and tri-colour, with the foxier head and the pointed upright ears most people picture.</p>
+      <p>Why it matters when you are buying: the two are priced differently overseas, and "Corgi" on a local listing tells you nothing about which you are getting. Ask which breed is on the paperwork before you pay a deposit. On this page, every price, weight and coat figure refers to the Pembroke, because that is what we sell. Neither breed is on the HDB-approved list.</p>
+    </CaptionedBlock>
+
     <CaptionedBlock heading="Corgi Temperament: a Working Dog in a Small Body" imageAlt="Tri-colour Corgi puppy alert and playful on a cotton mat at home" imageSrc={triPortrait} imagePosition="left">
       <p>The Corgi's secret is that it is not a lap dog at all: it is a cattle-herding farm breed that happens to come in a small, irresistible package. That means brains, drive, and opinions, delivered with a grin.</p>
       <p>Herding instincts show up at home as shadowing you between rooms, the occasional ankle-level nudge on running children, and a strong preference for having a job. Ten minutes of trick training does more for a Corgi's evening calm than an extra lap of the estate.</p>
@@ -263,9 +282,9 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Corgi Price in Singapore: What You'll Pay and What's Included"
+      heading={`Corgi Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead="The market commonly quotes $6,000 to $10,000. Here's ours in writing: $3,688 to $5,500, all-in."
+      subhead={`How much is a Corgi in Singapore? As of ${monthStamp}, the market commonly quotes $6,000 to $10,000. At Curious Tails a Corgi is ${priceRange}, all-in — starter kit, delivery and first training lesson included.`}
       mode="split"
       columns={[
         {
@@ -300,7 +319,7 @@ const schemas = [
 
   <BannerRibbon
     heading="In private housing and Corgi-ready?"
-    body="Message us your housing type and daily routine, and we'll send current Corgi photos, video, and exact prices, plus an honest read on the fit."
+    body="Message us your housing type and daily routine, and we'll send current Corgi photos, video and health records, plus an honest read on the fit."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'm in private housing and interested in a Corgi. Here's my routine:"
     variant="dark"
@@ -456,19 +475,19 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all available puppies</a>, <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the breeds hub</a>, or <a href="/puppies/sheltie" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Sheltie puppies</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all available puppies</a>, <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the breeds hub</a>, or <a href="/puppies/sheltie/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Sheltie puppies</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/first-time-owners/breed-selector" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Breed selector quiz</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/first-time-owners/breed-selector/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Breed selector quiz</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

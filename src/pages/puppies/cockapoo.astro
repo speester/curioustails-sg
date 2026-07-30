@@ -39,7 +39,7 @@ import partiPortrait from '../../assets/cockapoo/10-cockapoo-parti-portrait.webp
 import apricotGirlPortrait from '../../assets/cockapoo/11-cockapoo-apricot-portrait.webp';
 import redBoyPortrait from '../../assets/cockapoo/12-cockapoo-red-portrait.webp';
 
-const title = 'Cockapoo Singapore | Price & Puppies | Curious Tails';
+const title = 'Cockapoo Puppy for Sale Singapore | Curious Tails';
 const description =
   'Cockapoo puppies for sale in Singapore from $3,288 all-in. Family-friendly, low-shedding, HDB-approved, and forgiving for first-time owners. Starter kit included.';
 
@@ -96,7 +96,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/cockapoo',
+    path: '/puppies/cockapoo/',
     title,
     description,
     aboutName: 'Cockapoo',
@@ -108,7 +108,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Cockapoo puppy',
-      url: '/puppies/cockapoo',
+      url: '/puppies/cockapoo/',
       description:
         'Cockapoo puppy from an AVS licensed Singapore pet shop, priced $3,288 to $5,300 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '3288',
@@ -158,22 +158,22 @@ const schemas = [
     <ListingGrid
       heading="Available Cockapoo Puppies"
       headingAccent="Available"
-      subhead="A few of the Cockapoos recently looking for homes. Tap any pup to WhatsApp us for the latest photos, video, and full price."
+      subhead="A few of the Cockapoos recently looking for homes. Tap any pup to WhatsApp us for the latest photos, video and health records."
       items={[
-        { title: 'Apricot boy', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot male Cockapoo puppy.'), imageAlt: 'Apricot male Cockapoo puppy available in Singapore', imageSrc: apricotPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Red girl', href: whatsappLink('Hi! I\'d like more photos and the price for the red female Cockapoo puppy.'), imageAlt: 'Red female Cockapoo puppy playing with a rope toy', imageSrc: redPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Cockapoo puppy.'), imageAlt: 'Cream male Cockapoo puppy trotting on cream tiles', imageSrc: creamPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Chocolate girl', href: whatsappLink('Hi! I\'d like more photos and the price for the chocolate female Cockapoo puppy.'), imageAlt: 'Chocolate brown female Cockapoo puppy sitting with a head tilt', imageSrc: chocolatePortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black male Cockapoo puppy.'), imageAlt: 'Black male Cockapoo puppy lying on a pastel blanket', imageSrc: blackPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Golden girl', href: whatsappLink('Hi! I\'d like more photos and the price for the golden female Cockapoo puppy.'), imageAlt: 'Warm golden female Cockapoo puppy standing alert', imageSrc: goldenPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
-        { title: 'Cream & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream and white parti male Cockapoo puppy.'), imageAlt: 'Cream and white parti-colour male Cockapoo puppy playing with a plush toy', imageSrc: partiPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '9 weeks' },
-        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Cockapoo puppy.'), imageAlt: 'Apricot female Cockapoo puppy sitting on a cotton mat', imageSrc: apricotGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Cockapoo puppy (8 weeks).'), imageAlt: 'Deep red male Cockapoo puppy trotting toward the camera', imageSrc: redBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '8 weeks' },
+        { title: 'Jax — Apricot Boy', price: 3288, href: whatsappLink('Hi! I\'d like more photos and the price for Jax, the apricot male Cockapoo puppy.'), imageAlt: 'Apricot male Cockapoo puppy available in Singapore', imageSrc: apricotPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Daffy — Red Girl', price: 3488, href: whatsappLink('Hi! I\'d like more photos and the price for Daffy, the red female Cockapoo puppy.'), imageAlt: 'Red female Cockapoo puppy playing with a rope toy', imageSrc: redPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Koda — Cream Boy', price: 3688, href: whatsappLink('Hi! I\'d like more photos and the price for Koda, the cream male Cockapoo puppy.'), imageAlt: 'Cream male Cockapoo puppy trotting on cream tiles', imageSrc: creamPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Fern — Chocolate Girl', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Fern, the chocolate female Cockapoo puppy.'), imageAlt: 'Chocolate brown female Cockapoo puppy sitting with a head tilt', imageSrc: chocolatePortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Loki — Black Boy', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Loki, the black male Cockapoo puppy.'), imageAlt: 'Black male Cockapoo puppy lying on a pastel blanket', imageSrc: blackPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Fiona — Golden Girl', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Fiona, the golden female Cockapoo puppy.'), imageAlt: 'Warm golden female Cockapoo puppy standing alert', imageSrc: goldenPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Pip — Cream & white Boy', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Pip, the cream and white parti male Cockapoo puppy.'), imageAlt: 'Cream and white parti-colour male Cockapoo puppy playing with a plush toy', imageSrc: partiPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '9 weeks' },
+        { title: 'Freya — Apricot Girl', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Freya, the apricot female Cockapoo puppy.'), imageAlt: 'Apricot female Cockapoo puppy sitting on a cotton mat', imageSrc: apricotGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
+        { title: 'Ranger — Red Boy', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Ranger, the red male Cockapoo puppy (8 weeks).'), imageAlt: 'Deep red male Cockapoo puppy trotting toward the camera', imageSrc: redBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '8 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking for a Cockapoo for Sale in Singapore?" imageAlt="Apricot Cockapoo puppy available in Singapore, seated portrait with long ears" imageSrc={apricotPortrait} variant="mid">
-      <p>Cockapoo litters get reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. Message us for photos, gender, age, colour, and exact prices of the Cockapoo puppies available now.</p>
+      <p>Cockapoo litters get reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. Message us for photos, gender, age, colour, and a short walkthrough video of the Cockapoo puppies available now.</p>
       <p>Every Cockapoo here is between $3,288 and $5,300, and what you see is the full price. After you reserve with a deposit, we board your puppy free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Cockapoo puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Cockapoo photos and prices</a>, or meet them at our Balestier shop.
@@ -318,7 +318,7 @@ const schemas = [
     heading="Want current Cockapoo photos and prices?"
     body="Litters move fast. Message us and we'll send photos, video, gender, age, and the exact price, no obligation."
     ctaLabel="WhatsApp us"
-    ctaMessage="Hi! Could you send me your current Cockapoo puppies with photos and exact prices?"
+    ctaMessage="Hi! Could you send me your current Cockapoo puppies with photos and a walkthrough video?"
     variant="dark"
   />
 
@@ -503,19 +503,19 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our Balestier puppy shop</a>, <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the breeds hub</a>, or <a href="/puppies/cocker-spaniel" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cocker Spaniel puppies</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our Balestier puppy shop</a>, <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the breeds hub</a>, or <a href="/puppies/cocker-spaniel/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cocker Spaniel puppies</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/first-time-owners" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-time owner guide</a></li>
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/first-time-owners/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-time owner guide</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

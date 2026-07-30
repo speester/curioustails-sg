@@ -1,0 +1,974 @@
+{
+ "version": "0.1.20260717",
+ "status_code": 20000,
+ "status_message": "Ok.",
+ "time": "2.4015 sec.",
+ "cost": 0.0015,
+ "tasks_count": 1,
+ "tasks_error": 0,
+ "tasks": [
+  {
+   "id": "07261253-2001-0495-0000-0ca91f2d6b48",
+   "status_code": 20000,
+   "status_message": "Ok.",
+   "time": "2.3464 sec.",
+   "cost": 0.0015,
+   "result_count": 1,
+   "path": [
+    "v3",
+    "on_page",
+    "content_parsing",
+    "live"
+   ],
+   "data": {
+    "api": "on_page",
+    "function": "content_parsing",
+    "url": "https://www.pawrenthood.sg/so-you-want-a-corgi-in-singapore-everything-you-need-to-know-before-bringing-one-home/",
+    "enable_javascript": true
+   },
+   "result": [
+    {
+     "crawl_progress": "finished",
+     "crawl_status": null,
+     "items_count": 1,
+     "items": [
+      {
+       "type": "content_parsing_element",
+       "fetch_time": "2026-07-26 06:53:59 +00:00",
+       "status_code": 200,
+       "page_content": {
+        "header": null,
+        "footer": {
+         "primary_content": [
+          {
+           "text": "Pawrenthood.sg - Your trusted companion in pet parenting. Honest, locally relevant guidance for Singapore pawrents.",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Get our free 2026 Essential Kit \u2014 the products SG pawrents swear by, with honest picks and real prices.",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "We'll send your Essential Kit straight to your inbox.",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Check your inbox \u2014 your Essential Kit is on the way. (Check spam too, just in case!)",
+           "url": null,
+           "urls": null
+          }
+         ],
+         "secondary_content": [
+          {
+           "text": "Sign up",
+           "url": null,
+           "urls": null
+          }
+         ],
+         "table_content": null
+        },
+        "main_topic": [
+         {
+          "h_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 1,
+          "primary_content": [
+           {
+            "text": "Corgis are cute, clever, and very high-effort. Singapore-specific guide to housing rules, costs, sellers, and everyday care before you buy.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Corgis are basically a big-dog personality in a low-rider body - confident, clever, expressive, and (yes) ridiculously photogenic. Between the royal association, endless social media \u201cbutt wiggles\u201d, and that permanent smile, it\u2019s easy to see why so many people want to bring a Corgi home.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "But here\u2019s the honest bit: Corgis are high-effort, high-shed, and not HDB-approved. If you plan properly (and avoid sketchy sellers), they can be amazing companions - just make sure your lifestyle, housing, and budget match the reality.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Quick reality check before you start",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "A Corgi is a good fit if you:",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Live in private housing (condo/landed) and can manage a more vocal breed",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Can commit to daily walks + training + mental games",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Don\u2019t mind year-round shedding (and bigger seasonal \u201ccoat blows\u201d)",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Will manage weight carefully (their long backs don\u2019t love extra kilos)",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "A Corgi is not a good fit if you:",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Live in an HDB flat and think there\u2019s a \u201cspecial approval\u201d workaround",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Want a low-maintenance, quiet, very chill dog",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Are out all day with minimal time for training/socialisation",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Pembroke vs Cardigan Corgi: what\u2019s the difference?",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "Both are herding dogs from Wales, both are smart and loyal, and both have a double coat (read: shedding). But they\u2019re not identical.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Pembroke Welsh Corgi: usually slightly lighter-built; often more \u201clet\u2019s go!\u201d and socially forward",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Cardigan Welsh Corgi: generally a bit larger/longer-bodied with a fuller tail; often a touch more reserved and steady",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "A quick Singapore note on tails (important)",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "Pembrokes are sometimes seen with shorter tails. Historically, tail docking was done in some places \u2014 but in Singapore, the Singapore Veterinary Association\u2019s code of ethics discourages cosmetic tail docking, and vets should not perform it unless medically necessary.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Practical takeaway: avoid sellers who promote cosmetic docking or can\u2019t clearly explain the dog\u2019s origin and health paperwork.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Pembroke vs Cardigan Corgi: what\u2019s the difference?",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "Getting ready to bring one home?",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Join Singapore pawrents getting our best tips \u2014 plus a free Essential Kit with our favourite gear picks for SG living.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "1) Temperament: cute, clever\u2026 and occasionally bossy",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "Corgis are bright and trainable, but many have a stubborn streak - they were bred to herd, think independently, and react fast.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Common first-time surprises:",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Vocal watchdog behaviour (corridor sounds, delivery people, doorbells)",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Herding habits (chasing moving things; occasional ankle-nipping if not trained)",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "\u201cSelective hearing\u201d if training is inconsistent",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "2) Daily needs: exercise + brain work (not just a short walk)",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "They\u2019re not marathon dogs, but they need structure:",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "2 walks daily (cooler hours)",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Short training bursts (5\u201310 mins, 1\u20133x/day)",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Food puzzles, sniff games, trick training",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "3) Shedding and grooming: it\u2019s a lifestyle",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "That double coat sheds year-round. Weekly brushing is the baseline; during heavier sheds, you may brush much more often. (No shaving - you want to manage undercoat, not remove the coat\u2019s protective function.)",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "HDB rules: are Corgis allowed?",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "No. HDB flats are limited to one dog from the approved small-breed list, and Corgis (Pembroke or Cardigan) are not on that list.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "If you\u2019re in an HDB flat and hoping for an \u201cexception letter\u201d, treat that as not a plan. A living animal shouldn\u2019t depend on a maybe.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Bottom line: if you want a Corgi, plan for non-HDB housing.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Cost reality: what a Corgi can cost in Singapore",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "Prices vary wildly depending on source (local vs imported), pedigree lines, demand, and included vet work. Treat ultra-cheap \u201cpurebred\u201d listings as a serious red flag.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Budget for:",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Upfront : puppy cost (often S$6-S$10 depending on pedigree claims, origin, and included vet work )",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Ongoing : food, parasite prevention, vaccinations/check-ups, grooming/de-shedding, training, equipment, and emergency vet buffer",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Legal basics you must budget for",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "To license your dog, AVS requires you to complete the Pet Ownership Course if you\u2019re a first-time dog (or cat) licence applicant, and you\u2019ll need your dog\u2019s microchip number to apply.",
+            "url": "https://www.pawrenthood.sg/dog-microchipping-in-singapore-how-it-works-iso-standards-and-licensing-steps/",
+            "urls": [
+             {
+              "url": "https://www.pawrenthood.sg/dog-microchipping-in-singapore-how-it-works-iso-standards-and-licensing-steps/",
+              "anchor_text": "microchip number"
+             }
+            ]
+           },
+           {
+            "text": "AVS also publishes the current licence fees (note that fees change from 1 September 2026 ).",
+            "url": "https://www.pawrenthood.sg/dog-license-singapore-rules-fees-and-how-to-apply/",
+            "urls": [
+             {
+              "url": "https://www.pawrenthood.sg/dog-license-singapore-rules-fees-and-how-to-apply/",
+              "anchor_text": "licence fees"
+             }
+            ]
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Where to buy a Corgi (ethically) - and why they can be hard to find responsibly",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "Corgis are popular, which unfortunately makes them a magnet for poor welfare sourcing and \u201ctoo-good-to-be-true\u201d listings. A responsible route often takes more time - and that\u2019s a good thing.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "What a responsible seller should provide:",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "Ask for:",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Microchip details",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Vaccination records",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Vet health check documents",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Written invoice/sales agreement",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Clear origin information (local vs imported)",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "If they get irritated by normal questions, that\u2019s information too.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Importing a Corgi",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "If you import, expect admin steps (permits, documentation, vet requirements). AVS licensing pages also make clear that licensing is done through PALS and the required steps and documents.",
+            "url": "https://www.pawrenthood.sg/pet-import-singapore-how-to-bring-a-dog-into-singapore-avs-steps-1-apr-2026-clearance-changes/",
+            "urls": [
+             {
+              "url": "https://www.pawrenthood.sg/pet-import-singapore-how-to-bring-a-dog-into-singapore-avs-steps-1-apr-2026-clearance-changes/",
+              "anchor_text": "import"
+             }
+            ]
+           },
+           {
+            "text": "(Import requirements vary by origin and can change, so always follow the latest AVS guidance at time of purchase.)",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Singapore sellers to start with:",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "We've rounded up a few sellers in Singapore that may have available Corgi puppies available from time to time. These aren\u2019t \u201cbest of\u201d endorsements - just traceable starting points that publicly state AVS licensing and provide clear contact channels. Always double-check the licence in AVS\u2019 public registries before paying any deposit.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "1) Pretty Pets Kennel (AVS-licensed breeder)",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 4,
+          "primary_content": [
+           {
+            "text": "They openly state they\u2019re an AVS-licensed breeder (licence shown on their site) and operate by appointment.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": [
+           {
+            "text": "Website: https://prettypetskennel.com",
+            "url": "https://prettypetskennel.com/?ref=pawrenthood.sg",
+            "urls": [
+             {
+              "url": "https://prettypetskennel.com/?ref=pawrenthood.sg",
+              "anchor_text": "https://prettypetskennel.com"
+             }
+            ]
+           },
+           {
+            "text": "IG: https://www.instagram.com/prettypetskennel",
+            "url": "https://www.instagram.com/prettypetskennel?ref=pawrenthood.sg",
+            "urls": [
+             {
+              "url": "https://www.instagram.com/prettypetskennel?ref=pawrenthood.sg",
+              "anchor_text": "https://www.instagram.com/prettypetskennel"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "How to spot and avoid Corgi scams",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "Corgis are classic \u201cscam-bait\u201d because demand is high.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Major red flags:",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "\u201cHDB-approved Corgi\u201d (nope)",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Too-cheap \u201cpurebred\u201d pricing",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Won\u2019t do a live video call showing puppy + environment",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Urgency pressure (\u201cmany buyers, pay deposit now\u201d)",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "No paperwork, or paperwork that looks edited/generic",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "What to do instead:",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Verify seller via AVS registries (above)",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Insist on documentation",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Walk away if anything feels off - the safest deposit is the one you never pay",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Heat management (non-negotiable)",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "Singapore\u2019s heat and humidity matter.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Walk early morning / evening",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Provide cool indoor rest spots (fans/air-con)",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Carry water and take shaded breaks",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Learn heat stress signs (heavy panting, drooling, \u201cslowing down\u201d, glassy eyes)",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Diet and weight control (truly non-negotiable)",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "Corgis are famous snack lovers. Excess weight adds strain on joints and backs.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Measure meals",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Keep treats tiny (use training rewards wisely)",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Reduce jumping off high furniture; use ramps/steps if needed",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Training: start early, stay consistent",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "Key focus areas for Singapore living:",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "\u201cQuiet\u201d cue / barking management",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Loose-leash walking (corridor distractions are real)",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Confidence-building socialisation (people, lifts, noises)",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Impulse control (leave it, wait, settle)",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Community resources in Singapore (quick pointers)",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "If you\u2019re going down the Corgi route, community support helps \u2014 especially for training, grooming, and meet-ups.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Look for Singapore-based Corgi owner groups (Facebook is usually the most active)",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "General local dog communities (neighbourhood pawrent groups can be great for vetted groomer/trainer recs)",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "If you want credentialled help, AVS also maintains a public list of accredited certified dog trainers.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Final thought: a Corgi is a commitment, not a trend",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "The happiest Corgis in Singapore are the ones with:",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Legal housing (non-HDB)",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Structured routines",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Training built into daily life",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Proper cooling + coat care",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "A budget that doesn\u2019t get tight after the puppy phase",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Curious about other options? Read our HDB-friendly dog guide (or adoption checklist ) before you commit - your future pup will thank you with every wag!",
+            "url": "https://www.pawrenthood.sg/hdb-approved-dogs-what-pawrents-need-to-know/",
+            "urls": [
+             {
+              "url": "https://www.pawrenthood.sg/hdb-approved-dogs-what-pawrents-need-to-know/",
+              "anchor_text": "HDB-friendly dog guide"
+             },
+             {
+              "url": "https://www.pawrenthood.sg/small-dogs-in-singapore-adoption-suitability-and-everyday-care/",
+              "anchor_text": "adoption checklist"
+             }
+            ]
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         }
+        ],
+        "secondary_topic": [
+         {
+          "h_title": "The big \u201cbefore you buy\u201d truths",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Start with AVS public registries",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "If you\u2019re buying (not adopting), prioritise sellers you can verify:",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": [
+           {
+            "text": "Public Registry of AVS-Licensed Pet Shops",
+            "url": "https://avs.nparks.gov.sg/outreach/resources/public-registry-of-avs-licensed-pet-shops/?ref=pawrenthood.sg",
+            "urls": [
+             {
+              "url": "https://avs.nparks.gov.sg/outreach/resources/public-registry-of-avs-licensed-pet-shops/?ref=pawrenthood.sg",
+              "anchor_text": "Public Registry of AVS-Licensed Pet Shops"
+             }
+            ]
+           },
+           {
+            "text": "Public Registry of AVS-Licensed Pet Breeders",
+            "url": "https://avs.nparks.gov.sg/outreach/resources/public-registry-of-avs-licensed-pet-breeders/?ref=pawrenthood.sg",
+            "urls": [
+             {
+              "url": "https://avs.nparks.gov.sg/outreach/resources/public-registry-of-avs-licensed-pet-breeders/?ref=pawrenthood.sg",
+              "anchor_text": "Public Registry of AVS-Licensed Pet Breeders"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "2) Wag A Tail (AVS-licensed pet shop)",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 4,
+          "primary_content": [
+           {
+            "text": "Lists an AVS licence on their Corgi listing and updates availability via IG.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": [
+           {
+            "text": "Website: https://www.wagatail.sg",
+            "url": "https://www.wagatail.sg/?ref=pawrenthood.sg",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/?ref=pawrenthood.sg",
+              "anchor_text": "https://www.wagatail.sg"
+             }
+            ]
+           },
+           {
+            "text": "IG: https://www.instagram.com/wagatail.sg",
+            "url": "https://www.instagram.com/wagatail.sg/?ref=pawrenthood.sg",
+            "urls": [
+             {
+              "url": "https://www.instagram.com/wagatail.sg/?ref=pawrenthood.sg",
+              "anchor_text": "https://www.instagram.com/wagatail.sg"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "3) Pet Master (AVS-licensed pet shop)",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 4,
+          "primary_content": [
+           {
+            "text": "States they are AVS licensed and includes an AVS licence number on their Corgi-related page.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": [
+           {
+            "text": "Website: https://petmaster.com.sg",
+            "url": "https://petmaster.com.sg/?ref=pawrenthood.sg",
+            "urls": [
+             {
+              "url": "https://petmaster.com.sg/?ref=pawrenthood.sg",
+              "anchor_text": "https://petmaster.com.sg"
+             }
+            ]
+           },
+           {
+            "text": "IG: https://www.instagram.com/petmaster.sg",
+            "url": "https://www.instagram.com/petmaster.sg/?ref=pawrenthood.sg",
+            "urls": [
+             {
+              "url": "https://www.instagram.com/petmaster.sg/?ref=pawrenthood.sg",
+              "anchor_text": "https://www.instagram.com/petmaster.sg"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "4) The Lovely Pets (AVS-licensed pet shop)",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 4,
+          "primary_content": [
+           {
+            "text": "States it\u2019s an AVS-licensed pet shop and publishes their Instagram handle on-site.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": [
+           {
+            "text": "Website: https://www.thelovelypets.com",
+            "url": "https://www.thelovelypets.com/?ref=pawrenthood.sg",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/?ref=pawrenthood.sg",
+              "anchor_text": "https://www.thelovelypets.com"
+             }
+            ]
+           },
+           {
+            "text": "IG: https://www.instagram.com/sgthelovelypets",
+            "url": "https://www.instagram.com/sgthelovelypets/?ref=pawrenthood.sg",
+            "urls": [
+             {
+              "url": "https://www.instagram.com/sgthelovelypets/?ref=pawrenthood.sg",
+              "anchor_text": "https://www.instagram.com/sgthelovelypets"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Corgi care tips for Singapore pawrents",
+          "main_title": "So You Want a Corgi in Singapore? Everything you need to Know Before Bringing One Home",
+          "author": "Pawrenthood",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         }
+        ],
+        "ratings": null,
+        "offers": null,
+        "comments": null,
+        "contacts": null
+       },
+       "page_as_markdown": null
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

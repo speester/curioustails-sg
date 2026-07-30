@@ -40,10 +40,16 @@ import whitePortrait from '../../assets/maltipoo/10-maltipoo-white-portrait.webp
 import creamPortrait from '../../assets/maltipoo/11-maltipoo-cream-portrait.webp';
 import cafeAuLaitPortrait from '../../assets/maltipoo/12-maltipoo-cafe-au-lait-portrait.webp';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import { breedPricing, fmtPrice } from '../../data/pricing';
 
-const title = 'Maltipoo Singapore | Price & Puppies | Curious Tails';
+// Build-time freshness stamp; the daily automation deploy keeps it current.
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
+const price = breedPricing['maltipoo'];
+const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
+
+const title = 'Maltipoo Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Maltipoo puppies for sale in Singapore from $3,288, AVS licensed and HDB-approved. Real prices, temperament, grooming and the $500+ starter kit included. WhatsApp us.';
+  `Maltipoo price in Singapore (${monthStamp}): $${fmtPrice(price.low)} to $${fmtPrice(price.high)} all-in, AVS licensed and HDB-approved. Starter kit, free delivery and setup included.`;
 
 const jumpLinks = [
   { label: 'Available', href: '#available' },
@@ -98,7 +104,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/maltipoo',
+    path: '/puppies/maltipoo/',
     title,
     description,
     aboutName: 'Maltipoo',
@@ -110,10 +116,11 @@ const schemas = [
   itemListSchema([
     {
       name: 'Maltipoo puppy',
-      url: '/puppies/maltipoo',
+      url: '/puppies/maltipoo/',
       description:
         'Maltipoo puppy from an AVS licensed Singapore pet shop, priced $3,288 to $5,988 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
-      price: '3288',
+      price: String(price.low),
+      priceHigh: String(price.high),
       image: heroMaltipoo.src,
     },
   ]),
@@ -167,22 +174,22 @@ const schemas = [
     <ListingGrid
       heading="Available Maltipoo Puppies"
       headingAccent="Available"
-      subhead="A few of the Maltipoo puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Maltipoo puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Maltipoo puppy.'), imageAlt: 'Cream male Maltipoo puppy available in Singapore', imageSrc: maltipooPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'White girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white female Maltipoo puppy.'), imageAlt: 'White female Maltipoo puppy cuddled close on a caregiver\'s lap', imageSrc: companionLap, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '11 weeks' },
-        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Maltipoo puppy.'), imageAlt: 'Apricot female Maltipoo puppy during grooming and coat care', imageSrc: maltipooGrooming, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Apricot boy', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot male Maltipoo puppy.'), imageAlt: 'Apricot male Maltipoo puppy sitting with a head tilt', imageSrc: apricotPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '10 weeks' },
-        { title: 'Red girl', href: whatsappLink('Hi! I\'d like more photos and the price for the red female Maltipoo puppy.'), imageAlt: 'Deep red female Maltipoo puppy lying on a pastel blanket', imageSrc: redPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Silver-beige boy', href: whatsappLink('Hi! I\'d like more photos and the price for the silver-beige male Maltipoo puppy.'), imageAlt: 'Silver-beige male Maltipoo puppy standing alert', imageSrc: silverBeigePortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
-        { title: 'White boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white male Maltipoo puppy.'), imageAlt: 'Pure white male Maltipoo puppy playing with a plush toy', imageSrc: whitePortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '9 weeks' },
-        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Maltipoo puppy.'), imageAlt: 'Warm cream female Maltipoo puppy sitting on a cotton mat', imageSrc: creamPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Café-au-lait girl', href: whatsappLink('Hi! I\'d like more photos and the price for the café-au-lait female Maltipoo puppy.'), imageAlt: 'Light café-au-lait brown female Maltipoo puppy trotting toward the camera', imageSrc: cafeAuLaitPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '8 weeks' },
+        { title: 'Eddie — Cream Boy', price: 3288, href: whatsappLink('Hi! I\'d like more photos and the price for Eddie, the cream male Maltipoo puppy.'), imageAlt: 'Cream male Maltipoo puppy available in Singapore', imageSrc: maltipooPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Rita — White Girl', price: 3488, href: whatsappLink('Hi! I\'d like more photos and the price for Rita, the white female Maltipoo puppy.'), imageAlt: 'White female Maltipoo puppy cuddled close on a caregiver\'s lap', imageSrc: companionLap, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '11 weeks' },
+        { title: 'Roxie — Apricot Girl', price: 3688, href: whatsappLink('Hi! I\'d like more photos and the price for Roxie, the apricot female Maltipoo puppy.'), imageAlt: 'Apricot female Maltipoo puppy during grooming and coat care', imageSrc: maltipooGrooming, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
+        { title: 'Elmo — Apricot Boy', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Elmo, the apricot male Maltipoo puppy.'), imageAlt: 'Apricot male Maltipoo puppy sitting with a head tilt', imageSrc: apricotPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '10 weeks' },
+        { title: 'Ruffles — Red Girl', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Ruffles, the red female Maltipoo puppy.'), imageAlt: 'Deep red female Maltipoo puppy lying on a pastel blanket', imageSrc: redPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Ernie — Silver-beige Boy', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Ernie, the silver-beige male Maltipoo puppy.'), imageAlt: 'Silver-beige male Maltipoo puppy standing alert', imageSrc: silverBeigePortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Espresso — White Boy', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Espresso, the white male Maltipoo puppy.'), imageAlt: 'Pure white male Maltipoo puppy playing with a plush toy', imageSrc: whitePortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '9 weeks' },
+        { title: 'Sable — Cream Girl', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Sable, the cream female Maltipoo puppy.'), imageAlt: 'Warm cream female Maltipoo puppy sitting on a cotton mat', imageSrc: creamPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
+        { title: 'Sage — Café-au-lait Girl', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Sage, the café-au-lait female Maltipoo puppy.'), imageAlt: 'Light café-au-lait brown female Maltipoo puppy trotting toward the camera', imageSrc: cafeAuLaitPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '8 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Maltipoo in Singapore?" imageAlt="Maltipoo puppy portrait, one of the Maltipoo puppies available in Singapore" imageSrc={maltipooPortrait} variant="mid">
-      <p>Our Maltipoo puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Maltipoo puppies available now.</p>
+      <p>Our Maltipoo puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and a short walkthrough video for the Maltipoo puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Maltipoo for sale in Singapore here is between $3,288 and $5,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Maltipoo puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Maltipoo photos and prices</a>, or meet our Maltipoo puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -289,9 +296,9 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Maltipoo Price in Singapore: What You'll Pay and What's Included"
+      heading={`Maltipoo Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $3,288 to $5,988, all-in."
+      subhead={`How much is a Maltipoo in Singapore? As of ${monthStamp}, most shops charge $3,000 to $9,000. At Curious Tails a Maltipoo is ${priceRange}, all-in — starter kit, delivery and first training lesson included.`}
       mode="split"
       columns={[
         {
@@ -548,20 +555,20 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the Curious Tails front page</a>, <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">other breeds in our care</a>, or <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our Cavapoo page</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the Curious Tails front page</a>, <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">other breeds in our care</a>, or <a href="/puppies/cavapoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our Cavapoo page</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

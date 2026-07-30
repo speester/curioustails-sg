@@ -1,0 +1,19 @@
+=== LEGACY / NON-SITEMAP URLS FROM GSC ===
+http://curioustails.sg/puppy-for-sale/                     200 hops=2 -> https://curioustails.sg/puppies/
+https://curioustails.sg/puppy-for-sale/                    200 hops=1 -> https://curioustails.sg/puppies/
+http://curioustails.sg/puppies-available/medium-breeds/    200 hops=2 -> https://curioustails.sg/puppies/
+https://curioustails.sg/puppy-for-sale/golden-retriever/   200 hops=1 -> https://curioustails.sg/puppies/golden-retriever/
+https://curioustails.sg/book-viewing/                      200 hops=1 -> https://curioustails.sg/contact/
+https://curioustails.sg/about/                             200 hops=1 -> https://curioustails.sg/about-us/
+https://curioustails.sg/locations/                         200 hops=1 -> https://curioustails.sg/contact/
+https://curioustails.sg/delivery-pickup/                   200 hops=1 -> https://curioustails.sg/delivery/
+
+=== TRAILING-SLASH PAIRS (no-slash form) ===
+/puppies/cavapoo                   200 hops=1 -> https://curioustails.sg/puppies/cavapoo/
+/learn/puppy-health                200 hops=1 -> https://curioustails.sg/learn/puppy-health/
+/puppies/chihuahua                 200 hops=1 -> https://curioustails.sg/puppies/chihuahua/
+/first-time-owners                 200 hops=1 -> https://curioustails.sg/first-time-owners/
+/blog                              200 hops=1 -> https://curioustails.sg/blog/
+/pricing                           200 hops=1 -> https://curioustails.sg/pricing/
+/delivery                          200 hops=1 -> https://curioustails.sg/delivery/
+/puppies/mini-dachshund            200 hops=1 -> https://curioustails.sg/puppies/mini-dachshund/

@@ -41,9 +41,9 @@ import imgCard4 from '../../assets/toy-poodle/10-black-female-toy-poodle-puppy-a
 import imgCard5 from '../../assets/toy-poodle/11-white-male-toy-poodle-puppy-available-in-singapore.webp';
 import imgCard6 from '../../assets/toy-poodle/12-silver-female-toy-poodle-puppy-available-in-singapore.webp';
 
-const title = 'Toy Poodle Singapore | Price & Puppies | Curious Tails';
+const title = 'Toy Poodle Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Toy Poodle puppies for sale in Singapore from $3,488, AVS licensed and HDB-approved. Real prices, temperament, coat colours and the $500+ starter kit included. WhatsApp us.';
+  'Toy Poodle puppies for sale in Singapore from $3,488, AVS licensed and HDB-approved. Real prices, temperament and the full range of coat colours.';
 
 const jumpLinks = [
   { label: 'Available', href: '#available' },
@@ -103,7 +103,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/toy-poodle',
+    path: '/puppies/toy-poodle/',
     title,
     description,
     aboutName: 'Toy Poodle',
@@ -115,7 +115,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Toy Poodle puppy',
-      url: '/puppies/toy-poodle',
+      url: '/puppies/toy-poodle/',
       description:
         'Toy Poodle puppy from an AVS licensed Singapore pet shop, priced $3,488 to $5,988 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '3488',
@@ -171,19 +171,19 @@ const schemas = [
     <ListingGrid
       heading="Available Toy Poodle Puppies"
       headingAccent="Available"
-      subhead="A few of the Toy Poodle puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Toy Poodle puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Toy Poodle puppy.'), imageAlt: 'Red male Toy Poodle puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Toy Poodle puppy.'), imageAlt: 'Apricot female Toy Poodle puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Toy Poodle puppy.'), imageAlt: 'Cream male Toy Poodle puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Toy Poodle puppy.'), imageAlt: 'Black female Toy Poodle puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'White boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white male Toy Poodle puppy.'), imageAlt: 'White male Toy Poodle puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Silver girl', href: whatsappLink('Hi! I\'d like more photos and the price for the silver female Toy Poodle puppy.'), imageAlt: 'Silver female Toy Poodle puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Otto — Red Boy', price: 3488, href: whatsappLink('Hi! I\'d like more photos and the price for Otto, the red male Toy Poodle puppy.'), imageAlt: 'Red male Toy Poodle puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Betsy — Apricot Girl', price: 3688, href: whatsappLink('Hi! I\'d like more photos and the price for Betsy, the apricot female Toy Poodle puppy.'), imageAlt: 'Apricot female Toy Poodle puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Ozzy — Cream Boy', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Ozzy, the cream male Toy Poodle puppy.'), imageAlt: 'Cream male Toy Poodle puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Birdie — Black Girl', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Birdie, the black female Toy Poodle puppy.'), imageAlt: 'Black female Toy Poodle puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Pancake — White Boy', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Pancake, the white male Toy Poodle puppy.'), imageAlt: 'White male Toy Poodle puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Biscotti — Silver Girl', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Biscotti, the silver female Toy Poodle puppy.'), imageAlt: 'Silver female Toy Poodle puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Toy Poodle in Singapore?" imageAlt="Apricot Toy Poodle puppy portrait, one of the Toy Poodle puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Toy Poodles are the most requested breed in the shop, so our litters arrive and are reserved quickly, and we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Toy Poodle puppies available now.</p>
+      <p>Toy Poodles are the most requested breed in the shop, so our litters arrive and are reserved quickly, and we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Toy Poodle puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Toy Poodle for sale in Singapore here is between $3,488 and $5,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Toy Poodle puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Toy Poodle photos and prices</a>, or meet our Toy Poodle puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -550,20 +550,20 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our shop front page</a>, <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all breeds side by side</a>, or <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our Cavapoo page</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our shop front page</a>, <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all breeds side by side</a>, or <a href="/puppies/cavapoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our Cavapoo page</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

@@ -41,9 +41,9 @@ import imgCard4 from '../../assets/shih-tzu/10-liver-and-white-female-shih-tzu-p
 import imgCard5 from '../../assets/shih-tzu/11-solid-gold-male-shih-tzu-puppy-available-in-singapore.webp';
 import imgCard6 from '../../assets/shih-tzu/12-tri-colour-female-shih-tzu-puppy-available-in-singapore.webp';
 
-const title = 'Shih Tzu Singapore | Price & Puppies | Curious Tails';
+const title = 'Shih Tzu Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Shih Tzu puppies for sale in Singapore from $3,988, AVS licensed and HDB-approved. Real prices, temperament, coat care in our heat, and the $500+ starter kit included.';
+  'Shih Tzu puppies for sale in Singapore from $3,988, AVS licensed and HDB-approved. Real prices, temperament and honest coat care for our heat and humidity.';
 
 const jumpLinks = [
   { label: 'Available', href: '#available' },
@@ -108,7 +108,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/shih-tzu',
+    path: '/puppies/shih-tzu/',
     title,
     description,
     aboutName: 'Shih Tzu',
@@ -120,7 +120,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Shih Tzu puppy',
-      url: '/puppies/shih-tzu',
+      url: '/puppies/shih-tzu/',
       description:
         'Shih Tzu puppy from an AVS licensed Singapore pet shop, priced $3,988 to $5,288 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '3988',
@@ -176,19 +176,19 @@ const schemas = [
     <ListingGrid
       heading="Available Shih Tzu Puppies"
       headingAccent="Available"
-      subhead="A few of the Shih Tzu puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Shih Tzu puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Gold & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the gold and white male Shih Tzu puppy.'), imageAlt: 'Gold and white male Shih Tzu puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Black & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white female Shih Tzu puppy.'), imageAlt: 'Black and white female Shih Tzu puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Brindle boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle male Shih Tzu puppy.'), imageAlt: 'Brindle male Shih Tzu puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Liver & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the liver and white female Shih Tzu puppy.'), imageAlt: 'Liver and white female Shih Tzu puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Solid gold boy', href: whatsappLink('Hi! I\'d like more photos and the price for the solid gold male Shih Tzu puppy.'), imageAlt: 'Solid gold male Shih Tzu puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Tri-colour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tri-colour female Shih Tzu puppy.'), imageAlt: 'Tri-colour female Shih Tzu puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Mowgli — Gold & white Boy', price: 3988, href: whatsappLink('Hi! I\'d like more photos and the price for Mowgli, the gold and white male Shih Tzu puppy.'), imageAlt: 'Gold and white male Shih Tzu puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Aria — Black & white Girl', price: 4188, href: whatsappLink('Hi! I\'d like more photos and the price for Aria, the black and white female Shih Tzu puppy.'), imageAlt: 'Black and white female Shih Tzu puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Muffin — Brindle Boy', price: 4388, href: whatsappLink('Hi! I\'d like more photos and the price for Muffin, the brindle male Shih Tzu puppy.'), imageAlt: 'Brindle male Shih Tzu puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Ashi — Liver & white Girl', price: 4588, href: whatsappLink('Hi! I\'d like more photos and the price for Ashi, the liver and white female Shih Tzu puppy.'), imageAlt: 'Liver and white female Shih Tzu puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Nacho — Solid gold Boy', price: 4788, href: whatsappLink('Hi! I\'d like more photos and the price for Nacho, the solid gold male Shih Tzu puppy.'), imageAlt: 'Solid gold male Shih Tzu puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Aspen — Tri-colour Girl', price: 4988, href: whatsappLink('Hi! I\'d like more photos and the price for Aspen, the tri-colour female Shih Tzu puppy.'), imageAlt: 'Tri-colour female Shih Tzu puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Shih Tzu in Singapore?" imageAlt="Gold and white Shih Tzu puppy portrait, one of the Shih Tzu puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our Shih Tzu puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Shih Tzu puppies available now.</p>
+      <p>Our Shih Tzu puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Shih Tzu puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Shih Tzu for sale in Singapore here is between $3,988 and $5,288, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Shih Tzu puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Shih Tzu photos and prices</a>, or meet our Shih Tzu puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -555,20 +555,20 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Singapore puppies ready for reservation</a>, <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our full range of breeds</a>, or <a href="/puppies/shihpoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shihpoo puppies</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Singapore puppies ready for reservation</a>, <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our full range of breeds</a>, or <a href="/puppies/shihpoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shihpoo puppies</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

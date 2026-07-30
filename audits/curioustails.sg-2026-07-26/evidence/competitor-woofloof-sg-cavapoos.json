@@ -1,0 +1,960 @@
+{
+ "version": "0.1.20260717",
+ "status_code": 20000,
+ "status_message": "Ok.",
+ "time": "6.9565 sec.",
+ "cost": 0.0015,
+ "tasks_count": 1,
+ "tasks_error": 0,
+ "tasks": [
+  {
+   "id": "07261253-2001-0495-0000-5318ba6224e2",
+   "status_code": 20000,
+   "status_message": "Ok.",
+   "time": "6.6989 sec.",
+   "cost": 0.0015,
+   "result_count": 1,
+   "path": [
+    "v3",
+    "on_page",
+    "content_parsing",
+    "live"
+   ],
+   "data": {
+    "api": "on_page",
+    "function": "content_parsing",
+    "url": "https://woofloof.sg/cavapoos/",
+    "enable_javascript": true
+   },
+   "result": [
+    {
+     "crawl_progress": "finished",
+     "crawl_status": null,
+     "items_count": 1,
+     "items": [
+      {
+       "type": "content_parsing_element",
+       "fetch_time": "2026-07-26 06:53:50 +00:00",
+       "status_code": 200,
+       "page_content": {
+        "header": {
+         "primary_content": null,
+         "secondary_content": [
+          {
+           "text": "Available Puppies",
+           "url": "https://woofloof.sg/available-puppies/",
+           "urls": [
+            {
+             "url": "https://woofloof.sg/available-puppies/",
+             "anchor_text": "Available Puppies"
+            }
+           ]
+          },
+          {
+           "text": "Puppy Curriculum",
+           "url": "https://woofloof.sg/how-our-breeders-raise-our-puppies/",
+           "urls": [
+            {
+             "url": "https://woofloof.sg/how-our-breeders-raise-our-puppies/",
+             "anchor_text": "Puppy Curriculum"
+            }
+           ]
+          },
+          {
+           "text": "Contact Us",
+           "url": "https://woofloof.sg/contact-us/",
+           "urls": [
+            {
+             "url": "https://woofloof.sg/contact-us/",
+             "anchor_text": "Contact Us"
+            }
+           ]
+          },
+          {
+           "text": "Available Puppies",
+           "url": "https://woofloof.sg/available-puppies/",
+           "urls": [
+            {
+             "url": "https://woofloof.sg/available-puppies/",
+             "anchor_text": "Available Puppies"
+            }
+           ]
+          },
+          {
+           "text": "Puppy Curriculum",
+           "url": "https://woofloof.sg/how-our-breeders-raise-our-puppies/",
+           "urls": [
+            {
+             "url": "https://woofloof.sg/how-our-breeders-raise-our-puppies/",
+             "anchor_text": "Puppy Curriculum"
+            }
+           ]
+          },
+          {
+           "text": "Contact Us",
+           "url": "https://woofloof.sg/contact-us/",
+           "urls": [
+            {
+             "url": "https://woofloof.sg/contact-us/",
+             "anchor_text": "Contact Us"
+            }
+           ]
+          },
+          {
+           "text": "Available Puppies",
+           "url": "https://woofloof.sg/available-puppies/",
+           "urls": [
+            {
+             "url": "https://woofloof.sg/available-puppies/",
+             "anchor_text": "Available Puppies"
+            }
+           ]
+          },
+          {
+           "text": "Puppy Curriculum",
+           "url": "https://woofloof.sg/how-our-breeders-raise-our-puppies/",
+           "urls": [
+            {
+             "url": "https://woofloof.sg/how-our-breeders-raise-our-puppies/",
+             "anchor_text": "Puppy Curriculum"
+            }
+           ]
+          },
+          {
+           "text": "Contact Us",
+           "url": "https://woofloof.sg/contact-us/",
+           "urls": [
+            {
+             "url": "https://woofloof.sg/contact-us/",
+             "anchor_text": "Contact Us"
+            }
+           ]
+          },
+          {
+           "text": "Available Puppies",
+           "url": "https://woofloof.sg/available-puppies/",
+           "urls": [
+            {
+             "url": "https://woofloof.sg/available-puppies/",
+             "anchor_text": "Available Puppies"
+            }
+           ]
+          },
+          {
+           "text": "Puppy Curriculum",
+           "url": "https://woofloof.sg/how-our-breeders-raise-our-puppies/",
+           "urls": [
+            {
+             "url": "https://woofloof.sg/how-our-breeders-raise-our-puppies/",
+             "anchor_text": "Puppy Curriculum"
+            }
+           ]
+          },
+          {
+           "text": "Contact Us",
+           "url": "https://woofloof.sg/contact-us/",
+           "urls": [
+            {
+             "url": "https://woofloof.sg/contact-us/",
+             "anchor_text": "Contact Us"
+            }
+           ]
+          },
+          {
+           "text": "Ethically Raised Cavapoo Puppies for Singapore Families \u2764\ufe0f Trusted by over 150 Singapore families \ud83e\uddec DNA Health Tested Parents",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "\ud83c\udde6\ud83c\uddfa Ethically Raised in Australia \u2b50 5-Star Google Reviews",
+           "url": null,
+           "urls": null
+          }
+         ],
+         "table_content": null
+        },
+        "footer": {
+         "primary_content": [
+          {
+           "text": "Find your furry companion.",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Contact us to find out more or book an appointment with us to meet our pups!",
+           "url": null,
+           "urls": null
+          }
+         ],
+         "secondary_content": null,
+         "table_content": null
+        },
+        "main_topic": [
+         {
+          "h_title": "Caramel",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "Status: Available For Reservation",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Estimated Date of Arrival: 2nd Week June 26",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Country of Origin: Australia",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Ruby Red with prominent white marking",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": [
+           {
+            "text": "Birthday: 1 June 26",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Estimated Weight: 7-9kg",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Early Neurological Stimulation",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Toffee",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "Status: Available For Reservation",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Estimated Date of Arrival: 2nd Week June 26",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Country of Origin: Australia",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Ruby Red with prominent white marking",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": [
+           {
+            "text": "Birthday: 1 June 26",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Estimated Weight: 7-9kg",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Early Neurological Stimulation",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Mocha",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "Status: Available For Reservation",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Estimated Date of Arrival: 2nd Week June 26",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Country of Origin: Australia",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Ruby Red with prominent white marking",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": [
+           {
+            "text": "Birthday: 1 June 26",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Estimated Weight: 7-9kg",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Early Neurological Stimulation",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Ruby-Reserved",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "Estimated Date of Arrival: 2nd Week June 26",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Country of Origin: Australia",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": [
+           {
+            "text": "Status: Reserved",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Birthday: 18th Mar 2026",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Sex: Female",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Estimated Weight: 3-4kg",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Ruby Red",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Early Neurological Stimulation",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Not HDB-Approved",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Josie-Reserved",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "Josie is a tiny bundle of joy with a playful and affectionate personality. Smaller than most Cavapoos, she may be little, but she\u2019s full of confidence, energy and charm. She loves chasing a ball and has already learnt to play fetch, making every play session fun and interactive. After she\u2019s had her adventures, Josie is happiest curled up beside you for cuddles. Sweet, loving and full of character, she\u2019ll make a wonderful companion for an active family looking for a small puppy with a big heart.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Female, Ruby Red, Estimated Weight: 3-4kg",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Estimated Date of Arrival: 2nd Week June 26",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Country of Origin: Australia",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": [
+           {
+            "text": "Birthday: 18th Mar 2026",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Early Neurological Stimulation",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Tilly-Reserved",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "Estimated Date of Arrival: 2nd Week June 26",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Country of Origin: Australia",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": [
+           {
+            "text": "Status: Reserved",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Birthday: 18th Mar 2026",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Sex: Female",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Estimated Weight: 3-4kg",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Ruby Red",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Early Neurological Stimulation",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Amanda's Litter",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "Status: All Siblings have been Reserved",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Country of Origin: Australia",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": [
+           {
+            "text": "Birthday: 5th Feb 2025",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Ruby Reds",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Early Neurological Stimulation",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Not HDB-Approved",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Apartment Friendly Dogs",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "Smaller size and gentle energy makes them ideal for apartment living",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Low Shedding Coat",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "Their low-shedding coats help reduce loose fur around the house with regular grooming",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Affectionate & Loving",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "Cavapoos thrive on companionship and form deep bonds with their families. They love cuddles, attention, and being close to their favourite people.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Playful & Cheerful",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "With a happy and curious personality, Cavapoos enjoy interactive games, walks, and playtime while bringing fun and laughter into the home.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Loyal & People-Oriented",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "Cavapoos love being included in everyday activities and are happiest when they're by your side, making them devoted companions for years to come.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Loved by families, trusted for a reason.",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "We came into the store expecting to just view. But the dogs that wood loof have high quality and it was very different compared to other stores. I highly recommend anybody interested in a companion to come here. The owner is friendly and honest as they put in extreme effort to maintain the quality of their dogs. 10/10 experience will recommend to everyone.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "After a year of planning to get a family pet, my two children were quite nervous and hesitant about the whole puppy viewing process. From the moment we met Shyne at Woof Loof, she put me completely at ease with professionalism, patience, and obvious expertise in the area of ethical breeding. This made such a difference for me, compared to other pet shops we visited in Singapore. Shyne took the time to answer all my questions, helped me understand what responsible pet ownership really looks like, and gave me the confidence I needed to know that I was truly ready to welcome a puppy into our lives.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": [
+           {
+            "text": "Over 150 verified Google reviews from happy Woof Loof families across Singapore.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Mabel, Palden & Mocha",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Aloni Cahusac",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "150+ 5 Star Google Reviews",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "From familiar who found their perfect furry companion with Woof Loof",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "What Our Families Say",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "As first time dog owners, our family really appreciated how Woof Loof provided us with so much assurance and support throughout the whole process. Shyne assured us that her puppies are ethically bred and come to us happy and healthy. Indeed, we found the puppies at Woof Loof to be friendly, cute and full of life! We fell in love with a mini aussie, Neville, cutely named after a Harry Potter character. We took Neville home and kept his name!",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Their method is unconventional \u2013 they almost treat you and their puppies as family, being very careful about matching each dog with the right home. They do thorough health checks and early stimulation with the puppies, which we feel has really made a difference in our mini Aussie Shepherd puppy \u2014 he\u2019s happy, super friendly with people, and totally comfortable being handled (no problems with the vet, or grooming)",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "The quality of a professionally and ethically bred puppy speaks for itself. As an experienced dog owner who has both adopted and bought puppies in the past, i can say that Ruby truly has the best temperament as a puppy I\u2019ve experienced so far. We are very grateful to Woof Loof for helping us find our Ruby!",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Frequently Asked Questions",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "Are Cavapoos good family dogs?",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Yes. Cavapoos are known for their affectionate, gentle, and friendly nature. They typically get along well with children, seniors, and other pets, making them one of the best companion dogs for families in Singapore.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Are Cavapoos good for apartment living in Singapore?",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Absolutely. Cavapoos are a small to medium-sized breed with moderate exercise needs. They adapt well to apartment living as long as they receive daily walks, playtime, and plenty of companionship.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Are Cavapoos calmer than Maltipoos? I",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "In many cases, yes. Cavapoos are often considered calmer and more relaxed than Maltipoos due to the gentle temperament of the Cavalier King Charles Spaniel. While every puppy is unique, Cavapoos are generally known for being affectionate, easy-going, and eager to please, making them an excellent choice for first-time dog owners.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Do Cavapoos bark a lot?",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Cavapoos are not typically excessive barkers. They may alert you when someone is at the door but are generally quieter than many small dog breeds. Early socialisation and positive training help prevent nuisance barking.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "How much exercise does a Cavapoo need?",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Cavapoos enjoy daily walks and interactive play. Around 30\u201360 minutes of exercise each day is usually enough to keep them physically healthy and mentally stimulated.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Are Cavapoos easy to train?",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Yes. Cavapoos are intelligent, eager to please, and respond very well to positive reinforcement. Their willingness to learn makes them one of the easier breeds for first-time owners.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Why choose an ethically bred Cavapoo?",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Ethically bred Cavapoos come from carefully selected parents with health testing, responsible breeding practices, and early socialisation. At Woof Loof, our puppies are sourced from trusted Australian breeders who prioritise health, temperament, and welfare. They are raised using Puppy Culture and Early Neurological Stimulation (ENS) to help them develop into confident, well-adjusted family companions.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         }
+        ],
+        "secondary_topic": [
+         {
+          "h_title": "Current & Upcoming Litters",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Recently Reserved",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Puppies Now In Their Forever Homes",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "We personally visit breeders in Australia",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 3,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Puppies are raised in homes, never puppy farms",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 3,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Parents are DNA tested and health screened",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 3,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Puppies are matched to famifies (not mass sold)",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 3,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Early socialisation & ENS programmes",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 3,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Ongoing support after your puppy arrives",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 3,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Previous Cavapoo Puppies",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Why Cavapoo Puppies Are So Popular in Singapore",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Cavapoo puppies have become one of the most popular family dogs in Singapore, and it\u2019s easy to see why. Combining the gentle nature of the Cavalier King Charles Spaniel with the intelligence of the Poodle, Cavapoos are affectionate, highly trainable, and well-suited to apartment living.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "At Woof Loof, Cavapoos are our best-selling breed because they adapt well to Singapore\u2019s lifestyle. Their compact size, friendly temperament, and low-shedding coats make them an excellent choice for families, couples, and first-time dog owners looking for a loving lifelong companion.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Our Cavapoo puppies are ethically sourced from carefully selected Australian breeders who prioritise health, temperament, and early socialisation, giving every puppy the best possible start in life.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Smart & Easy To Train",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "Quick learners who enjoy pleasing their humans",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Loyal Family Companion",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 3,
+          "primary_content": [
+           {
+            "text": "Great with children and other pets",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Cavapoo Personality",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Matched to a family in Singapore before arrival",
+          "main_title": "Current & Upcoming Litters",
+          "author": "Woof Loof",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         }
+        ],
+        "ratings": null,
+        "offers": null,
+        "comments": null,
+        "contacts": null
+       },
+       "page_as_markdown": null
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

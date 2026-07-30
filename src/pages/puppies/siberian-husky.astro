@@ -42,9 +42,9 @@ import imgCard4 from '../../assets/siberian-husky/11-blue-eyed-female-siberian-h
 import imgCard5 from '../../assets/siberian-husky/12-agouti-male-siberian-husky-puppy-available-in-singapore.webp';
 import imgCard6 from '../../assets/siberian-husky/13-bi-eyed-female-siberian-husky-puppy-available-in-singap.webp';
 
-const title = 'Siberian Husky Singapore | Price & Puppies | Curious Tails';
+const title = 'Siberian Husky Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Siberian Husky puppies for sale in Singapore from $5,088 all-in. Honest first: not HDB-approved, and an Arctic athlete in the tropics is a serious commitment. We match honestly.';
+  'Siberian Husky puppies for sale in Singapore from $5,088 all-in. Not HDB-approved, and an Arctic athlete in the tropics is a serious commitment.';
 
 const jumpLinks = [
   { label: 'Available', href: '#available' },
@@ -99,7 +99,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/siberian-husky',
+    path: '/puppies/siberian-husky/',
     title,
     description,
     aboutName: 'Siberian Husky',
@@ -111,7 +111,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Siberian Husky puppy',
-      url: '/puppies/siberian-husky',
+      url: '/puppies/siberian-husky/',
       description:
         'Siberian Husky puppy from an AVS licensed Singapore pet shop, priced $5,088 to $6,088 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '5088',
@@ -167,19 +167,19 @@ const schemas = [
     <ListingGrid
       heading="Available Husky Puppies"
       headingAccent="Available"
-      subhead="A few of the Husky puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Husky puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Grey & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the grey and white male Husky puppy.'), imageAlt: 'Grey and white male Siberian Husky puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Black & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white female Husky puppy.'), imageAlt: 'Black and white female Siberian Husky puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Red & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white male Husky puppy.'), imageAlt: 'Red and white male Siberian Husky puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Blue-eyed girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue-eyed female Husky puppy.'), imageAlt: 'Blue-eyed female Siberian Husky puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Agouti boy', href: whatsappLink('Hi! I\'d like more photos and the price for the agouti male Husky puppy.'), imageAlt: 'Agouti male Siberian Husky puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Bi-eyed girl', href: whatsappLink('Hi! I\'d like more photos and the price for the bi-eyed female Husky puppy.'), imageAlt: 'Bi-eyed female Siberian Husky puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Nugget — Grey & white Boy', price: 5088, href: whatsappLink('Hi! I\'d like more photos and the price for Nugget, the grey and white male Husky puppy.'), imageAlt: 'Grey and white male Siberian Husky puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Ava — Black & white Girl', price: 5288, href: whatsappLink('Hi! I\'d like more photos and the price for Ava, the black and white female Husky puppy.'), imageAlt: 'Black and white female Siberian Husky puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Obi — Red & white Boy', price: 5488, href: whatsappLink('Hi! I\'d like more photos and the price for Obi, the red and white male Husky puppy.'), imageAlt: 'Red and white male Siberian Husky puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Azalea — Blue-eyed Girl', price: 5688, href: whatsappLink('Hi! I\'d like more photos and the price for Azalea, the blue-eyed female Husky puppy.'), imageAlt: 'Blue-eyed female Siberian Husky puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Odie — Agouti Boy', price: 5888, href: whatsappLink('Hi! I\'d like more photos and the price for Odie, the agouti male Husky puppy.'), imageAlt: 'Agouti male Siberian Husky puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Bambi — Bi-eyed Girl', price: 6088, href: whatsappLink('Hi! I\'d like more photos and the price for Bambi, the bi-eyed female Husky puppy.'), imageAlt: 'Bi-eyed female Siberian Husky puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Siberian Husky in Singapore?" imageAlt="Grey and white Siberian Husky puppy portrait, one of the Husky puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our Husky puppies in Singapore arrive and are reserved quickly, and Husky buyers get our most careful matching conversation, because no breed we carry has a wider gap between the photo people fall for and the routine the dog needs. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Husky puppies available now, right after we've talked about your mornings.</p>
+      <p>Our Husky puppies in Singapore arrive and are reserved quickly, and Husky buyers get our most careful matching conversation, because no breed we carry has a wider gap between the photo people fall for and the routine the dog needs. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Husky puppies available now, right after we've talked about your mornings.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Siberian Husky for sale in Singapore here is between $5,088 and $6,088, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Siberian Husky puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Husky photos and prices</a>, or meet our Husky puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -496,21 +496,21 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our shop front page</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">compare every breed</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our shop front page</a>, or <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">compare every breed</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

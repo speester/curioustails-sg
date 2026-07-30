@@ -39,7 +39,7 @@ import creamGirlPortrait from '../../assets/shiba-inu/10-shiba-cream-girl-portra
 import redSesameGirlPortrait from '../../assets/shiba-inu/11-shiba-red-sesame-girl-portrait.webp';
 import deepRedBoyPortrait from '../../assets/shiba-inu/12-shiba-deep-red-boy-portrait.webp';
 
-const title = 'Shiba Inu Singapore | Price & Puppies | Curious Tails';
+const title = 'Shiba Inu Puppy for Sale Singapore | Curious Tails';
 const description =
   'Shiba Inu puppies for sale in Singapore from $4,788 all-in. Straight facts first: Shibas are not HDB-approved. Private housing? Talk to us. HDB? See alternatives.';
 
@@ -95,7 +95,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/shiba-inu',
+    path: '/puppies/shiba-inu/',
     title,
     description,
     aboutName: 'Shiba Inu',
@@ -106,7 +106,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Shiba Inu puppy',
-      url: '/puppies/shiba-inu',
+      url: '/puppies/shiba-inu/',
       description:
         'Shiba Inu puppy from an AVS licensed Singapore pet shop, priced $4,788 to $6,500 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included. Not HDB-approved; suited to condos and landed homes.',
       price: '4788',
@@ -156,22 +156,22 @@ const schemas = [
     <ListingGrid
       heading="Available Shiba Inu Puppies"
       headingAccent="Available"
-      subhead="A few of the Shibas recently looking for homes. Tap any pup to WhatsApp us for the latest photos, video, and full price."
+      subhead="A few of the Shibas recently looking for homes. Tap any pup to WhatsApp us for the latest photos, video and health records."
       items={[
-        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Shiba Inu puppy.'), imageAlt: 'Red male Shiba Inu puppy available in Singapore', imageSrc: redPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Black & tan girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and tan female Shiba Inu puppy.'), imageAlt: 'Black and tan female Shiba Inu puppy lying on a cotton mat', imageSrc: blackTanPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Shiba Inu puppy.'), imageAlt: 'Cream male Shiba Inu puppy standing alert on cream tiles', imageSrc: creamPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Red girl', href: whatsappLink('Hi! I\'d like more photos and the price for the red female Shiba Inu puppy.'), imageAlt: 'Red female Shiba Inu puppy with white urajiro markings sitting with a head tilt', imageSrc: redGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Sesame boy', href: whatsappLink('Hi! I\'d like more photos and the price for the sesame male Shiba Inu puppy.'), imageAlt: 'Sesame male Shiba Inu puppy lying on a pastel blanket', imageSrc: sesameBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Black & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and tan male Shiba Inu puppy.'), imageAlt: 'Black and tan male Shiba Inu puppy standing alert with ears perked', imageSrc: blackTanBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
-        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Shiba Inu puppy.'), imageAlt: 'Cream female Shiba Inu puppy playing with a plush toy', imageSrc: creamGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Red sesame girl', href: whatsappLink('Hi! I\'d like more photos and the price for the red sesame female Shiba Inu puppy.'), imageAlt: 'Red sesame female Shiba Inu puppy sitting on a cotton mat', imageSrc: redSesameGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Deep red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the deep red male Shiba Inu puppy (8 weeks).'), imageAlt: 'Deep rich red male Shiba Inu puppy trotting toward the camera', imageSrc: deepRedBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '8 weeks' },
+        { title: 'Maverick — Red Boy', price: 4788, href: whatsappLink('Hi! I\'d like more photos and the price for Maverick, the red male Shiba Inu puppy.'), imageAlt: 'Red male Shiba Inu puppy available in Singapore', imageSrc: redPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Alba — Black & tan Girl', price: 4988, href: whatsappLink('Hi! I\'d like more photos and the price for Alba, the black and tan female Shiba Inu puppy.'), imageAlt: 'Black and tan female Shiba Inu puppy lying on a cotton mat', imageSrc: blackTanPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Miso — Cream Boy', price: 5188, href: whatsappLink('Hi! I\'d like more photos and the price for Miso, the cream male Shiba Inu puppy.'), imageAlt: 'Cream male Shiba Inu puppy standing alert on cream tiles', imageSrc: creamPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Amber — Red Girl', price: 5388, href: whatsappLink('Hi! I\'d like more photos and the price for Amber, the red female Shiba Inu puppy.'), imageAlt: 'Red female Shiba Inu puppy with white urajiro markings sitting with a head tilt', imageSrc: redGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Mochi — Sesame Boy', price: 5588, href: whatsappLink('Hi! I\'d like more photos and the price for Mochi, the sesame male Shiba Inu puppy.'), imageAlt: 'Sesame male Shiba Inu puppy lying on a pastel blanket', imageSrc: sesameBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Monty — Black & tan Boy', price: 5788, href: whatsappLink('Hi! I\'d like more photos and the price for Monty, the black and tan male Shiba Inu puppy.'), imageAlt: 'Black and tan male Shiba Inu puppy standing alert with ears perked', imageSrc: blackTanBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Angel — Cream Girl', price: 5988, href: whatsappLink('Hi! I\'d like more photos and the price for Angel, the cream female Shiba Inu puppy.'), imageAlt: 'Cream female Shiba Inu puppy playing with a plush toy', imageSrc: creamGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Annie — Red sesame Girl', price: 6188, href: whatsappLink('Hi! I\'d like more photos and the price for Annie, the red sesame female Shiba Inu puppy.'), imageAlt: 'Red sesame female Shiba Inu puppy sitting on a cotton mat', imageSrc: redSesameGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
+        { title: 'Moose — Deep red Boy', price: 6388, href: whatsappLink('Hi! I\'d like more photos and the price for Moose, the deep red male Shiba Inu puppy (8 weeks).'), imageAlt: 'Deep rich red male Shiba Inu puppy trotting toward the camera', imageSrc: deepRedBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '8 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking for a Shiba Inu for Sale in Singapore?" imageAlt="Red Shiba Inu puppy available in Singapore, seated portrait with curled tail" imageSrc={redPortrait} variant="mid">
-      <p>Shiba litters move quickly and colours vary between them, so we keep availability live on WhatsApp rather than on a page that goes stale. Message us for photos, gender, age, colour, and exact prices of the Shiba puppies available now.</p>
+      <p>Shiba litters move quickly and colours vary between them, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. Message us for photos, gender, age, colour, and a short walkthrough video of the Shiba puppies available now.</p>
       <p>Every Shiba here is between $4,788 and $6,500, full price in writing, kit and delivery and training included. Housing comes first in our conversation, because a Shiba cannot go to an HDB flat and we don't bend that rule for a sale.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Shiba Inu puppies? I'm in private housing.")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Shiba photos and prices</a>, or meet them at our Balestier shop.
@@ -300,7 +300,7 @@ const schemas = [
 
   <BannerRibbon
     heading="In private housing and Shiba-serious?"
-    body="Message us your housing type and routine. We'll send current Shiba photos and exact prices, plus an honest read on whether the breed fits you."
+    body="Message us your housing type and routine. We'll send current Shiba photos and a walkthrough video, plus an honest read on whether the breed fits you."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'm in private housing and interested in a Shiba Inu. Here's my routine:"
     variant="dark"
@@ -456,18 +456,18 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Singapore puppies ready for reservation</a>, <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our full range of breeds</a>, or <a href="/puppies/pomsky" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Pomsky puppies</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Singapore puppies ready for reservation</a>, <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our full range of breeds</a>, or <a href="/puppies/pomsky/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Pomsky puppies</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/breed-selector" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Breed selector quiz</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/breed-selector/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Breed selector quiz</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
     </ul>
   </aside>
 

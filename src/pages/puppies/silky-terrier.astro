@@ -41,9 +41,9 @@ import imgCard4 from '../../assets/silky-terrier/10-petite-female-silky-terrier-
 import imgCard5 from '../../assets/silky-terrier/11-blue-and-tan-female-silky-terrier-puppy-available-in-si.webp';
 import imgCard6 from '../../assets/silky-terrier/12-bold-male-silky-terrier-puppy-available-in-singapore.webp';
 
-const title = 'Silky Terrier Singapore | Price & Puppies | Curious Tails';
+const title = 'Silky Terrier Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Silky Terrier puppies for sale in Singapore from $3,288, AVS licensed and HDB-approved. Real prices, temperament, coat care and the $500+ starter kit included. WhatsApp us.';
+  'Silky Terrier puppies for sale in Singapore from $3,288, AVS licensed and HDB-approved. Real prices, temperament and coat care in our humidity.';
 
 const jumpLinks = [
   { label: 'Available', href: '#available' },
@@ -103,7 +103,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/silky-terrier',
+    path: '/puppies/silky-terrier/',
     title,
     description,
     aboutName: 'Australian Silky Terrier',
@@ -115,7 +115,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Silky Terrier puppy',
-      url: '/puppies/silky-terrier',
+      url: '/puppies/silky-terrier/',
       description:
         'Silky Terrier puppy from an AVS licensed Singapore pet shop, priced $3,288 to $4,588 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '3288',
@@ -171,19 +171,19 @@ const schemas = [
     <ListingGrid
       heading="Available Silky Terrier Puppies"
       headingAccent="Available"
-      subhead="A few of the Silky Terrier puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Silky Terrier puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Blue & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the blue and tan male Silky Terrier puppy.'), imageAlt: 'Blue and tan male Silky Terrier puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Silver & tan girl', href: whatsappLink('Hi! I\'d like more photos and the price for the silver and tan female Silky Terrier puppy.'), imageAlt: 'Silver and tan female Silky Terrier puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Grey & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the grey and tan male Silky Terrier puppy.'), imageAlt: 'Grey and tan male Silky Terrier puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Petite girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite female Silky Terrier puppy.'), imageAlt: 'Petite female Silky Terrier puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Blue & tan girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue and tan female Silky Terrier puppy.'), imageAlt: 'Blue and tan female Silky Terrier puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Bold boy', href: whatsappLink('Hi! I\'d like more photos and the price for the bold male Silky Terrier puppy.'), imageAlt: 'Bold male Silky Terrier puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Onyx — Blue & tan Boy', price: 3288, href: whatsappLink('Hi! I\'d like more photos and the price for Onyx, the blue and tan male Silky Terrier puppy.'), imageAlt: 'Blue and tan male Silky Terrier puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Bao — Silver & tan Girl', price: 3488, href: whatsappLink('Hi! I\'d like more photos and the price for Bao, the silver and tan female Silky Terrier puppy.'), imageAlt: 'Silver and tan female Silky Terrier puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Orbit — Grey & tan Boy', price: 3688, href: whatsappLink('Hi! I\'d like more photos and the price for Orbit, the grey and tan male Silky Terrier puppy.'), imageAlt: 'Grey and tan male Silky Terrier puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Beatrix — Petite Girl', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Beatrix, the petite female Silky Terrier puppy.'), imageAlt: 'Petite female Silky Terrier puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Belle — Blue & tan Girl', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Belle, the blue and tan female Silky Terrier puppy.'), imageAlt: 'Blue and tan female Silky Terrier puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Otis — Bold Boy', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Otis, the bold male Silky Terrier puppy.'), imageAlt: 'Bold male Silky Terrier puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Silky Terrier in Singapore?" imageAlt="Blue and tan Silky Terrier puppy portrait, one of the Silky Terrier puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Silky Terriers are uncommon in Singapore, so litters are announced and reserved fast; we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Silky Terrier puppies available now.</p>
+      <p>Silky Terriers are uncommon in Singapore, so litters are announced and reserved fast; we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and a short walkthrough video for the Silky Terrier puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Silky Terrier for sale in Singapore here is between $3,288 and $4,588, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Silky Terrier puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Silky Terrier photos and prices</a>, or meet our Silky Terrier puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -524,20 +524,20 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our shop front page</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">compare every breed</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our shop front page</a>, or <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">compare every breed</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

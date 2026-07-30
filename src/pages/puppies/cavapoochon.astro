@@ -43,9 +43,9 @@ import apricotBoyPortrait from '../../assets/cavapoochon/13-cavapoochon-puppy-ap
 import caramelGirlPortrait from '../../assets/cavapoochon/14-cavapoochon-puppy-caramel-female-portrait.webp';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
 
-const title = 'Cavapoochon Singapore | Price & Puppies | Curious Tails';
+const title = 'Cavapoochon Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Cavapoochon puppies for sale in Singapore from $3,688, AVS licensed and HDB-friendly. The teddy-bear triple cross: real prices, temperament, grooming, starter kit included.';
+  'Cavapoochon puppies for sale in Singapore from $3,688, AVS licensed and HDB-friendly. The teddy-bear triple cross: real prices and grooming truth.';
 
 const jumpLinks = [
   { label: 'Available', href: '#available' },
@@ -110,7 +110,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/cavapoochon',
+    path: '/puppies/cavapoochon/',
     title,
     description,
     aboutName: 'Cavapoochon',
@@ -122,7 +122,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Cavapoochon puppy',
-      url: '/puppies/cavapoochon',
+      url: '/puppies/cavapoochon/',
       description:
         'Cavapoochon puppy from an AVS licensed Singapore pet shop, priced $3,688 to $4,988 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '3688',
@@ -179,22 +179,22 @@ const schemas = [
     <ListingGrid
       heading="Available Cavapoochon Puppies"
       headingAccent="Available"
-      subhead="A few of the Cavapoochon puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Cavapoochon puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Cavapoochon puppy.'), imageAlt: 'Apricot female Cavapoochon puppy available in Singapore', imageSrc: apricotGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Cavapoochon puppy.'), imageAlt: 'Red male Cavapoochon puppy available in Singapore', imageSrc: redBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '10 weeks' },
-        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Cavapoochon puppy.'), imageAlt: 'Cream female Cavapoochon puppy available in Singapore', imageSrc: creamGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Apricot & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot and white male Cavapoochon puppy.'), imageAlt: 'Apricot and white male Cavapoochon puppy available in Singapore', imageSrc: apricotWhiteBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '9 weeks' },
-        { title: 'Gold girl', href: whatsappLink('Hi! I\'d like more photos and the price for the gold female Cavapoochon puppy.'), imageAlt: 'Warm golden female Cavapoochon puppy available in Singapore', imageSrc: goldGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Red & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white male Cavapoochon puppy.'), imageAlt: 'Red and white male Cavapoochon puppy available in Singapore', imageSrc: redWhiteBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
-        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Cavapoochon puppy.'), imageAlt: 'Cream male Cavapoochon puppy available in Singapore', imageSrc: creamBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '10 weeks' },
-        { title: 'Apricot boy', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot male Cavapoochon puppy.'), imageAlt: 'Apricot male Cavapoochon puppy available in Singapore', imageSrc: apricotBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Caramel girl', href: whatsappLink('Hi! I\'d like more photos and the price for the caramel female Cavapoochon puppy.'), imageAlt: 'Caramel female Cavapoochon puppy available in Singapore', imageSrc: caramelGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '8 weeks' },
+        { title: 'Peaches — Apricot Girl', price: 3688, href: whatsappLink('Hi! I\'d like more photos and the price for Peaches, the apricot female Cavapoochon puppy.'), imageAlt: 'Apricot female Cavapoochon puppy available in Singapore', imageSrc: apricotGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Dexter — Red Boy', price: 3788, href: whatsappLink('Hi! I\'d like more photos and the price for Dexter, the red male Cavapoochon puppy.'), imageAlt: 'Red male Cavapoochon puppy available in Singapore', imageSrc: redBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '10 weeks' },
+        { title: 'Cookie — Cream Girl', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Cookie, the cream female Cavapoochon puppy.'), imageAlt: 'Cream female Cavapoochon puppy available in Singapore', imageSrc: creamGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
+        { title: 'Bentley — Apricot & white Boy', price: 3988, href: whatsappLink('Hi! I\'d like more photos and the price for Bentley, the apricot and white male Cavapoochon puppy.'), imageAlt: 'Apricot and white male Cavapoochon puppy available in Singapore', imageSrc: apricotWhiteBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '9 weeks' },
+        { title: 'Honey — Gold Girl', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Honey, the gold female Cavapoochon puppy.'), imageAlt: 'Warm golden female Cavapoochon puppy available in Singapore', imageSrc: goldGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Winston — Red & white Boy', price: 4188, href: whatsappLink('Hi! I\'d like more photos and the price for Winston, the red and white male Cavapoochon puppy.'), imageAlt: 'Red and white male Cavapoochon puppy available in Singapore', imageSrc: redWhiteBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Archie — Cream Boy', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Archie, the cream male Cavapoochon puppy.'), imageAlt: 'Cream male Cavapoochon puppy available in Singapore', imageSrc: creamBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '10 weeks' },
+        { title: 'Marley — Apricot Boy', price: 4388, href: whatsappLink('Hi! I\'d like more photos and the price for Marley, the apricot male Cavapoochon puppy.'), imageAlt: 'Apricot male Cavapoochon puppy available in Singapore', imageSrc: apricotBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Cocoa — Caramel Girl', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Cocoa, the caramel female Cavapoochon puppy.'), imageAlt: 'Caramel female Cavapoochon puppy available in Singapore', imageSrc: caramelGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '8 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Cavapoochon in Singapore?" imageAlt="Apricot Cavapoochon puppy portrait, one of the Cavapoochon puppies available in Singapore" imageSrc={apricotGirlPortrait} variant="mid">
-      <p>Cavapoochon litters are genuinely rare in Singapore, and ours arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Cavapoochon puppies available now.</p>
+      <p>Cavapoochon litters are genuinely rare in Singapore, and ours arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and a short walkthrough video for the Cavapoochon puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Cavapoochon for sale in Singapore here is between $3,688 and $4,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Cavapoochon puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Cavapoochon photos and prices</a>, or meet our Cavapoochon puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -537,20 +537,20 @@ const schemas = [
   <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">start at the Curious Tails home page</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all 50 breeds we work with</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">start at the Curious Tails home page</a>, or <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all 48 breeds we carry</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

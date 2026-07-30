@@ -41,9 +41,9 @@ import imgCard4 from '../../assets/chow-chow/10-cinnamon-female-chow-chow-puppy-
 import imgCard5 from '../../assets/chow-chow/11-red-female-chow-chow-puppy-available-in-singapore.webp';
 import imgCard6 from '../../assets/chow-chow/12-blue-male-chow-chow-puppy-available-in-singapore.webp';
 
-const title = 'Chow Chow Singapore | Price & Puppies | Curious Tails';
+const title = 'Chow Chow Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Chow Chow puppies for sale in Singapore from $6,888 all-in. Honest first: Chows are not HDB-approved, and the teddy-bear look hides a dignified introvert. Private housing? We match you.';
+  'Chow Chow puppies for sale in Singapore from $6,888 all-in. Not HDB-approved, and the teddy-bear look hides a dignified introvert. We match honestly.';
 
 const jumpLinks = [
   { label: 'Available', href: '#available' },
@@ -98,7 +98,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/chow-chow',
+    path: '/puppies/chow-chow/',
     title,
     description,
     aboutName: 'Chow Chow',
@@ -110,7 +110,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Chow Chow puppy',
-      url: '/puppies/chow-chow',
+      url: '/puppies/chow-chow/',
       description:
         'Chow Chow puppy from an AVS licensed Singapore pet shop, priced $6,888 to $10,888 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '6888',
@@ -166,19 +166,19 @@ const schemas = [
     <ListingGrid
       heading="Available Chow Chow Puppies"
       headingAccent="Available"
-      subhead="A few of the Chow puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Chow puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red male Chow Chow puppy.'), imageAlt: 'Red male Chow Chow puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Chow Chow puppy.'), imageAlt: 'Cream female Chow Chow puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black male Chow Chow puppy.'), imageAlt: 'Black male Chow Chow puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Cinnamon girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cinnamon female Chow Chow puppy.'), imageAlt: 'Cinnamon female Chow Chow puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Red girl', href: whatsappLink('Hi! I\'d like more photos and the price for the red female Chow Chow puppy.'), imageAlt: 'Red female Chow Chow puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Blue boy', href: whatsappLink('Hi! I\'d like more photos and the price for the blue male Chow Chow puppy.'), imageAlt: 'Blue male Chow Chow puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Diesel — Red Boy', price: 6888, href: whatsappLink('Hi! I\'d like more photos and the price for Diesel, the red male Chow Chow puppy.'), imageAlt: 'Red male Chow Chow puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Cinnamon — Cream Girl', price: 7088, href: whatsappLink('Hi! I\'d like more photos and the price for Cinnamon, the cream female Chow Chow puppy.'), imageAlt: 'Cream female Chow Chow puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Gizmo — Black Boy', price: 7288, href: whatsappLink('Hi! I\'d like more photos and the price for Gizmo, the black male Chow Chow puppy.'), imageAlt: 'Black male Chow Chow puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Clover — Cinnamon Girl', price: 7488, href: whatsappLink('Hi! I\'d like more photos and the price for Clover, the cinnamon female Chow Chow puppy.'), imageAlt: 'Cinnamon female Chow Chow puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Dahlia — Red Girl', price: 7688, href: whatsappLink('Hi! I\'d like more photos and the price for Dahlia, the red female Chow Chow puppy.'), imageAlt: 'Red female Chow Chow puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Hunter — Blue Boy', price: 7888, href: whatsappLink('Hi! I\'d like more photos and the price for Hunter, the blue male Chow Chow puppy.'), imageAlt: 'Blue male Chow Chow puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Chow Chow in Singapore?" imageAlt="Red Chow Chow puppy portrait, one of the Chow puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our Chow Chow puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Chow puppies available now.</p>
+      <p>Our Chow Chow puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Chow puppies available now.</p>
       <p>One thing to know upfront: we interview Chow buyers as much as they interview us, because this breed's biggest risk is being bought for its looks by homes expecting a different soul. Every Chow for sale in Singapore here is between $6,888 and $10,888, printed, and the temperament conversation comes free with it. Book a viewing at our Balestier shop, or after you reserve with a deposit we board your puppy for free until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Chow Chow puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Chow photos and prices</a>, or meet our Chow puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -488,21 +488,21 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our Balestier puppy shop</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all 50 breeds we work with</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our Balestier puppy shop</a>, or <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all 48 breeds we carry</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

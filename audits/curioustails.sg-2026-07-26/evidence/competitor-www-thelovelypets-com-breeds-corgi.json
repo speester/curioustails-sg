@@ -1,0 +1,798 @@
+{
+ "version": "0.1.20260717",
+ "status_code": 20000,
+ "status_message": "Ok.",
+ "time": "3.9495 sec.",
+ "cost": 0.0015,
+ "tasks_count": 1,
+ "tasks_error": 0,
+ "tasks": [
+  {
+   "id": "07261253-2001-0495-0000-c44b907ad143",
+   "status_code": 20000,
+   "status_message": "Ok.",
+   "time": "3.9221 sec.",
+   "cost": 0.0015,
+   "result_count": 1,
+   "path": [
+    "v3",
+    "on_page",
+    "content_parsing",
+    "live"
+   ],
+   "data": {
+    "api": "on_page",
+    "function": "content_parsing",
+    "url": "https://www.thelovelypets.com/breeds/corgi/",
+    "enable_javascript": true
+   },
+   "result": [
+    {
+     "crawl_progress": "finished",
+     "crawl_status": null,
+     "items_count": 1,
+     "items": [
+      {
+       "type": "content_parsing_element",
+       "fetch_time": "2026-07-26 06:53:55 +00:00",
+       "status_code": 200,
+       "page_content": {
+        "header": {
+         "primary_content": null,
+         "secondary_content": [
+          {
+           "text": "Available Puppies",
+           "url": "https://www.thelovelypets.com/puppies/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/puppies/",
+             "anchor_text": "Available Puppies"
+            }
+           ]
+          },
+          {
+           "text": "About Us",
+           "url": "https://www.thelovelypets.com/about-us/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/about-us/",
+             "anchor_text": "About Us"
+            }
+           ]
+          },
+          {
+           "text": "Contact Us",
+           "url": "https://www.thelovelypets.com/contact-us/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/contact-us/",
+             "anchor_text": "Contact Us"
+            }
+           ]
+          }
+         ],
+         "table_content": null
+        },
+        "footer": {
+         "primary_content": null,
+         "secondary_content": [
+          {
+           "text": "We are a licensed pet shop and grooming center in Singapore, established in 2016. Located at 46 Jalan Limbok, they specialize in ethical puppy breeding, cat grooming, and pet care.",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Available Puppies",
+           "url": "https://www.thelovelypets.com/puppies/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/puppies/",
+             "anchor_text": "Available Puppies"
+            }
+           ]
+          },
+          {
+           "text": "About Us",
+           "url": "https://www.thelovelypets.com/about-us/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/about-us/",
+             "anchor_text": "About Us"
+            }
+           ]
+          },
+          {
+           "text": "Contact Us",
+           "url": "https://www.thelovelypets.com/contact-us/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/contact-us/",
+             "anchor_text": "Contact Us"
+            }
+           ]
+          },
+          {
+           "text": "46 Jalan Limbok",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Singapore 548728",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "(2min drive between Serangoon North and Serangoon Gardens",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "3min drive from Nex Mall)",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Opening hour:",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Thursday- Monday 11am-7pm",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Tuesday-Wednesday 11am-6pm",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "We are open every day!",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "\u00a9 2026 The Lovely Pets",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Available Puppies",
+           "url": "https://www.thelovelypets.com/puppies/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/puppies/",
+             "anchor_text": "Available Puppies"
+            }
+           ]
+          },
+          {
+           "text": "About Us",
+           "url": "https://www.thelovelypets.com/about-us/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/about-us/",
+             "anchor_text": "About Us"
+            }
+           ]
+          },
+          {
+           "text": "Contact Us",
+           "url": "https://www.thelovelypets.com/contact-us/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/contact-us/",
+             "anchor_text": "Contact Us"
+            }
+           ]
+          }
+         ],
+         "table_content": null
+        },
+        "main_topic": [
+         {
+          "h_title": "Breed Characteristics",
+          "main_title": "Corgi",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "\u200bThey are very active breed with extra stamina, hence suitable for families with active lifestyle.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "There are 2 types of corgies as we know them, Pembroke and Cardigan Welsh Corgi. Pembroke Welsh Corgis and Cardigan Welsh Corgis have very similar appearances, however they are two separate breed. Most of the corgi puppies being bred now are Pembroke Welsh Corgis due to their more friendly, outgoing personality, whereas Cardigan Welsh Corgis tend to be more reserved.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Here are the main differences between the two:",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "1. Tail : Cardigan usually have thick lush tails. However Pembroke tends to have bob tail or have the tails docked. However nowadays docking is frowned upon as it doesn\u2019t serve any health benefit, hence there are many more Pembroke with similar long tails.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "2. Weight: Cardigans are generally bigger than Pembroke.\u00a0Cardigans weigh between 12-16 kg and stand 10.5-12.5 inches tall at the shoulder, while Pembrokes\u00a0weigh between 11-15 kg and stand 10-12 inches tall at the shoulder.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "\u200b Overall, while there are some similarities between the two breeds, they are distinct in their physical characteristics and personality traits.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "\u200bHow To Buy From Us",
+          "main_title": "Corgi",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "On average, a Pembroke Welsh Corgi",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": ". The price varies depending on the reputation of the breeder, the age of the dog and more.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "To buy a puppy from us, here are the brief steps:",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Choose a wide range of Corgi\u00a0or\u00a0other\u00a0puppies\u00a0collection\u00a0available in our shop, both male and female through our Instagram page or visit us in-person to find the most suitable dog for you and loved ones. We have a variety of puppies to choose from from different range of age, starting from 3 months old up to 1 year.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Once you find your match,\u00a0you can make the payment right then and there and bring home the puppy. Payment method available are cash, Paynow, Bank Transfer, NETS, or Credit Card (extra 4% charge)",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Shipping option is also available in case of need through\u00a0GrabPet !\u00a0To book\u00a0GrabPet, select Car in the Grab app home screen, input addresses and scroll down to select GrabPet under Value Added.",
+            "url": "https://www.grab.com/sg/download/?is_retargeting=true&c=SG_NA_PAX_JG_ALL_LOC__NA_Broad&pid=website&af_sub5=organic&af_force_deeplink=true",
+            "urls": [
+             {
+              "url": "https://www.grab.com/sg/download/?is_retargeting=true&c=SG_NA_PAX_JG_ALL_LOC__NA_Broad&pid=website&af_sub5=organic&af_force_deeplink=true",
+              "anchor_text": "GrabPet"
+             }
+            ]
+           },
+           {
+            "text": "\u200b NOTE: We will register the dog license with NParks before you bring the dog home. It is done online where we will transfer the dog ownership to you. The cost of the license is only $13.5 a year for puppies below 5 months old. For older dogs, there is a lifetime license fee of $35 for sterilized dogs or $81 per year for unsterilized dogs",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Exercise Requirements",
+          "main_title": "Corgi",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "Daily walks:\u00a0at least 30-60 minutes of walking per day, depending on the dog\u2019s personality and activity level. This will also provide mental stimulation to prevent boredom.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Playtime: When it is raining, owners can consider indoor games like fetch, frisbee, tug-of war. There are also a plethora of food based \u201cIQ\u201d games that can stimulate them. Teaching tricks such as sit, down, roll over, play dead is also an excellent opportunity for bonding and stimulation. In fact, many dogs get more tired after a short session of trick training compared to the usual walks!",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Hiking and outdoor activities: For nature lovers, long walks hiking\u00a0are the best. Strap them up with doggy backpacks just like how they were traditionally used as working dogs to pull carts in the Swiss Alps.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Mental stimulation: Playtime and mental stimulation go hand in hand. Puzzle games, trick training\u00a0can easily be learned from many youtube videos. Even a simple kong toy\u00a0with treats inside will also provide much needed entertainment.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "It\u2019s important to remember that every dog is different, and exercise needs can vary based on age, health, and lifestyle. Consult with a professional dog trainer to get the best training plan for your dog.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": [
+           {
+            "text": "Corgis are an active breed and require regular exercise to maintain their physical and mental health. Without proper exercise, they can become overweight, which can lead to other health problems.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Here are some guidelines for exercising a Corgi:",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Grooming Requirements",
+          "main_title": "Corgi",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "Here are some grooming requirements and recommendations for Corgi:",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Brushing: Once a week with a deshedding comb. This will remove the dead undercoat layer and minimise shedding in the house. If not brushed regularly, the dead undercoat can get compacted and tangled which cause skin irritation and overheating. During shedding season which is twice a year, they need to be brushed daily for about 1-2 weeks.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Bathing: Corgi needs to be bathed every week in Singapore\u2019s humid climate. Use a mild dog shampoo (we recommend Silky shampoo) and be sure to rinse thoroughly to avoid any skin irritation. Lastly, remember to blow dry to make sure the skin is completely dry to prevent skin issues.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Trimming: The hair length remain constant so hair cut is not necessary. Good to trim around hygiene area for cleanliness and around paw pads to prevent slipping while walking.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Nail Clipping: The toe nails need to be clipped once every few months. Best to ask a professional groomer to do this to prevent bleeding when the nails are cut too close to the quick (blood vessel).",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Teeth Cleaning: Brushing teeth daily is preferred, if not possible, weekly brushing is sufficient. Give raw bones regularly as enrichment which double as natural teeth cleaner.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Ear Cleaning: Their ears may be prone to infection as it is dropping down which can trap heat and moisture especially in Singapore\u2019s humid climate. Clean the ears with appropriate solution once a week",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         }
+        ],
+        "secondary_topic": [
+         {
+          "h_title": "Corgi",
+          "main_title": "Corgi",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 1,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Showing all 2 results Sorted by latest",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "The corgis are one of the most popular breed due to their smiling face and cute, short stature. The lush fur at their bottom create a cute wiggly look as they walk. They are also famous for being the favourite of the late Queen Elizabeth II.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "There are 2 types of corgi, the Cardigan and the Pembroke Welsh corgi. Most of the corgis we see as family pets are the Pembroke Welsh corgi due to its friendly and affectionate nature. Even though they are a medium size breed, due to its short legs, they appear much more compact, hence they are suitable even for the smallest apartment living. Make sure to exercise them though as they are active working breed!",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "\u200b\u00a0If you\u2019re looking to buy one,\u00a0we have a wide selection\u00a0of Corgi puppies for sale from ethical breeders that will make the perfect companion for you. All of our dogs are\u00a0health checked, vaccinated and dewormed. By purchasing from us, you get a 1 month free of flee, tick, and heartworm prevention service. You will also get a free grooming for your pet before bringing it home for adoption.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "\u200bBelow are the specific details about Corgi:",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Size: medium breed, weighing between 10-15 kg (22-31 pounds) and standing about 10-12 inches tall at the shoulder.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Shedding: yes, Corgis shed.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Coat: double layer coat with undercoat that sheds",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Color: in red, fawn, black, sable, or a combination of these colors",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Body: A Corgi\u00a0have a distinctive long, low-slung body that is muscular and sturdy.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Temperament: Corgi is playful, affectionate, adaptable, sociable, and fairly energetic.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Trainability: They are friendly, outgoing, intelligent and affectionate.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Exercise needs: Moderate level. A 30 minutes per day exercise is enough to keep your furry companion happy.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Life span: A Corgi can live up to 10-12 years if taken care well.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Apartment friendly: Yes, they can adapt to various living arrangements.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "HDB Approved: No\u200b\u200b.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Special Custom Breed/Color/Gender Order",
+          "main_title": "Corgi",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Special Custom Breed/Color/Gender Order",
+            "url": "https://www.thelovelypets.com/product/special-order/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/special-order/",
+              "anchor_text": "Special Custom Breed/Color/Gender Order"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Corgi (Bob Tail) Female",
+          "main_title": "Corgi",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Corgi (Bob Tail) Female",
+            "url": "https://www.thelovelypets.com/product/corgi-bob-tail-australia-f/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/corgi-bob-tail-australia-f/",
+              "anchor_text": "Corgi (Bob Tail) Female"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Brows by Categories",
+          "main_title": "Corgi",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 4,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Small Breeds",
+            "url": "https://www.thelovelypets.com/puppy-category/small-breeds/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/puppy-category/small-breeds/",
+              "anchor_text": "Small Breeds"
+             }
+            ]
+           },
+           {
+            "text": "Medium Breeds",
+            "url": "https://www.thelovelypets.com/puppy-category/medium-breeds/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/puppy-category/medium-breeds/",
+              "anchor_text": "Medium Breeds"
+             }
+            ]
+           },
+           {
+            "text": "Large Breeds",
+            "url": "https://www.thelovelypets.com/puppy-category/large-breeds/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/puppy-category/large-breeds/",
+              "anchor_text": "Large Breeds"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Browse by Breeds",
+          "main_title": "Corgi",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 4,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Alaskan Malamute",
+            "url": "https://www.thelovelypets.com/breeds/alaskan-malamute/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/alaskan-malamute/",
+              "anchor_text": "Alaskan Malamute"
+             }
+            ]
+           },
+           {
+            "text": "Bernese Mountain Dog",
+            "url": "https://www.thelovelypets.com/breeds/bernese-mountain-dog/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/bernese-mountain-dog/",
+              "anchor_text": "Bernese Mountain Dog"
+             }
+            ]
+           },
+           {
+            "text": "Bichon Frise",
+            "url": "https://www.thelovelypets.com/breeds/bichon-frise/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/bichon-frise/",
+              "anchor_text": "Bichon Frise"
+             }
+            ]
+           },
+           {
+            "text": "Border Collie",
+            "url": "https://www.thelovelypets.com/breeds/border-collie/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/border-collie/",
+              "anchor_text": "Border Collie"
+             }
+            ]
+           },
+           {
+            "text": "Cavalier King Charles Spaniel",
+            "url": "https://www.thelovelypets.com/breeds/cavalier-king-charles-spaniel/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/cavalier-king-charles-spaniel/",
+              "anchor_text": "Cavalier King Charles Spaniel"
+             }
+            ]
+           },
+           {
+            "text": "Chow Chow",
+            "url": "https://www.thelovelypets.com/breeds/chow-chow/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/chow-chow/",
+              "anchor_text": "Chow Chow"
+             }
+            ]
+           },
+           {
+            "text": "Cocker Spaniel",
+            "url": "https://www.thelovelypets.com/breeds/cocker-spaniel/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/cocker-spaniel/",
+              "anchor_text": "Cocker Spaniel"
+             }
+            ]
+           },
+           {
+            "text": "French Bulldog",
+            "url": "https://www.thelovelypets.com/breeds/french-bulldog/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/french-bulldog/",
+              "anchor_text": "French Bulldog"
+             }
+            ]
+           },
+           {
+            "text": "Golden Retriever",
+            "url": "https://www.thelovelypets.com/breeds/golden-retriever/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/golden-retriever/",
+              "anchor_text": "Golden Retriever"
+             }
+            ]
+           },
+           {
+            "text": "Jack Russell Terrier",
+            "url": "https://www.thelovelypets.com/breeds/jack-russell-terrier/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/jack-russell-terrier/",
+              "anchor_text": "Jack Russell Terrier"
+             }
+            ]
+           },
+           {
+            "text": "Japanese Spitz",
+            "url": "https://www.thelovelypets.com/breeds/japanese-spitz/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/japanese-spitz/",
+              "anchor_text": "Japanese Spitz"
+             }
+            ]
+           },
+           {
+            "text": "Mini Goldendoodle",
+            "url": "https://www.thelovelypets.com/breeds/mini-goldendoodle/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/mini-goldendoodle/",
+              "anchor_text": "Mini Goldendoodle"
+             }
+            ]
+           },
+           {
+            "text": "Mini Pomeranian",
+            "url": "https://www.thelovelypets.com/breeds/mini-pomeranian/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/mini-pomeranian/",
+              "anchor_text": "Mini Pomeranian"
+             }
+            ]
+           },
+           {
+            "text": "Mini Schnauzer",
+            "url": "https://www.thelovelypets.com/breeds/mini-schnauzer/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/mini-schnauzer/",
+              "anchor_text": "Mini Schnauzer"
+             }
+            ]
+           },
+           {
+            "text": "Shetland Sheepdog",
+            "url": "https://www.thelovelypets.com/breeds/shetland-sheepdog/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/shetland-sheepdog/",
+              "anchor_text": "Shetland Sheepdog"
+             }
+            ]
+           },
+           {
+            "text": "Shiba Inu",
+            "url": "https://www.thelovelypets.com/breeds/shiba-inu/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/shiba-inu/",
+              "anchor_text": "Shiba Inu"
+             }
+            ]
+           },
+           {
+            "text": "Shih tzu",
+            "url": "https://www.thelovelypets.com/breeds/shih-tzu/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/shih-tzu/",
+              "anchor_text": "Shih tzu"
+             }
+            ]
+           },
+           {
+            "text": "Siberian Husky",
+            "url": "https://www.thelovelypets.com/breeds/siberian-husky/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/siberian-husky/",
+              "anchor_text": "Siberian Husky"
+             }
+            ]
+           },
+           {
+            "text": "Standard Goldendoodle",
+            "url": "https://www.thelovelypets.com/breeds/standard-goldendoodle/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/standard-goldendoodle/",
+              "anchor_text": "Standard Goldendoodle"
+             }
+            ]
+           },
+           {
+            "text": "West Highland Terrier",
+            "url": "https://www.thelovelypets.com/breeds/west-highland-terrier/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/west-highland-terrier/",
+              "anchor_text": "West Highland Terrier"
+             }
+            ]
+           },
+           {
+            "text": "Yorkshire Terrier",
+            "url": "https://www.thelovelypets.com/breeds/yorkshire-terrier/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/yorkshire-terrier/",
+              "anchor_text": "Yorkshire Terrier"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Filter List",
+          "main_title": "Corgi",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 4,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         }
+        ],
+        "ratings": null,
+        "offers": null,
+        "comments": null,
+        "contacts": null
+       },
+       "page_as_markdown": null
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -41,7 +41,7 @@ import imgCard4 from '../../assets/pug/10-black-female-pug-puppy-available-in-si
 import imgCard5 from '../../assets/pug/11-apricot-fawn-male-pug-puppy-available-in-singapore.webp';
 import imgCard6 from '../../assets/pug/12-silver-fawn-female-pug-puppy-available-in-singapore.webp';
 
-const title = 'Pug Singapore | Price & Puppies | Curious Tails';
+const title = 'Pug Puppy for Sale Singapore | Curious Tails';
 const description =
   'Pug puppies for sale in Singapore from $4,588, AVS licensed and HDB-approved. Real prices, temperament, heat care for flat faces and the $500+ starter kit included.';
 
@@ -98,7 +98,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/pug',
+    path: '/puppies/pug/',
     title,
     description,
     aboutName: 'Pug',
@@ -110,7 +110,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Pug puppy',
-      url: '/puppies/pug',
+      url: '/puppies/pug/',
       description:
         'Pug puppy from an AVS licensed Singapore pet shop, priced $4,588 to $5,288 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '4588',
@@ -166,19 +166,19 @@ const schemas = [
     <ListingGrid
       heading="Available Pug Puppies"
       headingAccent="Available"
-      subhead="A few of the Pug puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Pug puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn male Pug puppy.'), imageAlt: 'Fawn male Pug puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Fawn girl', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn female Pug puppy.'), imageAlt: 'Fawn female Pug puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black male Pug puppy.'), imageAlt: 'Black male Pug puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Pug puppy.'), imageAlt: 'Black female Pug puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Apricot fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot fawn male Pug puppy.'), imageAlt: 'Apricot fawn male Pug puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Silver fawn girl', href: whatsappLink('Hi! I\'d like more photos and the price for the silver fawn female Pug puppy.'), imageAlt: 'Silver fawn female Pug puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Jinx — Fawn Boy', price: 4588, href: whatsappLink('Hi! I\'d like more photos and the price for Jinx, the fawn male Pug puppy.'), imageAlt: 'Fawn male Pug puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Violet — Fawn Girl', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Violet, the fawn female Pug puppy.'), imageAlt: 'Fawn female Pug puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Kenji — Black Boy', price: 4788, href: whatsappLink('Hi! I\'d like more photos and the price for Kenji, the black male Pug puppy.'), imageAlt: 'Black male Pug puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Wanda — Black Girl', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Wanda, the black female Pug puppy.'), imageAlt: 'Black female Pug puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Kiwi — Apricot fawn Boy', price: 4988, href: whatsappLink('Hi! I\'d like more photos and the price for Kiwi, the apricot fawn male Pug puppy.'), imageAlt: 'Apricot fawn male Pug puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Wendy — Silver fawn Girl', price: 5088, href: whatsappLink('Hi! I\'d like more photos and the price for Wendy, the silver fawn female Pug puppy.'), imageAlt: 'Silver fawn female Pug puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Pug in Singapore?" imageAlt="Fawn Pug puppy portrait, one of the Pug puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our Pug puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Pug puppies available now.</p>
+      <p>Our Pug puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Pug puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Pug for sale in Singapore here is between $4,588 and $5,288, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Pug puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Pug photos and prices</a>, or meet our Pug puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -545,20 +545,20 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">current puppies looking for homes</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">more puppies to meet</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">current puppies looking for homes</a>, or <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">more puppies to meet</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

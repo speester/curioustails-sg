@@ -41,9 +41,9 @@ import imgCard4 from '../../assets/beagle/10-chocolate-tri-male-beagle-puppy-ava
 import imgCard5 from '../../assets/beagle/11-second-tri-colour-female-beagle-puppy-available-in-sing.webp';
 import imgCard6 from '../../assets/beagle/12-lemon-and-white-male-beagle-puppy-available-in-singapor.webp';
 
-const title = 'Beagle Singapore | Price & Puppies | Curious Tails';
+const title = 'Beagle Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Beagle puppies for sale in Singapore from $3,588 all-in. Honest part first: Beagles are not HDB-approved, and they are a vocal scent hound. Real prices, the nose-and-voice truth, and the $500+ starter kit.';
+  'Beagle puppies for sale in Singapore from $3,588 all-in. Not HDB-approved, and a genuinely vocal scent hound. Real prices and the nose-and-voice truth.';
 
 const jumpLinks = [
   { label: 'Available', href: '#available' },
@@ -98,7 +98,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/beagle',
+    path: '/puppies/beagle/',
     title,
     description,
     aboutName: 'Beagle',
@@ -110,7 +110,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Beagle puppy',
-      url: '/puppies/beagle',
+      url: '/puppies/beagle/',
       description:
         'Beagle puppy from an AVS licensed Singapore pet shop, priced $3,588 to $4,500 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '3588',
@@ -166,19 +166,19 @@ const schemas = [
     <ListingGrid
       heading="Available Beagle Puppies"
       headingAccent="Available"
-      subhead="A few of the Beagle puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Beagle puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Tri-colour boy', href: whatsappLink('Hi! I\'d like more photos and the price for the tri-colour male Beagle puppy.'), imageAlt: 'Tri-colour male Beagle puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Lemon girl', href: whatsappLink('Hi! I\'d like more photos and the price for the lemon and white female Beagle puppy.'), imageAlt: 'Lemon and white female Beagle puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Tri-colour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tri-colour female Beagle puppy.'), imageAlt: 'Tri-colour female Beagle puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Chocolate tri boy', href: whatsappLink('Hi! I\'d like more photos and the price for the chocolate tri Beagle puppy.'), imageAlt: 'Chocolate tri male Beagle puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '9 weeks' },
-        { title: 'Tri-colour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the second tri-colour female Beagle puppy.'), imageAlt: 'Second tri-colour female Beagle puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Lemon boy', href: whatsappLink('Hi! I\'d like more photos and the price for the lemon and white male Beagle puppy.'), imageAlt: 'Lemon and white male Beagle puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Milo — Tri-colour Boy', price: 3588, href: whatsappLink('Hi! I\'d like more photos and the price for Milo, the tri-colour male Beagle puppy.'), imageAlt: 'Tri-colour male Beagle puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Bella — Lemon Girl', price: 3688, href: whatsappLink('Hi! I\'d like more photos and the price for Bella, the lemon and white female Beagle puppy.'), imageAlt: 'Lemon and white female Beagle puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Luna — Tri-colour Girl', price: 3788, href: whatsappLink('Hi! I\'d like more photos and the price for Luna, the tri-colour female Beagle puppy.'), imageAlt: 'Tri-colour female Beagle puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
+        { title: 'Max — Chocolate tri Boy', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Max, the chocolate tri Beagle puppy.'), imageAlt: 'Chocolate tri male Beagle puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '9 weeks' },
+        { title: 'Daisy — Tri-colour Girl', price: 3988, href: whatsappLink('Hi! I\'d like more photos and the price for Daisy, the second tri-colour female Beagle puppy.'), imageAlt: 'Second tri-colour female Beagle puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Charlie — Lemon Boy', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Charlie, the lemon and white male Beagle puppy.'), imageAlt: 'Lemon and white male Beagle puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Beagle in Singapore?" imageAlt="Beagle puppy portrait, one of the Beagle puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our Beagle puppies in Singapore are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, markings, and exact prices for the Beagle puppies available now.</p>
+      <p>Our Beagle puppies in Singapore are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, markings, and a short walkthrough video for the Beagle puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Beagle for sale in Singapore here is between $3,588 and $4,500, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Beagle puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Beagle photos and prices</a>, or meet our Beagle puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -462,21 +462,21 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the Curious Tails homepage</a>, <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full breed lineup</a>, or <a href="/puppies/mini-dachshund" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Mini Dachshund puppies</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the Curious Tails homepage</a>, <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full breed lineup</a>, or <a href="/puppies/mini-dachshund/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Mini Dachshund puppies</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

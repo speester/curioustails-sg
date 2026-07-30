@@ -42,9 +42,9 @@ import imgCard4 from '../../assets/border-collie/11-blue-female-border-collie-pu
 import imgCard5 from '../../assets/border-collie/12-smooth-coat-male-border-collie-puppy-available-in-singa.webp';
 import imgCard6 from '../../assets/border-collie/13-black-and-white-female-border-collie-puppy-available-in.webp';
 
-const title = 'Border Collie Singapore | Price & Puppies | Curious Tails';
+const title = 'Border Collie Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Border Collie puppies for sale in Singapore from $5,880 all-in. Honest first: not HDB-approved (appeals don\'t change it), and the world\'s smartest breed needs a real job.';
+  'Border Collie puppies for sale in Singapore from $5,880 all-in. Not HDB-approved, and the world\'s smartest breed genuinely needs a real job.';
 
 const jumpLinks = [
   { label: 'Available', href: '#available' },
@@ -99,7 +99,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/border-collie',
+    path: '/puppies/border-collie/',
     title,
     description,
     aboutName: 'Border Collie',
@@ -111,7 +111,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Border Collie puppy',
-      url: '/puppies/border-collie',
+      url: '/puppies/border-collie/',
       description:
         'Border Collie puppy from an AVS licensed Singapore pet shop, priced $5,880 to $6,988 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '5880',
@@ -167,19 +167,19 @@ const schemas = [
     <ListingGrid
       heading="Available Border Collie Puppies"
       headingAccent="Available"
-      subhead="A few of the Border Collie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Border Collie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Border Collie puppy.'), imageAlt: 'Black and white male Border Collie puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Blue merle girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue merle female Border Collie puppy.'), imageAlt: 'Blue merle female Border Collie puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Red & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white male Border Collie puppy.'), imageAlt: 'Red and white male Border Collie puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Blue girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue female Border Collie puppy.'), imageAlt: 'Blue female Border Collie puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Smooth-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the smooth-coat male Border Collie puppy.'), imageAlt: 'Smooth-coat male Border Collie puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Black & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white female Border Collie puppy.'), imageAlt: 'Black and white female Border Collie puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Oliver — Black & white Boy', price: 5888, href: whatsappLink('Hi! I\'d like more photos and the price for Oliver, the black and white male Border Collie puppy.'), imageAlt: 'Black and white male Border Collie puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Lola — Blue merle Girl', price: 6088, href: whatsappLink('Hi! I\'d like more photos and the price for Lola, the blue merle female Border Collie puppy.'), imageAlt: 'Blue merle female Border Collie puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Teddy — Red & white Boy', price: 6288, href: whatsappLink('Hi! I\'d like more photos and the price for Teddy, the red and white male Border Collie puppy.'), imageAlt: 'Red and white male Border Collie puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Rosie — Blue Girl', price: 6488, href: whatsappLink('Hi! I\'d like more photos and the price for Rosie, the blue female Border Collie puppy.'), imageAlt: 'Blue female Border Collie puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Jack — Smooth-coat Boy', price: 6688, href: whatsappLink('Hi! I\'d like more photos and the price for Jack, the smooth-coat male Border Collie puppy.'), imageAlt: 'Smooth-coat male Border Collie puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Penny — Black & white Girl', price: 6888, href: whatsappLink('Hi! I\'d like more photos and the price for Penny, the black and white female Border Collie puppy.'), imageAlt: 'Black and white female Border Collie puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Border Collie in Singapore?" imageAlt="Black and white Border Collie puppy portrait, one of the Border Collie puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our Border Collie puppies in Singapore arrive and are reserved quickly, and, like our Husky buyers, Collie buyers get our most careful matching conversation, because the gap between the smartest-breed reputation and the daily reality fills Singapore's adoption boards. As an AVS licensed pet shop, we'll send you photos, gender, age, colour, and exact prices for the Border Collie puppies available now, right after we've talked about what the dog will do all day.</p>
+      <p>Our Border Collie puppies in Singapore arrive and are reserved quickly, and, like our Husky buyers, Collie buyers get our most careful matching conversation, because the gap between the smartest-breed reputation and the daily reality fills Singapore's adoption boards. As an AVS licensed pet shop, we'll send you photos, gender, age, colour, and a short walkthrough video for the Border Collie puppies available now, right after we've talked about what the dog will do all day.</p>
       <p>Unlike the import listings you'll compare us against, we tell you the number upfront: every Border Collie for sale in Singapore here is between $5,880 and $6,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Border Collie puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Border Collie photos and prices</a>, or meet our Collie puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -495,21 +495,21 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our licensed puppy shop</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">every breed we carry</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our licensed puppy shop</a>, or <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">every breed we carry</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

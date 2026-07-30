@@ -41,9 +41,9 @@ import imgCard4 from '../../assets/labradoodle/10-black-female-labradoodle-puppy
 import imgCard5 from '../../assets/labradoodle/11-apricot-female-labradoodle-puppy-available-in-singapore.webp';
 import imgCard6 from '../../assets/labradoodle/12-caramel-male-labradoodle-puppy-available-in-singapore.webp';
 
-const title = 'Labradoodle Singapore | Price & Puppies | Curious Tails';
+const title = 'Labradoodle Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Labradoodle puppies for sale in Singapore from $3,488 all-in. Honest part first: Labradoodles are not HDB-approved. The original doodle, low-shedding and lively, real prices, grooming truth and the $500+ starter kit.';
+  'Labradoodle puppies for sale in Singapore from $3,488 all-in. Not HDB-approved. The original doodle: low-shedding, lively, and honestly priced.';
 
 const jumpLinks = [
   { label: 'Available', href: '#available' },
@@ -98,7 +98,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/labradoodle',
+    path: '/puppies/labradoodle/',
     title,
     description,
     aboutName: 'Labradoodle',
@@ -110,7 +110,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Labradoodle puppy',
-      url: '/puppies/labradoodle',
+      url: '/puppies/labradoodle/',
       description:
         'Labradoodle puppy from an AVS licensed Singapore pet shop, priced $3,488 to $4,800 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '3488',
@@ -166,19 +166,19 @@ const schemas = [
     <ListingGrid
       heading="Available Labradoodle Puppies"
       headingAccent="Available"
-      subhead="A few of the Labradoodle puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Labradoodle puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Chocolate boy', href: whatsappLink('Hi! I\'d like more photos and the price for the chocolate male Labradoodle puppy.'), imageAlt: 'Chocolate male Labradoodle puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Caramel girl', href: whatsappLink('Hi! I\'d like more photos and the price for the caramel female Labradoodle puppy.'), imageAlt: 'Caramel female Labradoodle puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Labradoodle puppy.'), imageAlt: 'Cream male Labradoodle puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Labradoodle puppy.'), imageAlt: 'Black female Labradoodle puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Labradoodle puppy.'), imageAlt: 'Apricot female Labradoodle puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Caramel boy', href: whatsappLink('Hi! I\'d like more photos and the price for the caramel male Labradoodle puppy.'), imageAlt: 'Caramel male Labradoodle puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Curry — Chocolate Boy', price: 3488, href: whatsappLink('Hi! I\'d like more photos and the price for Curry, the chocolate male Labradoodle puppy.'), imageAlt: 'Chocolate male Labradoodle puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Plum — Caramel Girl', price: 3688, href: whatsappLink('Hi! I\'d like more photos and the price for Plum, the caramel female Labradoodle puppy.'), imageAlt: 'Caramel female Labradoodle puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Dash — Cream Boy', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Dash, the cream male Labradoodle puppy.'), imageAlt: 'Cream male Labradoodle puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Primrose — Black Girl', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Primrose, the black female Labradoodle puppy.'), imageAlt: 'Black female Labradoodle puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Queenie — Apricot Girl', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Queenie, the apricot female Labradoodle puppy.'), imageAlt: 'Apricot female Labradoodle puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Django — Caramel Boy', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Django, the caramel male Labradoodle puppy.'), imageAlt: 'Caramel male Labradoodle puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Labradoodle in Singapore?" imageAlt="Labradoodle puppy portrait, one of the Labradoodle puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our Labradoodle puppies in Singapore are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and exact prices for the Labradoodle puppies available now.</p>
+      <p>Our Labradoodle puppies in Singapore are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and a short walkthrough video for the Labradoodle puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Labradoodle for sale in Singapore here is between $3,488 and $4,800, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Labradoodle puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Labradoodle photos and prices</a>, or meet our Labradoodle puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -487,21 +487,21 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">browse from the homepage</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our breed catalogue</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">browse from the homepage</a>, or <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our breed catalogue</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

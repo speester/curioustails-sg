@@ -22,7 +22,7 @@ import {
   faqPageSchema,
   itemListSchema,
 } from '../../lib/schema';
-import { priceForHref, fmtPrice, OVERALL_LOW, OVERALL_HIGH } from '../../data/pricing';
+import { priceForHref, fmtPrice, OVERALL_LOW, OVERALL_HIGH, BREED_COUNT } from '../../data/pricing';
 import heroCavapoo from '../../assets/cavapoo/1-cavapoo-puppy-hero-playpen-balestier.webp';
 import cavapooPortrait from '../../assets/cavapoo/2-cavapoo-puppy-portrait-available.webp';
 import maltipooPortrait from '../../assets/maltipoo/3-maltipoo-puppy-portrait-available.webp';
@@ -73,9 +73,13 @@ import westieCard from '../../assets/westie/7-male-west-highland-white-terrier-p
 import whippetCard from '../../assets/whippet/7-fawn-male-whippet-puppy-available-in-singapore.webp';
 import yorkshireTerrierCard from '../../assets/yorkshire-terrier/7-blue-and-tan-male-yorkshire-terrier-puppy-available-in.webp';
 
-const title = 'Puppies for Sale Singapore | 40+ Breeds | Curious Tails';
+// This page targets the breed-comparison query ("dog breeds singapore"), NOT
+// "puppies for sale singapore" — that transactional term belongs to the
+// homepage alone. Keep the title, H1 and inbound anchor text on the
+// directory/comparison framing so the two pages stop competing for one query.
+const title = `Dog Breeds in Singapore: ${BREED_COUNT} Breeds Compared | Curious Tails`;
 const description =
-  'Puppies for sale in Singapore from $3,288 all-in, AVS licensed. Browse 40+ breeds with real prices, HDB status, lifestyle fit, and honest matching advice.';
+  `Compare ${BREED_COUNT} dog breeds available in Singapore side by side: HDB-approved status, adult size, shedding, grooming, temperament and the real all-in price of each.`;
 
 // HDB-approved breeds and crosses — safe for flat living (one dog per flat).
 const hdbBreeds = [
@@ -335,7 +339,7 @@ const faqItems = [
   {
     question: 'Which breeds does Curious Tails carry?',
     answer:
-      'Over forty, with more arriving regularly. The range spans HDB-approved companions like the Cavapoo, Maltipoo, Maltese, Bichon Frise, Pomeranian, Shih Tzu, Pug and Cavalier King Charles Spaniel, through to private-housing breeds like the Corgi, Shiba Inu, French Bulldog, Golden Retriever and Siberian Husky. Prices start from $3,288 all-in and vary by breed, and every price includes the $500+ starter kit, free delivery and setup, and a free training lesson.',
+      'Forty-eight, with more arriving regularly. The range spans HDB-approved companions like the Cavapoo, Maltipoo, Maltese, Bichon Frise, Pomeranian, Shih Tzu, Pug and Cavalier King Charles Spaniel, through to private-housing breeds like the Corgi, Shiba Inu, French Bulldog, Golden Retriever and Siberian Husky. Prices start from $3,288 all-in and vary by breed, and every price includes the $500+ starter kit, free delivery and setup, and a free training lesson.',
   },
   {
     question: 'Which of your breeds are HDB-approved?',
@@ -368,11 +372,12 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies',
+    path: '/puppies/',
     title,
     description,
-    aboutName: 'Puppy breeds in Singapore',
-    aboutAlternateName: 'dog breeds Singapore',
+    type: 'CollectionPage',
+    aboutName: 'Dog breeds in Singapore',
+    aboutAlternateName: 'puppy breeds Singapore',
     datePublished: '2026-07-06',
     dateModified: new Date().toISOString().split('T')[0],
   }),
@@ -389,9 +394,9 @@ const schemas = [
 <BaseLayout {title} {description} canonicalPath="/puppies" ogImage="/assets/cavapoo/og-cavapoo.jpg">
   <Hero
     eyebrow="AVS Licensed Pet Shop in Balestier"
-    h1="Puppies for Sale in Singapore, from Cavapoo to Corgi"
-    h1Accent="Puppies for Sale"
-    subhead="Over forty breeds, each with its own published price from $3,288 all-in, and one rule that never changes: we match the breed to your routine, not to the photo you fell for. HDB status is flagged on every card below."
+    h1={`Dog Breeds in Singapore: All ${BREED_COUNT}, Compared`}
+    h1Accent="Dog Breeds"
+    subhead={`Every breed we carry, side by side, with the three things listings usually hide: whether it is HDB-approved, what it actually costs all-in, and how much grooming and alone-time it really needs. ${BREED_COUNT} breeds, each with its own published price from $${fmtPrice(OVERALL_LOW)}.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'm choosing between breeds. Here's my routine and housing type:"
     secondaryCtaLabel="Browse all breeds"
@@ -402,7 +407,7 @@ const schemas = [
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
     imageAlt="Puppy breeds Singapore: Cavapoo puppy in a set-up playpen, one of the breeds at Curious Tails"
     imageSrc={heroCavapoo}
-    tagLabel="40+ breeds"
+    tagLabel={`${BREED_COUNT} breeds`}
     proofChip="5.0 on Google"
   >
     <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies/' }]} />
@@ -459,7 +464,7 @@ const schemas = [
   <StatStrip
     heading="Same promise, whichever breed"
     stats={[
-      { value: '40+', label: 'breeds, honestly matched' },
+      { value: String(BREED_COUNT), label: 'breeds, honestly matched' },
       { value: '$3,288', label: 'every breed starts here, all-in' },
       { value: '$500+', label: 'starter kit with every puppy' },
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
@@ -558,14 +563,14 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our puppy shop in Singapore</a>, or <a href="/puppies/cavapoo" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our Cavapoo page</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our puppy shop in Singapore</a>, or <a href="/puppies/cavapoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our Cavapoo page</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/first-time-owners/breed-selector" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Breed selector quiz</a></li>
-      <li><a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
+      <li><a href="/first-time-owners/breed-selector/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Breed selector quiz</a></li>
+      <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
     </ul>
   </aside>
 

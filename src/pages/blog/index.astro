@@ -15,6 +15,9 @@ import hdbImg from '../../assets/bichonpoo/2-bichonpoo-white-portrait.webp';
 import compareImg from '../../assets/cavapoo/2-cavapoo-puppy-portrait-available.webp';
 import fireworksImg from '../../assets/puppy-fireworks-singapore/1-puppy-fireworks-safe-room-playpen-den.webp';
 import firstNightImg from '../../assets/guides/3-puppy-night-routine-sleeping-pen.webp';
+import courseImg from '../../assets/guides/6-puppy-microchip-scan-health.webp';
+import ftoHubImg from '../../assets/guides/1-first-time-dog-owner-guide-hero.webp';
+import learnHubImg from '../../assets/guides/5-verify-seller-phone-check-puppy.webp';
 
 const title = 'Blog: Puppy Guides & Honest Advice | Curious Tails';
 const description =
@@ -22,6 +25,16 @@ const description =
 
 // One entry per post. Newest first; add new posts to the top.
 const posts = [
+  {
+    title: 'Pet Ownership Course Singapore: Your First Legal Step',
+    href: '/blog/pet-ownership-course-singapore/',
+    date: '2026-07-25',
+    tag: 'Licensing',
+    excerpt:
+      'The free AVS course every first-time dog owner has to finish before a licence is issued: what is inside it, the two ways in, and when to do it so it never delays your puppy.',
+    image: courseImg,
+    imageAlt: 'Puppy microchip scan in Singapore, the step that comes before the dog licence application',
+  },
   {
     title: "Surviving Your Puppy's First Night at Home",
     href: '/blog/puppy-first-night/',
@@ -74,11 +87,45 @@ const posts = [
   },
 ];
 
+// The two reference hubs the blog feeds into. Posts are episodic; these are the
+// structured versions of the same ground, and every post should be able to hand
+// a reader off to one of them.
+const hubs = [
+  {
+    eyebrow: 'Start here',
+    title: 'The First-Time Owner Guide',
+    href: '/first-time-owners/',
+    body: 'Five decisions in the order that matters: breed by routine, the full first-year budget, verifying the seller, preparing the home, then week one. A guide behind each step.',
+    cta: 'Open the checklist',
+    image: ftoHubImg,
+    imageAlt: 'First-time dog owner in Singapore working through a puppy checklist with a Cavapoo',
+    links: [
+      { label: 'Breed selector quiz', href: '/first-time-owners/breed-selector/' },
+      { label: 'First-year budget planner', href: '/first-time-owners/budget-guide/' },
+      { label: 'HDB-approved breeds', href: '/first-time-owners/hdb-breeds/' },
+    ],
+  },
+  {
+    eyebrow: 'Buyer protection',
+    title: 'Learn: Licences, Health and Scams',
+    href: '/learn/',
+    body: 'The reference side of the site: how to check any pet shop against the AVS registry, what puppy vaccinations actually cover, and why smuggled puppies cost more than they save.',
+    cta: 'Open the guides',
+    image: learnHubImg,
+    imageAlt: 'Buyer checking a Singapore pet shop licence on the AVS public registry before paying',
+    links: [
+      { label: 'Verify a pet shop licence', href: '/learn/verify-license/' },
+      { label: 'Puppy health and vaccinations', href: '/learn/puppy-health/' },
+      { label: 'Smuggled puppies in Singapore', href: '/learn/smuggled-puppies/' },
+    ],
+  },
+];
+
 const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/blog',
+    path: '/blog/',
     title,
     description,
     aboutName: 'Puppy guides and advice',
@@ -135,9 +182,50 @@ const schemas = [
         </article>
       ))}
     </div>
-    <p class="mt-8 text-sm leading-relaxed text-[var(--color-cream-600)]">
-      Looking for the structured versions? The <a href="/first-time-owners/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-time owner checklist</a> and the <a href="/learn/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">buyer-protection guides</a> cover the same ground as reference pages rather than posts.
-    </p>
+  </section>
+
+  <section aria-label="Guide hubs" class="bg-[var(--color-peach-100)] py-14">
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
+      <div class="max-w-[65ch]">
+        <p class="text-sm font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">The reference shelf</p>
+        <h2 class="mt-2 font-semibold text-[var(--color-cream-900)]" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">
+          Prefer It Organised, Not Episodic?
+        </h2>
+        <p class="mt-2 text-base text-[var(--color-cream-600)]">
+          Posts follow whatever a customer asked us that week. These two hubs cover the same ground in order, start to finish.
+        </p>
+      </div>
+
+      <div class="mt-9 grid gap-6 md:grid-cols-2">
+        {hubs.map((hub, i) => (
+          <article data-reveal style={`--i:${i}`} class="clay clay-hover flex h-full flex-col overflow-hidden bg-[var(--color-surface-card)]">
+            <a href={hub.href} class="block">
+              <Image src={hub.image} alt={hub.imageAlt} format="webp" class="aspect-[16/9] w-full object-cover" widths={[480, 760]} sizes="(min-width: 768px) 660px, 90vw" loading="lazy" />
+            </a>
+            <div class="flex flex-1 flex-col p-7">
+              <p class="text-xs font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">{hub.eyebrow}</p>
+              <h3 class="mt-2 font-[family-name:var(--font-heading)] text-2xl font-semibold leading-snug text-[var(--color-cream-900)]">
+                <a href={hub.href} class="hover:text-[var(--color-coral-600)]">{hub.title}</a>
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-[var(--color-cream-700)]">{hub.body}</p>
+              <ul class="mt-4 flex-1 space-y-2">
+                {hub.links.map((l) => (
+                  <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                      <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <a href={l.href} class="underline underline-offset-2 hover:text-[var(--color-coral-600)]">{l.label}</a>
+                  </li>
+                ))}
+              </ul>
+              <a href={hub.href} class="clay-btn mt-6 inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] px-6 py-3 text-sm font-bold text-white hover:bg-[var(--color-accent-hover)]">
+                {hub.cta}
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
   </section>
 
   <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />

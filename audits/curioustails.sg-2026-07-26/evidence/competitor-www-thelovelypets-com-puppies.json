@@ -1,0 +1,1014 @@
+{
+ "version": "0.1.20260717",
+ "status_code": 20000,
+ "status_message": "Ok.",
+ "time": "4.8421 sec.",
+ "cost": 0.0015,
+ "tasks_count": 1,
+ "tasks_error": 0,
+ "tasks": [
+  {
+   "id": "07261253-2001-0495-0000-854cf4f1f63f",
+   "status_code": 20000,
+   "status_message": "Ok.",
+   "time": "4.5568 sec.",
+   "cost": 0.0015,
+   "result_count": 1,
+   "path": [
+    "v3",
+    "on_page",
+    "content_parsing",
+    "live"
+   ],
+   "data": {
+    "api": "on_page",
+    "function": "content_parsing",
+    "url": "https://www.thelovelypets.com/puppies/",
+    "enable_javascript": true
+   },
+   "result": [
+    {
+     "crawl_progress": "finished",
+     "crawl_status": null,
+     "items_count": 1,
+     "items": [
+      {
+       "type": "content_parsing_element",
+       "fetch_time": "2026-07-26 06:53:30 +00:00",
+       "status_code": 200,
+       "page_content": {
+        "header": {
+         "primary_content": null,
+         "secondary_content": [
+          {
+           "text": "Available Puppies",
+           "url": "https://www.thelovelypets.com/puppies/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/puppies/",
+             "anchor_text": "Available Puppies"
+            }
+           ]
+          },
+          {
+           "text": "About Us",
+           "url": "https://www.thelovelypets.com/about-us/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/about-us/",
+             "anchor_text": "About Us"
+            }
+           ]
+          },
+          {
+           "text": "Contact Us",
+           "url": "https://www.thelovelypets.com/contact-us/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/contact-us/",
+             "anchor_text": "Contact Us"
+            }
+           ]
+          }
+         ],
+         "table_content": null
+        },
+        "footer": {
+         "primary_content": null,
+         "secondary_content": [
+          {
+           "text": "We are a licensed pet shop and grooming center in Singapore, established in 2016. Located at 46 Jalan Limbok, they specialize in ethical puppy breeding, cat grooming, and pet care.",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Available Puppies",
+           "url": "https://www.thelovelypets.com/puppies/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/puppies/",
+             "anchor_text": "Available Puppies"
+            }
+           ]
+          },
+          {
+           "text": "About Us",
+           "url": "https://www.thelovelypets.com/about-us/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/about-us/",
+             "anchor_text": "About Us"
+            }
+           ]
+          },
+          {
+           "text": "Contact Us",
+           "url": "https://www.thelovelypets.com/contact-us/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/contact-us/",
+             "anchor_text": "Contact Us"
+            }
+           ]
+          },
+          {
+           "text": "46 Jalan Limbok",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Singapore 548728",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "(2min drive between Serangoon North and Serangoon Gardens",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "3min drive from Nex Mall)",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Opening hour:",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Thursday- Monday 11am-7pm",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Tuesday-Wednesday 11am-6pm",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "We are open every day!",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "\u00a9 2026 The Lovely Pets",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Available Puppies",
+           "url": "https://www.thelovelypets.com/puppies/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/puppies/",
+             "anchor_text": "Available Puppies"
+            }
+           ]
+          },
+          {
+           "text": "About Us",
+           "url": "https://www.thelovelypets.com/about-us/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/about-us/",
+             "anchor_text": "About Us"
+            }
+           ]
+          },
+          {
+           "text": "Contact Us",
+           "url": "https://www.thelovelypets.com/contact-us/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/contact-us/",
+             "anchor_text": "Contact Us"
+            }
+           ]
+          }
+         ],
+         "table_content": null
+        },
+        "main_topic": null,
+        "secondary_topic": [
+         {
+          "h_title": "Available Puppies",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 1,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Discover an extensive selection of health-tested puppies available for sale in Singapore at our shop. Whether you\u2019re looking for small/medium, HDB Approved, or large-sized puppies, you\u2019ll find a variety of dog breeds to choose from in our collection.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Our puppies are sourced from ethical breeders as they conducted DNA testing on the parents prior to breeding. This minimise recessive genes being passed on to their offspring. Additionally, mother dogs have less noise/pollution stresses so that they produce milk with natural happy hormones to their puppies.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Prices quoted are inclusive of GST, no additional GST.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Showing 1\u201324 of 33 results Sorted by latest",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Alaskan Malamute",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Alaskan Malamute",
+            "url": "https://www.thelovelypets.com/product/alaskan-malamute-australia-rare-long-hair-copy/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/alaskan-malamute-australia-rare-long-hair-copy/",
+              "anchor_text": "Alaskan Malamute"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Alaskan Malamute (rare Long hair)",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Alaskan Malamute (rare Long hair)",
+            "url": "https://www.thelovelypets.com/product/alaskan-malamute-australia-rare-long-hair/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/alaskan-malamute-australia-rare-long-hair/",
+              "anchor_text": "Alaskan Malamute (rare Long hair)"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Border Collie",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Border Collie",
+            "url": "https://www.thelovelypets.com/product/border-collie-australia-2/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/border-collie-australia-2/",
+              "anchor_text": "Border Collie"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Toy Cavapoo M (Rare 4 white feet)",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Toy Cavapoo M (Rare 4 white feet)",
+            "url": "https://www.thelovelypets.com/product/cavapoo-australia-m-copy/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/cavapoo-australia-m-copy/",
+              "anchor_text": "Toy Cavapoo M (Rare 4 white feet)"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Merle Poochon/Bichonpoo M",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Merle Poochon/Bichonpoo M",
+            "url": "https://www.thelovelypets.com/product/poochon-bichonpoo-australia-male-copy/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/poochon-bichonpoo-australia-male-copy/",
+              "anchor_text": "Merle Poochon/Bichonpoo M"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Poochon/Bichonpoo M",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Poochon/Bichonpoo M",
+            "url": "https://www.thelovelypets.com/product/poochon-bichonpoo-australia-male/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/poochon-bichonpoo-australia-male/",
+              "anchor_text": "Poochon/Bichonpoo M"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Cavapoo F",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Cavapoo F",
+            "url": "https://www.thelovelypets.com/product/cavapoo-australia-f/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/cavapoo-australia-f/",
+              "anchor_text": "Cavapoo F"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Toy Cavapoo F",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Toy Cavapoo F",
+            "url": "https://www.thelovelypets.com/product/tiny-cavapoo-australia-f-2/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/tiny-cavapoo-australia-f-2/",
+              "anchor_text": "Toy Cavapoo F"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Cavachon Male",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Cavachon Male",
+            "url": "https://www.thelovelypets.com/product/cavachon-australia-male-2/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/cavachon-australia-male-2/",
+              "anchor_text": "Cavachon Male"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Maltipoo Male",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Maltipoo Male",
+            "url": "https://www.thelovelypets.com/product/maltipoo-australia-male-2/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/maltipoo-australia-male-2/",
+              "anchor_text": "Maltipoo Male"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Poochon/Bichonpoo Male",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Poochon/Bichonpoo Male",
+            "url": "https://www.thelovelypets.com/product/bichoodle-australia-male-4/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/bichoodle-australia-male-4/",
+              "anchor_text": "Poochon/Bichonpoo Male"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Poochon/Bichonpoo Male",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Poochon/Bichonpoo Male",
+            "url": "https://www.thelovelypets.com/product/bichoodle-australia-male-3/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/bichoodle-australia-male-3/",
+              "anchor_text": "Poochon/Bichonpoo Male"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Cavachon Male",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Cavachon Male",
+            "url": "https://www.thelovelypets.com/product/cavachon-australia-male/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/cavachon-australia-male/",
+              "anchor_text": "Cavachon Male"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Cavachon Female",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Cavachon Female",
+            "url": "https://www.thelovelypets.com/product/cavachon-australia-female/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/cavachon-australia-female/",
+              "anchor_text": "Cavachon Female"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Special Custom Breed/Color/Gender Order",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Special Custom Breed/Color/Gender Order",
+            "url": "https://www.thelovelypets.com/product/special-order/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/special-order/",
+              "anchor_text": "Special Custom Breed/Color/Gender Order"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Moxie Female",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Moxie Female",
+            "url": "https://www.thelovelypets.com/product/moxie/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/moxie/",
+              "anchor_text": "Moxie Female"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Long Hair Mini Dachshund Male",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Long Hair Mini Dachshund Male",
+            "url": "https://www.thelovelypets.com/product/long-hair-mini-dachshund-australia-male/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/long-hair-mini-dachshund-australia-male/",
+              "anchor_text": "Long Hair Mini Dachshund Male"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Corgi (Bob Tail) Female",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Corgi (Bob Tail) Female",
+            "url": "https://www.thelovelypets.com/product/corgi-bob-tail-australia-f/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/corgi-bob-tail-australia-f/",
+              "anchor_text": "Corgi (Bob Tail) Female"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Short Hair Mini Dachshund M&F",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Short Hair Mini Dachshund M&F",
+            "url": "https://www.thelovelypets.com/product/short-hair-mini-dachshund-australia-mf/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/short-hair-mini-dachshund-australia-mf/",
+              "anchor_text": "Short Hair Mini Dachshund M&F"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Cockapoo M&F",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Cockapoo M&F",
+            "url": "https://www.thelovelypets.com/product/cockapoo-uk-m/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/cockapoo-uk-m/",
+              "anchor_text": "Cockapoo M&F"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Cockapoo Male (cocker look)",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Cockapoo Male (cocker look)",
+            "url": "https://www.thelovelypets.com/product/cockapoo-uk-mf/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/cockapoo-uk-mf/",
+              "anchor_text": "Cockapoo Male (cocker look)"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Tiny Cavapoo F",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Tiny Cavapoo F",
+            "url": "https://www.thelovelypets.com/product/tiny-cavapoo-australia-f/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/tiny-cavapoo-australia-f/",
+              "anchor_text": "Tiny Cavapoo F"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Border Collie Australia",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Border Collie Australia",
+            "url": "https://www.thelovelypets.com/product/border-collie-australia-copy/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/border-collie-australia-copy/",
+              "anchor_text": "Border Collie Australia"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Maltipoo F (rare 4 white feet)",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Maltipoo F (rare 4 white feet)",
+            "url": "https://www.thelovelypets.com/product/maltipoo-australia-f-rare-white-feet/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/maltipoo-australia-f-rare-white-feet/",
+              "anchor_text": "Maltipoo F (rare 4 white feet)"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Brows by Categories",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 4,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Small Breeds",
+            "url": "https://www.thelovelypets.com/puppy-category/small-breeds/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/puppy-category/small-breeds/",
+              "anchor_text": "Small Breeds"
+             }
+            ]
+           },
+           {
+            "text": "Medium Breeds",
+            "url": "https://www.thelovelypets.com/puppy-category/medium-breeds/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/puppy-category/medium-breeds/",
+              "anchor_text": "Medium Breeds"
+             }
+            ]
+           },
+           {
+            "text": "Large Breeds",
+            "url": "https://www.thelovelypets.com/puppy-category/large-breeds/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/puppy-category/large-breeds/",
+              "anchor_text": "Large Breeds"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Browse by Breeds",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 4,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Alaskan Malamute",
+            "url": "https://www.thelovelypets.com/breeds/alaskan-malamute/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/alaskan-malamute/",
+              "anchor_text": "Alaskan Malamute"
+             }
+            ]
+           },
+           {
+            "text": "Bernese Mountain Dog",
+            "url": "https://www.thelovelypets.com/breeds/bernese-mountain-dog/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/bernese-mountain-dog/",
+              "anchor_text": "Bernese Mountain Dog"
+             }
+            ]
+           },
+           {
+            "text": "Bichon Frise",
+            "url": "https://www.thelovelypets.com/breeds/bichon-frise/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/bichon-frise/",
+              "anchor_text": "Bichon Frise"
+             }
+            ]
+           },
+           {
+            "text": "Border Collie",
+            "url": "https://www.thelovelypets.com/breeds/border-collie/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/border-collie/",
+              "anchor_text": "Border Collie"
+             }
+            ]
+           },
+           {
+            "text": "Cavalier King Charles Spaniel",
+            "url": "https://www.thelovelypets.com/breeds/cavalier-king-charles-spaniel/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/cavalier-king-charles-spaniel/",
+              "anchor_text": "Cavalier King Charles Spaniel"
+             }
+            ]
+           },
+           {
+            "text": "Chow Chow",
+            "url": "https://www.thelovelypets.com/breeds/chow-chow/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/chow-chow/",
+              "anchor_text": "Chow Chow"
+             }
+            ]
+           },
+           {
+            "text": "Cocker Spaniel",
+            "url": "https://www.thelovelypets.com/breeds/cocker-spaniel/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/cocker-spaniel/",
+              "anchor_text": "Cocker Spaniel"
+             }
+            ]
+           },
+           {
+            "text": "French Bulldog",
+            "url": "https://www.thelovelypets.com/breeds/french-bulldog/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/french-bulldog/",
+              "anchor_text": "French Bulldog"
+             }
+            ]
+           },
+           {
+            "text": "Golden Retriever",
+            "url": "https://www.thelovelypets.com/breeds/golden-retriever/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/golden-retriever/",
+              "anchor_text": "Golden Retriever"
+             }
+            ]
+           },
+           {
+            "text": "Jack Russell Terrier",
+            "url": "https://www.thelovelypets.com/breeds/jack-russell-terrier/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/jack-russell-terrier/",
+              "anchor_text": "Jack Russell Terrier"
+             }
+            ]
+           },
+           {
+            "text": "Japanese Spitz",
+            "url": "https://www.thelovelypets.com/breeds/japanese-spitz/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/japanese-spitz/",
+              "anchor_text": "Japanese Spitz"
+             }
+            ]
+           },
+           {
+            "text": "Mini Goldendoodle",
+            "url": "https://www.thelovelypets.com/breeds/mini-goldendoodle/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/mini-goldendoodle/",
+              "anchor_text": "Mini Goldendoodle"
+             }
+            ]
+           },
+           {
+            "text": "Mini Pomeranian",
+            "url": "https://www.thelovelypets.com/breeds/mini-pomeranian/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/mini-pomeranian/",
+              "anchor_text": "Mini Pomeranian"
+             }
+            ]
+           },
+           {
+            "text": "Mini Schnauzer",
+            "url": "https://www.thelovelypets.com/breeds/mini-schnauzer/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/mini-schnauzer/",
+              "anchor_text": "Mini Schnauzer"
+             }
+            ]
+           },
+           {
+            "text": "Shetland Sheepdog",
+            "url": "https://www.thelovelypets.com/breeds/shetland-sheepdog/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/shetland-sheepdog/",
+              "anchor_text": "Shetland Sheepdog"
+             }
+            ]
+           },
+           {
+            "text": "Shiba Inu",
+            "url": "https://www.thelovelypets.com/breeds/shiba-inu/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/shiba-inu/",
+              "anchor_text": "Shiba Inu"
+             }
+            ]
+           },
+           {
+            "text": "Shih tzu",
+            "url": "https://www.thelovelypets.com/breeds/shih-tzu/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/shih-tzu/",
+              "anchor_text": "Shih tzu"
+             }
+            ]
+           },
+           {
+            "text": "Siberian Husky",
+            "url": "https://www.thelovelypets.com/breeds/siberian-husky/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/siberian-husky/",
+              "anchor_text": "Siberian Husky"
+             }
+            ]
+           },
+           {
+            "text": "Standard Goldendoodle",
+            "url": "https://www.thelovelypets.com/breeds/standard-goldendoodle/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/standard-goldendoodle/",
+              "anchor_text": "Standard Goldendoodle"
+             }
+            ]
+           },
+           {
+            "text": "West Highland Terrier",
+            "url": "https://www.thelovelypets.com/breeds/west-highland-terrier/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/west-highland-terrier/",
+              "anchor_text": "West Highland Terrier"
+             }
+            ]
+           },
+           {
+            "text": "Yorkshire Terrier",
+            "url": "https://www.thelovelypets.com/breeds/yorkshire-terrier/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/yorkshire-terrier/",
+              "anchor_text": "Yorkshire Terrier"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Filter List",
+          "main_title": "Available Puppies",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 4,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         }
+        ],
+        "ratings": null,
+        "offers": null,
+        "comments": null,
+        "contacts": null
+       },
+       "page_as_markdown": null
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

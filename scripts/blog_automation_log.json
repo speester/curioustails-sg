@@ -201,5 +201,125 @@
     "videoFile": null,
     "notes": "images: fallback to existing on-brand assets; video: skipped to stay within time budget",
     "timestamp": "2026-07-19T08:10:00Z"
+  },
+  {
+    "dayNumber": 7,
+    "slug": "small-dog-breeds-singapore",
+    "title": "Best Small Dog Breeds for Singapore Living",
+    "status": "pending_content",
+    "timestamp": "2026-07-20T00:00:01.206Z"
+  },
+  {
+    "status": "error",
+    "step": "distribution",
+    "reason": "article not live (404) - puppy-first-night.astro exists locally but is not committed/pushed to deploy",
+    "slug": "puppy-first-night",
+    "url": "https://curioustails.sg/blog/puppy-first-night",
+    "timestamp": "2026-07-20T10:22:04.157Z"
+  },
+  {
+    "dayNumber": 7,
+    "slug": "small-dog-breeds-singapore",
+    "title": "Best Small Dog Breeds for Singapore Living",
+    "status": "pending_content",
+    "timestamp": "2026-07-22T00:00:00.891Z"
+  },
+  {
+    "dayNumber": 7,
+    "slug": "small-dog-breeds-singapore",
+    "title": "Best Small Dog Breeds for Singapore Living",
+    "status": "pending_content",
+    "timestamp": "2026-07-23T00:00:01.696Z"
+  },
+  {
+    "dayNumber": 7,
+    "slug": "small-dog-breeds-singapore",
+    "title": "Best Small Dog Breeds for Singapore Living",
+    "status": "pending_content",
+    "timestamp": "2026-07-23T00:02:52.913Z"
+  },
+  {
+    "dayNumber": 7,
+    "slug": "small-dog-breeds-singapore",
+    "title": "Best Small Dog Breeds for Singapore Living",
+    "status": "pending_content",
+    "timestamp": "2026-07-24T00:00:01.511Z"
+  },
+  {
+    "dayNumber": 7,
+    "slug": "small-dog-breeds-singapore",
+    "title": "Best Small Dog Breeds for Singapore Living",
+    "status": "pending_content",
+    "timestamp": "2026-07-24T00:03:06.180Z"
+  },
+  {
+    "status": "noop",
+    "step": "distribution",
+    "slug": "puppy-first-night",
+    "reason": "newest queue entry already fully distributed; GBP posted 2026-07-20 (idempotent skip); Stage 2 social skipped (no video: outputs/article_tiktok/puppy-first-night/SKIPPED.json). Today's Day 7 slug small-dog-breeds-singapore still pending_content, not published/queued — nothing new to post; no dead links sent.",
+    "timestamp": "2026-07-24T00:05:00Z"
+  },
+  {
+    "dayNumber": 7,
+    "slug": "small-dog-breeds-singapore",
+    "title": "Best Small Dog Breeds for Singapore Living",
+    "status": "pending_content",
+    "timestamp": "2026-07-25T00:00:02.185Z"
+  },
+  {
+    "dayNumber": 7,
+    "slug": "small-dog-breeds-singapore",
+    "title": "Best Small Dog Breeds for Singapore Living",
+    "status": "pending_content",
+    "timestamp": "2026-07-25T00:02:28.641Z"
+  },
+  {
+    "dayNumber": 7,
+    "slug": "small-dog-breeds-singapore",
+    "title": "Best Small Dog Breeds for Singapore Living",
+    "status": "pending_content",
+    "timestamp": "2026-07-26T00:00:00.818Z"
+  },
+  {
+    "dayNumber": 7,
+    "slug": "small-dog-breeds-singapore",
+    "title": "Best Small Dog Breeds for Singapore Living",
+    "status": "pending_content",
+    "timestamp": "2026-07-27T00:00:01.317Z"
+  },
+  {
+    "dayNumber": 7,
+    "slug": "small-dog-breeds-singapore",
+    "title": "Best Small Dog Breeds for Singapore Living",
+    "status": "pending_content",
+    "timestamp": "2026-07-27T00:07:53.050Z"
+  },
+  {
+    "step": "distribution",
+    "status": "skipped",
+    "slug": "puppy-first-night",
+    "reason": "no new article today; newest queue entry already distributed to GBP on 2026-07-20 and has no video (SKIPPED.json). Content pipeline stuck at pending_content for small-dog-breeds-singapore since 2026-07-25.",
+    "timestamp": "2026-07-27T03:10:31.270Z"
+  },
+  {
+    "dayNumber": 7,
+    "slug": "small-dog-breeds-singapore",
+    "title": "Best Small Dog Breeds for Singapore Living",
+    "status": "pending_content",
+    "timestamp": "2026-07-28T00:00:01.449Z"
+  },
+  {
+    "dayNumber": 7,
+    "slug": "small-dog-breeds-singapore",
+    "title": "Best Small Dog Breeds for Singapore Living",
+    "status": "pending_content",
+    "timestamp": "2026-07-29T00:00:01.372Z"
+  },
+  {
+    "dayNumber": 7,
+    "slug": "small-dog-breeds-singapore",
+    "title": "Best Small Dog Breeds for Singapore Living",
+    "status": "pending_content",
+    "timestamp": "2026-07-30T00:00:01.419Z"
   }
 ]

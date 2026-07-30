@@ -1,0 +1,71 @@
+{
+  "_note": "These three SERPs were pulled via the dfs-mcp serp_organic_live_advanced tool before the run switched to direct API calls. Recorded here verbatim from the tool response (parsed result items, not the raw HTTP envelope) so every [SERP] claim resting on them is re-checkable. Location: Singapore. Language: en. Device: desktop. Depth: 20. Run date: 2026-07-26.",
+  "serps": [
+    {
+      "keyword": "puppy for sale singapore",
+      "task_id": "07261248-2001-0139-0000-4c69701a808f",
+      "features_present": ["organic", "local_pack", "related_searches"],
+      "features_absent": ["ai_overview", "people_also_ask", "featured_snippet"],
+      "items": [
+        {"type": "organic", "rank_group": 1, "rank_absolute": 1, "domain": "onlypaws.sg", "url": "https://onlypaws.sg/puppies/", "title": "Puppies", "description": "Maltipoo $3,288.00 $4,288.00 cart Add to cart Pedigree Toy Poodle Pedigree Toy Poodle $2,888.00. Maltese $3,288.00. Maltipoo $1,999.00. Puppies For Sale Dog. ..."},
+        {"type": "local_pack", "rank_group": 1, "rank_absolute": 2, "title": "The Lovely Pets Puppies Singapore", "rating": {"value": 4.5, "votes_count": 236}},
+        {"type": "local_pack", "rank_group": 2, "rank_absolute": 3, "title": "Wag A Tail Singapore", "rating": {"value": 4.7, "votes_count": 578}},
+        {"type": "local_pack", "rank_group": 3, "rank_absolute": 4, "title": "Wellfond Pets Thomson", "rating": {"value": 4.5, "votes_count": 239}},
+        {"type": "organic", "rank_group": 2, "rank_absolute": 5, "domain": "puppysingapore.com", "url": "https://puppysingapore.com/", "title": "Puppy Singapore: Puppy for Sale Singapore", "description": "Puppies for sale in Singapore from $3288 across 40+ breeds. AVS-licensed (BR25052), vet-checked and vaccinated. WhatsApp +65 8806 6180 to view."},
+        {"type": "organic", "rank_group": 3, "rank_absolute": 6, "domain": "www.wagatail.sg", "url": "https://www.wagatail.sg/", "title": "Wag A Tail Singapore | Beautiful Puppies available", "description": "The pet store with the largest variety of puppy breeds in Singapore! LOCALLY BRED MALTIPOO Price$4,600.00 LOCALLY BRED CAVAPOO Price$4,600.00"},
+        {"type": "organic", "rank_group": 4, "rank_absolute": 7, "domain": "www.instagram.com", "url": "https://www.instagram.com/sgthelovelypets/?hl=en", "title": "Puppy Sale Puppies Singapore (@sgthelovelypets)"},
+        {"type": "organic", "rank_group": 5, "rank_absolute": 8, "domain": "thepuplife.sg", "url": "https://thepuplife.sg/", "title": "Best Puppies For Sale Singapore | The Pup Life SG"},
+        {"type": "organic", "rank_group": 6, "rank_absolute": 9, "domain": "www.pawfessional.sg", "url": "https://www.pawfessional.sg/puppies", "title": "Puppies for sale in Singapore"},
+        {"type": "organic", "rank_group": 7, "rank_absolute": 10, "domain": "asdsingapore.com", "url": "https://asdsingapore.com/pages/adoption-package", "title": "ASD - Adoption Package"},
+        {"type": "organic", "rank_group": 8, "rank_absolute": 11, "domain": "www.tiarapetssg.com", "url": "https://www.tiarapetssg.com/", "title": "Tiara Pets Singapore: Premium Puppies from Japan"},
+        {"type": "organic", "rank_group": 9, "rank_absolute": 12, "domain": "www.artofpets.com.sg", "url": "https://www.artofpets.com.sg/puppies-0", "title": "We LovePuppies"},
+        {"type": "organic", "rank_group": 10, "rank_absolute": 13, "domain": "woofloof.sg", "url": "https://woofloof.sg/", "title": "Woof Loof | Ethical Puppies From Australia to Singapore"},
+        {"type": "related_searches", "rank_absolute": 14, "items": ["Puppy for sale singapore under $500", "Giving away puppies free Singapore", "Home breed puppies for sale Singapore", "Cheap puppy for sale singapore", "Puppy for sale Singapore Gumtree", "Maltese puppy for sale singapore"]}
+      ],
+      "curioustails_present_in_top_20": false
+    },
+    {
+      "keyword": "puppies for sale singapore",
+      "task_id": "07261248-2001-0139-0000-af3b5be72920",
+      "features_present": ["local_pack", "organic", "related_searches"],
+      "features_absent": ["ai_overview", "people_also_ask", "featured_snippet"],
+      "items": [
+        {"type": "local_pack", "rank_group": 1, "rank_absolute": 1, "title": "The Lovely Pets Puppies Singapore", "rating": {"value": 4.5, "votes_count": 236}},
+        {"type": "local_pack", "rank_group": 2, "rank_absolute": 2, "title": "Pretty Pets Kennel", "rating": {"value": 4.9, "votes_count": 368}},
+        {"type": "local_pack", "rank_group": 3, "rank_absolute": 3, "title": "Wag A Tail Singapore", "rating": {"value": 4.7, "votes_count": 578}},
+        {"type": "organic", "rank_group": 1, "rank_absolute": 4, "domain": "onlypaws.sg", "url": "https://onlypaws.sg/puppies/", "title": "Puppies", "description": "PUPPIES AVAILBLE GROOMING & SPA. Maltipoo $3,288.00 $4,288.00. Poodle Pedigree Toy Poodle $2,888.00. Feel free to contact us!"},
+        {"type": "organic", "rank_group": 2, "rank_absolute": 5, "domain": "www.thelovelypets.com", "url": "https://www.thelovelypets.com/puppies/", "title": "Puppies For Sale Singapore: Find Quality Dogs To Buy"},
+        {"type": "organic", "rank_group": 3, "rank_absolute": 6, "domain": "thepuplife.sg", "url": "https://thepuplife.sg/", "title": "Best Puppies For Sale Singapore | The Pup Life SG"},
+        {"type": "organic", "rank_group": 4, "rank_absolute": 7, "domain": "www.instagram.com", "url": "https://www.instagram.com/sgthelovelypets/?hl=en", "title": "Puppy Sale Puppies Singapore (@sgthelovelypets)"},
+        {"type": "organic", "rank_group": 5, "rank_absolute": 8, "domain": "www.wagatail.sg", "url": "https://www.wagatail.sg/", "title": "Wag A Tail Singapore | Beautiful Puppies available"},
+        {"type": "organic", "rank_group": 6, "rank_absolute": 9, "domain": "pawspals.com.sg", "url": "https://pawspals.com.sg/", "title": "Paws n Pals | Puppies in Singapore for Sale | Small Puppy Pet ..."},
+        {"type": "organic", "rank_group": 7, "rank_absolute": 10, "domain": "www.pawfessional.sg", "url": "https://www.pawfessional.sg/puppies", "title": "Puppies for sale in Singapore"},
+        {"type": "organic", "rank_group": 8, "rank_absolute": 11, "domain": "www.tiarapetssg.com", "url": "https://www.tiarapetssg.com/", "title": "Tiara Pets Singapore: Premium Puppies from Japan"},
+        {"type": "organic", "rank_group": 9, "rank_absolute": 12, "domain": "www.facebook.com", "url": "https://www.facebook.com/groups/456329774519524/", "title": "Pets Up For Adoption (Singapore)"},
+        {"type": "related_searches", "rank_absolute": 13, "items": ["Puppies for sale singapore under $500", "Giving away puppies free Singapore", "Home breed puppies for sale Singapore", "Cheap puppies for sale singapore", "Best place to buy puppies in Singapore", "Maltese puppies for sale singapore", "Puppy for sale Singapore Gumtree", "Puppies for adoption Singapore"]}
+      ],
+      "curioustails_present_in_top_20": false,
+      "_cluster_note": "Shares 6 of 10 organic domains with 'puppy for sale singapore' (onlypaws.sg, thepuplife.sg, instagram sgthelovelypets, wagatail.sg, pawfessional.sg, tiarapetssg.com) and the identical #1 URL https://onlypaws.sg/puppies/. DataForSEO assigns both strings core_keyword 'puppies for sale singapore'."
+    },
+    {
+      "keyword": "cavapoo singapore",
+      "task_id": "07261248-2001-0139-0000-72c48a97b42c",
+      "features_present": ["organic", "ai_overview", "related_searches"],
+      "features_absent": ["local_pack", "people_also_ask"],
+      "items": [
+        {"type": "organic", "rank_group": 1, "rank_absolute": 1, "domain": "www.thelovelypets.com", "url": "https://www.thelovelypets.com/breeds/cavapoo/", "title": "Cavapoo Singapore, Adorable Puppies for Sale", "description": "We are a licensed pet shop and grooming center in Singapore, established in 2016. Located at 46 Jalan Limbok, they specialize in ethical puppy breeding, cat ..."},
+        {"type": "ai_overview", "rank_group": 1, "rank_absolute": 2, "asynchronous_ai_overview": true},
+        {"type": "organic", "rank_group": 2, "rank_absolute": 3, "domain": "www.instagram.com", "url": "https://www.instagram.com/p/DXw3lhpiWJk/", "title": "Cavapoo Looking for a gentle, affectionate companion in ..."},
+        {"type": "organic", "rank_group": 3, "rank_absolute": 4, "domain": "woofloof.sg", "url": "https://woofloof.sg/cavapoos/", "title": "Cavapoo Puppies | Woof Loof - Ethical & Hypoallergenic", "description": "At Woof Loof, Cavapoos are our best-selling breed because they adapt well to Singapore's lifestyle..."},
+        {"type": "organic", "rank_group": 4, "rank_absolute": 5, "domain": "www.facebook.com", "url": "https://www.facebook.com/groups/dogssingapore/posts/1882008049025490/", "title": "Is adopting a 5-month-old Cavapoo puppy from a pet shop ..."},
+        {"type": "organic", "rank_group": 5, "rank_absolute": 6, "domain": "www.wagatail.sg", "url": "https://www.wagatail.sg/product-page/cavapoo-5", "title": "CAVAPOO", "description": "This puppy is HDB approved and apartment friendly. MEET THIS PUPPY! Whatsapp / call us @ +65 8113 5741 for appointment bookings. AVS LICENSE..."},
+        {"type": "organic", "rank_group": 6, "rank_absolute": 7, "domain": "blog.petloverscentre.com", "url": "https://blog.petloverscentre.com/cavapoo-singapore/", "title": "Cavapoos in Singapore: A Guide to This Family-friendly Pet", "timestamp": "2025-06-17"},
+        {"type": "organic", "rank_group": 7, "rank_absolute": 8, "domain": "petmeplease.sg", "url": "https://petmeplease.sg/available-puppies/cavapoos/", "title": "Cavapoos from Australia"},
+        {"type": "organic", "rank_group": 8, "rank_absolute": 9, "domain": "www.instagram.com", "url": "https://www.instagram.com/reel/DYKenT6pJ9q/", "title": "Cavapoo Looking for a gentle, affectionate companion in ...", "is_video": true},
+        {"type": "organic", "rank_group": 9, "rank_absolute": 10, "domain": "petmaster.com.sg", "url": "https://petmaster.com.sg/what-you've-got-to-know-about-the-cavapoo", "title": "What You've Got To Know About The Cavapoo"},
+        {"type": "related_searches", "rank_absolute": 11, "items": ["Cavapoo singapore price", "Cavapoo singapore rescue", "Cavapoo singapore puppies for sale", "Cavapoo Singapore adoption", "Cavapoo for sale Singapore", "Cavapoo singapore breeders", "Teacup cavapoo singapore", "Toy Cavapoo Singapore"]}
+      ],
+      "curioustails_present_in_top_20": false
+    }
+  ]
+}

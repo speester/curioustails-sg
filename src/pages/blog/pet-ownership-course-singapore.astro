@@ -1,0 +1,374 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site } from '../../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+import microchipScan from '../../assets/guides/6-puppy-microchip-scan-health.webp';
+import handoverSupport from '../../assets/home/7-nelson-kim-puppy-care-aftercare-support.png';
+import vetCheck from '../../assets/home/6-puppy-health-check-vet-care-avs.webp';
+import verifyPhone from '../../assets/guides/5-verify-seller-phone-check-puppy.webp';
+
+const title = 'Pet Ownership Course Singapore: What It Covers | Curious Tails';
+const description =
+  'The AVS Pet Ownership Course is free, online and takes 20 to 30 minutes. First-time dog owners must finish it before a licence is issued. What is inside.';
+const datePublished = '2026-07-25';
+
+const faqItems = [
+  {
+    question: 'Is the AVS Pet Ownership Course really free?',
+    answer:
+      'Yes. AVS runs it free online, and there is no paid tier or upgrade to buy. It takes about 20 to 30 minutes, which is one evening rather than one weekend.',
+  },
+  {
+    question: 'Can you fail the Pet Ownership Course?',
+    answer:
+      'AVS does not publish a pass mark or a fail state on its course page. Some third-party guides mention a certificate; AVS itself does not state one. What matters is that you complete it before you apply for the licence on PALS.',
+  },
+  {
+    question: 'Do I need Singpass to do the Pet Ownership Course?',
+    answer:
+      'No. AVS publishes two access routes, one for Singpass holders and a separate one for passport holders, so foreign residents can complete it too. The course content is the same either way.',
+  },
+  {
+    question: 'Will the course delay my puppy coming home?',
+    answer:
+      'Not if you do it during the wait. Our puppies go home about a week after their second vaccination, around week nine, and after a deposit we board them free for up to a month. Thirty minutes fits inside that gap without touching your collection date.',
+  },
+  {
+    question: 'Does my pet shop handle the dog licence for me?',
+    answer:
+      'We complete the dog licensing and paperwork at the point of purchase and walk you through every field. The one part we cannot do is the course itself, because it is tied to your own login. Your 30 minutes, our paperwork.',
+  },
+  {
+    question: 'Do I need to take the course again for a second dog?',
+    answer:
+      'The requirement is written for first-time cat or dog licence applicants, so once you already hold a licence you are no longer a first-time applicant. If your situation is unusual, check the AVS licensing requirements page rather than guessing.',
+  },
+  {
+    question: 'How much is a dog licence in Singapore?',
+    answer:
+      'It depends on which row you land on. A dog below five months old is S$15 for a one-year licence. A non-sterilised dog past that age is S$90 for one year, with two-year and three-year options priced higher. A 10% rebate applies to payment by GIRO, online or AXS.',
+  },
+  {
+    question: 'What do I need before I can apply for the licence?',
+    answer:
+      'The microchip number is the real prerequisite, because the application cannot be submitted without it. Microchip first, course second, PALS application third. Guides that list PALS registration as step one have the order wrong.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/blog/pet-ownership-course-singapore/',
+    title,
+    description,
+    aboutName: 'Pet Ownership Course',
+    aboutAlternateName: 'AVS Pet Ownership Course',
+    datePublished,
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  faqPageSchema(faqItems),
+];
+
+const modules = [
+  'Biology: life cycle and reproduction',
+  'Pet care and health: behaviour, husbandry, caring for a sick pet',
+  'Responsible pet ownership',
+  'Rules and legislation on owning a pet here',
+];
+
+const notPublished = [
+  'No pass mark is published',
+  'No fail state is published',
+  'No certificate is required on the AVS page',
+  'Completion is what the licence application needs',
+];
+
+const accessRoutes = [
+  'Singpass holders: the Singpass access link',
+  'Passport holders: a separate access link',
+  'All four official languages supported',
+  'Works fine on a phone',
+];
+
+const timeline = [
+  'Weeks 6, 8 and 12: core vaccinations',
+  'Around week 9: puppy goes home',
+  'After a deposit: free boarding up to 1 month',
+  'Anywhere in there: your 30 minutes',
+];
+
+const fees = [
+  'Below 5 months: S$15, one-year only',
+  'Sterilised, first 3 dogs: S$15 / S$25 / S$35',
+  'Non-sterilised, first 3 dogs: S$90 / S$165 / S$230',
+  '10% rebate via GIRO, online or AXS',
+];
+
+const situations = [
+  'Collecting in a few weeks: do it this week',
+  'Collecting in a few days: do it tonight',
+  'Adopting or rehoming: same order, your own PALS application',
+];
+
+const bringList = [
+  'Course completed',
+  'Your ID and contact details',
+  'Your home address for the licence',
+  'Nothing else, we handle the rest',
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/blog/pet-ownership-course-singapore" ogImage="/assets/guides/og-first-time-owners.jpg">
+  <section class="bg-[var(--color-peach-100)] pb-10 pt-2">
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pt-5">
+      <Breadcrumb bare items={[{ label: 'Blog', href: '/blog/' }, { label: 'Pet Ownership Course', href: '/blog/pet-ownership-course-singapore/' }]} />
+      <div class="mx-auto mt-8 max-w-[75ch]">
+        <p class="text-xs font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">Blog · First-time owners</p>
+        <h1 class="mt-3 font-[family-name:var(--font-heading)] font-semibold leading-[1.08] text-[var(--color-cream-900)]" style="font-size: clamp(2.2rem, 4.5vw, 3.5rem);">
+          Pet Ownership Course Singapore: Your First Legal Step
+        </h1>
+        <p class="mt-5 text-lg leading-relaxed text-[var(--color-cream-700)]">
+          The free Pet Ownership Course is the AVS course every first-time dog owner in Singapore has to finish before a licence is issued. It runs online, takes about 20 to 30 minutes, and has been compulsory since 1 September 2024. Here is what is actually inside it, where it sits in the dog licence process, and when to do it so it never holds your puppy up.
+        </p>
+        <p class="mt-4 text-sm text-[var(--color-cream-600)]">
+          By Nelson &amp; Kim, Curious Tails · Published {datePublished} · From real handover-day paperwork
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <DefBox
+    term="What is the AVS Pet Ownership Course?"
+    definition="The Pet Ownership Course is a free online course run by Singapore's Animal and Veterinary Service (AVS). Since 1 September 2024, every first-time licence applicant for a cat or dog must complete the online Pet Ownership Course before licence issuance. It takes about 20 to 30 minutes and covers pet biology, pet care and health, responsible ownership, and the rules and legislation around owning a pet in Singapore."
+    bridge="We complete the licensing paperwork for every puppy that leaves our shop, so we watch families meet this requirement most weeks. It is the smallest step in the whole process, and the one people worry about most."
+    citationLabel="Read the AVS Pet Ownership Course page"
+    citationHref="https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/"
+  >
+    <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">What it covers</p>
+      <ul class="mt-4 space-y-3">
+        {modules.map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </DefBox>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="The course, in numbers"
+    stats={[
+      { value: '$0', label: 'it costs nothing to take' },
+      { value: '20–30', label: 'minutes, start to finish' },
+      { value: '4', label: 'topic areas covered' },
+      { value: '1', label: 'time only, for first-time applicants' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <CaptionedBlock heading="Where the Course Sits in the Licence Process" imageAlt="Puppy microchip scan at a Singapore vet, the step that comes before the dog licence application" imageSrc={microchipScan} imagePosition="right">
+    <p>The Pet Ownership Course is step two, not step one. The microchip comes first, because the microchip number is a required supporting document and the licence application simply cannot be submitted without it. Course second. Then the application itself, on the Pet Animal Licensing System at pals.avs.gov.sg.</p>
+    <p>Several popular Singapore licensing guides list "register on PALS" as step one, which sends first-time owners to a portal they cannot finish anything on yet. Fix the order and the whole thing takes an afternoon of waiting rather than a fortnight of confusion.</p>
+    <p>One date worth knowing: dogs aged three months and older must be licensed. Our puppies leave at around nine weeks, so you have a genuine runway, not a deadline breathing down your neck. The <a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">vaccination and microchipping timeline</a> lines up with it neatly.</p>
+    <p>AVS sets out the same sequence on its <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/applying/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">application steps page</a>, including the supporting documents you will be asked for.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="The Four Things the Course Actually Teaches" imagePosition="none" variant="card">
+    <p>Most guides describe the syllabus as "pet care basics and licensing rules" and leave it there. AVS is more specific than that. The course covers four areas: biology, including life cycle and reproduction; pet care and health, including understanding pet behaviour, husbandry and caring for sick pets; responsible pet ownership; and the rules and legislation related to owning a pet in Singapore.</p>
+    <p>The module first-time owners actually remember is the one on caring for a sick pet. Nobody plans for the 11pm scare in the first fortnight, and having heard the basics once beforehand takes the panic out of it.</p>
+    <p>The legislation section is the other quietly useful one. It is where the rules that catch new owners out live, from leash requirements to the limits on how many dogs a home may keep, and it is the cheapest half hour of homework a first-time owner will ever do.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">The four module areas</p>
+      <ul class="mt-4 space-y-3">
+        {modules.map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Can You Fail It? What AVS Actually Publishes" imagePosition="none" variant="mid">
+    <p>No. AVS publishes no pass mark and no fail state on its own Pet Ownership Course page. It is a set of modules to work through, not an exam with a cut-off.</p>
+    <p>This is worth saying plainly, because two of the better-known Singapore licensing guides tell readers they will receive a "Certificate of Completion" and one of them puts the duration at 30 to 60 minutes. AVS says 20 to 30 minutes and says nothing about a certificate. When a commercial guide and the regulator disagree, take the regulator.</p>
+    <p>What the licence application needs is that you completed the course. Nothing to memorise, nothing to revise, nothing to print and bring along.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-surface-card)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">What AVS does not say</p>
+      <ul class="mt-4 space-y-3">
+        {notPublished.map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="How to Get In: Two Doors, Depending on Your ID" imagePosition="none" variant="card">
+    <p>AVS runs two access routes into the same course. Singpass holders use the <a href="https://go.gov.sg/po-course-singpass" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">Singpass link</a>, and passport holders use a <a href="https://go.gov.sg/po-course-passport" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">separate passport-holder link</a>. The pet ownership course modules live at <a href="https://go.gov.sg/petownershipcourse" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">go.gov.sg/petownershipcourse</a>.</p>
+    <p>We mention this because it is the question we field most often from expat families, and almost nobody writing about the course online answers it. No Singpass does not mean no licence.</p>
+    <p>The course is offered in all four of Singapore's official languages, and it runs perfectly well on a phone. Several of our customers have finished it on the MRT.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Two ways in</p>
+      <ul class="mt-4 space-y-3">
+        {accessRoutes.map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="The One Step Your Pet Shop Cannot Do for You" imageAlt="Nelson and Kim going through the licensing paperwork with a first-time owner at handover" imageSrc={handoverSupport} imagePosition="left">
+    <p>We complete the dog licensing and paperwork at the point of purchase, and we sit with you while it is done rather than handing over a form and wishing you luck. That is the part first-time buyers dread, and it is genuinely ours to carry.</p>
+    <p>The course is the exception. It is tied to your own login and your own identity, so it has to be you, on your phone, for half an hour. There is no version of this where a shop can take it on your behalf, and any seller who offers to is telling you something about how they operate.</p>
+    <p>So the honest split is a simple one: your 30 minutes, our paperwork. It is the same sentence we say at the door on handover day.</p>
+  </CaptionedBlock>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <CaptionedBlock heading="When to Do It So It Never Delays Your Puppy" imagePosition="none" variant="card">
+    <p>Do the course while you are already waiting. Our puppies go home about a week after their second vaccination, which lands around week nine, and after a deposit we board the puppy free for up to a month with vaccinations continuing on schedule at our cost. That gap is measured in weeks. The course is measured in minutes.</p>
+    <p>Families who leave it to collection day are the only ones we have ever seen feel rushed by it, and the rush is entirely self-inflicted. There is no processing queue and no waiting period on the course itself.</p>
+    <p>Honestly, the best moment is the evening you place the deposit, while the excitement is still doing the work for you. Diary it then and it is done before the pen is even out of the box.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Your actual timeline</p>
+      <ul class="mt-4 space-y-3">
+        {timeline.map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="What the Licence Itself Costs, and the Row Buyers Miss" imagePosition="none" variant="mid">
+    <p>There is no single dog licence fee in Singapore. AVS prices in licence fee tiers, and the row nobody quotes is the one that matters most to a puppy buyer: a dog below five months of age is S$15 for a one-year licence, and that is the only duration offered at that age.</p>
+    <p>Past five months the standard table takes over. A non-sterilised dog in the first three of a household is S$90 for one year, S$165 for two and S$230 for three. Sterilised rates are S$15, S$25 and S$35 for the same durations. A 10% rebate applies to payment by GIRO, online or AXS.</p>
+    <p>Here is why it matters. Puppies go home unsterilised, and vets generally advise sterilisation only from around seven months, so a first licence taken late sits on the S$90 row rather than the S$15 one. Licensing at purchase, while the puppy is nine weeks old, is not just tidier. It is cheaper.</p>
+    <p>Fees do get revised, so check the <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/licence-fees/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">current AVS fee table</a> before you pay. For the wider picture of what a first year actually costs, the <a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year budget planner</a> breaks it down line by line.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-surface-card)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Dog licence fees, by row</p>
+      <ul class="mt-4 space-y-3">
+        {fees.map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+      <p class="mt-4 text-xs leading-relaxed text-[var(--color-cream-500)]">Rates published by AVS for the period before 1 September 2026. Verify before paying.</p>
+    </div>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Three Situations, Three Different Answers" imagePosition="none" variant="card">
+    <p>Buying from a licensed shop with collection weeks away? Do the course this week and forget about it. We handle the licence application at purchase, so the course is your only task on the list.</p>
+    <p>Collecting in the next few days? Do it tonight. Thirty minutes now beats discovering on collection morning that the licence cannot be issued yet.</p>
+    <p>Adopting or taking on a rehomed dog rather than buying? Same course, same order, but the PALS application is yours to submit, with the microchip number from whoever is passing the dog on. Every route ends at the same portal.</p>
+    <p>If you are still at the stage of choosing rather than collecting, have a look at <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the puppies we have available</a> first. The paperwork is easier to plan once the dog is real.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Which one are you?</p>
+      <ul class="mt-4 space-y-3">
+        {situations.map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Why This Course Exists, and Why We're Glad It Does" imageAlt="AVS-aligned puppy health check in Singapore, part of responsible first-time dog ownership" imageSrc={vetCheck} imagePosition="right">
+    <p>A 30-minute gate in front of a 12 to 15 year commitment is not a burden. We would happily see it doubled.</p>
+    <p>Almost every regret we have untangled in two years of matching puppies to families traces back to a decision made with no information at all: a breed picked from a photograph, a schedule nobody thought through, a seller nobody checked. None of that is stupidity. It is just how excitement works.</p>
+    <p>What we tell first-time owners, though, is slightly contrarian. You do not need a lot of information upfront. You need a simple routine to follow and someone to call when you are unsure. The course gives you the baseline. The routine is what we hand over at the door, and the mistakes we spend most of our time untangling are routine problems rather than knowledge problems.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="The Licence That Protects You Is Not Yours" imageAlt="Buyer checking a Singapore pet shop licence on the AVS public registry before paying a deposit" imageSrc={verifyPhone} imagePosition="left" variant="card">
+    <p>Your dog licence keeps you compliant. The seller's licence is the one that protects you, and it is the check almost nobody does before paying a deposit.</p>
+    <p>Every legitimate pet shop in Singapore appears on the AVS public registry, and the search takes about 60 seconds. Ours is AS24J00046. Check us first; an honest shop never minds. Unlicensed sellers are where the smuggled-puppy stories start, and a seller with no licence of their own can help you with none of the paperwork on this page.</p>
+    <p>Our{' '}<a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">60-second guide to checking any shop's licence</a>{' '}walks the process with the red flags attached, or go straight to the <a href={site.license.registryUrl} class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">AVS public registry</a> and search a name.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="What Happens on Handover Day" imagePosition="none" variant="dark">
+    <p>Licensing and paperwork are completed at the point of purchase, with us doing the filling in and the checking. You bring the course completion, your ID and your address, and that is the whole of your homework.</p>
+    <p>The rest of the day is the good part. The starter kit, 30 or more items worth over $500, arrives with the puppy and gets set up in your home rather than left in a bag by the door, and we walk you through what every item is for. A <a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">free first lesson with an AVS-certified trainer</a> is booked for week one.</p>
+    <p>If the puppy falls sick within the first five days, bring it back and we will nurse it. After that our WhatsApp stays open for care questions for as long as you have the dog, which is the part of the service the paperwork never captures.</p>
+    <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">What to bring</p>
+      <ul class="mt-4 space-y-3">
+        {bringList.map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Pet Ownership Course Questions, Answered" items={faqItems} />
+  </div>
+
+  <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Working through the rest of the list? The <a href="/first-time-owners/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">full first-time owner checklist</a> covers the five decisions in order, and the <a href="/first-time-owners/puppy-care-101/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">week-by-week care guide</a> picks up the day your puppy arrives.</p>
+  </section>
+
+  <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
+    <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/learn/smuggled-puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Why unlicensed puppies cost more</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Puppy price list, all-in</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Home delivery &amp; setup</a></li>
+    </ul>
+  </aside>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Let Us Take the Paperwork"
+    body="Can't make the trip to Balestier? WhatsApp us about licensing, the course, or anything else on the first-timer list. Honest answers either way."
+    reserveMessage="Hi! I have a question about the dog licence and the pet ownership course:"
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

@@ -41,9 +41,9 @@ import imgCard4 from '../../assets/japanese-spitz/10-petite-female-japanese-spit
 import imgCard5 from '../../assets/japanese-spitz/11-plush-coat-male-japanese-spitz-puppy-available-in-singa.webp';
 import imgCard6 from '../../assets/japanese-spitz/12-smiley-female-japanese-spitz-puppy-available-in-singapo.webp';
 
-const title = 'Japanese Spitz Singapore | Price & Puppies | Curious Tails';
+const title = 'Japanese Spitz Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Japanese Spitz puppies for sale in Singapore from $4,888, AVS licensed and HDB-approved. Real prices, temperament, white coat care and the $500+ starter kit included.';
+  'Japanese Spitz puppies for sale in Singapore from $4,888, AVS licensed and HDB-approved. Real prices, temperament and white-coat care in our humidity.';
 
 const jumpLinks = [
   { label: 'Available', href: '#available' },
@@ -103,7 +103,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/japanese-spitz',
+    path: '/puppies/japanese-spitz/',
     title,
     description,
     aboutName: 'Japanese Spitz',
@@ -115,7 +115,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Japanese Spitz puppy',
-      url: '/puppies/japanese-spitz',
+      url: '/puppies/japanese-spitz/',
       description:
         'Japanese Spitz puppy from an AVS licensed Singapore pet shop, priced $4,888 to $5,088 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '4888',
@@ -171,19 +171,19 @@ const schemas = [
     <ListingGrid
       heading="Available Japanese Spitz Puppies"
       headingAccent="Available"
-      subhead="A few of the Japanese Spitz puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Japanese Spitz puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Snow-white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the male Japanese Spitz puppy.'), imageAlt: 'White male Japanese Spitz puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Snow-white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the female Japanese Spitz puppy.'), imageAlt: 'White female Japanese Spitz puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Fluffy boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fluffy male Japanese Spitz puppy.'), imageAlt: 'Fluffy male Japanese Spitz puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Petite girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite female Japanese Spitz puppy.'), imageAlt: 'Petite female Japanese Spitz puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Plush-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the plush-coat male Japanese Spitz puppy.'), imageAlt: 'Plush-coat male Japanese Spitz puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Smiley girl', href: whatsappLink('Hi! I\'d like more photos and the price for the smiley female Japanese Spitz puppy.'), imageAlt: 'Smiley female Japanese Spitz puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Cosmo — Snow-white Boy', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Cosmo, the male Japanese Spitz puppy.'), imageAlt: 'White male Japanese Spitz puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Petal — Snow-white Girl', price: 4988, href: whatsappLink('Hi! I\'d like more photos and the price for Petal, the female Japanese Spitz puppy.'), imageAlt: 'White female Japanese Spitz puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Cracker — Fluffy Boy', price: 5088, href: whatsappLink('Hi! I\'d like more photos and the price for Cracker, the fluffy male Japanese Spitz puppy.'), imageAlt: 'Fluffy male Japanese Spitz puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Phoebe — Petite Girl', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Phoebe, the petite female Japanese Spitz puppy.'), imageAlt: 'Petite female Japanese Spitz puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Crumb — Plush-coat Boy', price: 4988, href: whatsappLink('Hi! I\'d like more photos and the price for Crumb, the plush-coat male Japanese Spitz puppy.'), imageAlt: 'Plush-coat male Japanese Spitz puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Pixie — Smiley Girl', price: 5088, href: whatsappLink('Hi! I\'d like more photos and the price for Pixie, the smiley female Japanese Spitz puppy.'), imageAlt: 'Smiley female Japanese Spitz puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Japanese Spitz in Singapore?" imageAlt="White Japanese Spitz puppy portrait, one of the Japanese Spitz puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our Japanese Spitz puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Japanese Spitz puppies available now.</p>
+      <p>Our Japanese Spitz puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and a short walkthrough video for the Japanese Spitz puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Japanese Spitz for sale in Singapore here is between $4,888 and $5,088, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Japanese Spitz puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Japanese Spitz photos and prices</a>, or meet our Japanese Spitz puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -524,20 +524,20 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">browse from the homepage</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our breed catalogue</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">browse from the homepage</a>, or <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our breed catalogue</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

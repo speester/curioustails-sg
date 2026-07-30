@@ -2,13 +2,14 @@
 import { site, whatsappLink } from '../data/site';
 import PawPrint from './decor/PawPrint.astro';
 
-// Lean chrome: logo + four money links + CTA. The site's architecture is
-// carried by contextual body links (Root-Seed-Node contract), not the nav.
+// Lean chrome: logo + four money links + the blog + CTA. The site's architecture
+// is carried by contextual body links (Root-Seed-Node contract), not the nav.
 const nav = [
-  { label: 'Our Puppies', href: '/puppies' },
-  { label: 'Pricing', href: '/pricing' },
-  { label: 'Starter Kit', href: '/starter-kit' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Our Puppies', href: '/puppies/' },
+  { label: 'Pricing', href: '/pricing/' },
+  { label: 'Starter Kit', href: '/starter-kit/' },
+  { label: 'Blog', href: '/blog/' },
+  { label: 'Contact', href: '/contact/' },
 ];
 
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';

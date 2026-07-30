@@ -188,10 +188,13 @@ export function webPageSchema(opts: {
   aboutSameAs?: string;
   datePublished?: string;
   dateModified?: string;
+  // A more specific WebPage subtype where one applies, e.g. 'CollectionPage'
+  // for a directory that lists other pages. Defaults to plain WebPage.
+  type?: 'WebPage' | 'CollectionPage' | 'AboutPage' | 'ContactPage' | 'FAQPage';
 }) {
   return {
     '@context': 'https://schema.org',
-    '@type': 'WebPage',
+    '@type': opts.type ?? 'WebPage',
     '@id': pageUrl(opts.path),
     url: pageUrl(opts.path),
     name: opts.title,
@@ -278,6 +281,30 @@ export function aggregateOfferSchema(opts: { priceLow: string; priceHigh: string
   };
 }
 
+// Homepage catalog: one Offer per breed, each pointing at its breed page, so
+// Google reads the homepage as the storefront and the breed pages as the items.
+export function offerCatalogSchema(items: { name: string; url: string; priceLow: number; priceHigh: number }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'OfferCatalog',
+    name: `${site.businessName} Puppies`,
+    provider: { '@id': `${site.domain}#business` },
+    itemListElement: items.map((item, i) => ({
+      '@type': 'Offer',
+      position: i + 1,
+      url: pageUrl(item.url),
+      priceCurrency: 'SGD',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        minPrice: item.priceLow,
+        maxPrice: item.priceHigh,
+        priceCurrency: 'SGD',
+      },
+      itemOffered: { '@type': 'Product', '@id': pageUrl(item.url), name: item.name },
+    })),
+  };
+}
+
 export function faqPageSchema(items: { question: string; answer: string }[]) {
   return {
     '@context': 'https://schema.org',
@@ -293,7 +320,7 @@ export function faqPageSchema(items: { question: string; answer: string }[]) {
   };
 }
 
-export function itemListSchema(items: { name: string; url: string; description?: string; price?: string; image?: string }[]) {
+export function itemListSchema(items: { name: string; url: string; description?: string; price?: string; priceHigh?: string; image?: string }[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -307,16 +334,28 @@ export function itemListSchema(items: { name: string; url: string; description?:
         url: pageUrl(item.url),
         brand: { '@type': 'Brand', name: site.businessName },
         ...(item.description ? { description: item.description } : {}),
+        // With priceHigh, emit the breed's real low-high band as an AggregateOffer
+        // (matches the price table on the page); otherwise a single Offer.
         ...(item.price
           ? {
-              offers: {
-                '@type': 'Offer',
-                price: toPriceValue(item.price),
-                priceCurrency: 'SGD',
-                availability: 'https://schema.org/InStock',
-                hasMerchantReturnPolicy: productReturnPolicy(),
-                shippingDetails: productShippingDetails(),
-              },
+              offers: item.priceHigh
+                ? {
+                    '@type': 'AggregateOffer',
+                    lowPrice: toPriceValue(item.price),
+                    highPrice: toPriceValue(item.priceHigh),
+                    priceCurrency: 'SGD',
+                    availability: 'https://schema.org/InStock',
+                    hasMerchantReturnPolicy: productReturnPolicy(),
+                    shippingDetails: productShippingDetails(),
+                  }
+                : {
+                    '@type': 'Offer',
+                    price: toPriceValue(item.price),
+                    priceCurrency: 'SGD',
+                    availability: 'https://schema.org/InStock',
+                    hasMerchantReturnPolicy: productReturnPolicy(),
+                    shippingDetails: productShippingDetails(),
+                  },
             }
           : {}),
         image: new URL(item.image ?? heroImageUrl, site.domain).toString(),

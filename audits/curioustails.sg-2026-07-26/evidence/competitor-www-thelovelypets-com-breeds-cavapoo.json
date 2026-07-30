@@ -1,0 +1,699 @@
+{
+ "version": "0.1.20260717",
+ "status_code": 20000,
+ "status_message": "Ok.",
+ "time": "6.0981 sec.",
+ "cost": 0.0015,
+ "tasks_count": 1,
+ "tasks_error": 0,
+ "tasks": [
+  {
+   "id": "07261253-2001-0495-0000-6e8f96f36851",
+   "status_code": 20000,
+   "status_message": "Ok.",
+   "time": "5.9692 sec.",
+   "cost": 0.0015,
+   "result_count": 1,
+   "path": [
+    "v3",
+    "on_page",
+    "content_parsing",
+    "live"
+   ],
+   "data": {
+    "api": "on_page",
+    "function": "content_parsing",
+    "url": "https://www.thelovelypets.com/breeds/cavapoo/",
+    "enable_javascript": true
+   },
+   "result": [
+    {
+     "crawl_progress": "finished",
+     "crawl_status": null,
+     "items_count": 1,
+     "items": [
+      {
+       "type": "content_parsing_element",
+       "fetch_time": "2026-07-26 06:53:42 +00:00",
+       "status_code": 200,
+       "page_content": {
+        "header": {
+         "primary_content": null,
+         "secondary_content": [
+          {
+           "text": "Available Puppies",
+           "url": "https://www.thelovelypets.com/puppies/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/puppies/",
+             "anchor_text": "Available Puppies"
+            }
+           ]
+          },
+          {
+           "text": "About Us",
+           "url": "https://www.thelovelypets.com/about-us/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/about-us/",
+             "anchor_text": "About Us"
+            }
+           ]
+          },
+          {
+           "text": "Contact Us",
+           "url": "https://www.thelovelypets.com/contact-us/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/contact-us/",
+             "anchor_text": "Contact Us"
+            }
+           ]
+          }
+         ],
+         "table_content": null
+        },
+        "footer": {
+         "primary_content": null,
+         "secondary_content": [
+          {
+           "text": "We are a licensed pet shop and grooming center in Singapore, established in 2016. Located at 46 Jalan Limbok, they specialize in ethical puppy breeding, cat grooming, and pet care.",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Available Puppies",
+           "url": "https://www.thelovelypets.com/puppies/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/puppies/",
+             "anchor_text": "Available Puppies"
+            }
+           ]
+          },
+          {
+           "text": "About Us",
+           "url": "https://www.thelovelypets.com/about-us/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/about-us/",
+             "anchor_text": "About Us"
+            }
+           ]
+          },
+          {
+           "text": "Contact Us",
+           "url": "https://www.thelovelypets.com/contact-us/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/contact-us/",
+             "anchor_text": "Contact Us"
+            }
+           ]
+          },
+          {
+           "text": "46 Jalan Limbok",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Singapore 548728",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "(2min drive between Serangoon North and Serangoon Gardens",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "3min drive from Nex Mall)",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Opening hour:",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Thursday- Monday 11am-7pm",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Tuesday-Wednesday 11am-6pm",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "We are open every day!",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "\u00a9 2026 The Lovely Pets",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Available Puppies",
+           "url": "https://www.thelovelypets.com/puppies/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/puppies/",
+             "anchor_text": "Available Puppies"
+            }
+           ]
+          },
+          {
+           "text": "About Us",
+           "url": "https://www.thelovelypets.com/about-us/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/about-us/",
+             "anchor_text": "About Us"
+            }
+           ]
+          },
+          {
+           "text": "Contact Us",
+           "url": "https://www.thelovelypets.com/contact-us/",
+           "urls": [
+            {
+             "url": "https://www.thelovelypets.com/contact-us/",
+             "anchor_text": "Contact Us"
+            }
+           ]
+          }
+         ],
+         "table_content": null
+        },
+        "main_topic": [
+         {
+          "h_title": "Grooming Requirements",
+          "main_title": "\u200bCavapoo",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "Cavapoos have a soft, curly or wavy coat that requires regular grooming to keep it clean, tangle-free, and healthy. The grooming requirements for a Cavapoo may vary depending on the length and thickness of their coat, but in general, they need to be brushed and groomed at least once a week.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Brushing: Daily brushing is important to prevent tangle.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Bathing: Cavapoos needs to be bathed every week in Singapore\u2019s humid climate. Use a mild dog shampoo (we recommend\u00a0Silky shampoo) and be sure to rinse thoroughly to avoid any skin irritation. Lastly, remember to blow dry to make sure the skin is completely dry to prevent skin issues.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Trimming: Regular haircut is needed at\u00a0professional dog groomer\u00a0every 2-3 months for a full grooming service to prevent tangle and keep a neat appearance. There are many styles at your dog can try out to create many different look.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Nail Clipping:\u00a0The toe nails need to be clipped once every few months. Best to ask a professional groomer to do this to prevent bleeding when the nails are cut too close to the quick (blood vessel).\u00a0avoid cutting too close to the quick.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Teeth Cleaning:\u00a0Brushing teeth daily is preferred, if not possible, weekly brushing is sufficient. Give raw bones regularly as enrichment which double as natural teeth cleaner.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Ear Cleaning:\u00a0Their ears may be prone to infection as it is dropping down which can trap heat and moisture especially in Singapore\u2019s humid climate. Clean the ears with appropriate solution once a week.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": [
+           {
+            "text": "Here are some grooming requirements and recommendations for Cavapoos:",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "table_content": null
+         }
+        ],
+        "secondary_topic": [
+         {
+          "h_title": "\u200bCavapoo",
+          "main_title": "\u200bCavapoo",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 1,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Showing all 5 results Sorted by latest",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Cavapoo is a very popular designer dog which is a cross between Cavalier King Charles and Poodle. They are extremely in demand in Singapore as they have good looks and friendly temperament. Their hair is typically wavy hence do not need as frequent brushing compared to the curly hair of poodle. Yet when bred right, they are mostly non shedding which appeals to people with allergy. Cavalier temperament is also very kind and friendly. Hence the resulting mix create a perfect small medium size family dog.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Whether you are looking to adopt a Cavapoo puppy or finding out the price, you can contact us to help you make the best decision for you and your family.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Toy Cavapoo M (Rare 4 white feet)",
+          "main_title": "\u200bCavapoo",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Toy Cavapoo M (Rare 4 white feet)",
+            "url": "https://www.thelovelypets.com/product/cavapoo-australia-m-copy/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/cavapoo-australia-m-copy/",
+              "anchor_text": "Toy Cavapoo M (Rare 4 white feet)"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Cavapoo F",
+          "main_title": "\u200bCavapoo",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Cavapoo F",
+            "url": "https://www.thelovelypets.com/product/cavapoo-australia-f/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/cavapoo-australia-f/",
+              "anchor_text": "Cavapoo F"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Toy Cavapoo F",
+          "main_title": "\u200bCavapoo",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Toy Cavapoo F",
+            "url": "https://www.thelovelypets.com/product/tiny-cavapoo-australia-f-2/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/tiny-cavapoo-australia-f-2/",
+              "anchor_text": "Toy Cavapoo F"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Special Custom Breed/Color/Gender Order",
+          "main_title": "\u200bCavapoo",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Special Custom Breed/Color/Gender Order",
+            "url": "https://www.thelovelypets.com/product/special-order/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/special-order/",
+              "anchor_text": "Special Custom Breed/Color/Gender Order"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Tiny Cavapoo F",
+          "main_title": "\u200bCavapoo",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Tiny Cavapoo F",
+            "url": "https://www.thelovelypets.com/product/tiny-cavapoo-australia-f/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/product/tiny-cavapoo-australia-f/",
+              "anchor_text": "Tiny Cavapoo F"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Breed Characteristics",
+          "main_title": "\u200bCavapoo",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Cavapoo is the very popular, designer crossbreed of a Cavalier King Charles spaniel and a miniature or toy poodle. They are extremely friendly to human, children and other pets alike. A Cavapoo is a terrific pup for first-time dog owners, families in search of an adorable playmate for children, or seniors who want an endearing companion.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "In addition, their fur is often hypoallergenic due to its poodle parent. While the Mayo Clinic stresses that no dog is allergen-free, some people might have less reaction to the proteins found in a Cavapoo\u2019s dander, saliva, and urine.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "As Cavapoo are a cross breed, their fur can range from short smooth fur (like a cavalier king charles) to a wavy silky fur or a curly poodle coat. The latter two are especially popular due to their non shedding property.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "They are a medium size breed, typically weighing between 7-10kg, not too small and not too big! Their fur colour ranges from cream, to red, to brown to black which comes with or without markings.",
+            "url": null,
+            "urls": null
+           },
+           {
+            "text": "Cavapoos are very similar in looks and temperament to Cockapoos, with cockapoos as the slightly larger cousin.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Brows by Categories",
+          "main_title": "\u200bCavapoo",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 4,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Small Breeds",
+            "url": "https://www.thelovelypets.com/puppy-category/small-breeds/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/puppy-category/small-breeds/",
+              "anchor_text": "Small Breeds"
+             }
+            ]
+           },
+           {
+            "text": "Medium Breeds",
+            "url": "https://www.thelovelypets.com/puppy-category/medium-breeds/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/puppy-category/medium-breeds/",
+              "anchor_text": "Medium Breeds"
+             }
+            ]
+           },
+           {
+            "text": "Large Breeds",
+            "url": "https://www.thelovelypets.com/puppy-category/large-breeds/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/puppy-category/large-breeds/",
+              "anchor_text": "Large Breeds"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Browse by Breeds",
+          "main_title": "\u200bCavapoo",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 4,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Alaskan Malamute",
+            "url": "https://www.thelovelypets.com/breeds/alaskan-malamute/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/alaskan-malamute/",
+              "anchor_text": "Alaskan Malamute"
+             }
+            ]
+           },
+           {
+            "text": "Bernese Mountain Dog",
+            "url": "https://www.thelovelypets.com/breeds/bernese-mountain-dog/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/bernese-mountain-dog/",
+              "anchor_text": "Bernese Mountain Dog"
+             }
+            ]
+           },
+           {
+            "text": "Bichon Frise",
+            "url": "https://www.thelovelypets.com/breeds/bichon-frise/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/bichon-frise/",
+              "anchor_text": "Bichon Frise"
+             }
+            ]
+           },
+           {
+            "text": "Border Collie",
+            "url": "https://www.thelovelypets.com/breeds/border-collie/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/border-collie/",
+              "anchor_text": "Border Collie"
+             }
+            ]
+           },
+           {
+            "text": "Cavalier King Charles Spaniel",
+            "url": "https://www.thelovelypets.com/breeds/cavalier-king-charles-spaniel/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/cavalier-king-charles-spaniel/",
+              "anchor_text": "Cavalier King Charles Spaniel"
+             }
+            ]
+           },
+           {
+            "text": "Chow Chow",
+            "url": "https://www.thelovelypets.com/breeds/chow-chow/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/chow-chow/",
+              "anchor_text": "Chow Chow"
+             }
+            ]
+           },
+           {
+            "text": "Cocker Spaniel",
+            "url": "https://www.thelovelypets.com/breeds/cocker-spaniel/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/cocker-spaniel/",
+              "anchor_text": "Cocker Spaniel"
+             }
+            ]
+           },
+           {
+            "text": "French Bulldog",
+            "url": "https://www.thelovelypets.com/breeds/french-bulldog/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/french-bulldog/",
+              "anchor_text": "French Bulldog"
+             }
+            ]
+           },
+           {
+            "text": "Golden Retriever",
+            "url": "https://www.thelovelypets.com/breeds/golden-retriever/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/golden-retriever/",
+              "anchor_text": "Golden Retriever"
+             }
+            ]
+           },
+           {
+            "text": "Jack Russell Terrier",
+            "url": "https://www.thelovelypets.com/breeds/jack-russell-terrier/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/jack-russell-terrier/",
+              "anchor_text": "Jack Russell Terrier"
+             }
+            ]
+           },
+           {
+            "text": "Japanese Spitz",
+            "url": "https://www.thelovelypets.com/breeds/japanese-spitz/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/japanese-spitz/",
+              "anchor_text": "Japanese Spitz"
+             }
+            ]
+           },
+           {
+            "text": "Mini Goldendoodle",
+            "url": "https://www.thelovelypets.com/breeds/mini-goldendoodle/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/mini-goldendoodle/",
+              "anchor_text": "Mini Goldendoodle"
+             }
+            ]
+           },
+           {
+            "text": "Mini Pomeranian",
+            "url": "https://www.thelovelypets.com/breeds/mini-pomeranian/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/mini-pomeranian/",
+              "anchor_text": "Mini Pomeranian"
+             }
+            ]
+           },
+           {
+            "text": "Mini Schnauzer",
+            "url": "https://www.thelovelypets.com/breeds/mini-schnauzer/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/mini-schnauzer/",
+              "anchor_text": "Mini Schnauzer"
+             }
+            ]
+           },
+           {
+            "text": "Shetland Sheepdog",
+            "url": "https://www.thelovelypets.com/breeds/shetland-sheepdog/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/shetland-sheepdog/",
+              "anchor_text": "Shetland Sheepdog"
+             }
+            ]
+           },
+           {
+            "text": "Shiba Inu",
+            "url": "https://www.thelovelypets.com/breeds/shiba-inu/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/shiba-inu/",
+              "anchor_text": "Shiba Inu"
+             }
+            ]
+           },
+           {
+            "text": "Shih tzu",
+            "url": "https://www.thelovelypets.com/breeds/shih-tzu/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/shih-tzu/",
+              "anchor_text": "Shih tzu"
+             }
+            ]
+           },
+           {
+            "text": "Siberian Husky",
+            "url": "https://www.thelovelypets.com/breeds/siberian-husky/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/siberian-husky/",
+              "anchor_text": "Siberian Husky"
+             }
+            ]
+           },
+           {
+            "text": "Standard Goldendoodle",
+            "url": "https://www.thelovelypets.com/breeds/standard-goldendoodle/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/standard-goldendoodle/",
+              "anchor_text": "Standard Goldendoodle"
+             }
+            ]
+           },
+           {
+            "text": "West Highland Terrier",
+            "url": "https://www.thelovelypets.com/breeds/west-highland-terrier/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/west-highland-terrier/",
+              "anchor_text": "West Highland Terrier"
+             }
+            ]
+           },
+           {
+            "text": "Yorkshire Terrier",
+            "url": "https://www.thelovelypets.com/breeds/yorkshire-terrier/",
+            "urls": [
+             {
+              "url": "https://www.thelovelypets.com/breeds/yorkshire-terrier/",
+              "anchor_text": "Yorkshire Terrier"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Filter List",
+          "main_title": "\u200bCavapoo",
+          "author": "The Lovely Pets",
+          "language": "en",
+          "level": 4,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         }
+        ],
+        "ratings": null,
+        "offers": null,
+        "comments": null,
+        "contacts": null
+       },
+       "page_as_markdown": null
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

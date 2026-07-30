@@ -42,9 +42,9 @@ import imgCard4 from '../../assets/pomsky/11-red-and-white-female-pomsky-puppy-a
 import imgCard5 from '../../assets/pomsky/12-husky-masked-male-pomsky-puppy-available-in-singapore.webp';
 import imgCard6 from '../../assets/pomsky/13-cream-and-grey-female-pomsky-puppy-available-in-singapo.webp';
 
-const title = 'Pomsky Singapore | Price & Puppies | Curious Tails';
+const title = 'Pomsky Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Pomsky puppies for sale in Singapore from $5,500 all-in. Honest first: Pomskies are NOT HDB-approved despite the size, and adult size genuinely varies. We match honestly.';
+  'Pomsky puppies for sale in Singapore from $5,500 all-in. Not HDB-approved despite the size, and adult size genuinely varies. We match honestly.';
 
 const jumpLinks = [
   { label: 'Available', href: '#available' },
@@ -99,7 +99,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/pomsky',
+    path: '/puppies/pomsky/',
     title,
     description,
     aboutName: 'Pomsky',
@@ -111,7 +111,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Pomsky puppy',
-      url: '/puppies/pomsky',
+      url: '/puppies/pomsky/',
       description:
         'Pomsky puppy from an AVS licensed Singapore pet shop, priced $5,500 to $6,200 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '5500',
@@ -167,19 +167,19 @@ const schemas = [
     <ListingGrid
       heading="Available Pomsky Puppies"
       headingAccent="Available"
-      subhead="A few of the Pomsky puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, parent photos and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Pomsky puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and parent photos, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Grey & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the grey and white male Pomsky puppy.'), imageAlt: 'Grey and white male Pomsky puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Blue-eyed girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue-eyed female Pomsky puppy.'), imageAlt: 'Blue-eyed female Pomsky puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Pomsky puppy.'), imageAlt: 'Black and white male Pomsky puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Red & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the red and white female Pomsky puppy.'), imageAlt: 'Red and white female Pomsky puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Husky-masked boy', href: whatsappLink('Hi! I\'d like more photos and the price for the husky-masked male Pomsky puppy.'), imageAlt: 'Husky-masked male Pomsky puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Cream & grey girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream and grey female Pomsky puppy.'), imageAlt: 'Cream and grey female Pomsky puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Indy — Grey & white Boy', price: 5588, href: whatsappLink('Hi! I\'d like more photos and the price for Indy, the grey and white male Pomsky puppy.'), imageAlt: 'Grey and white male Pomsky puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Ube — Blue-eyed Girl', price: 5688, href: whatsappLink('Hi! I\'d like more photos and the price for Ube, the blue-eyed female Pomsky puppy.'), imageAlt: 'Blue-eyed female Pomsky puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Jelly — Black & white Boy', price: 5788, href: whatsappLink('Hi! I\'d like more photos and the price for Jelly, the black and white male Pomsky puppy.'), imageAlt: 'Black and white male Pomsky puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Velvet — Red & white Girl', price: 5888, href: whatsappLink('Hi! I\'d like more photos and the price for Velvet, the red and white female Pomsky puppy.'), imageAlt: 'Red and white female Pomsky puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Jimmy — Husky-masked Boy', price: 5988, href: whatsappLink('Hi! I\'d like more photos and the price for Jimmy, the husky-masked male Pomsky puppy.'), imageAlt: 'Husky-masked male Pomsky puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Vera — Cream & grey Girl', price: 6088, href: whatsappLink('Hi! I\'d like more photos and the price for Vera, the cream and grey female Pomsky puppy.'), imageAlt: 'Cream and grey female Pomsky puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Pomsky in Singapore?" imageAlt="Husky-marked Pomsky puppy portrait, one of the Pomsky puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our Pomsky puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop, we'll send you photos, gender, age, markings, and exact prices for the Pomsky puppies available now, along with the thing that matters most for this cross: photos of the parents and an honest size estimate.</p>
+      <p>Our Pomsky puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop, we'll send you photos, gender, age, markings, and a short walkthrough video for the Pomsky puppies available now, along with the thing that matters most for this cross: photos of the parents and an honest size estimate.</p>
       <p>Unlike the listings you'll compare us against, we tell you the number upfront: every Pomsky for sale in Singapore here is between $5,500 and $6,200, whatever the generation, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Pomsky puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Pomsky photos and prices</a>, or meet our Pomsky puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -496,21 +496,21 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">current puppies looking for homes</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the rest of our breeds</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">current puppies looking for homes</a>, or <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the rest of our breeds</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

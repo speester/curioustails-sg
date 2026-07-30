@@ -9,6 +9,10 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://curioustails.sg',
   output: 'static',
+  // One canonical URL form. The host 308s /path -> /path/ already; this keeps
+  // dev, sitemap, and any new internal links on the trailing-slash form so GSC
+  // stops discovering the redirect variants.
+  trailingSlash: 'always',
   vite: {
     plugins: [tailwindcss()]
   },

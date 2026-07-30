@@ -41,9 +41,9 @@ import imgCard4 from '../../assets/shihpoo/10-gold-female-shihpoo-puppy-availabl
 import imgCard5 from '../../assets/shihpoo/11-brown-and-white-male-shihpoo-puppy-available-in-singapo.webp';
 import imgCard6 from '../../assets/shihpoo/12-cream-and-white-female-shihpoo-puppy-available-in-singa.webp';
 
-const title = 'Shihpoo Singapore | Price & Puppies | Curious Tails';
+const title = 'Shihpoo Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Shihpoo puppies for sale in Singapore from $4,288, AVS licensed and HDB-friendly. Real prices, temperament, low-shedding coat care and the $500+ starter kit included.';
+  'Shihpoo puppies for sale in Singapore from $4,288, AVS licensed and HDB-friendly. Real prices, temperament and low-shedding coat care in our humidity.';
 
 const jumpLinks = [
   { label: 'Available', href: '#available' },
@@ -108,7 +108,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/shihpoo',
+    path: '/puppies/shihpoo/',
     title,
     description,
     aboutName: 'Shihpoo',
@@ -120,7 +120,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Shihpoo puppy',
-      url: '/puppies/shihpoo',
+      url: '/puppies/shihpoo/',
       description:
         'Shihpoo puppy from an AVS licensed Singapore pet shop, priced $4,288 to $4,888 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '4288',
@@ -176,19 +176,19 @@ const schemas = [
     <ListingGrid
       heading="Available Shihpoo Puppies"
       headingAccent="Available"
-      subhead="A few of the Shihpoo puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Shihpoo puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Shihpoo puppy.'), imageAlt: 'Cream male Shihpoo puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Shihpoo puppy.'), imageAlt: 'Apricot female Shihpoo puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Shihpoo puppy.'), imageAlt: 'Black and white male Shihpoo puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Gold girl', href: whatsappLink('Hi! I\'d like more photos and the price for the gold female Shihpoo puppy.'), imageAlt: 'Gold female Shihpoo puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Brown & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brown and white male Shihpoo puppy.'), imageAlt: 'Brown and white male Shihpoo puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Cream & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream and white female Shihpoo puppy.'), imageAlt: 'Cream and white female Shihpoo puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Nemo — Cream Boy', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Nemo, the cream male Shihpoo puppy.'), imageAlt: 'Cream male Shihpoo puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Astrid — Apricot Girl', price: 4388, href: whatsappLink('Hi! I\'d like more photos and the price for Astrid, the apricot female Shihpoo puppy.'), imageAlt: 'Apricot female Shihpoo puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Nico — Black & white Boy', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Nico, the black and white male Shihpoo puppy.'), imageAlt: 'Black and white male Shihpoo puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Aurora — Gold Girl', price: 4588, href: whatsappLink('Hi! I\'d like more photos and the price for Aurora, the gold female Shihpoo puppy.'), imageAlt: 'Gold female Shihpoo puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Noodle — Brown & white Boy', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Noodle, the brown and white male Shihpoo puppy.'), imageAlt: 'Brown and white male Shihpoo puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Autumn — Cream & white Girl', price: 4788, href: whatsappLink('Hi! I\'d like more photos and the price for Autumn, the cream and white female Shihpoo puppy.'), imageAlt: 'Cream and white female Shihpoo puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Shihpoo in Singapore?" imageAlt="Cream Shihpoo puppy portrait, one of the Shihpoo puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our Shihpoo puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Shihpoo puppies available now.</p>
+      <p>Our Shihpoo puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Shihpoo puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Shihpoo for sale in Singapore here is between $4,288 and $4,888, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Shihpoo puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Shihpoo photos and prices</a>, or meet our Shihpoo puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -529,20 +529,20 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Singapore puppies ready for reservation</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">compare every breed</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Singapore puppies ready for reservation</a>, or <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">compare every breed</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

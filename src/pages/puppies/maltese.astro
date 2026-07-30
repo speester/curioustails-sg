@@ -41,7 +41,7 @@ import silkyGirlPortrait from '../../assets/maltese/11-maltese-silky-girl-portra
 import ivoryBoyPortrait from '../../assets/maltese/12-maltese-ivory-boy-portrait.webp';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
 
-const title = 'Maltese Singapore | Price & Puppies | Curious Tails';
+const title = 'Maltese Puppy for Sale Singapore | Curious Tails';
 const description =
   'Maltese puppies for sale in Singapore from $4,288, AVS licensed and HDB-approved. Real prices, temperament, grooming and the $500+ starter kit included. WhatsApp us.';
 
@@ -98,7 +98,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/maltese',
+    path: '/puppies/maltese/',
     title,
     description,
     aboutName: 'Maltese',
@@ -110,7 +110,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Maltese puppy',
-      url: '/puppies/maltese',
+      url: '/puppies/maltese/',
       description:
         'Maltese puppy from an AVS licensed Singapore pet shop, priced $4,288 to $5,988 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '4288',
@@ -167,22 +167,22 @@ const schemas = [
     <ListingGrid
       heading="Available Maltese Puppies"
       headingAccent="Available"
-      subhead="A few of the Maltese puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Maltese puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Snow-white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the snow-white female Maltese puppy.'), imageAlt: 'Snow-white female Maltese puppy available in Singapore', imageSrc: maltesePortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'White boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white male Maltese puppy.'), imageAlt: 'White male Maltese puppy cuddled close on a caregiver\'s lap', imageSrc: companionLap, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '11 weeks' },
-        { title: 'Cream-white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream-white female Maltese puppy.'), imageAlt: 'Cream-white female Maltese puppy during grooming and eye care', imageSrc: malteseGrooming, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Pure white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the pure white male Maltese puppy (8 weeks).'), imageAlt: 'Pure white male Maltese puppy sitting with a head tilt', imageSrc: whiteBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '8 weeks' },
-        { title: 'Ivory girl', href: whatsappLink('Hi! I\'d like more photos and the price for the ivory female Maltese puppy.'), imageAlt: 'Ivory female Maltese puppy lying on a pastel blanket', imageSrc: ivoryGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'White & cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white and cream male Maltese puppy.'), imageAlt: 'White male Maltese puppy with pale cream ears standing alert', imageSrc: creamEarsBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Petite white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite white female Maltese puppy.'), imageAlt: 'Petite snow-white female Maltese puppy playing with a plush toy', imageSrc: snowGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
-        { title: 'Silky-coat girl', href: whatsappLink('Hi! I\'d like more photos and the price for the silky-coat female Maltese puppy.'), imageAlt: 'White female Maltese puppy with a longer silky coat sitting on a cotton mat', imageSrc: silkyGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Ivory boy', href: whatsappLink('Hi! I\'d like more photos and the price for the ivory male Maltese puppy.'), imageAlt: 'Ivory male Maltese puppy trotting toward the camera', imageSrc: ivoryBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '9 weeks' },
+        { title: 'Rain — Snow-white Girl', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Rain, the snow-white female Maltese puppy.'), imageAlt: 'Snow-white female Maltese puppy available in Singapore', imageSrc: maltesePortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Dobby — White Boy', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Dobby, the white male Maltese puppy.'), imageAlt: 'White male Maltese puppy cuddled close on a caregiver\'s lap', imageSrc: companionLap, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '11 weeks' },
+        { title: 'Raisin — Cream-white Girl', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Raisin, the cream-white female Maltese puppy.'), imageAlt: 'Cream-white female Maltese puppy during grooming and eye care', imageSrc: malteseGrooming, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
+        { title: 'Domino — Pure white Boy', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Domino, the pure white male Maltese puppy (8 weeks).'), imageAlt: 'Pure white male Maltese puppy sitting with a head tilt', imageSrc: whiteBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '8 weeks' },
+        { title: 'Rey — Ivory Girl', price: 5088, href: whatsappLink('Hi! I\'d like more photos and the price for Rey, the ivory female Maltese puppy.'), imageAlt: 'Ivory female Maltese puppy lying on a pastel blanket', imageSrc: ivoryGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Donut — White & cream Boy', price: 5288, href: whatsappLink('Hi! I\'d like more photos and the price for Donut, the white and cream male Maltese puppy.'), imageAlt: 'White male Maltese puppy with pale cream ears standing alert', imageSrc: creamEarsBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Rhea — Petite white Girl', price: 5488, href: whatsappLink('Hi! I\'d like more photos and the price for Rhea, the petite white female Maltese puppy.'), imageAlt: 'Petite snow-white female Maltese puppy playing with a plush toy', imageSrc: snowGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Ripley — Silky-coat Girl', price: 5688, href: whatsappLink('Hi! I\'d like more photos and the price for Ripley, the silky-coat female Maltese puppy.'), imageAlt: 'White female Maltese puppy with a longer silky coat sitting on a cotton mat', imageSrc: silkyGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
+        { title: 'Dumpling — Ivory Boy', price: 5888, href: whatsappLink('Hi! I\'d like more photos and the price for Dumpling, the ivory male Maltese puppy.'), imageAlt: 'Ivory male Maltese puppy trotting toward the camera', imageSrc: ivoryBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '9 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Maltese in Singapore?" imageAlt="Maltese puppy portrait, one of the Maltese puppies available in Singapore" imageSrc={maltesePortrait} variant="mid">
-      <p>Our Maltese puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Maltese puppies available now.</p>
+      <p>Our Maltese puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and a short walkthrough video for the Maltese puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Maltese for sale in Singapore here is between $4,288 and $5,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Maltese puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Maltese photos and prices</a>, or meet our Maltese puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -549,20 +549,20 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">browse from the homepage</a>, <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">other breeds in our care</a>, or <a href="/puppies/shih-tzu" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shih Tzu puppies</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">browse from the homepage</a>, <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">other breeds in our care</a>, or <a href="/puppies/shih-tzu/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shih Tzu puppies</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

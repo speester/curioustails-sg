@@ -1,0 +1,33 @@
+=== ROBOTS.TXT ===
+# Curious Tails — curioustails.sg
+# All crawlers welcome, including AI crawlers (see /llms.txt for a site guide).
+
+User-agent: *
+Allow: /
+
+Sitemap: https://curioustails.sg/sitemap-index.xml
+
+=== STATUS/REDIRECT MATRIX ===
+https://curioustails.sg/                                     200 hops=0 -> https://curioustails.sg/
+http://curioustails.sg/                                      200 hops=1 -> https://curioustails.sg/
+https://www.curioustails.sg/                                 522 hops=0 -> https://www.curioustails.sg/
+https://curioustails.sg/puppies                              200 hops=1 -> https://curioustails.sg/puppies/
+https://curioustails.sg/puppies/                             200 hops=0 -> https://curioustails.sg/puppies/
+https://curioustails.sg/puppies/cavapoo/                     200 hops=0 -> https://curioustails.sg/puppies/cavapoo/
+https://curioustails.sg/pricing/                             200 hops=0 -> https://curioustails.sg/pricing/
+https://curioustails.sg/this-page-does-not-exist-xyz/        404 hops=0 -> https://curioustails.sg/this-page-does-not-exist-xyz/
+https://curioustails.sg/free-boarding/                       404 hops=0 -> https://curioustails.sg/free-boarding/
+=== HEADERS (home) ===
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+x-content-type-options: nosniff
+Server: cloudflare
+cf-cache-status: DYNAMIC
+=== GOOGLEBOT UA FETCH ===
+179218
+=== RAW HTML H1 + canonical (live) ===
+rel="canonical" href="https://curioustails.sg/puppies/cavapoo/"
+<h1 class="mt-5 font-[family-name:var(--font-heading)] font-semibold leading-[1.05] text-[var(--color-cream-900)]" style="font-size: clamp(2.5rem, 5.5vw, 4.5rem);">
+=== LIVE SITEMAP ===
+<?xml version="1.0" encoding="UTF-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://curioustails.sg/sitemap-0.xml</loc></sitemap></sitemapindex>
+72

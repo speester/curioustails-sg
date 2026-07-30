@@ -41,9 +41,9 @@ import imgCard4 from '../../assets/whippet/10-white-and-fawn-female-whippet-pupp
 import imgCard5 from '../../assets/whippet/11-black-female-whippet-puppy-available-in-singapore.webp';
 import imgCard6 from '../../assets/whippet/12-fawn-and-white-male-whippet-puppy-available-in-singapor.webp';
 
-const title = 'Whippet Singapore | Price & Puppies | Curious Tails';
+const title = 'Whippet Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Whippet puppies for sale in Singapore from $4,580 all-in. Honest part first: Whippets are not HDB-approved. The gentle sighthound, calm indoors and lightning outdoors, real prices and the $500+ starter kit.';
+  'Whippet puppies for sale in Singapore from $4,580 all-in. Not HDB-approved. The gentle sighthound: calm indoors, lightning outdoors, honestly priced.';
 
 const jumpLinks = [
   { label: 'Available', href: '#available' },
@@ -98,7 +98,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/whippet',
+    path: '/puppies/whippet/',
     title,
     description,
     aboutName: 'Whippet',
@@ -110,7 +110,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Whippet puppy',
-      url: '/puppies/whippet',
+      url: '/puppies/whippet/',
       description:
         'Whippet puppy from an AVS licensed Singapore pet shop, priced $4,580 to $6,280 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '4580',
@@ -166,19 +166,19 @@ const schemas = [
     <ListingGrid
       heading="Available Whippet Puppies"
       headingAccent="Available"
-      subhead="A few of the Whippet puppies looking for a home right now. Litters are limited, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Whippet puppies looking for a home right now. Litters are limited, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn male Whippet puppy.'), imageAlt: 'Fawn male Whippet puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Blue girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue female Whippet puppy.'), imageAlt: 'Blue female Whippet puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Brindle boy', href: whatsappLink('Hi! I\'d like more photos and the price for the brindle male Whippet puppy.'), imageAlt: 'Brindle male Whippet puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'White & fawn girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white and fawn female Whippet puppy.'), imageAlt: 'White and fawn female Whippet puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Whippet puppy.'), imageAlt: 'Black female Whippet puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Fawn & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn and white male Whippet puppy.'), imageAlt: 'Fawn and white male Whippet puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Peanut — Fawn Boy', price: 4588, href: whatsappLink('Hi! I\'d like more photos and the price for Peanut, the fawn male Whippet puppy.'), imageAlt: 'Fawn male Whippet puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Bubbles — Blue Girl', price: 4788, href: whatsappLink('Hi! I\'d like more photos and the price for Bubbles, the blue female Whippet puppy.'), imageAlt: 'Blue female Whippet puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Pedro — Brindle Boy', price: 4988, href: whatsappLink('Hi! I\'d like more photos and the price for Pedro, the brindle male Whippet puppy.'), imageAlt: 'Brindle male Whippet puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Buffy — White & fawn Girl', price: 5188, href: whatsappLink('Hi! I\'d like more photos and the price for Buffy, the white and fawn female Whippet puppy.'), imageAlt: 'White and fawn female Whippet puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Buttons — Black Girl', price: 5388, href: whatsappLink('Hi! I\'d like more photos and the price for Buttons, the black female Whippet puppy.'), imageAlt: 'Black female Whippet puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Percy — Fawn & white Boy', price: 5588, href: whatsappLink('Hi! I\'d like more photos and the price for Percy, the fawn and white male Whippet puppy.'), imageAlt: 'Fawn and white male Whippet puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Whippet in Singapore?" imageAlt="Whippet puppy portrait, one of the Whippet puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our Whippet puppies in Singapore are rare and reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Whippet puppies available now.</p>
+      <p>Our Whippet puppies in Singapore are rare and reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Whippet puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Whippet for sale in Singapore here is between $4,580 and $6,280, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Whippet puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Whippet photos and prices</a>, or meet our Whippet puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -463,21 +463,21 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all puppies at Curious Tails</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all breeds side by side</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all puppies at Curious Tails</a>, or <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all breeds side by side</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

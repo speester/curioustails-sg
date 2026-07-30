@@ -41,7 +41,7 @@ import imgCard4 from '../../assets/pekingese/10-fawn-brindle-female-pekingese-pu
 import imgCard5 from '../../assets/pekingese/11-red-sable-male-pekingese-puppy-available-in-singapore.webp';
 import imgCard6 from '../../assets/pekingese/12-parti-colour-female-pekingese-puppy-available-in-singap.webp';
 
-const title = 'Pekingese Singapore | Price & Puppies | Curious Tails';
+const title = 'Pekingese Puppy for Sale Singapore | Curious Tails';
 const description =
   'Pekingese puppies for sale in Singapore from $5,988, AVS licensed and HDB-approved. Real prices, temperament, coat and heat care and the $500+ starter kit included.';
 
@@ -103,7 +103,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/pekingese',
+    path: '/puppies/pekingese/',
     title,
     description,
     aboutName: 'Pekingese',
@@ -115,7 +115,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Pekingese puppy',
-      url: '/puppies/pekingese',
+      url: '/puppies/pekingese/',
       description:
         'Pekingese puppy from an AVS licensed Singapore pet shop, priced $5,988 to $7,000 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '5988',
@@ -171,19 +171,19 @@ const schemas = [
     <ListingGrid
       heading="Available Pekingese Puppies"
       headingAccent="Available"
-      subhead="A few of the Pekingese puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Pekingese puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Golden boy', href: whatsappLink('Hi! I\'d like more photos and the price for the golden male Pekingese puppy.'), imageAlt: 'Golden male Pekingese puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Pekingese puppy.'), imageAlt: 'Cream female Pekingese puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Black boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black male Pekingese puppy.'), imageAlt: 'Black male Pekingese puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Fawn brindle girl', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn brindle female Pekingese puppy.'), imageAlt: 'Fawn brindle female Pekingese puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Red sable boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red sable male Pekingese puppy.'), imageAlt: 'Red sable male Pekingese puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Parti-colour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the parti-colour female Pekingese puppy.'), imageAlt: 'Parti-colour female Pekingese puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Hank — Golden Boy', price: 5988, href: whatsappLink('Hi! I\'d like more photos and the price for Hank, the golden male Pekingese puppy.'), imageAlt: 'Golden male Pekingese puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Tammy — Cream Girl', price: 6188, href: whatsappLink('Hi! I\'d like more photos and the price for Tammy, the cream female Pekingese puppy.'), imageAlt: 'Cream female Pekingese puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Harley — Black Boy', price: 6388, href: whatsappLink('Hi! I\'d like more photos and the price for Harley, the black male Pekingese puppy.'), imageAlt: 'Black male Pekingese puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Tessa — Fawn brindle Girl', price: 6588, href: whatsappLink('Hi! I\'d like more photos and the price for Tessa, the fawn brindle female Pekingese puppy.'), imageAlt: 'Fawn brindle female Pekingese puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Harvey — Red sable Boy', price: 6788, href: whatsappLink('Hi! I\'d like more photos and the price for Harvey, the red sable male Pekingese puppy.'), imageAlt: 'Red sable male Pekingese puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Tilly — Parti-colour Girl', price: 6988, href: whatsappLink('Hi! I\'d like more photos and the price for Tilly, the parti-colour female Pekingese puppy.'), imageAlt: 'Parti-colour female Pekingese puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Pekingese in Singapore?" imageAlt="Golden Pekingese puppy portrait, one of the Pekingese puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Pekingese are uncommon in Singapore, so litters are announced and reserved fast; we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and exact prices for the Pekingese puppies available now.</p>
+      <p>Pekingese are uncommon in Singapore, so litters are announced and reserved fast; we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Pekingese puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Pekingese for sale in Singapore here is between $5,988 and $7,000, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Pekingese puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Pekingese photos and prices</a>, or meet our Pekingese puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -550,20 +550,20 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our full puppy showcase</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the rest of our breeds</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our full puppy showcase</a>, or <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the rest of our breeds</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

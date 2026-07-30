@@ -1,0 +1,624 @@
+{
+ "version": "0.1.20260717",
+ "status_code": 20000,
+ "status_message": "Ok.",
+ "time": "3.3590 sec.",
+ "cost": 0.0015,
+ "tasks_count": 1,
+ "tasks_error": 0,
+ "tasks": [
+  {
+   "id": "07261253-2001-0495-0000-289910c3ef93",
+   "status_code": 20000,
+   "status_message": "Ok.",
+   "time": "3.2777 sec.",
+   "cost": 0.0015,
+   "result_count": 1,
+   "path": [
+    "v3",
+    "on_page",
+    "content_parsing",
+    "live"
+   ],
+   "data": {
+    "api": "on_page",
+    "function": "content_parsing",
+    "url": "https://www.wagatail.sg/",
+    "enable_javascript": true
+   },
+   "result": [
+    {
+     "crawl_progress": "finished",
+     "crawl_status": null,
+     "items_count": 1,
+     "items": [
+      {
+       "type": "content_parsing_element",
+       "fetch_time": "2026-07-26 06:53:34 +00:00",
+       "status_code": 200,
+       "page_content": {
+        "header": {
+         "primary_content": null,
+         "secondary_content": [
+          {
+           "text": "About Us",
+           "url": "https://www.wagatail.sg/aboutus",
+           "urls": [
+            {
+             "url": "https://www.wagatail.sg/aboutus",
+             "anchor_text": "About Us"
+            }
+           ]
+          },
+          {
+           "text": "AVOID SCAMS!",
+           "url": "https://www.wagatail.sg/avoidscams",
+           "urls": [
+            {
+             "url": "https://www.wagatail.sg/avoidscams",
+             "anchor_text": "AVOID SCAMS!"
+            }
+           ]
+          },
+          {
+           "text": "PUPPIES Available",
+           "url": "https://www.wagatail.sg/category/puppies",
+           "urls": [
+            {
+             "url": "https://www.wagatail.sg/category/puppies",
+             "anchor_text": "PUPPIES Available"
+            }
+           ]
+          },
+          {
+           "text": "Join the Team",
+           "url": "https://www.wagatail.sg/join-the-team",
+           "urls": [
+            {
+             "url": "https://www.wagatail.sg/join-the-team",
+             "anchor_text": "Join the Team"
+            }
+           ]
+          }
+         ],
+         "table_content": null
+        },
+        "footer": {
+         "primary_content": [
+          {
+           "text": "241 Joo Chiat Road, S427498",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Telegram Channel: Wag a Tail Pet Store",
+           "url": null,
+           "urls": null
+          }
+         ],
+         "secondary_content": [
+          {
+           "text": "Our Address",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Contact Us",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Call / Whatsapp",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "+65 9172 1114",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Telegram @wagatail.sg",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Opening Hours",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Wednesdays to Fridays",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "11:30am - 7pm",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Saturdays & Sundays",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "11:30am - 7:30pm",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Mondays & Tuesdays: Closed",
+           "url": null,
+           "urls": null
+          }
+         ],
+         "table_content": null
+        },
+        "main_topic": [
+         {
+          "h_title": "The pet store with the largest variety of puppy breeds in Singapore!",
+          "main_title": "The pet store with the largest variety of puppy breeds in Singapore!",
+          "author": null,
+          "language": "en",
+          "level": 1,
+          "primary_content": [
+           {
+            "text": "A puppy is a new special part of your family, we have served over 4000 families since 2016. We're here to help you get your perfect pup!",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Puppy Care Essentials Singapore: How to Care for Your Puppy in Singapore",
+          "main_title": "The pet store with the largest variety of puppy breeds in Singapore!",
+          "author": null,
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "Bringing a puppy home is such an exciting adventure! If you\u2019re in Singapore and ready to welcome a furry friend, you\u2019re probably wondering how to give your new puppy the best start in life. Puppies are bundles of joy, but they also need lots of love, attention, and the right care to grow up healthy and happy. Let\u2019s walk through some essential tips and practical advice to help you care for your puppy in Singapore\u2019s unique environment. Understanding Puppy Care Essentials Singap",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": [
+           {
+            "text": "Puppy Care Essentials Singapore: How to Care for Your Puppy in Singapore",
+            "url": "https://www.wagatail.sg/post/puppy-care-essentials-singapore-how-to-care-for-your-puppy-in-singapore",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/post/puppy-care-essentials-singapore-how-to-care-for-your-puppy-in-singapore",
+              "anchor_text": "Puppy Care Essentials Singapore: How to Care for Your Puppy in Singapore"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Luxating Patella in Dogs: What Puppy Owners Should Know",
+          "main_title": "The pet store with the largest variety of puppy breeds in Singapore!",
+          "author": null,
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "Luxating patella is a relatively common orthopedic condition in dogs, especially in small and toy breeds. When explained accurately, it is important to understand that it is not always caused by poor breeding practices, and many responsible breeders actively screen, manage, and minimize the risk. When bringing home a new puppy, it\u2019s natural to want to understand everything about their health and development. One condition that is sometimes discussed during veterinary check-up",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": [
+           {
+            "text": "Luxating Patella in Dogs: What Puppy Owners Should Know",
+            "url": "https://www.wagatail.sg/post/luxating-patella-in-dogs-what-puppy-owners-should-know",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/post/luxating-patella-in-dogs-what-puppy-owners-should-know",
+              "anchor_text": "Luxating Patella in Dogs: What Puppy Owners Should Know"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "The pet store with the largest variety of puppy breeds in Singapore!",
+          "main_title": "The pet store with the largest variety of puppy breeds in Singapore!",
+          "author": null,
+          "language": "en",
+          "level": 1,
+          "primary_content": [
+           {
+            "text": "\u201cA dog is the only thing on earth that loves you more than you love yourself. \"",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Understanding Doodle Generations",
+          "main_title": "The pet store with the largest variety of puppy breeds in Singapore!",
+          "author": null,
+          "language": "en",
+          "level": 2,
+          "primary_content": [
+           {
+            "text": "Doodle generations describe how a doodle dog is bred. The letters and numbers (F1, F1B, F2, etc.) simply explain which parents were used in the breeding. Most doodles come from crossing a Poodle with another breed such as a Golden Retriever to produce a Goldendoodle. Each generation changes the genetic mix slightly, which can influence coat type, shedding level, and predictability. F1 Doodle 50% Poodle + 50% Retriever An F1 doodle is the first cross between two purebred dogs.",
+            "url": null,
+            "urls": null
+           }
+          ],
+          "secondary_content": [
+           {
+            "text": "Understanding Doodle Generations",
+            "url": "https://www.wagatail.sg/post/understanding-doodle-generations",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/post/understanding-doodle-generations",
+              "anchor_text": "Understanding Doodle Generations"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         }
+        ],
+        "secondary_topic": [
+         {
+          "h_title": "OUR PUPPIES",
+          "main_title": "The pet store with the largest variety of puppy breeds in Singapore!",
+          "author": null,
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "LOCALLY BRED",
+            "url": "https://www.wagatail.sg/product-page/maltipoo-90",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/maltipoo-90",
+              "anchor_text": "LOCALLY BRED"
+             }
+            ]
+           },
+           {
+            "text": "LOCALLY BRED",
+            "url": "https://www.wagatail.sg/product-page/cavapoo-21",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/cavapoo-21",
+              "anchor_text": "LOCALLY BRED"
+             }
+            ]
+           },
+           {
+            "text": "LOCALLY BRED",
+            "url": "https://www.wagatail.sg/product-page/cavapoo-20",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/cavapoo-20",
+              "anchor_text": "LOCALLY BRED"
+             }
+            ]
+           },
+           {
+            "text": "LOCALLY BRED",
+            "url": "https://www.wagatail.sg/product-page/cavapoo-19",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/cavapoo-19",
+              "anchor_text": "LOCALLY BRED"
+             }
+            ]
+           },
+           {
+            "text": "LOCALLY BRED",
+            "url": "https://www.wagatail.sg/product-page/cavapoo-18",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/cavapoo-18",
+              "anchor_text": "LOCALLY BRED"
+             }
+            ]
+           },
+           {
+            "text": "AUSTRALIA IMPORT",
+            "url": "https://www.wagatail.sg/product-page/golden-retriever-australia-import-13",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/golden-retriever-australia-import-13",
+              "anchor_text": "AUSTRALIA IMPORT"
+             }
+            ]
+           },
+           {
+            "text": "GOLDEN RETRIEVER - Australia Import",
+            "url": "https://www.wagatail.sg/product-page/golden-retriever-australia-import-13",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/golden-retriever-australia-import-13",
+              "anchor_text": "GOLDEN RETRIEVER - Australia Import"
+             }
+            ]
+           },
+           {
+            "text": "AUSTRALIA IMPORT",
+            "url": "https://www.wagatail.sg/product-page/golden-retriever-australia-import-12",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/golden-retriever-australia-import-12",
+              "anchor_text": "AUSTRALIA IMPORT"
+             }
+            ]
+           },
+           {
+            "text": "GOLDEN RETRIEVER - Australia Import",
+            "url": "https://www.wagatail.sg/product-page/golden-retriever-australia-import-12",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/golden-retriever-australia-import-12",
+              "anchor_text": "GOLDEN RETRIEVER - Australia Import"
+             }
+            ]
+           },
+           {
+            "text": "AUSTRALIA IMPORT",
+            "url": "https://www.wagatail.sg/product-page/golden-retriever-australia-import-11",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/golden-retriever-australia-import-11",
+              "anchor_text": "AUSTRALIA IMPORT"
+             }
+            ]
+           },
+           {
+            "text": "GOLDEN RETRIEVER - Australia Import",
+            "url": "https://www.wagatail.sg/product-page/golden-retriever-australia-import-11",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/golden-retriever-australia-import-11",
+              "anchor_text": "GOLDEN RETRIEVER - Australia Import"
+             }
+            ]
+           },
+           {
+            "text": "AUSTRALIA IMPORT",
+            "url": "https://www.wagatail.sg/product-page/cavapoo-australia-import-27",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/cavapoo-australia-import-27",
+              "anchor_text": "AUSTRALIA IMPORT"
+             }
+            ]
+           },
+           {
+            "text": "CAVAPOO - Australia Import",
+            "url": "https://www.wagatail.sg/product-page/cavapoo-australia-import-27",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/cavapoo-australia-import-27",
+              "anchor_text": "CAVAPOO - Australia Import"
+             }
+            ]
+           },
+           {
+            "text": "AUSTRALIA IMPORT",
+            "url": "https://www.wagatail.sg/product-page/cavapoo-australia-import-26",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/cavapoo-australia-import-26",
+              "anchor_text": "AUSTRALIA IMPORT"
+             }
+            ]
+           },
+           {
+            "text": "CAVAPOO - Australia Import",
+            "url": "https://www.wagatail.sg/product-page/cavapoo-australia-import-26",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/cavapoo-australia-import-26",
+              "anchor_text": "CAVAPOO - Australia Import"
+             }
+            ]
+           },
+           {
+            "text": "AUSTRALIA IMPORT",
+            "url": "https://www.wagatail.sg/product-page/cavapoo-australia-import-25",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/cavapoo-australia-import-25",
+              "anchor_text": "AUSTRALIA IMPORT"
+             }
+            ]
+           },
+           {
+            "text": "CAVAPOO - Australia Import",
+            "url": "https://www.wagatail.sg/product-page/cavapoo-australia-import-25",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/cavapoo-australia-import-25",
+              "anchor_text": "CAVAPOO - Australia Import"
+             }
+            ]
+           },
+           {
+            "text": "AUSTRALIA IMPORT",
+            "url": "https://www.wagatail.sg/product-page/shiba-inu-australia-import-8",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/shiba-inu-australia-import-8",
+              "anchor_text": "AUSTRALIA IMPORT"
+             }
+            ]
+           },
+           {
+            "text": "SHIBA INU - Australia Import",
+            "url": "https://www.wagatail.sg/product-page/shiba-inu-australia-import-8",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/shiba-inu-australia-import-8",
+              "anchor_text": "SHIBA INU - Australia Import"
+             }
+            ]
+           },
+           {
+            "text": "AUSTRALIA IMPORT",
+            "url": "https://www.wagatail.sg/product-page/shiba-inu-australia-import-7",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/shiba-inu-australia-import-7",
+              "anchor_text": "AUSTRALIA IMPORT"
+             }
+            ]
+           },
+           {
+            "text": "SHIBA INU - Australia Import",
+            "url": "https://www.wagatail.sg/product-page/shiba-inu-australia-import-7",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/shiba-inu-australia-import-7",
+              "anchor_text": "SHIBA INU - Australia Import"
+             }
+            ]
+           },
+           {
+            "text": "AUSTRALIA IMPORT",
+            "url": "https://www.wagatail.sg/product-page/shiba-inu-australia-import-6",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/shiba-inu-australia-import-6",
+              "anchor_text": "AUSTRALIA IMPORT"
+             }
+            ]
+           },
+           {
+            "text": "SHIBA INU - Australia Import",
+            "url": "https://www.wagatail.sg/product-page/shiba-inu-australia-import-6",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/shiba-inu-australia-import-6",
+              "anchor_text": "SHIBA INU - Australia Import"
+             }
+            ]
+           },
+           {
+            "text": "UK IMPORT",
+            "url": "https://www.wagatail.sg/product-page/chowpomsky-uk-import-8",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/chowpomsky-uk-import-8",
+              "anchor_text": "UK IMPORT"
+             }
+            ]
+           },
+           {
+            "text": "CHOWPOMSKY - UK IMPORT",
+            "url": "https://www.wagatail.sg/product-page/chowpomsky-uk-import-8",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/chowpomsky-uk-import-8",
+              "anchor_text": "CHOWPOMSKY - UK IMPORT"
+             }
+            ]
+           },
+           {
+            "text": "UK IMPORT",
+            "url": "https://www.wagatail.sg/product-page/chowpomsky-uk-import-7",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/chowpomsky-uk-import-7",
+              "anchor_text": "UK IMPORT"
+             }
+            ]
+           },
+           {
+            "text": "CHOWPOMSKY - UK IMPORT",
+            "url": "https://www.wagatail.sg/product-page/chowpomsky-uk-import-7",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/product-page/chowpomsky-uk-import-7",
+              "anchor_text": "CHOWPOMSKY - UK IMPORT"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "MEDIA FEATURES & ACCOLADES",
+          "main_title": "The pet store with the largest variety of puppy breeds in Singapore!",
+          "author": null,
+          "language": "en",
+          "level": 3,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "TESTIMONIALS",
+          "main_title": "The pet store with the largest variety of puppy breeds in Singapore!",
+          "author": null,
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Reads",
+          "main_title": "The pet store with the largest variety of puppy breeds in Singapore!",
+          "author": null,
+          "language": "en",
+          "level": 6,
+          "primary_content": null,
+          "secondary_content": [
+           {
+            "text": "Reads",
+            "url": "https://www.wagatail.sg/blog",
+            "urls": [
+             {
+              "url": "https://www.wagatail.sg/blog",
+              "anchor_text": "Reads"
+             }
+            ]
+           }
+          ],
+          "table_content": null
+         },
+         {
+          "h_title": "Josh Billings",
+          "main_title": "The pet store with the largest variety of puppy breeds in Singapore!",
+          "author": null,
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         }
+        ],
+        "ratings": null,
+        "offers": null,
+        "comments": null,
+        "contacts": {
+         "telephones": [
+          "8113 5741"
+         ],
+         "emails": null
+        }
+       },
+       "page_as_markdown": null
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

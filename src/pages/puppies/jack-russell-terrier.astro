@@ -41,9 +41,9 @@ import imgCard4 from '../../assets/jack-russell-terrier/10-white-and-black-femal
 import imgCard5 from '../../assets/jack-russell-terrier/11-smooth-coat-male-jack-russell-terrier-puppy-available-i.webp';
 import imgCard6 from '../../assets/jack-russell-terrier/12-rough-coat-female-jack-russell-terrier-puppy-available.webp';
 
-const title = 'Jack Russell Terrier Singapore | Price & Puppies';
+const title = 'Jack Russell Terrier Puppy for Sale Singapore';
 const description =
-  'Jack Russell Terrier puppies for sale in Singapore from $3,888, AVS licensed and HDB-approved. Real prices, energy honesty, temperament and the $500+ starter kit included.';
+  'Jack Russell Terrier puppies for sale in Singapore from $3,888, AVS licensed and HDB-approved. Real prices, temperament and honest energy expectations.';
 
 const jumpLinks = [
   { label: 'Available', href: '#available' },
@@ -103,7 +103,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/jack-russell-terrier',
+    path: '/puppies/jack-russell-terrier/',
     title,
     description,
     aboutName: 'Jack Russell Terrier',
@@ -115,7 +115,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Jack Russell Terrier puppy',
-      url: '/puppies/jack-russell-terrier',
+      url: '/puppies/jack-russell-terrier/',
       description:
         'Jack Russell Terrier puppy from an AVS licensed Singapore pet shop, priced $3,888 to $5,988 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '3888',
@@ -171,19 +171,19 @@ const schemas = [
     <ListingGrid
       heading="Available Jack Russell Puppies"
       headingAccent="Available"
-      subhead="A few of the Jack Russell puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Jack Russell puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'White & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white and tan male Jack Russell puppy.'), imageAlt: 'White and tan male Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Tricolour girl', href: whatsappLink('Hi! I\'d like more photos and the price for the tricolour female Jack Russell puppy.'), imageAlt: 'Tricolour female Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Broken-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the broken-coat male Jack Russell puppy.'), imageAlt: 'Broken-coat male Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'White & black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white and black female Jack Russell puppy.'), imageAlt: 'White and black female Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Smooth-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the smooth-coat male Jack Russell puppy.'), imageAlt: 'Smooth-coat male Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Rough-coat girl', href: whatsappLink('Hi! I\'d like more photos and the price for the rough-coat female Jack Russell puppy.'), imageAlt: 'Rough-coat female Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Chip — White & tan Boy', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Chip, the white and tan male Jack Russell puppy.'), imageAlt: 'White and tan male Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Nikki — Tricolour Girl', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Nikki, the tricolour female Jack Russell puppy.'), imageAlt: 'Tricolour female Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Chowder — Broken-coat Boy', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Chowder, the broken-coat male Jack Russell puppy.'), imageAlt: 'Broken-coat male Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Nori — White & black Girl', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Nori, the white and black female Jack Russell puppy.'), imageAlt: 'White and black female Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Churro — Smooth-coat Boy', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Churro, the smooth-coat male Jack Russell puppy.'), imageAlt: 'Smooth-coat male Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Opal — Rough-coat Girl', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Opal, the rough-coat female Jack Russell puppy.'), imageAlt: 'Rough-coat female Jack Russell Terrier puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Jack Russell in Singapore?" imageAlt="White and tan Jack Russell Terrier puppy portrait, one of the Jack Russell puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our Jack Russell puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and exact prices for the Jack Russell Terrier puppies available now.</p>
+      <p>Our Jack Russell puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and a short walkthrough video for the Jack Russell Terrier puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Jack Russell for sale in Singapore here is between $3,888 and $5,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Jack Russell puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Jack Russell photos and prices</a>, or meet our Jack Russell puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -550,20 +550,20 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">see who is ready to go home</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the whole breed range</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">see who is ready to go home</a>, or <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the whole breed range</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

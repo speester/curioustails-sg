@@ -19,8 +19,8 @@ import PawTrail from '../components/decor/PawTrail.astro';
 import CloudDivider from '../components/decor/CloudDivider.astro';
 import ScatterFloat from '../components/decor/ScatterFloat.astro';
 import { site, whatsappLink } from '../data/site';
-import { localBusinessSchema, organizationSchema, websiteSchema, webPageSchema, personSchema, serviceSchema, reviewSchema, aggregateOfferSchema, faqPageSchema, itemListSchema, definedTermSchema } from '../lib/schema';
-import { priceForHref, fmtPrice, OVERALL_LOW, OVERALL_HIGH } from '../data/pricing';
+import { localBusinessSchema, organizationSchema, websiteSchema, webPageSchema, personSchema, serviceSchema, reviewSchema, aggregateOfferSchema, faqPageSchema, itemListSchema, definedTermSchema, offerCatalogSchema } from '../lib/schema';
+import { priceForHref, fmtPrice, OVERALL_LOW, OVERALL_HIGH, BREED_COUNT } from '../data/pricing';
 import heroCavapoo from '../assets/home/1-cavapoo-puppy-hero-balestier.png';
 import starterKit from '../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
 import trainingLesson from '../assets/home/3-avs-certified-trainer-puppy-training-lesson.webp';
@@ -44,7 +44,7 @@ import cockapooPortrait from '../assets/cockapoo/2-cockapoo-apricot-portrait.web
 
 const title = 'Puppy for Sale Singapore | AVS Licensed | Curious Tails';
 const description =
-  'AVS licensed puppies for sale in Singapore — Cavapoo, Maltipoo & more. $500+ starter kit, free delivery. WhatsApp today.';
+  'AVS licensed puppies for sale in Singapore, from $3,288 all-in: Cavapoo, Maltipoo, Corgi and 45 more breeds. $500+ starter kit and free delivery included.';
 
 const breeds = [
   {
@@ -106,7 +106,11 @@ const breeds = [
 
 // Breed-specific CTA text so card anchors describe the target page (helps
 // Google attribute breed queries to the breed pages instead of the homepage).
-const pricedBreeds = breeds.map((b) => ({
+// The per-breed bullet points stay OFF the homepage on purpose: cards are
+// teasers (name + price + one line) so the breed pages are the unambiguous
+// ranking target for breed queries — the homepage was soaking ~49% of
+// impressions at pos 30 for queries the breed pages should own.
+const pricedBreeds = breeds.map(({ points, ...b }) => ({
   ...b,
   tag: `From $${fmtPrice(priceForHref(b.href).low)}`,
   ctaLabel: `View ${b.title} Puppies`,
@@ -206,6 +210,12 @@ const schemas = [
     priceCurrency: 'SGD',
   }),
   faqPageSchema(faqItems),
+  offerCatalogSchema(breeds.map((b) => ({
+    name: `${b.title} puppy`,
+    url: b.href,
+    priceLow: priceForHref(b.href).low,
+    priceHigh: priceForHref(b.href).high,
+  }))),
   itemListSchema(pricedBreeds.map((b) => ({
     name: `${b.title} puppy`,
     url: b.href,
@@ -237,7 +247,7 @@ const schemas = [
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
     imageAlt="Cavapoo puppy in a set-up playpen at a Balestier Road home"
     imageSrc={heroCavapoo}
-    tagLabel="40+ breeds"
+    tagLabel={`${BREED_COUNT} breeds`}
     proofChip="5.0 on Google"
   />
 
@@ -478,29 +488,8 @@ const schemas = [
   <CaptionedBlock heading="Bringing a Puppy Home to an HDB Flat" imageAlt="Small breed puppy in an HDB flat living room" imageSrc={hdbLivingRoom} imagePosition="left" imageRotate="right">
     <p>HDB rules allow one dog of an approved breed, or an approved cross, per flat. Condo and landed property owners can keep up to three, subject to the property's own pet policy.</p>
     <p>Corgis and Shiba Inus are not on the standard HDB-approved list. We'll tell you this plainly if you're considering either, rather than let you find out after you've already fallen for a puppy.</p>
-    <p>Cavapoo, Maltipoo, Maltese, Bichonpoo, Bichon Frise, Cavapoochon, Chihuahua, Cockapoo, and Mini Dachshund are commonly approved as small breeds or crosses, though it's worth checking the full HDB-approved breed list and arranging dog licensing with us before you commit.</p>
+    <p>Cavapoo, Maltipoo, Maltese, Bichonpoo, Bichon Frise, Cavapoochon, Chihuahua, Cockapoo, and Mini Dachshund are commonly approved as small breeds or crosses, though it's worth checking the <a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">full HDB-approved breed list</a> and arranging dog licensing with us before you commit.</p>
   </CaptionedBlock>
-
-  <ComparisonSplit
-    heading="HDB Breed Approval Quick Check"
-    headingAccent="Quick Check"
-    subhead="A fast reference before you fall for a breed you can't keep in your flat."
-    mode="table"
-    tableHeaders={['Breed', 'HDB Approved']}
-    rows={[
-      { label: 'Cavapoo', values: ['Yes — common, small breed cross'] },
-      { label: 'Maltipoo', values: ['Yes — small, low-shedding'] },
-      { label: 'Maltese', values: ['Yes — approved toy breed'] },
-      { label: 'Bichon Frise', values: ['Yes — approved small breed'] },
-      { label: 'Cavapoochon', values: ['Yes — cross of approved breeds'] },
-      { label: 'Chihuahua', values: ['Yes — approved toy breed'] },
-      { label: 'Mini Dachshund', values: ['Yes — approved small breed'] },
-      { label: 'Cockapoo', values: ['Yes — medium-sized but approved'] },
-      { label: 'Bichonpoo', values: ['Yes — small, hypoallergenic'] },
-      { label: 'Corgi', values: ['No — not on the HDB approved list'] },
-      { label: 'Shiba Inu', values: ['No — not on the HDB approved list'] },
-    ]}
-  />
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <CaptionedBlock heading="How Every Puppy Is Checked Before You Take It Home" imageAlt="Puppy receiving a health check" imageSrc={healthCheck} variant="mid">
@@ -693,18 +682,18 @@ const schemas = [
   <Schema {schemas} />
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full breed lineup</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the full breed lineup</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
-      <li><a href="/blog" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Puppy guides on the blog</a></li>
-      <li><a href="/learn" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Learn before you buy</a></li>
-      <li><a href="/first-time-owners" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-time owner guide</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
+      <li><a href="/blog/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Puppy guides on the blog</a></li>
+      <li><a href="/learn/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Learn before you buy</a></li>
+      <li><a href="/first-time-owners/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-time owner guide</a></li>
     </ul>
   </aside>
 </BaseLayout>

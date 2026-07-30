@@ -41,9 +41,9 @@ import imgCard4 from '../../assets/yorkshire-terrier/10-petite-female-yorkshire-
 import imgCard5 from '../../assets/yorkshire-terrier/11-silky-coat-male-yorkshire-terrier-puppy-available-in-si.webp';
 import imgCard6 from '../../assets/yorkshire-terrier/12-black-and-gold-female-yorkshire-terrier-puppy-available.webp';
 
-const title = 'Yorkshire Terrier Singapore | Price & Puppies';
+const title = 'Yorkshire Terrier Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Yorkshire Terrier puppies for sale in Singapore from $4,688, AVS licensed and HDB-approved. Real prices, temperament, silky coat care and the $500+ starter kit included.';
+  'Yorkshire Terrier puppies for sale in Singapore from $4,688, AVS licensed and HDB-approved. Real prices, temperament and silky coat care in our humidity.';
 
 const jumpLinks = [
   { label: 'Available', href: '#available' },
@@ -103,7 +103,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/yorkshire-terrier',
+    path: '/puppies/yorkshire-terrier/',
     title,
     description,
     aboutName: 'Yorkshire Terrier',
@@ -115,7 +115,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Yorkshire Terrier puppy',
-      url: '/puppies/yorkshire-terrier',
+      url: '/puppies/yorkshire-terrier/',
       description:
         'Yorkshire Terrier puppy from an AVS licensed Singapore pet shop, priced $4,688 to $5,388 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '4688',
@@ -171,19 +171,19 @@ const schemas = [
     <ListingGrid
       heading="Available Yorkshire Terrier Puppies"
       headingAccent="Available"
-      subhead="A few of the Yorkie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Yorkie puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Blue & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the blue and tan male Yorkshire Terrier puppy.'), imageAlt: 'Blue and tan male Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Blue & gold girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue and gold female Yorkshire Terrier puppy.'), imageAlt: 'Blue and gold female Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Black & tan boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and tan male Yorkshire Terrier puppy.'), imageAlt: 'Black and tan male Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Petite girl', href: whatsappLink('Hi! I\'d like more photos and the price for the petite female Yorkshire Terrier puppy.'), imageAlt: 'Petite female Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Silky-coat boy', href: whatsappLink('Hi! I\'d like more photos and the price for the silky-coat male Yorkshire Terrier puppy.'), imageAlt: 'Silky-coat male Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Black & gold girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and gold female Yorkshire Terrier puppy.'), imageAlt: 'Black and gold female Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '12 weeks' },
+        { title: 'Pesto — Blue & tan Boy', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Pesto, the blue and tan male Yorkshire Terrier puppy.'), imageAlt: 'Blue and tan male Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard1, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Calla — Blue & gold Girl', price: 4788, href: whatsappLink('Hi! I\'d like more photos and the price for Calla, the blue and gold female Yorkshire Terrier puppy.'), imageAlt: 'Blue and gold female Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard2, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Pickle — Black & tan Boy', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Pickle, the black and tan male Yorkshire Terrier puppy.'), imageAlt: 'Black and tan male Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard3, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Cami — Petite Girl', price: 4988, href: whatsappLink('Hi! I\'d like more photos and the price for Cami, the petite female Yorkshire Terrier puppy.'), imageAlt: 'Petite female Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard4, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Pluto — Silky-coat Boy', price: 5088, href: whatsappLink('Hi! I\'d like more photos and the price for Pluto, the silky-coat male Yorkshire Terrier puppy.'), imageAlt: 'Silky-coat male Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard5, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Candy — Black & gold Girl', price: 5188, href: whatsappLink('Hi! I\'d like more photos and the price for Candy, the black and gold female Yorkshire Terrier puppy.'), imageAlt: 'Black and gold female Yorkshire Terrier puppy available in Singapore', imageSrc: imgCard6, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '12 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Yorkshire Terrier in Singapore?" imageAlt="Blue and tan Yorkshire Terrier puppy portrait, one of the Yorkie puppies available in Singapore" imageSrc={imgScene1} variant="mid">
-      <p>Our Yorkshire Terrier puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and exact prices for the Yorkie puppies available now.</p>
+      <p>Our Yorkshire Terrier puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and a short walkthrough video for the Yorkie puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Yorkshire Terrier for sale in Singapore here is between $4,688 and $5,388, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Yorkshire Terrier puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Yorkie photos and prices</a>, or meet our Yorkshire Terrier puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -550,20 +550,20 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all puppies at Curious Tails</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the breed overview page</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all puppies at Curious Tails</a>, or <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the breed overview page</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

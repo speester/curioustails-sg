@@ -43,9 +43,9 @@ import fawnWhiteGirlPortrait from '../../assets/chihuahua/13-chihuahua-puppy-faw
 import blackWhiteBoyPortrait from '../../assets/chihuahua/14-chihuahua-puppy-black-white-male-portrait.webp';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
 
-const title = 'Chihuahua Singapore | Price & Puppies | Curious Tails';
+const title = 'Chihuahua Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Chihuahua puppies for sale in Singapore from $4,288, AVS licensed and HDB-approved. Real prices, temperament, coat types and the $500+ starter kit included. WhatsApp us.';
+  'Chihuahua puppies for sale in Singapore from $4,288, AVS licensed and HDB-approved. Real prices, temperament, and both the smooth and long coat types.';
 
 const jumpLinks = [
   { label: 'Available', href: '#available' },
@@ -110,7 +110,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/chihuahua',
+    path: '/puppies/chihuahua/',
     title,
     description,
     aboutName: 'Chihuahua',
@@ -122,7 +122,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Chihuahua puppy',
-      url: '/puppies/chihuahua',
+      url: '/puppies/chihuahua/',
       description:
         'Chihuahua puppy from an AVS licensed Singapore pet shop, priced $4,288 to $4,888 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '4288',
@@ -179,22 +179,22 @@ const schemas = [
     <ListingGrid
       heading="Available Chihuahua Puppies"
       headingAccent="Available"
-      subhead="A few of the Chihuahua puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Chihuahua puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Fawn boy', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn male Chihuahua puppy.'), imageAlt: 'Fawn male Chihuahua puppy available in Singapore', imageSrc: fawnBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Black & tan girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black and tan female Chihuahua puppy.'), imageAlt: 'Black and tan female Chihuahua puppy available in Singapore', imageSrc: blackTanGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Chocolate boy', href: whatsappLink('Hi! I\'d like more photos and the price for the chocolate male Chihuahua puppy.'), imageAlt: 'Chocolate male Chihuahua puppy available in Singapore', imageSrc: chocolateBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Cream long-coat girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream long-coat female Chihuahua puppy.'), imageAlt: 'Cream long-coat female Chihuahua puppy available in Singapore', imageSrc: creamLongCoatGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'White boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white male Chihuahua puppy.'), imageAlt: 'White male Chihuahua puppy available in Singapore', imageSrc: whiteBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Red sable boy', href: whatsappLink('Hi! I\'d like more photos and the price for the red sable male Chihuahua puppy.'), imageAlt: 'Red sable male Chihuahua puppy available in Singapore', imageSrc: redSableBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
-        { title: 'Blue fawn girl', href: whatsappLink('Hi! I\'d like more photos and the price for the blue fawn female Chihuahua puppy.'), imageAlt: 'Blue fawn female Chihuahua puppy available in Singapore', imageSrc: blueFawnGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Fawn & white girl', href: whatsappLink('Hi! I\'d like more photos and the price for the fawn and white female Chihuahua puppy.'), imageAlt: 'Fawn and white female Chihuahua puppy available in Singapore', imageSrc: fawnWhiteGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Black & white boy', href: whatsappLink('Hi! I\'d like more photos and the price for the black and white male Chihuahua puppy.'), imageAlt: 'Black and white male Chihuahua puppy available in Singapore', imageSrc: blackWhiteBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '8 weeks' },
+        { title: 'Oscar — Fawn Boy', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Oscar, the fawn male Chihuahua puppy.'), imageAlt: 'Fawn male Chihuahua puppy available in Singapore', imageSrc: fawnBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Mocha — Black & tan Girl', price: 4388, href: whatsappLink('Hi! I\'d like more photos and the price for Mocha, the black and tan female Chihuahua puppy.'), imageAlt: 'Black and tan female Chihuahua puppy available in Singapore', imageSrc: blackTanGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Jasper — Chocolate Boy', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Jasper, the chocolate male Chihuahua puppy.'), imageAlt: 'Chocolate male Chihuahua puppy available in Singapore', imageSrc: chocolateBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Mallow — Cream long-coat Girl', price: 4588, href: whatsappLink('Hi! I\'d like more photos and the price for Mallow, the cream long-coat female Chihuahua puppy.'), imageAlt: 'Cream long-coat female Chihuahua puppy available in Singapore', imageSrc: creamLongCoatGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Rex — White Boy', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Rex, the white male Chihuahua puppy.'), imageAlt: 'White male Chihuahua puppy available in Singapore', imageSrc: whiteBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Baxter — Red sable Boy', price: 4788, href: whatsappLink('Hi! I\'d like more photos and the price for Baxter, the red sable male Chihuahua puppy.'), imageAlt: 'Red sable male Chihuahua puppy available in Singapore', imageSrc: redSableBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Muffy — Blue fawn Girl', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Muffy, the blue fawn female Chihuahua puppy.'), imageAlt: 'Blue fawn female Chihuahua puppy available in Singapore', imageSrc: blueFawnGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Nutmeg — Fawn & white Girl', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Nutmeg, the fawn and white female Chihuahua puppy.'), imageAlt: 'Fawn and white female Chihuahua puppy available in Singapore', imageSrc: fawnWhiteGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
+        { title: 'Bandit — Black & white Boy', price: 4388, href: whatsappLink('Hi! I\'d like more photos and the price for Bandit, the black and white male Chihuahua puppy.'), imageAlt: 'Black and white male Chihuahua puppy available in Singapore', imageSrc: blackWhiteBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '8 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking to Buy a Chihuahua in Singapore?" imageAlt="Fawn Chihuahua puppy portrait, one of the Chihuahua puppies available in Singapore" imageSrc={fawnBoyPortrait} variant="mid">
-      <p>Our Chihuahua puppies in Singapore arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and exact prices for the Chihuahua puppies available now.</p>
+      <p>Our Chihuahua puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and a short walkthrough video for the Chihuahua puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Chihuahua for sale in Singapore here is between $4,288 and $4,888, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Chihuahua puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Chihuahua photos and prices</a>, or meet our Chihuahua puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
@@ -561,20 +561,20 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">start at the Curious Tails home page</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all 50 breeds we work with</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">start at the Curious Tails home page</a>, or <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all 48 breeds we carry</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

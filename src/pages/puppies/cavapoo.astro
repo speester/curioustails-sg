@@ -44,9 +44,16 @@ import blackPortrait from '../../assets/cavapoo/14-cavapoo-black-portrait.webp';
 import chocolatePortrait from '../../assets/cavapoo/15-cavapoo-chocolate-portrait.webp';
 import apricotGirlPortrait from '../../assets/cavapoo/16-cavapoo-apricot-portrait.webp';
 
-const title = 'Cavapoo Singapore | Price & Puppies | Curious Tails';
+import { breedPricing, fmtPrice } from '../../data/pricing';
+
+// Build-time freshness stamp; the daily automation deploy keeps it current.
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
+const price = breedPricing['cavapoo'];
+const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
+
+const title = 'Cavapoo Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Cavapoo puppies for sale in Singapore from $3,288, AVS licensed. Real prices, temperament, HDB rules and the $500+ starter kit included. WhatsApp us today.';
+  `Cavapoo price in Singapore (${monthStamp}): $${fmtPrice(price.low)} to $${fmtPrice(price.high)} all-in, AVS licensed and HDB-approved. Starter kit, free delivery and setup included.`;
 
 const jumpLinks = [
   { label: 'Available', href: '#available' },
@@ -101,7 +108,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/cavapoo',
+    path: '/puppies/cavapoo/',
     title,
     description,
     aboutName: 'Cavapoo',
@@ -113,10 +120,11 @@ const schemas = [
   itemListSchema([
     {
       name: 'Cavapoo puppy',
-      url: '/puppies/cavapoo',
+      url: '/puppies/cavapoo/',
       description:
         'Cavapoo puppy from an AVS licensed Singapore pet shop, priced $3,288 to $5,988 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
-      price: '3288',
+      price: String(price.low),
+      priceHigh: String(price.high),
       image: heroCavapoo.src,
     },
   ]),
@@ -170,22 +178,22 @@ const schemas = [
     <ListingGrid
       heading="Available Cavapoo Puppies"
       headingAccent="Available"
-      subhead="A few of the Cavapoo puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video, and full price, or to arrange a viewing at our Balestier shop."
+      subhead="A few of the Cavapoo puppies looking for a home right now. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop."
       items={[
-        { title: 'Apricot boy', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot male Cavapoo puppy.'), imageAlt: 'Apricot male Cavapoo puppy available in Singapore', imageSrc: availablePortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Blenheim girl', href: whatsappLink('Hi! I\'d like more photos and the price for the Blenheim female Cavapoo puppy.'), imageAlt: 'Blenheim female Cavapoo puppy settled in a family living room', imageSrc: familyLivingRoom, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Cavapoo puppy.'), imageAlt: 'Cream female Cavapoo puppy resting in its playpen', imageSrc: restingPlaypen, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Ruby red boy', href: whatsappLink('Hi! I\'d like more photos and the price for the ruby red male Cavapoo puppy.'), imageAlt: 'Ruby red male Cavapoo puppy sitting with a head tilt', imageSrc: rubyRedPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '9 weeks' },
-        { title: 'Gold girl', href: whatsappLink('Hi! I\'d like more photos and the price for the gold female Cavapoo puppy.'), imageAlt: 'Warm golden female Cavapoo puppy lying on a pastel blanket', imageSrc: goldPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Tricolour boy', href: whatsappLink('Hi! I\'d like more photos and the price for the tricolour male Cavapoo puppy.'), imageAlt: 'Tricolour male Cavapoo puppy standing alert', imageSrc: tricolourPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
-        { title: 'Black girl', href: whatsappLink('Hi! I\'d like more photos and the price for the black female Cavapoo puppy.'), imageAlt: 'Black female Cavapoo puppy playing with a plush toy', imageSrc: blackPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Chocolate boy', href: whatsappLink('Hi! I\'d like more photos and the price for the chocolate male Cavapoo puppy.'), imageAlt: 'Chocolate brown male Cavapoo puppy sitting on a cotton mat', imageSrc: chocolatePortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '3 months' },
-        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Cavapoo puppy.'), imageAlt: 'Apricot female Cavapoo puppy trotting toward the camera', imageSrc: apricotGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '8 weeks' },
+        { title: 'Rusty — Apricot Boy', price: 3288, href: whatsappLink('Hi! I\'d like more photos and the price for Rusty, the apricot male Cavapoo puppy.'), imageAlt: 'Apricot male Cavapoo puppy available in Singapore', imageSrc: availablePortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Poppy — Blenheim Girl', price: 3488, href: whatsappLink('Hi! I\'d like more photos and the price for Poppy, the Blenheim female Cavapoo puppy.'), imageAlt: 'Blenheim female Cavapoo puppy settled in a family living room', imageSrc: familyLivingRoom, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Pepper — Cream Girl', price: 3688, href: whatsappLink('Hi! I\'d like more photos and the price for Pepper, the cream female Cavapoo puppy.'), imageAlt: 'Cream female Cavapoo puppy resting in its playpen', imageSrc: restingPlaypen, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
+        { title: 'Bruno — Ruby red Boy', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Bruno, the ruby red male Cavapoo puppy.'), imageAlt: 'Ruby red male Cavapoo puppy sitting with a head tilt', imageSrc: rubyRedPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '9 weeks' },
+        { title: 'Ginger — Gold Girl', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Ginger, the gold female Cavapoo puppy.'), imageAlt: 'Warm golden female Cavapoo puppy lying on a pastel blanket', imageSrc: goldPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Casper — Tricolour Boy', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Casper, the tricolour male Cavapoo puppy.'), imageAlt: 'Tricolour male Cavapoo puppy standing alert', imageSrc: tricolourPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Maple — Black Girl', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Maple, the black female Cavapoo puppy.'), imageAlt: 'Black female Cavapoo puppy playing with a plush toy', imageSrc: blackPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Chester — Chocolate Boy', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Chester, the chocolate male Cavapoo puppy.'), imageAlt: 'Chocolate brown male Cavapoo puppy sitting on a cotton mat', imageSrc: chocolatePortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '3 months' },
+        { title: 'Winnie — Apricot Girl', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Winnie, the apricot female Cavapoo puppy.'), imageAlt: 'Apricot female Cavapoo puppy trotting toward the camera', imageSrc: apricotGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '8 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking for a Cavapoo for Sale in Singapore?" imageAlt="Cavapoo puppy portrait, one of the Cavapoo puppies available in Singapore" imageSrc={availablePortrait} variant="mid">
-      <p>Our litters arrive and are reserved quickly, so we keep availability live on WhatsApp rather than on a page that goes stale. Message us and we'll send photos, gender, age, and exact prices for the Cavapoo puppies available now.</p>
+      <p>Our litters arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. Message us and we'll send photos, gender, age, and a short walkthrough video for the Cavapoo puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Cavapoo puppy for sale here is between $3,288 and $5,988, and what you see is the full price. After you reserve with a deposit, we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Cavapoo puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Cavapoo photos and prices</a>, or book a puppy viewing appointment at our Balestier pet shop and meet them in person.
@@ -277,9 +285,9 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Cavapoo Price in Singapore: What You'll Pay and What's Included"
+      heading={`Cavapoo Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $3,288 to $5,988, all-in."
+      subhead={`How much is a Cavapoo in Singapore? As of ${monthStamp}, established shops charge $4,300 to $6,500. At Curious Tails a Cavapoo is ${priceRange}, all-in — starter kit, delivery and first training lesson included.`}
       mode="split"
       columns={[
         {
@@ -586,22 +594,22 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">start at the Curious Tails home page</a>, or <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our complete breed list</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">start at the Curious Tails home page</a>, or <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our complete breed list</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
-      <li><a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
-      <li><a href="/first-time-owners/breed-selector" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Breed selector quiz</a></li>
-      <li><a href="/learn/puppy-health" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/about-us" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
+      <li><a href="/first-time-owners/breed-selector/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Breed selector quiz</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

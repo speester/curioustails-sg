@@ -1,0 +1,548 @@
+{
+ "version": "0.1.20260717",
+ "status_code": 20000,
+ "status_message": "Ok.",
+ "time": "4.9206 sec.",
+ "cost": 0.0015,
+ "tasks_count": 1,
+ "tasks_error": 0,
+ "tasks": [
+  {
+   "id": "07261253-2001-0495-0000-0fe92f260228",
+   "status_code": 20000,
+   "status_message": "Ok.",
+   "time": "4.8421 sec.",
+   "cost": 0.0015,
+   "result_count": 1,
+   "path": [
+    "v3",
+    "on_page",
+    "content_parsing",
+    "live"
+   ],
+   "data": {
+    "api": "on_page",
+    "function": "content_parsing",
+    "url": "https://onlypaws.sg/puppies/",
+    "enable_javascript": true
+   },
+   "result": [
+    {
+     "crawl_progress": "finished",
+     "crawl_status": null,
+     "items_count": 1,
+     "items": [
+      {
+       "type": "content_parsing_element",
+       "fetch_time": "2026-07-26 06:53:24 +00:00",
+       "status_code": 200,
+       "page_content": {
+        "header": {
+         "primary_content": null,
+         "secondary_content": [
+          {
+           "text": "About Us",
+           "url": "https://onlypaws.sg/about/",
+           "urls": [
+            {
+             "url": "https://onlypaws.sg/about/",
+             "anchor_text": "About Us"
+            }
+           ]
+          },
+          {
+           "text": "\u200bTerms of Service",
+           "url": "https://onlypaws.sg/termsofservice/",
+           "urls": [
+            {
+             "url": "https://onlypaws.sg/termsofservice/",
+             "anchor_text": "\u200bTerms of Service"
+            }
+           ]
+          },
+          {
+           "text": "Privacy Policy",
+           "url": "https://onlypaws.sg/privacypolicy/",
+           "urls": [
+            {
+             "url": "https://onlypaws.sg/privacypolicy/",
+             "anchor_text": "Privacy Policy"
+            }
+           ]
+          },
+          {
+           "text": "PUPPIES AVAILBLE",
+           "url": "https://onlypaws.sg/puppies/",
+           "urls": [
+            {
+             "url": "https://onlypaws.sg/puppies/",
+             "anchor_text": "PUPPIES AVAILBLE"
+            }
+           ]
+          },
+          {
+           "text": "Paw Memberships",
+           "url": "https://onlypaws.sg/grooming-membership/",
+           "urls": [
+            {
+             "url": "https://onlypaws.sg/grooming-membership/",
+             "anchor_text": "Paw Memberships"
+            }
+           ]
+          },
+          {
+           "text": "Cat & Small Animals",
+           "url": "https://onlypaws.sg/cat-small-animals-grooming/",
+           "urls": [
+            {
+             "url": "https://onlypaws.sg/cat-small-animals-grooming/",
+             "anchor_text": "Cat & Small Animals"
+            }
+           ]
+          },
+          {
+           "text": "Contact Us",
+           "url": "https://onlypaws.sg/contact/",
+           "urls": [
+            {
+             "url": "https://onlypaws.sg/contact/",
+             "anchor_text": "Contact Us"
+            }
+           ]
+          },
+          {
+           "text": "Puppies T&C",
+           "url": "https://onlypaws.sg/puppies-tc/",
+           "urls": [
+            {
+             "url": "https://onlypaws.sg/puppies-tc/",
+             "anchor_text": "Puppies T&C"
+            }
+           ]
+          },
+          {
+           "text": "Refund and Returns",
+           "url": "https://onlypaws.sg/refund-and-returns/",
+           "urls": [
+            {
+             "url": "https://onlypaws.sg/refund-and-returns/",
+             "anchor_text": "Refund and Returns"
+            }
+           ]
+          },
+          {
+           "text": "Onlypaws Shop",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Showing 1\u201324 of 65 results",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Sort By",
+           "url": null,
+           "urls": null
+          }
+         ],
+         "table_content": null
+        },
+        "footer": {
+         "primary_content": [
+          {
+           "text": "@2024 OnlyPaws. All Rights Reserved",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Have any questions? Feel free to contact us! We\u2019ll do our best to answer your questions as soon as possible!",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Hello \ud83d\udc4b, Welcome to OnlyPaws!",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "How can we help you?",
+           "url": null,
+           "urls": null
+          }
+         ],
+         "secondary_content": [
+          {
+           "text": "Terms Of Services",
+           "url": "https://onlypaws.sg/termsofservice",
+           "urls": [
+            {
+             "url": "https://onlypaws.sg/termsofservice",
+             "anchor_text": "Terms Of Services"
+            }
+           ]
+          },
+          {
+           "text": "Privacy Policy",
+           "url": "https://onlypaws.sg/privacypolicy",
+           "urls": [
+            {
+             "url": "https://onlypaws.sg/privacypolicy",
+             "anchor_text": "Privacy Policy"
+            }
+           ]
+          },
+          {
+           "text": "About Us",
+           "url": "https://onlypaws.sg/about/",
+           "urls": [
+            {
+             "url": "https://onlypaws.sg/about/",
+             "anchor_text": "About Us"
+            }
+           ]
+          },
+          {
+           "text": "Puppies For Sale",
+           "url": "https://onlypaws.sg/puppies/",
+           "urls": [
+            {
+             "url": "https://onlypaws.sg/puppies/",
+             "anchor_text": "Puppies For Sale"
+            }
+           ]
+          },
+          {
+           "text": "Dog Grooming & Spa",
+           "url": "https://onlypaws.sg/doggies-grooming/",
+           "urls": [
+            {
+             "url": "https://onlypaws.sg/doggies-grooming/",
+             "anchor_text": "Dog Grooming & Spa"
+            }
+           ]
+          },
+          {
+           "text": "Grooming Paw Memberships",
+           "url": "https://onlypaws.sg/grooming-membership/",
+           "urls": [
+            {
+             "url": "https://onlypaws.sg/grooming-membership/",
+             "anchor_text": "Grooming Paw Memberships"
+            }
+           ]
+          },
+          {
+           "text": "Cat & Small Animals Grooming",
+           "url": "https://onlypaws.sg/cat-small-animals-grooming/",
+           "urls": [
+            {
+             "url": "https://onlypaws.sg/cat-small-animals-grooming/",
+             "anchor_text": "Cat & Small Animals Grooming"
+            }
+           ]
+          },
+          {
+           "text": "Contact Us",
+           "url": "https://onlypaws.sg/contact/",
+           "urls": [
+            {
+             "url": "https://onlypaws.sg/contact/",
+             "anchor_text": "Contact Us"
+            }
+           ]
+          },
+          {
+           "text": "My account",
+           "url": "https://onlypaws.sg/my-account/",
+           "urls": [
+            {
+             "url": "https://onlypaws.sg/my-account/",
+             "anchor_text": "My account"
+            }
+           ]
+          },
+          {
+           "text": "Puppies T&C",
+           "url": "https://onlypaws.sg/puppies-tc/",
+           "urls": [
+            {
+             "url": "https://onlypaws.sg/puppies-tc/",
+             "anchor_text": "Puppies T&C"
+            }
+           ]
+          },
+          {
+           "text": "GET IN TOUCH",
+           "url": null,
+           "urls": null
+          },
+          {
+           "text": "Open chat",
+           "url": null,
+           "urls": null
+          }
+         ],
+         "table_content": null
+        },
+        "main_topic": null,
+        "secondary_topic": [
+         {
+          "h_title": "Maltipoo",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Pedigree Toy Poodle",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Maltipoo",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Pedigree Toy Poodle",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Pedigree Toy Poodle",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Pedigree Toy Poodle",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Pedigree Toy Poodle",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Pedigree Toy Poodle",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Pedigree Maltese",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Pedigree Yorkshire Terrier",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Pedigree Toy Poodle",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Pedigree Toy Poodle",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Pedigree Toy Poodle",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Maltipoo",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Bichon Frise",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Shih Tzu",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Toy Poodle",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Morkie",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Morkie",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Chihuahua",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Toy Poodle",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Shih Tzu",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Maltipoo",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         },
+         {
+          "h_title": "Maltipoo",
+          "main_title": "Maltipoo",
+          "author": "OnlyPaws SG",
+          "language": "en",
+          "level": 2,
+          "primary_content": null,
+          "secondary_content": null,
+          "table_content": null
+         }
+        ],
+        "ratings": null,
+        "offers": null,
+        "comments": null,
+        "contacts": {
+         "telephones": [
+          "+6597866707"
+         ],
+         "emails": null
+        }
+       },
+       "page_as_markdown": null
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

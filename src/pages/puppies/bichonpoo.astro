@@ -39,7 +39,7 @@ import partiPortrait from '../../assets/bichonpoo/10-bichonpoo-parti-portrait.we
 import champagnePortrait from '../../assets/bichonpoo/11-bichonpoo-champagne-portrait.webp';
 import ivoryPortrait from '../../assets/bichonpoo/12-bichonpoo-ivory-portrait.webp';
 
-const title = 'Bichonpoo Singapore | Price & Puppies | Curious Tails';
+const title = 'Bichonpoo Puppy for Sale Singapore | Curious Tails';
 const description =
   'Bichonpoo (Poochon) puppies for sale in Singapore from $3,288 all-in. Low-shedding, HDB-approved, playful; market runs $5,000 to $8,000. Starter kit included.';
 
@@ -96,7 +96,7 @@ const schemas = [
   localBusinessSchema(),
   personSchema(),
   webPageSchema({
-    path: '/puppies/bichonpoo',
+    path: '/puppies/bichonpoo/',
     title,
     description,
     aboutName: 'Bichonpoo',
@@ -107,7 +107,7 @@ const schemas = [
   itemListSchema([
     {
       name: 'Bichonpoo puppy',
-      url: '/puppies/bichonpoo',
+      url: '/puppies/bichonpoo/',
       description:
         'Bichonpoo (Poochon) puppy from an AVS licensed Singapore pet shop, priced $3,288 to $5,988 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '3288',
@@ -156,22 +156,22 @@ const schemas = [
     <ListingGrid
       heading="Available Bichonpoo Puppies"
       headingAccent="Available"
-      subhead="A few of the Bichonpoos recently looking for homes. Tap any pup to WhatsApp us for the latest photos, video, and full price."
+      subhead="A few of the Bichonpoos recently looking for homes. Tap any pup to WhatsApp us for the latest photos, video and health records."
       items={[
-        { title: 'White boy', href: whatsappLink('Hi! I\'d like more photos and the price for the white male Bichonpoo puppy.'), imageAlt: 'White male Bichonpoo puppy available in Singapore', imageSrc: whitePortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '2 months' },
-        { title: 'Cream girl', href: whatsappLink('Hi! I\'d like more photos and the price for the cream female Bichonpoo puppy.'), imageAlt: 'Cream female Bichonpoo puppy relaxing on a peach blanket', imageSrc: creamPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '10 weeks' },
-        { title: 'Apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot female Bichonpoo puppy.'), imageAlt: 'Apricot female Bichonpoo puppy walking on a cotton mat', imageSrc: apricotPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Apricot boy', href: whatsappLink('Hi! I\'d like more photos and the price for the apricot male Bichonpoo puppy.'), imageAlt: 'Apricot male Bichonpoo puppy sitting with a head tilt', imageSrc: apricotBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '10 weeks' },
-        { title: 'White girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white female Bichonpoo puppy.'), imageAlt: 'Pure white female Bichonpoo puppy lying on a pastel blanket', imageSrc: whiteGirlPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '2 months' },
-        { title: 'Cream boy', href: whatsappLink('Hi! I\'d like more photos and the price for the cream male Bichonpoo puppy.'), imageAlt: 'Warm cream male Bichonpoo puppy standing alert', imageSrc: creamBoyPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '12 weeks' },
-        { title: 'White & apricot girl', href: whatsappLink('Hi! I\'d like more photos and the price for the white and apricot parti female Bichonpoo puppy.'), imageAlt: 'White female Bichonpoo puppy with apricot parti markings playing with a plush toy', imageSrc: partiPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '9 weeks' },
-        { title: 'Champagne girl', href: whatsappLink('Hi! I\'d like more photos and the price for the champagne female Bichonpoo puppy.'), imageAlt: 'Pale champagne female Bichonpoo puppy sitting on a cotton mat', imageSrc: champagnePortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Female', age: '3 months' },
-        { title: 'Ivory boy', href: whatsappLink('Hi! I\'d like more photos and the price for the ivory male Bichonpoo puppy.'), imageAlt: 'Ivory white male Bichonpoo puppy trotting toward the camera', imageSrc: ivoryPortrait, meta: 'WhatsApp for photos & price', tag: 'Available', gender: 'Male', age: '8 weeks' },
+        { title: 'Simba — White Boy', price: 3288, href: whatsappLink('Hi! I\'d like more photos and the price for Simba, the white male Bichonpoo puppy.'), imageAlt: 'White male Bichonpoo puppy available in Singapore', imageSrc: whitePortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '2 months' },
+        { title: 'Nala — Cream Girl', price: 3488, href: whatsappLink('Hi! I\'d like more photos and the price for Nala, the cream female Bichonpoo puppy.'), imageAlt: 'Cream female Bichonpoo puppy relaxing on a peach blanket', imageSrc: creamPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '10 weeks' },
+        { title: 'Sadie — Apricot Girl', price: 3688, href: whatsappLink('Hi! I\'d like more photos and the price for Sadie, the apricot female Bichonpoo puppy.'), imageAlt: 'Apricot female Bichonpoo puppy walking on a cotton mat', imageSrc: apricotPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
+        { title: 'Bobo — Apricot Boy', price: 3888, href: whatsappLink('Hi! I\'d like more photos and the price for Bobo, the apricot male Bichonpoo puppy.'), imageAlt: 'Apricot male Bichonpoo puppy sitting with a head tilt', imageSrc: apricotBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '10 weeks' },
+        { title: 'Maggie — White Girl', price: 4088, href: whatsappLink('Hi! I\'d like more photos and the price for Maggie, the white female Bichonpoo puppy.'), imageAlt: 'Pure white female Bichonpoo puppy lying on a pastel blanket', imageSrc: whiteGirlPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '2 months' },
+        { title: 'Cooper — Cream Boy', price: 4288, href: whatsappLink('Hi! I\'d like more photos and the price for Cooper, the cream male Bichonpoo puppy.'), imageAlt: 'Warm cream male Bichonpoo puppy standing alert', imageSrc: creamBoyPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '12 weeks' },
+        { title: 'Sophie — White & apricot Girl', price: 4488, href: whatsappLink('Hi! I\'d like more photos and the price for Sophie, the white and apricot parti female Bichonpoo puppy.'), imageAlt: 'White female Bichonpoo puppy with apricot parti markings playing with a plush toy', imageSrc: partiPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '9 weeks' },
+        { title: 'Zoe — Champagne Girl', price: 4688, href: whatsappLink('Hi! I\'d like more photos and the price for Zoe, the champagne female Bichonpoo puppy.'), imageAlt: 'Pale champagne female Bichonpoo puppy sitting on a cotton mat', imageSrc: champagnePortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Female', age: '3 months' },
+        { title: 'Bailey — Ivory Boy', price: 4888, href: whatsappLink('Hi! I\'d like more photos and the price for Bailey, the ivory male Bichonpoo puppy.'), imageAlt: 'Ivory white male Bichonpoo puppy trotting toward the camera', imageSrc: ivoryPortrait, meta: 'WhatsApp for photos & video', tag: 'Available', gender: 'Male', age: '8 weeks' },
       ]}
     />
 
     <CaptionedBlock heading="Looking for a Bichonpoo for Sale in Singapore?" imageAlt="White Bichonpoo puppy available in Singapore, seated portrait with a teddy-round face" imageSrc={whitePortrait} variant="mid">
-      <p>Bichonpoo litters get reserved fast, and half the listings you'll find elsewhere already wear a "reserved" tag. We keep availability live on WhatsApp instead: message us for photos, gender, age, colour, and exact prices of the Bichonpoo puppies available now.</p>
+      <p>Bichonpoo litters get reserved fast, and half the listings you'll find elsewhere already wear a "reserved" tag. We update this list as puppies are reserved; message us for photos, gender, age, colour, and a short walkthrough video of the Bichonpoo puppies available now.</p>
       <p>Every Bichonpoo here is between $3,288 and $5,988, and what you see is the full price. After you reserve with a deposit, we board your puppy free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Bichonpoo puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Bichonpoo photos and prices</a>, or meet them at our Balestier shop.
@@ -291,7 +291,7 @@ const schemas = [
     heading="Want current Bichonpoo photos and prices?"
     body="Litters move fast. Message us and we'll send photos, video, gender, age, and the exact price, no obligation."
     ctaLabel="WhatsApp us"
-    ctaMessage="Hi! Could you send me your current Bichonpoo puppies with photos and exact prices?"
+    ctaMessage="Hi! Could you send me your current Bichonpoo puppies with photos and a walkthrough video?"
     variant="dark"
   />
 
@@ -476,19 +476,19 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our licensed puppy shop</a>, <a href="/puppies" class="underline underline-offset-2 text-[var(--color-accent-hover)]">every breed we carry</a>, or <a href="/puppies/bichon-frise" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Bichon Frise puppies</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our licensed puppy shop</a>, <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">every breed we carry</a>, or <a href="/puppies/bichon-frise/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Bichon Frise puppies</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/first-time-owners/breed-selector" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Breed selector quiz</a></li>
-      <li><a href="/pricing" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
-      <li><a href="/first-time-owners/budget-guide" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/first-time-owners/hdb-breeds" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
-      <li><a href="/delivery" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
-      <li><a href="/free-training" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
-      <li><a href="/learn/verify-license" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+      <li><a href="/first-time-owners/breed-selector/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Breed selector quiz</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
 

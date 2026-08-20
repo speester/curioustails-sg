@@ -43,6 +43,8 @@ const jumpLinks = [
   { label: 'Size & Coat', href: '#size' },
   { label: 'vs Maltipoo', href: '#vs-maltipoo' },
   { label: 'Grooming', href: '#grooming' },
+  { label: 'Lifestyle Fit', href: '#lifestyle' },
+  { label: 'Health', href: '#health' },
   { label: 'HDB Rules', href: '#hdb' },
   { label: 'FAQ', href: '#faq' },
 ];
@@ -305,6 +307,37 @@ const schemas = [
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+
+  <div id="lifestyle" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Is a Bichonpoo Right for Your Lifestyle?"
+      headingAccent="Lifestyle"
+      subhead="We ask about your week before recommending any breed. Here is the honest short version for a Bichonpoo."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Someone home most of the day', values: ['The best fit for this breed. A Bichonpoo repays company more than almost anything else we place'] },
+        { label: 'Working couple, out 8am to 6pm, nobody home in the day', values: ['Our honest steer is no. Bichonpoos are attachment-dependent and tend to vocalise through long stretches alone; a Cavapoo suits that week better'] },
+        { label: 'Family with young children', values: ['Good fit. Sunny and tolerant, though the small frame means early handling needs supervising'] },
+        { label: 'Someone who does not want a grooming commitment', values: ['Wrong breed, and we would rather say so now. The curly coat needs brushing most days and a groomer every 6 to 8 weeks'] },
+        { label: 'HDB flat', values: ['Good fit. The Bichonpoo is HDB-approved and small enough that flat life suits it; mind the one-dog-per-flat rule'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        We turn away more Bichonpoo enquiries than any other small white cross, almost always on the alone-time question. It is the kindest moment in the sale to get wrong.
+      </p>
+    </div>
+  </div>
+
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Bichonpoo Health: What We Check Before You Take One Home" imagePosition="none" variant="card">
+      <p>Every Bichonpoo goes home vet-checked, vaccinated, dewormed, and microchipped. Three things are worth knowing about this cross before you commit: tear staining under the eyes, which both parent breeds are prone to and which is cosmetic rather than dangerous; patellar luxation, the small-breed kneecap issue; and skin sensitivity, because a dense curly coat trapping humidity is a Singapore-specific problem rather than a breed defect.</p>
+      <p>The practical consequences are small and daily. Wipe under the eyes when you brush. Dry the coat properly after rain or a bath instead of letting it air-dry against the skin. Keep the groomer appointment, because a matted coat is the usual first cause of a skin complaint we see come back to us.</p>
+      <p>Feeding stays simple: your puppy comes home on the small-breed food it is already eating, and any change of brand should be spread over about a week. What we screen and why is covered in our puppy health checks explained.</p>
+    </CaptionedBlock>
+  </div>
 
   <div id="hdb" class="scroll-mt-40">
     <DefBox

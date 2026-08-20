@@ -1,0 +1,135 @@
+{
+  "domain": "curioustails.sg",
+  "date": "2026-08-20",
+  "location": "Singapore",
+  "property": "sc-domain:curioustails.sg",
+  "pages_crawled": 74,
+  "gates": {
+    "0_evidence": "PASS",
+    "1_eligibility": "PASS",
+    "2_mapping": "PASS",
+    "3_relevance": "FAIL",
+    "4_experience": "PASS",
+    "5_site_quality": "RISK",
+    "6_authority": "CAP"
+  },
+  "binding_gate": 3,
+  "authority": {
+    "curioustails.sg": {"referring_domains": 5, "nofollow": 3},
+    "petmaster.com.sg": {"referring_domains": 558},
+    "prettypetskennel.com": {"referring_domains": 280},
+    "thelovelypets.com": {"referring_domains": 168},
+    "wagatail.sg": {"referring_domains": 100},
+    "onlypaws.sg": {"referring_domains": 10},
+    "woofloof.sg": {"referring_domains": 4}
+  },
+  "keywords": [
+    {
+      "keyword": "puppy for sale singapore",
+      "current_position": 36.1,
+      "position_source": "GSC",
+      "target_url": "/",
+      "ranking_url": "/",
+      "mapping": "correct",
+      "verdict": "CONTENDER",
+      "binding_gate": 3,
+      "ceiling_band": "#5-#10",
+      "serp_top3": [
+        {"rank": 1, "type": "organic", "url": "https://onlypaws.sg/puppies/"},
+        {"rank": 2, "type": "local_pack", "name": "Cotton Pups"},
+        {"rank": 3, "type": "local_pack", "name": "The Lovely Pets Puppies Singapore"}
+      ]
+    },
+    {
+      "keyword": "cockapoo singapore",
+      "current_position": 12.5,
+      "position_source": "GSC",
+      "target_url": "/puppies/cockapoo/",
+      "ranking_url": "/puppies/cockapoo/",
+      "mapping": "correct",
+      "verdict": "CONTENDER",
+      "binding_gate": 3,
+      "ceiling_band": "#4-#8",
+      "serp_top3": [
+        {"rank": 1, "url": "https://www.thelovelypets.com/breeds/cockapoo/", "referring_domains": 168},
+        {"rank": 2, "url": "https://woofloof.sg/cockapoo/", "referring_domains": 4},
+        {"rank": 3, "url": "https://www.wagatail.sg/product-page/cockapoo-united-kingdom-import-4", "referring_domains": 100}
+      ]
+    },
+    {
+      "keyword": "maltipoo singapore",
+      "current_position": 27.5,
+      "position_source": "GSC",
+      "target_url": "/puppies/maltipoo/",
+      "ranking_url": "/puppies/maltipoo/",
+      "mapping": "correct",
+      "verdict": "CONTENDER",
+      "binding_gate": 3,
+      "ceiling_band": "#4-#8",
+      "serp_top3": [
+        {"rank": 1, "url": "https://onlypaws.sg/product/maltipoo-11/", "referring_domains": 10},
+        {"rank": 2, "url": "https://www.facebook.com/groups/dogssingapore/posts/1749350495624580/"},
+        {"rank": 3, "url": "https://petmaster.com.sg/what-you-need-to-know-about-a-maltipoo", "referring_domains": 558}
+      ]
+    }
+  ],
+  "fix_queue": [
+    {
+      "id": 1,
+      "gate": 3,
+      "severity": "critical",
+      "title": "Inventory feed 21 days stale; 34/48 breed pages show zero available puppies",
+      "file": "src/data/available-puppies.json",
+      "evidence": ["CRAWL", "SRC", "SERP"],
+      "detail": "syncedAt 2026-07-30. 27 available across 40 breeds. 34 breeds have available:[]. 8 breed pages absent from feed: beagle, boston-terrier, english-bulldog, japanese-chin, miniature-pinscher, pekingese, scottish-terrier, silky-terrier.",
+      "action": "npm run sync:puppies; gate deploys on feed freshness",
+      "executes": "operations"
+    },
+    {
+      "id": 2,
+      "gate": 3,
+      "severity": "critical",
+      "title": "Product schema declares availability InStock on all 48 breed pages including the 34 with no stock",
+      "file": "src/pages/puppies/*.astro",
+      "evidence": ["CRAWL"],
+      "action": "Derive availability from feed: InStock when available.length>0 else OutOfStock",
+      "executes": "astro-build"
+    },
+    {
+      "id": 3,
+      "gate": 3,
+      "severity": "high",
+      "title": "Thinnest breed pages: cockapoo 2375w, bichonpoo 2329w vs 3000-3400 sibling band",
+      "evidence": ["CRAWL", "GSC"],
+      "executes": "page-brief -> content-writer"
+    },
+    {
+      "id": 4,
+      "gate": 5,
+      "severity": "high",
+      "title": "Sibling duplication: 40.7-60% unique body 8-grams across 48 breed pages",
+      "evidence": ["CRAWL"],
+      "worst": {"maltipoo": 40.7, "maltese": 43.9, "bichon-frise": 48.2, "goldendoodle": 48.5, "labradoodle": 48.7},
+      "action": "Centralise licence/delivery/starter-kit detail on hub pages; leave breed-specific summary + link",
+      "executes": "content-writer"
+    },
+    {
+      "id": 5,
+      "gate": 3,
+      "severity": "medium",
+      "title": "{breed} price queries under-served",
+      "evidence": ["GSC", "SERP"],
+      "action": "First-fold price answer-capsule with the real figure on each breed page",
+      "executes": "content-writer"
+    },
+    {
+      "id": 6,
+      "gate": 6,
+      "severity": "medium",
+      "title": "Absent from the local pack that holds positions 2-4 for the head term",
+      "evidence": ["SERP", "SRC"],
+      "action": "Off-page GBP work; not closable by this audit",
+      "executes": "manual"
+    }
+  ]
+}

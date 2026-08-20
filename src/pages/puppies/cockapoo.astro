@@ -34,7 +34,7 @@ import earCheck from '../../assets/cockapoo/6-cockapoo-ear-check-care.webp';
 
 const title = 'Cockapoo Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Cockapoo puppies for sale in Singapore from $3,288 all-in. Family-friendly, low-shedding, HDB-approved, and forgiving for first-time owners. Starter kit included.';
+  'Cockapoo puppies for sale in Singapore from $3,288 all-in. Family-friendly, low-shedding, HDB-approved and forgiving for first-timers. Starter kit included.';
 
 const jumpLinks = [
   { label: 'Puppies', href: '#available' },
@@ -43,6 +43,8 @@ const jumpLinks = [
   { label: 'Size & Coat', href: '#size' },
   { label: 'vs Cavapoo', href: '#vs-cavapoo' },
   { label: 'Ear Care', href: '#ear-care' },
+  { label: 'Lifestyle Fit', href: '#lifestyle' },
+  { label: 'Health', href: '#health' },
   { label: 'HDB Rules', href: '#hdb' },
   { label: 'FAQ', href: '#faq' },
 ];
@@ -332,6 +334,37 @@ const schemas = [
     </CaptionedBlock>
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+
+  <div id="lifestyle" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Is a Cockapoo Right for Your Lifestyle?"
+      headingAccent="Lifestyle"
+      subhead="We ask about your week before recommending any breed. Here is the honest short version for a Cockapoo."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Family with primary-school children', values: ['The strongest fit we place. A Cockapoo meets children at their energy and stays patient through the noisy end of the day'] },
+        { label: 'Working couple, out 8am to 6pm, nobody home in the day', values: ['Workable, not automatic. A Cockapoo tolerates the day alone only with the playpen routine and a real walk at both ends of it'] },
+        { label: 'Quiet household that wants a calm lap dog', values: ['Look at the Cavapoo instead. A Cockapoo has a Spaniel engine and will ask for a game you did not plan'] },
+        { label: 'First puppy, no dog experience', values: ['Good fit. Eager to please and forgiving of beginner mistakes, which is why we hand it to first-timers often'] },
+        { label: 'HDB flat', values: ['Good fit. The Cockapoo is HDB-approved; mind the one-dog-per-flat rule and book grooming every 6 to 8 weeks'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The line we use with families who are unsure: a Cockapoo is not a low-effort dog, it is a high-reward one. If nobody in the household wants to throw a ball daily, the breed will be disappointed and so will you.
+      </p>
+    </div>
+  </div>
+
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="Cockapoo Health: What We Check Before You Take One Home" imagePosition="none" variant="card">
+      <p>Every Cockapoo goes home vet-checked, vaccinated, dewormed, and microchipped. The three things worth knowing about the cross, said plainly here rather than found on a forum at midnight: ear infections from the long Spaniel ears, patellar luxation (a kneecap issue common across small breeds), and inherited eye conditions carried on the Poodle side.</p>
+      <p>None of the three is a reason to avoid the breed. Ear infections are prevented by the weekly minute described above. Kneecaps are checked at the vet visit before the puppy leaves us, and again at the first-year booster. Eye conditions are the rarest of the three and show up early enough that an honest seller will tell you.</p>
+      <p>Feeding stays simple: your puppy comes home on the small-breed food it is already eating, and any change of brand should be spread over about a week. What we screen and why is covered in our puppy health checks explained.</p>
+    </CaptionedBlock>
+  </div>
 
   <div id="hdb" class="scroll-mt-40">
     <DefBox

@@ -14,7 +14,9 @@
     "sync:puppies": "node scripts/sync-puppies.mjs",
     "gbp:daily": "node scripts/scheduler.mjs",
     "gbp:post": "node scripts/publish-daily-post.mjs",
-    "gbp:reviews": "node scripts/reply-to-reviews.mjs"
+    "gbp:reviews": "node scripts/reply-to-reviews.mjs",
+    "feed:check": "node scripts/check-feed-freshness.mjs",
+    "build:deploy": "npm run sync:puppies && npm run feed:check && npm run build"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.2",

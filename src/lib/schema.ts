@@ -1,5 +1,6 @@
 import { site } from '../data/site';
 import { BREED_COUNT } from '../data/pricing';
+import availablePuppies from '../data/available-puppies.json';
 import heroImage from '../assets/home/1-cavapoo-puppy-hero-balestier.png';
 
 // Absolute URL of the hero image as actually served (hashed under /_astro/).
@@ -11,6 +12,25 @@ const heroImageUrl = new URL(heroImage.src, site.domain).toString();
 function pageUrl(path: string): string {
   const withSlash = path.endsWith('/') ? path : `${path}/`;
   return new URL(withSlash, site.domain).toString();
+}
+
+// Offer.availability must match what the page actually shows. `available-puppies.json`
+// is the live feed (written by `npm run sync:puppies`); a breed with an empty
+// `available` array has its stock section rendering "recently placed" cards, so
+// claiming InStock there is a structured-data claim the page does not support.
+// Non-breed URLs (no feed entry) fall back to InStock — those are not stock-backed
+// listings and the feed says nothing about them.
+const puppyFeed = (availablePuppies as { breeds: Record<string, { available: unknown[] }> }).breeds;
+
+function availabilityFor(path: string): string {
+  const slug = path.replace(/^\/puppies\//, '').replace(/\/$/, '');
+  // Not a breed page (the path did not change) — the feed says nothing about it.
+  if (slug === path) return 'https://schema.org/InStock';
+  // A breed page absent from the feed has no listings at all, same as an empty one.
+  const entry = puppyFeed[slug];
+  return entry && entry.available.length > 0
+    ? 'https://schema.org/InStock'
+    : 'https://schema.org/OutOfStock';
 }
 
 // Strip currency symbols, thousands separators, and prose ("From $3,288") so
@@ -321,13 +341,29 @@ export function faqPageSchema(items: { question: string; answer: string }[]) {
 }
 
 export function itemListSchema(items: { name: string; url: string; description?: string; price?: string; priceHigh?: string; image?: string }[]) {
+  const products = items.map((item) => productEntity(item));
+  // A breed page describes exactly ONE product. Wrapping a single Product in an
+  // ItemList makes it a one-item carousel, which is not what Google renders a
+  // price snippet from. Sister site puppysingapore.com/corgi/ earns a
+  // "$3,688.00 to $5,500.00" rich result on the same query where this site earns
+  // none (SERP pull, "corgi singapore", 2026-08-20) — so single-item pages emit
+  // the Product on its own, and only genuine multi-item pages keep the ItemList.
+  if (products.length === 1) {
+    return { '@context': 'https://schema.org', ...products[0] };
+  }
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    itemListElement: items.map((item, i) => ({
+    itemListElement: products.map((product, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      item: {
+      item: product,
+    })),
+  };
+}
+
+function productEntity(item: { name: string; url: string; description?: string; price?: string; priceHigh?: string; image?: string }) {
+  return {
         '@type': 'Product',
         '@id': pageUrl(item.url),
         name: item.name,
@@ -344,7 +380,7 @@ export function itemListSchema(items: { name: string; url: string; description?:
                     lowPrice: toPriceValue(item.price),
                     highPrice: toPriceValue(item.priceHigh),
                     priceCurrency: 'SGD',
-                    availability: 'https://schema.org/InStock',
+                    availability: availabilityFor(item.url),
                     hasMerchantReturnPolicy: productReturnPolicy(),
                     shippingDetails: productShippingDetails(),
                   }
@@ -352,7 +388,7 @@ export function itemListSchema(items: { name: string; url: string; description?:
                     '@type': 'Offer',
                     price: toPriceValue(item.price),
                     priceCurrency: 'SGD',
-                    availability: 'https://schema.org/InStock',
+                    availability: availabilityFor(item.url),
                     hasMerchantReturnPolicy: productReturnPolicy(),
                     shippingDetails: productShippingDetails(),
                   },
@@ -361,8 +397,6 @@ export function itemListSchema(items: { name: string; url: string; description?:
         image: new URL(item.image ?? heroImageUrl, site.domain).toString(),
         aggregateRating: productAggregateRating(),
         review: productReview(),
-      },
-    })),
   };
 }
 

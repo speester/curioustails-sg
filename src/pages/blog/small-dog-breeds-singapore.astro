@@ -1,0 +1,299 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import DefBox from '../../components/DefBox.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site } from '../../data/site';
+import { breedPricing, fmtPrice } from '../../data/pricing';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+import smallBreedsLineup from '../../assets/small-dog-breeds-singapore/1-small-dog-breeds-singapore-hdb-flat.webp';
+import smallBreedsWalk from '../../assets/small-dog-breeds-singapore/2-small-dog-morning-walk-singapore-heat.webp';
+import smallBreedsGrooming from '../../assets/small-dog-breeds-singapore/3-small-dog-grooming-humidity-singapore.webp';
+
+const title = 'Best Small Dog Breeds for Singapore Living | Curious Tails';
+const description =
+  'Which small dog breeds actually suit a Singapore flat? Ten breeds rated on HDB approval, heat tolerance, grooming load and price, plus the ones that struggle here.';
+const datePublished = '2026-08-21';
+
+const from = (slug: keyof typeof breedPricing) => `From $${fmtPrice(breedPricing[slug].low)}`;
+
+const faqItems = [
+  {
+    question: 'What are the best small dog breeds for an HDB flat?',
+    answer:
+      'The consistently easy ones here are the Maltipoo, Cavapoo, Toy Poodle, Maltese and Bichon Frise. All are on, or accepted under, the HDB approved list, all carry a single coat that copes with the humidity, and all settle well in a flat as long as they are not left alone for a full working day.',
+  },
+  {
+    question: 'How small does a dog have to be for HDB?',
+    answer:
+      'HDB works from an approved list of 62 breeds rather than a number on the scale, and those breeds sit under roughly 10 kg and 40 cm at the shoulder. Small on its own is not enough: the breed itself has to be on the list.',
+  },
+  {
+    question: 'Is a Cavapoo or Maltipoo HDB approved?',
+    answer:
+      'Poodle crosses of approved small breeds, including the Cavapoo, Maltipoo, Cockapoo and Bichonpoo, are accepted in flats. Keep your licence and paperwork clear about the cross so there is nothing to argue about later.',
+  },
+  {
+    question: 'Which small dog breed barks least?',
+    answer:
+      'Cavapoos, Bichon Frises and Maltese are usually the quietest of the popular small breeds. Pomeranians, Chihuahuas and the terriers are the most likely to alert-bark at every footstep in the corridor, which matters far more in a flat than it does in a landed home.',
+  },
+  {
+    question: 'Are Pugs a bad idea in Singapore?',
+    answer:
+      'A flat-faced breed cools itself through an airway that has been shortened by generations of breeding, so 30 degrees and high humidity hit it harder than other dogs. Pugs do live here happily, but only with early-morning walks, a cool room, and an owner who knows what heat stress looks like.',
+  },
+  {
+    question: 'Do small dogs cope with the Singapore heat?',
+    answer:
+      'Most single-coated small breeds do, once walks move to before 8am and after 7.30pm and the flat has a genuinely cool spot to lie on. Double-coated breeds like the Pomeranian manage too, but the coat has to stay intact and brushed. Shaving it makes the heat worse, not better.',
+  },
+  {
+    question: 'How often do small dogs need grooming here?',
+    answer:
+      'Curly and long single coats need a full groom every six to eight weeks, plus brushing every day or two. Humidity turns loose hair into mats far faster than a drier climate does, and a matted coat traps heat against the skin.',
+  },
+  {
+    question: 'Can I keep two small dogs in an HDB flat?',
+    answer:
+      'No. HDB allows one approved dog per flat. Private housing allows up to three dogs, subject to AVS licensing.',
+  },
+  {
+    question: 'What happens if I keep a breed that is not approved?',
+    answer:
+      'Keeping a dog that is not on the approved list can lead to enforcement and a penalty of up to $4,000, plus having to rehome the dog. Check the list before you fall in love with a breed, not after.',
+  },
+  {
+    question: 'Is a small dog a good fit if I work full time?',
+    answer:
+      'Only with a plan. Small companion breeds were bred to be with people, and most struggle alone for a full working day. A midday break, a walker, or a second person at home is what makes it work.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/blog/small-dog-breeds-singapore/',
+    title,
+    description,
+    aboutName: 'Small dog breeds',
+    aboutAlternateName: 'small dog breeds Singapore',
+    datePublished,
+    dateModified: new Date().toISOString().split('T')[0],
+  }),
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout {title} {description} canonicalPath="/blog/small-dog-breeds-singapore">
+  <section class="bg-[var(--color-peach-100)] pb-10 pt-2">
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pt-5">
+      <Breadcrumb bare items={[{ label: 'Blog', href: '/blog/' }, { label: 'Small dog breeds', href: '/blog/small-dog-breeds-singapore/' }]} />
+      <div class="mx-auto mt-8 max-w-[75ch]">
+        <p class="text-xs font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">Blog · Choosing a breed</p>
+        <h1 class="mt-3 font-[family-name:var(--font-heading)] font-semibold leading-[1.08] text-[var(--color-cream-900)]" style="font-size: clamp(2.2rem, 4.5vw, 3.5rem);">
+          Small Dog Breeds That Thrive in Singapore
+        </h1>
+        <p class="mt-4 text-sm text-[var(--color-cream-600)]">
+          By Nelson &amp; Kim, Curious Tails · Published {datePublished} · Ranked on HDB approval, heat tolerance and grooming load, not popularity
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <ComparisonSplit
+    heading="Ten Small Breeds, Compared on What Actually Matters Here"
+    headingAccent="Compare"
+    subhead="HDB approved · heat tolerance rated · from $3,288, all-in. Sorted by the price we sell each breed at."
+    mode="table"
+    tableHeaders={['Breed', 'Adult weight', 'HDB', 'Heat', 'Grooming', 'Price']}
+    rows={[
+      { label: 'Maltipoo', values: ['2.5 to 6 kg', 'Yes, as a cross', 'Good', 'High', from('maltipoo')] },
+      { label: 'Cavapoo', values: ['5 to 9 kg', 'Yes, as a cross', 'Good', 'High', from('cavapoo')] },
+      { label: 'Toy Poodle', values: ['3 to 4 kg', 'Yes', 'Very good', 'High', from('toy-poodle')] },
+      { label: 'Bichon Frise', values: ['5 to 8 kg', 'Yes', 'Good', 'High', from('bichon-frise')] },
+      { label: 'Shih Tzu', values: ['4 to 7 kg', 'Yes', 'Fair', 'High', from('shih-tzu')] },
+      { label: 'Maltese', values: ['3 to 4 kg', 'Yes', 'Good', 'High', from('maltese')] },
+      { label: 'Chihuahua', values: ['1.5 to 3 kg', 'Yes', 'Very good', 'Low', from('chihuahua')] },
+      { label: 'Miniature Dachshund', values: ['4 to 5 kg', 'Yes', 'Good', 'Low', from('mini-dachshund')] },
+      { label: 'Pomeranian', values: ['2 to 3 kg', 'Yes', 'Fair', 'Medium', from('pomeranian')] },
+      { label: 'Miniature Schnauzer', values: ['5 to 8 kg', 'Yes', 'Good', 'Medium', from('miniature-schnauzer')] },
+    ]}
+  />
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+      Prices are the starting price for each breed at our shop, all-in. Every breed in the table is one of <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the puppies we have at the shop</a>, so the ratings below come from watching these dogs go home to real Singapore flats, not from a breed encyclopaedia.
+    </p>
+  </div>
+
+  <DefBox
+    term="What counts as a small dog in Singapore"
+    definition="A small dog breed here means an adult under roughly 10 kg and 40 cm at the shoulder. That is the practical size band HDB's list of 62 approved breeds sits in, which is why the list, and not the bathroom scale, is what decides whether you can keep a dog in a flat. Three things then decide whether the breed suits your home: HDB approval, how it handles 30 degrees and high humidity, and how much coat care it needs."
+    bridge="Below: the ten breeds that consistently do well here, the small breeds that struggle despite their size, what the heat changes day to day, and what a small dog really costs in Singapore."
+    citationLabel="Verify our licence on the AVS public registry"
+    citationHref={site.license.registryUrl}
+  >
+    <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The three fit tests</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Is the breed on the HDB approved list?',
+          'Can the coat and muzzle handle the heat?',
+          'Can you afford the grooming, every 6 to 8 weeks?',
+          'Will it be alone all day?',
+          'How much barking will the corridor forgive?',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </DefBox>
+
+  <CaptionedBlock heading="The Three Things That Decide Fit in Singapore" imageAlt="Small dog breeds resting in a Singapore HDB flat living room" imageSrc={smallBreedsLineup} imagePosition="right">
+    <p>Most small-dog lists you will find were written for a different climate and a different housing rulebook. They rank breeds by popularity. Here, the ranking that matters is suitability, and it comes down to three tests.</p>
+    <p><strong>HDB approval.</strong> Flats allow one dog, and it has to be one of the 62 approved breeds. Poodle crosses of approved breeds are accepted, which is why the Maltipoo and Cavapoo sit comfortably on the list. Keeping a breed that is not approved risks a penalty of up to $4,000 and, worse, having to give the dog up.</p>
+    <p><strong>Heat and humidity.</strong> A dog cools itself by panting, so the shape of its muzzle matters more here than almost anywhere else. Flat-faced breeds run hot. Heavy double coats trap warmth if they are neglected. Neither is a hard no, but both change your daily routine.</p>
+    <p><strong>Grooming load.</strong> Low-shedding coats are the reason poodle crosses are so popular in Singapore, and they are also the reason those owners are at the groomer every six to eight weeks. Humidity mats a neglected coat quickly, and a matted coat holds heat against the skin.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Maltipoo" imagePosition="none" variant="card">
+    <p>A Maltese and Toy Poodle cross, typically 2.5 to 6 kg fully grown, and the breed we send home to first-time owners more than any other. Soft-natured, quick to bond, and quiet enough for a corridor.</p>
+    <p><strong>Heat:</strong> good. Single coat, small body, no muzzle problems. <strong>Grooming:</strong> high, every six to eight weeks plus brushing every day or two. <strong>Suits:</strong> first-time owners, families with school-age children, anyone who wants low shedding. <strong>Not for:</strong> a household out of the flat twelve hours a day, or one that would rather not budget for grooming. Price starts at ${fmtPrice(breedPricing['maltipoo'].low)}. More detail on the <a href="/puppies/maltipoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Maltipoo</a> page.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Cavapoo" imagePosition="none" variant="card">
+    <p>Cavalier King Charles Spaniel crossed with a Poodle, 5 to 9 kg, and the calmest temperament on this list. The Cavalier side brings the settle-on-the-sofa gene; the Poodle side brings the coat.</p>
+    <p><strong>Heat:</strong> good, though the Cavalier influence means a slightly shorter muzzle in some pups, so watch midday walks. <strong>Grooming:</strong> high. <strong>Suits:</strong> families, quieter households, anyone bothered by barking. <strong>Not for:</strong> owners who want an independent dog, because Cavapoos want company and say so. Price starts at ${fmtPrice(breedPricing['cavapoo'].low)}. See the <a href="/puppies/cavapoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> page.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Toy Poodle" imagePosition="none" variant="card">
+    <p>Three to four kilos of pure problem-solver, and the best heat performer on the list thanks to a fine single coat and a proper muzzle. Also the smartest, which cuts both ways.</p>
+    <p><strong>Heat:</strong> very good. <strong>Grooming:</strong> high, and the curl needs real brushing, not a token pass. <strong>Suits:</strong> owners who enjoy training and want a dog that learns fast. <strong>Not for:</strong> anyone hoping a small dog means less mental work. A bored Toy Poodle invents jobs for itself. Price starts at ${fmtPrice(breedPricing['toy-poodle'].low)}. See the <a href="/puppies/toy-poodle/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Toy Poodle</a> page.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Maltese" imagePosition="none" variant="card">
+    <p>Three to four kilos, white silk coat, and one of the oldest companion breeds in existence. Devoted to one or two people in particular.</p>
+    <p><strong>Heat:</strong> good, but the long coat needs either regular brushing or a shorter puppy cut, which most Singapore owners choose. <strong>Grooming:</strong> high, and tear staining needs a daily wipe. <strong>Suits:</strong> quieter homes, retirees, couples. <strong>Not for:</strong> a busy household with toddlers, because a 3 kg dog is easy to hurt by accident. Price starts at ${fmtPrice(breedPricing['maltese'].low)}. See the <a href="/puppies/maltese/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Maltese</a> page.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Bichon Frise" imagePosition="none" variant="card">
+    <p>Five to eight kilos, cheerful to the point of comedy, and unusually tolerant of noise and handling. On the HDB list in its own right.</p>
+    <p><strong>Heat:</strong> good, with a curly coat that insulates against warmth as well as cold, provided it stays mat-free. <strong>Grooming:</strong> high, and the white coat shows every stain. <strong>Suits:</strong> families with young children, first-time owners. <strong>Not for:</strong> owners who travel often, since Bichons take separation badly. Price starts at ${fmtPrice(breedPricing['bichon-frise'].low)}. See the <a href="/puppies/bichon-frise/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Bichon Frise</a> page.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Shih Tzu" imagePosition="none" variant="card">
+    <p>Four to seven kilos, unbothered by most things, and happy to spend the afternoon on a cool floor tile. A genuinely easygoing flat dog.</p>
+    <p><strong>Heat:</strong> fair, and this is the honest caveat. The Shih Tzu has a shortened muzzle, so it pants less efficiently than a Poodle or Maltese. Walks belong in the early morning and after dark, never at noon. <strong>Grooming:</strong> high, with eyes and face needing daily attention. <strong>Suits:</strong> calm households, owners at home most of the day. <strong>Not for:</strong> anyone who wants a jogging companion. Price starts at ${fmtPrice(breedPricing['shih-tzu'].low)}. See the <a href="/puppies/shih-tzu/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Shih Tzu</a> page.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Miniature Dachshund" imagePosition="none" variant="card">
+    <p>Four to five kilos of scent hound in a very long body. Smooth-coated ones are the lowest-grooming dog on this list.</p>
+    <p><strong>Heat:</strong> good. <strong>Grooming:</strong> low for the smooth coat. <strong>Suits:</strong> owners who want personality without a grooming bill. <strong>Not for:</strong> homes full of stairs and high sofas, because that long spine needs protecting. Ramps and a no-jumping rule are not optional, they are the whole health plan. Price starts at ${fmtPrice(breedPricing['mini-dachshund'].low)}. See the <a href="/puppies/mini-dachshund/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Miniature Dachshund</a> page.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Pomeranian" imagePosition="none" variant="card">
+    <p>Two to three kilos with the confidence of a dog ten times the size. Striking, portable, and the most opinionated breed here.</p>
+    <p><strong>Heat:</strong> fair. The double coat is often misunderstood: it insulates in both directions, so brushing it out keeps a Pom cooler than shaving it, and a shaved Pom can grow back patchy. <strong>Grooming:</strong> medium, mostly brushing rather than clipping. <strong>Suits:</strong> owners who enjoy a big personality and will do the training. <strong>Not for:</strong> a corridor that will not forgive alert barking. Price starts at ${fmtPrice(breedPricing['pomeranian'].low)}. See the <a href="/puppies/pomeranian/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Pomeranian</a> page.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Miniature Schnauzer" imagePosition="none" variant="card">
+    <p>Five to eight kilos, wiry coat, and a dog that shows up for work every morning. Sturdier than the toy breeds and easy to live with.</p>
+    <p><strong>Heat:</strong> good, with a harsh coat that resists the worst of the humidity. <strong>Grooming:</strong> medium to high, with the beard needing a wipe after every meal. <strong>Suits:</strong> active owners, families who want a small dog that does not feel fragile. <strong>Not for:</strong> homes that need silence, since Schnauzers announce visitors. Price starts at ${fmtPrice(breedPricing['miniature-schnauzer'].low)}. See the <a href="/puppies/miniature-schnauzer/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Miniature Schnauzer</a> page.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Chihuahua" imagePosition="none" variant="card">
+    <p>The smallest breed on the list at 1.5 to 3 kg, and the easiest to groom by a wide margin if you choose the smooth coat.</p>
+    <p><strong>Heat:</strong> very good, better than almost any other small breed. <strong>Grooming:</strong> low. <strong>Suits:</strong> owners with limited space and limited grooming budget, and anyone who wants a dog that travels easily. <strong>Not for:</strong> young children, and not for owners who skip socialisation, because an unsocialised Chihuahua becomes a nervous, snappy adult. Price starts at ${fmtPrice(breedPricing['chihuahua'].low)}. See the <a href="/puppies/chihuahua/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Chihuahua</a> page.</p>
+  </CaptionedBlock>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <CaptionedBlock heading="Small Breeds That Struggle in Singapore" imagePosition="none">
+    <p>Not every small dog belongs on a Singapore list, and the honest version of this article has to say which ones. Three groups come up again and again.</p>
+    <ul class="mt-2 ml-5 list-disc space-y-2 text-[var(--color-cream-800)]">
+      <li><strong>Flat-faced breeds.</strong> The Pug, French Bulldog and Boston Terrier all cool themselves through an airway that has been shortened by breeding. They can live here well, and plenty do, but the owner has to run the routine around the heat rather than the other way round. If you cannot commit to walks before 8am and a cool room in the afternoon, choose a different breed.</li>
+      <li><strong>Small but not approved.</strong> The Corgi and the Beagle turn up on small-dog lists constantly. Neither is on the HDB approved list, so neither can live in a flat, whatever the scale says. If you are in private housing that changes, and you can keep up to three dogs subject to licensing.</li>
+      <li><strong>High-drive terriers in a quiet block.</strong> Working terriers are small, bright and loud. In a landed home with a garden that is a fine trade. In an HDB flat with a shared corridor and a neighbour on shift work, it can become the reason a dog gets rehomed.</li>
+    </ul>
+    <p class="mt-3">None of this is a moral judgement on a breed. It is a fit question, and getting it wrong is expensive for the family and much worse for the dog.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Heat and Humidity: What Changes Day to Day" imageAlt="Small dog on an early morning walk in Singapore before the heat" imageSrc={smallBreedsWalk} imagePosition="left">
+    <p>Owning a small dog here is mostly the same as owning one anywhere, with four local adjustments that quickly become habit.</p>
+    <ul class="mt-2 ml-5 list-disc space-y-2 text-[var(--color-cream-800)]">
+      <li><strong>Walk timing.</strong> Before 8am and after 7.30pm. Midday walks are for the void deck and the shade, if at all.</li>
+      <li><strong>The pavement test.</strong> Press the back of your hand to the ground for five seconds. If you cannot hold it there, neither can your dog's paws.</li>
+      <li><strong>A cool spot indoors.</strong> A tiled floor away from the sun does most of the work. Aircon helps, a fan alone does less for a dog than it does for you.</li>
+      <li><strong>Know the warning signs.</strong> Frantic panting, thick drool, a dark red tongue, wobbling or refusing to walk. Get the dog cool and to a vet, in that order.</li>
+    </ul>
+    <p class="mt-3">If you are still deciding between two or three breeds, <a href="/first-time-owners/breed-selector/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">work through the breed selector</a>. It asks about your flat, your hours and your grooming budget, which is where most of these decisions are actually settled.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Grooming Load, Honestly" imageAlt="Small dog being groomed and brushed in humid Singapore weather" imageSrc={smallBreedsGrooming} imagePosition="right" variant="mid">
+    <p>The low-shedding coats that make poodle crosses so popular in Singapore are the same coats that need the most work. There is no version of a Maltipoo or a Bichon that does not visit a groomer.</p>
+    <p>A realistic rhythm looks like this: a full groom every six to eight weeks, brushing every day or two between visits, ears checked weekly because humidity encourages infections, and nails trimmed monthly if your walks are on grass rather than concrete. Skip the brushing for a fortnight in this climate and you will pay for a shave-down instead of a trim.</p>
+    <p>Smooth-coated breeds like the Chihuahua and the smooth Miniature Dachshund escape most of this. That is a genuine saving, and it is a fair reason to choose one over a curly-coated breed if the budget is tight.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="The HDB Rules That Decide Your Shortlist" imagePosition="none" variant="card">
+    <p>Before you get attached to a breed, check it against the rules. They are short.</p>
+    <ul class="mt-2 ml-5 list-disc space-y-2 text-[var(--color-cream-800)]">
+      <li>One approved dog per HDB flat. Private housing allows up to three, subject to AVS licensing.</li>
+      <li>The approved list runs to 62 small breeds and crosses. Poodle crosses of approved breeds, such as the Cavapoo and Maltipoo, are accepted.</li>
+      <li>Keeping a breed that is not approved can bring enforcement and a penalty of up to $4,000.</li>
+      <li>Every dog needs a licence, and first-time owners are encouraged to take the pet ownership course.</li>
+    </ul>
+    <p class="mt-3">The current list and rules live on the <a href="https://www.hdb.gov.sg" rel="nofollow noopener" target="_blank" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB site</a>, with licensing under <a href="https://www.nparks.gov.sg/avs" rel="nofollow noopener" target="_blank" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS</a>. For the version written for owners rather than for policy, we have <a href="/blog/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">more Singapore puppy guides</a> covering flats, first nights and the costs nobody warns you about.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="What a Small Dog Actually Costs Here" imagePosition="none">
+    <p>Two numbers matter: what the puppy costs once, and what the dog costs every month afterwards. Owners usually research the first and get surprised by the second.</p>
+    <p>Our small breeds start from $3,288, all-in, with the exact band set by breed. On this list that runs from ${fmtPrice(breedPricing['maltipoo'].low)} for a Maltipoo or Cavapoo up to ${fmtPrice(breedPricing['pomeranian'].low)} for a Pomeranian or Miniature Schnauzer. All-in means vaccinations, microchip, licence transfer and the starter kit are already in the price rather than added at the counter.</p>
+    <p>After that, the recurring costs are food, grooming every six to eight weeks, an annual vet check with vaccinations, the dog licence, and whatever you decide about insurance. For a curly-coated small breed, grooming is usually the largest line after food. For a smooth-coated one, it barely registers. That single difference is worth thinking about before you choose.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="How to Pick Between Two You Like" imagePosition="none" variant="card">
+    <p>Most people arrive with a shortlist of two or three and stall. Four questions usually break the tie.</p>
+    <ol class="mt-2 ml-5 list-decimal space-y-2 text-[var(--color-cream-800)]">
+      <li><strong>How many hours will the dog be alone?</strong> Over eight, rule out the Cavapoo and Bichon first.</li>
+      <li><strong>How forgiving is your corridor?</strong> Thin walls and shift-work neighbours point away from the Pomeranian and the terriers.</li>
+      <li><strong>What is your grooming budget?</strong> If it is tight, a smooth coat is the honest answer, not a curly one you plan to brush yourself.</li>
+      <li><strong>Which walk times will you actually keep?</strong> If mornings are impossible, avoid the shorter-muzzled breeds entirely.</li>
+    </ol>
+    <p class="mt-3">Answer those honestly and the list usually shrinks to one. If it does not, come and meet both. Ten minutes on the floor with a puppy settles more of these decisions than another week of reading.</p>
+  </CaptionedBlock>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Small Dog Breeds in Singapore: Common Questions" items={faqItems} />
+  </div>
+
+  <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
+    <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB-approved breeds, explained</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Puppy prices by breed</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">The 30-item starter kit</a></li>
+    </ul>
+  </aside>
+
+  <FinalCta
+    breed="Small breed"
+    heading="Come and Meet the Shortlist"
+    body="Tell us your flat, your hours and your grooming budget, and we will tell you honestly which of these breeds fits and which one does not. Call or message us at 8220 6408."
+    reserveMessage="Hi! I'm choosing between a few small breeds. Here's my situation:"
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

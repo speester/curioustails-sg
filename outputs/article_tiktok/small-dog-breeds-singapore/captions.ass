@@ -1,0 +1,59 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Pop,Arial Black,108,&H00FFFFFF,&H00FFFFFF,&H00202020,&H00000000,-1,0,0,0,100,100,0,0,1,7,3,2,60,60,420,1
+Style: Key,Arial Black,108,&H0053C9F4&,&H0053C9F4&,&H00202020,&H00000000,-1,0,0,0,100,100,0,0,1,7,3,2,60,60,420,1
+Style: Head,Arial Black,86,&H00FFFFFF,&H00FFFFFF,&H00202020,&H00000000,-1,0,0,0,100,100,0,0,1,8,3,8,80,80,300,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.15,0:00:02.60,Head,,0,0,0,,Small but not allowed
+Dialogue: 0,0:00:00.00,0:00:00.76,Key,,0,0,0,,Corgis are
+Dialogue: 0,0:00:00.76,0:00:01.52,Pop,,0,0,0,,on every
+Dialogue: 0,0:00:01.52,0:00:02.27,Pop,,0,0,0,,small dog
+Dialogue: 0,0:00:02.27,0:00:03.03,Pop,,0,0,0,,list in
+Dialogue: 0,0:00:03.03,0:00:03.41,Pop,,0,0,0,,Singapore.
+Dialogue: 0,0:00:03.59,0:00:04.29,Key,,0,0,0,,You cannot
+Dialogue: 0,0:00:04.29,0:00:04.99,Pop,,0,0,0,,keep one
+Dialogue: 0,0:00:04.99,0:00:05.69,Pop,,0,0,0,,in a
+Dialogue: 0,0:00:05.69,0:00:06.04,Pop,,0,0,0,,flat.
+Dialogue: 0,0:00:06.22,0:00:07.01,Pop,,0,0,0,,Size is
+Dialogue: 0,0:00:07.01,0:00:07.81,Key,,0,0,0,,not the
+Dialogue: 0,0:00:07.81,0:00:08.60,Pop,,0,0,0,,test here.
+Dialogue: 0,0:00:08.78,0:00:09.53,Pop,,0,0,0,,H D
+Dialogue: 0,0:00:09.53,0:00:10.29,Pop,,0,0,0,,B works
+Dialogue: 0,0:00:10.29,0:00:11.04,Pop,,0,0,0,,off a
+Dialogue: 0,0:00:11.04,0:00:11.80,Pop,,0,0,0,,list of
+Dialogue: 0,0:00:11.80,0:00:12.55,Key,,0,0,0,,sixty-two approved
+Dialogue: 0,0:00:12.55,0:00:12.93,Pop,,0,0,0,,breeds.
+Dialogue: 0,0:00:13.11,0:00:14.06,Pop,,0,0,0,,Then two
+Dialogue: 0,0:00:14.06,0:00:15.00,Pop,,0,0,0,,things decide
+Dialogue: 0,0:00:15.00,0:00:15.95,Pop,,0,0,0,,it. The
+Dialogue: 0,0:00:15.95,0:00:16.89,Key,,0,0,0,,heat, and
+Dialogue: 0,0:00:16.89,0:00:17.84,Pop,,0,0,0,,the coat.
+Dialogue: 0,0:00:18.02,0:00:18.94,Pop,,0,0,0,,Flat-faced breeds
+Dialogue: 0,0:00:18.94,0:00:19.86,Pop,,0,0,0,,cool through
+Dialogue: 0,0:00:19.86,0:00:20.78,Pop,,0,0,0,,a shortened
+Dialogue: 0,0:00:20.78,0:00:21.24,Key,,0,0,0,,airway.
+Dialogue: 0,0:00:21.42,0:00:22.12,Pop,,0,0,0,,Curly coats
+Dialogue: 0,0:00:22.12,0:00:22.82,Pop,,0,0,0,,need a
+Dialogue: 0,0:00:22.82,0:00:23.52,Pop,,0,0,0,,groom every
+Dialogue: 0,0:00:23.52,0:00:24.22,Pop,,0,0,0,,six to
+Dialogue: 0,0:00:24.22,0:00:24.92,Key,,0,0,0,,eight weeks.
+Dialogue: 0,0:00:25.10,0:00:26.01,Pop,,0,0,0,,The easy
+Dialogue: 0,0:00:26.01,0:00:26.91,Pop,,0,0,0,,ones are
+Dialogue: 0,0:00:26.91,0:00:27.82,Key,,0,0,0,,the Maltipoo,
+Dialogue: 0,0:00:27.82,0:00:28.73,Pop,,0,0,0,,Cavapoo and
+Dialogue: 0,0:00:28.73,0:00:29.18,Pop,,0,0,0,,Bichon.
+Dialogue: 0,0:00:29.36,0:00:29.94,Pop,,0,0,0,,Check the
+Dialogue: 0,0:00:29.94,0:00:30.51,Key,,0,0,0,,list before
+Dialogue: 0,0:00:30.51,0:00:31.09,Pop,,0,0,0,,you fall
+Dialogue: 0,0:00:31.09,0:00:31.67,Pop,,0,0,0,,in love
+Dialogue: 0,0:00:31.67,0:00:32.24,Pop,,0,0,0,,with a
+Dialogue: 0,0:00:32.24,0:00:32.53,Pop,,0,0,0,,breed.

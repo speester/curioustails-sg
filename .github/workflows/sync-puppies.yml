@@ -1,0 +1,67 @@
+# Daily live-inventory sync.
+#
+# The site is static: breed pages and /available-puppies/ are baked from
+# src/data/available-puppies.json at build time, so a change in the owner's
+# SpreadSimple sheet only reaches the site once this job re-runs the sync and
+# commits the result. Cloudflare Pages is connected to this repo, so the commit
+# pushed here is what triggers the deploy.
+name: Sync puppy inventory
+
+on:
+  schedule:
+    # 00:30 UTC = 08:30 Singapore, before the shop opens.
+    - cron: '30 0 * * *'
+  workflow_dispatch:
+    inputs:
+      min_in_stock_breeds:
+        description: 'Abort if fewer than N breeds come back in stock (0 disables the guard)'
+        required: false
+        default: '1'
+
+concurrency:
+  group: sync-puppies
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Sync inventory from the SpreadSimple feed
+        run: npm run sync:puppies
+
+      # Guards against a half-answered feed silently wiping the site's stock:
+      # the sync is only committed if it is fresh AND still has real inventory.
+      - name: Verify the synced feed
+        env:
+          FEED_MAX_AGE_DAYS: '1'
+          MIN_IN_STOCK_BREEDS: ${{ github.event.inputs.min_in_stock_breeds || '1' }}
+        run: npm run feed:check
+
+      - name: Build (catches a feed change that breaks the site)
+        run: npm run build
+
+      - name: Commit and push if the inventory changed
+        run: |
+          if git diff --quiet -- src/data src/assets/live; then
+            echo "inventory unchanged — nothing to deploy"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/available-puppies.json src/data/.puppy-photo-verdicts.json src/assets/live
+          # No [skip ci] marker: Cloudflare Pages honours it, and this commit is
+          # precisely the one that must trigger a deploy.
+          git commit -m "chore(listings): sync live puppy inventory"
+          git push

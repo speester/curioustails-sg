@@ -6,6 +6,9 @@
 import { readFile } from 'node:fs/promises';
 
 const MAX_AGE_DAYS = Number(process.env.FEED_MAX_AGE_DAYS ?? 4);
+// Stock floor for automated syncs: a feed that answers but returns nothing in
+// stock would wipe every listing, so CI refuses to commit it. Off (0) locally.
+const MIN_IN_STOCK_BREEDS = Number(process.env.MIN_IN_STOCK_BREEDS ?? 0);
 const FEED = new URL('../src/data/available-puppies.json', import.meta.url);
 
 const { syncedAt, breeds } = JSON.parse(await readFile(FEED, 'utf8'));
@@ -15,6 +18,17 @@ const inStock = Object.values(breeds).filter((b) => b.available.length > 0).leng
 console.log(
   `feed synced ${ageDays.toFixed(1)} days ago · ${inStock}/${Object.keys(breeds).length} breeds in stock`,
 );
+
+if (inStock < MIN_IN_STOCK_BREEDS) {
+  console.error(
+    `
+EMPTY FEED: only ${inStock} breeds in stock (expected at least ${MIN_IN_STOCK_BREEDS}).
+` +
+      `Refusing to publish — check the SpreadSimple sheet before re-running the sync.
+`,
+  );
+  process.exit(1);
+}
 
 if (ageDays > MAX_AGE_DAYS) {
   console.error(

@@ -6,6 +6,7 @@
 // - Available = top 33 feed rows (page 1 of the spread site), minus any pup
 //   whose Image1 already carries the "found a loving home" sold overlay.
 // - Recently placed per breed = newest historical pups with a clean photo
+//   (collected for every breed, whether or not it currently has stock)
 //   (Image2 preferred, else Image1 if it passes the overlay check), max 4.
 // - Photos are downloaded, resized to 800px WebP, and served natively by
 //   Astro; files no longer referenced get pruned.
@@ -329,12 +330,13 @@ for (const p of pups.slice(0, AVAILABLE_ROWS)) {
 }
 
 // Recently placed: walk history (below the fold), newest first, per breed,
-// until MAX_PLACED pups with a clean photo. Image2 preferred (Image1 is
+// until MAX_PLACED pups with a clean photo. Collected for EVERY breed, in
+// stock or not — breed pages show available + recently placed side by side. Image2 preferred (Image1 is
 // usually the overlay); Image1 only if it passes the overlay check.
 for (const p of pups.slice(AVAILABLE_ROWS)) {
   if (!p.slug) continue;
   const bucket = ensure(p.slug);
-  if (bucket.available.length > 0 || bucket.recentlyPlaced.length >= MAX_PLACED) continue;
+  if (bucket.recentlyPlaced.length >= MAX_PLACED) continue;
   if (p.images.length === 0) continue;
   try {
     // Prefer any non-first photo (Image1 usually carries the sold overlay),

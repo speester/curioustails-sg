@@ -1,0 +1,129 @@
+---
+// Site-wide live inventory: every puppy currently in stock, grouped by breed,
+// from src/data/available-puppies.json (`npm run sync:puppies`).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import ListingGrid from '../components/ListingGrid.astro';
+import AvailabilityCta from '../components/AvailabilityCta.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Schema from '../components/Schema.astro';
+import data from '../data/available-puppies.json';
+import { breedName } from '../data/breed-names';
+import { pupCard, type BreedBucket } from '../lib/puppy-cards';
+import { whatsappLink } from '../data/site';
+import { webPageSchema, breadcrumbSchema, localBusinessSchema } from '../lib/schema';
+
+const breeds = data.breeds as Record<string, BreedBucket>;
+const inStock = Object.entries(breeds)
+  .filter(([, b]) => b.available.length > 0)
+  .sort(([a], [b]) => a.localeCompare(b));
+
+const totalPups = inStock.reduce((n, [, b]) => n + b.available.length, 0);
+const breedCount = inStock.length;
+const syncedAt = new Date(data.syncedAt).toLocaleDateString('en-SG', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'Asia/Singapore',
+});
+
+const title = 'Available Puppies in Singapore | Curious Tails';
+const description = `Every puppy available at Curious Tails right now — ${totalPups} puppies across ${breedCount} breeds, with prices, gender and age. AVS licensed, Balestier. WhatsApp us for photos and video.`;
+
+const schemas = [
+  webPageSchema({
+    path: '/available-puppies/',
+    title,
+    description,
+    aboutName: 'Available puppies for sale in Singapore',
+    type: 'CollectionPage',
+    dateModified: data.syncedAt,
+  }),
+  breadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Available Puppies', url: '/available-puppies/' },
+  ]),
+  localBusinessSchema(),
+];
+---
+
+<BaseLayout title={title} description={description} canonicalPath="/available-puppies/">
+  <Breadcrumb items={[{ label: 'Available Puppies', href: '/available-puppies/' }]} />
+
+  <section class="mx-auto max-w-[1400px] px-5 sm:px-8 pt-4 pb-2">
+    <p class="text-xs font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">
+      Live from our shop list &middot; updated {syncedAt}
+    </p>
+    <h1 class="mt-2 font-semibold text-[var(--color-cream-900)]" style="font-size: clamp(2rem, 4.5vw, 3.25rem);">
+      Available <span class="text-[var(--color-coral-500)]">Puppies</span> in Singapore
+    </h1>
+    <p class="mt-4 max-w-[65ch] text-lg leading-relaxed text-[var(--color-cream-700)]">
+      {totalPups} puppies across {breedCount} breeds are with us right now at our AVS licensed
+      Balestier shop, each with its all-in price, gender and age. Litters move fast — tap any puppy to
+      WhatsApp us for its latest photos, video and health records, or to book a viewing.
+    </p>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a
+        href={whatsappLink("Hi! I'd like to see what puppies you have available right now.")}
+        class="clay-btn clay-press inline-flex items-center justify-center gap-2 bg-[#25D366] px-6 py-3 text-sm font-bold text-white transition-transform hover:bg-[#1ebe57]"
+      >
+        WhatsApp for today's list
+      </a>
+      <a
+        href="/puppies/"
+        class="clay-btn-outline inline-flex items-center justify-center gap-2 bg-white px-6 py-3 text-sm font-bold text-[var(--color-coral-600)]"
+      >
+        Compare all breeds
+      </a>
+    </div>
+    {breedCount > 1 && (
+      <ul class="mt-7 flex flex-wrap gap-2" aria-label="Jump to a breed">
+        {inStock.map(([slug, b]) => (
+          <li>
+            <a
+              href={`#${slug}`}
+              class="inline-flex items-center gap-1.5 rounded-full border-2 border-[var(--color-border)] bg-[var(--color-surface-card)] px-3.5 py-1.5 text-sm font-semibold text-[var(--color-cream-700)] hover:border-[var(--color-coral-400)] hover:text-[var(--color-coral-600)]"
+            >
+              {breedName(slug)}
+              <span class="text-xs font-bold text-[var(--color-cream-500)]">{b.available.length}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+
+  {inStock.map(([slug, bucket]) => (
+    <div id={slug} class="scroll-mt-28">
+      <ListingGrid
+        heading={`${breedName(slug)} Puppies Available Now`}
+        headingAccent={breedName(slug)}
+        subhead={`${bucket.available.length} ${breedName(slug)} ${bucket.available.length === 1 ? 'puppy' : 'puppies'} with us today. Prices are all-in — vaccinations, microchip, licence, starter kit and free delivery included.`}
+        items={bucket.available.map((p) => pupCard(p, breedName(slug), 'available', { breedLabel: true }))}
+        footerCtaLabel={`Read the ${breedName(slug)} breed guide`}
+        footerCtaHref={`/puppies/${slug}/`}
+      />
+    </div>
+  ))}
+
+  {inStock.length === 0 && <AvailabilityCta breedName="Puppy" standalone />}
+
+  <section aria-label="Not seeing your breed" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="max-w-[70ch] text-base leading-relaxed text-[var(--color-cream-700)]">
+      Not seeing the breed you're after? This page only shows what's physically with us today —
+      WhatsApp us the breed you want and we'll tell you honestly when the next litter is due, or which
+      available breed actually suits your home. Start with
+      <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]"> our breed comparison</a>
+      or <a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what's included in the price</a>.
+    </p>
+  </section>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Come Meet Them at Balestier"
+    body="Can't make the trip? WhatsApp us and we'll send current photos, video and prices for any puppy on this page, with free home delivery across Singapore."
+    reserveMessage="Hi! I'd like to reserve one of the puppies on your available puppies page."
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

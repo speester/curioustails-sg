@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-08-20T13:25:20.523Z",
+  "syncedAt": "2026-08-21T09:31:38.609Z",
   "breeds": {
     "bichon-frise": {
       "available": [
@@ -16,7 +16,56 @@
           "sizeNote": null
         }
       ],
-      "recentlyPlaced": []
+      "recentlyPlaced": [
+        {
+          "id": 2251,
+          "name": "Franky",
+          "color": "White",
+          "gender": "Male",
+          "age": "4 months",
+          "price": 2488,
+          "image": "2251-2-f8d0e5e2.webp",
+          "location": "Balestier Area",
+          "origin": "Australia",
+          "sizeNote": null
+        },
+        {
+          "id": 2252,
+          "name": "Sanji",
+          "color": "White",
+          "gender": "Male",
+          "age": "3 months",
+          "price": 3888,
+          "image": "2252-2-b26553a2.webp",
+          "location": "Balestier Area",
+          "origin": "Australia",
+          "sizeNote": null
+        },
+        {
+          "id": 2052,
+          "name": "HuatPaw",
+          "color": "White",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 4888,
+          "image": "2052-2-34662f27.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null
+        },
+        {
+          "id": 2102,
+          "name": null,
+          "color": "Cream",
+          "gender": "Male",
+          "age": "3 months",
+          "price": 4288,
+          "image": "2102-2-b0908c76.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null
+        }
+      ]
     },
     "bichonpoo": {
       "available": [],
@@ -115,19 +164,80 @@
     "cavachon": {
       "available": [
         {
+          "id": 2575,
+          "name": "Yoru",
+          "color": "Cream",
+          "gender": "Male",
+          "age": "3 months",
+          "price": 3888,
+          "image": "2575-1-e65f9238.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null
+        },
+        {
+          "id": 2609,
+          "name": "Sora",
+          "color": "Apricot",
+          "gender": "Male",
+          "age": "3 months",
+          "price": 5988,
+          "image": "2609-1-ecb06234.webp",
+          "location": "Serangoon",
+          "origin": "Australia",
+          "sizeNote": null
+        }
+      ],
+      "recentlyPlaced": [
+        {
+          "id": 2564,
+          "name": "Totoro",
+          "color": "Cream",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 5988,
+          "image": "2564-1-42dca1ed.webp",
+          "location": "Serangoon",
+          "origin": "Australia",
+          "sizeNote": null
+        },
+        {
           "id": 2573,
           "name": "Ume",
           "color": "Cream",
           "gender": "Male",
           "age": "3 months",
           "price": 3688,
-          "image": "2573-1-9246da19.webp",
+          "image": "2573-2-9ec49ad0.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null
+        },
+        {
+          "id": 2574,
+          "name": "Ozzy",
+          "color": "Cream",
+          "gender": "Male",
+          "age": "3 months",
+          "price": 3688,
+          "image": "2574-2-f99b87f7.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null
+        },
+        {
+          "id": 1863,
+          "name": null,
+          "color": "Apricot",
+          "gender": "Male",
+          "age": "3 months",
+          "price": 3888,
+          "image": "1863-2-81cbf30e.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null
         }
-      ],
-      "recentlyPlaced": []
+      ]
     },
     "cavalier-king-charles-spaniel": {
       "available": [],
@@ -190,22 +300,10 @@
           "color": "Black",
           "gender": "Female",
           "age": "2 months",
-          "price": 2288,
+          "price": 2488,
           "image": "2621-1-43b032dc.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
-          "sizeNote": null
-        },
-        {
-          "id": 2543,
-          "name": "Violet",
-          "color": "Apricot White",
-          "gender": "Female",
-          "age": "4 months",
-          "price": 3888,
-          "image": "2543-1-75533545.webp",
-          "location": "Choa Chu Kang",
-          "origin": "Australia",
           "sizeNote": null
         },
         {
@@ -239,7 +337,7 @@
           "gender": "Male",
           "age": "3 months",
           "price": 3288,
-          "image": "2589-1-89d21ac4.webp",
+          "image": "2589-1-589599af.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null
@@ -252,18 +350,6 @@
           "age": "2 months",
           "price": 3688,
           "image": "2606-1-97f453b7.webp",
-          "location": "Choa Chu Kang",
-          "origin": "Local",
-          "sizeNote": null
-        },
-        {
-          "id": 2607,
-          "name": "Yuki",
-          "color": "Apricot White",
-          "gender": "Male",
-          "age": "2 months",
-          "price": 3888,
-          "image": "2607-1-3cce6dff.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null
@@ -305,7 +391,56 @@
           "sizeNote": null
         }
       ],
-      "recentlyPlaced": []
+      "recentlyPlaced": [
+        {
+          "id": 2560,
+          "name": "Kagome",
+          "color": "Apricot",
+          "gender": "Female",
+          "age": "5 months",
+          "price": 4500,
+          "image": "2560-1-1fbec0ae.webp",
+          "location": "Serangoon",
+          "origin": "Australia",
+          "sizeNote": null
+        },
+        {
+          "id": 2561,
+          "name": "Eren",
+          "color": "Blenheim",
+          "gender": "Male",
+          "age": "3 months",
+          "price": 5988,
+          "image": "2561-1-7722025e.webp",
+          "location": "Serangoon",
+          "origin": "Australia",
+          "sizeNote": null
+        },
+        {
+          "id": 2565,
+          "name": "Subaru",
+          "color": "Apricot",
+          "gender": "Female",
+          "age": "5 months",
+          "price": 4500,
+          "image": "2565-1-7c5f4d27.webp",
+          "location": "Serangoon",
+          "origin": "Australia",
+          "sizeNote": null
+        },
+        {
+          "id": 2468,
+          "name": "Peanut",
+          "color": "Apricot",
+          "gender": "Male",
+          "age": "14 months",
+          "price": 1688,
+          "image": "2468-2-a3d45e52.webp",
+          "location": "Choa Chu Kang",
+          "origin": "Local",
+          "sizeNote": null
+        }
+      ]
     },
     "chihuahua": {
       "available": [],
@@ -343,7 +478,44 @@
           "sizeNote": null
         }
       ],
-      "recentlyPlaced": []
+      "recentlyPlaced": [
+        {
+          "id": 2466,
+          "name": "Hill",
+          "color": "Blenheim",
+          "gender": "Female",
+          "age": "7 months",
+          "price": 3988,
+          "image": "2466-1-33ffe48e.webp",
+          "location": "Serangoon",
+          "origin": "UK",
+          "sizeNote": null
+        },
+        {
+          "id": 2467,
+          "name": "Billy",
+          "color": "Blenheim",
+          "gender": "Male",
+          "age": "7 months",
+          "price": 3988,
+          "image": "2467-1-7e98838d.webp",
+          "location": "Serangoon",
+          "origin": "UK",
+          "sizeNote": null
+        },
+        {
+          "id": 2157,
+          "name": "Zayn",
+          "color": "Apricot",
+          "gender": "Male",
+          "age": "3 months",
+          "price": 3288,
+          "image": "2157-2-f4cb855c.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null
+        }
+      ]
     },
     "cocker-spaniel": {
       "available": [],
@@ -442,11 +614,59 @@
           "sizeNote": null
         }
       ],
-      "recentlyPlaced": []
+      "recentlyPlaced": [
+        {
+          "id": 2531,
+          "name": "Rei",
+          "color": "Cream",
+          "gender": "Male",
+          "age": "6 months",
+          "price": 3800,
+          "image": "2531-1-d53ce3ed.webp",
+          "location": "Eng Kong",
+          "origin": "Local",
+          "sizeNote": null
+        },
+        {
+          "id": 2532,
+          "name": "Kaito",
+          "color": "Cream",
+          "gender": "Male",
+          "age": "6 months",
+          "price": 3800,
+          "image": "2532-1-63aabc54.webp",
+          "location": "Eng Kong",
+          "origin": "Local",
+          "sizeNote": null
+        },
+        {
+          "id": 2535,
+          "name": "Kuro",
+          "color": "Cream",
+          "gender": "Female",
+          "age": "5 months",
+          "price": 3500,
+          "image": "2535-1-3490a8ba.webp",
+          "location": "Eng Kong",
+          "origin": "Local",
+          "sizeNote": null
+        },
+        {
+          "id": 1931,
+          "name": null,
+          "color": "Golden",
+          "gender": "Male",
+          "age": "3 months",
+          "price": 4500,
+          "image": "1931-2-b3c63bfa.webp",
+          "location": "Choa Chu Kang Area",
+          "origin": "Local",
+          "sizeNote": null
+        }
+      ]
     },
     "goldendoodle": {
-      "available": [],
-      "recentlyPlaced": [
+      "available": [
         {
           "id": 2618,
           "name": "Ten",
@@ -458,7 +678,9 @@
           "location": "Serangoon",
           "origin": "Australia",
           "sizeNote": null
-        },
+        }
+      ],
+      "recentlyPlaced": [
         {
           "id": 2603,
           "name": "Rufus",
@@ -493,6 +715,18 @@
           "image": "2585-1-c1460afd.webp",
           "location": "Serangoon Garden",
           "origin": "Local",
+          "sizeNote": null
+        },
+        {
+          "id": 2249,
+          "name": "Robin",
+          "color": "Golden",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 4488,
+          "image": "2249-2-bb0b3784.webp",
+          "location": "Balestier Area",
+          "origin": "Australia",
           "sizeNote": null
         }
       ]
@@ -646,7 +880,56 @@
           "sizeNote": null
         }
       ],
-      "recentlyPlaced": []
+      "recentlyPlaced": [
+        {
+          "id": 2598,
+          "name": "Rica",
+          "color": "Apricot",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 5888,
+          "image": "2598-1-3af5b6be.webp",
+          "location": "MacPherson",
+          "origin": "Australia",
+          "sizeNote": null
+        },
+        {
+          "id": 2599,
+          "name": "Zeli",
+          "color": "Apricot",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 5888,
+          "image": "2599-1-7d7db379.webp",
+          "location": "MacPherson",
+          "origin": "Australia",
+          "sizeNote": null
+        },
+        {
+          "id": 2600,
+          "name": "Anna",
+          "color": "Apricot",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 5888,
+          "image": "2600-1-94fd4910.webp",
+          "location": "MacPherson",
+          "origin": "Australia",
+          "sizeNote": null
+        },
+        {
+          "id": 2580,
+          "name": "Nancy",
+          "color": "Cream",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 3688,
+          "image": "2580-2-251935d1.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null
+        }
+      ]
     },
     "mini-dachshund": {
       "available": [
@@ -668,7 +951,7 @@
           "color": "Golden",
           "gender": "Male",
           "age": "2 months",
-          "price": 4888,
+          "price": 4688,
           "image": "2608-1-aadfa5b1.webp",
           "location": "Balestier Area",
           "origin": "Local",
@@ -687,7 +970,56 @@
           "sizeNote": null
         }
       ],
-      "recentlyPlaced": []
+      "recentlyPlaced": [
+        {
+          "id": 2496,
+          "name": "Pencilgon",
+          "color": "Black Tan",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 4988,
+          "image": "2496-1-10d6185f.webp",
+          "location": "Serangoon",
+          "origin": "Australia",
+          "sizeNote": null
+        },
+        {
+          "id": 2449,
+          "name": "Suzuya",
+          "color": "Tri Color",
+          "gender": "Female",
+          "age": "7 months",
+          "price": 4988,
+          "image": "2449-1-3ccb130c.webp",
+          "location": "Serangoon",
+          "origin": "Australia",
+          "sizeNote": null
+        },
+        {
+          "id": 2591,
+          "name": "Tiny",
+          "color": "Black Tan",
+          "gender": "Female",
+          "age": "2 months",
+          "price": 4488,
+          "image": "2591-2-af0d69f4.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null
+        },
+        {
+          "id": 2601,
+          "name": null,
+          "color": "Dapple",
+          "gender": "Female",
+          "age": "2 months",
+          "price": 4488,
+          "image": "2601-2-7900cc41.webp",
+          "location": "Choa Chu Kang",
+          "origin": "Local",
+          "sizeNote": null
+        }
+      ]
     },
     "miniature-schnauzer": {
       "available": [],

@@ -1,0 +1,54 @@
+---
+// Conversion block shown whenever a breed has no live stock: sits under the
+// "Recently placed" grid (or stands alone when there are no cards at all).
+import { site, whatsappLink } from '../data/site';
+
+interface Props {
+  breedName: string;
+  standalone?: boolean; // render its own <section> spacing (no grid above it)
+}
+const { breedName, standalone = false } = Astro.props;
+const message = `Hi! I'm looking for a ${breedName} puppy — could you let me know the latest availability, with photos and prices for the next litter?`;
+---
+
+<div
+  class:list={[
+    'mx-auto max-w-[1400px] px-5 sm:px-8',
+    standalone ? 'py-16' : 'pb-16 -mt-4',
+  ]}
+>
+  <div class="clay bg-[var(--color-peach-100)] px-6 py-8 sm:px-9 sm:py-10">
+    <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+      <div class="max-w-[60ch]">
+        <p class="text-xs font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">
+          No {breedName} puppies in stock today
+        </p>
+        <h3 class="mt-2 text-2xl font-[family-name:var(--font-heading)] font-semibold text-[var(--color-cream-900)]">
+          Contact us for the latest {breedName} availability
+        </h3>
+        <p class="mt-2 text-base leading-relaxed text-[var(--color-cream-700)]">
+          {breedName} litters at our Balestier shop are small and usually reserved within days — often
+          before this page catches up. Tell us what you're after and we'll WhatsApp you current photos,
+          prices and timing for the next {breedName} puppies, plus similar breeds available now.
+        </p>
+      </div>
+      <div class="flex shrink-0 flex-col gap-3 sm:flex-row lg:flex-col">
+        <a
+          href={whatsappLink(message)}
+          class="clay-btn clay-press inline-flex items-center justify-center gap-2 bg-[#25D366] px-6 py-3 text-sm font-bold text-white transition-transform hover:bg-[#1ebe57]"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.13c-.25.7-1.44 1.33-1.99 1.37-.53.05-.53.42-3.34-.7-2.81-1.12-4.55-3.98-4.69-4.16-.14-.19-1.12-1.49-1.12-2.84 0-1.35.71-2.01.96-2.29.25-.28.55-.35.73-.35.18 0 .37 0 .53.01.17.01.4-.06.62.48.25.6.85 2.06.92 2.21.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.28.28-.12.56.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.69-.81.88-1.09.19-.28.37-.23.62-.14.25.09 1.6.76 1.87.9.28.14.46.21.53.32.07.12.07.65-.18 1.35z" />
+          </svg>
+          WhatsApp for availability
+        </a>
+        <a
+          href={`tel:+65${site.phone}`}
+          class="clay-btn-outline inline-flex items-center justify-center gap-2 bg-white px-6 py-3 text-sm font-bold text-[var(--color-coral-600)]"
+        >
+          Call {site.phoneDisplay}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

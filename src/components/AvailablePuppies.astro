@@ -1,118 +1,55 @@
 ---
 // Real inventory section for breed pages, driven by src/data/available-puppies.json
 // (written by `npm run sync:puppies` from the owner's SpreadSimple sheet).
-// Three states:
-//  - available:        real pups in stock for this breed
-//  - recently placed:  no stock; this breed's latest real placed pups
-//  - no photos/history: no cards at all; short note + WhatsApp CTA
+// Every breed page renders BOTH sections when it has the data:
+//  - Available <breed> Puppies:        real pups in stock right now
+//  - Recently Placed <breed> Puppies:  the breed's latest real placed pups
+// With no stock, an "contact us for latest availability" CTA sits directly
+// under the recently-placed grid (or stands alone when there are no cards).
 import ListingGrid from './ListingGrid.astro';
+import AvailabilityCta from './AvailabilityCta.astro';
 import data from '../data/available-puppies.json';
-import { whatsappLink } from '../data/site';
+import { pupCard, type BreedBucket } from '../lib/puppy-cards';
 
-interface Pup {
-  id: number | string;
-  name: string | null;
-  color: string | null;
-  gender: 'Male' | 'Female' | null;
-  age: string | null;
-  price: number | null;
-  image: string | null;
-  location: string | null;
-  origin: string | null;
-  sizeNote: string | null;
-}
 interface Props {
   breed: string; // page slug, e.g. "mini-dachshund"
   breedName: string; // display name, e.g. "Mini Dachshund"
 }
 const { breed, breedName } = Astro.props;
 
-const entry = (data.breeds as Record<string, { available: Pup[]; recentlyPlaced: Pup[] }>)[breed];
+const entry = (data.breeds as Record<string, BreedBucket>)[breed];
 const available = entry?.available ?? [];
 const placed = entry?.recentlyPlaced ?? [];
 const hasStock = available.length > 0;
-const pups = hasStock ? available : placed;
 
-const photos = import.meta.glob<ImageMetadata>('../assets/live/*.webp', {
-  eager: true,
-  import: 'default',
-});
-const photo = (file: string | null) => (file ? photos[`../assets/live/${file}`] : undefined);
-
-const half = (g: Pup['gender']) => (g === 'Female' ? 'Girl' : g === 'Male' ? 'Boy' : 'Puppy');
-const title = (p: Pup) => {
-  const desc = p.color ? `${p.color} ${half(p.gender)}` : `${breedName} ${half(p.gender)}`;
-  return p.name ? `${p.name} — ${desc}` : `${desc} #${p.id}`;
-};
-const alt = (p: Pup, state: 'available' | 'placed') =>
-  `${p.color ?? ''} ${p.gender ?? ''} ${breedName} puppy${p.name ? ` ${p.name}` : ''} ${
-    state === 'available' ? 'available in Singapore' : 'recently placed with a Singapore family'
-  }`.replace(/\s+/g, ' ').trim();
-
-const askSimilarMessage = `Hi! The ${breedName} puppies on your site were recently placed — could you let me know about similar ${breedName} puppies coming up?`;
-
-const items = pups.map((p) => ({
-  title: title(p),
-  imageSrc: photo(p.image),
-  imageAlt: alt(p, hasStock ? 'available' : 'placed'),
-  price: p.price ?? undefined,
-  gender: p.gender ?? undefined,
-  age: p.age ?? undefined,
-  points: p.sizeNote ? [p.sizeNote] : undefined,
-  ...(hasStock
-    ? {
-        tag: 'Available',
-        meta: 'WhatsApp for photos & video',
-        href: whatsappLink(
-          `Hi! I'd like more photos and the price for ${p.name ?? `puppy #${p.id}`}, the ${[
-            p.color?.toLowerCase(),
-            p.gender?.toLowerCase(),
-          ]
-            .filter(Boolean)
-            .join(' ')} ${breedName} puppy (ID ${p.id}).`,
-        ),
-      }
-    : {
-        tag: 'Recently placed',
-        tagVariant: 'muted' as const,
-        meta: 'Ask about a similar puppy',
-        href: whatsappLink(askSimilarMessage),
-      }),
-}));
-
-const heading = hasStock ? `Available ${breedName} Puppies` : `Recently Placed ${breedName} Puppies`;
-const headingAccent = hasStock ? 'Available' : 'Recently Placed';
-const subhead = hasStock
-  ? `Real ${breedName} puppies in stock right now — updated from our live list. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop.`
-  : `These ${breedName} puppies for sale in Singapore found their families fast — most litters are reserved within days. Ask about a similar puppy and we'll WhatsApp you photos, prices and timing for the next ${breedName} litter.`;
+const availableItems = available.map((p) => pupCard(p, breedName, 'available'));
+const placedItems = placed.map((p) => pupCard(p, breedName, 'placed'));
 ---
 
 {
-  pups.length > 0 ? (
-    <ListingGrid heading={heading} headingAccent={headingAccent} subhead={subhead} items={items} />
-  ) : (
-    <section class="mx-auto max-w-[1400px] px-5 sm:px-8 py-16">
-      <div class="max-w-[65ch]">
-        <h2 class="font-semibold text-[var(--color-cream-900)]" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">
-          Recently Placed <span class="text-[var(--color-coral-500)]">{breedName}</span> Puppies
-        </h2>
-        <p class="mt-2 text-base text-[var(--color-cream-600)]">
-          {breedName} puppies for sale come through our Balestier shop in small litters and are usually
-          reserved within days — often before this page catches up. Tell us you're looking for a{' '}
-          {breedName} and we'll WhatsApp you photos, prices and timing for the next litter.
-        </p>
-        <a
-          href={whatsappLink(
-            `Hi! I'm looking for a ${breedName} puppy — could you let me know when the next litter arrives, with photos and prices?`,
-          )}
-          class="clay-btn clay-press mt-6 inline-flex items-center justify-center gap-2 bg-[#25D366] px-6 py-3 text-sm font-bold text-white transition-transform hover:bg-[#1ebe57]"
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.13c-.25.7-1.44 1.33-1.99 1.37-.53.05-.53.42-3.34-.7-2.81-1.12-4.55-3.98-4.69-4.16-.14-.19-1.12-1.49-1.12-2.84 0-1.35.71-2.01.96-2.29.25-.28.55-.35.73-.35.18 0 .37 0 .53.01.17.01.4-.06.62.48.25.6.85 2.06.92 2.21.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.28.28-.12.56.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.69-.81.88-1.09.19-.28.37-.23.62-.14.25.09 1.6.76 1.87.9.28.14.46.21.53.32.07.12.07.65-.18 1.35z" />
-          </svg>
-          Ask about a similar puppy
-        </a>
-      </div>
-    </section>
+  hasStock && (
+    <ListingGrid
+      heading={`Available ${breedName} Puppies`}
+      headingAccent="Available"
+      subhead={`Real ${breedName} puppies in stock right now — updated from our live list. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop.`}
+      items={availableItems}
+    />
   )
 }
+
+{
+  placedItems.length > 0 && (
+    <ListingGrid
+      heading={`Recently Placed ${breedName} Puppies`}
+      headingAccent="Recently Placed"
+      subhead={
+        hasStock
+          ? `Recent ${breedName} puppies for sale in Singapore that have already found their families — a sense of the colours, sizes and prices that come through our Balestier shop.`
+          : `These ${breedName} puppies for sale in Singapore found their families fast — most litters are reserved within days. Ask about a similar puppy and we'll WhatsApp you photos, prices and timing for the next ${breedName} litter.`
+      }
+      items={placedItems}
+    />
+  )
+}
+
+{!hasStock && <AvailabilityCta breedName={breedName} standalone={placedItems.length === 0} />}

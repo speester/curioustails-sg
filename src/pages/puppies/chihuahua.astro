@@ -36,10 +36,15 @@ import chihuahuaSettling from '../../assets/chihuahua/5-chihuahua-puppy-settling
 import fawnBoyPortrait from '../../assets/chihuahua/6-chihuahua-puppy-fawn-male-portrait.webp';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
+import { breedPricing, fmtPrice } from '../../data/pricing';
+
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
+const price = breedPricing['chihuahua'];
+const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = 'Chihuahua Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Chihuahua puppies for sale in Singapore from $4,288, AVS licensed and HDB-approved. Real prices, temperament, and both the smooth and long coat types.';
+  `Chihuahua price in Singapore (${monthStamp}): ${priceRange} all-in, AVS licensed and HDB-approved. Starter kit, free delivery and setup included.`;
 
 const jumpLinks = [
   { label: 'Puppies', href: '#available' },
@@ -54,9 +59,24 @@ const jumpLinks = [
 
 const faqItems = [
   {
-    question: 'How much does a Chihuahua cost in Singapore?',
+    question: 'How much is a Chihuahua in Singapore?',
     answer:
-      'Chihuahua prices in Singapore commonly run from around $2,500 to $6,000 depending on coat, colour, and shop, with "teacup" listings priced higher still. At Curious Tails, Chihuahua puppies are $4,288 to $4,888, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      `A Chihuahua in Singapore costs ${priceRange} at Curious Tails, all-in. Comparing that to the market is harder than it should be: we checked the shops ranking for this search in ${monthStamp} and not one of them publishes a Chihuahua price, so the honest comparison is not a number against a number, it is a printed price against an enquiry form. Ours includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
+  },
+  {
+    question: 'What is the Chihuahua price in Singapore right now?',
+    answer:
+      `As of ${monthStamp}, a Chihuahua puppy at Curious Tails is ${priceRange}. That is the full price, not a figure that grows at collection: kit, delivery, setup, first training lesson and boarding after deposit are all inside it. We update the number on this page when it changes instead of asking you to message us for it.`,
+  },
+  {
+    question: 'Why do teacup Chihuahua listings cost more?',
+    answer:
+      'Because scarcity is being sold to you, not health. A Chihuahua is already one of the smallest breeds there is, and breeding deliberately below its natural size concentrates the problems that come with being tiny rather than removing them. We price and describe our Chihuahuas at their honest adult size, and we would rather lose a sale than quote you a weight the dog will pass.',
+  },
+  {
+    question: 'What does a Chihuahua cost in the first year, beyond the purchase price?',
+    answer:
+      'Less than most breeds, and that is a genuine reason people choose one. A Chihuahua eats very little, a smooth coat needs almost no professional grooming, and a long coat needs brushing rather than clipping. Your real first-year costs are vaccinations, sterilisation, microchipping and routine checkups, plus dental care, which matters more in a small mouth than owners expect. The first-year puppy budget guide sets out the numbers.',
   },
   {
     question: 'Is a Chihuahua HDB-approved?',
@@ -118,7 +138,7 @@ const schemas = [
       name: 'Chihuahua puppy',
       url: '/puppies/chihuahua/',
       description:
-        'Chihuahua puppy from an AVS licensed Singapore pet shop, priced $4,288 to $4,888 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+        `Chihuahua puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.`,
       price: '4288',
       image: heroChihuahua.src,
     },
@@ -150,12 +170,12 @@ const schemas = [
     eyebrow="AVS Licensed Pet Shop in Balestier"
     h1="Chihuahua Puppies for Sale in Singapore"
     h1Accent="Chihuahua"
-    subhead="Chihuahua prices in Singapore commonly run $2,500 to $6,000, and higher for 'teacup' listings. Ours are $4,288 to $4,888, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    subhead={`A Chihuahua in Singapore costs ${priceRange} at Curious Tails, all-in. The shops ranking alongside us do not publish a Chihuahua price at all, so here is ours in writing, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already inside it.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Chihuahua puppies."
     secondaryCtaLabel="See price & what's included"
     secondaryCtaHref="#price"
-    priceAnchor="From $4,288 all-in. HDB-approved. No add-ons quietly billed later."
+    priceAnchor={`From $${fmtPrice(price.low)} all-in. HDB-approved. No add-ons quietly billed later.`}
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved toy breed']}
@@ -280,16 +300,16 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Chihuahua Price in Singapore: What You'll Pay and What's Included"
+      heading={`Chihuahua Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $4,288 to $4,888, all-in."
+      subhead={`How much is a Chihuahua in Singapore? As of ${monthStamp}, none of the shops ranking for that search publish a figure. Ours is ${priceRange}, all-in, with the starter kit, delivery and first training lesson included.`}
       mode="split"
       columns={[
         {
           heading: 'Typical Singapore market',
           items: [
-            'Chihuahua price commonly $2,500 to $6,000',
-            'Price usually not published; enquiry required',
+            'No Chihuahua price published by any shop ranking for this search',
+            'Enquiry form or WhatsApp required before you learn the number',
             '"Teacup" and "micro" listings priced at a premium',
             'Starter supplies, training and delivery charged separately',
           ],
@@ -297,7 +317,7 @@ const schemas = [
         {
           heading: 'Curious Tails',
           items: [
-            '$4,288 to $4,888, printed right here',
+            `${priceRange}, printed right here`,
             '$500+ starter kit with 30+ items included',
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
@@ -308,7 +328,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on our transparent puppy pricing page, and plan the ongoing costs with the first-year puppy budget guide.
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. There is a second reason worth saying out loud: a price you only learn after you have fallen for a puppy is not a price you can compare. We checked in {monthStamp}, and the Singapore shops ranking for Chihuahua price searches ask you to enquire instead. Compare the full picture on our transparent puppy pricing page, and plan the ongoing costs with the first-year puppy budget guide.
       </p>
     </div>
   </div>

@@ -36,10 +36,15 @@ import imgScene3 from '../../assets/chow-chow/4-chow-chow-having-its-dense-mane-
 import imgScene4 from '../../assets/chow-chow/5-chow-chow-puppy-at-a-veterinary-health-check-before-goi.webp';
 import imgScene5 from '../../assets/chow-chow/6-chow-chow-puppy-settling-into-a-set-up-playpen-during-i.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
+import { breedPricing, fmtPrice } from '../../data/pricing';
+
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
+const price = breedPricing['chow-chow'];
+const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = 'Chow Chow Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Chow Chow puppies for sale in Singapore from $6,888 all-in. Not HDB-approved, and the teddy-bear look hides a dignified introvert. We match honestly.';
+  `Chow Chow price in Singapore (${monthStamp}): ${priceRange} all-in, AVS licensed. Not HDB-approved, and the teddy-bear look hides a dignified introvert.`;
 
 const jumpLinks = [
   { label: 'Puppies', href: '#available' },
@@ -59,9 +64,24 @@ const faqItems = [
       'No. The Chow Chow is not on the HDB-approved breed list, and we won\'t pretend otherwise. Condos and landed homes may keep up to three dogs, so a Chow is on the table there. HDB readers: there\'s no small-breed Chow lookalike, honestly, but our HDB-approved breeds guide maps what is possible in a flat.',
   },
   {
-    question: 'How much does a Chow Chow cost in Singapore?',
+    question: 'How much is a Chow Chow in Singapore?',
     answer:
-      'Chow Chow prices in Singapore commonly run $3,500 to $9,000, usually quoted only on enquiry. At Curious Tails, Chow Chow puppies are $6,888 to $10,888, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      `A Chow Chow in Singapore costs ${priceRange} at Curious Tails, all-in. Of the shops ranking for this search in ${monthStamp}, the two that publish a figure quote $9,000 to $15,000 and $6,500, so ours sits at the lower end of what is actually advertised. The starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer are already inside our number.`,
+  },
+  {
+    question: 'What is the Chow Chow price in Singapore right now?',
+    answer:
+      `As of ${monthStamp}, a Chow Chow puppy at Curious Tails is ${priceRange}. Chows are a low-volume breed here, so availability moves slowly and a published price matters more than usual: it is the only way to tell a fair quote from an opportunistic one when litters are scarce. Our figure is the full price, kit and delivery and first lesson included.`,
+  },
+  {
+    question: 'Why is a Chow Chow more expensive than the small breeds?',
+    answer:
+      'Litters are small, the breed is uncommon in Singapore, and most Chows here are imported rather than locally bred. That combination sets the floor before anyone adds a margin. It is also why a Chow priced far below the published market deserves a hard question about where it came from, rather than being treated as a bargain.',
+  },
+  {
+    question: 'What does a Chow Chow cost in the first year, beyond the purchase price?',
+    answer:
+      'More than a small breed, and the coat is the reason. A Chow carries a dense double coat that needs professional grooming through the year, and in Singapore humidity that is a recurring cost rather than a seasonal one. Food for a 20 to 32 kg dog, vaccinations, sterilisation and routine vet care sit on top, and the breed is prone to hip and eye conditions worth budgeting for. Our first-year puppy budget guide lays out the numbers.',
   },
   {
     question: 'Are Chow Chows aggressive?',
@@ -108,7 +128,7 @@ const schemas = [
       name: 'Chow Chow puppy',
       url: '/puppies/chow-chow/',
       description:
-        'Chow Chow puppy from an AVS licensed Singapore pet shop, priced $6,888 to $10,888 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+        `Chow Chow puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.`,
       price: '6888',
       image: imgHero.src,
     },
@@ -140,12 +160,12 @@ const schemas = [
     eyebrow="AVS Licensed Pet Shop in Balestier"
     h1="Chow Chow Puppies for Sale in Singapore"
     h1Accent="Chow Chow"
-    subhead="Two honest facts before the teddy-bear face wins: Chows are not HDB-approved, and the bear look hides a dignified, cat-souled introvert — the most misunderstood temperament we sell. Chow prices here run $3,500 to $9,000; ours are $6,888 to $10,888, with the $500+ starter kit, free delivery and setup, and a free first training lesson included."
+    subhead={`A Chow Chow in Singapore costs ${priceRange} at Curious Tails, all-in, which is the lower end of what Singapore shops actually publish. Two honest facts before the teddy-bear face wins: Chows are not HDB-approved, and the bear look hides a dignified, cat-souled introvert, the most misunderstood temperament we sell.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Chow Chow puppies."
     secondaryCtaLabel="See price & what's included"
     secondaryCtaHref="#price"
-    priceAnchor="From $6,888 all-in. Private housing only. No add-ons quietly billed later."
+    priceAnchor={`From $${fmtPrice(price.low)} all-in. Private housing only. No add-ons quietly billed later.`}
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing breed']}
@@ -269,15 +289,15 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Chow Chow Price in Singapore: What You'll Pay and What's Included"
+      heading={`Chow Chow Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead="The market runs $3,500 to $9,000 behind enquiry forms. Here's ours in writing: $6,888 to $10,888, all-in."
+      subhead={`How much is a Chow Chow in Singapore? Checked in ${monthStamp}: the shops that publish at all quote $6,500 to $15,000, and most quote nothing. Ours is ${priceRange}, all-in.`}
       mode="split"
       columns={[
         {
           heading: 'Typical Singapore market',
           items: [
-            'Chow price commonly $3,500 to $9,000',
+            'Published Chow prices run $6,500 to $15,000 where a figure is given at all',
             'Price usually not published; enquiry required',
             'Rare colours priced at a premium',
             'Starter supplies, training and delivery charged separately',
@@ -286,7 +306,7 @@ const schemas = [
         {
           heading: 'Curious Tails',
           items: [
-            '$6,888 to $10,888, printed right here',
+            `${priceRange}, printed right here`,
             '$500+ starter kit with 30+ items included',
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
@@ -297,7 +317,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on our transparent puppy pricing page, and plan the ongoing costs with the first-year puppy budget guide.
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. On a scarce breed like the Chow that matters more, not less: when only two of the shops ranking for this search publish a number at all, a buyer has no way to tell a fair quote from a hopeful one. Compare the full picture on our transparent puppy pricing page, and plan the ongoing costs with the first-year puppy budget guide.
       </p>
     </div>
   </div>
@@ -329,7 +349,7 @@ const schemas = [
 
   <BannerRibbon
     heading="Not sure the Chow is your match?"
-    body="We'd rather talk you out of the wrong breed than sell you the wrong dog — with this breed especially. Message us what you're hoping for and we'll tell you straight."
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog, with this breed especially. Message us what you're hoping for and we'll tell you straight."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! Here's my housing and what I'm hoping for in a dog. Is a Chow Chow the right fit?"
     variant="dark"

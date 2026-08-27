@@ -2,22 +2,30 @@
 
 Deploy of 2026-08-27 shipped the Lane 2a price rework (20 breed pages), cited expert quotes on
 74 pages, both QUALIFY head terms, and the IndexNow key file. Live on curioustails.sg, verified
-on the apex. IndexNow accepted 75 URLs; the sitemap index was resubmitted to Search Console.
+on the apex. The sitemap index was resubmitted to Search Console.
+
+IndexNow note: the first submission used the portfolio-wide key from ~/.claude/.env and returned
+202, but that is optimistic. On re-submission it returned 403 UserForbiddedToAccessSite, because
+IndexNow binds a key to the host that first used it and that key belongs to puppysingapore.com.
+curioustails.sg now has its own key (public/a579eb3d5396abb492399382c47bee89.txt, recorded in
+config/indexnow-key.txt) and submission returns 200. Any other site in the portfolio sharing that
+env key will hit the same 403 and needs its own key file.
 
 Each row below has a date and an owner. `pipeline` means a future session runs it, `owner-click`
 means only the human can, `wait` means there is nothing to do but let Google recrawl.
 
 | date | owner | task | evidence when done |
 |---|---|---|---|
-| 2026-08-28 | owner-click | Rule on the ten review texts in `audits/review-authenticity-2026-08-27.md`. Highest priority: live rich-results inspection shows Review snippets generating on every page checked, so this markup is producing star ratings in search today. | each of the ten marked verbatim / edited / not real |
+| ~~2026-08-28~~ DONE 2026-08-27 | pipeline | ~~Rule on the ten review texts.~~ RESOLVED: checked against the live Google profile. Reviews are real; the earlier allegation was wrong. Four attribution/editing defects across 61 placements were fixed, reviews now come from a generated registry, and the schema carries verbatim text with the real date. See the rewritten `audits/review-authenticity-2026-08-27.md`. | 0 mis-attributed instances; no quoted block on more than 2 pages |
 | 2026-08-28 | owner-click | Request Indexing on the five links handed over at deploy. Cavapoo vs Maltipoo first, last crawled 2026-07-19. | GSC shows "Indexing requested" |
 | 2026-08-28 | owner-click | GA4 re-auth: `python ~/.claude/ga-oauth-setup.py`. Every priority here is still ranked without conversion data. | `run_report` returns rows |
-| 2026-08-29 | pipeline | Anything the owner marks not-verbatim comes off the page AND out of the Product review schema, same day. Then redeploy. | grep dist for the removed text returns 0 |
+| ~~2026-08-29~~ DONE 2026-08-27 | pipeline | ~~Remove non-verbatim text from page and schema.~~ Done and redeployed; live check confirms "our Cavapoo" and datePublished 2026-06-09 on the apex. | verified live |
 | 2026-09-03 | pipeline | Day 7 index watch. Re-inspect the 20 reworked price pages; confirm last_crawled has moved past 2026-08-27. | `python scripts/... ` batch inspection output pasted into audits/ |
 | 2026-09-10 | pipeline | Day 14. First read of the PRICE cluster median. Do not expect clicks yet; position moves first. | median recorded against the 8.1 baseline |
 | 2026-09-24 | pipeline | Day 28. Full re-measure of both plan metrics, same method as `audits/measurement-baseline-2026-08-27.md` so the comparison is like for like. | new dated baseline file |
 | 2026-09-26 | pipeline | +30d retro on this session's work. What the price rework actually moved, and whether the QUALIFY sizing correction held. | `config/retro-<date>.md` |
-| ongoing | pipeline | Lane 2c once reviews are ruled on: real reviews only into a derived `src/data/reviews.ts`, none on more than about a quarter of the pages. | `scripts/sibling_overlap.py --blocks` no longer lists a review in the top four |
+| ~~ongoing~~ DONE 2026-08-27 | pipeline | ~~Lane 2c.~~ Done: 54 verbatim reviews in a derived `src/data/reviews.ts`, 49 carousels rewired, most-repeated review down from 45 pages to 3. | confirmed: reviews no longer appear in the largest duplicated blocks |
+| 2026-08-28 | owner | Look at how reviews are being solicited: five real reviewers wrote an identical sentence on Google, which is the pattern you get when customers are handed suggested wording. Nothing in this repo can answer it. | owner judgement |
 | ongoing | owner | Record the owner interview. `sme/interview-questions-nelson-kim.md` has been waiting since 2026-08-15. Every quote on the site is currently somebody else's. | transcript in `sme/raw/`, then re-run sme-extract |
 
 ## What to measure, and in what order

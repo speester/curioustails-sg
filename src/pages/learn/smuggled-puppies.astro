@@ -15,6 +15,7 @@ import { site, whatsappLink } from '../../data/site';
 import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
 import boardingPen from '../../assets/delivery/3-puppy-boarding-cozy-pen-waiting.webp';
 import healthCheck from '../../assets/about-us/2-puppy-health-check-stethoscope.webp';
+import ExpertQuote from '../../components/ExpertQuote.astro';
 
 const title = 'Smuggled Puppies Singapore: Cases & Red Flags | Curious Tails';
 const description =
@@ -203,6 +204,8 @@ const schemas = [
   />
 
   <div id="faq" class="scroll-mt-40">
+
+  <ExpertQuote id="joanne-1" />
     <FAQ heading="Smuggling Questions, Answered" items={faqItems} />
   </div>
 

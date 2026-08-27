@@ -34,6 +34,7 @@ import rampCare from '../../assets/mini-dachshund/5-mini-dachshund-ramp-sofa-bac
 import harnessWalk from '../../assets/mini-dachshund/6-mini-dachshund-harness-walk-park.webp';
 
 import { breedPricing, fmtPrice } from '../../data/pricing';
+import ExpertQuote from '../../components/ExpertQuote.astro';
 
 // Build-time freshness stamp; the daily automation deploy keeps it current.
 const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
@@ -536,6 +537,8 @@ const schemas = [
   </div>
 
   <div id="faq" class="scroll-mt-40">
+
+  <ExpertQuote id="ferox-10" />
     <FAQ heading="Mini Dachshund FAQs" items={faqItems} />
   </div>
 

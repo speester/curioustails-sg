@@ -9,6 +9,7 @@ import PawTrail from '../components/decor/PawTrail.astro';
 import { site, whatsappLink } from '../data/site';
 import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../lib/schema';
 import heroCare from '../assets/about-us/1-avs-licensed-pet-shop-hero-care.webp';
+import ExpertQuote from '../components/ExpertQuote.astro';
 
 const title = 'Contact Curious Tails | WhatsApp, Visit or Call | Balestier';
 const description =
@@ -128,6 +129,8 @@ const schemas = [
   <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
 
   <div id="faq" class="scroll-mt-40">
+
+  <ExpertQuote id="vanessa-5" />
     <FAQ heading="Contact Questions" items={faqItems} />
   </div>
 

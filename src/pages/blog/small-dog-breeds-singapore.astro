@@ -14,6 +14,7 @@ import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from 
 import smallBreedsLineup from '../../assets/small-dog-breeds-singapore/1-small-dog-breeds-singapore-hdb-flat.webp';
 import smallBreedsWalk from '../../assets/small-dog-breeds-singapore/2-small-dog-morning-walk-singapore-heat.webp';
 import smallBreedsGrooming from '../../assets/small-dog-breeds-singapore/3-small-dog-grooming-humidity-singapore.webp';
+import ExpertQuote from '../../components/ExpertQuote.astro';
 
 const title = 'Best Small Dog Breeds for Singapore Living | Curious Tails';
 const description =
@@ -275,6 +276,8 @@ const schemas = [
   </CaptionedBlock>
 
   <div id="faq" class="scroll-mt-40">
+
+  <ExpertQuote id="ferox-4" />
     <FAQ heading="Small Dog Breeds in Singapore: Common Questions" items={faqItems} />
   </div>
 

@@ -30,6 +30,7 @@ import {
   faqPageSchema,
 } from '../lib/schema';
 import { OVERALL_LOW, OVERALL_HIGH, breedPricing, fmtPrice, type BreedSlug } from '../data/pricing';
+import ExpertQuote from '../components/ExpertQuote.astro';
 
 // Slug -> display name, and slug -> known typical-market text (falls back to "Enquiry-only at most shops").
 const breedDisplayNames: Record<BreedSlug, string> = {
@@ -584,6 +585,8 @@ const schemas = [
   </div>
 
   <div id="faq" class="scroll-mt-40">
+
+  <ExpertQuote id="cellini-2" />
     <FAQ heading="Pricing Questions, Answered" items={faqItems} />
   </div>
 

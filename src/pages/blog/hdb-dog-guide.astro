@@ -12,6 +12,7 @@ import { site, whatsappLink } from '../../data/site';
 import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
 import bichonpooPortrait from '../../assets/bichonpoo/2-bichonpoo-white-portrait.webp';
 import voidDeckWalk from '../../assets/free-training/2-puppy-socialisation-window-walk.webp';
+import ExpertQuote from '../../components/ExpertQuote.astro';
 
 const title = 'Best Puppy Breeds for HDB Living in Singapore | Curious Tails';
 const description =
@@ -158,6 +159,8 @@ const schemas = [
   </CaptionedBlock>
 
   <div id="faq" class="scroll-mt-40">
+
+  <ExpertQuote id="mccannwk-2" />
     <FAQ heading="HDB Breed Questions" items={faqItems} />
   </div>
 

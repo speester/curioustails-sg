@@ -13,6 +13,7 @@ import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from 
 import nightRoutine from '../../assets/guides/3-puppy-night-routine-sleeping-pen.webp';
 import playpenSetup from '../../assets/home/4-playpen-setup-delivery-home-balestier.webp';
 import firstDaySettling from '../../assets/home/8-puppy-first-24-hours-settling-playpen.webp';
+import ExpertQuote from '../../components/ExpertQuote.astro';
 
 const title = "Puppy's First Night Home: What to Expect | Curious Tails";
 const description =
@@ -205,6 +206,8 @@ const schemas = [
   </CaptionedBlock>
 
   <div id="faq" class="scroll-mt-40">
+
+  <ExpertQuote id="mccannwk-7" />
     <FAQ heading="First Night Home Questions" items={faqItems} />
   </div>
 

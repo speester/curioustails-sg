@@ -16,6 +16,7 @@ import { site, whatsappLink } from '../../data/site';
 import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
 import budgetFlatlay from '../../assets/guides/4-puppy-budget-planning-flatlay.webp';
 import kitFlatlay from '../../assets/pricing/2-puppy-starter-kit-value-flatlay-home.webp';
+import ExpertQuote from '../../components/ExpertQuote.astro';
 
 const title = 'Puppy Cost Singapore: Full First-Year Budget | Curious Tails';
 const description =
@@ -214,6 +215,8 @@ const schemas = [
   />
 
   <div id="faq" class="scroll-mt-40">
+
+  <ExpertQuote id="cellini-1" />
     <FAQ heading="Budget Questions, Answered" items={faqItems} />
   </div>
 

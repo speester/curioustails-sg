@@ -14,6 +14,7 @@ import PawTrail from '../../components/decor/PawTrail.astro';
 import { site, whatsappLink } from '../../data/site';
 import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
 import verifyPhone from '../../assets/guides/5-verify-seller-phone-check-puppy.webp';
+import ExpertQuote from '../../components/ExpertQuote.astro';
 
 const title = 'How to Check a Pet Shop\'s Licence in Singapore | Curious Tails';
 const description =
@@ -244,6 +245,8 @@ const schemas = [
   />
 
   <div id="faq" class="scroll-mt-40">
+
+  <ExpertQuote id="terry-1" />
     <FAQ heading="Verification Questions, Answered" items={faqItems} />
   </div>
 

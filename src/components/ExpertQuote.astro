@@ -1,0 +1,111 @@
+---
+import { SME_QUOTES_BY_ID } from '../data/sme-quotes';
+
+interface Props {
+  /** id from src/data/sme-quotes.ts (generated from config/sme/quotes/*.json) */
+  id: string;
+  /** optional lead-in written by the page, in Curious Tails' own voice */
+  intro?: string;
+  /** optional honest note, e.g. the Singapore adaptation of an overseas source */
+  note?: string;
+}
+
+const { id, intro, note } = Astro.props;
+const q = SME_QUOTES_BY_ID[id];
+if (!q) {
+  throw new Error(
+    `ExpertQuote: unknown quote id "${id}". Add it to config/sme/quotes/<category>.json and re-run scripts/build_sme_quotes.py.`
+  );
+}
+if ((q as any).verify) {
+  throw new Error(`ExpertQuote: quote "${id}" is still marked verify:true and must not ship.`);
+}
+const domId = `q-${id.replace(/[^a-z0-9-]/gi, '')}`;
+---
+
+<section
+  class="mx-auto max-w-[1400px] px-5 sm:px-8 py-10"
+  aria-label="Cited expertise"
+  data-expert-quote={q.id}
+>
+  <figure class="clay relative overflow-hidden bg-[var(--color-cream-100)] p-6 sm:p-8" data-reveal>
+    <!-- animated quote mark: draws itself in on reveal, static under reduced motion -->
+    <svg
+      class="sme-mark pointer-events-none absolute -right-2 -top-2 h-24 w-24 sm:h-32 sm:w-32"
+      viewBox="0 0 100 100"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path
+        d="M20 62c0-16 8-28 22-34M20 62c0 8 6 14 13 14s13-6 13-14-6-13-13-13c-4 0-8 1-13 5M56 62c0-16 8-28 22-34M56 62c0 8 6 14 13 14s13-6 13-14-6-13-13-13c-4 0-8 1-13 5"
+        stroke="var(--color-lilac-700)"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+
+    <p class="text-xs font-bold uppercase text-[var(--color-lilac-700)]" style="letter-spacing: 0.08em;">
+      Cited expertise
+    </p>
+
+    {intro && (
+      <p class="mt-3 text-base leading-relaxed text-[var(--color-cream-600)]">{intro}</p>
+    )}
+
+    <blockquote
+      id={domId}
+      cite={q.source_url}
+      class="relative mt-4 border-l-4 border-[var(--color-coral-600)] pl-5 text-lg leading-relaxed text-[var(--color-cream-800)] sm:text-xl"
+    >
+      <p>{q.quote}</p>
+    </blockquote>
+
+    <figcaption class="mt-4 text-sm text-[var(--color-cream-600)]">
+      <span class="font-bold text-[var(--color-cream-800)]">{q.speaker}</span>
+      <span aria-hidden="true"> · </span>
+      <span>{q.credential}</span>
+      <br />
+      <a
+        href={q.source_url}
+        rel="nofollow noopener"
+        target="_blank"
+        class="font-bold text-[var(--color-coral-600)] underline underline-offset-2"
+      >
+        {q.publisher}{q.timestamp && q.timestamp !== 'n/a' ? `, ${q.timestamp}` : ''}
+      </a>
+      <span class="block mt-1">
+        Quoted with attribution. Not affiliated with Curious Tails.
+      </span>
+    </figcaption>
+
+    {note && (
+      <p class="mt-4 rounded-xl bg-[var(--color-mint-100)] p-4 text-sm leading-relaxed text-[var(--color-cream-800)]">
+        {note}
+      </p>
+    )}
+  </figure>
+</section>
+
+<style>
+  .sme-mark {
+    opacity: 0.18;
+  }
+  .sme-mark path {
+    stroke-dasharray: 340;
+    stroke-dashoffset: 340;
+    animation: sme-draw 1.6s ease-out forwards;
+  }
+  @keyframes sme-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sme-mark path {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+  }
+</style>

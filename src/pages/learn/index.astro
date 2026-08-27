@@ -12,6 +12,7 @@ import PawTrail from '../../components/decor/PawTrail.astro';
 import { site, whatsappLink } from '../../data/site';
 import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
 import verifyPhone from '../../assets/guides/5-verify-seller-phone-check-puppy.webp';
+import ExpertQuote from '../../components/ExpertQuote.astro';
 
 const title = 'Learn Before You Buy: Puppy Safety Guides | Curious Tails';
 const description =
@@ -180,6 +181,8 @@ const guides = [
   </CaptionedBlock>
 
   <div id="faq" class="scroll-mt-40">
+
+  <ExpertQuote id="ferox-13" />
     <FAQ heading="Buyer-Protection Questions" items={faqItems} />
   </div>
 

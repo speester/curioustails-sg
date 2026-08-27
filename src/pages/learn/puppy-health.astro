@@ -15,6 +15,7 @@ import { site, whatsappLink } from '../../data/site';
 import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
 import healthCheck from '../../assets/about-us/2-puppy-health-check-stethoscope.webp';
 import microchipScan from '../../assets/guides/6-puppy-microchip-scan-health.webp';
+import ExpertQuote from '../../components/ExpertQuote.astro';
 
 const title = 'Puppy Vaccinations Singapore: Exact Schedule | Curious Tails';
 const description =
@@ -209,6 +210,8 @@ const schemas = [
   />
 
   <div id="faq" class="scroll-mt-40">
+
+  <ExpertQuote id="ferox-14" />
     <FAQ heading="Health & Vaccination Questions" items={faqItems} />
   </div>
 

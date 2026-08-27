@@ -40,6 +40,7 @@ import vetCheck from '../../assets/cavapoo/9-cavapoo-puppy-vet-health-check.webp
 import playpenReady from '../../assets/cavapoo/10-cavapoo-playpen-set-up-ready.webp';
 
 import { breedPricing, fmtPrice } from '../../data/pricing';
+import ExpertQuote from '../../components/ExpertQuote.astro';
 
 // Build-time freshness stamp; the daily automation deploy keeps it current.
 const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
@@ -569,6 +570,8 @@ const schemas = [
   </div>
 
   <div id="faq" class="scroll-mt-40">
+
+  <ExpertQuote id="amylee-1" />
     <FAQ heading="Cavapoo FAQs" items={faqItems} />
   </div>
 

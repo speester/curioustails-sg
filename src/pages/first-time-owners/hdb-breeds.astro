@@ -16,6 +16,7 @@ import { site, whatsappLink } from '../../data/site';
 import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
 import bichonpooPortrait from '../../assets/bichonpoo/2-bichonpoo-white-portrait.webp';
 import dachshundPortrait from '../../assets/mini-dachshund/2-mini-dachshund-red-smooth-portrait.webp';
+import ExpertQuote from '../../components/ExpertQuote.astro';
 
 const title = 'HDB-Approved Dog Breeds Singapore: Full Rules | Curious Tails';
 const description =
@@ -219,6 +220,8 @@ const schemas = [
   />
 
   <div id="faq" class="scroll-mt-40">
+
+  <ExpertQuote id="mccannwk-4" />
     <FAQ heading="HDB Rules, Answered" items={faqItems} />
   </div>
 

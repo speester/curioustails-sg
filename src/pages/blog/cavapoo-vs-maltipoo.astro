@@ -13,6 +13,7 @@ import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from 
 import cavapooPortrait from '../../assets/cavapoo/2-cavapoo-puppy-portrait-available.webp';
 import maltipooLap from '../../assets/maltipoo/2-maltipoo-puppy-companion-lap.webp';
 import windowContent from '../../assets/cavapoo/6-cavapoo-puppy-window-content.webp';
+import ExpertQuote from '../../components/ExpertQuote.astro';
 
 const title = 'Cavapoo vs Maltipoo: Which Should You Choose? | Curious Tails';
 const description =
@@ -175,6 +176,8 @@ const schemas = [
   </CaptionedBlock>
 
   <div id="faq" class="scroll-mt-40">
+
+  <ExpertQuote id="ferox-1" />
     <FAQ heading="Cavapoo vs Maltipoo Questions" items={faqItems} />
   </div>
 

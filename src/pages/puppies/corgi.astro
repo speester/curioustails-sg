@@ -34,6 +34,7 @@ import morningWalk from '../../assets/corgi/5-corgi-park-connector-morning-walk.
 import coatBrush from '../../assets/corgi/6-corgi-brushing-double-coat-care.webp';
 
 import { breedPricing, fmtPrice } from '../../data/pricing';
+import ExpertQuote from '../../components/ExpertQuote.astro';
 
 // Build-time freshness stamp; the daily automation deploy keeps it current.
 const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
@@ -450,6 +451,8 @@ const schemas = [
   </div>
 
   <div id="faq" class="scroll-mt-40">
+
+  <ExpertQuote id="mccann-7" />
     <FAQ heading="Corgi FAQs" items={faqItems} />
   </div>
 

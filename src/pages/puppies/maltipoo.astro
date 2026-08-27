@@ -36,6 +36,7 @@ import maltipooVet from '../../assets/maltipoo/5-maltipoo-puppy-vet-health-check
 import maltipooSettling from '../../assets/maltipoo/6-maltipoo-puppy-settling-playpen.webp';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
 import { breedPricing, fmtPrice } from '../../data/pricing';
+import ExpertQuote from '../../components/ExpertQuote.astro';
 
 // Build-time freshness stamp; the daily automation deploy keeps it current.
 const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
@@ -530,6 +531,8 @@ const schemas = [
   </div>
 
   <div id="faq" class="scroll-mt-40">
+
+  <ExpertQuote id="ferox-2" />
     <FAQ heading="Maltipoo FAQs" items={faqItems} />
   </div>
 

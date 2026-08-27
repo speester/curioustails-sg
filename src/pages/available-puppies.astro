@@ -12,6 +12,7 @@ import { breedName } from '../data/breed-names';
 import { pupCard, type BreedBucket } from '../lib/puppy-cards';
 import { whatsappLink } from '../data/site';
 import { webPageSchema, breadcrumbSchema, localBusinessSchema } from '../lib/schema';
+import ExpertQuote from '../components/ExpertQuote.astro';
 
 const breeds = data.breeds as Record<string, BreedBucket>;
 const inStock = Object.entries(breeds)
@@ -118,6 +119,8 @@ const schemas = [
     </p>
   </section>
 
+
+  <ExpertQuote id="vanessa-2" />
   <FinalCta
     breed="Puppy"
     heading="Come Meet Them at Balestier"

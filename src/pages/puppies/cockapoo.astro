@@ -33,6 +33,7 @@ import familyFetch from '../../assets/cockapoo/5-cockapoo-family-play-fetch.webp
 import earCheck from '../../assets/cockapoo/6-cockapoo-ear-check-care.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
 import { breedPricing, fmtPrice } from '../../data/pricing';
+import { testimonialsFor } from '../../data/reviews';
 
 const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
 const price = breedPricing['cockapoo'];
@@ -476,26 +477,7 @@ const schemas = [
     <Carousel
       heading="What Owners Say About Us"
       subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
-      items={[
-        {
-          quote:
-            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
-          name: 'Michi',
-          meta: 'Google review',
-        },
-        {
-          quote:
-            "We weren't even sure we were ready, but a visit to Curious Tails in Balestier sealed the deal on our Maltipoo. Honestly, Nelson and Kim gave us a wonderful bundle of complimentary items, which made the whole thing stress-free. The full vaccination was already covered, which showed how much they care. Honestly couldn't recommend Curious Tails highly enough.",
-          name: 'Alex Tan',
-          meta: 'Google review',
-        },
-        {
-          quote:
-            "Couldn't recommend Curious Tails in Balestier enough after bringing home our Cavapoo. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
-          name: 'Andrew Mak',
-          meta: 'Google review',
-        },
-      ]}
+      items={testimonialsFor('puppies/cockapoo')}
     />
   </div>
 

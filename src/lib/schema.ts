@@ -47,8 +47,8 @@ function toPriceValue(price: string): string {
 const featuredReview = {
   author: 'Andrew Mak',
   reviewBody:
-    "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly love what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
-  datePublished: '2024-07-01',
+    "Couldn't recommend Curious Tails in Balestier enough after bringing home our Cavapoo. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+  datePublished: '2026-06-09',
 };
 
 function productAggregateRating() {

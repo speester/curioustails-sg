@@ -41,6 +41,7 @@ import playpenReady from '../../assets/cavapoo/10-cavapoo-playpen-set-up-ready.w
 
 import { breedPricing, fmtPrice } from '../../data/pricing';
 import ExpertQuote from '../../components/ExpertQuote.astro';
+import { testimonialsFor } from '../../data/reviews';
 
 // Build-time freshness stamp; the daily automation deploy keeps it current.
 const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
@@ -134,7 +135,7 @@ const schemas = [
     reviewBody:
       "Couldn't recommend Curious Tails in Balestier enough after bringing home our Cavapoo. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
     ratingValue: 5,
-    datePublished: '2024-07-01',
+    datePublished: '2026-06-09',
   }),
   faqPageSchema(faqItems),
   definedTermSchema({
@@ -459,56 +460,7 @@ const schemas = [
     <Carousel
       heading="What Cavapoo Owners Say About Us"
       subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
-      items={[
-        {
-          quote:
-            "Couldn't recommend Curious Tails in Balestier enough after bringing home our Cavapoo. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
-          name: 'Andrew Mak',
-          meta: 'Google review, Cavapoo owner',
-        },
-        {
-          quote:
-            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, attentive and genuinely helpful, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. They gave us ample time to interact with the puppies before we decided. If you want peace of mind buying a puppy, this is the place.',
-          name: 'Jaden Chua',
-          meta: 'Google review',
-        },
-        {
-          quote:
-            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
-          name: 'Michi',
-          meta: 'Google review',
-        },
-        {
-          quote:
-            "We'd been looking everywhere for a healthy Cavapoo puppy for sale in Singapore, and Curious Tails in Balestier turned out to be the best by far. Big thanks to Kim, who offered thoughtful tips on training and care and were incredibly accommodating. The full vaccination was already covered, which showed how much they care. Forever grateful to the team, our pup is the best thing that's happened to us.",
-          name: 'Michelle Ng',
-          meta: 'Google review, Cavapoo owner',
-        },
-        {
-          quote:
-            "Our search for the perfect Bichonpoo ended the moment we stepped into Curious Tails's Balestier store. Nelson was so patient with all our questions and gave us great value with everything bundled in and surprised us with loads of free extras. Our pup was clean, well-socialised, and full of energy when we brought it home. Everything from the health records to the paperwork was handled seamlessly. Thank you Curious Tails for such a wonderful start to pet parenthood!",
-          name: 'Po Xian Lee',
-          meta: 'Google review',
-        },
-        {
-          quote:
-            "Had such a wonderful experience bringing home our new furry family member from Curious Tails in Balestier. Honestly, Nelson and Kim couldn't have been more helpful and answered every single question we had, which made the whole thing stress-free. Our pup was clean, well-socialised, and full of energy when we brought it home. The puppy came home healthy and vet-checked, which gave us real peace of mind. A truly lovely experience from start to finish, thank you!",
-          name: 'Damon Fong',
-          meta: 'Google review',
-        },
-        {
-          quote:
-            "We'd been comparing breeders for weeks, and Curious Tails in Balestier stood head and shoulders above the rest. It was clear Nelson knew their stuff, as they were happy to help with even the small things and knew their stuff inside and out. Everything from the health records to the paperwork was handled seamlessly. The $500+ starter pack was such a generous surprise and got us set up right away. We couldn't be more pleased, an easy five stars.",
-          name: 'Karen Joy Pepito',
-          meta: 'Google review',
-        },
-        {
-          quote:
-            "We weren't even sure we were ready, but a visit to Curious Tails in Balestier sealed the deal on our Maltipoo. Honestly, Nelson and Kim gave us a wonderful bundle of complimentary items, which made the whole thing stress-free. The full vaccination was already covered, which showed how much they care. Honestly couldn't recommend Curious Tails highly enough.",
-          name: 'Alex Tan',
-          meta: 'Google review',
-        },
-      ]}
+      items={testimonialsFor('puppies/cavapoo')}
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">

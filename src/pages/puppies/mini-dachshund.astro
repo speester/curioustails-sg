@@ -35,6 +35,7 @@ import harnessWalk from '../../assets/mini-dachshund/6-mini-dachshund-harness-wa
 
 import { breedPricing, fmtPrice } from '../../data/pricing';
 import ExpertQuote from '../../components/ExpertQuote.astro';
+import { testimonialsFor } from '../../data/reviews';
 
 // Build-time freshness stamp; the daily automation deploy keeps it current.
 const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
@@ -461,26 +462,7 @@ const schemas = [
     <Carousel
       heading="What Owners Say About Us"
       subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
-      items={[
-        {
-          quote:
-            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
-          name: 'Michi',
-          meta: 'Google review',
-        },
-        {
-          quote:
-            "We'd been comparing breeders for weeks, and Curious Tails in Balestier stood head and shoulders above the rest. It was clear Nelson knew their stuff, as they were happy to help with even the small things and knew their stuff inside and out. Everything from the health records to the paperwork was handled seamlessly. The $500+ starter pack was such a generous surprise and got us set up right away. We couldn't be more pleased, an easy five stars.",
-          name: 'Karen Joy Pepito',
-          meta: 'Google review',
-        },
-        {
-          quote:
-            "Had such a wonderful experience bringing home our new furry family member from Curious Tails in Balestier. Honestly, Nelson and Kim couldn't have been more helpful and answered every single question we had, which made the whole thing stress-free. Our pup was clean, well-socialised, and full of energy when we brought it home. The puppy came home healthy and vet-checked, which gave us real peace of mind. A truly lovely experience from start to finish, thank you!",
-          name: 'Damon Fong',
-          meta: 'Google review',
-        },
-      ]}
+      items={testimonialsFor('puppies/mini-dachshund')}
     />
   </div>
 

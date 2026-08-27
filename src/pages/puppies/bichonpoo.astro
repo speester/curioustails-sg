@@ -32,6 +32,7 @@ import whitePortrait from '../../assets/bichonpoo/2-bichonpoo-white-portrait.web
 import lapCompany from '../../assets/bichonpoo/5-bichonpoo-lap-companion-company.webp';
 import faceWipe from '../../assets/bichonpoo/6-bichonpoo-face-wipe-tear-stain-care.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
+import { testimonialsFor } from '../../data/reviews';
 
 const title = 'Bichonpoo Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -429,26 +430,7 @@ const schemas = [
     <Carousel
       heading="What Bichonpoo Owners Say About Us"
       subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
-      items={[
-        {
-          quote:
-            "Our search for the perfect Bichonpoo ended the moment we stepped into Curious Tails's Balestier store. Nelson was so patient with all our questions and gave us great value with everything bundled in and surprised us with loads of free extras. Our pup was clean, well-socialised, and full of energy when we brought it home. Everything from the health records to the paperwork was handled seamlessly. Thank you Curious Tails for such a wonderful start to pet parenthood!",
-          name: 'Po Xian Lee',
-          meta: 'Google review, Bichonpoo owner',
-        },
-        {
-          quote:
-            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
-          name: 'YihShy',
-          meta: 'Google review',
-        },
-        {
-          quote:
-            "We'd been comparing breeders for weeks, and Curious Tails in Balestier stood head and shoulders above the rest. It was clear Nelson knew their stuff, as they were happy to help with even the small things and knew their stuff inside and out. Everything from the health records to the paperwork was handled seamlessly. The $500+ starter pack was such a generous surprise and got us set up right away. We couldn't be more pleased, an easy five stars.",
-          name: 'Karen Joy Pepito',
-          meta: 'Google review',
-        },
-      ]}
+      items={testimonialsFor('puppies/bichonpoo')}
     />
   </div>
 

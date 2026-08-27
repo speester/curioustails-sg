@@ -36,6 +36,7 @@ import imgScene3 from '../../assets/cavalier-king-charles-spaniel/4-cavalier-kin
 import imgScene4 from '../../assets/cavalier-king-charles-spaniel/5-cavalier-king-charles-spaniel-puppy-at-a-veterinary-hea.webp';
 import imgScene5 from '../../assets/cavalier-king-charles-spaniel/6-cavalier-puppy-settling-into-a-set-up-playpen-during-it.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
+import { testimonialsFor } from '../../data/reviews';
 
 const title = 'Cavalier King Charles Spaniel Puppy for Sale Singapore';
 const description =
@@ -126,9 +127,9 @@ const schemas = [
   reviewSchema({
     author: 'Andrew Mak',
     reviewBody:
-      "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our Cavapoo. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
     ratingValue: 5,
-    datePublished: '2024-07-01',
+    datePublished: '2026-06-09',
   }),
   faqPageSchema(faqItems),
   definedTermSchema({
@@ -422,26 +423,7 @@ const schemas = [
     <Carousel
       heading="What Curious Tails Owners Say"
       subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
-      items={[
-        {
-          quote:
-            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
-          name: 'YihShy',
-          meta: 'Google review',
-        },
-        {
-          quote:
-            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
-          name: 'Michi',
-          meta: 'Google review',
-        },
-        {
-          quote:
-            "Couldn't recommend Curious Tails in Balestier enough after bringing home our puppy. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
-          name: 'Andrew Mak',
-          meta: 'Google review',
-        },
-      ]}
+      items={testimonialsFor('puppies/cavalier-king-charles-spaniel')}
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">

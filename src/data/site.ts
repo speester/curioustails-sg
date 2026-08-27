@@ -40,7 +40,7 @@ export const site = {
       "https://avs.nparks.gov.sg/outreach/resources/public-registry-of-avs-licensed-pet-shops/",
   },
   reviews: {
-    count: 41,
+    count: 56,
     rating: 5.0,
   },
   ga4MeasurementId: "G-S1WGGDQKQ4",

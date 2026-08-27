@@ -18,11 +18,38 @@ import bichonpooPortrait from '../../assets/bichonpoo/2-bichonpoo-white-portrait
 import dachshundPortrait from '../../assets/mini-dachshund/2-mini-dachshund-red-smooth-portrait.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
 
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
+
 const title = 'HDB-Approved Dog Breeds Singapore: Full Rules | Curious Tails';
 const description =
   'The complete HDB dog rules: one approved-breed dog per flat, the official list explained by group, the $4,000 penalty, Project ADORE, and honest next steps.';
 
 const faqItems = [
+  {
+    question: 'Why is a Beagle not allowed in HDB?',
+    answer:
+      'Because the Beagle is not on HDB\'s approved small-breed list, and no amount of good behaviour changes that. It is worth knowing the second reason too: a Beagle is a scent hound bred to give voice on a trail, and that carrying bark is exactly what shared corridors and party walls amplify. If you live in a flat and love the breed, the honest answer is that this is the wrong home for it, not that you need a better appeal letter.',
+  },
+  {
+    question: 'Why is a Corgi not allowed in HDB?',
+    answer:
+      'The Corgi is not on the approved list at any weight. People find this hardest to accept because a Corgi looks small, and the list is not decided breed by breed on appearance. It is the single most common disappointment we handle, and we would rather say it on this page than after you have paid a deposit somewhere else.',
+  },
+  {
+    question: 'Are Border Collies allowed in HDB?',
+    answer:
+      'No. The Border Collie is not on HDB\'s approved list, and in this case the rule and the reality agree: a working herding dog needs a job and space to do it, and a flat provides neither. Private housing is the only route, and even then the daily exercise and mental work are the real commitment rather than the floor area.',
+  },
+  {
+    question: 'Are Dachshunds HDB approved?',
+    answer:
+      'The Miniature Dachshund is on the approved list; the standard Dachshund is not. That distinction catches people out, because both are sold simply as "dachshund" in plenty of listings. Ask which one is on the paperwork before you commit, and check the adult size you are being quoted rather than the puppy in front of you.',
+  },
+  {
+    question: 'Is a Golden Retriever HDB approved, and can I appeal?',
+    answer:
+      'No, and there is no appeal route we can honestly point you to. Golden Retrievers are a large breed and are not on the approved list. Project ADORE is the only structured exception in Singapore and it covers adopted local mixed-breed dogs, not purchased non-approved breeds. Anyone offering to arrange an exception letter for a Golden is selling you something they cannot deliver.',
+  },
   {
     question: 'How many dogs can an HDB flat keep?',
     answer:
@@ -222,7 +249,7 @@ const schemas = [
   <div id="faq" class="scroll-mt-40">
 
   <ExpertQuote id="mccannwk-4" />
-    <FAQ heading="HDB Rules, Answered" items={faqItems} />
+    <FAQ heading={`HDB Rules, Answered (checked ${monthStamp})`} items={faqItems} />
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">

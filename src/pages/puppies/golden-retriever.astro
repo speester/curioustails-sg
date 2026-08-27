@@ -37,6 +37,11 @@ import imgScene4 from '../../assets/golden-retriever/5-golden-retriever-having-i
 import imgScene5 from '../../assets/golden-retriever/6-golden-retriever-puppy-at-a-veterinary-health-check-bef.webp';
 import imgScene6 from '../../assets/golden-retriever/7-golden-retriever-puppy-settling-into-a-set-up-playpen-d.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
+import { breedPricing, fmtPrice } from '../../data/pricing';
+
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
+const price = breedPricing['golden-retriever'];
+const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = 'Golden Retriever Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -60,9 +65,24 @@ const faqItems = [
       'No. The Golden Retriever is not on the HDB-approved breed list at any weight, and we won\'t pretend otherwise. Condos and landed homes may keep up to three dogs, so a Golden is very much on the table there. HDB readers: our HDB-approved breeds guide maps the approved alternatives, from the Sheltie\'s trainable family brain to the low-shedding companion crosses.',
   },
   {
-    question: 'How much does a Golden Retriever cost in Singapore?',
+    question: 'How much is a Golden Retriever in Singapore?',
     answer:
-      'Golden Retriever prices in Singapore commonly run $3,000 to $8,000, usually quoted only on enquiry and rarely with inclusions spelt out. At Curious Tails, Golden Retriever puppies are $4,588 to $5,500, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      `A Golden Retriever in Singapore costs ${priceRange} at Curious Tails, all-in. Checking the shops publishing figures in ${monthStamp}, Goldens are listed from $3,000 to $9,000, and one Australian import is priced at $5,600, so ours sits in the lower half of the real market with inclusions the others do not spell out: the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
+  },
+  {
+    question: 'What is the Golden Retriever price in Singapore right now?',
+    answer:
+      `As of ${monthStamp}, a Golden Retriever puppy at Curious Tails is ${priceRange}, full price in writing. The purchase price is also the smallest number in this decision. A Golden is a genuinely large dog in a country of small homes, and the honest question is not what the puppy costs but whether your space, your climate routine and your next ten years can carry a 30 kg dog.`,
+  },
+  {
+    question: 'Why do imported Golden Retrievers cost more?',
+    answer:
+      'Flights, permits and quarantine handling are real costs, and an import is usually sold on the strength of its overseas line. Whether that premium buys you a better pet is a separate question: for a family companion, temperament and how the puppy was raised matter more than the passport. Ask what health screening the parents had rather than which country they came from.',
+  },
+  {
+    question: 'What does a Golden Retriever cost in the first year, beyond the purchase price?',
+    answer:
+      'Everything scales with size. Food for a dog heading to 25 to 34 kg, larger doses of every preventative, and grooming for a heavy double coat that must never be shaved in this climate. Add vaccinations, sterilisation and routine vet care, and budget seriously for hip and elbow issues, which are the breed known risk. Our first-year puppy budget guide sets out the numbers.',
   },
   {
     question: 'Is a condo big enough for a Golden Retriever?',
@@ -109,7 +129,7 @@ const schemas = [
       name: 'Golden Retriever puppy',
       url: '/puppies/golden-retriever/',
       description:
-        'Golden Retriever puppy from an AVS licensed Singapore pet shop, priced $4,588 to $5,500 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+        `Golden Retriever puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.`,
       price: '4588',
       image: imgHero.src,
     },
@@ -141,12 +161,12 @@ const schemas = [
     eyebrow="AVS Licensed Pet Shop in Balestier"
     h1="Golden Retriever Puppies for Sale in Singapore"
     h1Accent="Golden Retriever"
-    subhead="The honest part first: Goldens are not HDB-approved, so this page is for condo and landed homes — HDB readers, the approved alternatives are one link away. Golden prices here run $3,000 to $8,000 behind enquiry forms; ours are $4,588 to $5,500, with the $500+ starter kit, free delivery and setup, and a free first training lesson included."
+    subhead={`A Golden Retriever in Singapore costs ${priceRange} at Curious Tails, all-in, against published local listings of $3,000 to $9,000. The honest part next: Goldens are not HDB-approved, so this page is for condo and landed homes, and HDB readers will find the approved alternatives one link away.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Golden Retriever puppies."
     secondaryCtaLabel="See price & what's included"
     secondaryCtaHref="#price"
-    priceAnchor="From $4,588 all-in. Private housing only. No add-ons quietly billed later."
+    priceAnchor={`From $${fmtPrice(price.low)} all-in. Private housing only. No add-ons quietly billed later.`}
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing family breed']}
@@ -277,15 +297,15 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Golden Retriever Price in Singapore: What You'll Pay and What's Included"
+      heading={`Golden Retriever Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead="The market runs $3,000 to $8,000 behind enquiry forms. Here's ours in writing: $4,588 to $5,500, all-in."
+      subhead={`How much is a Golden Retriever in Singapore? Checked in ${monthStamp}: published listings run $3,000 to $9,000, with one Australian import at $5,600. Ours is ${priceRange}, all-in.`}
       mode="split"
       columns={[
         {
           heading: 'Typical Singapore market',
           items: [
-            'Golden price commonly $3,000 to $8,000',
+            'Published Golden listings range $3,000 to $9,000; one import at $5,600',
             'Price usually not published; enquiry required',
             'Inclusions rarely spelt out',
             'Starter supplies, training and delivery charged separately',
@@ -294,7 +314,7 @@ const schemas = [
         {
           heading: 'Curious Tails',
           items: [
-            '$4,588 to $5,500, printed right here',
+            `${priceRange}, printed right here`,
             '$500+ starter kit with 30+ items included',
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',

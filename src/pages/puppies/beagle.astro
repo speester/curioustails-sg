@@ -36,6 +36,11 @@ import imgScene3 from '../../assets/beagle/4-beagle-following-a-scent-trail-with
 import imgScene4 from '../../assets/beagle/5-beagle-puppy-at-a-veterinary-health-check-before-going.webp';
 import imgScene5 from '../../assets/beagle/6-beagle-puppy-settling-into-a-set-up-playpen-during-its.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
+import { breedPricing, fmtPrice } from '../../data/pricing';
+
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
+const price = breedPricing['beagle'];
+const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = 'Beagle Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -59,9 +64,9 @@ const faqItems = [
       'No. The Beagle is a scent hound and is not on the HDB-approved list. Condos and landed homes may keep up to three dogs, subject to the estate\'s own rules, which is where the Beagle belongs in Singapore. HDB readers: our HDB-approved breeds guide maps the approved small breeds that fit both the rules and flat living.',
   },
   {
-    question: 'How much does a Beagle cost in Singapore?',
+    question: 'How much is a Beagle in Singapore?',
     answer:
-      'Beagle prices in Singapore are all over the map: some listings sit near $3,300, while a well-known shop quotes $7,000 to $9,000 for the same breed. At Curious Tails, Beagle puppies are $3,588 to $4,500, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer — so the cheapest headline number rarely includes what ours does.',
+      `A Beagle in Singapore costs ${priceRange} at Curious Tails, all-in. Published local prices are all over the map: checked in ${monthStamp}, one shop quotes $7,000 to $9,000 and another lists Beagles from $3,000, for the same breed. Ours already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer, so the cheapest headline number rarely includes what ours does.`,
   },
   {
     question: 'Is there a mini or pocket Beagle?',
@@ -77,6 +82,21 @@ const faqItems = [
     question: 'Do Beagles run off? Can I let mine off-leash?',
     answer:
       'The nose runs the Beagle, and once it locks onto a scent it can go deaf to everything, including you. Treat every Beagle as a leash-first dog in open areas, keep your garden or yard genuinely secure, and never trust a recall to beat an interesting smell. Note too that in Singapore every dog must be leashed in public places, which suits the Beagle perfectly.',
+  },
+  {
+    question: 'What is the Beagle price in Singapore right now?',
+    answer:
+      `As of ${monthStamp}, a Beagle puppy at Curious Tails is ${priceRange}, full price in writing. Beagles are one of the few breeds where we sit clearly below every published local figure, and we would rather say why than let it look like a catch: the breed is under-demanded here because the voice and the nose put people off, and we price to what the dog is, not to what the ears suggest.`,
+  },
+  {
+    question: 'Why is a Beagle cheaper than most breeds we sell?',
+    answer:
+      'Demand, not quality. A Beagle is a vocal, nose-led scent hound in a country of shared walls, so fewer Singapore families are looking for one, and prices follow. That is a genuine bargain if the breed suits you and an expensive mistake if it does not, which is why the voice and the nose are on this page before the price is.',
+  },
+  {
+    question: 'What does a Beagle cost in the first year, beyond the purchase price?',
+    answer:
+      'Food for a sturdy 9 to 11 kg dog with a famous appetite, vaccinations, sterilisation and routine vet care are the baseline, and the coat costs almost nothing to maintain. Budget instead for containment and enrichment: a secure area a nose-led dog cannot let itself out of, and enough scent work and exercise to keep the voice from becoming the neighbours problem. Our first-year puppy budget guide sets out the numbers.',
   },
   {
     question: 'How much exercise does a Beagle need in our heat?',
@@ -108,7 +128,7 @@ const schemas = [
       name: 'Beagle puppy',
       url: '/puppies/beagle/',
       description:
-        'Beagle puppy from an AVS licensed Singapore pet shop, priced $3,588 to $4,500 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+        `Beagle puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.`,
       price: '3588',
       image: imgHero.src,
     },
@@ -140,12 +160,12 @@ const schemas = [
     eyebrow="AVS Licensed Pet Shop in Balestier"
     h1="Beagle Puppies for Sale in Singapore"
     h1Accent="Beagle"
-    subhead="The honest parts first: Beagles are not HDB-approved, and they are a vocal, nose-led scent hound. Loved right, the merry Beagle is a brilliant, sturdy family dog — but the voice and the nose are real, so weigh them before you fall for the ears. Elsewhere Beagles run anywhere from about $3,300 to $9,000; ours are $3,588 to $4,500, all-in and printed."
+    subhead={`A Beagle in Singapore costs ${priceRange} at Curious Tails, all-in and printed, against published local listings of $3,000 to $9,000. The honest parts next: Beagles are not HDB-approved, and they are a vocal, nose-led scent hound. Loved right the merry Beagle is a brilliant, sturdy family dog, but the voice and the nose are real, so weigh them before you fall for the ears.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Beagle puppies."
     secondaryCtaLabel="See price & what's included"
     secondaryCtaHref="#price"
-    priceAnchor="From $3,588 all-in. Private housing only. No add-ons quietly billed later."
+    priceAnchor={`From $${fmtPrice(price.low)} all-in. Private housing only. No add-ons quietly billed later.`}
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing family hound']}
@@ -275,15 +295,15 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Beagle Price in Singapore: What You'll Pay and What's Included"
+      heading={`Beagle Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead="The market runs from about $3,300 to $9,000 for the very same breed. Here's ours in writing: $3,588 to $4,500, all-in."
+      subhead={`How much is a Beagle in Singapore? Checked in ${monthStamp}: published listings run $3,000 to $9,000 for the very same breed. Ours is ${priceRange}, all-in.`}
       mode="split"
       columns={[
         {
           heading: 'Typical Singapore market',
           items: [
-            'Beagle listings range from about $3,300 to $9,000',
+            'Published Beagle listings range $3,000 to $9,000 for the same breed',
             '"Mini" or "pocket" sizes quoted higher for no real breed',
             'Inclusions rarely spelt out',
             'Starter supplies, training and delivery charged separately',
@@ -292,7 +312,7 @@ const schemas = [
         {
           heading: 'Curious Tails',
           items: [
-            '$3,588 to $4,500, printed right here',
+            `${priceRange}, printed right here`,
             '$500+ starter kit with 30+ items included',
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',

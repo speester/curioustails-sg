@@ -36,6 +36,11 @@ import imgScene3 from '../../assets/pug/4-pug-puppy-having-its-facial-wrinkles-g
 import imgScene4 from '../../assets/pug/5-pug-puppy-at-a-veterinary-health-check-before-going-hom.webp';
 import imgScene5 from '../../assets/pug/6-pug-puppy-settling-into-a-set-up-playpen-during-its-fir.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
+import { breedPricing, fmtPrice } from '../../data/pricing';
+
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
+const price = breedPricing['pug'];
+const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = 'Pug Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -54,9 +59,24 @@ const jumpLinks = [
 
 const faqItems = [
   {
-    question: 'How much does a Pug cost in Singapore?',
+    question: 'How much is a Pug in Singapore?',
     answer:
-      'Pug prices in Singapore range widely, commonly $2,500 to $9,000 depending on colour, line and shop. At Curious Tails, Pug puppies are $4,588 to $5,288, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      `A Pug in Singapore costs ${priceRange} at Curious Tails, all-in. Checking the shops publishing figures in ${monthStamp}, Pugs are listed from $4,000 to $9,000, with two separate shops quoting $4,800, so ours sits at the lower end of the real market. That price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
+  },
+  {
+    question: 'What is the Pug price in Singapore right now?',
+    answer:
+      `As of ${monthStamp}, a Pug puppy at Curious Tails is ${priceRange}, full price in writing. We would rather you spend the difference on the vet relationship than on the puppy: a Pug is a flat-faced breed, and the money that matters over its life is the money that keeps its breathing, eyes and skin folds in good order.`,
+  },
+  {
+    question: 'Why does a flat-faced breed cost more to own?',
+    answer:
+      'Because the face that makes a Pug a Pug is also a structural compromise. Narrowed airways, prominent eyes and deep skin folds each carry their own care requirement, and in Singapore heat the breathing one is not theoretical. Veterinary specialists are blunt that extreme features raise lifetime cost. We will not pretend otherwise to make a sale, and we will tell you what daily management actually looks like before you commit.',
+  },
+  {
+    question: 'What does a Pug cost in the first year, beyond the purchase price?',
+    answer:
+      'Budget for maintenance rather than grooming. A Pug is short-coated, so professional grooming is minimal, but the skin folds need cleaning as a daily routine and the eyes need watching. Add vaccinations, sterilisation, routine vet care and food for a 6 to 8 kg dog, and keep the dog lean, because weight makes every breathing problem worse. Our first-year puppy budget guide sets out the numbers.',
   },
   {
     question: 'Is a Pug HDB-approved?',
@@ -108,7 +128,7 @@ const schemas = [
       name: 'Pug puppy',
       url: '/puppies/pug/',
       description:
-        'Pug puppy from an AVS licensed Singapore pet shop, priced $4,588 to $5,288 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+        `Pug puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.`,
       price: '4588',
       image: imgHero.src,
     },
@@ -140,12 +160,12 @@ const schemas = [
     eyebrow="AVS Licensed Pet Shop in Balestier"
     h1="Pug Puppies for Sale in Singapore"
     h1Accent="Pug"
-    subhead="Pug prices in Singapore commonly run $2,500 to $9,000. Ours are $4,588 to $5,288, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    subhead={`A Pug in Singapore costs ${priceRange} at Curious Tails, all-in, at the lower end of the $4,000 to $9,000 that Singapore shops publish. The $500+ starter kit, free home delivery and setup, and a free first training lesson are already inside it.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Pug puppies."
     secondaryCtaLabel="See price & what's included"
     secondaryCtaHref="#price"
-    priceAnchor="From $4,588 all-in. HDB-approved. No add-ons quietly billed later."
+    priceAnchor={`From $${fmtPrice(price.low)} all-in. HDB-approved. No add-ons quietly billed later.`}
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved companion breed']}
@@ -269,15 +289,15 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Pug Price in Singapore: What You'll Pay and What's Included"
+      heading={`Pug Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $4,588 to $5,288, all-in."
+      subhead={`How much is a Pug in Singapore? Checked in ${monthStamp}: published listings run $4,000 to $9,000, with two shops at $4,800. Ours is ${priceRange}, all-in.`}
       mode="split"
       columns={[
         {
           heading: 'Typical Singapore market',
           items: [
-            'Pug listings range from about $2,500 to $9,000',
+            'Published Pug listings range $4,000 to $9,000, two shops at $4,800',
             'Price usually not published; enquiry required',
             'Black Pugs often priced at a premium',
             'Starter supplies, training and delivery charged separately',
@@ -286,7 +306,7 @@ const schemas = [
         {
           heading: 'Curious Tails',
           items: [
-            '$4,588 to $5,288, printed right here',
+            `${priceRange}, printed right here`,
             '$500+ starter kit with 30+ items included',
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',

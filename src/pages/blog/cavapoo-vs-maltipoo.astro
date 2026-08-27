@@ -9,11 +9,18 @@ import FAQ from '../../components/FAQ.astro';
 import Schema from '../../components/Schema.astro';
 import PawTrail from '../../components/decor/PawTrail.astro';
 import { site, whatsappLink } from '../../data/site';
+import { breedPricing, fmtPrice } from '../../data/pricing';
 import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
 import cavapooPortrait from '../../assets/cavapoo/2-cavapoo-puppy-portrait-available.webp';
 import maltipooLap from '../../assets/maltipoo/2-maltipoo-puppy-companion-lap.webp';
 import windowContent from '../../assets/cavapoo/6-cavapoo-puppy-window-content.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
+
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
+const cav = breedPricing['cavapoo'];
+const mal = breedPricing['maltipoo'];
+const cavRange = `$${fmtPrice(cav.low)} to $${fmtPrice(cav.high)}`;
+const malRange = `$${fmtPrice(mal.low)} to $${fmtPrice(mal.high)}`;
 
 const title = 'Cavapoo vs Maltipoo: Which Should You Choose? | Curious Tails';
 const description =
@@ -21,6 +28,31 @@ const description =
 const datePublished = '2026-07-07';
 
 const faqItems = [
+  {
+    question: "What's bigger, a Cavapoo or a Maltipoo?",
+    answer:
+      'The Cavapoo, usually by a clear margin. A Maltipoo is typically 3 to 6 kg fully grown, while a Cavapoo more often lands between 5 and 9 kg depending on whether a Toy or Miniature Poodle was used. If the ceiling on size matters to you, ask which Poodle is behind the puppy rather than going by the cross name, because that single fact moves the adult weight more than anything else.',
+  },
+  {
+    question: 'Cavapoo vs Maltipoo price in Singapore: which costs more?',
+    answer:
+      `Neither, at least not here. As of ${monthStamp} a Cavapoo at Curious Tails is ${cavRange} and a Maltipoo is ${malRange}, which is the same range, because the two crosses cost us the same to bring in and raise. Elsewhere you will see them priced differently, and that difference usually reflects demand and coat colour rather than anything about the dog. If a shop quotes you a large gap between the two, ask what the gap is buying.`,
+  },
+  {
+    question: 'What is the downside of a Cavapoo?',
+    answer:
+      'Two honest ones. The coat is high maintenance: it does not shed, which means the dead hair stays in it and mats unless it is brushed out, so grooming is a standing commitment rather than an occasional expense. The second is health inheritance. A cross does not average out its parents problems, and the Cavalier side brings a real risk of mitral valve heart disease, so ask what the parents were screened for rather than assuming the Poodle half cancels it.',
+  },
+  {
+    question: 'Are Cavapoos high maintenance dogs?',
+    answer:
+      'For grooming, yes. For temperament, no. A Cavapoo is generally biddable and people-oriented, which is why it suits first-time owners, but that same sociability means it does not do well alone all day. Budget for professional grooming through the year, daily brushing at home, and company. If your household is empty from 8am to 7pm, that is the thing to solve before choosing either of these crosses.',
+  },
+  {
+    question: 'What do you wish you knew before getting a Cavapoo?',
+    answer:
+      'From the owners we hear back from, three things. That the coat needs work from week one rather than after the first mat appears. That the adult size is genuinely variable in a cross, so the puppy in the photo is not a promise. And that a dog bred to be a companion will act like one, which is delightful if someone is usually home and hard on everybody if not.',
+  },
   {
     question: 'What is the main difference between a Cavapoo and a Maltipoo?',
     answer:

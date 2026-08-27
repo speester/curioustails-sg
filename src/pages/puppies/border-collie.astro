@@ -37,6 +37,11 @@ import imgScene4 from '../../assets/border-collie/5-border-collie-having-its-mod
 import imgScene5 from '../../assets/border-collie/6-border-collie-puppy-at-a-veterinary-health-check-before.webp';
 import imgScene6 from '../../assets/border-collie/7-border-collie-puppy-settling-into-a-set-up-playpen-duri.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
+import { breedPricing, fmtPrice } from '../../data/pricing';
+
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
+const price = breedPricing['border-collie'];
+const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = 'Border Collie Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -60,9 +65,24 @@ const faqItems = [
       'No, and because people genuinely ask this on forums: there is no appeal route that changes the breed list. The Border Collie is not on the HDB-approved list, full stop. Condos and landed homes may keep up to three dogs. HDB readers who want a herding brain: the Shetland Sheepdog IS on the approved list, and it is the honest answer to this exact wish.',
   },
   {
-    question: 'How much does a Border Collie cost in Singapore?',
+    question: 'How much is a Border Collie in Singapore?',
     answer:
-      'Border Collie imports in Singapore are usually enquiry-gated, with quotes commonly landing between $4,000 and $9,000 for show-line imports. At Curious Tails, Border Collie puppies are $5,880 to $6,988, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      `A Border Collie in Singapore costs ${priceRange} at Curious Tails, all-in. We checked the shops ranking for this search in ${monthStamp} and none of them publish a Border Collie price, so there is no market figure to compare against, only enquiry forms. Ours includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
+  },
+  {
+    question: 'What is the Border Collie price in Singapore right now?',
+    answer:
+      `As of ${monthStamp}, a Border Collie puppy at Curious Tails is ${priceRange}, full price in writing. Most Border Collies here are imported, litters are infrequent, and availability genuinely moves, so the number on this page is the one we hold to rather than a starting point that grows once a puppy is reserved.`,
+  },
+  {
+    question: 'Why does a Border Collie cost more than the small breeds?',
+    answer:
+      'Import cost is most of the answer. Border Collies are rarely bred locally in any volume, so the puppy usually arrives with flights, permits and quarantine handling already priced in before anyone adds a margin. The breed being fashionable does the rest. A Border Collie offered far below that deserves a question about its origin rather than a deposit.',
+  },
+  {
+    question: 'What does a Border Collie cost in the first year, beyond the purchase price?',
+    answer:
+      'Budget for a medium, high-energy dog rather than a companion breed. Food for a 14 to 20 kg athlete, vaccinations, sterilisation and routine vet care are the baseline. The cost most owners underestimate is enrichment: training classes, puzzle work and somewhere to run are not optional extras for this breed, they are the difference between a settled dog and a destructive one. Our first-year puppy budget guide sets out the numbers.',
   },
   {
     question: 'How much mental stimulation does a Border Collie actually need?',
@@ -82,7 +102,7 @@ const faqItems = [
   {
     question: 'Why do Border Collies get rehomed in Singapore?',
     answer:
-      'Search the breed locally and adoption posts outrank the sellers — that is the honest answer in one screenshot. Buyers fall for the smartest-breed reputation, discover the smartest breed needs a daily job, and the dog pays for the mismatch. This page is written to prevent exactly that: if the job requirement reads like your idea of fun, this is your dog; if it reads like a chore, we\'ll match you kindly to something else.',
+      'Search the breed locally and adoption posts outrank the sellers, and that is the honest answer in one screenshot. Buyers fall for the smartest-breed reputation, discover the smartest breed needs a daily job, and the dog pays for the mismatch. This page is written to prevent exactly that: if the job requirement reads like your idea of fun, this is your dog; if it reads like a chore, we\'ll match you kindly to something else.',
   },
   {
     question: 'What happens after I reserve a Border Collie?',
@@ -109,7 +129,7 @@ const schemas = [
       name: 'Border Collie puppy',
       url: '/puppies/border-collie/',
       description:
-        'Border Collie puppy from an AVS licensed Singapore pet shop, priced $5,880 to $6,988 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+        `Border Collie puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.`,
       price: '5880',
       image: imgHero.src,
     },
@@ -141,12 +161,12 @@ const schemas = [
     eyebrow="AVS Licensed Pet Shop in Balestier"
     h1="Border Collie Puppies for Sale in Singapore"
     h1Accent="Border Collie"
-    subhead="The honest part first: Border Collies are not HDB-approved — and no, appeals don't change the breed list — and the world's smartest dog arrives expecting a job. Import quotes here run $4,000 to $9,000 behind enquiry forms; ours are $5,880 to $6,988 all-in, with the honesty included free."
+    subhead={`A Border Collie in Singapore costs ${priceRange} at Curious Tails, all-in. The honest part next: Border Collies are not HDB-approved, appeals do not change the breed list, and the world's smartest dog arrives expecting a job.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Border Collie puppies."
     secondaryCtaLabel="Read the job requirement first"
     secondaryCtaHref="#job"
-    priceAnchor="From $5,880 all-in. Private housing only. No add-ons quietly billed later."
+    priceAnchor={`From $${fmtPrice(price.low)} all-in. Private housing only. No add-ons quietly billed later.`}
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing working breed']}
@@ -174,7 +194,7 @@ const schemas = [
   <div id="hdb" class="relative scroll-mt-40">
     <ScatterFloat />
     <DefBox
-      term="Can you keep a Border Collie in an HDB flat? No — and appeals don't change it"
+      term="Can you keep a Border Collie in an HDB flat? No, and appeals don't change it"
       definition="The Border Collie is not on the HDB-approved breed list, and because the question genuinely circulates on local forums: there is no appeal route that adds a breed to the list for your flat. HDB flats may keep one dog of an approved small breed; condos and landed homes may keep up to three dogs, subject to the estate's own rules."
       bridge="Here's the part the forums don't tell you: the herding brain you're after already exists on the approved list. The Shetland Sheepdog is a genuine herding intelligence, top-ten ranked, family-devoted, flat-legal, and we stock it. Private housing readers: carry on to the job requirement below, which is this page's real gate."
       citationLabel="Read HDB's guidelines on keeping pets"
@@ -276,15 +296,15 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Border Collie Price in Singapore: What You'll Pay and What's Included"
+      heading={`Border Collie Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead="The import listings make you enquire; quotes commonly land $4,000 to $9,000. Here's ours in writing: $5,880 to $6,988, all-in."
+      subhead={`How much is a Border Collie in Singapore? Checked in ${monthStamp}: not one shop ranking for that search publishes a figure. Ours is ${priceRange}, all-in.`}
       mode="split"
       columns={[
         {
           heading: 'Typical Singapore market',
           items: [
-            'Import quotes commonly $4,000 to $9,000',
+            'No Border Collie price published by any shop ranking for this search',
             'Show-line marketing, price on enquiry',
             'No lifestyle matching or job-requirement honesty',
             'Starter supplies, training and delivery charged separately',
@@ -293,7 +313,7 @@ const schemas = [
         {
           heading: 'Curious Tails',
           items: [
-            '$5,880 to $6,988, printed right here',
+            `${priceRange}, printed right here`,
             '$500+ starter kit with 30+ items included',
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
@@ -304,7 +324,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on our transparent puppy pricing page, and plan the ongoing costs with the first-year puppy budget guide.
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. On an import breed the enquiry form does real damage: with no published figure anywhere, a first-time buyer has nothing to measure a quote against. Compare the full picture on our transparent puppy pricing page, and plan the ongoing costs with the first-year puppy budget guide.
       </p>
     </div>
   </div>
@@ -499,7 +519,7 @@ const schemas = [
   </aside>
 
 
-  <FinalCta breed="Border Collie" reserveMessage="Hi! I'd like to reserve a Border Collie puppy — and yes, I've read the job requirement." />
+  <FinalCta breed="Border Collie" reserveMessage="Hi! I'd like to reserve a Border Collie puppy, and yes, I've read the job requirement." />
 
   <Schema {schemas} />
 </BaseLayout>

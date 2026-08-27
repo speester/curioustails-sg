@@ -31,7 +31,7 @@ const placedItems = placed.map((p) => pupCard(p, breedName, 'placed'));
     <ListingGrid
       heading={`Available ${breedName} Puppies`}
       headingAccent="Available"
-      subhead={`Real ${breedName} puppies in stock right now — updated from our live list. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop.`}
+      subhead={`Real ${breedName} puppies in stock right now, updated from our live list. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop.`}
       items={availableItems}
     />
   )
@@ -44,8 +44,8 @@ const placedItems = placed.map((p) => pupCard(p, breedName, 'placed'));
       headingAccent="Recently Placed"
       subhead={
         hasStock
-          ? `Recent ${breedName} puppies for sale in Singapore that have already found their families — a sense of the colours, sizes and prices that come through our Balestier shop.`
-          : `These ${breedName} puppies for sale in Singapore found their families fast — most litters are reserved within days. Ask about a similar puppy and we'll WhatsApp you photos, prices and timing for the next ${breedName} litter.`
+          ? `Recent ${breedName} puppies for sale in Singapore that have already found their families. Here is a sense of the colours, sizes and prices that come through our Balestier shop.`
+          : `These ${breedName} puppies for sale in Singapore found their families fast, and most litters are reserved within days. Ask about a similar puppy and we'll WhatsApp you photos, prices and timing for the next ${breedName} litter.`
       }
       items={placedItems}
     />

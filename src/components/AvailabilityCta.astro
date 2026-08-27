@@ -8,7 +8,7 @@ interface Props {
   standalone?: boolean; // render its own <section> spacing (no grid above it)
 }
 const { breedName, standalone = false } = Astro.props;
-const message = `Hi! I'm looking for a ${breedName} puppy — could you let me know the latest availability, with photos and prices for the next litter?`;
+const message = `Hi! I'm looking for a ${breedName} puppy. Could you let me know the latest availability, with photos and prices for the next litter?`;
 ---
 
 <div
@@ -27,7 +27,7 @@ const message = `Hi! I'm looking for a ${breedName} puppy — could you let me k
           Contact us for the latest {breedName} availability
         </h3>
         <p class="mt-2 text-base leading-relaxed text-[var(--color-cream-700)]">
-          {breedName} litters at our Balestier shop are small and usually reserved within days — often
+          {breedName} litters at our Balestier shop are small and usually reserved within days, often
           before this page catches up. Tell us what you're after and we'll WhatsApp you current photos,
           prices and timing for the next {breedName} puppies, plus similar breeds available now.
         </p>

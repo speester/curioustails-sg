@@ -119,7 +119,7 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
             )}
             {item.comingSoon ? (
               <span
-                aria-label={`${item.title} — page coming soon`}
+                aria-label={`${item.title}, page coming soon`}
                 class="mt-auto inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius-btn,0.9rem)] border-2 border-dashed border-[var(--color-cream-300)] bg-[var(--color-cream-100)] px-5 py-3 text-sm font-bold text-[var(--color-cream-600)]"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -131,7 +131,7 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
             ) : item.ctaLabel ? (
               <a
                 href={item.href}
-                aria-label={`${item.ctaLabel}: ${item.title} — ${item.meta}`}
+                aria-label={`${item.ctaLabel}: ${item.title}, ${item.meta}`}
                 class="clay-btn clay-press mt-auto inline-flex w-full items-center justify-center gap-2 text-center bg-[var(--color-accent)] px-5 py-3 text-sm font-bold text-white transition-transform hover:bg-[var(--color-accent-hover)]"
               >
                 {item.ctaLabel}
@@ -142,7 +142,7 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
             ) : (
             <a
               href={item.href}
-              aria-label={item.price ? `${item.meta} — ${item.title}, $${fmtPrice(item.price)} all-in` : `${item.meta} — ${item.title}`}
+              aria-label={item.price ? `${item.meta}: ${item.title}, $${fmtPrice(item.price)} all-in` : `${item.meta}: ${item.title}`}
               class="clay-btn clay-press mt-5 inline-flex w-full items-center justify-center gap-2 whitespace-nowrap bg-[#25D366] px-5 py-3 text-sm font-bold text-white transition-transform hover:bg-[#1ebe57]"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

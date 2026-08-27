@@ -36,6 +36,11 @@ import imgScene3 from '../../assets/toy-poodle/4-toy-poodle-puppy-being-brushed-
 import imgScene4 from '../../assets/toy-poodle/5-toy-poodle-puppy-at-a-veterinary-health-check-before-go.webp';
 import imgScene5 from '../../assets/toy-poodle/6-toy-poodle-puppy-settling-into-a-set-up-playpen-during.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
+import { breedPricing, fmtPrice } from '../../data/pricing';
+
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
+const price = breedPricing['toy-poodle'];
+const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = 'Toy Poodle Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -54,9 +59,24 @@ const jumpLinks = [
 
 const faqItems = [
   {
-    question: 'How much does a Toy Poodle cost in Singapore?',
+    question: 'How much is a Toy Poodle in Singapore?',
     answer:
-      'Toy Poodle prices in Singapore commonly run from around $3,000 to $9,000 and up, with reds and unusual colours priced at the top of that band and "teacup" listings higher still. At Curious Tails, Toy Poodle puppies are $3,488 to $5,988, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      `A Toy Poodle in Singapore costs ${priceRange} at Curious Tails, all-in. Comparable published figures are thin: checking the shops ranking for this search in ${monthStamp}, one listed an individual silver Toy Poodle at $5,600 and a local price guide quoted roughly $1,500 to $5,000, while the rest publish nothing per breed. Ours includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
+  },
+  {
+    question: 'What is the Toy Poodle price in Singapore right now?',
+    answer:
+      `As of ${monthStamp}, a Toy Poodle puppy at Curious Tails is ${priceRange}. Colour is the usual reason two Toy Poodles differ in price: apricots and reds sit higher than creams and blacks because demand for them is higher, not because the dog is healthier. Whatever the colour, the figure on this page is the full price with kit, delivery and first lesson inside it.`,
+  },
+  {
+    question: 'Why are red and apricot Toy Poodles more expensive?',
+    answer:
+      'Demand, and nothing else. Coat colour carries no health or temperament advantage in a Toy Poodle, and a breeder pricing on colour is pricing on fashion. If your budget is the constraint, choosing a cream or black puppy from the same litter is the single easiest way to spend less without compromising anything that matters.',
+  },
+  {
+    question: 'What does a Toy Poodle cost in the first year, beyond the purchase price?',
+    answer:
+      'Grooming is the recurring cost people underestimate. A Toy Poodle carries a curly coat that does not shed, which means the dead hair stays in the coat and mats unless it is brushed out, so professional grooming every four to six weeks is a genuine line item rather than an optional treat. Add vaccinations, sterilisation, routine vet care and dental attention, which matters in a small mouth. The first-year puppy budget guide sets out the numbers.',
   },
   {
     question: 'Is a Toy Poodle HDB-approved?',
@@ -113,7 +133,7 @@ const schemas = [
       name: 'Toy Poodle puppy',
       url: '/puppies/toy-poodle/',
       description:
-        'Toy Poodle puppy from an AVS licensed Singapore pet shop, priced $3,488 to $5,988 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+        `Toy Poodle puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.`,
       price: '3488',
       image: imgHero.src,
     },
@@ -145,12 +165,12 @@ const schemas = [
     eyebrow="AVS Licensed Pet Shop in Balestier"
     h1="Toy Poodle Puppies for Sale in Singapore"
     h1Accent="Toy Poodle"
-    subhead="Toy Poodle prices in Singapore commonly run $3,000 to $9,000 and up, more for reds and 'teacups'. Ours are $3,488 to $5,988, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    subhead={`A Toy Poodle in Singapore costs ${priceRange} at Curious Tails, all-in, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already inside it. Most Singapore shops publish no Toy Poodle price at all, so compare ours against a quote you have to ask for.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Toy Poodle puppies."
     secondaryCtaLabel="See price & what's included"
     secondaryCtaHref="#price"
-    priceAnchor="From $3,488 all-in. HDB-approved. No add-ons quietly billed later."
+    priceAnchor={`From $${fmtPrice(price.low)} all-in. HDB-approved. No add-ons quietly billed later.`}
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved toy breed']}
@@ -274,15 +294,15 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Toy Poodle Price in Singapore: What You'll Pay and What's Included"
+      heading={`Toy Poodle Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $3,488 to $5,988, all-in."
+      subhead={`How much is a Toy Poodle in Singapore? Checked in ${monthStamp}: one shop lists a silver Toy Poodle at $5,600, a local guide quotes about $1,500 to $5,000, and most publish nothing. Ours is ${priceRange}, all-in.`}
       mode="split"
       columns={[
         {
           heading: 'Typical Singapore market',
           items: [
-            'Toy Poodle listings range from $3,000 to $9,000+ (reds/teacup at top)',
+            'One published comparable at $5,600; a local guide quotes $1,500 to $5,000',
             'Reds and rare colours priced at a premium',
             '"Teacup" listings priced higher still',
             'Starter supplies, training and delivery charged separately',
@@ -291,7 +311,7 @@ const schemas = [
         {
           heading: 'Curious Tails',
           items: [
-            '$3,488 to $5,988, printed right here',
+            `${priceRange}, printed right here`,
             '$500+ starter kit with 30+ items included',
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
@@ -302,7 +322,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on our transparent puppy pricing page, and plan the ongoing costs with the first-year puppy budget guide.
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. It also removes the colour game: when the number is public, nobody can quietly reprice the same puppy because you admired the apricot one. Compare the full picture on our transparent puppy pricing page, and plan the ongoing costs with the first-year puppy budget guide.
       </p>
     </div>
   </div>

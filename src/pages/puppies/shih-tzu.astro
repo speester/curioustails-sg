@@ -36,6 +36,11 @@ import imgScene3 from '../../assets/shih-tzu/4-shih-tzu-puppy-having-its-long-co
 import imgScene4 from '../../assets/shih-tzu/5-shih-tzu-puppy-at-a-veterinary-health-check-before-goin.webp';
 import imgScene5 from '../../assets/shih-tzu/6-shih-tzu-puppy-settling-into-a-set-up-playpen-during-it.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
+import { breedPricing, fmtPrice } from '../../data/pricing';
+
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
+const price = breedPricing['shih-tzu'];
+const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = 'Shih Tzu Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -54,9 +59,19 @@ const jumpLinks = [
 
 const faqItems = [
   {
-    question: 'How much does a Shih Tzu cost in Singapore?',
+    question: 'How much is a Shih Tzu in Singapore?',
     answer:
-      'Shih Tzu prices in Singapore commonly run from around $2,000 to $5,000 depending on colour, markings and shop. At Curious Tails, Shih Tzu puppies are $3,988 to $5,288, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      `A Shih Tzu in Singapore costs ${priceRange} at Curious Tails, all-in. Checked in ${monthStamp}, the published local range is $3,000 to $7,000, so ours sits in the middle of it. That price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
+  },
+  {
+    question: 'What is the Shih Tzu price in Singapore right now?',
+    answer:
+      `As of ${monthStamp}, a Shih Tzu puppy at Curious Tails is ${priceRange}, the full price in writing. Colour and markings are what move the number elsewhere, and neither tells you anything about the dog you will live with. Ours is priced on the puppy, not the pattern.`,
+  },
+  {
+    question: 'What does a Shih Tzu cost in the first year, beyond the purchase price?',
+    answer:
+      'Grooming and the face. A Shih Tzu carries a long double coat that mats where it moves, so professional grooming through the year is a real recurring cost and most owners settle on a shorter pet trim. The flat face needs its own routine: eyes watched, folds kept clean, and heat taken seriously in this climate. Add vaccinations, sterilisation, routine vet care and dental attention. Our first-year puppy budget guide sets out the numbers.',
   },
   {
     question: 'Is a Shih Tzu HDB-approved?',
@@ -118,7 +133,7 @@ const schemas = [
       name: 'Shih Tzu puppy',
       url: '/puppies/shih-tzu/',
       description:
-        'Shih Tzu puppy from an AVS licensed Singapore pet shop, priced $3,988 to $5,288 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+        `Shih Tzu puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.`,
       price: '3988',
       image: imgHero.src,
     },
@@ -150,12 +165,12 @@ const schemas = [
     eyebrow="AVS Licensed Pet Shop in Balestier"
     h1="Shih Tzu Puppies for Sale in Singapore"
     h1Accent="Shih Tzu"
-    subhead="Shih Tzu prices in Singapore commonly run $2,000 to $5,000. Ours are $3,988 to $5,288, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    subhead={`A Shih Tzu in Singapore costs ${priceRange} at Curious Tails, all-in, against a published local range of $3,000 to $7,000. The $500+ starter kit, free home delivery and setup, and a free first training lesson are already inside our number.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Shih Tzu puppies."
     secondaryCtaLabel="See price & what's included"
     secondaryCtaHref="#price"
-    priceAnchor="From $3,988 all-in. HDB-approved. No add-ons quietly billed later."
+    priceAnchor={`From $${fmtPrice(price.low)} all-in. HDB-approved. No add-ons quietly billed later.`}
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved companion breed']}
@@ -279,15 +294,15 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Shih Tzu Price in Singapore: What You'll Pay and What's Included"
+      heading={`Shih Tzu Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $3,988 to $5,288, all-in."
+      subhead={`How much is a Shih Tzu in Singapore? Checked in ${monthStamp}: the published local range is $3,000 to $7,000. Ours is ${priceRange}, all-in.`}
       mode="split"
       columns={[
         {
           heading: 'Typical Singapore market',
           items: [
-            'Shih Tzu price commonly $2,000 to $5,000',
+            'Published Shih Tzu listings run $3,000 to $7,000',
             'Price usually not published; enquiry required',
             'Rare colours and markings priced at a premium',
             'Starter supplies, training and delivery charged separately',
@@ -296,7 +311,7 @@ const schemas = [
         {
           heading: 'Curious Tails',
           items: [
-            '$3,988 to $5,288, printed right here',
+            `${priceRange}, printed right here`,
             '$500+ starter kit with 30+ items included',
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',

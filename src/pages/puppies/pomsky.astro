@@ -37,6 +37,11 @@ import imgScene4 from '../../assets/pomsky/5-pomsky-puppy-having-its-double-coat
 import imgScene5 from '../../assets/pomsky/6-pomsky-puppy-at-a-veterinary-health-check-before-going.webp';
 import imgScene6 from '../../assets/pomsky/7-pomsky-puppy-settling-into-a-set-up-playpen-during-its.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
+import { breedPricing, fmtPrice } from '../../data/pricing';
+
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
+const price = breedPricing['pomsky'];
+const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = 'Pomsky Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -55,6 +60,21 @@ const jumpLinks = [
 
 const faqItems = [
   {
+    question: 'What is the Pomsky price in Singapore right now?',
+    answer:
+      `As of ${monthStamp}, a Pomsky puppy at Curious Tails is ${priceRange}, one price whatever the generation. That last part matters: elsewhere an F1 and an F2 Pomsky are often priced differently, and a smaller adult size is charged as a premium. We do not price on a size we cannot promise.`,
+  },
+  {
+    question: 'Why do Pomsky prices vary so much in Singapore?',
+    answer:
+      'Because the Pomsky is a cross, not a standardised breed, so there is nothing to price against. Generation, the size of the Pomeranian parent, coat and eye colour all get used to justify a number, and scarcity does the rest. A published figure of $10,000 to $15,000 and an import at $4,800 can both be real in the same month for the same cross.',
+  },
+  {
+    question: 'What does a Pomsky cost in the first year, beyond the purchase price?',
+    answer:
+      'Budget as though the Husky parent won, because it often does. That means a double coat needing professional grooming and never shaving in this climate, food for a dog that may reach 12 to 15 kg rather than the 7 kg some listings imply, and real daily exercise. Add vaccinations, sterilisation and routine vet care. Our first-year puppy budget guide sets out the numbers.',
+  },
+  {
     question: 'Is a Pomsky HDB-approved?',
     answer:
       'No, and this catches people out constantly: small does not mean approved. The HDB list works by breed, not by weight, and as a Husky cross the Pomsky is not on it at any size. Condos and landed homes may keep up to three dogs. HDB readers who love the spitz look: the Pomeranian — literally one of the Pomsky\'s parents — and the Japanese Spitz are both on the approved list, and we stock both.',
@@ -65,9 +85,9 @@ const faqItems = [
       'Honestly: somewhere between 4 and 14 kg, and anyone who guarantees a number is selling hope. Generation shifts the odds ("F1b" means a pup bred back toward the Pomeranian side, so smaller is likelier), but genetics deals every litter a range. Our approach: we show you the parents, tell you the honest estimate, and never charge a "tiny" premium for a promise nobody can keep.',
   },
   {
-    question: 'How much does a Pomsky cost in Singapore?',
+    question: 'How much is a Pomsky in Singapore?',
     answer:
-      'Pomsky prices in Singapore commonly run $4,000 to $10,000, with "tiny" and "teacup" generation marketing at the top. At Curious Tails, Pomsky puppies are $5,500 to $6,200 regardless of generation, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      `A Pomsky in Singapore costs ${priceRange} at Curious Tails, regardless of generation. Checked in ${monthStamp}, published local listings run $4,800 for a UK import up to $10,000 to $15,000 at one shop, with "tiny" and "teacup" generation marketing at the top of that band. Our price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
   },
   {
     question: 'Do Pomskies howl like Huskies?',
@@ -109,7 +129,7 @@ const schemas = [
       name: 'Pomsky puppy',
       url: '/puppies/pomsky/',
       description:
-        'Pomsky puppy from an AVS licensed Singapore pet shop, priced $5,500 to $6,200 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+        `Pomsky puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.`,
       price: '5500',
       image: imgHero.src,
     },
@@ -141,12 +161,12 @@ const schemas = [
     eyebrow="AVS Licensed Pet Shop in Balestier"
     h1="Pomsky Puppies for Sale in Singapore"
     h1Accent="Pomsky"
-    subhead="Two honest facts before the mini-husky face wins: Pomskies are NOT HDB-approved — small doesn't change the breed list — and adult size genuinely varies, whatever 'tiny pomsky' listings promise. Market prices run $4,000 to $10,000; ours are $5,500 to $6,200 all-in, honesty included."
+    subhead={`A Pomsky in Singapore costs ${priceRange} at Curious Tails, all-in, against published local listings of $4,800 to $15,000. Two honest facts before the mini-husky face wins: Pomskies are NOT HDB-approved, small does not change the breed list, and adult size genuinely varies whatever a "tiny pomsky" listing promises.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Pomsky puppies."
     secondaryCtaLabel="Read the size truth first"
     secondaryCtaHref="#size-truth"
-    priceAnchor="From $5,500 all-in. Private housing only. No add-ons quietly billed later."
+    priceAnchor={`From $${fmtPrice(price.low)} all-in. Private housing only. No add-ons quietly billed later.`}
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing cross']}
@@ -277,15 +297,15 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Pomsky Price in Singapore: What You'll Pay and What's Included"
+      heading={`Pomsky Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead="The market runs $4,000 to $10,000 with 'tiny' premiums on top. Here's ours in writing: $5,500 to $6,200, all-in, whatever the generation."
+      subhead={`How much is a Pomsky in Singapore? Checked in ${monthStamp}: one shop quotes $10,000 to $15,000 and a UK import is listed at $4,800. Ours is ${priceRange}, all-in, whatever the generation.`}
       mode="split"
       columns={[
         {
           heading: 'Typical Singapore market',
           items: [
-            'Pomsky price commonly $4,000 to $10,000',
+            'Published Pomsky listings run $4,800 to $15,000',
             '"Tiny" and generation labels priced at premiums',
             'Size implied or promised; parents rarely shown',
             'Starter supplies, training and delivery charged separately',
@@ -294,7 +314,7 @@ const schemas = [
         {
           heading: 'Curious Tails',
           items: [
-            '$5,500 to $6,200, printed right here, generation premiums excluded',
+            `${priceRange}, printed right here, generation premiums excluded`,
             'Parents shown, size estimated honestly',
             '$500+ starter kit, free delivery and setup included',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',

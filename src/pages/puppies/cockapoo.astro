@@ -32,6 +32,11 @@ import apricotPortrait from '../../assets/cockapoo/2-cockapoo-apricot-portrait.w
 import familyFetch from '../../assets/cockapoo/5-cockapoo-family-play-fetch.webp';
 import earCheck from '../../assets/cockapoo/6-cockapoo-ear-check-care.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
+import { breedPricing, fmtPrice } from '../../data/pricing';
+
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
+const price = breedPricing['cockapoo'];
+const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = 'Cockapoo Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -52,9 +57,24 @@ const jumpLinks = [
 
 const faqItems = [
   {
-    question: 'How much does a Cockapoo cost in Singapore?',
+    question: 'How much is a Cockapoo in Singapore?',
     answer:
-      'Most shops quote Cockapoos on enquiry only, with import premiums pushing figures well up. At Curious Tails, Cockapoo puppies are $3,288 to $5,300, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      `A Cockapoo in Singapore costs ${priceRange} at Curious Tails, all-in. Most Singapore shops quote Cockapoos on enquiry only, so there is little to compare against: checked in ${monthStamp}, the one published local figure is a UK import at $4,600. Our price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
+  },
+  {
+    question: 'What is the Cockapoo price in Singapore right now?',
+    answer:
+      `As of ${monthStamp}, a Cockapoo puppy at Curious Tails is ${priceRange}, the full price in writing. The spread within that range comes from the Poodle parent: a Toy-cross Cockapoo and a Miniature-cross Cockapoo are different dogs in adult size and coat, and we price and describe them as such rather than selling one label.`,
+  },
+  {
+    question: 'Why is the Cockapoo price range so wide here?',
+    answer:
+      'Because the cross is not one dog. Coat type varies from wavy to tightly curled, adult size follows whichever Poodle was used, and both change what the puppy needs from you. We would rather show a range and explain it than quote a single flattering number and let you meet the difference at home.',
+  },
+  {
+    question: 'What does a Cockapoo cost in the first year, beyond the purchase price?',
+    answer:
+      'Grooming is the line item people underestimate. A Cockapoo coat does not shed, which means the dead hair stays in the coat and mats unless it is brushed out, so professional grooming every four to six weeks plus brushing at home is a real recurring cost. Add vaccinations, sterilisation, routine vet care and food for a 5 to 11 kg dog depending on the Poodle parent. Our first-year puppy budget guide sets out the numbers.',
   },
   {
     question: 'Are Cockapoos HDB-approved?',
@@ -106,7 +126,7 @@ const schemas = [
       name: 'Cockapoo puppy',
       url: '/puppies/cockapoo/',
       description:
-        'Cockapoo puppy from an AVS licensed Singapore pet shop, priced $3,288 to $5,300 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+        `Cockapoo puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.`,
       price: '3288',
       image: heroCockapoo.src,
     },
@@ -131,12 +151,12 @@ const schemas = [
     eyebrow="AVS Licensed Pet Shop in Balestier"
     h1="Cockapoo Puppies for Sale in Singapore"
     h1Accent="Cockapoo"
-    subhead="Most shops quote Cockapoos on enquiry only. Ours are $3,288 to $5,300, printed here, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price. Family-friendly, HDB-approved, and kind to first-time owners."
+    subhead={`A Cockapoo in Singapore costs ${priceRange} at Curious Tails, all-in. Most Singapore shops quote Cockapoos on enquiry only; the one published comparable we found is a UK import at $4,600. Ours includes the $500+ starter kit, free home delivery and setup, and a free first training lesson. Family-friendly, HDB-approved, and kind to first-time owners.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Cockapoo puppies."
     secondaryCtaLabel="See price & what's included"
     secondaryCtaHref="#price"
-    priceAnchor="From $3,288 all-in. No add-ons quietly billed later."
+    priceAnchor={`From $${fmtPrice(price.low)} all-in. No add-ons quietly billed later.`}
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
@@ -260,9 +280,9 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Cockapoo Price in Singapore: What You'll Pay and What's Included"
+      heading={`Cockapoo Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead="Most of the market quotes on enquiry. Here's ours in writing: $3,288 to $5,300, all-in."
+      subhead={`How much is a Cockapoo in Singapore? Checked in ${monthStamp}: almost every local shop quotes on enquiry, and the one published figure is a UK import at $4,600. Ours is ${priceRange}, all-in.`}
       mode="split"
       columns={[
         {
@@ -278,7 +298,7 @@ const schemas = [
         {
           heading: 'Curious Tails',
           items: [
-            '$3,288 to $5,300, printed right here',
+            `${priceRange}, printed right here`,
             '$500+ starter kit with 30+ items included',
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer',

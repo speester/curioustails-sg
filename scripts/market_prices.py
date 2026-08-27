@@ -29,6 +29,8 @@ OUT = os.path.join("research", "market-prices.json")
 OURS = {"curioustails.sg", "puppysingapore.com", "wgpetfarm.com", "puppysg.com", "cavapoo.sg"}
 SKIP = {"facebook.com", "www.facebook.com", "instagram.com", "www.instagram.com", "www.lemon8-app.com",
         "www.royalcanin.com", "blog.petloverscentre.com", "dogsactually.com", "www.reddit.com",
+        # breed names that collide with unrelated products or property listings
+        "jewel-cafe.sg", "www.srx.com.sg", "crypto.com", "www.propertyguru.com.sg",
         "en.wikipedia.org", "sg.carousell.com", "www.carousell.sg"}
 PRICE = re.compile(r"(?:S?\$)\s?([0-9]{1,2},[0-9]{3})")
 # a puppy price, not a phone number or a year

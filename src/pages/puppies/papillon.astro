@@ -36,6 +36,11 @@ import imgScene3 from '../../assets/papillon/4-papillon-puppy-having-its-silky-c
 import imgScene4 from '../../assets/papillon/5-papillon-puppy-at-a-veterinary-health-check-before-goin.webp';
 import imgScene5 from '../../assets/papillon/6-papillon-puppy-settling-into-a-set-up-playpen-during-it.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
+import { breedPricing, fmtPrice } from '../../data/pricing';
+
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
+const price = breedPricing['papillon'];
+const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = 'Papillon Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -54,9 +59,19 @@ const jumpLinks = [
 
 const faqItems = [
   {
-    question: 'How much does a Papillon cost in Singapore?',
+    question: 'How much is a Papillon in Singapore?',
     answer:
-      'Papillon prices in Singapore commonly run from around $3,000 to $6,000; the breed is uncommon here, which keeps prices firm. At Curious Tails, Papillon puppies are $4,088 to $6,088, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      `A Papillon in Singapore costs ${priceRange} at Curious Tails, all-in. There is no local figure to compare it against: checked in ${monthStamp}, no Singapore shop publishes a Papillon price, and the breed is uncommon enough here that a price search returns a handbag and a condo development before it returns a puppy. Our price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
+  },
+  {
+    question: 'What is the Papillon price in Singapore right now?',
+    answer:
+      `As of ${monthStamp}, a Papillon puppy at Curious Tails is ${priceRange}, the full price in writing. Scarcity is the reason the range sits where it does: Papillons arrive here in small numbers, and when a breed is rare the quote a buyer gets privately tends to track how keen they sound.`,
+  },
+  {
+    question: 'What does a Papillon cost in the first year, beyond the purchase price?',
+    answer:
+      'Less than the coat suggests. The Papillon carries a single coat with no undercoat, so it needs regular brushing but very little professional clipping, and the famous ears need checking rather than styling. Budget for vaccinations, sterilisation, routine vet care, food for a 3 to 5 kg dog, and dental attention, which matters in a small mouth. Our first-year puppy budget guide sets out the numbers.',
   },
   {
     question: 'Is a Papillon HDB-approved?',
@@ -113,7 +128,7 @@ const schemas = [
       name: 'Papillon puppy',
       url: '/puppies/papillon/',
       description:
-        'Papillon puppy from an AVS licensed Singapore pet shop, priced $4,088 to $6,088 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+        `Papillon puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.`,
       price: '4088',
       image: imgHero.src,
     },
@@ -145,12 +160,12 @@ const schemas = [
     eyebrow="AVS Licensed Pet Shop in Balestier"
     h1="Papillon Puppies for Sale in Singapore"
     h1Accent="Papillon"
-    subhead="Papillon prices in Singapore commonly run $3,000 to $6,000. Ours are $4,088 to $6,088, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    subhead={`A Papillon in Singapore costs ${priceRange} at Curious Tails, all-in, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already inside it. No Singapore shop publishes a Papillon price to compare it against.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Papillon puppies."
     secondaryCtaLabel="See price & what's included"
     secondaryCtaHref="#price"
-    priceAnchor="From $4,088 all-in. HDB-approved. No add-ons quietly billed later."
+    priceAnchor={`From $${fmtPrice(price.low)} all-in. HDB-approved. No add-ons quietly billed later.`}
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved toy breed']}
@@ -274,15 +289,15 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Papillon Price in Singapore: What You'll Pay and What's Included"
+      heading={`Papillon Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $4,088 to $6,088, all-in."
+      subhead={`How much is a Papillon in Singapore? Checked in ${monthStamp}: no Singapore shop publishes a figure, and the breed is rare enough here that a price search returns a handbag and a condo before it returns a puppy. Ours is ${priceRange}, all-in.`}
       mode="split"
       columns={[
         {
           heading: 'Typical Singapore market',
           items: [
-            'Papillon price commonly $3,000 to $6,000',
+            'No Papillon price published by any Singapore shop',
             'Rare locally; waitlists and import premiums common',
             'Price usually not published; enquiry required',
             'Starter supplies, training and delivery charged separately',
@@ -291,7 +306,7 @@ const schemas = [
         {
           heading: 'Curious Tails',
           items: [
-            '$4,088 to $6,088, printed right here',
+            `${priceRange}, printed right here`,
             '$500+ starter kit with 30+ items included',
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',

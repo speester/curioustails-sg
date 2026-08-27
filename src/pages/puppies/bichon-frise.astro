@@ -36,10 +36,15 @@ import bichonSettling from '../../assets/bichon-frise/5-bichon-frise-puppy-settl
 import whiteBoyPortrait from '../../assets/bichon-frise/6-bichon-frise-puppy-white-male-portrait.webp';
 import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
+import { breedPricing, fmtPrice } from '../../data/pricing';
+
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
+const price = breedPricing['bichon-frise'];
+const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = 'Bichon Frise Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Bichon Frise puppies for sale in Singapore from $3,888, AVS licensed and HDB-approved. Real prices, temperament and honest grooming expectations.';
+  `Bichon Frise price in Singapore (${monthStamp}): ${priceRange} all-in, AVS licensed and HDB-approved. Starter kit, free delivery and setup included.`;
 
 const jumpLinks = [
   { label: 'Puppies', href: '#available' },
@@ -54,9 +59,24 @@ const jumpLinks = [
 
 const faqItems = [
   {
-    question: 'How much does a Bichon Frise cost in Singapore?',
+    question: 'How much is a Bichon Frise in Singapore?',
     answer:
-      'Bichon Frise prices in Singapore swing more than almost any small breed: some listings sit near $2,400, while cost-of-ownership guides quote figures as high as $12,800. At Curious Tails, Bichon Frise puppies are $3,888 to $5,988, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer — so the cheapest headline number rarely includes what ours does.',
+      `A Bichon Frise in Singapore costs ${priceRange} at Curious Tails, all-in. Local listings for the same breed swing more than almost any small breed: some sit near $2,400, while cost-of-ownership guides quote figures as high as $12,800. Our price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer, so the cheapest headline number rarely includes what ours does.`,
+  },
+  {
+    question: 'What is the Bichon Frise price in Singapore right now?',
+    answer:
+      `As of ${monthStamp}, a Bichon Frise puppy at Curious Tails is ${priceRange}. That is the full price in writing, not a starting figure that grows at collection: the starter kit, home delivery with the playpen set up, the first training lesson and boarding after deposit are all inside it. We update this figure on the page whenever it changes rather than asking you to WhatsApp for a number.`,
+  },
+  {
+    question: 'Why is a Bichon Frise cheaper here than at other Singapore pet shops?',
+    answer:
+      'We do not carry the marketing spend the bigger names do, and we would rather win on value and word of mouth. The other half of the answer is what is counted: a lower sticker elsewhere usually excludes the starter kit, delivery, setup and training, which is roughly $1,000 to $3,000 of value once you add them back. Compare the full picture on our puppy price guide rather than the headline numbers.',
+  },
+  {
+    question: 'What does a Bichon Frise cost in the first year, beyond the purchase price?',
+    answer:
+      'Budget past day one for food, grooming and routine vet care. A Bichon is a curly-coated breed, so professional grooming is a recurring cost rather than an occasional one, and the coat needs brushing at home between visits. Vaccinations, sterilisation and annual checkups sit on top. Our first-year puppy budget guide lays the numbers out before you commit, and the starter kit covers most of the day-one supplies.',
   },
   {
     question: 'Is a Bichon Frise HDB-approved?',
@@ -118,7 +138,7 @@ const schemas = [
       name: 'Bichon Frise puppy',
       url: '/puppies/bichon-frise/',
       description:
-        'Bichon Frise puppy from an AVS licensed Singapore pet shop, priced $3,888 to $5,988 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+        `Bichon Frise puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.`,
       price: '3888',
       image: heroBichonFrise.src,
     },
@@ -150,12 +170,12 @@ const schemas = [
     eyebrow="AVS Licensed Pet Shop in Balestier"
     h1="Bichon Frise Puppies for Sale in Singapore"
     h1Accent="Bichon Frise"
-    subhead="Bichon Frise prices in Singapore swing wildly — from about $2,400 to a quoted $12,800 for the same breed. Ours are $3,888 to $5,988, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    subhead={`A Bichon Frise in Singapore costs ${priceRange} at Curious Tails, all-in. Local listings for the same breed run from about $2,400 to a quoted $12,800, and ours already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Bichon Frise puppies."
     secondaryCtaLabel="See price & what's included"
     secondaryCtaHref="#price"
-    priceAnchor="From $3,888 all-in. HDB-approved. No add-ons quietly billed later."
+    priceAnchor={`From $${fmtPrice(price.low)} all-in. HDB-approved. No add-ons quietly billed later.`}
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved small breed']}
@@ -174,7 +194,7 @@ const schemas = [
 
     <CaptionedBlock heading="Looking to Buy a Bichon Frise in Singapore?" imageAlt="White Bichon Frise puppy portrait, one of the Bichon Frise puppies available in Singapore" imageSrc={whiteBoyPortrait} variant="mid">
       <p>Our Bichon Frise puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and a short walkthrough video for the Bichon Frise puppies available now.</p>
-      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Bichon Frise for sale in Singapore here is between $3,888 and $5,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Bichon Frise for sale in Singapore here is between ${fmtPrice(price.low)} and ${fmtPrice(price.high)}, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Bichon Frise puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Bichon Frise photos and prices</a>, or meet our Bichon Frise puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
       </p>
@@ -218,7 +238,7 @@ const schemas = [
     heading="Why Singapore families get their Bichon Frise from Curious Tails"
     stats={[
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
-      { value: '$3,888', label: 'Bichon pricing starts here, all-in' },
+      { value: `$${fmtPrice(price.low)}`, label: 'Bichon pricing starts here, all-in' },
       { value: '$500+', label: 'starter kit included free' },
       { value: '2+', label: 'years in Balestier' },
     ]}
@@ -280,9 +300,9 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Bichon Frise Price in Singapore: What You'll Pay and What's Included"
+      heading={`Bichon Frise Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $3,888 to $5,988, all-in."
+      subhead={`How much is a Bichon Frise in Singapore? As of ${monthStamp}, local listings run from about $2,400 to $12,800. At Curious Tails a Bichon Frise is ${priceRange}, all-in, with the starter kit, delivery and first training lesson included.`}
       mode="split"
       columns={[
         {
@@ -297,7 +317,7 @@ const schemas = [
         {
           heading: 'Curious Tails',
           items: [
-            '$3,888 to $5,988, printed right here',
+            `${priceRange}, printed right here`,
             '$500+ starter kit with 30+ items included',
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',

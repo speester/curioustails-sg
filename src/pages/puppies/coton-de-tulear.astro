@@ -36,6 +36,11 @@ import imgScene3 from '../../assets/coton-de-tulear/4-coton-de-tulear-puppy-havi
 import imgScene4 from '../../assets/coton-de-tulear/5-coton-de-tulear-puppy-at-a-veterinary-health-check-befo.webp';
 import imgScene5 from '../../assets/coton-de-tulear/6-coton-de-tulear-puppy-settling-into-a-set-up-playpen-du.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
+import { breedPricing, fmtPrice } from '../../data/pricing';
+
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
+const price = breedPricing['coton-de-tulear'];
+const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = 'Coton de Tulear Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -54,9 +59,24 @@ const jumpLinks = [
 
 const faqItems = [
   {
-    question: 'How much does a Coton de Tulear cost in Singapore?',
+    question: 'How much is a Coton de Tulear in Singapore?',
     answer:
-      'Most Coton de Tulear price information online is in US dollars, which is no help here. In Singapore, quotes commonly run $3,500 to $7,000 with import premiums because litters are so scarce. At Curious Tails, Coton de Tulear puppies are $5,888 to $6,888, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      `A Coton de Tulear in Singapore costs ${priceRange} at Curious Tails, all-in. Most Coton price information online is in US dollars from a kennel eleven time zones away, which is no help to a Singapore buyer. The one local source publishing per-puppy figures in ${monthStamp} lists Cotons from $3,100 to $10,100, so ours sits in the middle of a very wide real range. Our price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
+  },
+  {
+    question: 'What is the Coton de Tulear price in Singapore right now?',
+    answer:
+      `As of ${monthStamp}, a Coton de Tulear puppy at Curious Tails is ${priceRange}, in Singapore dollars, full price. Cotons are genuinely scarce here and litters are infrequent, which is why local quotes vary by a factor of three for the same breed. A published figure is the only defence a buyer has against that spread.`,
+  },
+  {
+    question: 'Why do Coton de Tulear prices vary so much in Singapore?',
+    answer:
+      'Scarcity plus import. Almost every Coton here arrives from overseas, so the landed cost depends on which country the puppy came from, how it travelled and what the seller paid for it, before any margin. That is how the same breed appears at $3,100 in one listing and $10,100 in another. Ask where the puppy came from and what the paperwork shows, rather than treating the highest price as the best dog.',
+  },
+  {
+    question: 'What does a Coton de Tulear cost in the first year, beyond the purchase price?',
+    answer:
+      'The coat drives the ongoing cost. A Coton carries a long, cotton-textured coat that mats where it moves, so daily brushing at home and professional grooming through the year are both real commitments rather than optional ones. Add vaccinations, sterilisation, routine vet care and food for a 4 to 6 kg dog. The breed is long-lived, so plan the routine as a commitment into the 2040s, not a first-year expense.',
   },
   {
     question: 'Is a Coton de Tulear HDB-approved?',
@@ -108,7 +128,7 @@ const schemas = [
       name: 'Coton de Tulear puppy',
       url: '/puppies/coton-de-tulear/',
       description:
-        'Coton de Tulear puppy from an AVS licensed Singapore pet shop, priced $5,888 to $6,888 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+        `Coton de Tulear puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.`,
       price: '5888',
       image: imgHero.src,
     },
@@ -140,12 +160,12 @@ const schemas = [
     eyebrow="AVS Licensed Pet Shop in Balestier"
     h1="Coton de Tulear Puppies for Sale in Singapore"
     h1Accent="Coton de Tulear"
-    subhead="Every Coton de Tulear price you'll find online is in US dollars from a breeder eleven time zones away. Here's the Singapore answer: ours are $5,888 to $6,888, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    subhead={`A Coton de Tulear in Singapore costs ${priceRange} at Curious Tails, all-in. Every other Coton price you'll find is in US dollars from a breeder eleven time zones away; this one is in Singapore dollars, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already inside it.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Coton de Tulear puppies."
     secondaryCtaLabel="See price & what's included"
     secondaryCtaHref="#price"
-    priceAnchor="From $5,888 all-in. HDB-approved. No add-ons quietly billed later."
+    priceAnchor={`From $${fmtPrice(price.low)} all-in. HDB-approved. No add-ons quietly billed later.`}
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved rare breed']}
@@ -268,9 +288,9 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Coton de Tulear Price in Singapore: The SGD Answer"
+      heading={`Coton de Tulear Price in Singapore (${monthStamp}): The SGD Answer`}
       headingAccent="Price"
-      subhead="Everyone else quotes US dollars from overseas kennels. Here's ours in writing, in Singapore dollars: $5,888 to $6,888, all-in."
+      subhead={`How much is a Coton de Tulear in Singapore? Checked in ${monthStamp}: the one local source publishing per-puppy prices lists Cotons from $3,100 to $10,100, and everyone else quotes US dollars from overseas kennels. Ours is ${priceRange} in Singapore dollars, all-in.`}
       mode="split"
       columns={[
         {
@@ -285,7 +305,7 @@ const schemas = [
         {
           heading: 'Curious Tails',
           items: [
-            '$5,888 to $6,888, printed right here in SGD',
+            `${priceRange}, printed right here in SGD`,
             '$500+ starter kit with 30+ items included',
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',

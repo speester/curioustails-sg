@@ -37,6 +37,11 @@ import imgScene4 from '../../assets/siberian-husky/5-siberian-husky-having-its-d
 import imgScene5 from '../../assets/siberian-husky/6-siberian-husky-puppy-at-a-veterinary-health-check-befor.webp';
 import imgScene6 from '../../assets/siberian-husky/7-siberian-husky-puppy-settling-into-a-set-up-playpen-dur.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
+import { breedPricing, fmtPrice } from '../../data/pricing';
+
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
+const price = breedPricing['siberian-husky'];
+const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = 'Siberian Husky Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -60,9 +65,24 @@ const faqItems = [
       'No. The Husky is not on the HDB-approved breed list, and we won\'t pretend otherwise — a husky was literally in the news after being rescued from a 35th-floor HDB flat, which is the cautionary tale in one headline. Condos and landed homes may keep up to three dogs. And if you love the look at a smaller scale, the Pomsky exists, though it is a husky cross and also not HDB-eligible.',
   },
   {
-    question: 'How much does a Husky cost in Singapore?',
+    question: 'How much is a Husky in Singapore?',
     answer:
-      'The top-ranking Husky listing in Singapore quotes $7,000 to $15,000, which tells you what the market thinks of this breed\'s hype. At Curious Tails, Siberian Husky puppies are $5,088 to $6,088, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer. The real cost of a Husky was never the price tag anyway; it\'s the daily routine, and we\'d rather you budget for that.',
+      `A Husky in Singapore costs ${priceRange} at Curious Tails, all-in. We re-checked the market in ${monthStamp}: the top-ranking local listing quotes $7,000 to $15,000, so ours is well under it, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer. The real cost of a Husky was never the price tag anyway; it is the daily routine, and we would rather you budget for that.`,
+  },
+  {
+    question: 'What is the Husky price in Singapore right now?',
+    answer:
+      `As of ${monthStamp}, a Siberian Husky puppy at Curious Tails is ${priceRange}, full price in writing. We will also say the unhelpful thing: being the cheapest Husky in Singapore is not the reason to buy one from us. If the daily routine below does not fit your life, the right answer is a different breed at any price.`,
+  },
+  {
+    question: 'Why is a Husky cheaper here than the top listings?',
+    answer:
+      'Because the hype is priced into those listings and not into ours. A Husky is a striking dog with a strong social-media pull in Singapore, and a seller who knows that can quote accordingly. We would rather set a fair number and spend the conversation on whether the breed suits your housing, your climate tolerance and your exercise habits, because that is what determines whether the dog stays.',
+  },
+  {
+    question: 'What does a Husky cost in the first year, beyond the purchase price?',
+    answer:
+      'This is where the real money is. Food for a 16 to 27 kg working dog, vaccinations, sterilisation and routine vet care are the baseline. On top of that, a Husky at one degree north needs a genuinely climate-adapted routine: early and late walks, sustained air conditioning, and professional grooming for a double coat that must never be shaved. Many owners also pay for daycare or a walker, because an under-exercised Husky redecorates. Our first-year puppy budget guide sets out the numbers.',
   },
   {
     question: 'Is Singapore too hot for a Husky?',
@@ -109,7 +129,7 @@ const schemas = [
       name: 'Siberian Husky puppy',
       url: '/puppies/siberian-husky/',
       description:
-        'Siberian Husky puppy from an AVS licensed Singapore pet shop, priced $5,088 to $6,088 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+        `Siberian Husky puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.`,
       price: '5088',
       image: imgHero.src,
     },
@@ -141,12 +161,12 @@ const schemas = [
     eyebrow="AVS Licensed Pet Shop in Balestier"
     h1="Siberian Husky Puppies for Sale in Singapore"
     h1Accent="Siberian Husky"
-    subhead="The honest part first, and this page means it more than any other: Huskies are not HDB-approved, and an Arctic athlete at one degree north is a serious daily commitment. The top local listing quotes $7,000 to $15,000; ours are $5,088 to $6,088 all-in — because the real cost of a Husky was never the price tag. It's the routine."
+    subhead={`A Husky in Singapore costs ${priceRange} at Curious Tails, all-in, against a top local listing of $7,000 to $15,000. The honest part next, and this page means it more than any other: Huskies are not HDB-approved, and an Arctic athlete at one degree north is a serious daily commitment. The real cost of a Husky was never the price tag. It's the routine.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Siberian Husky puppies."
     secondaryCtaLabel="Read the reality check first"
     secondaryCtaHref="#reality"
-    priceAnchor="From $5,088 all-in. Private housing only. No add-ons quietly billed later."
+    priceAnchor={`From $${fmtPrice(price.low)} all-in. Private housing only. No add-ons quietly billed later.`}
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing athletic breed']}
@@ -164,7 +184,7 @@ const schemas = [
 
     <CaptionedBlock heading="Looking to Buy a Siberian Husky in Singapore?" imageAlt="Grey and white Siberian Husky puppy portrait, one of the Husky puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Husky puppies in Singapore arrive and are reserved quickly, and Husky buyers get our most careful matching conversation, because no breed we carry has a wider gap between the photo people fall for and the routine the dog needs. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Husky puppies available now, right after we've talked about your mornings.</p>
-      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Siberian Husky for sale in Singapore here is between $5,088 and $6,088, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Siberian Husky for sale in Singapore here is between ${fmtPrice(price.low)} and ${fmtPrice(price.high)}, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Siberian Husky puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Husky photos and prices</a>, or meet our Husky puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
       </p>
@@ -277,9 +297,9 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Husky Price in Singapore: What You'll Pay and What's Included"
+      heading={`Husky Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead="The top-ranking local listing quotes $7,000 to $15,000. Here's ours in writing: $5,088 to $6,088, all-in."
+      subhead={`How much is a Husky in Singapore? Checked in ${monthStamp}: the top-ranking local listing quotes $7,000 to $15,000. Ours is ${priceRange}, all-in.`}
       mode="split"
       columns={[
         {
@@ -294,7 +314,7 @@ const schemas = [
         {
           heading: 'Curious Tails',
           items: [
-            '$5,088 to $6,088, printed right here',
+            `${priceRange}, printed right here`,
             '$500+ starter kit with 30+ items included',
             'Free home delivery with playpen setup and an escape-proofing check',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',

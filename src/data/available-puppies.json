@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-08-27T10:02:41.975Z",
+  "syncedAt": "2026-08-28T11:33:57.422Z",
   "breeds": {
     "bichon-frise": {
       "available": [
@@ -258,18 +258,6 @@
           "sizeNote": null
         },
         {
-          "id": 2606,
-          "name": "Rina",
-          "color": "Apricot",
-          "gender": "Female",
-          "age": "3 months",
-          "price": 3688,
-          "image": "2606-1-97f453b7.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null
-        },
-        {
           "id": 2649,
           "name": "Swee",
           "color": "Apricot",
@@ -289,7 +277,7 @@
           "age": "2 months",
           "price": 3888,
           "image": "2650-1-0467e616.webp",
-          "location": "Choa Chu Kang",
+          "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null
         },
@@ -301,7 +289,7 @@
           "age": "2 months",
           "price": 4088,
           "image": "2651-1-54b2e0e8.webp",
-          "location": "Choa Chu Kang",
+          "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null
         },
@@ -725,9 +713,7 @@
           "location": "Joo Chiat",
           "origin": "UK",
           "sizeNote": null
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2645,
           "name": "Echo",
@@ -739,7 +725,9 @@
           "location": "Joo Chiat",
           "origin": "UK",
           "sizeNote": null
-        },
+        }
+      ],
+      "recentlyPlaced": [
         {
           "id": 2646,
           "name": "Sprout",
@@ -774,6 +762,18 @@
           "image": "2648-1-ef8a7621.webp",
           "location": "Joo Chiat",
           "origin": "UK",
+          "sizeNote": null
+        },
+        {
+          "id": 2618,
+          "name": "Ten",
+          "color": "Red",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 5988,
+          "image": "2618-1-4c0258de.webp",
+          "location": "Serangoon",
+          "origin": "Australia",
           "sizeNote": null
         }
       ]

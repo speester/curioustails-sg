@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-08-27T07:40:36.544Z",
+  "syncedAt": "2026-08-30T05:34:31.572Z",
   "breeds": {
     "bichon-frise": {
       "available": [
@@ -140,7 +140,7 @@
           "name": "Emilia",
           "color": "Black White",
           "gender": "Male",
-          "age": "8 months",
+          "age": "9 months",
           "price": 5988,
           "image": "2555-1-9fe4d98a.webp",
           "location": "Serangoon",
@@ -246,30 +246,6 @@
           "sizeNote": null
         },
         {
-          "id": 2589,
-          "name": "Nobara",
-          "color": "Apricot",
-          "gender": "Male",
-          "age": "3 months",
-          "price": 3488,
-          "image": "2589-1-589599af.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null
-        },
-        {
-          "id": 2606,
-          "name": "Rina",
-          "color": "Apricot",
-          "gender": "Female",
-          "age": "3 months",
-          "price": 3688,
-          "image": "2606-1-97f453b7.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null
-        },
-        {
           "id": 2649,
           "name": "Swee",
           "color": "Apricot",
@@ -289,7 +265,7 @@
           "age": "2 months",
           "price": 3888,
           "image": "2650-1-0467e616.webp",
-          "location": "Choa Chu Kang",
+          "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null
         },
@@ -301,7 +277,7 @@
           "age": "2 months",
           "price": 4088,
           "image": "2651-1-54b2e0e8.webp",
-          "location": "Choa Chu Kang",
+          "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null
         },
@@ -725,9 +701,7 @@
           "location": "Joo Chiat",
           "origin": "UK",
           "sizeNote": null
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2645,
           "name": "Echo",
@@ -763,7 +737,9 @@
           "location": "Joo Chiat",
           "origin": "UK",
           "sizeNote": null
-        },
+        }
+      ],
+      "recentlyPlaced": [
         {
           "id": 2648,
           "name": "Miso",
@@ -774,6 +750,42 @@
           "image": "2648-1-ef8a7621.webp",
           "location": "Joo Chiat",
           "origin": "UK",
+          "sizeNote": null
+        },
+        {
+          "id": 2618,
+          "name": "Ten",
+          "color": "Red",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 5988,
+          "image": "2618-1-4c0258de.webp",
+          "location": "Serangoon",
+          "origin": "Australia",
+          "sizeNote": null
+        },
+        {
+          "id": 2603,
+          "name": "Rufus",
+          "color": "Golden",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 4800,
+          "image": "2603-1-df32b368.webp",
+          "location": "Eng Kong",
+          "origin": "Local",
+          "sizeNote": null
+        },
+        {
+          "id": 2604,
+          "name": "Mochi",
+          "color": "Cream",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 4800,
+          "image": "2604-1-224cdfc6.webp",
+          "location": "Eng Kong",
+          "origin": "Local",
           "sizeNote": null
         }
       ]
@@ -812,7 +824,7 @@
           "color": "White",
           "gender": "Male",
           "age": "5 months",
-          "price": 4388,
+          "price": 4288,
           "image": "2515-1-a07fba89.webp",
           "location": "MacPherson",
           "origin": "Ireland",
@@ -935,7 +947,7 @@
           "color": "Apricot",
           "gender": "Female",
           "age": "3 months",
-          "price": 5888,
+          "price": 4988,
           "image": "2598-1-3af5b6be.webp",
           "location": "MacPherson",
           "origin": "Australia",

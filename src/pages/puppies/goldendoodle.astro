@@ -37,6 +37,11 @@ import imgScene4 from '../../assets/goldendoodle/5-goldendoodle-puppy-at-a-veter
 import imgScene5 from '../../assets/goldendoodle/6-goldendoodle-puppy-settling-into-a-set-up-playpen-durin.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
 import { testimonialsFor } from '../../data/reviews';
+import { breedPricing, fmtPrice } from '../../data/pricing';
+
+const price = breedPricing['goldendoodle'];
+const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
 
 const title = 'Goldendoodle Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -62,7 +67,17 @@ const faqItems = [
   {
     question: 'How much does a Goldendoodle cost in Singapore?',
     answer:
-      'Goldendoodle prices in Singapore commonly run $4,000 to $8,000, with multigenerational and mini sizes at the top. At Curious Tails, Goldendoodle puppies are $3,800 to $4,988, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      `A Goldendoodle in Singapore costs ${priceRange} at Curious Tails, all-in. For the comparison we checked the shops ranking for this search in ${monthStamp}: one lists a mini Goldendoodle UK import at $4,980, another a mini at $4,500, and most of the rest ask you to enquire. Ours already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
+  },
+  {
+    question: 'What is the Goldendoodle price in Singapore right now?',
+    answer:
+      `As of ${monthStamp}, a Goldendoodle puppy at Curious Tails is ${priceRange}. That is the full price, not a figure that grows at collection: kit, delivery, setup, first training lesson and boarding after deposit are all inside it. We update this number on the page when it changes rather than asking you to message us for it.`,
+  },
+  {
+    question: 'Why are some Singapore Goldendoodles cheaper, and what is the risk?',
+    answer:
+      'The risk with this cross is not the price, it is what you are actually buying. In December 2024 Mothership reported a Singapore buyer who paid $3,888 for a "mini Goldendoodle" and later found, through DNA testing, that the dog was not that breed. Goldendoodle is a cross, not a registered breed, so nothing about the label is verified by paperwork. Ask any seller which two parents produced the litter, ask to see them, and treat a cheap price with a vague pedigree as the warning it is. Every puppy we sell comes from an AVS-licensed source with the paperwork to match.',
   },
   {
     question: 'Do Goldendoodles really not shed?',
@@ -146,7 +161,7 @@ const schemas = [
     eyebrow="AVS Licensed Pet Shop in Balestier"
     h1="Goldendoodle Puppies for Sale in Singapore"
     h1Accent="Goldendoodle"
-    subhead="The honest part first: Goldendoodles are not HDB-approved, so this page is for condo and landed homes. The draw is real — a Golden's warmth with a low-shedding coat — and so is the trade: a salon schedule instead of a vacuum. Prices here run $4,000 to $8,000 elsewhere; ours are $3,800 to $4,988, all-in."
+    subhead={`A Goldendoodle in Singapore costs ${priceRange} at Curious Tails, all-in. The honest part first: Goldendoodles are not HDB-approved, so this page is for condo and landed homes. The draw is real — a Golden's warmth with a low-shedding coat — and so is the trade: a salon schedule instead of a vacuum.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Goldendoodle puppies."
     secondaryCtaLabel="See price & what's included"
@@ -213,7 +228,7 @@ const schemas = [
     heading="Why Singapore families get their Goldendoodle from Curious Tails"
     stats={[
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
-      { value: '$3,800', label: 'Goldendoodle pricing starts here, all-in' },
+      { value: `$${fmtPrice(price.low)}`, label: 'Goldendoodle pricing starts here, all-in' },
       { value: '$500+', label: 'starter kit included free' },
       { value: '2+', label: 'years in Balestier' },
     ]}
@@ -284,7 +299,7 @@ const schemas = [
     <ComparisonSplit
       heading="Goldendoodle Price in Singapore: What You'll Pay and What's Included"
       headingAccent="Price"
-      subhead="The market runs $4,000 to $8,000. Here's ours in writing: $3,800 to $4,988, all-in."
+      subhead={`How much is a Goldendoodle in Singapore? As of ${monthStamp}, the shops ranking for this search list mini Goldendoodles at $4,500 and $4,980, and most publish no figure at all. Ours is ${priceRange}, all-in, with the starter kit, delivery and first training lesson included.`}
       mode="split"
       columns={[
         {

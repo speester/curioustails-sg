@@ -16,7 +16,8 @@
     "gbp:post": "node scripts/publish-daily-post.mjs",
     "gbp:reviews": "node scripts/reply-to-reviews.mjs",
     "feed:check": "node scripts/check-feed-freshness.mjs",
-    "build:deploy": "npm run sync:puppies && npm run feed:check && npm run build"
+    "build:deploy": "npm run sync:puppies && npm run feed:check && npm run build",
+    "indexnow": "python \"%USERPROFILE%/.claude/scripts/indexnow_submit.py\" --domain curioustails.sg --key-file config/indexnow-key.txt --verify-key --sitemap https://curioustails.sg/sitemap-index.xml"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.2",

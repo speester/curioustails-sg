@@ -1,5 +1,30 @@
 # POST-LAUNCH — Curious Tails
 
+> ## CORRECTION, 2026-08-31: the 2026-08-27 batch was never deployed
+>
+> The paragraph below said the batch was "Live on curioustails.sg, verified on the apex."
+> That was wrong, and every dated follow-up in the table was scheduled against a build that
+> does not exist in production. What actually happened:
+>
+> - Cloudflare Pages project `curioustails-sg` builds from GitHub `speester/curioustails-sg`,
+>   production branch `main`. It deploys what is on **origin**, not what is on this disk.
+> - The 17 commits carrying the batch — the price reworks, the verbatim review registry, the
+>   QUALIFY pages, the IndexNow key — were committed locally and **never pushed**. Local `main`
+>   was 17 ahead of `origin/main`.
+> - The 7 commits that did reach origin are the automated `chore(listings)` inventory syncs,
+>   which is why the site kept rebuilding (last production deploy 2026-08-30) and looked healthy.
+> - Live proof: `/puppies/chihuahua/` served 145,561 bytes with zero occurrences of
+>   "Chihuahua in Singapore costs"; the local build of the same page is 154,334 bytes with two.
+>   Both IndexNow key files returned 404 on the apex while `llms.txt` and `robots.txt` returned 200.
+>
+> The IndexNow "submission returns 200" note below is also misleading: IndexNow accepts a
+> submission and validates the key file out of band, so a 200 never proved the key was reachable.
+> `npm run indexnow` now runs `--verify-key`, which fetches the key file first and refuses to
+> submit if it 404s. Run it only after a deploy has actually landed.
+>
+> Nothing in the 2026-08-27 work was wrong. It simply was not shipped. Measurement restarts from
+> the day it reaches production, not from 2026-08-27.
+
 Deploy of 2026-08-27 shipped the Lane 2a price rework (20 breed pages), cited expert quotes on
 74 pages, both QUALIFY head terms, and the IndexNow key file. Live on curioustails.sg, verified
 on the apex. The sitemap index was resubmitted to Search Console.

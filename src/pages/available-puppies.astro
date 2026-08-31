@@ -19,8 +19,15 @@ const inStock = Object.entries(breeds)
   .filter(([, b]) => b.available.length > 0)
   .sort(([a], [b]) => a.localeCompare(b));
 
-const totalPups = inStock.reduce((n, [, b]) => n + b.available.length, 0);
-const breedCount = inStock.length;
+// Stock whose breed has no page of its own (crosses like Sheepadoodle). It is
+// real, available and priced, so it belongs here under the shop's own label —
+// it just has nowhere else on the site to appear.
+type OtherPup = Parameters<typeof pupCard>[0] & { breedLabel: string };
+const otherPups = ((data as { other?: OtherPup[] }).other ?? []).filter(Boolean);
+
+const totalPups =
+  inStock.reduce((n, [, b]) => n + b.available.length, 0) + otherPups.length;
+const breedCount = inStock.length + new Set(otherPups.map((p) => p.breedLabel)).size;
 const syncedAt = new Date(data.syncedAt).toLocaleDateString('en-SG', {
   day: 'numeric',
   month: 'long',
@@ -107,7 +114,20 @@ const schemas = [
     </div>
   ))}
 
-  {inStock.length === 0 && <AvailabilityCta breedName="Puppy" standalone />}
+  {otherPups.length > 0 && (
+    <div id="other-crosses" class="scroll-mt-28">
+      <ListingGrid
+        heading="Crosses Without a Breed Page"
+        headingAccent="Crosses"
+        subhead={`${otherPups.length} ${otherPups.length === 1 ? 'puppy is' : 'puppies are'} with us today whose cross has no guide of its own yet. Same all-in price, same AVS licensed shop — WhatsApp us and we'll send photos and tell you honestly what the mix means for grooming, size and temperament.`}
+        items={otherPups.map((p) => pupCard(p, p.breedLabel, 'available', { breedLabel: true }))}
+        footerCtaLabel="Compare the breeds we do have guides for"
+        footerCtaHref="/puppies/"
+      />
+    </div>
+  )}
+
+  {inStock.length === 0 && otherPups.length === 0 && <AvailabilityCta breedName="Puppy" standalone />}
 
   <section aria-label="Not seeing your breed" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="max-w-[70ch] text-base leading-relaxed text-[var(--color-cream-700)]">

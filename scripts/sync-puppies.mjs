@@ -96,6 +96,18 @@ const BREED_MAP = {
   'japanese chin': 'japanese-chin',
 };
 
+// Crosses whose base breed is unambiguous from the label itself ("Cavapoo X" is
+// a Cavapoo cross, whatever the other half is). These ride on the base breed's
+// page, but `crossLabel` is carried onto the card so the listing never reads as
+// the pure breed. A cross whose base breed we cannot name from the label alone
+// (Maltelier) or which is a different breed entirely (Sheepadoodle is Old
+// English Sheepdog x Poodle, not a Goldendoodle) must NOT be mapped here — it
+// goes to the `other` bucket under its own name instead.
+const CROSS_MAP = {
+  'cavapoo x': { slug: 'cavapoo', crossLabel: 'Cavapoo cross' },
+  'poodle x': { slug: 'toy-poodle', crossLabel: 'Poodle cross' },
+};
+
 const cell = (row, key) => {
   const c = row.cells?.[key];
   return c && c.value != null ? String(c.value).trim() : '';
@@ -267,10 +279,13 @@ function normalize(row) {
   const label = stripLabel(rawBreed);
   const gender = /female/i.test(cell(row, 'Gender-')) ? 'Female' : /male/i.test(cell(row, 'Gender-')) ? 'Male' : null;
   const sizeNote = cell(row, 'Size-') || null;
+  const key = label.toLowerCase();
+  const cross = CROSS_MAP[key];
   return {
     id: numCell(row, 'ID-') ?? cell(row, 'ID-') ?? String(row.rowIndex),
     breedLabel: label,
-    slug: BREED_MAP[label.toLowerCase()] ?? null,
+    slug: BREED_MAP[key] ?? cross?.slug ?? null,
+    crossLabel: cross?.crossLabel ?? null,
     name: cell(row, 'Name-') || null,
     color: cell(row, 'Color-') || null,
     gender,
@@ -306,14 +321,16 @@ const toJson = (p, imageFile, { live }) => ({
   location: p.location,
   origin: p.origin,
   sizeNote: p.sizeNote,
+  crossLabel: p.crossLabel ?? null,
 });
 
-// Available: top rows, skip unmapped breeds, drop sold-overlaid photos.
+// Stock whose label matches no breed page and is not a nameable cross. It still
+// exists and is still for sale, so it is listed on the site-wide available page
+// under the label the shop actually uses, rather than dropped on the floor.
+const other = [];
+
+// Available: top rows, drop sold-overlaid photos.
 for (const p of pups.slice(0, AVAILABLE_ROWS)) {
-  if (!p.slug) {
-    summary.unmapped.set(p.breedLabel, (summary.unmapped.get(p.breedLabel) ?? 0) + 1);
-    continue;
-  }
   let imageFile = null;
   if (p.images[0]) {
     try {
@@ -326,7 +343,12 @@ for (const p of pups.slice(0, AVAILABLE_ROWS)) {
       summary.imageErrors.push(`${p.id}: ${e.message}`);
     }
   }
-  ensure(p.slug).available.push(toJson(p, imageFile, { live: true }));
+  if (p.slug) {
+    ensure(p.slug).available.push(toJson(p, imageFile, { live: true }));
+  } else {
+    summary.unmapped.set(p.breedLabel, (summary.unmapped.get(p.breedLabel) ?? 0) + 1);
+    other.push({ ...toJson(p, imageFile, { live: true }), breedLabel: p.breedLabel });
+  }
 }
 
 // Recently placed: walk history (below the fold), newest first, per breed,
@@ -357,7 +379,12 @@ for (const p of pups.slice(AVAILABLE_ROWS)) {
 
 // Prune assets no longer referenced.
 const referenced = new Set(
-  Object.values(breeds).flatMap((b) => [...b.available, ...b.recentlyPlaced].map((p) => p.image).filter(Boolean)),
+  [
+    ...Object.values(breeds).flatMap((b) => [...b.available, ...b.recentlyPlaced]),
+    ...other,
+  ]
+    .map((p) => p.image)
+    .filter(Boolean),
 );
 let pruned = 0;
 for (const f of await readdir(ASSET_DIR)) {
@@ -370,6 +397,7 @@ for (const f of await readdir(ASSET_DIR)) {
 const out = {
   syncedAt: new Date().toISOString(),
   breeds: Object.fromEntries(Object.entries(breeds).sort(([a], [b]) => a.localeCompare(b))),
+  other: other.sort((a, b) => (a.breedLabel ?? '').localeCompare(b.breedLabel ?? '')),
   unmapped: [...summary.unmapped.keys()].sort(),
 };
 await writeFile(DATA_FILE, JSON.stringify(out, null, 2) + '\n');
@@ -384,7 +412,17 @@ const placedOnly = Object.entries(breeds).filter(([, b]) => b.available.length =
 console.log(`recently-placed sections: ${placedOnly.length} breeds (${MAX_PLACED} pups max each)`);
 if (summary.droppedOverlaid.length)
   console.log(`dropped from available (sold overlay): ${summary.droppedOverlaid.join(', ')}`);
-if (out.unmapped.length) console.log(`unmapped feed breeds (top ${AVAILABLE_ROWS}): ${out.unmapped.join(', ')}`);
+if (out.unmapped.length) {
+  // Count per label. These have no breed page, so they appear only on the
+  // site-wide available page; the number is how much stock that carries.
+  const labels = [...summary.unmapped.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([label, n]) => `${label} (${n})`)
+    .join(', ');
+  console.log(
+    `no breed page (top ${AVAILABLE_ROWS}): ${labels} — ${other.length} pup(s) listed under "other" on /available-puppies/`,
+  );
+}
 if (summary.imageErrors.length) console.log(`image errors:\n  ${summary.imageErrors.join('\n  ')}`);
 console.log(`photos pruned: ${pruned}`);
 console.log(`wrote ${path.relative(ROOT, DATA_FILE)}`);

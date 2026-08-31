@@ -14,6 +14,10 @@ export interface Pup {
   location: string | null;
   origin: string | null;
   sizeNote: string | null;
+  // Set when the feed listed this pup as a cross ("Cavapoo X") and it is shown
+  // on the base breed's page. It must reach the card, so the listing never
+  // presents a cross as the pure breed.
+  crossLabel?: string | null;
 }
 
 export interface BreedBucket {
@@ -31,12 +35,14 @@ export const photoFor = (file: string | null) =>
 const half = (g: Pup['gender']) => (g === 'Female' ? 'Girl' : g === 'Male' ? 'Boy' : 'Puppy');
 
 export const pupTitle = (p: Pup, breedName: string) => {
-  const desc = p.color ? `${p.color} ${half(p.gender)}` : `${breedName} ${half(p.gender)}`;
+  // A cross is never titled with the pure breed name.
+  const noun = p.crossLabel ?? breedName;
+  const desc = p.color ? `${p.color} ${half(p.gender)}` : `${noun} ${half(p.gender)}`;
   return p.name ? `${p.name} — ${desc}` : `${desc} #${p.id}`;
 };
 
 const pupAlt = (p: Pup, breedName: string, state: 'available' | 'placed') =>
-  `${p.color ?? ''} ${p.gender ?? ''} ${breedName} puppy${p.name ? ` ${p.name}` : ''} ${
+  `${p.color ?? ''} ${p.gender ?? ''} ${p.crossLabel ?? breedName} puppy${p.name ? ` ${p.name}` : ''} ${
     state === 'available' ? 'available in Singapore' : 'recently placed with a Singapore family'
   }`
     .replace(/\s+/g, ' ')
@@ -52,6 +58,7 @@ export function pupCard(
 ) {
   const points = [
     ...(opts.breedLabel ? [`${breedName} puppy`] : []),
+    ...(p.crossLabel ? [p.crossLabel] : []),
     ...(p.sizeNote ? [p.sizeNote] : []),
   ];
   return {
@@ -73,7 +80,7 @@ export function pupCard(
               p.gender?.toLowerCase(),
             ]
               .filter(Boolean)
-              .join(' ')} ${breedName} puppy (ID ${p.id}).`,
+              .join(' ')} ${p.crossLabel ?? breedName} puppy (ID ${p.id}).`,
           ),
         }
       : {

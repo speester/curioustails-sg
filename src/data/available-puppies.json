@@ -1,21 +1,8 @@
 {
-  "syncedAt": "2026-08-31T05:49:29.088Z",
+  "syncedAt": "2026-09-01T05:22:32.781Z",
   "breeds": {
     "bichon-frise": {
-      "available": [
-        {
-          "id": 2659,
-          "name": null,
-          "color": "White",
-          "gender": "Male",
-          "age": "3 months",
-          "price": 4280,
-          "image": "2659-1-128f17ee.webp",
-          "location": "Bedok",
-          "origin": "Australia",
-          "sizeNote": null
-        }
-      ],
+      "available": [],
       "recentlyPlaced": [
         {
           "id": 2630,
@@ -551,44 +538,7 @@
     },
     "coton-de-tulear": {
       "available": [],
-      "recentlyPlaced": [
-        {
-          "id": 2634,
-          "name": "Kron",
-          "color": "Tri Color",
-          "gender": "Male",
-          "age": "3 months",
-          "price": 9888,
-          "image": "2634-1-e4d4cf86.webp",
-          "location": "MacPherson",
-          "origin": "Ireland",
-          "sizeNote": null
-        },
-        {
-          "id": 2635,
-          "name": "Krone",
-          "color": "Tri Color",
-          "gender": "Male",
-          "age": "3 months",
-          "price": 9888,
-          "image": "2635-1-12357d50.webp",
-          "location": "MacPherson",
-          "origin": "Ireland",
-          "sizeNote": null
-        },
-        {
-          "id": 2636,
-          "name": "Kronel",
-          "color": "Tri Color",
-          "gender": "Male",
-          "age": "3 months",
-          "price": 9888,
-          "image": "2636-1-4960d4cf.webp",
-          "location": "MacPherson",
-          "origin": "Ireland",
-          "sizeNote": null
-        }
-      ]
+      "recentlyPlaced": []
     },
     "french-bulldog": {
       "available": [],
@@ -737,9 +687,7 @@
           "location": "Joo Chiat",
           "origin": "UK",
           "sizeNote": null
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2648,
           "name": "Miso",
@@ -751,7 +699,9 @@
           "location": "Joo Chiat",
           "origin": "UK",
           "sizeNote": null
-        },
+        }
+      ],
+      "recentlyPlaced": [
         {
           "id": 2618,
           "name": "Ten",
@@ -786,6 +736,18 @@
           "image": "2604-1-224cdfc6.webp",
           "location": "Eng Kong",
           "origin": "Local",
+          "sizeNote": null
+        },
+        {
+          "id": 2249,
+          "name": "Robin",
+          "color": "Golden",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 4488,
+          "image": "2249-2-bb0b3784.webp",
+          "location": "Balestier Area",
+          "origin": "Australia",
           "sizeNote": null
         }
       ]
@@ -1293,7 +1255,6 @@
     }
   },
   "unmapped": [
-    "Cavapoo X",
     "Maltelier",
     "Poodle X",
     "Sheepadoodle"

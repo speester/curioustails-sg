@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-09-01T05:22:32.781Z",
+  "syncedAt": "2026-09-02T04:48:38.726Z",
   "breeds": {
     "bichon-frise": {
       "available": [],
@@ -227,7 +227,7 @@
           "gender": "Male",
           "age": "3 months",
           "price": 3488,
-          "image": "2590-1-cef46e17.webp",
+          "image": "2590-1-8b1b3164.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null
@@ -251,7 +251,7 @@
           "gender": "Female",
           "age": "2 months",
           "price": 3888,
-          "image": "2650-1-0467e616.webp",
+          "image": "2650-1-05457eeb.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null
@@ -285,7 +285,7 @@
           "name": "Thir",
           "color": "Apricot",
           "gender": "Male",
-          "age": "2 months",
+          "age": "3 months",
           "price": 3288,
           "image": "2619-1-4522f276.webp",
           "location": "Choa Chu Kang",
@@ -297,7 +297,7 @@
           "name": "Fou",
           "color": "Apricot",
           "gender": "Male",
-          "age": "2 months",
+          "age": "3 months",
           "price": 3488,
           "image": "2620-1-8f6382a6.webp",
           "location": "Choa Chu Kang",
@@ -402,8 +402,7 @@
       "recentlyPlaced": []
     },
     "cockapoo": {
-      "available": [],
-      "recentlyPlaced": [
+      "available": [
         {
           "id": 2631,
           "name": "Fox",
@@ -415,7 +414,9 @@
           "location": "Joo Chiat",
           "origin": "Ireland",
           "sizeNote": null
-        },
+        }
+      ],
+      "recentlyPlaced": [
         {
           "id": 2466,
           "name": "Hill",
@@ -848,19 +849,7 @@
           "gender": "Female",
           "age": "3 months",
           "price": 3688,
-          "image": "2579-1-01fc2b5f.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null
-        },
-        {
-          "id": 2581,
-          "name": "Henry",
-          "color": "Apricot",
-          "gender": "Male",
-          "age": "3 months",
-          "price": 3488,
-          "image": "2581-1-625e1f62.webp",
+          "image": "2579-1-7c3d5a96.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null
@@ -926,7 +915,7 @@
           "gender": "Male",
           "age": "3 months",
           "price": 4688,
-          "image": "2608-1-aadfa5b1.webp",
+          "image": "2608-1-a79d60e7.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null
@@ -1082,7 +1071,7 @@
           "color": "Sesame",
           "gender": "Male",
           "age": null,
-          "price": 388,
+          "price": 3388,
           "image": "2230-2-c6964758.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
@@ -1094,7 +1083,7 @@
           "color": "Sesame",
           "gender": "Female",
           "age": null,
-          "price": 688,
+          "price": 3688,
           "image": "2231-2-3afa7314.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
@@ -1106,7 +1095,7 @@
           "color": "Sesame",
           "gender": "Female",
           "age": "11 months",
-          "price": 388,
+          "price": 3388,
           "image": "2289-2-b3bf898d.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
@@ -1118,7 +1107,7 @@
           "color": "Sesame",
           "gender": "Female",
           "age": "11 months",
-          "price": 4588,
+          "price": 3588,
           "image": "2220-2-d6ea76ee.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
@@ -1159,7 +1148,7 @@
           "name": "Honey",
           "color": "Apricot",
           "gender": "Male",
-          "age": "8 months",
+          "age": "9 months",
           "price": 1888,
           "image": "2470-2-02a6c4c0.webp",
           "location": "Choa Chu Kang",

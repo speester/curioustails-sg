@@ -1,9 +1,8 @@
 {
-  "syncedAt": "2026-09-02T04:48:38.726Z",
+  "syncedAt": "2026-09-03T04:45:29.633Z",
   "breeds": {
     "bichon-frise": {
-      "available": [],
-      "recentlyPlaced": [
+      "available": [
         {
           "id": 2630,
           "name": "Seve",
@@ -15,7 +14,9 @@
           "location": "Serangoon",
           "origin": "Australia",
           "sizeNote": null
-        },
+        }
+      ],
+      "recentlyPlaced": [
         {
           "id": 2251,
           "name": "Franky",
@@ -48,6 +49,18 @@
           "age": "3 months",
           "price": 4888,
           "image": "2052-2-34662f27.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null
+        },
+        {
+          "id": 2102,
+          "name": null,
+          "color": "Cream",
+          "gender": "Male",
+          "age": "3 months",
+          "price": 4288,
+          "image": "2102-2-b0908c76.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null
@@ -318,7 +331,7 @@
         },
         {
           "id": 2658,
-          "name": null,
+          "name": "Nifl",
           "color": "Apricot",
           "gender": "Female",
           "age": "3 months",
@@ -542,8 +555,7 @@
       "recentlyPlaced": []
     },
     "french-bulldog": {
-      "available": [],
-      "recentlyPlaced": [
+      "available": [
         {
           "id": 2633,
           "name": "Hop",
@@ -556,7 +568,8 @@
           "origin": "UK",
           "sizeNote": null
         }
-      ]
+      ],
+      "recentlyPlaced": []
     },
     "german-shepherd": {
       "available": [],
@@ -664,42 +677,6 @@
           "location": "Joo Chiat",
           "origin": "UK",
           "sizeNote": null
-        },
-        {
-          "id": 2646,
-          "name": "Sprout",
-          "color": "Golden",
-          "gender": "Female",
-          "age": "3 months",
-          "price": 4500,
-          "image": "2646-1-62b85c2c.webp",
-          "location": "Joo Chiat",
-          "origin": "UK",
-          "sizeNote": null
-        },
-        {
-          "id": 2647,
-          "name": "Pippin",
-          "color": "Golden",
-          "gender": "Female",
-          "age": "3 months",
-          "price": 4500,
-          "image": "2647-1-0f157e37.webp",
-          "location": "Joo Chiat",
-          "origin": "UK",
-          "sizeNote": null
-        },
-        {
-          "id": 2648,
-          "name": "Miso",
-          "color": "Golden",
-          "gender": "Female",
-          "age": "3 months",
-          "price": 4500,
-          "image": "2648-1-ef8a7621.webp",
-          "location": "Joo Chiat",
-          "origin": "UK",
-          "sizeNote": null
         }
       ],
       "recentlyPlaced": [
@@ -787,7 +764,7 @@
           "color": "White",
           "gender": "Male",
           "age": "5 months",
-          "price": 4288,
+          "price": 4088,
           "image": "2515-1-a07fba89.webp",
           "location": "MacPherson",
           "origin": "Ireland",
@@ -853,9 +830,7 @@
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2632,
           "name": "Flash",
@@ -867,7 +842,9 @@
           "location": "Joo Chiat",
           "origin": "Ireland",
           "sizeNote": null
-        },
+        }
+      ],
+      "recentlyPlaced": [
         {
           "id": 2615,
           "name": "Sev",
@@ -898,8 +875,20 @@
           "color": "Apricot",
           "gender": "Female",
           "age": "3 months",
-          "price": 4988,
+          "price": 4688,
           "image": "2598-1-3af5b6be.webp",
+          "location": "MacPherson",
+          "origin": "Australia",
+          "sizeNote": null
+        },
+        {
+          "id": 2599,
+          "name": "Zeli",
+          "color": "Apricot",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 4688,
+          "image": "2599-1-7d7db379.webp",
           "location": "MacPherson",
           "origin": "Australia",
           "sizeNote": null
@@ -1244,6 +1233,7 @@
     }
   },
   "unmapped": [
+    "Malshi",
     "Maltelier",
     "Poodle X",
     "Sheepadoodle"

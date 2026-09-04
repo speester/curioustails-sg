@@ -96,16 +96,23 @@ const BREED_MAP = {
   'japanese chin': 'japanese-chin',
 };
 
-// Crosses whose base breed is unambiguous from the label itself ("Cavapoo X" is
-// a Cavapoo cross, whatever the other half is). These ride on the base breed's
-// page, but `crossLabel` is carried onto the card so the listing never reads as
-// the pure breed. A cross whose base breed we cannot name from the label alone
-// (Maltelier) or which is a different breed entirely (Sheepadoodle is Old
-// English Sheepdog x Poodle, not a Goldendoodle) must NOT be mapped here — it
-// goes to the `other` bucket under its own name instead.
+// Crosses we can name a base breed for. These ride on the base breed's page,
+// but `crossLabel` is carried onto the card so the listing never reads as the
+// pure breed. Parentage confirmed by the shop owner 2026-09-04: Malshi =
+// Maltese x Shih Tzu, Maltelier = Maltese x Cavalier King Charles (both parent
+// breeds HDB approved in each case, so the puppy transfers to an HDB flat
+// without the buyer needing HDB approval). A cross that is a different breed
+// entirely (Sheepadoodle is Old English Sheepdog x Poodle, not a Goldendoodle)
+// must NOT be mapped here — it goes to the `other` bucket under its own name.
 const CROSS_MAP = {
   'cavapoo x': { slug: 'cavapoo', crossLabel: 'Cavapoo cross' },
   'poodle x': { slug: 'toy-poodle', crossLabel: 'Poodle cross' },
+  'malshi': { slug: 'maltese', crossLabel: 'Maltese x Shih Tzu' },
+  'mal-shi': { slug: 'maltese', crossLabel: 'Maltese x Shih Tzu' },
+  'malshih': { slug: 'maltese', crossLabel: 'Maltese x Shih Tzu' },
+  'maltese x shih tzu': { slug: 'maltese', crossLabel: 'Maltese x Shih Tzu' },
+  'maltelier': { slug: 'maltese', crossLabel: 'Maltese x Cavalier King Charles' },
+  'maltalier': { slug: 'maltese', crossLabel: 'Maltese x Cavalier King Charles' },
 };
 
 const cell = (row, key) => {
@@ -293,6 +300,10 @@ function normalize(row) {
     location: cell(row, 'Location-') || null,
     origin: cell(row, 'Origin-') || null,
     sizeNote,
+    // The sheet's HDBApproved column is the shop's own transfer-tested answer
+    // (a tick means the buyer needs no separate HDB approval to take the pup
+    // into an HDB flat). Only a tick counts as yes; a blank is "unknown".
+    hdbApproved: /✔|✓|yes/i.test(cell(row, 'HDBApproved-')) ? true : null,
     images: ['Image-', 'Image2-', 'Image3-', 'Image4-', 'Image5-']
       .map((k) => cell(row, k))
       .filter((u) => /^https?:\/\//.test(u)),
@@ -322,6 +333,7 @@ const toJson = (p, imageFile, { live }) => ({
   origin: p.origin,
   sizeNote: p.sizeNote,
   crossLabel: p.crossLabel ?? null,
+  hdbApproved: p.hdbApproved ?? null,
 });
 
 // Stock whose label matches no breed page and is not a nameable cross. It still

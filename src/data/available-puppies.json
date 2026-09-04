@@ -1,23 +1,8 @@
 {
-  "syncedAt": "2026-08-31T13:48:49.337Z",
+  "syncedAt": "2026-09-04T12:25:13.199Z",
   "breeds": {
     "bichon-frise": {
       "available": [
-        {
-          "id": 2659,
-          "name": null,
-          "color": "White",
-          "gender": "Male",
-          "age": "3 months",
-          "price": 4280,
-          "image": "2659-1-128f17ee.webp",
-          "location": "Bedok",
-          "origin": "Australia",
-          "sizeNote": null,
-          "crossLabel": null
-        }
-      ],
-      "recentlyPlaced": [
         {
           "id": 2630,
           "name": "Seve",
@@ -29,8 +14,11 @@
           "location": "Serangoon",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
-        },
+          "crossLabel": null,
+          "hdbApproved": true
+        }
+      ],
+      "recentlyPlaced": [
         {
           "id": 2251,
           "name": "Franky",
@@ -42,7 +30,8 @@
           "location": "Balestier Area",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2252,
@@ -55,7 +44,8 @@
           "location": "Balestier Area",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2052,
@@ -68,7 +58,22 @@
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
+        },
+        {
+          "id": 2102,
+          "name": null,
+          "color": "Cream",
+          "gender": "Male",
+          "age": "3 months",
+          "price": 4288,
+          "image": "2102-2-b0908c76.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true
         }
       ]
     },
@@ -86,7 +91,8 @@
           "location": "Serangoon",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2559,
@@ -99,7 +105,8 @@
           "location": "Serangoon",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2562,
@@ -112,7 +119,8 @@
           "location": "Serangoon",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2563,
@@ -125,7 +133,8 @@
           "location": "Serangoon",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         }
       ]
     },
@@ -143,7 +152,8 @@
           "location": "Serangoon",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         },
         {
           "id": 2555,
@@ -156,7 +166,8 @@
           "location": "Serangoon",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         },
         {
           "id": 2056,
@@ -169,7 +180,8 @@
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         }
       ]
     },
@@ -187,7 +199,8 @@
           "location": "Serangoon",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2564,
@@ -200,7 +213,8 @@
           "location": "Serangoon",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2575,
@@ -213,7 +227,8 @@
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2573,
@@ -226,7 +241,8 @@
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         }
       ]
     },
@@ -244,7 +260,8 @@
           "location": "MacPherson",
           "origin": "Ireland",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         }
       ]
     },
@@ -257,11 +274,12 @@
           "gender": "Male",
           "age": "3 months",
           "price": 3488,
-          "image": "2590-1-cef46e17.webp",
+          "image": "2590-1-8b1b3164.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2649,
@@ -274,7 +292,8 @@
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2650,
@@ -283,11 +302,12 @@
           "gender": "Female",
           "age": "2 months",
           "price": 3888,
-          "image": "2650-1-0467e616.webp",
+          "image": "2650-1-05457eeb.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2651,
@@ -300,7 +320,8 @@
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2652,
@@ -313,46 +334,36 @@
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
-        },
-        {
-          "id": 2623,
-          "name": "Fir",
-          "color": "Black White",
-          "gender": "Male",
-          "age": "2 months",
-          "price": 1988,
-          "image": "2623-1-2e6b328c.webp",
-          "location": "Choa Chu Kang",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": "Cavapoo cross"
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2619,
           "name": "Thir",
           "color": "Apricot",
           "gender": "Male",
-          "age": "2 months",
+          "age": "3 months",
           "price": 3288,
           "image": "2619-1-4522f276.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2620,
           "name": "Fou",
           "color": "Apricot",
           "gender": "Male",
-          "age": "2 months",
+          "age": "3 months",
           "price": 3488,
           "image": "2620-1-8f6382a6.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2588,
@@ -365,11 +376,12 @@
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2658,
-          "name": null,
+          "name": "Nifl",
           "color": "Apricot",
           "gender": "Female",
           "age": "3 months",
@@ -378,7 +390,8 @@
           "location": "Bedok",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         }
       ],
       "recentlyPlaced": [
@@ -393,7 +406,8 @@
           "location": "Bedok",
           "origin": "Ireland",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2617,
@@ -406,7 +420,8 @@
           "location": "Serangoon",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2560,
@@ -419,7 +434,8 @@
           "location": "Serangoon",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2561,
@@ -432,7 +448,8 @@
           "location": "Serangoon",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         }
       ]
     },
@@ -450,7 +467,8 @@
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         }
       ]
     },
@@ -459,8 +477,7 @@
       "recentlyPlaced": []
     },
     "cockapoo": {
-      "available": [],
-      "recentlyPlaced": [
+      "available": [
         {
           "id": 2631,
           "name": "Fox",
@@ -472,8 +489,11 @@
           "location": "Joo Chiat",
           "origin": "Ireland",
           "sizeNote": null,
-          "crossLabel": null
-        },
+          "crossLabel": null,
+          "hdbApproved": true
+        }
+      ],
+      "recentlyPlaced": [
         {
           "id": 2466,
           "name": "Hill",
@@ -485,7 +505,8 @@
           "location": "Serangoon",
           "origin": "UK",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2467,
@@ -498,7 +519,8 @@
           "location": "Serangoon",
           "origin": "UK",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2157,
@@ -511,7 +533,8 @@
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         }
       ]
     },
@@ -532,7 +555,8 @@
           "location": "Katong",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         },
         {
           "id": 2656,
@@ -545,7 +569,8 @@
           "location": "Katong",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         }
       ],
       "recentlyPlaced": [
@@ -560,7 +585,8 @@
           "location": "Bedok",
           "origin": "UK",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         },
         {
           "id": 2424,
@@ -573,7 +599,8 @@
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         },
         {
           "id": 2431,
@@ -586,7 +613,8 @@
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         },
         {
           "id": 2432,
@@ -599,57 +627,17 @@
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         }
       ]
     },
     "coton-de-tulear": {
       "available": [],
-      "recentlyPlaced": [
-        {
-          "id": 2634,
-          "name": "Kron",
-          "color": "Tri Color",
-          "gender": "Male",
-          "age": "3 months",
-          "price": 9888,
-          "image": "2634-1-e4d4cf86.webp",
-          "location": "MacPherson",
-          "origin": "Ireland",
-          "sizeNote": null,
-          "crossLabel": null
-        },
-        {
-          "id": 2635,
-          "name": "Krone",
-          "color": "Tri Color",
-          "gender": "Male",
-          "age": "3 months",
-          "price": 9888,
-          "image": "2635-1-12357d50.webp",
-          "location": "MacPherson",
-          "origin": "Ireland",
-          "sizeNote": null,
-          "crossLabel": null
-        },
-        {
-          "id": 2636,
-          "name": "Kronel",
-          "color": "Tri Color",
-          "gender": "Male",
-          "age": "3 months",
-          "price": 9888,
-          "image": "2636-1-4960d4cf.webp",
-          "location": "MacPherson",
-          "origin": "Ireland",
-          "sizeNote": null,
-          "crossLabel": null
-        }
-      ]
+      "recentlyPlaced": []
     },
     "french-bulldog": {
-      "available": [],
-      "recentlyPlaced": [
+      "available": [
         {
           "id": 2633,
           "name": "Hop",
@@ -661,9 +649,11 @@
           "location": "Joo Chiat",
           "origin": "UK",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         }
-      ]
+      ],
+      "recentlyPlaced": []
     },
     "german-shepherd": {
       "available": [],
@@ -683,7 +673,8 @@
           "location": "Choa Chu Kang Area",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         },
         {
           "id": 2531,
@@ -696,7 +687,8 @@
           "location": "Eng Kong",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         },
         {
           "id": 2532,
@@ -709,7 +701,8 @@
           "location": "Eng Kong",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         },
         {
           "id": 2535,
@@ -722,7 +715,8 @@
           "location": "Eng Kong",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         }
       ]
     },
@@ -739,7 +733,8 @@
           "location": "Joo Chiat",
           "origin": "UK",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         },
         {
           "id": 2643,
@@ -752,7 +747,8 @@
           "location": "Joo Chiat",
           "origin": "UK",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         },
         {
           "id": 2644,
@@ -765,7 +761,8 @@
           "location": "Joo Chiat",
           "origin": "UK",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         },
         {
           "id": 2645,
@@ -778,49 +775,11 @@
           "location": "Joo Chiat",
           "origin": "UK",
           "sizeNote": null,
-          "crossLabel": null
-        },
-        {
-          "id": 2646,
-          "name": "Sprout",
-          "color": "Golden",
-          "gender": "Female",
-          "age": "3 months",
-          "price": 4500,
-          "image": "2646-1-62b85c2c.webp",
-          "location": "Joo Chiat",
-          "origin": "UK",
-          "sizeNote": null,
-          "crossLabel": null
-        },
-        {
-          "id": 2647,
-          "name": "Pippin",
-          "color": "Golden",
-          "gender": "Female",
-          "age": "3 months",
-          "price": 4500,
-          "image": "2647-1-0f157e37.webp",
-          "location": "Joo Chiat",
-          "origin": "UK",
-          "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         }
       ],
       "recentlyPlaced": [
-        {
-          "id": 2648,
-          "name": "Miso",
-          "color": "Golden",
-          "gender": "Female",
-          "age": "3 months",
-          "price": 4500,
-          "image": "2648-1-ef8a7621.webp",
-          "location": "Joo Chiat",
-          "origin": "UK",
-          "sizeNote": null,
-          "crossLabel": null
-        },
         {
           "id": 2618,
           "name": "Ten",
@@ -832,7 +791,8 @@
           "location": "Serangoon",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2603,
@@ -845,7 +805,8 @@
           "location": "Eng Kong",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2604,
@@ -858,7 +819,22 @@
           "location": "Eng Kong",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
+        },
+        {
+          "id": 2249,
+          "name": "Robin",
+          "color": "Golden",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 4488,
+          "image": "2249-2-bb0b3784.webp",
+          "location": "Balestier Area",
+          "origin": "Australia",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true
         }
       ]
     },
@@ -887,7 +863,8 @@
           "location": "Katong",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         }
       ],
       "recentlyPlaced": [
@@ -897,12 +874,13 @@
           "color": "White",
           "gender": "Male",
           "age": "5 months",
-          "price": 4288,
+          "price": 4088,
           "image": "2515-1-a07fba89.webp",
           "location": "MacPherson",
           "origin": "Ireland",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2093,
@@ -915,7 +893,8 @@
           "location": "Balestier Area",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         }
       ]
     },
@@ -924,8 +903,51 @@
       "recentlyPlaced": []
     },
     "maltese": {
-      "available": [],
+      "available": [
+        {
+          "id": 2654,
+          "name": "Bonnie",
+          "color": "Brown White",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 5300,
+          "image": "2654-1-e67c1b50.webp",
+          "location": "Katong",
+          "origin": "Australia",
+          "sizeNote": null,
+          "crossLabel": "Maltese x Cavalier King Charles",
+          "hdbApproved": true
+        },
+        {
+          "id": 2628,
+          "name": "Sixt",
+          "color": "Tri Color",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 5988,
+          "image": "2628-1-77afe054.webp",
+          "location": "Serangoon",
+          "origin": "Australia",
+          "sizeNote": null,
+          "crossLabel": "Maltese x Shih Tzu",
+          "hdbApproved": true
+        }
+      ],
       "recentlyPlaced": [
+        {
+          "id": 2629,
+          "name": "Eight",
+          "color": "Tri Color",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 5988,
+          "image": "2629-1-aff3841b.webp",
+          "location": "Serangoon",
+          "origin": "Australia",
+          "sizeNote": null,
+          "crossLabel": "Maltese x Shih Tzu",
+          "hdbApproved": true
+        },
         {
           "id": 2101,
           "name": null,
@@ -937,7 +959,8 @@
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2094,
@@ -950,7 +973,8 @@
           "location": "Balestier Area",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         }
       ]
     },
@@ -963,27 +987,13 @@
           "gender": "Female",
           "age": "3 months",
           "price": 3688,
-          "image": "2579-1-01fc2b5f.webp",
+          "image": "2579-1-7c3d5a96.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
-        {
-          "id": 2581,
-          "name": "Henry",
-          "color": "Apricot",
-          "gender": "Male",
-          "age": "3 months",
-          "price": 3488,
-          "image": "2581-1-625e1f62.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null
-        }
-      ],
-      "recentlyPlaced": [
         {
           "id": 2632,
           "name": "Flash",
@@ -995,8 +1005,11 @@
           "location": "Joo Chiat",
           "origin": "Ireland",
           "sizeNote": null,
-          "crossLabel": null
-        },
+          "crossLabel": null,
+          "hdbApproved": true
+        }
+      ],
+      "recentlyPlaced": [
         {
           "id": 2615,
           "name": "Sev",
@@ -1008,7 +1021,8 @@
           "location": "Serangoon",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2616,
@@ -1021,7 +1035,8 @@
           "location": "Serangoon",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2598,
@@ -1029,12 +1044,27 @@
           "color": "Apricot",
           "gender": "Female",
           "age": "3 months",
-          "price": 4988,
-          "image": "2598-1-3af5b6be.webp",
+          "price": 4688,
+          "image": "2598-1-10a2ea1e.webp",
           "location": "MacPherson",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
+        },
+        {
+          "id": 2599,
+          "name": "Zeli",
+          "color": "Apricot",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 4688,
+          "image": "2599-1-23817b03.webp",
+          "location": "MacPherson",
+          "origin": "Australia",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true
         }
       ]
     },
@@ -1047,11 +1077,12 @@
           "gender": "Male",
           "age": "3 months",
           "price": 4688,
-          "image": "2608-1-aadfa5b1.webp",
+          "image": "2608-1-a79d60e7.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2544,
@@ -1064,7 +1095,8 @@
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2545,
@@ -1077,7 +1109,8 @@
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         }
       ],
       "recentlyPlaced": [
@@ -1092,7 +1125,8 @@
           "location": "Serangoon",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2449,
@@ -1105,7 +1139,8 @@
           "location": "Serangoon",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2591,
@@ -1118,7 +1153,8 @@
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2601,
@@ -1131,7 +1167,8 @@
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         }
       ]
     },
@@ -1161,7 +1198,8 @@
           "location": "Joo Chiat",
           "origin": "UK",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2525,
@@ -1174,7 +1212,8 @@
           "location": "Joo Chiat",
           "origin": "UK",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         }
       ]
     },
@@ -1200,7 +1239,8 @@
           "location": "Paya Lebar",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         }
       ]
     },
@@ -1213,12 +1253,13 @@
           "color": "Sesame",
           "gender": "Male",
           "age": null,
-          "price": 388,
+          "price": 3388,
           "image": "2230-2-c6964758.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         },
         {
           "id": 2231,
@@ -1226,12 +1267,13 @@
           "color": "Sesame",
           "gender": "Female",
           "age": null,
-          "price": 688,
+          "price": 3688,
           "image": "2231-2-3afa7314.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         },
         {
           "id": 2289,
@@ -1239,12 +1281,13 @@
           "color": "Sesame",
           "gender": "Female",
           "age": "11 months",
-          "price": 388,
+          "price": 3388,
           "image": "2289-2-b3bf898d.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         },
         {
           "id": 2220,
@@ -1252,12 +1295,13 @@
           "color": "Sesame",
           "gender": "Female",
           "age": "11 months",
-          "price": 4588,
+          "price": 3588,
           "image": "2220-2-d6ea76ee.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         }
       ]
     },
@@ -1274,7 +1318,8 @@
           "location": "Choa Chu Kang",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         }
       ],
       "recentlyPlaced": []
@@ -1290,32 +1335,48 @@
     "toy-poodle": {
       "available": [
         {
+          "id": 2660,
+          "name": "Glast",
+          "color": "Sesame",
+          "gender": "Female",
+          "age": "8 weeks",
+          "price": 3288,
+          "image": "2660-1-db353c87.webp",
+          "location": "Choa Chu Kang",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": "Poodle cross",
+          "hdbApproved": true
+        }
+      ],
+      "recentlyPlaced": [
+        {
           "id": 2569,
           "name": "Taro",
           "color": "Black White",
           "gender": "Male",
           "age": "3 months",
-          "price": 2688,
-          "image": "2569-1-f6e36882.webp",
+          "price": 3188,
+          "image": "2569-2-cf0ef97f.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": "Poodle cross"
-        }
-      ],
-      "recentlyPlaced": [
+          "crossLabel": "Poodle cross",
+          "hdbApproved": true
+        },
         {
           "id": 2470,
           "name": "Honey",
           "color": "Apricot",
           "gender": "Male",
-          "age": "8 months",
+          "age": "9 months",
           "price": 1888,
           "image": "2470-2-02a6c4c0.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": true
         },
         {
           "id": 2567,
@@ -1328,7 +1389,8 @@
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": "Poodle cross"
+          "crossLabel": "Poodle cross",
+          "hdbApproved": true
         },
         {
           "id": 2568,
@@ -1341,20 +1403,8 @@
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": "Poodle cross"
-        },
-        {
-          "id": 2566,
-          "name": "Miso",
-          "color": "Apricot",
-          "gender": "Female",
-          "age": "3 months",
-          "price": 2488,
-          "image": "2566-2-3ab57506.webp",
-          "location": "Choa Chu Kang",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": "Poodle cross"
+          "crossLabel": "Poodle cross",
+          "hdbApproved": true
         }
       ]
     },
@@ -1376,7 +1426,8 @@
           "location": "Bedok",
           "origin": "Australia",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         },
         {
           "id": 2017,
@@ -1389,7 +1440,8 @@
           "location": "Bedok",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         },
         {
           "id": 2018,
@@ -1402,7 +1454,8 @@
           "location": "Bedok",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": null
+          "crossLabel": null,
+          "hdbApproved": null
         }
       ]
     },
@@ -1412,20 +1465,6 @@
     }
   },
   "other": [
-    {
-      "id": 2654,
-      "name": "Bonnie",
-      "color": "Brown White",
-      "gender": "Female",
-      "age": "3 months",
-      "price": 5300,
-      "image": "2654-1-e67c1b50.webp",
-      "location": "Katong",
-      "origin": "Australia",
-      "sizeNote": null,
-      "crossLabel": null,
-      "breedLabel": "Maltelier"
-    },
     {
       "id": 2637,
       "name": "Moche",
@@ -1438,6 +1477,7 @@
       "origin": "UK",
       "sizeNote": null,
       "crossLabel": null,
+      "hdbApproved": null,
       "breedLabel": "Sheepadoodle"
     },
     {
@@ -1452,6 +1492,7 @@
       "origin": "UK",
       "sizeNote": null,
       "crossLabel": null,
+      "hdbApproved": null,
       "breedLabel": "Sheepadoodle"
     },
     {
@@ -1466,6 +1507,7 @@
       "origin": "UK",
       "sizeNote": null,
       "crossLabel": null,
+      "hdbApproved": null,
       "breedLabel": "Sheepadoodle"
     },
     {
@@ -1480,6 +1522,7 @@
       "origin": "UK",
       "sizeNote": null,
       "crossLabel": null,
+      "hdbApproved": null,
       "breedLabel": "Sheepadoodle"
     },
     {
@@ -1494,11 +1537,11 @@
       "origin": "UK",
       "sizeNote": null,
       "crossLabel": null,
+      "hdbApproved": null,
       "breedLabel": "Sheepadoodle"
     }
   ],
   "unmapped": [
-    "Maltelier",
     "Sheepadoodle"
   ]
 }

@@ -18,6 +18,10 @@ export interface Pup {
   // on the base breed's page. It must reach the card, so the listing never
   // presents a cross as the pure breed.
   crossLabel?: string | null;
+  // true when the shop's sheet ticks HDBApproved for this pup — the breed
+  // transfers into an HDB flat with no separate HDB approval needed. null =
+  // not stated; never render a claim from a blank.
+  hdbApproved?: boolean | null;
 }
 
 export interface BreedBucket {
@@ -59,6 +63,7 @@ export function pupCard(
   const points = [
     ...(opts.breedLabel ? [`${breedName} puppy`] : []),
     ...(p.crossLabel ? [p.crossLabel] : []),
+    ...(p.hdbApproved ? ['HDB approved'] : []),
     ...(p.sizeNote ? [p.sizeNote] : []),
   ];
   return {

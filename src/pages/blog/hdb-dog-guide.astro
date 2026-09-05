@@ -1,4 +1,8 @@
 ---
+import { fileURLToPath } from 'node:url';
+import RelatedPosts from '../../components/RelatedPosts.astro';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import DefBox from '../../components/DefBox.astro';
@@ -14,7 +18,7 @@ import bichonpooPortrait from '../../assets/bichonpoo/2-bichonpoo-white-portrait
 import voidDeckWalk from '../../assets/free-training/2-puppy-socialisation-window-walk.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
 
-const title = 'Best Puppy Breeds for HDB Living in Singapore | Curious Tails';
+const title = 'Best Puppy Breeds for HDB Living | Curious Tails';
 const description =
   'Low-shedding, low-barking dogs that HDB actually allows: the five breeds that fit flat life best, ranked by alone-time tolerance, noise, and grooming reality.';
 const datePublished = '2026-07-06';
@@ -52,14 +56,15 @@ const schemas = [
     aboutName: 'Best dog breeds for HDB living',
     aboutAlternateName: 'HDB dog breeds guide',
     datePublished,
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   faqPageSchema(faqItems),
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/blog/hdb-dog-guide" ogImage="/assets/bichonpoo/og-bichonpoo.jpg">
-  <section class="bg-[var(--color-peach-100)] pb-10 pt-2">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/blog/hdb-dog-guide" ogImage="/assets/bichonpoo/og-bichonpoo.jpg">
+  <section class="hero relative bg-[var(--color-peach-100)] pb-10 pt-2" data-hero-archetype="centered-statement" data-section-pattern="prose">
+    <div data-tilt aria-hidden="true" class="pointer-events-none absolute right-4 top-4 hidden h-16 w-16 rotate-6 rounded-[1.2rem] border-2 border-[var(--color-coral-300)] bg-white/50 lg:block"></div>
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pt-5">
       <Breadcrumb bare items={[{ label: 'Blog', href: '/blog/' }, { label: 'HDB Dog Guide', href: '/blog/hdb-dog-guide/' }]} />
       <div class="mx-auto mt-8 max-w-[75ch]">
@@ -189,4 +194,6 @@ const schemas = [
   />
 
   <Schema {schemas} />
+
+  <RelatedPosts route="/blog/hdb-dog-guide/" />
 </BaseLayout>

@@ -1,0 +1,45 @@
+---
+// kit:StickySplit@1.0.0 - SEED section pattern (contracts 22). Tier A.
+// axis tuple: sticky-split/none/single/gutter/diagram/none/flat/comparison
+// evidence:   comparison
+//
+// A media column that holds while the prose beside it scrolls. Pure position:sticky, so it
+// degrades to two stacked blocks with nothing to fix - and unlike a pinned scroll-jack it
+// never takes the scrollbar away from the reader.
+//
+// SEED means FLOOR, not answer: Stage 2 STEP 3 restyles this to the project's tokens, and a
+// site whose patterns are all unmodified copies fails the novelty gate.
+interface Props {
+  items?: Array<Record<string, string>>;
+  heading?: string;
+  class?: string;
+}
+const { items = [], heading, class: cls = '' } = Astro.props as Props;
+---
+
+<div class:list={['ssplit', cls]} data-section-pattern="split-sticky" data-pattern-evidence="comparison">
+  <div class="ssplit__media">
+    <slot name="media" />
+  </div>
+  <div class="ssplit__body">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .ssplit { display: grid; gap: clamp(1.25rem, 3vw, 2.5rem); align-items: start; }
+  @media (min-width: 60rem) {
+    .ssplit { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); }
+    .ssplit__media {
+      position: sticky;
+      /* the header is sticky by contract, so the offset is the header token, not a guess */
+      top: calc(var(--header-height, 4rem) + 1.5rem);
+    }
+  }
+  .ssplit__media :global(img) {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg, 1rem);
+  }
+  .ssplit__body > :global(* + *) { margin-block-start: 1rem; }
+</style>

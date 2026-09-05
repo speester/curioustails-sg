@@ -1,0 +1,50 @@
+---
+// kit:BlobImage@1.0.0 - SEED section pattern (contracts 22). Tier A.
+// axis tuple: overlap-layers/none/single/arc/photo/none/photo/photo
+// evidence:   photo
+//
+// A photograph clipped to an organic shape, with a ring offset behind it. clip-path has a
+// rounded-rect fallback: where it is unsupported the image is a card, never a crop that
+// eats a face.
+//
+// SEED means FLOOR, not answer: Stage 2 STEP 3 restyles this to the project's tokens, and a
+// site whose patterns are all unmodified copies fails the novelty gate.
+interface Props {
+  src: string; alt: string; width?: number; height?: number; caption?: string; class?: string;
+}
+const { src, alt, width, height, caption, class: cls = '' } = Astro.props as Props;
+---
+
+<figure class:list={['blob', cls]} data-section-pattern="blob-image" data-pattern-evidence="photo">
+  <img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async" />
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+  .blob { margin: 0; position: relative; }
+  .blob img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg, 1rem);
+  }
+  @supports (clip-path: ellipse(50% 50% at 50% 50%)) {
+    .blob img {
+      border-radius: 0;
+      clip-path: ellipse(48% 50% at 50% 50%);
+    }
+    .blob::before {
+      content: '';
+      position: absolute;
+      inset: -0.6rem;
+      border: 2px dashed color-mix(in oklab, var(--color-accent, currentColor) 55%, transparent);
+      clip-path: ellipse(48% 50% at 50% 50%);
+      pointer-events: none;
+    }
+  }
+  .blob figcaption {
+    margin-block-start: 0.6rem;
+    font-size: var(--text-sm, 0.875rem);
+    opacity: 0.8;
+  }
+</style>

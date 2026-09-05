@@ -64,7 +64,7 @@ const twoCol = showImageColumn || hasSide;
         data-tilt
         class:list={[imagePosition === 'left' && 'lg:order-1', 'clay clay-hover group overflow-hidden bg-white p-3 transition-transform', rotateClass]}
       >
-        <div class="overflow-hidden rounded-[1.3rem]">
+        <div tabindex="-1" class="overflow-hidden rounded-[1.3rem]">
           <div class="transition-transform duration-500 ease-out group-hover:scale-[1.06]">
             <PlaceholderImage alt={imageAlt} src={imageSrc} ratio="aspect-[4/3]" />
           </div>

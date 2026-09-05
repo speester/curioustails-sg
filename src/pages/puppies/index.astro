@@ -1,4 +1,7 @@
 ---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -251,82 +254,82 @@ const privateBreeds = [
   {
     title: 'Corgi', href: '/puppies/corgi/', imageSrc: corgiPortrait, imageAlt: 'Corgi puppy, a herding breed for private housing in Singapore (not HDB-approved)',
     meta: 'Big personality, real energy; condos and landed homes', ctaLabel: 'View Breed',
-    points: ['Big character, active and alert', 'Needs daily exercise and play', 'Double coat, sheds regularly', 'Not HDB-approved — private housing'],
+    points: ['Big character, active and alert', 'Needs daily exercise and play', 'Double coat, sheds regularly', 'Not HDB-approved - private housing'],
   },
   {
     title: 'Shiba Inu', href: '/puppies/shiba-inu/', imageSrc: shibaPortrait, imageAlt: 'Shiba Inu puppy, an independent breed for private housing in Singapore (not HDB-approved)',
     meta: 'Independent and cat-clean; condos and landed homes', ctaLabel: 'View Breed',
-    points: ['Independent, calm, cat-like nature', 'Naturally clean and tidy habits', 'Suits owners who respect space', 'Not HDB-approved — private housing'],
+    points: ['Independent, calm, cat-like nature', 'Naturally clean and tidy habits', 'Suits owners who respect space', 'Not HDB-approved - private housing'],
   },
   {
     title: 'French Bulldog', href: '/puppies/french-bulldog/', imageSrc: frenchBulldogCard, imageAlt: 'French Bulldog puppy, a private-housing favourite breed in Singapore (not HDB-approved)',
     meta: 'Private-housing favourite; charming but heat-sensitive', ctaLabel: 'View Breed',
-    points: ['Charming, low-exercise companion', 'Flat-faced; strict heat care needed', 'Boston Terrier is the HDB-legal cousin', 'Not HDB-approved — private housing'],
+    points: ['Charming, low-exercise companion', 'Flat-faced; strict heat care needed', 'Boston Terrier is the HDB-legal cousin', 'Not HDB-approved - private housing'],
   },
   {
     title: 'Golden Retriever', href: '/puppies/golden-retriever/', imageSrc: goldenRetrieverCard, imageAlt: 'Golden Retriever puppy, a family all-rounder breed for private housing in Singapore (not HDB-approved)',
     meta: 'The family all-rounder; needs space and exercise', ctaLabel: 'View Breed',
-    points: ['The classic family all-rounder', 'Gentle, trainable, sociable', 'Needs space and daily exercise', 'Not HDB-approved — private housing'],
+    points: ['The classic family all-rounder', 'Gentle, trainable, sociable', 'Needs space and daily exercise', 'Not HDB-approved - private housing'],
   },
   {
     title: 'Samoyed', href: '/puppies/samoyed/', imageSrc: samoyedCard, imageAlt: 'Samoyed puppy, a smiling Arctic breed for private housing in Singapore (not HDB-approved)',
     meta: 'The smiling Arctic cloud; a coat-in-the-tropics commitment', ctaLabel: 'View Breed',
-    points: ['Smiling, friendly Arctic breed', 'Heavy coat; demanding in the tropics', 'Needs cool, active management', 'Not HDB-approved — private housing'],
+    points: ['Smiling, friendly Arctic breed', 'Heavy coat; demanding in the tropics', 'Needs cool, active management', 'Not HDB-approved - private housing'],
   },
   {
     title: 'Chow Chow', href: '/puppies/chow-chow/', imageSrc: chowChowCard, imageAlt: 'Chow Chow puppy, a lion-maned aloof breed for private housing in Singapore (not HDB-approved)',
     meta: 'The lion-maned introvert; aloof and independent', ctaLabel: 'View Breed',
-    points: ['Aloof, dignified and independent', 'Lion-maned; not a cuddly breed', 'Heavy coat; needs heat management', 'Not HDB-approved — private housing'],
+    points: ['Aloof, dignified and independent', 'Lion-maned; not a cuddly breed', 'Heavy coat; needs heat management', 'Not HDB-approved - private housing'],
   },
   {
     title: 'Siberian Husky', href: '/puppies/siberian-husky/', imageSrc: siberianHuskyCard, imageAlt: 'Siberian Husky puppy, an Arctic athlete breed for private housing in Singapore (not HDB-approved)',
     meta: 'Arctic athlete in the tropics; a serious commitment', ctaLabel: 'View Breed',
-    points: ['Athletic, vocal and social', 'High exercise needs, escape artist', 'Double coat; hard work in the heat', 'Not HDB-approved — private housing'],
+    points: ['Athletic, vocal and social', 'High exercise needs, escape artist', 'Double coat; hard work in the heat', 'Not HDB-approved - private housing'],
   },
   {
     title: 'Border Collie', href: '/puppies/border-collie/', imageSrc: borderCollieCard, imageAlt: 'Border Collie puppy, the smartest working breed for private housing in Singapore (not HDB-approved)',
     meta: "The world's smartest workaholic; needs a real job", ctaLabel: 'View Breed',
-    points: ["The world's smartest breed", 'Relentless energy and drive', 'Needs a job and daily work', 'Not HDB-approved — private housing'],
+    points: ["The world's smartest breed", 'Relentless energy and drive', 'Needs a job and daily work', 'Not HDB-approved - private housing'],
   },
   {
     title: 'Pomsky', href: '/puppies/pomsky/', imageSrc: pomskyCard, imageAlt: 'Pomsky puppy, a Husky-Pomeranian cross for private housing in Singapore (not HDB-approved)',
     meta: 'Husky looks at half scale; energetic and vocal', ctaLabel: 'View Breed',
-    points: ['Husky looks at half the scale', 'Playful, energetic and vocal', 'Size varies; double coat', 'Not HDB-approved — private housing'],
+    points: ['Husky looks at half the scale', 'Playful, energetic and vocal', 'Size varies; double coat', 'Not HDB-approved - private housing'],
   },
   {
     title: 'Beagle', href: '/puppies/beagle/', imageSrc: beagleCard, imageAlt: 'Beagle puppy, a merry scent hound for private housing in Singapore (not HDB-approved)',
     meta: 'The merry nose on legs; friendly and food-driven', ctaLabel: 'View Breed',
-    points: ['Merry, friendly scent hound', 'Food-motivated and vocal', 'Needs daily exercise', 'Not HDB-approved — private housing'],
+    points: ['Merry, friendly scent hound', 'Food-motivated and vocal', 'Needs daily exercise', 'Not HDB-approved - private housing'],
   },
   {
     title: 'Cocker Spaniel', href: '/puppies/cocker-spaniel/', imageSrc: cockerSpanielCard, imageAlt: 'Cocker Spaniel puppy, a merry medium spaniel for private housing in Singapore (not HDB-approved)',
     meta: 'Merry medium spaniel; sociable and silky-coated', ctaLabel: 'View Breed',
-    points: ['Merry, affectionate medium spaniel', 'Silky coat; needs regular ear care', 'Sociable and active', 'Not HDB-approved — private housing'],
+    points: ['Merry, affectionate medium spaniel', 'Silky coat; needs regular ear care', 'Sociable and active', 'Not HDB-approved - private housing'],
   },
   {
     title: 'English Bulldog', href: '/puppies/english-bulldog/', imageSrc: englishBulldogCard, imageAlt: 'English Bulldog puppy, a gentle heavyweight breed for private housing in Singapore (not HDB-approved)',
     meta: 'The gentle heavyweight; strict heat care needed', ctaLabel: 'View Breed',
-    points: ['Gentle, calm heavyweight', 'Flat-faced; the strictest heat care', 'Low exercise, big personality', 'Not HDB-approved — private housing'],
+    points: ['Gentle, calm heavyweight', 'Flat-faced; the strictest heat care', 'Low exercise, big personality', 'Not HDB-approved - private housing'],
   },
   {
     title: 'German Shepherd', href: '/puppies/german-shepherd/', imageSrc: germanShepherdCard, imageAlt: 'German Shepherd puppy, a loyal working guardian breed for private housing in Singapore (not HDB-approved)',
     meta: 'Loyal working guardian; a scheduled breed', ctaLabel: 'View Breed',
-    points: ['Loyal, intelligent working guardian', 'Needs training, space and exercise', 'Scheduled breed; extra rules apply', 'Not HDB-approved — private housing'],
+    points: ['Loyal, intelligent working guardian', 'Needs training, space and exercise', 'Scheduled breed; extra rules apply', 'Not HDB-approved - private housing'],
   },
   {
     title: 'Goldendoodle', href: '/puppies/goldendoodle/', imageSrc: goldendoodleCard, imageAlt: 'Goldendoodle puppy, a low-shedding golden cross for private housing in Singapore (not HDB-approved)',
     meta: 'Golden warmth with a low-shed coat; big and friendly', ctaLabel: 'View Breed',
-    points: ['Golden warmth, low-shed coat', 'Friendly, trainable and sociable', 'Big dog; needs space', 'Not HDB-approved — private housing'],
+    points: ['Golden warmth, low-shed coat', 'Friendly, trainable and sociable', 'Big dog; needs space', 'Not HDB-approved - private housing'],
   },
   {
     title: 'Labradoodle', href: '/puppies/labradoodle/', imageSrc: labradoodleCard, imageAlt: 'Labradoodle puppy, the original doodle cross for private housing in Singapore (not HDB-approved)',
     meta: 'The original doodle; sociable and low-shedding', ctaLabel: 'View Breed',
-    points: ['The original doodle cross', 'Sociable, active and trainable', 'Low-shedding coat; needs space', 'Not HDB-approved — private housing'],
+    points: ['The original doodle cross', 'Sociable, active and trainable', 'Low-shedding coat; needs space', 'Not HDB-approved - private housing'],
   },
   {
     title: 'Whippet', href: '/puppies/whippet/', imageSrc: whippetCard, imageAlt: 'Whippet puppy, a gentle sighthound for private housing in Singapore (not HDB-approved)',
     meta: 'The gentle sprinter; calm indoors, fast outdoors', ctaLabel: 'View Breed',
-    points: ['Gentle, quiet sighthound', 'Calm indoors, a sprinter outdoors', 'Short coat, minimal grooming', 'Not HDB-approved — private housing'],
+    points: ['Gentle, quiet sighthound', 'Calm indoors, a sprinter outdoors', 'Short coat, minimal grooming', 'Not HDB-approved - private housing'],
   },
 ];
 
@@ -380,7 +383,7 @@ const schemas = [
     aboutName: 'Dog breeds in Singapore',
     aboutAlternateName: 'puppy breeds Singapore',
     datePublished: '2026-07-06',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   itemListSchema(liveBreeds.map((b) => ({
     name: `${b.title} puppy`,
@@ -392,9 +395,9 @@ const schemas = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/puppies" ogImage="/assets/cavapoo/og-cavapoo.jpg">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies" ogImage="/assets/cavapoo/og-cavapoo.jpg">
   <Hero
-    eyebrow="AVS Licensed Pet Shop in Balestier"
+    eyebrow="AVS licence AS24J00046 · Puppies"
     h1={`Dog Breeds in Singapore: All ${BREED_COUNT}, Compared`}
     h1Accent="Dog Breeds"
     subhead={`Every breed we carry, side by side, with the three things listings usually hide: whether it is HDB-approved, what it actually costs all-in, and how much grooming and alone-time it really needs. ${BREED_COUNT} breeds, each with its own published price from $${fmtPrice(OVERALL_LOW)}.`}

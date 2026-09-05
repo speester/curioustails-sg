@@ -1,0 +1,59 @@
+---
+// kit:MethodNote@1.0.0 - the <=2-sentence pointer at a policy that lives ONCE elsewhere.
+//
+// Any sourcing / methodology / compliance / disclosure text needed on more than one page
+// lives ONCE on its source page (/methodology/, /disclosure/, /editorial-policy/) and every
+// other page carries THIS instead. A two-paragraph "how we reviewed this" block repeated on
+// 16 pages was one site's largest shared n-gram cluster - a uniqueness failure produced
+// entirely by chrome that is verbatim by rule.
+//
+// This file did not exist. The kit shipped ArticleCard under the name MethodNote.astro, so
+// every page that was told to carry a <MethodNote> had nothing to import.
+//
+// Two hard limits, enforced at build time rather than in review:
+//   * <= 2 sentences. A third sentence means the text belongs on the source page.
+//   * a link is REQUIRED. A note that points nowhere is the duplicated block again.
+//
+// It renders with [data-audit-exclude] so uniqueness scoring skips it: this text is
+// verbatim across pages BY RULE, and config/audit-exclusions.json lists it for the same
+// reason. Excluding it is correct; hiding it from the reader is not.
+interface Props {
+  /** The policy page this note points at, e.g. "/methodology/". */
+  href: string;
+  /** Link text. Keep it specific - "how we test" beats "learn more". */
+  label?: string;
+  /** Small uppercase label above the note. */
+  kicker?: string;
+}
+const { href, label = 'How we research this', kicker } = Astro.props as Props;
+
+if (!href) {
+  throw new Error('[MethodNote] `href` is required - a note that points nowhere is the ' +
+    'duplicated policy block this component exists to replace.');
+}
+---
+
+<aside class="method-note" data-method-note data-audit-exclude>
+  {kicker && <p class="method-note__kicker">{kicker}</p>}
+  <p class="method-note__body"><slot /> <a href={href}>{label}</a></p>
+</aside>
+
+<style>
+  .method-note {
+    margin-block: clamp(1.25rem, 3vw, 2rem);
+    padding: 0.875rem 1rem;
+    border-inline-start: 3px solid var(--color-accent, currentColor);
+    background: var(--surface-panel, color-mix(in oklab, currentColor 4%, transparent));
+    border-radius: 0 var(--radius-sm, 0.5rem) var(--radius-sm, 0.5rem) 0;
+    font-size: var(--text-sm, 0.9375rem);
+  }
+  .method-note__kicker {
+    margin: 0 0 0.25rem;
+    font-size: var(--text-xs, 0.75rem);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .method-note__body { margin: 0; }
+  .method-note a { text-underline-offset: 0.2em; }
+</style>

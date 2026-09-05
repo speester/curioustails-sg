@@ -1,0 +1,54 @@
+# Cloudflare Pages _headers. Block = a path/host pattern, then indented "Name: value".
+#
+# THIS FILE SHIPPED AS BUILD-PLAN RESIDUE until 2026-08-31 — its entire contents were
+# the line "**Replace** run-the-project lines 120-125 ... with:". Cloudflare could not
+# parse it, so EVERY header below was silently absent on every site built from this kit,
+# including in production. Nothing caught it: contracts_check's `no-plan-residue` rule
+# only ever scanned SKILL.md files, never kit assets. It scans this file now.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  X-Frame-Options: SAMEORIGIN
+  # CSP. The four directives below are the ones that actually stop an injected script
+  # from escalating, and none of them need a nonce — which matters, because these pages
+  # are PRERENDERED: there is no per-request value to put in a nonce, so the usual
+  # "add a nonce" advice does not apply to this stack.
+  #   object-src 'none'     — no <object>/<embed> plugin execution
+  #   base-uri 'self'       — an injected <base> cannot re-point every relative URL
+  #   frame-ancestors       — clickjacking (the modern X-Frame-Options)
+  #   form-action           — an injected form cannot post credentials off-site
+  # KNOWN LIMITATION, stated rather than hidden: script-src still carries
+  # 'unsafe-inline' because the kit ships inline <script is:inline> blocks (the motion
+  # kit, the GA4 loader) whose hashes change every build. That means this CSP does NOT
+  # stop injected inline script. To close it: move those blocks to external files under
+  # /_astro/ and drop 'unsafe-inline' here — do it as one change and re-test, never by
+  # deleting 'unsafe-inline' and hoping.
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; form-action 'self'
+
+# HTML is revalidated every time: the edge may hold it, but a redeploy must be visible
+# immediately. `max-age=0, must-revalidate` still serves from cache on a 304, so this
+# costs a conditional request, not a re-render.
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Content-hashed build output is immutable — the filename changes when the bytes do.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+/figures/*
+  Cache-Control: public, max-age=31536000, immutable
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# The preview host must never be indexed. functions/_middleware.js does this too — belt
+# and braces, because a duplicate of the whole site ranking against it is unrecoverable
+# by the time you notice.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+https://:hash.:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow

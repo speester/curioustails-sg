@@ -1,0 +1,73 @@
+---
+// kit:FirstFoldFacts@1.0.0 - explicit figures in the first viewport (H9; strategies #41/#76).
+// Cost and duration queries are filtered on whether the page ANSWERS them above the fold.
+// A page that opens with positioning prose and buries the number is a page the engine drops
+// from the candidate pool before it ever reads the good part.
+//
+// Every figure is READ from PRICES_FILE (src/data/pricing.ts) - a price literal typed into a
+// page is a build error (contracts: one price source).
+import { PRICING } from '../data/pricing';
+
+interface Props {
+  /** Which pricing group this page answers for (a silo item, a service, a package). */
+  group: string;
+  /** Live count of what is actually available now, when the page sells stock. */
+  availableCount?: number;
+  availableLabel?: string;
+  /** Typical turnaround / duration, for "how long" queries. */
+  timeline?: string;
+  note?: string;
+}
+const { group, availableCount, availableLabel = 'available now', timeline, note } =
+  Astro.props as Props;
+
+const band = PRICING?.[group];
+const fmt = (n: number) =>
+  new Intl.NumberFormat(undefined, { style: 'currency', currency: band?.currency ?? 'SGD',
+                                     maximumFractionDigits: 0 }).format(n);
+const range = band
+  ? (band.min === band.max ? fmt(band.min) : `${fmt(band.min)}-${fmt(band.max)}`)
+  : null;
+---
+{(range || timeline || typeof availableCount === 'number') && (
+  <div class="fff" role="group" aria-label="Key facts">
+    {range && (
+      <div class="fff__item">
+        <span class="fff__k">Price</span>
+        <span class="fff__v">{range}</span>
+      </div>
+    )}
+    {typeof availableCount === 'number' && (
+      <div class="fff__item">
+        <span class="fff__k">{availableLabel}</span>
+        <span class="fff__v">{availableCount}</span>
+      </div>
+    )}
+    {timeline && (
+      <div class="fff__item">
+        <span class="fff__k">Typically</span>
+        <span class="fff__v">{timeline}</span>
+      </div>
+    )}
+    {note && <p class="fff__note">{note}</p>}
+  </div>
+)}
+<style>
+  .fff {
+    display: flex; flex-wrap: wrap; gap: var(--space-5, 20px);
+    align-items: baseline;
+    border-left: 3px solid var(--color-accent);
+    padding: var(--space-3, 12px) 0 var(--space-3, 12px) var(--space-4, 16px);
+    margin: var(--space-4, 16px) 0 var(--space-6, 24px);
+  }
+  .fff__item { display: grid; gap: 1px; }
+  .fff__k {
+    font-size: var(--text-xs); letter-spacing: .08em; text-transform: uppercase;
+    color: var(--color-ink-soft);
+  }
+  .fff__v {
+    font-size: var(--text-xl); font-weight: 700; font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+  }
+  .fff__note { flex-basis: 100%; margin: 0; font-size: var(--text-sm); color: var(--color-ink-soft); }
+</style>

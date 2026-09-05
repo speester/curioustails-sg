@@ -1,0 +1,126 @@
+---
+// kit:SectionDecor@1.0.0 - the background motif layer behind one section.
+// Section.astro renders this automatically with the slot's decorIndex, so a page never
+// picks a motif by hand and two adjacent bands never wear the same one.
+//
+// This is the third of the three components astro-build calls REQUIRED and the second of
+// the two the kit never actually shipped. It is what stops a "tinted band" from being a
+// flat rectangle of colour: premium-design-standard's point is that a section is DESIGNED,
+// and tone alone is not design.
+//
+// Rules it obeys, so it can never become the thing that breaks a page:
+//   * aria-hidden + pointer-events:none - decoration is never content and never a target
+//   * painted in currentColor at low alpha - it inherits the band's own ink, so it cannot
+//     produce an unreadable pair on any tone, in light or dark
+//   * no layout impact: absolutely positioned inside the section's own stacking context,
+//     under .section__inner (z-index 1)
+//   * geometry is per-site. Regenerate these paths per project (astro-build's uniqueness
+//     rule) - the PROPS and the six-slot rotation are the shared contract, the shapes are not.
+import type { Tone } from '../lib/section-rhythm';
+
+interface Props {
+  /** 0-5, from the rhythm slot. Out-of-range values wrap rather than throwing. */
+  index?: number;
+  tone?: Tone;
+}
+const { index = 0, tone = 'paper' } = Astro.props as Props;
+const motif = ((index % 6) + 6) % 6;
+
+// The pattern id must be unique per DOCUMENT, not per motif. The rotation has six motifs, so
+// the seventh section on a page reuses motif 0 and emitted a second id="grid-0" - a duplicate
+// DOM id, and an <svg> that resolves url(#grid-0) to whichever came first. Only pages long
+// enough to wrap the rotation were affected, which is why it surfaced when the home page grew.
+const uid = `${motif}-${Astro.locals.decorSeq ? Astro.locals.decorSeq.n++ : 0}`;
+
+// Deep/accent bands carry a slightly stronger motif: on a dark surface the same alpha
+// reads as nothing at all.
+const strong = tone === 'deep' || tone === 'accent';
+const alpha = strong ? 0.14 : 0.07;
+---
+
+<div class="decor" data-decor={motif} aria-hidden="true" style={`--decor-a:${alpha};`}>
+  {motif === 0 && (
+    <svg class="decor__svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" focusable="false">
+      {/* graph-paper grid */}
+      <defs>
+        <pattern id={`grid-${uid}`} width="48" height="48" patternUnits="userSpaceOnUse">
+          <path d="M48 0H0V48" fill="none" stroke="currentColor" stroke-width="1" />
+        </pattern>
+      </defs>
+      <rect width="1200" height="600" fill={`url(#grid-${uid})`} />
+    </svg>
+  )}
+
+  {motif === 1 && (
+    <svg class="decor__svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" focusable="false">
+      {/* measurement ticks along a baseline */}
+      <g stroke="currentColor" stroke-width="2">
+        <line x1="0" y1="120" x2="1200" y2="120" />
+        {Array.from({ length: 41 }, (_, i) => (
+          <line x1={i * 30} y1="120" x2={i * 30} y2={i % 5 === 0 ? 96 : 108} />
+        ))}
+      </g>
+    </svg>
+  )}
+
+  {motif === 2 && (
+    <svg class="decor__svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" focusable="false">
+      {/* concentric contour rings, off to one corner */}
+      <g fill="none" stroke="currentColor" stroke-width="1.5">
+        {Array.from({ length: 7 }, (_, i) => (
+          <circle cx="1080" cy="90" r={60 + i * 46} />
+        ))}
+      </g>
+    </svg>
+  )}
+
+  {motif === 3 && (
+    <svg class="decor__svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" focusable="false">
+      {/* diagonal hatch */}
+      <defs>
+        <pattern id={`hatch-${uid}`} width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line x1="0" y1="0" x2="0" y2="26" stroke="currentColor" stroke-width="2" />
+        </pattern>
+      </defs>
+      <rect width="1200" height="600" fill={`url(#hatch-${uid})`} />
+    </svg>
+  )}
+
+  {motif === 4 && (
+    <svg class="decor__svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" focusable="false">
+      {/* node graph: the data-line motif */}
+      <g stroke="currentColor" stroke-width="1.5" fill="none">
+        <polyline points="60,420 240,330 420,380 600,240 780,300 960,180 1140,230" />
+      </g>
+      <g fill="currentColor">
+        {[[60, 420], [240, 330], [420, 380], [600, 240], [780, 300], [960, 180], [1140, 230]].map(
+          ([cx, cy]) => <circle cx={cx} cy={cy} r="6" />
+        )}
+      </g>
+    </svg>
+  )}
+
+  {motif === 5 && (
+    <svg class="decor__svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" focusable="false">
+      {/* dot field */}
+      <defs>
+        <pattern id={`dots-${uid}`} width="34" height="34" patternUnits="userSpaceOnUse">
+          <circle cx="3" cy="3" r="2.5" fill="currentColor" />
+        </pattern>
+      </defs>
+      <rect width="1200" height="600" fill={`url(#dots-${uid})`} />
+    </svg>
+  )}
+</div>
+
+<style>
+  .decor {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    color: inherit;
+    opacity: var(--decor-a);
+  }
+  .decor__svg { width: 100%; height: 100%; display: block; }
+</style>

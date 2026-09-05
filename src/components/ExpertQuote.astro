@@ -29,7 +29,7 @@ const domId = `q-${id.replace(/[^a-z0-9-]/gi, '')}`;
   data-expert-quote={q.id}
 >
   <figure class="clay relative overflow-hidden bg-[var(--color-cream-100)] p-6 sm:p-8" data-reveal>
-    <!-- animated quote mark: draws itself in on reveal, static under reduced motion -->
+    
     <svg
       class="sme-mark pointer-events-none absolute -right-2 -top-2 h-24 w-24 sm:h-32 sm:w-32"
       viewBox="0 0 100 100"
@@ -46,12 +46,12 @@ const domId = `q-${id.replace(/[^a-z0-9-]/gi, '')}`;
       />
     </svg>
 
-    <p class="text-xs font-bold uppercase text-[var(--color-lilac-700)]" style="letter-spacing: 0.08em;">
+    <div class="text-xs font-bold uppercase text-[var(--color-lilac-700)]" style="letter-spacing: 0.08em;">
       Cited expertise
-    </p>
+    </div>
 
     {intro && (
-      <p class="mt-3 text-base leading-relaxed text-[var(--color-cream-600)]">{intro}</p>
+      <div class="mt-3 text-base leading-relaxed text-[var(--color-cream-600)]">{intro}</div>
     )}
 
     <blockquote
@@ -59,7 +59,7 @@ const domId = `q-${id.replace(/[^a-z0-9-]/gi, '')}`;
       cite={q.source_url}
       class="relative mt-4 border-l-4 border-[var(--color-coral-600)] pl-5 text-lg leading-relaxed text-[var(--color-cream-800)] sm:text-xl"
     >
-      <p>{q.quote}</p>
+      <div>{q.quote}</div>
     </blockquote>
 
     <figcaption class="mt-4 text-sm text-[var(--color-cream-600)]">
@@ -81,9 +81,9 @@ const domId = `q-${id.replace(/[^a-z0-9-]/gi, '')}`;
     </figcaption>
 
     {note && (
-      <p class="mt-4 rounded-xl bg-[var(--color-mint-100)] p-4 text-sm leading-relaxed text-[var(--color-cream-800)]">
+      <div class="mt-4 rounded-xl bg-[var(--color-mint-100)] p-4 text-sm leading-relaxed text-[var(--color-cream-800)]">
         {note}
-      </p>
+      </div>
     )}
   </figure>
 </section>

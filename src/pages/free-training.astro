@@ -1,4 +1,7 @@
 ---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import Hero from '../components/Hero.astro';
@@ -33,7 +36,7 @@ import { testimonialsFor } from '../data/reviews';
 
 const title = 'Free Puppy Training Lesson | AVS-Certified | Curious Tails';
 const description =
-  'Every puppy includes a free first training lesson with an AVS-Accredited Certified Dog Trainer: settling in, potty routine, rewards-based methods. WhatsApp us.';
+  'Every puppy includes a free first lesson with an AVS-Accredited Certified Dog Trainer: settling in, potty routine, rewards-based methods. WhatsApp us.';
 
 const jumpLinks = [
   { label: 'What is ACDT', href: '#acdt' },
@@ -88,7 +91,7 @@ const schemas = [
     aboutAlternateName: 'ACDT',
     aboutSameAs: 'https://avs.nparks.gov.sg/businesses/dog-trainers/acdt/',
     datePublished: '2026-07-06',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   serviceSchema({
     name: 'Free First Puppy Training Lesson (AVS-Accredited Certified Dog Trainer)',
@@ -106,7 +109,7 @@ const schemas = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/free-training" ogImage="/assets/free-training/og-free-training.jpg">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/free-training" ogImage="/assets/free-training/og-free-training.jpg">
   <Hero
     eyebrow="Included with every puppy"
     h1="Your Free First Dog Training Lesson, AVS-Certified"

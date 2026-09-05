@@ -1,0 +1,243 @@
+---
+// kit:Section@1.0.0 - the band wrapper. THE implementation of premium-design-standard #25
+// ("no naked sections"): every <section> on the site comes through here, claims its slot in
+// the per-page rhythm, and is emitted with BOTH axes declared on the element:
+//
+//   data-tone       the surface it is painted on   (paper | tint | deep | accent | warn)
+//   data-treatment  how its CONTENT is laid out    (band | cards | split | rail | callout |
+//                                                   table | timeline | prose)
+//
+// Those two attributes are not decoration - scripts/design-audit.mjs reads them, and the
+// rule it enforces is about the SECOND one: adjacent sections must not share a treatment,
+// and a page with >=4 sections must show >=3 distinct ones. Rotating tone alone yields a
+// striped page of identical layouts, which is the "unstyled document" complaint the rule
+// exists to stop.
+//
+// The seam divider between two DIFFERENT tones is emitted here too, so no page has to know
+// which shape comes next: the rhythm derives seams from colour CHANGES, never from the
+// section index. Two sections of the same tone get no divider between them.
+//
+// This file did not exist. The kit shipped SectionDivider.astro under the name Section.astro,
+// so nothing ever emitted data-tone or data-treatment: across 913 built sections on one site
+// and 738 on another, both attributes appeared ZERO times and design-audit --rhythm failed
+// 69/69 pages of a site that actually looks good. The vocabulary the gate reads has to be
+// emitted by something.
+import { claimSlot, toneColor, type Tone, type Treatment } from '../lib/section-rhythm';
+import SectionDivider from './SectionDivider.astro';
+import SectionDecor from './SectionDecor.astro';
+
+interface Props {
+  /** Surface. Omit to take the next band from the rhythm (flips every two sections). */
+  tone?: Tone;
+  /** Layout archetype. Omit to take the next unused, non-repeating treatment. */
+  treatment?: Treatment;
+  /** Rendered as the section's H2 unless the slot content supplies its own heading. */
+  heading?: string;
+  /** Small uppercase label above the heading. */
+  kicker?: string;
+  id?: string;
+  /** Set false on a band that must stay perfectly flat (a table that reaches the edges). */
+  decor?: boolean;
+  /** Set false to suppress the seam (a hero already painted the edge above this one). */
+  seam?: boolean;
+  narrow?: boolean;
+  class?: string;
+}
+
+const {
+  tone: explicitTone,
+  treatment: explicitTreatment,
+  heading,
+  kicker,
+  id,
+  decor = true,
+  seam: wantSeam = true,
+  narrow = false,
+  class: cls = '',
+} = Astro.props as Props;
+
+if (!Astro.locals?.rhythm) {
+  throw new Error(
+    '[Section] Astro.locals.rhythm is undefined - src/middleware.ts is missing from this ' +
+      'project. It is the ONE place the per-page rhythm is created; without it every ' +
+      'section component reads undefined and the build dies on the first route.'
+  );
+}
+
+const slot = claimSlot(Astro.locals.rhythm, explicitTone, explicitTreatment);
+const headingId = id ? `${id}-title` : undefined;
+const width = narrow ? 'section--narrow' : 'section--wide';
+---
+
+{wantSeam && slot.seam && (
+  <SectionDivider
+    variant={slot.seam.variant}
+    fill={slot.seam.fill}
+    against={slot.seam.against}
+    edge="top"
+  />
+)}
+
+<section
+  class:list={['section', `section--${slot.tone}`, `section--t-${slot.treatment}`, width, cls]}
+  data-tone={slot.tone}
+  data-treatment={slot.treatment}
+  data-section-index={slot.index}
+  id={id}
+  aria-labelledby={heading ? headingId : undefined}
+  style={`--section-surface:${toneColor(slot.tone)};`}
+>
+  {decor && <SectionDecor index={slot.decorIndex} tone={slot.tone} />}
+  <div class="section__inner">
+    {kicker && <p class="section__kicker">{kicker}</p>}
+    {heading && <h2 class="section__heading" id={headingId}>{heading}</h2>}
+    <slot />
+  </div>
+</section>
+
+<style>
+  .section {
+    position: relative;
+    background: var(--section-surface);
+    padding-block: clamp(2.5rem, 6vw, 5rem);
+    overflow: hidden;
+  }
+  .section__inner {
+    position: relative;   /* above the decor layer */
+    z-index: 1;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 4vw, 2rem);
+  }
+  .section--wide .section__inner { max-width: 72rem; }
+  .section--narrow .section__inner { max-width: 46rem; }
+
+  /* MEASURE (owner report 2026-09-01): a 72rem band is a LAYOUT width, never a TEXT width.
+     Loose prose that inherits the band width reads as a wall; cap it at a real measure and
+     let only the built blocks (grids, tables, figures) use the full band. */
+  .section__inner > p,
+  .section__inner > ul,
+  .section__inner > ol,
+  .section__inner > h2,
+  .section__inner > h3 { max-width: 42rem; }
+
+  .section__kicker {
+    margin: 0 0 0.5rem;
+    font-size: var(--text-sm, 0.875rem);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-kicker, currentColor);
+    opacity: 0.75;
+  }
+  .section__heading {
+    margin: 0 0 1.25rem;
+    position: relative;
+  }
+
+  /* Tone only decides the SURFACE; the treatment classes below decide the layout. */
+  .section--deep,
+  .section--accent { color: var(--ink-ondark, #fff); }
+
+  /* --- treatment: the layout archetypes -------------------------------- */
+
+  /* cards - points as a grid of surfaces */
+  .section--t-cards :global(.section-grid),
+  .section--t-cards :global(ul[data-cards]) {
+    display: grid;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    /* `auto-fit` COLLAPSES empty tracks, so a grid holding one or two cards stretched each
+       one across the whole 72rem band - the "cards that are too wide" report. `auto-fill`
+       keeps the tracks, and the per-card cap below holds even outside a grid. */
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+    list-style: none;
+    padding: 0;
+  }
+  /* HARD CAP: nothing that reads as a card may exceed 34rem. Wider than that it is a band
+     wearing a border, and design-audit.mjs --layout fails it at 720px. */
+  .section--t-cards :global([data-card]),
+  .section--t-cards :global(.card) { max-width: 34rem; }
+
+  /* split - the PROSE COLUMN is framed too. A split whose prose column sits bare on the
+     page background is a naked section wearing a side panel (the split trap). */
+  .section--t-split .section__inner {
+    display: grid;
+    gap: clamp(1.25rem, 3vw, 2.5rem);
+    align-items: start;
+  }
+  @media (min-width: 60rem) {
+    .section--t-split .section__inner { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
+  }
+  .section--t-split .section__inner > :global(*) { min-width: 0; }
+
+  /* rail - numbered steps with a connector line */
+  .section--t-rail :global(ol) {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 2.75rem;
+    position: relative;
+    counter-reset: rail;
+  }
+  .section--t-rail :global(ol)::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 2px;
+    background: color-mix(in oklab, var(--color-accent, currentColor) 45%, transparent);
+  }
+  .section--t-rail :global(ol > li) { position: relative; margin-block: 1.25rem; counter-increment: rail; }
+  .section--t-rail :global(ol > li)::before {
+    content: counter(rail);
+    position: absolute;
+    left: -2.75rem;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    font-variant-numeric: tabular-nums;
+    font-size: var(--text-sm, 0.875rem);
+    background: var(--color-accent, currentColor);
+    color: var(--ink-onaccent, #fff);
+  }
+
+  /* callout - the whole block inside one framed panel with an accent edge */
+  .section--t-callout .section__inner {
+    border-radius: var(--radius-lg, 1rem);
+    border: 1px solid var(--border-subtle, color-mix(in oklab, currentColor 12%, transparent));
+    border-inline-start: 4px solid var(--color-accent, currentColor);
+    background: var(--surface-panel, color-mix(in oklab, currentColor 4%, transparent));
+    padding: clamp(1.25rem, 3vw, 2rem);
+    box-shadow: var(--shadow-sm, 0 1px 2px rgb(0 0 0 / 0.06));
+  }
+
+  /* table - full-bleed horizontal scroller, never a squeezed 4-column table */
+  .section--t-table :global(.table-wrap) {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius-md, 0.75rem);
+    border: 1px solid var(--border-subtle, color-mix(in oklab, currentColor 12%, transparent));
+  }
+  .section--t-table :global(table) { width: 100%; border-collapse: collapse; }
+
+  /* timeline - horizontal process strip */
+  .section--t-timeline :global(ol) {
+    display: grid;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .section--t-timeline :global(ol > li) {
+    padding-top: 1.25rem;
+    border-top: 2px solid color-mix(in oklab, var(--color-accent, currentColor) 45%, transparent);
+  }
+
+  /* prose - long-form; ProseSection.astro owns the H2 rhythm inside it */
+  .section--t-prose .section__inner { max-width: 46rem; }
+
+  /* band - the plain tinted band. Deliberately the least decorated treatment: it earns its
+     place by being bracketed by dividers, not by adding furniture. */
+</style>

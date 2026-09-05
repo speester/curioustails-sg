@@ -1,4 +1,8 @@
 ---
+import { fileURLToPath } from 'node:url';
+import RelatedPosts from '../../components/RelatedPosts.astro';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -74,13 +78,13 @@ const schemas = [
     aboutName: 'Puppy ownership costs in Singapore',
     aboutAlternateName: 'puppy cost Singapore',
     datePublished: '2026-07-06',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   faqPageSchema(faqItems),
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/first-time-owners/budget-guide" ogImage="/assets/guides/og-budget-guide.jpg">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/first-time-owners/budget-guide" ogImage="/assets/guides/og-budget-guide.jpg">
   <Hero
     eyebrow="First-time owner guide · Decision 2"
     h1="How Much Does a Puppy Cost in Singapore? The Full Year"
@@ -243,4 +247,6 @@ const schemas = [
   />
 
   <Schema {schemas} />
+
+  <RelatedPosts route="/first-time-owners/budget-guide/" />
 </BaseLayout>

@@ -1,4 +1,7 @@
 ---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -57,7 +60,7 @@ const faqItems = [
   {
     question: 'Can I keep a French Bulldog in an HDB flat?',
     answer:
-      'No. The French Bulldog is not on the HDB-approved breed list, and we won\'t pretend otherwise or promise workarounds. Condos and landed homes may keep up to three dogs, so a Frenchie is very much on the table there. HDB readers: the Boston Terrier gives you the same bat-eared, flat-faced charm and IS on the approved list — we stock both.',
+      'No. The French Bulldog is not on the HDB-approved breed list, and we won\'t pretend otherwise or promise workarounds. Condos and landed homes may keep up to three dogs, so a Frenchie is very much on the table there. HDB readers: the Boston Terrier gives you the same bat-eared, flat-faced charm and IS on the approved list - we stock both.',
   },
   {
     question: 'How much does a French Bulldog cost in Singapore?',
@@ -102,7 +105,7 @@ const schemas = [
     aboutAlternateName: 'Frenchie',
     aboutSameAs: 'https://en.wikipedia.org/wiki/French_Bulldog',
     datePublished: '2026-07-09',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   itemListSchema([
     {
@@ -136,12 +139,12 @@ const schemas = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/puppies/french-bulldog">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies/french-bulldog">
   <Hero
-    eyebrow="AVS Licensed Pet Shop in Balestier"
+    eyebrow="AVS licence AS24J00046 · French Bulldog"
     h1="French Bulldog Puppies for Sale in Singapore"
     h1Accent="French Bulldog"
-    subhead="The honest part first: Frenchies are not HDB-approved, so this page is for condo and landed homes — HDB readers, meet the Boston Terrier below. Frenchie prices here run $4,000 to $10,000 with colour hype; ours are $6,800 to $8,800, with the $500+ starter kit, free delivery and setup, and a free first training lesson included."
+    subhead="The honest part first: Frenchies are not HDB-approved, so this page is for condo and landed homes - HDB readers, meet the Boston Terrier below. Frenchie prices here run $4,000 to $10,000 with colour hype; ours are $6,800 to $8,800, with the $500+ starter kit, free delivery and setup, and a free first training lesson included."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available French Bulldog puppies."
     secondaryCtaLabel="See price & what's included"
@@ -253,7 +256,7 @@ const schemas = [
       mode="table"
       tableHeaders={['Trait', 'What to expect']}
       rows={[
-        { label: 'Adult weight', values: ['Roughly 9 to 13 kg, kept lean — and lean is a health requirement, not aesthetics'] },
+        { label: 'Adult weight', values: ['Roughly 9 to 13 kg, kept lean - and lean is a health requirement, not aesthetics'] },
         { label: 'Height', values: ['Around 28 to 33 cm at the shoulder'] },
         { label: 'Coat', values: ['Short, smooth; fawn, brindle, pied and cream are the classic, health-sound colours'] },
         { label: 'Lifespan', values: ['10 to 12 years with good weight and heat management'] },
@@ -403,7 +406,7 @@ const schemas = [
     <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
   </div>
 
-  <CaptionedBlock heading="Your Frenchie's First Week at Home" imageAlt="French Bulldog puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
+  <CaptionedBlock heading="Your Frenchie’s First Week at Home" imageAlt="French Bulldog puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Frenchie explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
     <p>Days 1 to 3: keep it calm, cool and predictable. Measured portions from the first meal, the toilet pads where we placed them, the fold-wipe ritual starting immediately, and the aircon doing its quiet work. The snoring is permanent equipment; most owners come to love it.</p>
     <p>Days 4 to 7: the routine sticks and the comedy begins. Book your free first lesson with an AVS-certified trainer this week; see what the free AVS-certified training lesson covers.</p>

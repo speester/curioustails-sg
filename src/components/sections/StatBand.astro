@@ -1,0 +1,66 @@
+---
+// kit:StatBand@1.0.0 - SEED section pattern (contracts 22). Tier B.
+// axis tuple: symmetric-grid/hairline-card/equal-row/ruled/numeral/reveal/ruled/number
+// evidence:   number
+//
+// The big-number trio, each figure carrying its SOURCE and its year inline. The number is
+// real text in the HTML and data-count-to only animates toward it, so a reader with the
+// island blocked still sees the figure and the source that backs it.
+//
+// SEED means FLOOR, not answer: Stage 2 STEP 3 restyles this to the project's tokens, and a
+// site whose patterns are all unmodified copies fails the novelty gate.
+interface Props {
+  items?: Array<Record<string, string>>;
+  heading?: string;
+  class?: string;
+}
+const { items = [], heading, class: cls = '' } = Astro.props as Props;
+---
+
+<dl class:list={['statb', cls]} data-section-pattern="stat-band" data-pattern-evidence="number">
+  {items.map((it) => (
+    <div class="statb__cell" data-card>
+      <dd class="statb__value" data-count-to={it.countTo}>{it.value}</dd>
+      <dt class="statb__label">{it.label}</dt>
+      <p class="statb__source">{it.source}</p>
+    </div>
+  ))}
+</dl>
+
+<style>
+  /* MOTION: the only motion here is the island's count-up, and the island skips it
+     entirely under prefers-reduced-motion - the figure is real text in the HTML, so
+     the reduced-motion reader gets the number immediately rather than a blank cell.
+     The rule below is the belt to that braces: any transition a project adds while
+     restyling this component is disabled with it. */
+  @media (prefers-reduced-motion: reduce) {
+    .statb__value { transition: none; animation: none; }
+  }
+  .statb {
+    display: grid;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    margin: 0;
+  }
+  .statb__cell {
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+    border-radius: var(--radius-lg, 1rem);
+    border: 1px solid var(--border-subtle, color-mix(in oklab, currentColor 12%, transparent));
+    background: var(--surface-panel, color-mix(in oklab, currentColor 3%, transparent));
+  }
+  .statb__value {
+    margin: 0;
+    font-family: var(--font-display, inherit);
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .statb__label { margin-block-start: 0.5rem; font-weight: 600; }
+  .statb__source {
+    margin: 0.5rem 0 0;
+    font-size: var(--text-sm, 0.8125rem);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+</style>

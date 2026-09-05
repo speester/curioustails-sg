@@ -1,4 +1,7 @@
 ---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -123,7 +126,7 @@ const schemas = [
     aboutAlternateName: 'Collie',
     aboutSameAs: 'https://en.wikipedia.org/wiki/Border_Collie',
     datePublished: '2026-07-09',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   itemListSchema([
     {
@@ -157,9 +160,9 @@ const schemas = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/puppies/border-collie">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies/border-collie">
   <Hero
-    eyebrow="AVS Licensed Pet Shop in Balestier"
+    eyebrow="Licensed by AVS · Border Collie in Balestier"
     h1="Border Collie Puppies for Sale in Singapore"
     h1Accent="Border Collie"
     subhead={`A Border Collie in Singapore costs ${priceRange} at Curious Tails, all-in. The honest part next: Border Collies are not HDB-approved, appeals do not change the breed list, and the world's smartest dog arrives expecting a job.`}
@@ -237,7 +240,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="job" class="scroll-mt-40">
-    <CaptionedBlock heading="The Job Requirement: Employing the World's Smartest Dog" imageAlt="Border Collie working through a training exercise with its owner" imageSrc={imgScene2} imagePosition="left">
+    <CaptionedBlock heading="The Job Requirement: Employing the World’s Smartest Dog" imageAlt="Border Collie working through a training exercise with its owner" imageSrc={imgScene2} imagePosition="left">
       <p>Search this breed in Singapore and the adoption posts outrank the sellers. That's not bad luck; it's what happens when the world's smartest dog is hired for a position that doesn't exist. The Border Collie was bred to work sheep from dawn to dusk, and the brain came with the deal: this dog needs an hour of real exercise daily AND, the part every listing skips, thirty-plus minutes of genuine mental work: training chains, puzzle feeders, trick sessions, dog sports. The brain is the bigger appetite. Feed only the legs and you still have an unemployed genius, and unemployed geniuses renovate.</p>
       <p>The owners who thrive with Collies here are trainers at heart: people who find teaching a dog forty tricks fun rather than homework, with private housing and cool-hours availability. For them, nothing else compares, this breed learns anything, loves the work, and partners like no other. If that's you, welcome. If it isn't, the honest alternatives: the <a href="/puppies/sheltie/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Sheltie</a> for a herding brain on an achievable budget, the <a href="/puppies/jack-russell-terrier/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Jack Russell</a> for HDB-legal athleticism, and our <a href="/puppies/siberian-husky/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Husky page</a> if you want to read this same honesty about legs instead of brains.</p>
     </CaptionedBlock>
@@ -404,7 +407,7 @@ const schemas = [
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Collie's First Week at Home" imageAlt="Border Collie puppy settling into a set-up playpen during its first week home" imageSrc={imgScene6} imagePosition="left">
+  <CaptionedBlock heading="Your Collie’s First Week at Home" imageAlt="Border Collie puppy settling into a set-up playpen during its first week home" imageSrc={imgScene6} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Collie maps the room, and it will map the room, and we walk you through all 30+ starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
     <p>Days 1 to 3: keep it calm and structured. A fixed feeding routine, the toilet pads where we placed them, and short, gentle play. You'll notice the watching immediately; the puppy is already learning your patterns, so make them good ones.</p>
     <p>Days 4 to 7: the routine sticks and employment begins: first tiny training games, thirty seconds at a time, and the free first lesson with an AVS-certified trainer booked now, not later, because a Collie's education begins whether or not anyone is teaching. See what the free AVS-certified training lesson covers.</p>

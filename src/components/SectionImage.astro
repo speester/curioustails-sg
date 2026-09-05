@@ -1,0 +1,62 @@
+---
+// SectionImage.astro - one generated raster, placed inside the section it was generated for.
+//
+// The images are ILLUSTRATIVE subject matter (materials, tools, surfaces, empty interiors),
+// never job photography: this site has no completed projects of its own to show, and a
+// generated photograph presented as one would be a fabricated proof claim. Nothing here is
+// captioned as "our work", and no image carries readable text, a logo or a licence number -
+// the manifest prompts forbid all three at generation time (see the header of
+// scratchpad/mkmanifest.py and config/project-config.md ## FORBIDDEN).
+//
+// width/height are always emitted from the recorded intrinsic dimensions so the image
+// reserves its own space and cannot shift the section below it while loading.
+interface Props {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  /** The first image on a page is eager + high priority; the rest stay lazy. */
+  eager?: boolean;
+}
+const { src, alt, width, height, eager = false } = Astro.props as Props;
+---
+
+<figure class="section-image">
+  <img
+    src={src}
+    {/* alt DESCRIBES, figcaption DISCLOSES: the two say different things, so a screen reader
+        is not made to announce the same sentence twice. */}
+    alt={alt}
+    width={width || undefined}
+    height={height || undefined}
+    loading={eager ? 'eager' : 'lazy'}
+    decoding={eager ? 'sync' : 'async'}
+    fetchpriority={eager ? 'high' : 'auto'}
+  />
+  <figcaption class="section-image__caption">
+    Illustrative image. This site publishes no photographs of completed projects, of
+    anyone&rsquo;s home, or of any team, and nothing here is a record of work we have carried out.
+  </figcaption>
+</figure>
+
+<style>
+  .section-image {
+    margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
+    border-radius: var(--radius-lg, 0.75rem);
+    overflow: hidden;
+    background: var(--surface-tint, #f4f1ed);
+  }
+  .section-image__caption {
+    margin: 0;
+    padding: 0.6rem 0.85rem 0.75rem;
+    font-size: max(0.9375rem, var(--text-sm));
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .section-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+</style>

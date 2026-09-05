@@ -1,0 +1,85 @@
+---
+// kit:StepperFlow@1.0.0 - SEED section pattern (contracts 22). Tier A.
+// axis tuple: timeline-spine/chip/equal-row/ruled/numeral/draw/gridded/step
+// evidence:   step
+//
+// A numbered process with connectors between the steps - the Plan/Source/Make chain. An
+// <ol> with pseudo-element connectors: the connectors are decorative, so they never end
+// up announced as list items, and the chain flips to vertical under 48rem instead of
+// squeezing five stages into a phone width.
+//
+// SEED means FLOOR, not answer: Stage 2 STEP 3 restyles this to the project's tokens, and a
+// site whose patterns are all unmodified copies fails the novelty gate.
+interface Props {
+  items?: Array<Record<string, string>>;
+  heading?: string;
+  class?: string;
+}
+const { items = [], heading, class: cls = '' } = Astro.props as Props;
+---
+
+<ol class:list={['stepf', cls]} data-section-pattern="stepper-flow" data-pattern-evidence="step">
+  {items.map((it) => (
+    <li class="stepf__step">
+      <p class="stepf__num" aria-hidden="true"></p>
+      <h4 class="stepf__title">{it.title}</h4>
+      <p class="stepf__lead">{it.lead}</p>
+    </li>
+  ))}
+</ol>
+
+<style>
+  .stepf {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    counter-reset: stepf;
+  }
+  @media (min-width: 48rem) {
+    .stepf { grid-auto-flow: column; grid-auto-columns: 1fr; }
+  }
+  .stepf__step { counter-increment: stepf; position: relative; padding-block-start: 2.4rem; }
+  .stepf__num::before {
+    content: counter(stepf);
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    display: grid;
+    place-items: center;
+    inline-size: 1.9rem;
+    block-size: 1.9rem;
+    border-radius: 999px;
+    background: var(--color-accent, currentColor);
+    color: var(--ink-onaccent, #fff);
+    font-variant-numeric: tabular-nums;
+    font-size: var(--text-sm, 0.875rem);
+  }
+  /* the connector: from this step's badge to the next one, and never after the last */
+  .stepf__step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    inset-block-start: 0.95rem;
+    inset-inline-start: 2.2rem;
+    inline-size: calc(100% - 2.2rem);
+    block-size: 2px;
+    background: repeating-linear-gradient(to right,
+      color-mix(in oklab, var(--color-accent, currentColor) 55%, transparent) 0 6px,
+      transparent 6px 11px);
+  }
+  @media (max-width: 47.999rem) {
+    .stepf__step:not(:last-child)::after {
+      inset-block-start: 2.2rem;
+      inset-inline-start: 0.95rem;
+      inline-size: 2px;
+      block-size: calc(100% - 2.2rem);
+      background: repeating-linear-gradient(to bottom,
+        color-mix(in oklab, var(--color-accent, currentColor) 55%, transparent) 0 6px,
+        transparent 6px 11px);
+    }
+  }
+  .stepf__num { margin: 0; }
+  .stepf__title { margin: 0 0 0.35rem; }
+  .stepf__lead { margin: 0; }
+</style>

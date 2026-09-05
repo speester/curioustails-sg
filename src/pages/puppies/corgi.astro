@@ -1,4 +1,7 @@
 ---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -110,7 +113,7 @@ const schemas = [
     aboutAlternateName: 'Corgi',
     aboutSameAs: 'https://en.wikipedia.org/wiki/Pembroke_Welsh_Corgi',
     datePublished: '2026-07-06',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   itemListSchema([
     {
@@ -138,9 +141,9 @@ const schemas = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/puppies/corgi" ogImage="/assets/corgi/og-corgi.jpg">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies/corgi" ogImage="/assets/corgi/og-corgi.jpg">
   <Hero
-    eyebrow="AVS Licensed Pet Shop in Balestier"
+    eyebrow="Licensed by AVS · Corgi in Balestier"
     h1="Corgi Puppies for Sale in Singapore"
     h1Accent="Corgi"
     subhead="Corgis in Singapore commonly cost $6,000 to $10,000; ours are $3,688 to $5,500 all-in. And the honest part before anything else: Corgis are not HDB-approved. Private housing? Let's talk. HDB flat? We'll show you the approved alternatives instead of wasting your heart."
@@ -265,7 +268,7 @@ const schemas = [
     <ComparisonSplit
       heading={`Corgi Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead={`How much is a Corgi in Singapore? As of ${monthStamp}, the market commonly quotes $6,000 to $10,000. At Curious Tails a Corgi is ${priceRange}, all-in — starter kit, delivery and first training lesson included.`}
+      subhead={`How much is a Corgi in Singapore? As of ${monthStamp}, the market commonly quotes $6,000 to $10,000. At Curious Tails a Corgi is ${priceRange}, all-in - starter kit, delivery and first training lesson included.`}
       mode="split"
       columns={[
         {
@@ -333,7 +336,7 @@ const schemas = [
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Living with a Corgi in Singapore's Heat" imageAlt="Corgi double coat care: brushing a young Corgi's thick coat during shedding weeks at home" imageSrc={coatBrush} imagePosition="left" imageRotate="right">
+  <CaptionedBlock heading="Living with a Corgi in Singapore’s Heat" imageAlt="Corgi double coat care: brushing a young Corgi’s thick coat during shedding weeks at home" imageSrc={coatBrush} imagePosition="left" imageRotate="right">
     <p>The double coat and the tropics can coexist; thousands of Singapore Corgis prove it every weekend. The routine: walks at sunrise and after sundown, shade and water on every outing, and midday spent where the fan or aircon lives.</p>
     <p>Keep the coat brushed, especially through coat-blow weeks, because a packed undercoat traps heat; and keep the body lean, because extra weight is both a heat and a back problem for this build.</p>
     <p>The reward for the upkeep is a famously game little dog and one of Singapore's most sociable owner communities; Corgi meetups here fill parks.</p>
@@ -367,7 +370,7 @@ const schemas = [
   </div>
 
   <div id="first-week" class="scroll-mt-40">
-    <CaptionedBlock heading="Your Corgi's First Week at Home" imagePosition="none" variant="card">
+    <CaptionedBlock heading="Your Corgi’s First Week at Home" imagePosition="none" variant="card">
       <p>Day 0: we deliver free, usually morning or evening, with the playpen, bed, water, and toys set up before your Corgi explores. We walk you through all 30+ starter-kit items in person; see how our free home delivery and setup works.</p>
       <p>Days 1 to 3: calm and consistent. Same food, fixed times, short gentle play; some night whimpering is normal adjustment.</p>
       <p>Days 4 to 7: the routine holds, and it's the window to book the free first lesson; see what the free training lesson covers. For a herding brain, that early lesson pays double.</p>

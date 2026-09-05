@@ -1,0 +1,95 @@
+---
+// kit:flipbox@1.0.0 - SEED section pattern (contracts 22). Tier A.
+// axis tuple: symmetric-grid/elevated-card/equal-row/flat/motif/hover/flat/definition
+// evidence:   definition
+//
+// A card that turns to a second face on hover OR focus. Both faces are in the DOM and in
+// the accessibility tree - a flip that renders its back face only on :hover is invisible
+// to a screen reader and unreachable from a keyboard.
+//
+// SEED means FLOOR, not answer: Stage 2 STEP 3 restyles this to the project's tokens, and
+// a site whose patterns are all unmodified copies of this library fails the novelty gate
+// (audit_built_html.py --sections -> patterns_verbatim_kit). Every value below is a token.
+interface Props {
+  items?: Array<Record<string, string>>;
+  heading?: string;
+  class?: string;
+}
+const { items = [], heading, class: cls = '' } = Astro.props as Props;
+---
+
+<div class:list={['flipgrid', cls]} data-section-pattern="flipbox" data-pattern-evidence="definition">
+  {heading && <h3 class="flipgrid__heading">{heading}</h3>}
+  <ul class="flipgrid__list" data-cards>
+    {items.map((it) => (
+      <li class="flip" data-card>
+        <div class="flip__inner">
+          <div class="flip__face flip__face--front">
+            <h4 class="flip__title">{it.title}</h4>
+            <p class="flip__lead">{it.lead}</p>
+          </div>
+          <div class="flip__face flip__face--back">
+            <p class="flip__detail">{it.detail}</p>
+            {it.href && <a class="flip__cta" href={it.href}>{it.cta ?? 'Read more'}</a>}
+          </div>
+        </div>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .flipgrid__list {
+    display: grid;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .flip { perspective: 1200px; max-width: 34rem; }
+  .flip__inner {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 480ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+    min-height: 13rem;
+    height: 100%;
+  }
+  /* :focus-within is what makes this keyboard-reachable: the back face holds a real link,
+     so tabbing to it turns the card. */
+  .flip:hover .flip__inner,
+  .flip:focus-within .flip__inner { transform: rotateY(180deg); }
+  .flip__face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+    border-radius: var(--radius-lg, 1rem);
+    border: 1px solid var(--border-subtle, color-mix(in oklab, currentColor 12%, transparent));
+    background: var(--surface-panel, color-mix(in oklab, currentColor 4%, transparent));
+    box-shadow: var(--shadow-sm, 0 1px 2px rgb(0 0 0 / 0.06));
+  }
+  .flip__face--back {
+    transform: rotateY(180deg);
+    background: var(--surface-accent-soft, color-mix(in oklab, var(--color-accent, currentColor) 12%, transparent));
+  }
+  .flip__title { margin: 0; font-size: var(--text-lg, 1.125rem); }
+  .flip__lead, .flip__detail { margin: 0; }
+  .flip__cta { align-self: start; font-weight: 600; }
+
+  /* REDUCED MOTION kills the TRANSFORM, never the content: both faces stack and the back
+     face crossfades in, so nothing a reader needs is behind an animation. */
+  @media (prefers-reduced-motion: reduce) {
+    .flip__inner { transition: none; }
+    .flip:hover .flip__inner,
+    .flip:focus-within .flip__inner { transform: none; }
+    .flip__face { position: relative; backface-visibility: visible; }
+    .flip__face--back { transform: none; opacity: 0; transition: opacity 1ms; }
+    .flip:hover .flip__face--back,
+    .flip:focus-within .flip__face--back { opacity: 1; }
+  }
+</style>

@@ -1,5 +1,9 @@
 ---
 import '../styles/global.css';
+import '../styles/fonts.css';
+import { FONT_PRELOAD } from '../styles/fonts';
+import { organizationSchema, websiteSchema } from '../lib/schema';
+import buildId from '../data/build-id.json';
 import { site } from '../data/site';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -13,9 +17,13 @@ interface Props {
   canonicalPath?: string;
   noindex?: boolean;
   ogImage?: string;
+  /** YYYY-MM-DD from revision history. When given, the page renders a visible
+      dateline; a schema dateModified with nothing on the page is a claim the
+      reader cannot check (page-health `dates`). */
+  updated?: string;
 }
 
-const { title, description, canonicalPath = '/', noindex = false, ogImage } = Astro.props;
+const { title, description, canonicalPath = '/', noindex = false, ogImage, updated } = Astro.props;
 // The build emits directory-style routes and the host 308s /path to /path/, so the
 // canonical must carry the trailing slash too — otherwise it points at a redirect
 // and Google discards it in favour of its own pick.
@@ -29,6 +37,10 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
 <!doctype html>
 <html lang="en">
 <head>
+  <script is:inline>document.documentElement.classList.add("js");</script>
+  {/* The id of the dist/ build this page came from. Stage E.5 compares the SERVED
+      value against the build that was scored; without it a deploy cannot be verified. */}
+  <meta name="build-commit" content={buildId.id} />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="/curious-tails-icon.png" type="image/png" />
@@ -52,17 +64,9 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
   <meta name="twitter:image" content={ogImageURL} />
   <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    rel="preload"
-    as="style"
-    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap"
-  />
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap"
-  />
+  {FONT_PRELOAD.map((href) => (
+    <link rel="preload" as="font" type="font/woff2" href={href} crossorigin />
+  ))}
 
   {site.ga4MeasurementId && (
     <>
@@ -99,6 +103,10 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
       </script>
     </>
   )}
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [organizationSchema(), websiteSchema()],
+  })} />
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -111,6 +119,11 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
     <article>
       <slot />
     </article>
+    {updated && (
+      <p class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10 text-sm text-[var(--color-text-muted)]">
+        Last updated <time datetime={updated}>{new Date(updated + 'T00:00:00Z').toLocaleDateString('en-SG', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })}</time>
+      </p>
+    )}
   </main>
   <Footer />
   <StickyMobileCTA />
@@ -137,7 +150,11 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
 
       groups.forEach((els) => {
         els.forEach((el) => el.classList.add('is-visible')); // CSS fallback baseline
-        gsap.set(els, { opacity: 0, y: 22 });
+        // Transform-only at rest. Setting opacity to 0 here meant every below-the-fold
+        // block was INVISIBLE until it was scrolled into view - and stayed invisible for
+        // anything that never scrolls, or any reader whose GSAP chunk failed to load.
+        // The motion is unchanged; only the resting opacity is.
+        gsap.set(els, { y: 22 });
         ScrollTrigger.batch(els, {
           start: 'top 88%',
           once: true,
@@ -163,7 +180,7 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
       );
       topSections.forEach((el, i) => {
         if (i % 2 === 0) return; // alternate: skip every other section
-        gsap.set(el, { opacity: 0, y: 36, scale: 0.97, transformOrigin: 'center top' });
+        gsap.set(el, { y: 36, scale: 0.97, transformOrigin: 'center top' });
         ScrollTrigger.create({
           trigger: el,
           start: 'top 82%',

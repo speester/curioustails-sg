@@ -1,4 +1,7 @@
 ---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import Hero from '../components/Hero.astro';
@@ -32,7 +35,7 @@ import ExpertQuote from '../components/ExpertQuote.astro';
 
 const title = 'AVS Licensed Pet Shop Singapore | Why Curious Tails';
 const description =
-  'Curious Tails is an AVS licensed pet shop in Balestier (licence AS24J00046): welfare inspections, buyer screening, and honest breed matching by Nelson and Kim.';
+  'Curious Tails is an AVS licensed pet shop in Balestier (licence AS24J00046): welfare checks, buyer screening and honest breed matching by Nelson and Kim.';
 
 const jumpLinks = [
   { label: 'What AVS Licensed Means', href: '#avs' },
@@ -88,7 +91,7 @@ const schemas = [
     aboutAlternateName: 'licensed pet shop Singapore',
     aboutSameAs: 'https://avs.nparks.gov.sg/businesses/pet-shop-owners/pet-shop-licence/',
     datePublished: '2026-07-06',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   reviewSchema({
     author: 'Andrew Mak',
@@ -107,7 +110,7 @@ const schemas = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/about-us" ogImage="/assets/about-us/og-about-us.jpg">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/about-us" ogImage="/assets/about-us/og-about-us.jpg">
   <Hero
     eyebrow="Nelson & Kim, Balestier"
     h1="Trusted Puppy Shop, AVS Licensed & Verified"
@@ -180,7 +183,7 @@ const schemas = [
       <p>That approach costs us the occasional quick sale. It is also why the review column reads the way it does.</p>
     </CaptionedBlock>
 
-    <CaptionedBlock heading="We'd Rather Talk You Out of the Wrong Breed" imagePosition="none" variant="dark">
+    <CaptionedBlock heading="We’d Rather Talk You Out of the Wrong Breed" imagePosition="none" variant="dark">
       <p>The story we are known for: a couple came in set on a Maltipoo. Both work 8am to 6pm, nobody home in the day, no helper. Maltipoos need more company than that, so we recommended a Cavapoo instead, similar warmth, noticeably more independent, knowing it might cost us the sale.</p>
       <p>They took the Cavapoo home, she settled into the playpen we had set up, and Andrew Mak's five-star review of that honest steer still does more for us than any advertisement could.</p>
       <p>If you are not sure what fits your routine, start with the two-minute breed selector, or just message us your typical weekday. We will tell you straight.</p>

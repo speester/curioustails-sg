@@ -1,4 +1,8 @@
 ---
+import { fileURLToPath } from 'node:url';
+import RelatedPosts from '../../components/RelatedPosts.astro';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -65,13 +69,13 @@ const schemas = [
     aboutAlternateName: 'puppy vaccination schedule Singapore',
     aboutSameAs: 'https://avs.nparks.gov.sg/businesses/veterinarians/guidelines-for-veterinarians/sg-vaccination-guidelines-for-dogs-and-cats/',
     datePublished: '2026-07-06',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   faqPageSchema(faqItems),
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/learn/puppy-health" ogImage="/assets/guides/og-learn.jpg">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/learn/puppy-health" ogImage="/assets/guides/og-learn.jpg">
   <Hero
     eyebrow="Buyer protection · Guide 3"
     h1="Vaccination Schedule + Health Checks for Your New Puppy"
@@ -237,4 +241,6 @@ const schemas = [
   />
 
   <Schema {schemas} />
+
+  <RelatedPosts route="/learn/puppy-health/" />
 </BaseLayout>

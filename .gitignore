@@ -37,3 +37,6 @@ claude-seo/
 
 # sme working files (reflowed transcripts are regenerable)
 sme/flow/
+__pycache__/
+*.pyc
+outputs/

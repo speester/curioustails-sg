@@ -11,7 +11,7 @@ import data from '../data/available-puppies.json';
 import { breedName } from '../data/breed-names';
 import { pupCard, type BreedBucket } from '../lib/puppy-cards';
 import { whatsappLink } from '../data/site';
-import { webPageSchema, breadcrumbSchema, localBusinessSchema } from '../lib/schema';
+import { webPageSchema, localBusinessSchema } from '../lib/schema';
 import ExpertQuote from '../components/ExpertQuote.astro';
 
 const breeds = data.breeds as Record<string, BreedBucket>;
@@ -36,7 +36,7 @@ const syncedAt = new Date(data.syncedAt).toLocaleDateString('en-SG', {
 });
 
 const title = 'Available Puppies in Singapore | Curious Tails';
-const description = `Every puppy available at Curious Tails right now — ${totalPups} puppies across ${breedCount} breeds, with prices, gender and age. AVS licensed, Balestier. WhatsApp us for photos and video.`;
+const description = `Every puppy at Curious Tails right now: ${totalPups} puppies across ${breedCount} breeds, with prices, gender and age. AVS licensed, Balestier. WhatsApp us for photos.`;
 
 const schemas = [
   webPageSchema({
@@ -47,10 +47,6 @@ const schemas = [
     type: 'CollectionPage',
     dateModified: data.syncedAt,
   }),
-  breadcrumbSchema([
-    { name: 'Home', url: '/' },
-    { name: 'Available Puppies', url: '/available-puppies/' },
-  ]),
   localBusinessSchema(),
 ];
 ---
@@ -58,7 +54,8 @@ const schemas = [
 <BaseLayout title={title} description={description} canonicalPath="/available-puppies/">
   <Breadcrumb items={[{ label: 'Available Puppies', href: '/available-puppies/' }]} />
 
-  <section class="mx-auto max-w-[1400px] px-5 sm:px-8 pt-4 pb-2">
+  <section class="hero relative mx-auto max-w-[1400px] px-5 sm:px-8 pt-4 pb-2" data-hero-archetype="centered-statement" data-section-pattern="prose">
+    <div data-tilt aria-hidden="true" class="pointer-events-none absolute right-4 top-4 hidden h-16 w-16 rotate-6 rounded-[1.2rem] border-2 border-[var(--color-coral-300)] bg-white/50 lg:block"></div>
     <p class="text-xs font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">
       Live from our shop list &middot; updated {syncedAt}
     </p>
@@ -67,7 +64,7 @@ const schemas = [
     </h1>
     <p class="mt-4 max-w-[65ch] text-lg leading-relaxed text-[var(--color-cream-700)]">
       {totalPups} puppies across {breedCount} breeds are with us right now at our AVS licensed
-      Balestier shop, each with its all-in price, gender and age. Litters move fast — tap any puppy to
+      Balestier shop, each with its all-in price, gender and age. Litters move fast - tap any puppy to
       WhatsApp us for its latest photos, video and health records, or to book a viewing.
     </p>
     <div class="mt-6 flex flex-wrap gap-3">
@@ -106,7 +103,7 @@ const schemas = [
       <ListingGrid
         heading={`${breedName(slug)} Puppies Available Now`}
         headingAccent={breedName(slug)}
-        subhead={`${bucket.available.length} ${breedName(slug)} ${bucket.available.length === 1 ? 'puppy' : 'puppies'} with us today. Prices are all-in — vaccinations, microchip, licence, starter kit and free delivery included.`}
+        subhead={`${bucket.available.length} ${breedName(slug)} ${bucket.available.length === 1 ? 'puppy' : 'puppies'} with us today. Prices are all-in - vaccinations, microchip, licence, starter kit and free delivery included.`}
         items={bucket.available.map((p) => pupCard(p, breedName(slug), 'available', { breedLabel: true }))}
         footerCtaLabel={`Read the ${breedName(slug)} breed guide`}
         footerCtaHref={`/puppies/${slug}/`}
@@ -119,7 +116,7 @@ const schemas = [
       <ListingGrid
         heading="Crosses Without a Breed Page"
         headingAccent="Crosses"
-        subhead={`${otherPups.length} ${otherPups.length === 1 ? 'puppy is' : 'puppies are'} with us today whose cross has no guide of its own yet. Same all-in price, same AVS licensed shop — WhatsApp us and we'll send photos and tell you honestly what the mix means for grooming, size and temperament.`}
+        subhead={`${otherPups.length} ${otherPups.length === 1 ? 'puppy is' : 'puppies are'} with us today whose cross has no guide of its own yet. Same all-in price, same AVS licensed shop - WhatsApp us and we'll send photos and tell you honestly what the mix means for grooming, size and temperament.`}
         items={otherPups.map((p) => pupCard(p, p.breedLabel, 'available', { breedLabel: true }))}
         footerCtaLabel="Compare the breeds we do have guides for"
         footerCtaHref="/puppies/"
@@ -131,11 +128,9 @@ const schemas = [
 
   <section aria-label="Not seeing your breed" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="max-w-[70ch] text-base leading-relaxed text-[var(--color-cream-700)]">
-      Not seeing the breed you're after? This page only shows what's physically with us today —
+      Not seeing the breed you're after? This page only shows what's physically with us today - 
       WhatsApp us the breed you want and we'll tell you honestly when the next litter is due, or which
-      available breed actually suits your home. Start with
-      <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]"> our breed comparison</a>
-      or <a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what's included in the price</a>.
+      available breed actually suits your home. Start with <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our breed comparison</a> or <a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what's included in the price</a>.
     </p>
   </section>
 

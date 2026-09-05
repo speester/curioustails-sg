@@ -1,0 +1,55 @@
+---
+// kit:TiltPanel@1.0.0 - SEED section pattern (contracts 22). Tier B.
+// axis tuple: sticky-split/inset-well/single/flat/color-field/cursor/flat/definition
+// evidence:   definition
+//
+// A panel that leans toward the pointer, plus a spotlight that follows it. Both read the
+// same --px/--py pair written by the ONE shared island, one write per frame - the tilt
+// panel is mandated in every hero by premium-design-standard, and the version that wrote
+// style on every pointermove is what put layout work on the interaction path (INP).
+//
+// SEED means FLOOR, not answer: Stage 2 STEP 3 restyles this to the project's tokens, and a
+// site whose patterns are all unmodified copies fails the novelty gate.
+interface Props {
+  items?: Array<Record<string, string>>;
+  heading?: string;
+  class?: string;
+}
+const { items = [], heading, class: cls = '' } = Astro.props as Props;
+---
+
+<div class:list={['tilt', cls]} data-section-pattern="tilt-panel" data-pattern-evidence="definition" data-pointer>
+  <div class="tilt__inner">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .tilt {
+    --px: 0.5;
+    --py: 0.5;
+    perspective: 1400px;
+  }
+  .tilt__inner {
+    position: relative;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border-radius: var(--radius-lg, 1rem);
+    border: 1px solid var(--border-subtle, color-mix(in oklab, currentColor 12%, transparent));
+    background:
+      radial-gradient(30rem 30rem at calc(var(--px) * 100%) calc(var(--py) * 100%),
+        var(--surface-accent-soft, color-mix(in oklab, var(--color-accent, currentColor) 14%, transparent)),
+        transparent 60%),
+      var(--surface-panel, color-mix(in oklab, currentColor 4%, transparent));
+    box-shadow: var(--shadow-md, 0 6px 20px rgb(0 0 0 / 0.10));
+    transform: rotateX(calc((0.5 - var(--py)) * 4deg)) rotateY(calc((var(--px) - 0.5) * 6deg));
+    transition: transform 220ms var(--ease-out, ease);
+    will-change: transform;
+  }
+  /* Touch has no pointer to follow, and a tilt that never resolves reads as a broken card. */
+  @media (hover: none) {
+    .tilt__inner { transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tilt__inner { transform: none; transition: none; }
+  }
+</style>

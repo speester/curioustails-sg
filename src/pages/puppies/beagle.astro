@@ -1,4 +1,7 @@
 ---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -72,7 +75,7 @@ const faqItems = [
   {
     question: 'Is there a mini or pocket Beagle?',
     answer:
-      'Not really. There is only one Beagle breed, and a healthy adult sits around 9 to 11 kg. "Mini", "pocket" or "teacup" Beagle labels usually mean an undersized runt, a very young pup sold on a size promise it may outgrow, or a cross — none of which is a separate variety. We quote you the honest adult size, not a marketing label.',
+      'Not really. There is only one Beagle breed, and a healthy adult sits around 9 to 11 kg. "Mini", "pocket" or "teacup" Beagle labels usually mean an undersized runt, a very young pup sold on a size promise it may outgrow, or a cross - none of which is a separate variety. We quote you the honest adult size, not a marketing label.',
   },
   {
     question: 'Are Beagles noisy? Will my neighbours mind?',
@@ -122,7 +125,7 @@ const schemas = [
     aboutAlternateName: 'Beagle Hound',
     aboutSameAs: 'https://en.wikipedia.org/wiki/Beagle',
     datePublished: '2026-07-09',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   itemListSchema([
     {
@@ -156,9 +159,9 @@ const schemas = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/puppies/beagle">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies/beagle">
   <Hero
-    eyebrow="AVS Licensed Pet Shop in Balestier"
+    eyebrow="Balestier shop, AVS licensed · Beagle"
     h1="Beagle Puppies for Sale in Singapore"
     h1Accent="Beagle"
     subhead={`A Beagle in Singapore costs ${priceRange} at Curious Tails, all-in and printed, against published local listings of $3,000 to $9,000. The honest parts next: Beagles are not HDB-approved, and they are a vocal, nose-led scent hound. Loved right the merry Beagle is a brilliant, sturdy family dog, but the voice and the nose are real, so weigh them before you fall for the ears.`}
@@ -243,7 +246,7 @@ const schemas = [
 
     <CaptionedBlock heading="Can a Beagle Be Left Alone During Work Hours?" imagePosition="none" variant="card">
       <p>Not happily, and this is the honest heart of the breed. Beagles are pack animals that struggle with long solitude, and a lonely, bored Beagle is exactly the one that bays, howls and empties the bin. They do best in busy homes where someone is around much of the day, or with a midday walker and a dog-savvy routine.</p>
-      <p>The room needs the usual tropical basics — ventilation, shade, water — plus food-puzzle toys to occupy that nose, and the exercise contract below decides the rest.</p>
+      <p>The room needs the usual tropical basics - ventilation, shade, water - plus food-puzzle toys to occupy that nose, and the exercise contract below decides the rest.</p>
       <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
         <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
         <ul class="mt-4 space-y-3">
@@ -289,7 +292,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        One genuine plus for busy homes: the short Beagle coat is about the lowest-maintenance grooming on this whole page, a weekly brush and the occasional bath. The commitment with this breed is time and company, not the coat. And ignore the "mini", "pocket" or "teacup" Beagle labels you'll see priced higher — there is only one Beagle, and a healthy adult is 9 to 11 kg; those tags mean a runt, a cross, or a size promise a growing puppy may break.
+        One genuine plus for busy homes: the short Beagle coat is about the lowest-maintenance grooming on this whole page, a weekly brush and the occasional bath. The commitment with this breed is time and company, not the coat. And ignore the "mini", "pocket" or "teacup" Beagle labels you'll see priced higher - there is only one Beagle, and a healthy adult is 9 to 11 kg; those tags mean a runt, a cross, or a size promise a growing puppy may break.
       </p>
     </div>
   </div>
@@ -371,7 +374,7 @@ const schemas = [
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Beagle's First Week at Home" imageAlt="Beagle puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
+  <CaptionedBlock heading="Your Beagle’s First Week at Home" imageAlt="Beagle puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you. The playpen, bed, water, and toys are set up before your Beagle explores the room, and we walk you through all 30+ starter-kit items in person, including the portion-control plan. Learn more about how our free home delivery and setup works.</p>
     <p>Days 1 to 3: keep it calm and contained. A fixed feeding routine with measured portions, the toilet pads where we placed them, and a secure space so that busy nose can't lead your puppy into trouble.</p>
     <p>Days 4 to 7: the routine sticks, and now is the time to start. Book your free first lesson with an AVS-certified trainer to build recall and settle the vocal habits early, using the Beagle's love of food to your advantage. See what the free AVS-certified training lesson covers.</p>

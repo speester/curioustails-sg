@@ -1,0 +1,631 @@
+#!/usr/bin/env node
+/**
+ * validate-blueprint.mjs — the Checkpoint 2 blueprint gate (15 checks).
+ *
+ *   node scripts/validate-blueprint.mjs [research/site-blueprint.csv]
+ *   node scripts/validate-blueprint.mjs --mode=routes      (src/pages <-> rows, both ways)
+ *   node scripts/validate-blueprint.mjs --mode=coverage    (dist/ routes covered by rows)
+ *   node scripts/validate-blueprint.mjs --sister config/project-config.md
+ *
+ * Exit 0 = every check PASSed (prints BLUEPRINT_OK). Exit 1 = at least one FAIL.
+ * Node 20+, stdlib only.
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import { parseCsv } from './lib/csv.mjs';   // the ONE RFC-4180 row parser (Step 2b)
+
+const COLS = ['url_slug','title','h1','target_keyword','keyword_variant','secondary_keywords',
+  'search_volume','volume_geo','kd','kd_pulled_at','cpc','yoy_pct','peak_months','serp_intent',
+  'serp_url_format','serp_features','serp_evidence','ceiling_tier','rd_gap','horizon','value_tier',
+  'build_order','brief_depth','page_type','page_tier','section_class','hub_or_node','silo','parent',
+  'link_root','link_seed','link_node','link_children','merged_into','schema','form_id','ground_truth',
+  'raster_images','notes'];
+const HEADER = COLS.join(',');
+const OVERLAP_THRESHOLD = 0.40;
+const STALE_DAYS = 30;
+
+const argv = process.argv.slice(2);
+const csvPath = argv.find(a => !a.startsWith('--')) || 'research/site-blueprint.csv';
+const mode = (argv.find(a => a.startsWith('--mode=')) || '--mode=full').split('=')[1];
+const sisterCfg = argv.includes('--sister') ? (argv[argv.indexOf('--sister') + 1] || 'config/project-config.md') : null;
+
+const ex = p => { try { fs.accessSync(p); return true; } catch { return false; } };
+const rd = p => fs.readFileSync(p, 'utf8').replace(/^\uFEFF/, '');
+// A typographic apostrophe is the SAME WORD as a straight one, and the house style
+// requires the typographic form in UI labels while a keyword is stored with the
+// straight one. Comparing the two raw made "Garage Door Won’t Close" fail to contain
+// "garage door won't close" - a title that is correct twice over, failed for punctuation
+// (2026-09-05). Fold the curly quotes before comparing; nothing else changes.
+const norm = s => String(s || '').toLowerCase()
+  .replace(/[’‘]/g, "'").replace(/[“”]/g, '"')
+  .replace(/\s+/g, ' ').trim();
+const unesc = s => String(s || '').replace(/&amp;/g, '&').replace(/&lt;/g, '<')
+  .replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&nbsp;/g, ' ');
+const days = iso => { const t = Date.parse(iso); return Number.isNaN(t) ? Infinity : (Date.now() - t) / 86400000; };
+
+/* ---------- RFC-4180 parser: IMPORTED from ./lib/csv.mjs, never redeclared here ----------
+   `parseCsv(text)` returns [{cells: [...], quoted: [...]}, …]; the `quoted` flags are what
+   check 1 (CSV shape) reads. ONE parser, ONE behaviour — a second copy of this function in
+   any script is the CONS2-12 defect, and `line.split(',')` is the curio-2.7 defect. ------ */
+
+/* ---------- project-config ---------- */
+const CFG_PATH = 'config/project-config.md';
+const cfgText = ex(CFG_PATH) ? rd(CFG_PATH) : '';
+function cfg(key, dflt = '') {
+  const m = cfgText.match(new RegExp('^\\s*[-*]?\\s*`?' + key + '`?\\s*[:=]\\s*(.+?)\\s*$', 'mi'));
+  if (!m) return dflt;
+  return m[1].replace(/^["'`]|["'`]$/g, '').replace(/\s+#.*$/, '').trim();
+}
+const ARCHETYPE = cfg('SITE_ARCHETYPE', '');
+const GEO = cfg('GEO', cfg('COUNTRY', ''));
+const LOCATION_CODE = cfg('LOCATION_CODE', '');
+const LANGUAGE = cfg('LANGUAGE', 'en');
+const SPELLING = cfg('SPELLING', '');
+const MONETIZATION = cfg('MONETIZATION_MODEL', '').toLowerCase();
+const WORDS_TO_AVOID = cfg('WORDS_TO_AVOID', '').split(/[,|]/).map(s => s.trim()).filter(Boolean);
+
+/* ---------- results ---------- */
+const results = [];
+const metrics = {};
+function check(n, name) { const r = { n, name, fails: [] }; results.push(r); return (where, detail) => r.fails.push({ where, detail }); }
+
+/* ---------- route helpers (modes routes / coverage) ---------- */
+function walk(dir, hit) {
+  if (!ex(dir)) return;
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, e.name);
+    if (e.isDirectory()) walk(p, hit); else hit(p);
+  }
+}
+function pagesRoutes() {
+  const routes = [];
+  walk('src/pages', p => {
+    if (!/\.(astro|md)$/.test(p)) return;
+    let r = p.replace(/\\/g, '/').replace(/^src\/pages/, '').replace(/\.(astro|md)$/, '');
+    if (/\[.+\]/.test(r)) return;              // dynamic route: covered by its rows
+    if (r === '/404') { routes.push('/404'); return; }
+    if (r === '/index' || r === '') { routes.push('/'); return; }
+    r = r.replace(/\/index$/, '');
+    routes.push(r.endsWith('/') ? r : r + '/');
+  });
+  return [...new Set(routes)];
+}
+function distRoutes() {
+  const routes = [];
+  walk('dist', p => {
+    const u = p.replace(/\\/g, '/');
+    if (!u.endsWith('/index.html')) return;
+    let r = u.replace(/^dist/, '').replace(/index\.html$/, '');
+    routes.push(r === '' ? '/' : r);
+  });
+  return [...new Set(routes)];
+}
+
+/* ---------- load CSV ---------- */
+if (!ex(csvPath)) { console.error(`FAIL: ${csvPath} does not exist.`); process.exit(1); }
+const raw = rd(csvPath);
+const parsed = parseCsv(raw);
+const headerCells = parsed.length ? parsed[0].cells : [];
+const rows = [];
+for (let i = 1; i < parsed.length; i++) {
+  const o = { __line: i + 1, __quoted: parsed[i].quoted, __cells: parsed[i].cells };
+  headerCells.forEach((h, j) => { o[h] = (parsed[i].cells[j] ?? '').trim(); });
+  rows.push(o);
+}
+const bySlug = new Map(rows.map(r => [r.url_slug, r]));
+const kwOf = r => (r.keyword_variant || r.target_keyword || '');
+const bo = r => { const n = parseInt(r.build_order, 10); return Number.isNaN(n) ? Infinity : n; };
+
+/* ================================ MODES ================================ */
+if (mode === 'routes' || mode === 'coverage') {
+  const built = mode === 'routes' ? pagesRoutes() : distRoutes();
+  const slugs = new Set(rows.map(r => r.url_slug));
+  const without = built.filter(r => !slugs.has(r));
+  const unbuilt = rows.map(r => r.url_slug).filter(s => !built.includes(s));
+  const reserved = rows.filter(r => /^(RESERVED|TBD)/i.test(r.title || ''));
+  if (mode === 'coverage') {
+    console.log(`${built.length - without.length} of ${built.length} built routes have a blueprint row`);
+  }
+  console.log(`routes_without_row=${without.length}${without.length ? ' ' + JSON.stringify(without) : ''}`);
+  console.log(`rows_without_route=${unbuilt.length}${unbuilt.length ? ' ' + JSON.stringify(unbuilt) : ''}`);
+  console.log(`reserved=${reserved.length}`);
+  const bad = without.length + reserved.length + (mode === 'routes' ? 0 : 0);
+  console.log(bad === 0 ? 'BLUEPRINT_OK' : 'BLUEPRINT_FAIL');
+  process.exit(bad === 0 ? 0 : 1);
+}
+
+/* ================================ CHECK 1 ================================ */
+{
+  const f = check(1, 'CSV shape');
+  const gotHeader = headerCells.join(',');
+  if (gotHeader !== HEADER) f('header', `expected the 39-column header; got ${headerCells.length} columns starting "${headerCells.slice(0, 4).join(',')}"`);
+  const seen = new Set();
+  for (const r of rows) {
+    if (r.__cells.length !== headerCells.length) f(`line ${r.__line}`, `${r.__cells.length} fields, expected ${headerCells.length}`);
+    r.__cells.forEach((c, j) => { if (!r.__quoted[j] && /[",]/.test(c)) f(`line ${r.__line}`, `unquoted cell contains a comma or quote: ${headerCells[j]}`); });
+    if (seen.has(r.url_slug)) f(r.url_slug, 'duplicate url_slug'); seen.add(r.url_slug);
+    if (r.url_slug !== '/404' && !(r.url_slug.startsWith('/') && r.url_slug.endsWith('/'))) f(r.url_slug || `line ${r.__line}`, 'url_slug must start and end with /');
+  }
+  metrics.rows = rows.length;
+}
+/* ================================ CHECK 2 ================================ */
+{
+  const f = check(2, 'unique primary keyword');
+  const map = new Map();
+  for (const r of rows) {
+    for (const k of [r.target_keyword, r.keyword_variant]) {
+      if (!k) continue;
+      const key = norm(k);
+      if (map.has(key) && map.get(key) !== r.url_slug) f(r.url_slug, `"${k}" already committed on ${map.get(key)}`);
+      else map.set(key, r.url_slug);
+    }
+  }
+  // A secondary keyword that IS another row's primary is the same cannibalisation the
+  // check exists to prevent - it was simply never looked at, so a money page could
+  // legally list a sibling money page's head term as a secondary target.
+  for (const r of rows) {
+    for (const sec of String(r.secondary_keywords || '').split('|')) {
+      const k = norm(sec.trim());
+      if (!k) continue;
+      const owner = map.get(k);
+      if (owner && owner !== r.url_slug) {
+        f(r.url_slug, `secondary "${sec.trim()}" is the committed primary of ${owner}`);
+      }
+    }
+  }
+  metrics.dup_primary = results.find(r => r.n === 2).fails.length;
+}
+/* ================================ CHECK 3 ================================ */
+{
+  const f = check(3, 'live SERP evidence');
+  let notByte = 0;
+  for (const r of rows) {
+    if (!r.target_keyword) continue;
+    if (!r.serp_evidence) { f(r.url_slug, 'serp_evidence empty'); continue; }
+    if (!ex(r.serp_evidence)) { f(r.url_slug, `${r.serp_evidence} does not exist`); continue; }
+    let j; try { j = JSON.parse(rd(r.serp_evidence)); } catch { f(r.url_slug, 'evidence file is not valid JSON'); continue; }
+    if (!j.pulled_at || days(j.pulled_at) > STALE_DAYS) f(r.url_slug, `evidence pulled_at ${j.pulled_at || 'missing'} older than ${STALE_DAYS} days`);
+    if (j.keyword !== r.target_keyword) { notByte++; f(r.url_slug, `evidence keyword "${j.keyword}" is not byte-identical to target_keyword "${r.target_keyword}"`); }
+    // Byte-identity proved the right STRING was measured; nothing proved it was
+    // measured in the right COUNTRY. A US pull for an SG page validates cleanly and
+    // carries the wrong volume, the wrong KD and the wrong top 10.
+    if (LOCATION_CODE && j.location !== undefined && String(j.location) !== String(LOCATION_CODE)) {
+      f(r.url_slug, `evidence pulled for location "${j.location}" != project LOCATION_CODE "${LOCATION_CODE}"`);
+    }
+    if (LANGUAGE && j.language !== undefined && String(j.language) !== String(LANGUAGE)) {
+      f(r.url_slug, `evidence pulled for language "${j.language}" != project LANGUAGE "${LANGUAGE}"`);
+    }
+    // A non-empty secondary on a money row is either evidenced by this row's own SERP
+    // cluster or explicitly declared unverified - never silently assumed.
+    const tierNow = String(r.page_tier || '').toLowerCase();
+    if ((tierNow === 'core' || tierNow === 'monetization') && String(r.secondary_keywords || '').trim()) {
+      const clustered = (j.top10 || []).length > 0;
+      if (!clustered && !/secondary-unverified:\s*\S/.test(r.notes || '')) {
+        f(r.url_slug, 'secondary_keywords set with no SERP cluster and no "notes: secondary-unverified:<reason>"');
+      }
+    }
+  }
+  metrics.missing_evidence = results.find(r => r.n === 3).fails.length;
+  metrics.keyword_not_byte_identical = notByte;
+}
+/* ================================ CHECK 4 ================================ */
+{
+  const f = check(4, 'intent eligibility');
+  const BAD = ['brand-navigational', 'academic', 'publication-discovery', 'employment', 'local-pack-only'];
+  const OK = ['buyer','practitioner','academic','publication-discovery','brand-navigational','definitional','employment','local-pack-only','mixed'];
+  let missing = 0, unflagged = 0;
+  for (const r of rows) {
+    if (!r.target_keyword) continue;
+    if (!r.serp_intent) { missing++; f(r.url_slug, 'serp_intent empty'); continue; }
+    if (!OK.includes(r.serp_intent)) f(r.url_slug, `serp_intent "${r.serp_intent}" is not in the enum`);
+    if (BAD.includes(r.serp_intent) && !/DO NOT CHASE:\s*\S/.test(r.notes)) { unflagged++; f(r.url_slug, `serp_intent=${r.serp_intent} without "DO NOT CHASE: <reason>" in notes`); }
+    // The skill text says a pack in the top 5 caps the ceiling; the regex only matched
+    // packs starting at 1 or 2, so a pack at position 3 - the common case - was invisible.
+    const localPack = /local_pack@([1-5])-/.test(r.serp_features) || /\bnear me\b/i.test(r.target_keyword);
+    if (ARCHETYPE && ARCHETYPE !== 'local-service' && localPack && !/ceiling:\s*not top-3|ceiling:\s*local-pack/.test(r.notes))
+      f(r.url_slug, 'local pack / "near me" on a non-local archetype without a ceiling note');
+  }
+  metrics.intent_missing = missing; metrics.do_not_chase_unflagged = unflagged;
+}
+/* ================================ CHECK 5 ================================ */
+{
+  const f = check(5, 'metrics present');
+  let kdMissing = 0, kdStale = 0;
+  for (const r of rows) {
+    if (r.page_tier === 'utility' && !r.target_keyword) continue;
+    const noData = /no-data:\s*\S/.test(r.notes);
+    if (!r.search_volume && !noData) f(r.url_slug, 'search_volume empty and no "no-data:<reason>" in notes');
+    if (!r.kd && !noData) f(r.url_slug, 'kd empty and no "no-data:<reason>" in notes');
+    if (!r.kd_pulled_at) { kdMissing++; if (!noData) f(r.url_slug, 'kd_pulled_at empty'); }
+    else if (days(r.kd_pulled_at) > STALE_DAYS) { kdStale++; f(r.url_slug, `kd_pulled_at ${r.kd_pulled_at} older than ${STALE_DAYS} days`); }
+    if (GEO && r.volume_geo && r.volume_geo !== GEO) f(r.url_slug, `volume_geo "${r.volume_geo}" != project GEO "${GEO}"`);
+  }
+  metrics.kd_pulled_at_missing = kdMissing; metrics['kd_stale>30d'] = kdStale;
+}
+/* ================================ CHECK 6 ================================ */
+{
+  const f = check(6, 'ceilings / tiers / build order');
+  const CT = ['reachable','capped','coverage-only'], VT = ['A','B','C','D'], BD = ['full','blog','low-demand','utility'];
+  let ceilingMissing = 0, valueMissing = 0, noBet = 0;
+  const orders = [];
+  for (const r of rows) {
+    if (!r.ceiling_tier) { ceilingMissing++; f(r.url_slug, 'ceiling_tier empty'); }
+    else if (!CT.includes(r.ceiling_tier)) f(r.url_slug, `ceiling_tier "${r.ceiling_tier}" not in the enum`);
+    if (!r.value_tier) { valueMissing++; f(r.url_slug, 'value_tier empty'); }
+    else if (!VT.includes(r.value_tier)) f(r.url_slug, `value_tier "${r.value_tier}" not in A|B|C|D`);
+    if (!r.brief_depth) f(r.url_slug, 'brief_depth empty');
+    else if (!BD.includes(r.brief_depth)) f(r.url_slug, `brief_depth "${r.brief_depth}" not in the enum`);
+    if (!r.build_order) f(r.url_slug, 'build_order empty'); else orders.push(bo(r));
+    if (r.ceiling_tier === 'coverage-only') {
+      const m = r.notes.match(/bet:(\/(?:[^\s,;]*\/)?)/);   // the home page is a legal bet; the old pattern demanded two slashes and could not express "/".
+      if (!m) { noBet++; f(r.url_slug, 'coverage-only row without "bet:<slug>" in notes'); }
+      else if (!bySlug.has(m[1])) { noBet++; f(r.url_slug, `bet:${m[1]} is not a row in this CSV`); }
+      else if (bySlug.get(m[1]).ceiling_tier !== 'reachable') { noBet++; f(r.url_slug, `bet:${m[1]} is not a reachable sibling`); }
+    }
+  }
+  const sorted = [...orders].sort((a, b) => a - b);
+  const perm = sorted.length === rows.length && sorted.every((v, i) => v === i + 1);
+  if (!perm) f('build_order', `values are not a permutation of 1..${rows.length}`);
+  metrics.ceiling_missing = ceilingMissing; metrics.value_tier_missing = valueMissing;
+  metrics.coverage_only_without_bet = noBet; metrics.build_order_valid = perm ? 'yes' : 'no';
+}
+/* ================================ CHECK 7 ================================ */
+{
+  const f = check(7, 'title / H1');
+  let noKw = 0, noKwH1 = 0, over = 0, collide = 0;
+  const titles = new Map(), h1s = new Map();
+  for (const r of rows) {
+    const kw = kwOf(r);
+    // A DELIBERATE title/H1 split - the title carrying the plural head phrase while the H1
+    // keeps the singular so the two do not compete - is a live experiment on some sites, not
+    // drift. It is allowed only as a WAIVER, to the same standard as check 14: a real reason,
+    // an owner, and a date. Everything else in this check still applies to the row.
+    const splitWaiver = (() => {
+      const m = /title-h1-split:\s*(.+)$/i.exec(r.notes || '');
+      if (!m) return false;
+      const tail = m[1];
+      const dm = /approved_on:\s*(20\d\d-[01]\d-[0-3]\d)/.exec(tail);
+      const reason = tail.replace(/approved_by:\s*owner/ig, '')
+        .replace(/approved_on:\s*20\d\d-[01]\d-[0-3]\d/ig, '').trim();
+      return reason.length >= 12 && /approved_by:\s*owner/i.test(tail) && !!dm
+        && dm[1] <= new Date().toISOString().slice(0, 10);
+    })();
+    if (kw && r.page_tier !== 'utility' && !splitWaiver) {
+      if (!norm(r.title).includes(norm(kw))) { noKw++; f(r.url_slug, `title does not contain "${kw}"`); }
+      if (!norm(r.h1).includes(norm(kw))) { noKwH1++; f(r.url_slug, `h1 does not contain "${kw}"`); }
+    }
+    const len = unesc(r.title).length;
+    if (len > 60) { over++; f(r.url_slug, `title is ${len} characters unescaped (max 60)`); }
+    if (/\b(19|20)\d{2}\b/.test(r.title)) f(r.url_slug, 'title contains a year');
+    if (/—|–/.test(r.title)) f(r.url_slug, 'title contains an em/en dash');
+    if (/[()]/.test(r.title)) f(r.url_slug, 'title contains a parenthetical');
+    for (const w of WORDS_TO_AVOID) if (w && norm(r.title + ' ' + r.h1).includes(norm(w))) f(r.url_slug, `title/h1 contains WORDS_TO_AVOID "${w}"`);
+    const tk = norm(r.title), hk = norm(r.h1);
+    if (titles.has(tk)) { collide++; f(r.url_slug, `title identical to ${titles.get(tk)}`); } else titles.set(tk, r.url_slug);
+    if (hk && h1s.has(hk)) { collide++; f(r.url_slug, `h1 identical to ${h1s.get(hk)}`); } else h1s.set(hk, r.url_slug);
+  }
+  metrics.title_missing_keyword = noKw; metrics.h1_missing_keyword = noKwH1;
+  metrics.title_over_60 = over; metrics.title_phrase_collisions = collide;
+  metrics.title_fail = noKw + noKwH1 + over + collide;
+}
+/* ================================ CHECK 8 ================================ */
+{
+  const f = check(8, 'link contract');
+  let silosNoHub = 0;
+  for (const r of rows) {
+    const targets = [['link_root', r.link_root], ['link_seed', r.link_seed], ['link_node', r.link_node]];
+    for (const [col, t] of targets) {
+      if (!t) { if (!(r.url_slug === '/' && col === 'link_root')) f(r.url_slug, `${col} is empty`); continue; }
+      if (t === r.url_slug) f(r.url_slug, `${col} points at the row itself`);
+      else if (!bySlug.has(t)) f(r.url_slug, `${col}=${t} is not a row in this CSV`);
+      else if (bo(bySlug.get(t)) > bo(r) && !['L1','L2'].includes((bySlug.get(t).hub_or_node||'').trim())) f(r.url_slug, `${col}=${t} has a later build_order (${bo(bySlug.get(t))} > ${bo(r)})`);
+    }
+    // link_children is the DOWNWARD contract: a hub is built before its children, so it
+    // must list every child REGARDLESS of build_order. The earlier-build_order rule
+    // above binds link_root/link_seed/link_node on non-hub rows only; applying it here
+    // made a correctly ordered hub unrepresentable. What IS asserted is the ordering
+    // that matters: the hub precedes every child it claims.
+    const kids = (r.link_children || '').split('|').map(s => s.trim()).filter(Boolean);
+    for (const c of kids) {
+      if (!bySlug.has(c)) f(r.url_slug, `link_children slug ${c} is not a row in this CSV`);
+      else if (c === r.url_slug) f(r.url_slug, 'link_children contains the row itself');
+    }
+    const kidOrders = kids.filter(c => bySlug.has(c)).map(c => bo(bySlug.get(c)));
+    if (kidOrders.length && bo(r) >= Math.min(...kidOrders)) {
+      f(r.url_slug, `hub build_order ${bo(r)} does not precede its earliest child (${Math.min(...kidOrders)})`);
+    }
+    const m = (r.notes || '').match(/entities:(\d+)/);
+    if (m) {
+      const n = (r.link_children || '').split('|').filter(Boolean).length;
+      if (n < Number(m[1])) f(r.url_slug, `entity hub declares entities:${m[1]} but only ${n} child rows exist (spawn one row per entity before Checkpoint 2)`);
+    }
+  }
+  // H6 — every Outer row's link_seed must land on a money page. The Core/Outer split already
+  // exists; what was never asserted is the mechanism it exists FOR. An informational post whose
+  // seed link points at another informational post funnels authority in a circle: the split looks
+  // right in the CSV and moves nothing. Outer rows may still link anywhere else they like — this
+  // binds the SEED slot only, which is the one contractual link the page is required to carry.
+  let outerMisdirected = 0;
+  for (const r of rows) {
+    if (r.page_tier !== 'outer') continue;
+    const seed = (r.link_seed || '').trim();
+    if (!seed || !bySlug.has(seed)) continue;          // already reported above
+    const tier = (bySlug.get(seed) || {}).page_tier;
+    if (!['core', 'monetization', 'functional'].includes(tier)) {
+      outerMisdirected++;
+      f(r.url_slug, `outer row's link_seed=${seed} is a ${tier} page, not core/monetization — ` +
+                    'the Outer tier exists to funnel authority into money pages (H6)');
+    }
+  }
+  metrics.outer_seeds_misdirected = outerMisdirected;
+
+  const silos = new Set(rows.map(r => r.silo).filter(Boolean));
+  for (const s of silos) {
+    const hub = rows.find(r => r.url_slug === s && r.hub_or_node === 'L2') || rows.find(r => r.silo === s && r.hub_or_node === 'L2');
+    if (!hub) { silosNoHub++; f(s, 'silo has no L2 hub row'); continue; }
+    const kids = rows.filter(r => r.silo === s && r.hub_or_node === 'L3').map(r => r.url_slug);
+    const listed = new Set((hub.link_children || '').split('|').map(x => x.trim()).filter(Boolean));
+    for (const k of kids) if (!listed.has(k)) f(hub.url_slug, `link_children is missing L3 child ${k}`);
+  }
+  metrics.silos_without_hub = silosNoHub;
+  metrics.entity_hubs_unspawned = results.find(r => r.n === 8).fails.filter(x => /entity hub declares/.test(x.detail)).length;
+}
+/* ================================ CHECK 9 ================================ */
+const inbound = new Map(rows.map(r => [r.url_slug, new Set()]));
+{
+  const f = check(9, 'inbound floor');
+  for (const r of rows) {
+    const t = [r.link_root, r.link_seed, r.link_node, ...(r.link_children || '').split('|')].map(s => (s || '').trim()).filter(Boolean);
+    for (const x of t) if (inbound.has(x) && x !== r.url_slug) inbound.get(x).add(r.url_slug);
+  }
+  let under = 0, hubsUnder = 0;
+  for (const r of rows) {
+    if (r.url_slug === '/' || r.url_slug === '/404') continue;
+    // A noindex route is excluded from the index by design, so an inbound-link floor - whose
+    // purpose is to spread crawlable link equity - does not apply to it. /contact/thank-you/ is
+    // reached by submitting the form, not by being linked to from the body of other pages.
+    if (/thank-you|thankyou/.test(r.url_slug)) continue;
+    // Same rationale, same instrument: a utility page (/about/, /contact/, /privacy/,
+    // /terms/) is reached from the FOOTER of every page on the site, so it already has
+    // maximal crawlability and a body-link floor measures nothing. Exempting thank-you
+    // for that reason while failing /privacy/ for it was the inconsistency.
+    if (r.page_tier === 'utility') continue;
+    const n = inbound.get(r.url_slug).size;
+    const floor = r.section_class === 'core' ? 3 : 2;
+    if (n < floor) { under++; f(r.url_slug, `${n} inbound contract links (floor ${floor})`); }
+    if (r.hub_or_node === 'L2') {
+      const money = [...inbound.get(r.url_slug)].filter(s => ['core', 'monetization', 'functional'].includes((bySlug.get(s) || {}).page_tier));
+      if (money.length < 2) { hubsUnder++; f(r.url_slug, `hub has ${money.length} inbound links from money pages (floor 2)`); }
+    }
+  }
+  const counts = rows.filter(r => r.url_slug !== '/').map(r => inbound.get(r.url_slug).size).sort((a, b) => a - b);
+  metrics.inbound_min = counts.length ? counts[0] : 0;
+  metrics.inbound_under_floor = under; metrics.hubs_under_inbound_floor = hubsUnder;
+  const hubs = rows.filter(r => r.hub_or_node === 'L2');
+  metrics.hubs_covered = hubs.length ? Math.round(100 * (hubs.length - hubsUnder) / hubs.length) + '%' : '100%';
+}
+/* ================================ CHECK 10 ================================ */
+{
+  const f = check(10, 'required rows');
+  const TIERS = ['core','outer','utility','compare','monetization','functional'];  // contracts.md §1a lists SIX page_tier values; 'functional' (live roster) was missing here, so a correctly-tiered roster row failed check 10.
+  for (const r of rows) if (!TIERS.includes(r.page_tier)) f(r.url_slug, `page_tier "${r.page_tier}" not in ${TIERS.join('|')}`);
+  // A WhatsApp-first or phone-first site has no form, so it has no thank-you page to require
+  // (same key and vocabulary as check-form-sync.mjs). Requiring one asks it to build a route
+  // that could only ever 404 from the outside.
+  const FORMLESS_SITE = ['whatsapp', 'phone', 'none'].includes(cfg('LEAD_CAPTURE', 'form').toLowerCase());
+  const need = ['/', '/about/', '/contact/', '/privacy/', '/terms/', '/404', '/blog/'];
+  if (!FORMLESS_SITE) need.push('/contact/thank-you/');
+  if (/affiliate|sponsor/.test(MONETIZATION)) need.push('/disclosure/');
+  if (ARCHETYPE && ARCHETYPE !== 'local-service') need.push('/editorial-policy/');
+  const mon = [];
+  if (/guest-post|guest post|sponsor/.test(MONETIZATION)) mon.push('/write-for-us/', '/guest-post-guidelines/', '/advertise/');
+  if (/affiliate/.test(MONETIZATION)) mon.push('/reviews/');
+  const ALIAS = { '/contact/': ['/contact-us/'], '/contact/thank-you/': ['/thank-you/', '/contact-us/thank-you/'],
+    '/privacy/': ['/privacy-policy/'], '/terms/': ['/terms-and-conditions/', '/terms-of-service/'] };
+  const missU = need.filter(s => !bySlug.has(s) && !(ALIAS[s] || []).some(a => bySlug.has(a)));
+  const missM = mon.filter(s => !bySlug.has(s));
+  for (const s of missU) f(s, 'required utility row missing');
+  for (const s of missM) f(s, 'required monetization row missing');
+  if (/guest-post|guest post/.test(MONETIZATION)) {
+    const silos = new Set(rows.filter(r => r.hub_or_node === 'L2' && r.page_tier === 'core').map(r => r.url_slug));
+    const desks = rows.filter(r => /^\/write-for-us\/.+\/$/.test(r.url_slug)).length;
+    if (desks < silos.size) f('/write-for-us/<desk>/', `${desks} desk rows for ${silos.size} silos`);
+  }
+  metrics.utility_rows = missU.length === 0 ? 'present' : `missing:${missU.join(',')}`;
+  metrics.monetization_rows = mon.length === 0 ? 'n/a' : (missM.length === 0 ? 'present' : `missing:${missM.join(',')}`);
+}
+/* ================================ CHECK 11 ================================ */
+{
+  const f = check(11, 'ground truth');
+  const NUM = /(\$\s?\d|\d+\s?%|\bS\$|\b\d{4}\b|licen[cs]e|\bfee\b)/i;
+  let noGt = 0, below = 0, verify = 0, unsourced = 0;
+  for (const r of rows) {
+    const core = r.section_class === 'core' || ['A', 'B'].includes(r.value_tier);
+    if (r.page_tier === 'utility') continue;
+    if (!core && r.page_tier !== 'outer') continue;
+    if (!r.ground_truth) { if (core) { noGt++; f(r.url_slug, 'ground_truth column empty'); } continue; }
+    if (!ex(r.ground_truth)) { if (core) { noGt++; f(r.url_slug, `${r.ground_truth} does not exist`); } continue; }
+    const text = rd(r.ground_truth);
+    const bullets = text.split(/\r?\n/).filter(l => /^\s*[-*]\s+\S/.test(l));
+    const min = core ? 5 : 3;
+    if (bullets.length < min) { below++; f(r.url_slug, `${bullets.length} facts in ${r.ground_truth} (min ${min})`); }
+    if (core && /\[VERIFY\]/.test(text)) { verify++; f(r.url_slug, '[VERIFY] on a core row blocks Checkpoint 2'); }
+    for (const b of bullets) {
+      if (!NUM.test(b)) continue;
+      if (/\[VERIFY\]\s*$/.test(b.trim())) continue;
+      if (!/—\s*source:\s*https?:\/\/\S+\s*\(\d{4}-\d{2}-\d{2}\)\s*$/.test(b.trim())) { unsourced++; f(r.url_slug, `unsourced numeric bullet: ${b.trim().slice(0, 70)}`); }
+    }
+  }
+  metrics.core_rows_without_gt = noGt; metrics.gt_below_min = below;
+  metrics.core_verify_flags = verify; metrics.unsourced_numeric_bullets = unsourced;
+}
+/* ================================ CHECK 12 ================================ */
+{
+  const f = check(12, 'overlap / merge');
+  let dangling = 0;
+  for (const r of rows) if (r.merged_into && !bySlug.has(r.merged_into)) { dangling++; f(r.url_slug, `merged_into=${r.merged_into} is not a row`); }
+  let over = 0;
+  if (ex('research/serp-overlap.json')) {
+    let j = []; try { j = JSON.parse(rd('research/serp-overlap.json')).pairs || []; } catch { f('research/serp-overlap.json', 'not valid JSON'); }
+    for (const p of j) {
+      if (Number(p.overlap) < OVERLAP_THRESHOLD) continue;
+      if (bySlug.has(p.a) && bySlug.has(p.b) && !bySlug.get(p.a).merged_into && !bySlug.get(p.b).merged_into) {
+        over++; f(`${p.a} + ${p.b}`, `SERP overlap ${(p.overlap * 100).toFixed(0)}% >= 40% but both rows survive`);
+      }
+    }
+  }
+  metrics.merged_into_dangling = dangling; metrics.pairs_over_threshold_unmerged = over;
+}
+/* ================================ CHECK 13 ================================ */
+{
+  const f = check(13, 'registries + decision log');
+  let seeded = 'missing', overCap = 0;
+  if (!ex('config/anchor-registry.json')) f('config/anchor-registry.json', 'missing — Checkpoint 2 fails without it');
+  else {
+    let reg; try { reg = JSON.parse(rd('config/anchor-registry.json')); } catch { reg = null; f('config/anchor-registry.json', 'not valid JSON'); }
+    if (reg) {
+      if (!reg._scope || !reg._chrome) f('config/anchor-registry.json', 'missing _scope and/or _chrome keys');
+      const body = Object.entries(reg).filter(([k]) => !k.startsWith('_'));
+      if (body.length === 0) f('config/anchor-registry.json', 'unseeded — seed every planned body anchor from the link contract');
+      else seeded = 'seeded';
+      for (const [anchor, slugs] of body) {
+        const uniq = [...new Set(Array.isArray(slugs) ? slugs : [])];
+        if (uniq.length > 3) { overCap++; f(anchor, `planned on ${uniq.length} pages (cap 3)`); }
+      }
+    }
+  }
+  const cancelled = ex('research/cancelled-targets.md');
+  if (!cancelled && ex('research/keyword_universe.md') && /dropped|excluded|DO NOT CHASE/i.test(rd('research/keyword_universe.md')))
+    f('research/cancelled-targets.md', 'missing while keyword_universe.md lists dropped candidates');
+  metrics.registry = seeded; metrics.anchors_over_cap = overCap;
+  metrics.cancelled_log = cancelled ? 'present' : 'missing';
+}
+/* ================================ CHECK 14 ================================ */
+{
+  const f = check(14, 'reserved / keyword-less rows');
+  let reserved = 0;
+  for (const r of rows) {
+    if (/^(RESERVED|TBD)/i.test(r.title || '')) { reserved++; f(r.url_slug, `title starts with "${r.title.split(/\s/)[0]}"`); }
+    // A keywordless row collapses to the utility floor downstream: 600 words, 0 FAQs,
+    // no figure/quote/Sources duty. Any non-empty text after "keywordless:" used to be
+    // enough, so a build session could demote any page by writing one word in notes.
+    // Held to the checkpoint-waivers standard instead: a real reason, an owner, a date.
+    if (!r.target_keyword) {
+      const m = /keywordless:\s*(.+)$/i.exec(r.notes || '');
+      const tail = m ? m[1].trim() : '';
+      const dm = /approved_on:\s*(20\d\d-[01]\d-[0-3]\d)/.exec(tail);
+      // The reason is the tail MINUS the approval boilerplate, or the ~50 characters
+      // of "approved_by: owner approved_on: ..." satisfied the 12-char floor on their
+      // own and a one-character reason passed. The date must also not be in the
+      // future, matching checkpoint.py::_waiver_ok.
+      const reason = tail
+        .replace(/approved_by:\s*owner/ig, '')
+        .replace(/approved_on:\s*20\d\d-[01]\d-[0-3]\d/ig, '')
+        .trim();
+      const today = new Date().toISOString().slice(0, 10);
+      const ok = reason.length >= 12 &&
+        /approved_by:\s*owner/i.test(tail) &&
+        !!dm && dm[1] <= today;
+      if (!ok) f(r.url_slug,
+        'empty target_keyword needs "keywordless: <reason, 12+ chars> approved_by: owner ' +
+        'approved_on: YYYY-MM-DD" in notes - it grants the utility floor, so it is a waiver, ' +
+        'not a note');
+    }
+  }
+  metrics.reserved = reserved;
+}
+/* ================================ CHECK 15 ================================ */
+{
+  const f = check(15, 'forms');
+  let ids = null;
+  if (ex('config/forms.json')) { try { ids = new Set((JSON.parse(rd('config/forms.json')).forms || []).map(x => x.id)); } catch { f('config/forms.json', 'not valid JSON'); } }
+  // A WhatsApp-first or phone-first site has no form to register, and demanding a form_id
+  // on every money row would fail it for a conversion path it chose deliberately. Same key
+  // and same vocabulary as check-form-sync.mjs / gen-formaloo-map.mjs.
+  const FORMLESS = ['whatsapp', 'phone', 'none'].includes(cfg('LEAD_CAPTURE', 'form').toLowerCase());
+  let unregistered = 0;
+  for (const r of rows) {
+    const needsForm = !FORMLESS && (['core', 'monetization', 'functional'].includes(r.page_tier) || r.url_slug === '/contact/');
+    if (needsForm && !r.form_id) f(r.url_slug, 'form_id empty on a form-bearing page');
+    if (r.form_id && ids && !ids.has(r.form_id)) { unregistered++; f(r.url_slug, `form_id "${r.form_id}" is not in config/forms.json`); }
+  }
+  metrics.forms_unregistered = unregistered;
+}
+/* ================================ SISTER LANES ================================ */
+if (sisterCfg && ex(sisterCfg)) {
+  const f = check(16, 'sister-site lane exclusion');
+  const block = rd(sisterCfg).split(/SISTER-SITE GUARDRAILS/i)[1] || '';
+  const lanes = [...block.matchAll(/lane:\s*(.+)/gi)].flatMap(m => m[1].split('|')).map(s => norm(s)).filter(Boolean);
+  let hits = 0;
+  for (const r of rows) for (const l of lanes) if (l && norm(r.target_keyword).includes(l)) { hits++; f(r.url_slug, `target_keyword sits in sister lane "${l}"`); }
+  metrics.sister_lane_rows = hits;
+}
+/* ================================ WRITE ARTIFACTS ================================ */
+function ensureDir(p) { fs.mkdirSync(path.dirname(p), { recursive: true }); }
+{
+  const hubs = rows.filter(r => r.hub_or_node === 'L2');
+  const navHubs = hubs.filter(r => r.page_tier === 'core').slice(0, 4);
+  const footerUtility = rows.filter(r => r.page_tier === 'utility' && r.url_slug !== '/' && r.url_slug !== '/404');
+  const footerMon = rows.filter(r => r.page_tier === 'monetization');
+  let nav = '# Nav map (generated by validate-blueprint.mjs)\n\n## Header\n- logo -> /\n';
+  for (const h of navHubs) nav += `- ${h.title} -> ${h.url_slug}\n`;
+  if (bySlug.has('/blog/')) nav += '- Blog -> /blog/\n';
+  nav += '- CTA button -> /contact/\n\n## Footer\n';
+  for (const h of hubs) nav += `- ${h.title} -> ${h.url_slug}\n`;
+  for (const u of [...footerUtility, ...footerMon]) nav += `- ${u.title} -> ${u.url_slug}\n`;
+  nav += '\n## URL tree\n';
+  for (const r of rows.slice().sort((a, b) => a.url_slug.localeCompare(b.url_slug)))
+    nav += `${'  '.repeat(Math.max(0, r.url_slug.split('/').filter(Boolean).length - 1))}${r.url_slug}  [${r.page_tier}/${r.hub_or_node || '-'}]\n`;
+  ensureDir('research/nav-map.md'); fs.writeFileSync('research/nav-map.md', nav, 'utf8');
+
+  const built = new Set(ex('src/pages') ? pagesRoutes() : []);
+  let backlog = '# BACKLOG — blueprint rows with no built route\n\n';
+  for (const r of rows) if (!built.has(r.url_slug))
+    backlog += `- ${r.url_slug} (build_order ${r.build_order}, ${r.page_tier}) — linked from: ${[...inbound.get(r.url_slug)].join(', ') || 'NOTHING'}\n`;
+  ensureDir('.claude/docs/BACKLOG.md'); fs.writeFileSync('.claude/docs/BACKLOG.md', backlog, 'utf8');
+
+  const counts = rows.map(r => ({ s: r.url_slug, n: inbound.get(r.url_slug).size, t: r.section_class }));
+  const sorted = counts.map(c => c.n).sort((a, b) => a - b);
+  let tbl = '# Inbound table (from link_root/link_seed/link_node/link_children)\n\n| slug | inbound | floor |\n|---|---|---|\n';
+  for (const c of counts) tbl += `| ${c.s} | ${c.n} | ${c.t === 'core' ? 3 : 2} |\n`;
+  tbl += `\nmin=${sorted[0] ?? 0} median=${sorted[Math.floor(sorted.length / 2)] ?? 0}\nunder floor: ` +
+    (counts.filter(c => c.n < (c.t === 'core' ? 3 : 2) && c.s !== '/').map(c => c.s).join(', ') || 'none') + '\n';
+  ensureDir('research/inbound-table.md'); fs.writeFileSync('research/inbound-table.md', tbl, 'utf8');
+}
+/* ================================ REPORT ================================ */
+const pad = (s, n) => String(s).padEnd(n);
+console.log(pad('#', 4) + pad('check', 34) + pad('rows failing', 14) + 'example');
+console.log('-'.repeat(110));
+let failed = 0;
+for (const r of results) {
+  const n = r.fails.length; if (n) failed++;
+  console.log(pad(r.n, 4) + pad(r.name, 34) + pad(n === 0 ? 'PASS' : `FAIL (${n})`, 14) +
+    (n ? `${r.fails[0].where}: ${r.fails[0].detail}` : ''));
+}
+if (failed) {
+  console.log('\nAll failures:');
+  for (const r of results) for (const x of r.fails) console.log(`  [check ${r.n}] ${x.where}: ${x.detail}`);
+}
+console.log('\nSUMMARY');
+console.log(`rows=${metrics.rows} dup_primary=${metrics.dup_primary} missing_evidence=${metrics.missing_evidence} ` +
+  `inbound_min=${metrics.inbound_min} hubs_covered=${metrics.hubs_covered} utility_rows=${metrics.utility_rows} ` +
+  `title_fail=${metrics.title_fail} reserved=${metrics.reserved}`);
+console.log(`intent_missing=${metrics.intent_missing} do_not_chase_unflagged=${metrics.do_not_chase_unflagged} ` +
+  `ceiling_missing=${metrics.ceiling_missing} coverage_only_without_bet=${metrics.coverage_only_without_bet} ` +
+  `value_tier_missing=${metrics.value_tier_missing} build_order_valid=${metrics.build_order_valid}`);
+console.log(`title_missing_keyword=${metrics.title_missing_keyword} h1_missing_keyword=${metrics.h1_missing_keyword} ` +
+  `title_over_60=${metrics.title_over_60} title_phrase_collisions=${metrics.title_phrase_collisions}`);
+console.log(`keyword_not_byte_identical=${metrics.keyword_not_byte_identical} kd_pulled_at_missing=${metrics.kd_pulled_at_missing} ` +
+  `kd_stale>30d=${metrics['kd_stale>30d']}`);
+console.log(`silos_without_hub=${metrics.silos_without_hub} hubs_under_inbound_floor=${metrics.hubs_under_inbound_floor} ` +
+  `entity_hubs_unspawned=${metrics.entity_hubs_unspawned} monetization_rows=${metrics.monetization_rows}`);
+console.log(`core_rows_without_gt=${metrics.core_rows_without_gt} gt_below_min=${metrics.gt_below_min} ` +
+  `core_verify_flags=${metrics.core_verify_flags} unsourced_numeric_bullets=${metrics.unsourced_numeric_bullets}`);
+console.log(`merged_into_dangling=${metrics.merged_into_dangling} pairs_over_threshold_unmerged=${metrics.pairs_over_threshold_unmerged} ` +
+  `registry=${metrics.registry} anchors_over_cap=${metrics.anchors_over_cap} cancelled_log=${metrics.cancelled_log} ` +
+  `forms_unregistered=${metrics.forms_unregistered}` + (sisterCfg ? ` sister_lane_rows=${metrics.sister_lane_rows}` : ''));
+console.log(failed === 0 ? 'BLUEPRINT_OK' : `BLUEPRINT_FAIL (${failed} checks)`);
+// contracts section-1b: every gate prints WHAT IT MEASURED, not only what
+// failed - the fixed shape `checked=<n> failed=<m>` on the verdict line.
+console.log(`validate-blueprint: checked=${rows.length} failed=${failed}`);
+process.exit(failed === 0 ? 0 : 1);

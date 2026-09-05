@@ -1,4 +1,7 @@
 ---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ValueBundle from '../components/ValueBundle.astro';
@@ -19,7 +22,7 @@ import PawTrail from '../components/decor/PawTrail.astro';
 import CloudDivider from '../components/decor/CloudDivider.astro';
 import ScatterFloat from '../components/decor/ScatterFloat.astro';
 import { site, whatsappLink } from '../data/site';
-import { localBusinessSchema, organizationSchema, websiteSchema, webPageSchema, personSchema, serviceSchema, reviewSchema, aggregateOfferSchema, faqPageSchema, itemListSchema, definedTermSchema, offerCatalogSchema } from '../lib/schema';
+import { localBusinessSchema, webPageSchema, personSchema, serviceSchema, reviewSchema, aggregateOfferSchema, faqPageSchema, itemListSchema, definedTermSchema, offerCatalogSchema } from '../lib/schema';
 import { priceForHref, fmtPrice, OVERALL_LOW, OVERALL_HIGH, BREED_COUNT } from '../data/pricing';
 import heroCavapoo from '../assets/home/1-cavapoo-puppy-hero-balestier.png';
 import starterKit from '../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
@@ -71,12 +74,12 @@ const breeds = [
   {
     title: 'Corgi', href: '/puppies/corgi/', imageSrc: corgiPortrait, imageAlt: 'Corgi puppy with upright ears',
     meta: 'Big character in a small body, active and alert',
-    points: ['Big character, active and alert', 'Needs daily exercise and play', 'Double coat, sheds regularly', 'Not HDB-approved — private property'],
+    points: ['Big character, active and alert', 'Needs daily exercise and play', 'Double coat, sheds regularly', 'Not HDB-approved - private property'],
   },
   {
     title: 'Shiba Inu', href: '/puppies/shiba-inu/', imageSrc: shibaPortrait, imageAlt: 'Shiba Inu puppy with a fox-like face',
     meta: 'Independent and clean, for owners who want a calmer bond',
-    points: ['Independent, calm, cat-like nature', 'Naturally clean and tidy habits', 'Suits owners who respect space', 'Not HDB-approved — private property'],
+    points: ['Independent, calm, cat-like nature', 'Naturally clean and tidy habits', 'Suits owners who respect space', 'Not HDB-approved - private property'],
   },
   {
     title: 'Bichonpoo', href: '/puppies/bichonpoo/', imageSrc: bichonpooPortrait, imageAlt: 'Bichonpoo puppy with a white curly coat',
@@ -172,8 +175,6 @@ const faqItems = [
 
 const schemas = [
   localBusinessSchema(),
-  organizationSchema(),
-  websiteSchema(),
   personSchema(),
   webPageSchema({
     path: '/',
@@ -182,7 +183,7 @@ const schemas = [
     aboutName: 'AVS licensed pet shop',
     aboutAlternateName: 'pet shop licence Singapore',
     datePublished: '2024-01-01',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   serviceSchema({
     name: 'Free First Training Lesson',
@@ -232,7 +233,7 @@ const schemas = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/">
   <Hero
     eyebrow="AVS Licensed Puppy Shop in Balestier"
     h1="Puppies for Sale in Singapore"
@@ -242,7 +243,7 @@ const schemas = [
     ctaMessage="Hi! I'd like to ask about your puppies."
     secondaryCtaLabel="See available puppies & pricing"
     secondaryCtaHref="#puppies"
-    priceAnchor="From $3,288, all-in — starter kit, home delivery and first training lesson included."
+    priceAnchor="From $3,288, all-in - starter kit, home delivery and first training lesson included."
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
@@ -263,7 +264,7 @@ const schemas = [
       {
         icon: 'kit',
         title: '$500+ Starter Kit',
-        body: 'Over 30 items across eight categories — playpen, carrier, grooming, food, outdoor gear, toilet training, oral care and toys. Included, never sold separately.',
+        body: 'Over 30 items across eight categories - playpen, carrier, grooming, food, outdoor gear, toilet training, oral care and toys. Included, never sold separately.',
         highlight: '30+ items',
       },
       {
@@ -373,7 +374,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
 
   <div id="starter-kit" class="scroll-mt-40">
-    <CaptionedBlock heading="What's Actually Inside the Starter Kit" imageAlt="Starter kit items including a playpen, carrier, and grooming tools" imageSrc={starterKit} variant="mid">
+    <CaptionedBlock heading="What’s Actually Inside the Starter Kit" imageAlt="Starter kit items including a playpen, carrier, and grooming tools" imageSrc={starterKit} variant="mid">
       <p>Every puppy leaves Curious Tails with more than 30 items, worth over $500, covering eight categories: a playpen, a carrier, grooming tools, food, outdoor gear, toilet training supplies, oral health care, and toys. Your puppy is microchipped and vaccinated before going home, so the paperwork and the health side are already settled.</p>
       <p>We don't just hand over a box. On delivery day, Nelson or Kim goes through each item with you: how to use it, and how it fits into caring for your puppy day to day. We'll talk you through the first night home, the potty routine, and what's normal in the first week, so you're not guessing at 11pm.</p>
       <p>That's deliberate. Most of the questions a new owner would normally have to ask later are already answered before we leave your home. For the item-by-item detail, see what's inside our puppy starter kit.</p>
@@ -412,13 +413,13 @@ const schemas = [
     </CaptionedBlock>
   </div>
 
-  <CaptionedBlock heading="Free Boarding, Then Delivery When You're Ready" imageAlt="Playpen and bed set up in a Singapore home ahead of a puppy's arrival" imageSrc={playpenSetup} imageRotate="left">
+  <CaptionedBlock heading="Free Boarding, Then Delivery When You’re Ready" imageAlt="Playpen and bed set up in a Singapore home ahead of a puppy’s arrival" imageSrc={playpenSetup} imageRotate="left">
     <p>After you place a deposit, we don't rush you. Curious Tails boards your puppy for free, lodging and food both covered, until you're ready to bring them home.</p>
     <p>Delivery is then scheduled around your own availability, usually in the morning or the evening. We arrive with the playpen, bed, and toys already set up, so your puppy has a calm space waiting rather than a box to unpack.</p>
     <p>It's the reason a Cavapoo we placed with a working couple settled into her playpen without distress on day one, instead of arriving to an empty room.</p>
   </CaptionedBlock>
 
-  <CaptionedBlock heading="Your Puppy's First 24 Hours" imageAlt="Puppy settling into a pre-set-up playpen on arrival day" imageSrc={first24Hours} variant="card">
+  <CaptionedBlock heading="Your Puppy’s First 24 Hours" imageAlt="Puppy settling into a pre-set-up playpen on arrival day" imageSrc={first24Hours} variant="card">
     <p>Because the playpen, bed, and toys are already set up before you arrive, your puppy sees it as their space from hour one, not a new, scary place.</p>
     <ul class="mt-4 space-y-3 text-base leading-relaxed text-[var(--color-cream-700)]">
       <li><strong class="text-[var(--color-cream-900)]">Hour 0, Arrival:</strong> Puppy explores the playpen at their own pace, no overwhelming introductions yet.</li>
@@ -543,7 +544,7 @@ const schemas = [
   </CaptionedBlock>
 
   <ComparisonSplit
-    heading="What You're Really Getting, All-In"
+    heading="What You’re Really Getting, All-In"
     mode="table"
     tableHeaders={['Included with every puppy', 'What it means for you']}
     rows={[
@@ -558,7 +559,7 @@ const schemas = [
 
   <div id="trust" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Licensed Pet Shop vs. Unlicensed Seller: What's the Real Difference?"
+      heading="Licensed Pet Shop vs. Unlicensed Seller: What’s the Real Difference?"
       mode="split"
       columns={[
         {
@@ -661,16 +662,23 @@ const schemas = [
       </a>
     </div>
     <div class="clay bg-white p-2">
-      <iframe
-        class="rounded-[1.3rem]"
-        src={site.googleMapsEmbed}
-        width="100%"
-        height="320"
-        style="border:0;"
-        loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin"
-        title="Curious Tails location on Balestier Road"
-      ></iframe>
+      <a
+        href={site.gbpUrl}
+        target="_blank"
+        rel="noopener"
+        class="group flex h-[340px] flex-col items-center justify-center gap-3 rounded-[1.3rem] bg-[var(--color-mint-100)] p-8 text-center"
+      >
+        <span class="font-[family-name:var(--font-heading)] text-2xl font-semibold text-[var(--color-cream-900)]">
+          {site.address.street}
+        </span>
+        <span class="text-base text-[var(--color-cream-700)]">
+          {site.address.city} {site.address.postalCode}
+        </span>
+        <span class="text-sm text-[var(--color-cream-600)]">{site.hours}</span>
+        <span class="clay-btn mt-2 inline-flex items-center gap-2 bg-[var(--color-accent)] px-6 py-3 text-sm font-bold text-white group-hover:bg-[var(--color-accent-hover)]">
+          Open in Google Maps
+        </span>
+      </a>
     </div>
   </section>
 

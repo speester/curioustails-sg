@@ -1,4 +1,7 @@
 ---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -107,7 +110,7 @@ const schemas = [
     aboutAlternateName: 'Cavalier',
     aboutSameAs: 'https://en.wikipedia.org/wiki/Cavalier_King_Charles_Spaniel',
     datePublished: '2026-07-09',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   itemListSchema([
     {
@@ -141,9 +144,9 @@ const schemas = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/puppies/cavalier-king-charles-spaniel">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies/cavalier-king-charles-spaniel">
   <Hero
-    eyebrow="AVS Licensed Pet Shop in Balestier"
+    eyebrow="AVS licence AS24J00046 · Cavalier King Charles Spaniel"
     h1="Cavalier King Charles Spaniel Puppies in Singapore"
     h1Accent="Cavalier"
     subhead="Cavalier prices in Singapore commonly run $3,000 to $6,500. Ours are $5,588 to $6,588, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
@@ -224,12 +227,12 @@ const schemas = [
     <CaptionedBlock heading="Cavalier Temperament: Bred for Four Centuries to Love You" imageAlt="Cavalier King Charles Spaniel puppy cuddled on a family sofa" imageSrc={imgScene2} imagePosition="left">
       <p>Most breeds were bred to do something. The Cavalier was bred to be with someone, and four centuries of that selection produced the most reliably gentle, affectionate dog we carry. It loves your children, your visitors, your other dog, and quite possibly your cat. It doesn't guard, rarely barks with intent, and its idea of a perfect day is following you from room to room, then falling asleep touching some part of you.</p>
       <p>The honest part, from two years of matching puppies to families: that devotion has no off switch. A Cavalier alone in an empty flat from 8am to 6pm is not a mildly disappointed dog; it is a genuinely distressed one, and the crying and chewed skirting boards are how you find out. This is the single most important question we ask Cavalier buyers, and we'd rather lose the sale than place this breed in an empty home.</p>
-      <p>If your weekdays are away and the Cavalier's sweetness is what drew you, the <a href="/puppies/cavapoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> exists for exactly this reason.</p>
+      <p>If your weekdays are away and the Cavalier's sweetness is what drew you, <a href="/puppies/cavapoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the Cavapoo</a> exists for exactly this reason.</p>
     </CaptionedBlock>
 
     <CaptionedBlock heading="Can a Cavalier Be Left Alone During Work Hours?" imagePosition="none" variant="card">
       <p>Honestly: this is the worst breed we carry for that routine, and we won't dress it up. Cavaliers were never bred to be alone and they never learned. Homes where someone is around most of the day, retirees, work-from-home households, families with a helper, get the best dog of their lives. Empty weekday homes get a heartbroken one.</p>
-      <p>If your routine is out 8am to 6pm, the <a href="/puppies/cavapoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Cavapoo</a> keeps most of the Cavalier warmth with a genuinely better tolerance for alone time. Message us your routine and we'll tell you straight.</p>
+      <p>If your routine is out 8am to 6pm, <a href="/puppies/cavapoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the Cavapoo</a> keeps most of the Cavalier warmth with a genuinely better tolerance for alone time. Message us your routine and we'll tell you straight.</p>
       <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
         <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
         <ul class="mt-4 space-y-3">
@@ -275,7 +278,7 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Cavalier Price in Singapore: What You'll Pay and What's Included"
+      heading="Cavalier Price in Singapore: What You’ll Pay and What’s Included"
       headingAccent="Price"
       subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $5,588 to $6,588, all-in."
       mode="split"
@@ -413,7 +416,7 @@ const schemas = [
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Cavalier's First Week at Home" imageAlt="Cavalier puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
+  <CaptionedBlock heading="Your Cavalier’s First Week at Home" imageAlt="Cavalier puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Cavalier explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
     <p>Days 1 to 3: keep it calm and close. This breed settles through proximity: the playpen where it can see people, a fixed feeding routine, and the toilet pads where we placed them. Some night whimpering is normal adjustment, and Cavaliers settle fastest of all when they can hear you.</p>
     <p>Days 4 to 7: the routine sticks, and the shadow behaviour begins; enjoy it. Book your free first lesson with an AVS-certified trainer this week, and start practising short, boring departures now, five minutes at a time, so alone-time skills grow before they're needed. See what the free AVS-certified training lesson covers.</p>

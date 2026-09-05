@@ -1,0 +1,76 @@
+---
+// kit:image-hover-reveal@1.0.0 - SEED section pattern (contracts 22). Tier B.
+// axis tuple: editorial-columns/none/single/ruled/photo/hover/photo/item-list
+// evidence:   item-list
+//
+// A ruled list of items; pointing at one (or tabbing to it) swaps the large preview.
+// Every row is a real link and the first preview is rendered visible on the server, so
+// the pattern degrades to a list plus a photograph rather than to an empty panel.
+//
+// SEED means FLOOR, not answer: Stage 2 STEP 3 restyles this to the project's tokens, and
+// a site whose patterns are all unmodified copies of this library fails the novelty gate
+// (audit_built_html.py --sections -> patterns_verbatim_kit). Every value below is a token.
+interface Props {
+  items?: Array<Record<string, string>>;
+  heading?: string;
+  class?: string;
+}
+const { items = [], heading, class: cls = '' } = Astro.props as Props;
+---
+
+<div class:list={['hrev', cls]} data-section-pattern="image-hover-reveal" data-pattern-evidence="item-list" data-hover-reveal>
+  <ul class="hrev__list">
+    {items.map((it, i) => (
+      <li class="hrev__row">
+        <a class="hrev__link" href={it.href} data-reveal-for={String(i)}>
+          <span class="hrev__label">{it.title}</span>
+          <span class="hrev__meta">{it.meta}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+  <div class="hrev__stage">
+    {items.map((it, i) => (
+      <img class="hrev__pane" data-reveal-pane={String(i)} hidden={i !== 0}
+           src={it.src} alt={it.alt} width={it.width} height={it.height}
+           loading="lazy" decoding="async" />
+    ))}
+  </div>
+</div>
+
+<style>
+  .hrev { display: grid; gap: clamp(1rem, 3vw, 2rem); }
+  @media (min-width: 60rem) { .hrev { grid-template-columns: 1.1fr 1fr; align-items: start; } }
+  .hrev__list { list-style: none; margin: 0; padding: 0; }
+  .hrev__row { border-block-start: 1px solid var(--border-subtle, color-mix(in oklab, currentColor 14%, transparent)); }
+  .hrev__row:last-child { border-block-end: 1px solid var(--border-subtle, color-mix(in oklab, currentColor 14%, transparent)); }
+  .hrev__link {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.9rem;
+    text-decoration: none;
+    color: inherit;
+    transition: padding-inline-start 220ms var(--ease-out, ease);
+  }
+  .hrev__link:hover, .hrev__link:focus-visible { padding-inline-start: 0.6rem; }
+  .hrev__label { font-weight: 600; }
+  .hrev__meta { opacity: 0.7; font-size: var(--text-sm, 0.875rem); }
+  .hrev__stage { position: relative; }
+  .hrev__pane {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg, 1rem);
+    box-shadow: var(--shadow-md, 0 6px 20px rgb(0 0 0 / 0.10));
+  }
+
+  /* CSS-ONLY PATH where :has() is available: the island is then pure redundancy. The first
+     pane is server-rendered visible either way, so JS off shows a real image, not a gap. */
+  @supports selector(:has(*)) {
+    @media (hover: hover) and (min-width: 60rem) {
+      .hrev:has(.hrev__link:hover) .hrev__pane,
+      .hrev:has(.hrev__link:focus-visible) .hrev__pane { display: none; }
+    }
+  }
+  @media (prefers-reduced-motion: reduce) { .hrev__link { transition: none; } }
+</style>

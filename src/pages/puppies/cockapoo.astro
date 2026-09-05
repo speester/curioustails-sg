@@ -1,4 +1,7 @@
 ---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -120,7 +123,7 @@ const schemas = [
     aboutAlternateName: 'Spoodle',
     aboutSameAs: 'https://en.wikipedia.org/wiki/Cockapoo',
     datePublished: '2026-07-06',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   itemListSchema([
     {
@@ -147,9 +150,9 @@ const schemas = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/puppies/cockapoo" ogImage="/assets/cockapoo/og-cockapoo.jpg">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies/cockapoo" ogImage="/assets/cockapoo/og-cockapoo.jpg">
   <Hero
-    eyebrow="AVS Licensed Pet Shop in Balestier"
+    eyebrow="AVS licence AS24J00046 · Cockapoo"
     h1="Cockapoo Puppies for Sale in Singapore"
     h1Accent="Cockapoo"
     subhead={`A Cockapoo in Singapore costs ${priceRange} at Curious Tails, all-in. Most Singapore shops quote Cockapoos on enquiry only; the one published comparable we found is a UK import at $4,600. Ours includes the $500+ starter kit, free home delivery and setup, and a free first training lesson. Family-friendly, HDB-approved, and kind to first-time owners.`}
@@ -447,7 +450,7 @@ const schemas = [
   </div>
 
   <div id="first-week" class="scroll-mt-40">
-    <CaptionedBlock heading="Your Cockapoo's First Week at Home" imagePosition="none" variant="card">
+    <CaptionedBlock heading="Your Cockapoo’s First Week at Home" imagePosition="none" variant="card">
       <p>Day 0: we deliver free, usually morning or evening, with the playpen, bed, water, and toys set up before your puppy explores. We walk you through all 30+ starter-kit items in person; see how our free home delivery and setup works.</p>
       <p>Days 1 to 3: calm and consistent. Same food, fixed times, gentle short play; a sociable cross settles best when the household is present but not overwhelming.</p>
       <p>Days 4 to 7: the routine holds, and it's the window to book the free first lesson; see what the free training lesson covers. Start the weekly ear-check habit this week too, while it's still a game.</p>

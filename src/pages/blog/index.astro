@@ -1,4 +1,8 @@
 ---
+import { fileURLToPath } from 'node:url';
+import RelatedPosts from '../../components/RelatedPosts.astro';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
@@ -23,7 +27,7 @@ import ExpertQuote from '../../components/ExpertQuote.astro';
 
 const title = 'Blog: Puppy Guides & Honest Advice | Curious Tails';
 const description =
-  'Honest puppy advice from the Curious Tails shop floor: first-timer mistakes, HDB breed guidance, and breed comparisons, written from real Singapore placements.';
+  'Honest puppy advice from the Curious Tails shop floor: first-timer mistakes, HDB breed guidance and breed comparisons, from real Singapore placements.';
 
 // One entry per post. Newest first; add new posts to the top.
 const posts = [
@@ -48,7 +52,7 @@ const posts = [
     imageAlt: 'Puppy microchip scan in Singapore, the step that comes before the dog licence application',
   },
   {
-    title: "Surviving Your Puppy's First Night at Home",
+    title: "Surviving Your Puppy’s First Night at Home",
     href: '/blog/puppy-first-night/',
     date: '2026-07-19',
     tag: 'Puppy care',
@@ -142,14 +146,15 @@ const schemas = [
     description,
     aboutName: 'Puppy guides and advice',
     datePublished: '2026-07-07',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   itemListSchema(posts.map((p) => ({ name: p.title, url: p.href, description: p.excerpt }))),
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/blog" ogImage="/assets/guides/og-first-time-owners.jpg">
-  <section class="relative overflow-hidden bg-[var(--color-peach-100)] pb-12 pt-2">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/blog" ogImage="/assets/guides/og-first-time-owners.jpg">
+  <section class="hero relative overflow-hidden bg-[var(--color-peach-100)] pb-12 pt-2" data-hero-archetype="centered-statement" data-section-pattern="prose">
+    <div data-tilt aria-hidden="true" class="pointer-events-none absolute right-4 top-4 hidden h-16 w-16 rotate-6 rounded-[1.2rem] border-2 border-[var(--color-coral-300)] bg-white/50 lg:block"></div>
     <div class="pointer-events-none absolute inset-0" aria-hidden="true">
       <Blob class="absolute -top-16 -left-20 h-80 w-80 fill-[var(--color-mint-200)]/70 blob-drift-slow" />
       <Blob class="absolute top-10 right-[-6rem] h-72 w-72 fill-[var(--color-lilac-100)] blob-drift" />
@@ -243,7 +248,7 @@ const schemas = [
   <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
 
   <BannerRibbon
-    heading="Got a question a post hasn't answered?"
+    heading="Got a question a post hasn’t answered?"
     body="Message us; real questions from real owners are where every post on this page started."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I have a puppy question your blog hasn't covered yet:"
@@ -265,4 +270,6 @@ const schemas = [
   />
 
   <Schema {schemas} />
+
+  <RelatedPosts route="/blog/" />
 </BaseLayout>

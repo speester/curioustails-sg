@@ -1,4 +1,8 @@
 ---
+import { fileURLToPath } from 'node:url';
+import RelatedPosts from '../../components/RelatedPosts.astro';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import DefBox from '../../components/DefBox.astro';
@@ -15,7 +19,7 @@ import playpenSetup from '../../assets/home/4-playpen-setup-delivery-home-balest
 import firstDaySettling from '../../assets/home/8-puppy-first-24-hours-settling-playpen.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
 
-const title = "Puppy's First Night Home: What to Expect | Curious Tails";
+const title = "Puppy’s First Night Home: What to Expect | Curious Tails";
 const description =
   "A puppy's first night home in Singapore: the crying, the playpen setup, and when to respond versus when to let them settle. Real routine from our placements.";
 const datePublished = '2026-07-19';
@@ -58,14 +62,15 @@ const schemas = [
     aboutName: "Puppy's first night home",
     aboutAlternateName: 'puppy first night home',
     datePublished,
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   faqPageSchema(faqItems),
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/blog/puppy-first-night" ogImage="/assets/guides/og-first-time-owners.jpg">
-  <section class="bg-[var(--color-peach-100)] pb-10 pt-2">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/blog/puppy-first-night" ogImage="/assets/guides/og-first-time-owners.jpg">
+  <section class="hero relative bg-[var(--color-peach-100)] pb-10 pt-2" data-hero-archetype="centered-statement" data-section-pattern="prose">
+    <div data-tilt aria-hidden="true" class="pointer-events-none absolute right-4 top-4 hidden h-16 w-16 rotate-6 rounded-[1.2rem] border-2 border-[var(--color-coral-300)] bg-white/50 lg:block"></div>
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pt-5">
       <Breadcrumb bare items={[{ label: 'Blog', href: '/blog/' }, { label: 'First Night Home', href: '/blog/puppy-first-night/' }]} />
       <div class="mx-auto mt-8 max-w-[75ch]">
@@ -234,4 +239,6 @@ const schemas = [
   />
 
   <Schema {schemas} />
+
+  <RelatedPosts route="/blog/puppy-first-night/" />
 </BaseLayout>

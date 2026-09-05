@@ -1,0 +1,38 @@
+---
+// kit:ArticleBody@1.0.0 — the long-form column plus the sticky on-page contents rail.
+// ArticleLayout has imported this since 1.0.0; the kit never shipped it.
+// The `prose` treatment of design-system.md: 68ch measure, pull-outs alternating down the
+// page, headings that own their own anchors.
+import JumpNav from './JumpNav.astro';
+
+interface Heading { id: string; text: string; level?: number }
+interface Props { headings?: Heading[] }
+const { headings = [] } = Astro.props as Props;
+---
+<div class="article-body" data-treatment="prose">
+  <div class="article-body__inner">
+    {headings.length >= 3 && (
+      <aside class="article-body__rail" aria-label="On this page">
+        <JumpNav headings={headings} />
+      </aside>
+    )}
+    <div class="article-body__prose"><slot /></div>
+  </div>
+</div>
+
+<style>
+  .article-body { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+  .article-body__inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 2.5rem;
+    display: grid; grid-template-columns: 16rem minmax(0, 1fr); gap: 3.5rem; align-items: start;
+  }
+  .article-body__inner:not(:has(.article-body__rail)) { grid-template-columns: minmax(0, 1fr); }
+  .article-body__rail { position: sticky; top: 2rem; }
+  .article-body__prose > :global(h2) { margin-top: 2.75rem; }
+  .article-body__prose > :global(h3) { margin-top: 1.75rem; }
+  .article-body__prose > :global(p) { margin: 0 0 1.1rem; }
+  @media (max-width: 950px) {
+    .article-body__inner { grid-template-columns: minmax(0, 1fr); gap: 2rem; padding: 0 1.25rem; }
+    .article-body__rail { position: static; }
+  }
+</style>

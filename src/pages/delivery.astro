@@ -1,4 +1,7 @@
 ---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import Hero from '../components/Hero.astro';
@@ -84,7 +87,7 @@ const schemas = [
     aboutName: 'Puppy home delivery and setup',
     aboutAlternateName: 'puppy delivery Singapore',
     datePublished: '2026-07-06',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   serviceSchema({
     name: 'Free Puppy Home Delivery & Playpen Setup',
@@ -96,7 +99,7 @@ const schemas = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/delivery" ogImage="/assets/delivery/og-delivery.jpg">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/delivery" ogImage="/assets/delivery/og-delivery.jpg">
   <Hero
     eyebrow="Included with every puppy"
     h1="Free Home Delivery, Playpen Setup Included"
@@ -292,7 +295,7 @@ const schemas = [
 
   <FinalCta
     breed="Puppy"
-    heading="Reserve First. Deliver When You're Ready."
+    heading="Reserve First. Deliver When You’re Ready."
     body="Can't make the trip to Balestier? WhatsApp us for current puppies and prices; delivery, setup, and the walkthrough are already included."
     reserveMessage="Hi! I'd like to ask about your current puppies and delivery arrangements."
   />

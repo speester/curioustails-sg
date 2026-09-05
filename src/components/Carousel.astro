@@ -38,7 +38,7 @@ const tints = ['var(--color-mint-100)', 'var(--color-peach-100)', 'var(--color-l
       {items.map((t, i) => (
         <li class:list={['snap-start shrink-0 w-[85%] sm:w-[440px] clay p-7 relative', i % 2 === 0 ? '-rotate-1' : 'rotate-1']} style={`background:${tints[i % tints.length]};`}>
           <span class="absolute -top-3 -left-1 font-[family-name:var(--font-heading)] text-6xl leading-none text-[var(--color-coral-400)]/40 select-none" aria-hidden="true">&ldquo;</span>
-          <p class="relative text-base leading-relaxed text-[var(--color-cream-800)]">{t.quote}</p>
+          <blockquote data-review class="relative text-base leading-relaxed text-[var(--color-cream-800)]">{t.quote}</blockquote>
           <p class="mt-5 font-[family-name:var(--font-heading)] font-semibold text-[var(--color-cream-900)]">{t.name}</p>
           {t.meta && <p class="text-sm text-[var(--color-cream-600)]">{t.meta}</p>}
         </li>

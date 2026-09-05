@@ -1,4 +1,7 @@
 ---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -44,7 +47,7 @@ const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = 'Mini Dachshund Puppy for Sale Singapore | Curious Tails';
 const description =
-  `Mini Dachshund price in Singapore (${monthStamp}): $${fmtPrice(price.low)} to $${fmtPrice(price.high)} all-in, AVS licensed and HDB-approved. Back-care basics and the $500+ starter kit included.`;
+  `Mini Dachshund price in Singapore (${monthStamp}): $${fmtPrice(price.low)} to $${fmtPrice(price.high)} all-in, AVS licensed and HDB-approved. Back-care basics and the $500+ starter kit.`;
 
 const jumpLinks = [
   { label: 'Puppies', href: '#available' },
@@ -106,7 +109,7 @@ const schemas = [
     aboutAlternateName: 'Mini Dachshund',
     aboutSameAs: 'https://en.wikipedia.org/wiki/Dachshund',
     datePublished: '2026-07-06',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   itemListSchema([
     {
@@ -134,9 +137,9 @@ const schemas = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/puppies/mini-dachshund" ogImage="/assets/mini-dachshund/og-mini-dachshund.jpg">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies/mini-dachshund" ogImage="/assets/mini-dachshund/og-mini-dachshund.jpg">
   <Hero
-    eyebrow="AVS Licensed Pet Shop in Balestier"
+    eyebrow="Mini Dachshund from an AVS licensed shop"
     h1="Mini Dachshund Puppies for Sale in Singapore"
     h1Accent="Mini Dachshund"
     subhead="Mini Dachshund prices in Singapore run anywhere from $2,500 to $9,000, usually without explanation. Ours are $4,288 to $6,088, printed here, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
@@ -275,7 +278,7 @@ const schemas = [
     <ComparisonSplit
       heading={`Mini Dachshund Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead={`How much is a Mini Dachshund in Singapore? As of ${monthStamp}, the market quotes anywhere from $2,500 to $9,000. At Curious Tails a Mini Dachshund is ${priceRange}, all-in — starter kit, delivery and first training lesson included.`}
+      subhead={`How much is a Mini Dachshund in Singapore? As of ${monthStamp}, the market quotes anywhere from $2,500 to $9,000. At Curious Tails a Mini Dachshund is ${priceRange}, all-in - starter kit, delivery and first training lesson included.`}
       mode="split"
       columns={[
         {
@@ -432,7 +435,7 @@ const schemas = [
   </div>
 
   <div id="first-week" class="scroll-mt-40">
-    <CaptionedBlock heading="Your Mini Dachshund's First Week at Home" imagePosition="none">
+    <CaptionedBlock heading="Your Mini Dachshund’s First Week at Home" imagePosition="none">
       <p>Day 0: we deliver free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your puppy explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
       <p>Days 1 to 3: keep it calm. Same food, fixed feeding times, toilet pads where we placed them, gentle short play. Some night whimpering is normal adjustment, not distress.</p>
       <p>Days 4 to 7: the routine starts sticking, and this is the window to book your free first lesson; see what the free training lesson covers. For everything in between, you WhatsApp us and get a real reply.</p>

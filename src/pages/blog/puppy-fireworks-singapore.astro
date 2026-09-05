@@ -1,4 +1,8 @@
 ---
+import { fileURLToPath } from 'node:url';
+import RelatedPosts from '../../components/RelatedPosts.astro';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import DefBox from '../../components/DefBox.astro';
@@ -15,7 +19,7 @@ import fireworksNight from '../../assets/puppy-fireworks-singapore/2-puppy-firew
 import fireworksWalk from '../../assets/puppy-fireworks-singapore/3-puppy-daytime-walk-before-fireworks-singapore.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
 
-const title = 'Dog Scared of Fireworks Singapore: A Calming Plan | Curious Tails';
+const title = 'Dog Scared of Fireworks: A Calming Plan | Curious Tails';
 const description =
   'Is your dog scared of fireworks in Singapore? A step-by-step plan for National Day and the countdown: build a safe room and desensitise early.';
 const datePublished = '2026-07-18';
@@ -63,14 +67,15 @@ const schemas = [
     aboutName: 'Fireworks fear in dogs',
     aboutAlternateName: 'dog scared of fireworks',
     datePublished,
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   faqPageSchema(faqItems),
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/blog/puppy-fireworks-singapore">
-  <section class="bg-[var(--color-peach-100)] pb-10 pt-2">
+<BaseLayout ogImage="/assets/guides/og-puppy-care-101.jpg" updated={lastUpdated} {title} {description} canonicalPath="/blog/puppy-fireworks-singapore">
+  <section class="hero relative bg-[var(--color-peach-100)] pb-10 pt-2" data-hero-archetype="centered-statement" data-section-pattern="prose">
+    <div data-tilt aria-hidden="true" class="pointer-events-none absolute right-4 top-4 hidden h-16 w-16 rotate-6 rounded-[1.2rem] border-2 border-[var(--color-coral-300)] bg-white/50 lg:block"></div>
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pt-5">
       <Breadcrumb bare items={[{ label: 'Blog', href: '/blog/' }, { label: 'Puppies and fireworks', href: '/blog/puppy-fireworks-singapore/' }]} />
       <div class="mx-auto mt-8 max-w-[75ch]">
@@ -120,7 +125,7 @@ const schemas = [
   </CaptionedBlock>
 
   <ComparisonSplit
-    heading="Singapore's Fireworks Calendar: The Nights to Prepare For"
+    heading="Singapore’s Fireworks Calendar: The Nights to Prepare For"
     headingAccent="When"
     subhead="Fireworks are tightly controlled here, so the big displays are predictable. That is your advantage."
     mode="table"
@@ -128,7 +133,7 @@ const schemas = [
     rows={[
       { label: 'NDP rehearsals', values: ['Saturdays through July and early August', 'Full fireworks in the evening; often your puppy\'s real first exposure'] },
       { label: 'National Day', values: ['9 August', 'The loudest, longest display of the year, plus flypasts'] },
-      { label: "New Year's Eve", values: ['31 December, midnight at Marina Bay', 'Countdown fireworks; loud citywide if you live near the bay'] },
+      { label: "New Year’s Eve", values: ['31 December, midnight at Marina Bay', 'Countdown fireworks; loud citywide if you live near the bay'] },
       { label: 'Festival and event nights', values: ['Occasional, through the year', 'Smaller displays and firecracker sounds around some celebrations'] },
     ]}
   />
@@ -189,7 +194,7 @@ const schemas = [
     <p>There is no shame in asking for help. Fireworks fear is common, and the earlier you act, the kinder each season gets.</p>
   </CaptionedBlock>
 
-  <CaptionedBlock heading="Your Puppy's First Fireworks Season" imageAlt="Cream puppy on a daytime Singapore walk before evening fireworks" imageSrc={fireworksWalk} imagePosition="right" variant="mid">
+  <CaptionedBlock heading="Your Puppy’s First Fireworks Season" imageAlt="Cream puppy on a daytime Singapore walk before evening fireworks" imageSrc={fireworksWalk} imagePosition="right" variant="mid">
     <p>A puppy that already lives by a steady daily rhythm handles a loud night far better than one that does not. The safe room you build for fireworks is the same one that helps with thunderstorms and general settling, so the effort pays off well beyond August.</p>
     <p>If your puppy is still finding its feet at home, walk through <a href="/first-time-owners/puppy-care-101/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">your first-weeks settling routine</a> first. A confident, settled puppy has far less to fear when the sky starts booming.</p>
   </CaptionedBlock>
@@ -216,10 +221,12 @@ const schemas = [
 
   <FinalCta
     breed="Puppy"
-    heading="We're Here Through the Loud Nights Too"
+    heading="We’re Here Through the Loud Nights Too"
     body="If your puppy is struggling with the fireworks, message us. Free post-purchase support is part of every Curious Tails puppy, and we would rather help you through the night than sell you anything."
     reserveMessage="Hi! My puppy is scared of the fireworks. Here's what's happening:"
   />
 
   <Schema {schemas} />
+
+  <RelatedPosts route="/blog/puppy-fireworks-singapore/" />
 </BaseLayout>

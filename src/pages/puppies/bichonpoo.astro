@@ -1,4 +1,7 @@
 ---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -99,7 +102,7 @@ const schemas = [
     aboutName: 'Bichonpoo',
     aboutAlternateName: 'Poochon',
     datePublished: '2026-07-06',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   itemListSchema([
     {
@@ -125,9 +128,9 @@ const schemas = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/puppies/bichonpoo" ogImage="/assets/bichonpoo/og-bichonpoo.jpg">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies/bichonpoo" ogImage="/assets/bichonpoo/og-bichonpoo.jpg">
   <Hero
-    eyebrow="AVS Licensed Pet Shop in Balestier"
+    eyebrow="Bichonpoo, sold under an AVS licence"
     h1="Bichonpoo Puppies for Sale in Singapore"
     h1Accent="Bichonpoo"
     subhead="The Poochon market in Singapore runs $5,000 to $8,000. Ours are $3,288 to $5,988, printed here, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price. Low-shedding, HDB-approved, and thoroughly sunny."
@@ -234,7 +237,7 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Bichonpoo Price in Singapore: What You'll Pay and What's Included"
+      heading="Bichonpoo Price in Singapore: What You’ll Pay and What’s Included"
       headingAccent="Price"
       subhead="The Poochon market quotes $5,000 to $8,000. Here's ours in writing: $3,288 to $5,988, all-in."
       mode="split"
@@ -400,7 +403,7 @@ const schemas = [
   </div>
 
   <div id="first-week" class="scroll-mt-40">
-    <CaptionedBlock heading="Your Bichonpoo's First Week at Home" imagePosition="none" variant="card">
+    <CaptionedBlock heading="Your Bichonpoo’s First Week at Home" imagePosition="none" variant="card">
       <p>Day 0: we deliver free, usually morning or evening, with the playpen, bed, water, and toys set up before your puppy explores. We walk you through all 30+ starter-kit items in person; see how our free home delivery and setup works.</p>
       <p>Days 1 to 3: calm and consistent. Same food, fixed times, gentle short play; a companion cross settles fastest when the family is present but unhurried.</p>
       <p>Days 4 to 7: book the free first lesson; see what the free training lesson covers. Start the daily face-wipe ritual this week too, while everything is still a game.</p>

@@ -1,0 +1,62 @@
+---
+// kit:ArticleCard@1.0.0 - the whole card is ONE <a>; the image is REQUIRED.
+import { slashTolerant, canonicalPath } from '../lib/url';
+import assetMap from '../../public/images/asset-map.json';
+import dims from '../data/image-dims.json';
+
+interface Props { href: string; title: string; blurb?: string; kicker?: string; }
+const { href, title, blurb, kicker } = Astro.props as Props;
+
+// Callers pass the row's raw target keyword, which is stored lowercase ("carpentry singapore").
+// CSS uppercases it visually, but the DOM text stays lowercase, and a lowercase proper noun in
+// the body is what verify_page's `tells` check reads as a machine-written page. Title-case it
+// here, once, rather than asking every caller to remember.
+const SMALL = new Set(['a', 'an', 'and', 'at', 'by', 'for', 'in', 'of', 'on', 'or', 'the', 'to']);
+// Callers pass the row's target keyword, which on a hub grid is usually the opening of the
+// card's own title ("3 room bto renovation" above "3 room BTO renovation: itemised cost...").
+// Rendering both makes the card read twice and doubles the hub's keyword density for no
+// reader benefit, so a kicker that merely restates the title's opening is dropped.
+const norm = (x: string) => x.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+const redundant = kicker ? norm(title).startsWith(norm(kicker)) : false;
+const kickerLabel = kicker && !redundant
+  ? kicker.split(' ').map((w, i) =>
+      i > 0 && SMALL.has(w.toLowerCase()) ? w.toLowerCase() : w.charAt(0).toUpperCase() + w.slice(1)
+    ).join(' ')
+  : undefined;
+const route = canonicalPath(href);
+const asset = slashTolerant(assetMap as Record<string, any>, route);
+// The image is REQUIRED where one exists, but a missing image must not delete the LINK:
+// throwing here failed the whole build and, on a site whose asset map covers only part of
+// the tree, that meant the READ NEXT module could not ship at all. Render a text card
+// instead - a card with no picture still moves a reader and still moves authority.
+const src = asset?.feature;
+const d = (dims as Record<string, { width: number; height: number }>)[src] ?? { width: 640, height: 480 };
+---
+<a class="article-card" href={route} data-card>
+  {src && <span class="article-card__media">
+    {/* alt="" on purpose. The whole card is one <a> whose accessible name is the title
+        immediately beside this image, so repeating the title here makes a screen reader
+        announce the same sentence twice. An image that adds no information beyond the
+        adjacent text is decorative, and decorative images take an empty alt. */}
+    <img src={src} alt="" width={d.width} height={d.height} loading="lazy" decoding="async" />
+  </span>}
+  <span class="article-card__body">
+    {kickerLabel && <span class="article-card__kicker">{kickerLabel}</span>}
+    <span class="article-card__title">{title}</span>
+    {blurb && <span class="article-card__blurb">{blurb}</span>}
+    <span class="article-card__arrow" aria-hidden="true">-&gt;</span>
+  </span>
+</a>
+<style>
+  .article-card { display: grid; grid-template-rows: auto 1fr; text-decoration: none; color: inherit; border: 1px solid var(--border-soft); border-radius: var(--radius-md); overflow: hidden; background: var(--surface-card); transition: box-shadow .25s ease, transform .25s ease; }
+  .article-card:hover, .article-card:focus-visible { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .article-card__media img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .35s ease; }
+  .article-card:hover .article-card__media img { transform: scale(1.06); }
+  .article-card__body { display: grid; gap: .35rem; padding: 1rem; }
+  .article-card__kicker { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-kicker); }
+  .article-card__title { font-family: var(--font-display); font-size: var(--text-lg); }
+  .article-card__blurb { color: var(--ink-soft); font-size: var(--text-sm); }
+  .article-card__arrow { justify-self: end; transition: transform .25s ease; }
+  .article-card:hover .article-card__arrow { transform: translateX(4px); }
+  @media (prefers-reduced-motion: reduce) { .article-card, .article-card__media img, .article-card__arrow { transition: none; } }
+</style>

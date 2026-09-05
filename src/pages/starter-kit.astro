@@ -1,4 +1,7 @@
 ---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import Hero from '../components/Hero.astro';
@@ -49,7 +52,7 @@ const faqItems = [
   {
     question: 'Is the starter kit really free?',
     answer:
-      'It is included in every puppy\'s price, which is from $3,288 all-in. There is no add-on charge, no minimum spend, and no membership to sign up for. Bought separately, the same 30 items add up to $533 — the full itemized breakdown is on this page.',
+      'It is included in every puppy\'s price, which is from $3,288 all-in. There is no add-on charge, no minimum spend, and no membership to sign up for. Bought separately, the same 30 items add up to $533 - the full itemized breakdown is on this page.',
   },
   {
     question: 'What exactly is in the puppy starter kit?',
@@ -88,7 +91,7 @@ const schemas = [
     aboutName: 'Puppy starter kit',
     aboutAlternateName: 'new puppy kit',
     datePublished: '2026-07-06',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   serviceSchema({
     name: 'Puppy Starter Kit & Home Setup (30+ items)',
@@ -100,7 +103,7 @@ const schemas = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/starter-kit" ogImage="/assets/starter-kit/og-starter-kit.jpg">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/starter-kit" ogImage="/assets/starter-kit/og-starter-kit.jpg">
   <Hero
     eyebrow="Included with every puppy"
     h1="Inside Our Puppy Starter Kit: 30+ Items, $500+ Value"
@@ -128,7 +131,7 @@ const schemas = [
     <ComparisonSplit
       heading="Starter Kit Itemized Value Breakdown"
       headingAccent="Itemized"
-      subhead="Every item in the kit, priced individually. 30 items, $533 in total — included with every puppy."
+      subhead="Every item in the kit, priced individually. 30 items, $533 in total - included with every puppy."
       mode="table"
       tableHeaders={['Category', 'Items included', 'Value']}
       rows={[
@@ -140,7 +143,7 @@ const schemas = [
         { label: 'Oral health', values: ['Mouth wash ($17), tooth paste ($15), tooth brush ($12), teeth wipes ($5)', '$49'] },
         { label: 'Feeding', values: ['Food bowl ($18), puppy kibbles ($23), measure cup ($1)', '$42'] },
         { label: 'Toys & play', values: ['Soft toy ($13), chew toy ($3), chew bone ($3)', '$19'] },
-        { label: 'Total', values: ['30 items, everything above — included with every puppy', '$533'] },
+        { label: 'Total', values: ['30 items, everything above - included with every puppy', '$533'] },
       ]}
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">

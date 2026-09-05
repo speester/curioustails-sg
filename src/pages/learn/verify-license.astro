@@ -1,4 +1,10 @@
 ---
+import { fileURLToPath } from 'node:url';
+import RelatedPosts from '../../components/RelatedPosts.astro';
+import PlaceholderImage from '../../components/PlaceholderImage.astro';
+import microchipScan from '../../assets/guides/6-puppy-microchip-scan-health.webp';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -16,7 +22,7 @@ import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from 
 import verifyPhone from '../../assets/guides/5-verify-seller-phone-check-puppy.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
 
-const title = 'How to Check a Pet Shop\'s Licence in Singapore | Curious Tails';
+const title = 'How to Check a Pet Shop Licence | Curious Tails';
 const description =
   "Check any pet shop's AVS licence in 60 seconds: the 4-step registry search, what licensing guarantees, seller red flags, and what to do when the check fails.";
 
@@ -59,7 +65,7 @@ const schemas = [
     aboutAlternateName: 'AVS registry check',
     aboutSameAs: 'https://avs.nparks.gov.sg/outreach/resources/public-registry-of-avs-licensed-pet-shops/',
     datePublished: '2026-07-06',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   {
     '@context': 'https://schema.org',
@@ -68,17 +74,17 @@ const schemas = [
     description: 'Verify any Singapore pet shop on the AVS public registry in about 60 seconds.',
     totalTime: 'PT1M',
     step: [
-      { '@type': 'HowToStep', position: 1, name: 'Open the registry', text: 'Go to the AVS public registry of licensed pet shops on the AVS (NParks) website.' },
-      { '@type': 'HowToStep', position: 2, name: 'Search the seller', text: 'Search the shop\'s name, or better, its licence number (ask the shop for it; legitimate shops provide it instantly).' },
-      { '@type': 'HowToStep', position: 3, name: 'Match the entry', text: 'Confirm the registry entry matches the seller you are dealing with: name, and licence number if provided.' },
-      { '@type': 'HowToStep', position: 4, name: 'Act on the result', text: 'Listed and matching: proceed with normal care. Not listed: walk away and transfer nothing; report suspicious sellers to AVS.' },
+      { '@type': 'HowToStep', position: 1, name: 'Open the AVS public registry', text: 'Go to the AVS public registry of licensed pet shops on the AVS (NParks) website.' },
+      { '@type': 'HowToStep', position: 2, name: 'Search the name, or better, the licence number', text: 'Search the shop\'s name, or better, its licence number (ask the shop for it; legitimate shops provide it instantly).' },
+      { '@type': 'HowToStep', position: 3, name: 'Match the entry to your seller', text: 'Confirm the registry entry matches the seller you are dealing with: name, and licence number if provided.' },
+      { '@type': 'HowToStep', position: 4, name: 'Not listed? Walk away, report if suspicious', text: 'Listed and matching: proceed with normal care. Not listed: walk away and transfer nothing; report suspicious sellers to AVS.' },
     ],
   },
   faqPageSchema(faqItems),
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/learn/verify-license" ogImage="/assets/guides/og-learn.jpg">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/learn/verify-license" ogImage="/assets/guides/og-learn.jpg">
   <Hero
     eyebrow="Buyer protection · Guide 1"
     h1="Check If a Pet Shop Is AVS Licensed in Singapore"
@@ -272,4 +278,13 @@ const schemas = [
   />
 
   <Schema {schemas} />
+
+  <section class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-14">
+    <figure class="clay overflow-hidden bg-[var(--color-surface-card)] p-3">
+      <PlaceholderImage src={microchipScan} alt="A microchip scan: the record that ties a puppy to its licensed source." ratio="aspect-[16/9]" sizes="(max-width: 1023px) 100vw, 70vw" />
+      <figcaption class="px-2 pt-3 text-sm text-[var(--color-text-muted)]">A microchip scan: the record that ties a puppy to its licensed source.</figcaption>
+    </figure>
+  </section>
+
+  <RelatedPosts route="/learn/verify-license/" />
 </BaseLayout>

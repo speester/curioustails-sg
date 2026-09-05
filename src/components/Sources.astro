@@ -1,0 +1,19 @@
+---
+// kit:Sources@1.0.0 - the INLINE numbered citation marker. The end-of-page list it
+// points at is References.astro ([data-sources]); this file is the <sup>[3]</sup>.
+import sources from '../data/sources.json';
+interface Props { keys: string[]; }
+const { keys } = Astro.props as Props;
+const all = sources as Record<string, { title: string; url: string }>;
+const order = Astro.locals.citeOrder ??= [];
+const nums = keys.map((k) => {
+  if (!all[k]) throw new Error(`[Cite] unknown source key "${k}" - add it to src/data/sources.json (and OPEN the URL first).`);
+  let i = order.indexOf(k);
+  if (i === -1) { order.push(k); i = order.length - 1; }
+  return i + 1;
+});
+---
+<sup class="cite">[{nums.join(', ')}]</sup>
+<style>
+  .cite { font-size: .75em; color: var(--ink-soft); }
+</style>

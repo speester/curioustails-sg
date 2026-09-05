@@ -1,4 +1,7 @@
 ---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -122,7 +125,7 @@ const schemas = [
     aboutAlternateName: 'Groodle',
     aboutSameAs: 'https://en.wikipedia.org/wiki/Goldendoodle',
     datePublished: '2026-07-09',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   itemListSchema([
     {
@@ -156,12 +159,12 @@ const schemas = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/puppies/goldendoodle">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies/goldendoodle">
   <Hero
-    eyebrow="AVS Licensed Pet Shop in Balestier"
+    eyebrow="Goldendoodle from an AVS licensed shop"
     h1="Goldendoodle Puppies for Sale in Singapore"
     h1Accent="Goldendoodle"
-    subhead={`A Goldendoodle in Singapore costs ${priceRange} at Curious Tails, all-in. The honest part first: Goldendoodles are not HDB-approved, so this page is for condo and landed homes. The draw is real — a Golden's warmth with a low-shedding coat — and so is the trade: a salon schedule instead of a vacuum.`}
+    subhead={`A Goldendoodle in Singapore costs ${priceRange} at Curious Tails, all-in. The honest part first: Goldendoodles are not HDB-approved, so this page is for condo and landed homes. The draw is real - a Golden's warmth with a low-shedding coat - and so is the trade: a salon schedule instead of a vacuum.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Goldendoodle puppies."
     secondaryCtaLabel="See price & what's included"
@@ -237,14 +240,14 @@ const schemas = [
 
   <div id="temperament" class="scroll-mt-40">
     <CaptionedBlock heading="Goldendoodle Temperament: Golden Warmth, Poodle Brains" imageAlt="Goldendoodle puppy playing gently with children in a garden" imageSrc={imgScene2} imagePosition="left">
-      <p>The Goldendoodle inherits the best of a famous pairing: the Golden Retriever's gentle, people-loving nature and the Poodle's quick, trainable intelligence. The result is a sociable, affectionate family dog that bonds hard, learns fast, and treats visitors as friends it hasn't met yet. For many Singapore families it's the dream — the Golden they always wanted, without the fur on every surface.</p>
+      <p>The Goldendoodle inherits the best of a famous pairing: the Golden Retriever's gentle, people-loving nature and the Poodle's quick, trainable intelligence. The result is a sociable, affectionate family dog that bonds hard, learns fast, and treats visitors as friends it hasn't met yet. For many Singapore families it's the dream - the Golden they always wanted, without the fur on every surface.</p>
       <p>The honest footnotes. First, this is a deeply social cross that wants to be part of family life, not left alone all week; boredom and loneliness turn its cleverness into mischief. Second, both parent breeds are active, so the exercise below is real, not a formality. Third, a crossbreed's temperament can vary a little between puppies, so we tell you what we see in each one rather than reciting a brochure.</p>
       <p>Cross-shopping the original? The <a href="/puppies/golden-retriever/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Golden Retriever</a> gives you complete predictability and heavy shedding; the <a href="/puppies/labradoodle/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Labradoodle</a> is the Labrador-based cousin. All three sit in the same price range with us.</p>
     </CaptionedBlock>
 
     <CaptionedBlock heading="Can a Goldendoodle Be Left Alone During Work Hours?" imagePosition="none" variant="card">
       <p>Moderately, once mature and genuinely exercised, but this is a companion cross that thrives on company. A well-exercised adult naps through a workday contentedly; an under-exercised or lonely one gets anxious and destructive. Weekends and evenings that belong to the dog are the real contract here.</p>
-      <p>The room needs the usual tropical basics — ventilation, shade, water — plus a puzzle toy to occupy that busy brain, and the exercise and grooming routines below decide the rest.</p>
+      <p>The room needs the usual tropical basics - ventilation, shade, water - plus a puzzle toy to occupy that busy brain, and the exercise and grooming routines below decide the rest.</p>
       <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
         <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
         <ul class="mt-4 space-y-3">
@@ -297,7 +300,7 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Goldendoodle Price in Singapore: What You'll Pay and What's Included"
+      heading="Goldendoodle Price in Singapore: What You’ll Pay and What’s Included"
       headingAccent="Price"
       subhead={`How much is a Goldendoodle in Singapore? As of ${monthStamp}, the shops ranking for this search list mini Goldendoodles at $4,500 and $4,980, and most publish no figure at all. Ours is ${priceRange}, all-in, with the starter kit, delivery and first training lesson included.`}
       mode="split"
@@ -396,7 +399,7 @@ const schemas = [
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Goldendoodle's First Week at Home" imageAlt="Goldendoodle puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
+  <CaptionedBlock heading="Your Goldendoodle’s First Week at Home" imageAlt="Goldendoodle puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you. The playpen, bed, water, and toys are set up before your Goldendoodle explores the room, and we walk you through all 30+ starter-kit items in person, including the coat-care routine. Learn more about how our free home delivery and setup works.</p>
     <p>Days 1 to 3: keep it calm. A fixed feeding routine with measured portions, the toilet pads where we placed them, and gentle play that helps your puppy settle into its new room.</p>
     <p>Days 4 to 7: the routine sticks, and now is the time to build good habits. Book your free first lesson with an AVS-certified trainer, and start short, positive brushing sessions so your Doodle grows up loving the grooming it will need for life. See what the free AVS-certified training lesson covers.</p>

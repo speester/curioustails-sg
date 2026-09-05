@@ -1,4 +1,8 @@
 ---
+import { fileURLToPath } from 'node:url';
+import RelatedPosts from '../../components/RelatedPosts.astro';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -67,7 +71,7 @@ const schemas = [
     aboutName: 'First-time dog ownership in Singapore',
     aboutAlternateName: 'first time dog owner Singapore',
     datePublished: '2026-07-06',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   faqPageSchema(faqItems),
 ];
@@ -116,7 +120,7 @@ const decisions = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/first-time-owners" ogImage="/assets/guides/og-first-time-owners.jpg">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/first-time-owners" ogImage="/assets/guides/og-first-time-owners.jpg">
   <Hero
     eyebrow="The first-timer's guide"
     h1="Your Complete Checklist: Buying Your First Puppy"
@@ -235,7 +239,7 @@ const decisions = [
   </CaptionedBlock>
 
   <BannerRibbon
-    heading="Learn from other people's week one"
+    heading="Learn from other people’s week one"
     body="The five mistakes first-time owners actually make, from real stories, so yours can be someone else's cautionary tale avoided."
     ctaLabel="Read the mistakes"
     ctaHref="/blog/first-time-mistakes/"
@@ -271,4 +275,6 @@ const decisions = [
   />
 
   <Schema {schemas} />
+
+  <RelatedPosts route="/first-time-owners/" />
 </BaseLayout>

@@ -1,0 +1,751 @@
+# SEO audit — https://curioustails.sg
+
+PRE-FLIGHT: dist ok · own-site ok · fresh (src <= dist) · prod==dist 1240a2fe5247 · pages 75/76 · prior results: 0
+
+BRANCH: productized-service
+
+- **MEDIUM** `5.2` /visit-balestier/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /free-boarding/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /faq/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /learn/dog-licence/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /learn/adopt-vs-buy/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /first-time-owners/toilet-training/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /first-time-owners/food-guide/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/cavapoo-price-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/pee-pad-training-hdb/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/where-to-buy-puppy-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/maltipoo-full-grown-size/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/corgi-hdb-rules/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/maltipoo-price-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/crate-training-puppy/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/cheap-puppies-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/cavapoo-full-grown-size/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/french-bulldog-hdb/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/new-puppy-checklist/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/hypoallergenic-dogs-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/shiba-inu-price-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/stop-puppy-biting/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/free-puppy-adoption-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/maltipoo-lifespan/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/cavapoo-hdb-approved/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-sleep-schedule/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-friendly-cafes-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/corgi-price-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-barking-training/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/imported-vs-local-puppies/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/long-haired-mini-dachshund/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/biggest-hdb-approved-dogs/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-feeding-schedule/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/dog-parks-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/mini-dachshund-price-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-obedience-basics/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/teacup-puppies-truth/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/cavapoo-lifespan/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/hdb-dog-rules/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/when-can-puppy-go-outside/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/dog-swimming-pools-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/cavapoo-vs-cockapoo/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-training-treats/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/home-breed-puppies-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/maltipoo-haircuts/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/golden-retriever-hdb/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-teething/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/dog-boarding-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/maltipoo-vs-maltese/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-socialisation/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-mills-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/corgi-tails/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/husky-hdb/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-diarrhea/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/dog-daycare-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/akita-vs-shiba-inu/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/leash-training-puppy/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/buying-puppy-online-safely/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/cavapoo-colours/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/hdb-one-dog-rule/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-heat-safety/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/dog-friendly-places-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/maltipoo-vs-toy-poodle/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/first-puppy-commands/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/questions-before-buying-puppy/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/dachshund-colours/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/condo-dog-rules/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-pet-insurance/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/toy-poodle-lifespan/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/cavachon-vs-cavapoo/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-training-classes-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/pasir-ris-farmway-puppies/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/white-maltipoo/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/cockapoo-lifespan/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-deworming/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/golden-retriever-temperament/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/jindo-vs-shiba-inu/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/leave-puppy-alone/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-health-checks-before-sale/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/cavapoo-grooming/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/best-dogs-first-time-owners/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/dog-ticks-fleas-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/french-bulldog-lifespan/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/bichonpoo-vs-bichon-frise/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-proofing-home/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-deposit-reservation/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/cockapoo-size/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/grooming-puppy-at-home/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/introduce-puppy-older-dog/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/dog-grooming-prices-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/mini-dachshund-size/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-working-full-time/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/dog-sterilisation-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-vet-first-year/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/bring-dog-to-malaysia/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/pet-taxi-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /learn/emergency-vets/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /learn/project-adore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/shiba-inu-hdb/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/beagle-hdb/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/samoyed-in-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/helper-puppy-care/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/dog-walks-singapore-weather/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-bto-renovation/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-school-holidays/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-chinese-new-year/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/leash-rules-fines-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/pet-friendly-hotels-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/first-vet-visit-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/pet-expo-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/pet-friendly-restaurants-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/puppy-yoga-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/dog-walker-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/pet-relocation-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/dog-friendly-malls-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **MEDIUM** `5.2` /blog/pet-cremation-singapore/ — Blueprint row planned but never built (replication follows CP3; Stage-3 exit routes-diff is the hard gate)
+- **HIGH** `3.3b` /about-us/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /about-us/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /about-us/ — run of 8 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /about-us/ — no Sources/References block
+- **HIGH** `QUOTE` /about-us/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /about-us/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /about-us/ — fewer than 2 SVG figure(s) for a full route
+- **HIGH** `3.30c` /about-us/ — schema_plan types not emitted: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+- **MEDIUM** `2.12b` /about-us/ — body links above the cap
+- **HIGH** `3.3b` /available-puppies/ — primary keyword absent from title/H1
+- **HIGH** `3.13` /available-puppies/ — word count below the value_tier B floor (contracts §1a)
+- **HIGH** `3.8` /available-puppies/ — answer capsule carries no concrete figure/unit
+- **MEDIUM** `3.8b` /available-puppies/ — answer capsule does not contain the query phrase
+- **HIGH** `SOURCES` /available-puppies/ — no Sources/References block
+- **HIGH** `QUOTE` /available-puppies/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /available-puppies/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /available-puppies/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /available-puppies/ — body links above the cap
+- **HIGH** `3.8` /blog/cavapoo-vs-maltipoo/ — answer capsule carries no concrete figure/unit
+- **MEDIUM** `3.8b` /blog/cavapoo-vs-maltipoo/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /blog/cavapoo-vs-maltipoo/ — run of 24 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /blog/cavapoo-vs-maltipoo/ — no Sources/References block
+- **HIGH** `QUOTE` /blog/cavapoo-vs-maltipoo/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /blog/cavapoo-vs-maltipoo/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /blog/cavapoo-vs-maltipoo/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /blog/cavapoo-vs-maltipoo/ — body links above the cap
+- **HIGH** `3.3b` /blog/first-time-mistakes/ — primary keyword absent from title/H1
+- **HIGH** `3.8` /blog/first-time-mistakes/ — answer capsule carries no concrete figure/unit
+- **MEDIUM** `3.8b` /blog/first-time-mistakes/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /blog/first-time-mistakes/ — run of 6 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /blog/first-time-mistakes/ — no Sources/References block
+- **HIGH** `QUOTE` /blog/first-time-mistakes/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /blog/first-time-mistakes/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /blog/first-time-mistakes/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /blog/first-time-mistakes/ — body links above the cap
+- **HIGH** `3.3b` /blog/hdb-dog-guide/ — primary keyword absent from title/H1
+- **HIGH** `3.13` /blog/hdb-dog-guide/ — word count below the value_tier C floor (contracts §1a)
+- **HIGH** `3.8` /blog/hdb-dog-guide/ — answer capsule carries no concrete figure/unit
+- **MEDIUM** `3.8b` /blog/hdb-dog-guide/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /blog/hdb-dog-guide/ — run of 11 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /blog/hdb-dog-guide/ — no Sources/References block
+- **HIGH** `QUOTE` /blog/hdb-dog-guide/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /blog/hdb-dog-guide/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /blog/hdb-dog-guide/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /blog/hdb-dog-guide/ — body links above the cap
+- **HIGH** `3.3b` /blog/ — primary keyword absent from title/H1
+- **HIGH** `3.13` /blog/ — word count below the value_tier B floor (contracts §1a)
+- **HIGH** `3.8` /blog/ — answer capsule carries no concrete figure/unit
+- **MEDIUM** `3.8b` /blog/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /blog/ — run of 8 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /blog/ — no Sources/References block
+- **HIGH** `QUOTE` /blog/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /blog/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /blog/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /blog/ — body links above the cap
+- **HIGH** `3.8` /blog/pet-ownership-course-singapore/ — answer capsule carries no concrete figure/unit
+- **MEDIUM** `3.37` /blog/pet-ownership-course-singapore/ — run of 9 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /blog/pet-ownership-course-singapore/ — no Sources/References block
+- **HIGH** `QUOTE` /blog/pet-ownership-course-singapore/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /blog/pet-ownership-course-singapore/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /blog/pet-ownership-course-singapore/ — fewer than 2 SVG figure(s) for a full route
+- **HIGH** `2.12` /blog/pet-ownership-course-singapore/ — body link contract deviation: /blog (report, never silently rewire)
+- **MEDIUM** `2.12b` /blog/pet-ownership-course-singapore/ — body links above the cap
+- **HIGH** `3.3b` /blog/puppy-fireworks-singapore/ — primary keyword absent from title/H1
+- **HIGH** `3.8` /blog/puppy-fireworks-singapore/ — answer capsule carries no concrete figure/unit
+- **MEDIUM** `3.8b` /blog/puppy-fireworks-singapore/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /blog/puppy-fireworks-singapore/ — run of 16 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /blog/puppy-fireworks-singapore/ — no Sources/References block
+- **HIGH** `QUOTE` /blog/puppy-fireworks-singapore/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /blog/puppy-fireworks-singapore/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /blog/puppy-fireworks-singapore/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /blog/puppy-fireworks-singapore/ — body links above the cap
+- **HIGH** `3.3b` /blog/puppy-first-night/ — primary keyword absent from title/H1
+- **HIGH** `3.8` /blog/puppy-first-night/ — answer capsule carries no concrete figure/unit
+- **MEDIUM** `3.8b` /blog/puppy-first-night/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /blog/puppy-first-night/ — run of 15 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /blog/puppy-first-night/ — no Sources/References block
+- **HIGH** `QUOTE` /blog/puppy-first-night/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /blog/puppy-first-night/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /blog/puppy-first-night/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /blog/puppy-first-night/ — body links above the cap
+- **HIGH** `3.8` /blog/small-dog-breeds-singapore/ — answer capsule carries no concrete figure/unit
+- **MEDIUM** `3.8b` /blog/small-dog-breeds-singapore/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /blog/small-dog-breeds-singapore/ — run of 48 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /blog/small-dog-breeds-singapore/ — no Sources/References block
+- **HIGH** `QUOTE` /blog/small-dog-breeds-singapore/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /blog/small-dog-breeds-singapore/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /blog/small-dog-breeds-singapore/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /blog/small-dog-breeds-singapore/ — body links above the cap
+- **HIGH** `3.13` /contact/ — word count below the value_tier B floor (contracts §1a)
+- **MEDIUM** `3.8b` /contact/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /contact/ — run of 5 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `IMAGE-POLICY` /contact/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /contact/ — fewer than 1 SVG figure(s) for a partial route
+- **HIGH** `2.12` /contact/ — body link contract deviation: -, - (report, never silently rewire)
+- **MEDIUM** `2.12b` /contact/ — body links above the cap
+- **HIGH** `3.13` /delivery/ — word count below the value_tier B floor (contracts §1a)
+- **HIGH** `3.8` /delivery/ — answer capsule carries no concrete figure/unit
+- **MEDIUM** `3.8b` /delivery/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /delivery/ — run of 12 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /delivery/ — no Sources/References block
+- **HIGH** `QUOTE` /delivery/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /delivery/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /delivery/ — fewer than 2 SVG figure(s) for a full route
+- **HIGH** `3.30c` /delivery/ — schema_plan types not emitted: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+- **HIGH** `2.12` /delivery/ — body link contract deviation: /free-boarding (report, never silently rewire)
+- **MEDIUM** `2.12b` /delivery/ — body links above the cap
+- **HIGH** `3.3b` /first-time-owners/breed-selector/ — primary keyword absent from title/H1
+- **HIGH** `3.13` /first-time-owners/breed-selector/ — word count below the value_tier C floor (contracts §1a)
+- **HIGH** `3.8` /first-time-owners/breed-selector/ — answer capsule carries no concrete figure/unit
+- **MEDIUM** `3.8b` /first-time-owners/breed-selector/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /first-time-owners/breed-selector/ — run of 9 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /first-time-owners/breed-selector/ — no Sources/References block
+- **HIGH** `QUOTE` /first-time-owners/breed-selector/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /first-time-owners/breed-selector/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /first-time-owners/breed-selector/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /first-time-owners/breed-selector/ — body links above the cap
+- **MEDIUM** `3.8b` /first-time-owners/budget-guide/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /first-time-owners/budget-guide/ — run of 18 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /first-time-owners/budget-guide/ — no Sources/References block
+- **HIGH** `QUOTE` /first-time-owners/budget-guide/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /first-time-owners/budget-guide/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /first-time-owners/budget-guide/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /first-time-owners/budget-guide/ — body links above the cap
+- **HIGH** `3.3b` /first-time-owners/hdb-breeds/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /first-time-owners/hdb-breeds/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /first-time-owners/hdb-breeds/ — run of 13 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /first-time-owners/hdb-breeds/ — no Sources/References block
+- **HIGH** `QUOTE` /first-time-owners/hdb-breeds/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /first-time-owners/hdb-breeds/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /first-time-owners/hdb-breeds/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /first-time-owners/hdb-breeds/ — body links above the cap
+- **HIGH** `3.3b` /first-time-owners/ — primary keyword absent from title/H1
+- **HIGH** `3.13` /first-time-owners/ — word count below the value_tier B floor (contracts §1a)
+- **HIGH** `3.8` /first-time-owners/ — answer capsule carries no concrete figure/unit
+- **MEDIUM** `3.37` /first-time-owners/ — run of 15 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /first-time-owners/ — no Sources/References block
+- **HIGH** `QUOTE` /first-time-owners/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /first-time-owners/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /first-time-owners/ — fewer than 2 SVG figure(s) for a full route
+- **HIGH** `3.30c` /first-time-owners/ — schema_plan types not emitted: [object Object]
+- **MEDIUM** `2.12b` /first-time-owners/ — body links above the cap
+- **HIGH** `3.3b` /first-time-owners/puppy-care-101/ — primary keyword absent from title/H1
+- **HIGH** `3.8` /first-time-owners/puppy-care-101/ — answer capsule carries no concrete figure/unit
+- **MEDIUM** `3.37` /first-time-owners/puppy-care-101/ — run of 9 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /first-time-owners/puppy-care-101/ — no Sources/References block
+- **HIGH** `QUOTE` /first-time-owners/puppy-care-101/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /first-time-owners/puppy-care-101/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /first-time-owners/puppy-care-101/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /first-time-owners/puppy-care-101/ — body links above the cap
+- **HIGH** `3.3b` /free-training/ — primary keyword absent from title/H1
+- **HIGH** `3.13` /free-training/ — word count below the value_tier B floor (contracts §1a)
+- **HIGH** `3.8` /free-training/ — answer capsule carries no concrete figure/unit
+- **MEDIUM** `3.8b` /free-training/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /free-training/ — run of 16 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /free-training/ — no Sources/References block
+- **HIGH** `QUOTE` /free-training/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /free-training/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /free-training/ — fewer than 2 SVG figure(s) for a full route
+- **HIGH** `3.30c` /free-training/ — schema_plan types not emitted: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+- **MEDIUM** `2.12b` /free-training/ — body links above the cap
+- **MEDIUM** `3.8b` / — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` / — run of 16 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `QUOTE` / — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` / — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` / — fewer than 2 SVG figure(s) for a full route
+- **HIGH** `2.12` / — body link contract deviation: - (report, never silently rewire)
+- **MEDIUM** `2.12b` / — body links above the cap
+- **HIGH** `3.3b` /learn/ — primary keyword absent from title/H1
+- **HIGH** `3.13` /learn/ — word count below the value_tier B floor (contracts §1a)
+- **HIGH** `3.8` /learn/ — answer capsule carries no concrete figure/unit
+- **MEDIUM** `3.8b` /learn/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /learn/ — run of 6 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /learn/ — no Sources/References block
+- **HIGH** `QUOTE` /learn/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /learn/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /learn/ — fewer than 2 SVG figure(s) for a full route
+- **HIGH** `3.30c` /learn/ — schema_plan types not emitted: [object Object]
+- **MEDIUM** `2.12b` /learn/ — body links above the cap
+- **HIGH** `3.8` /learn/puppy-health/ — answer capsule carries no concrete figure/unit
+- **MEDIUM** `3.8b` /learn/puppy-health/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /learn/puppy-health/ — run of 8 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `QUOTE` /learn/puppy-health/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /learn/puppy-health/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /learn/puppy-health/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /learn/puppy-health/ — body links above the cap
+- **HIGH** `3.3b` /learn/smuggled-puppies/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /learn/smuggled-puppies/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /learn/smuggled-puppies/ — run of 8 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `QUOTE` /learn/smuggled-puppies/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /learn/smuggled-puppies/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /learn/smuggled-puppies/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /learn/smuggled-puppies/ — body links above the cap
+- **HIGH** `3.3b` /learn/verify-license/ — primary keyword absent from title/H1
+- **HIGH** `3.8` /learn/verify-license/ — answer capsule carries no concrete figure/unit
+- **MEDIUM** `3.8b` /learn/verify-license/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /learn/verify-license/ — run of 7 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /learn/verify-license/ — no Sources/References block
+- **HIGH** `QUOTE` /learn/verify-license/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /learn/verify-license/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /learn/verify-license/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /learn/verify-license/ — body links above the cap
+- **HIGH** `3.3b` /pricing/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /pricing/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /pricing/ — run of 15 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /pricing/ — no Sources/References block
+- **HIGH** `QUOTE` /pricing/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /pricing/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /pricing/ — fewer than 2 SVG figure(s) for a full route
+- **HIGH** `3.30c` /pricing/ — schema_plan types not emitted: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+- **MEDIUM** `2.12b` /pricing/ — body links above the cap
+- **MEDIUM** `3.8b` /privacy-policy/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /privacy-policy/ — run of 15 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `IMAGE-POLICY` /privacy-policy/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `3.3b` /puppies/beagle/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/beagle/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/beagle/ — run of 12 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/beagle/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/beagle/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/beagle/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/beagle/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/beagle/ — body links above the cap
+- **HIGH** `3.3b` /puppies/bichon-frise/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/bichon-frise/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/bichon-frise/ — run of 14 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/bichon-frise/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/bichon-frise/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/bichon-frise/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/bichon-frise/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/bichon-frise/ — body links above the cap
+- **HIGH** `3.3b` /puppies/bichonpoo/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/bichonpoo/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/bichonpoo/ — run of 16 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/bichonpoo/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/bichonpoo/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/bichonpoo/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/bichonpoo/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/bichonpoo/ — body links above the cap
+- **HIGH** `3.3b` /puppies/border-collie/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/border-collie/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/border-collie/ — run of 12 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/border-collie/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/border-collie/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/border-collie/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/border-collie/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/border-collie/ — body links above the cap
+- **HIGH** `3.3b` /puppies/boston-terrier/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/boston-terrier/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/boston-terrier/ — run of 11 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/boston-terrier/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/boston-terrier/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/boston-terrier/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/boston-terrier/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/boston-terrier/ — body links above the cap
+- **HIGH** `3.3b` /puppies/cavachon/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/cavachon/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/cavachon/ — run of 9 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/cavachon/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/cavachon/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/cavachon/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/cavachon/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/cavachon/ — body links above the cap
+- **HIGH** `3.3b` /puppies/cavalier-king-charles-spaniel/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/cavalier-king-charles-spaniel/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/cavalier-king-charles-spaniel/ — run of 10 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/cavalier-king-charles-spaniel/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/cavalier-king-charles-spaniel/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/cavalier-king-charles-spaniel/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/cavalier-king-charles-spaniel/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/cavalier-king-charles-spaniel/ — body links above the cap
+- **HIGH** `3.3b` /puppies/cavapoo/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/cavapoo/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/cavapoo/ — run of 13 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/cavapoo/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/cavapoo/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/cavapoo/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/cavapoo/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/cavapoo/ — body links above the cap
+- **HIGH** `3.3b` /puppies/cavapoochon/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/cavapoochon/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/cavapoochon/ — run of 11 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/cavapoochon/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/cavapoochon/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/cavapoochon/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/cavapoochon/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/cavapoochon/ — body links above the cap
+- **HIGH** `3.3b` /puppies/chihuahua/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/chihuahua/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/chihuahua/ — run of 14 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/chihuahua/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/chihuahua/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/chihuahua/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/chihuahua/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/chihuahua/ — body links above the cap
+- **HIGH** `3.3b` /puppies/chow-chow/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/chow-chow/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/chow-chow/ — run of 12 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/chow-chow/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/chow-chow/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/chow-chow/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/chow-chow/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/chow-chow/ — body links above the cap
+- **HIGH** `3.3b` /puppies/cockapoo/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/cockapoo/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/cockapoo/ — run of 14 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/cockapoo/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/cockapoo/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/cockapoo/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/cockapoo/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/cockapoo/ — body links above the cap
+- **HIGH** `3.3b` /puppies/cocker-spaniel/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/cocker-spaniel/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/cocker-spaniel/ — run of 9 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/cocker-spaniel/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/cocker-spaniel/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/cocker-spaniel/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/cocker-spaniel/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/cocker-spaniel/ — body links above the cap
+- **HIGH** `3.3b` /puppies/corgi/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/corgi/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/corgi/ — run of 11 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/corgi/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/corgi/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/corgi/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/corgi/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/corgi/ — body links above the cap
+- **HIGH** `3.3b` /puppies/coton-de-tulear/ — primary keyword absent from title/H1
+- **MEDIUM** `3.37` /puppies/coton-de-tulear/ — run of 12 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/coton-de-tulear/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/coton-de-tulear/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/coton-de-tulear/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/coton-de-tulear/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/coton-de-tulear/ — body links above the cap
+- **HIGH** `3.3b` /puppies/english-bulldog/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/english-bulldog/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/english-bulldog/ — run of 10 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/english-bulldog/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/english-bulldog/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/english-bulldog/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/english-bulldog/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/english-bulldog/ — body links above the cap
+- **HIGH** `3.3b` /puppies/french-bulldog/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/french-bulldog/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/french-bulldog/ — run of 9 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/french-bulldog/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/french-bulldog/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/french-bulldog/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/french-bulldog/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/french-bulldog/ — body links above the cap
+- **HIGH** `3.3b` /puppies/german-shepherd/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/german-shepherd/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/german-shepherd/ — run of 11 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/german-shepherd/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/german-shepherd/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/german-shepherd/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/german-shepherd/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/german-shepherd/ — body links above the cap
+- **HIGH** `3.3b` /puppies/golden-retriever/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/golden-retriever/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/golden-retriever/ — run of 12 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/golden-retriever/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/golden-retriever/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/golden-retriever/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/golden-retriever/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/golden-retriever/ — body links above the cap
+- **HIGH** `3.3b` /puppies/goldendoodle/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/goldendoodle/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/goldendoodle/ — run of 12 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/goldendoodle/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/goldendoodle/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/goldendoodle/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/goldendoodle/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/goldendoodle/ — body links above the cap
+- **HIGH** `3.3b` /puppies/havanese/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/havanese/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/havanese/ — run of 9 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/havanese/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/havanese/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/havanese/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/havanese/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/havanese/ — body links above the cap
+- **HIGH** `3.3b` /puppies/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/ — run of 8 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/ — fewer than 2 SVG figure(s) for a full route
+- **HIGH** `3.30c` /puppies/ — schema_plan types not emitted: [object Object], [object Object], [object Object], [object Object], [object Object]
+- **MEDIUM** `2.12b` /puppies/ — body links above the cap
+- **HIGH** `3.3b` /puppies/italian-greyhound/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/italian-greyhound/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/italian-greyhound/ — run of 10 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/italian-greyhound/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/italian-greyhound/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/italian-greyhound/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/italian-greyhound/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/italian-greyhound/ — body links above the cap
+- **HIGH** `3.3b` /puppies/jack-russell-terrier/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/jack-russell-terrier/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/jack-russell-terrier/ — run of 10 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/jack-russell-terrier/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/jack-russell-terrier/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/jack-russell-terrier/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/jack-russell-terrier/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/jack-russell-terrier/ — body links above the cap
+- **HIGH** `3.3b` /puppies/japanese-chin/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/japanese-chin/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/japanese-chin/ — run of 9 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `QUOTE` /puppies/japanese-chin/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/japanese-chin/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/japanese-chin/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/japanese-chin/ — body links above the cap
+- **HIGH** `3.3b` /puppies/japanese-spitz/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/japanese-spitz/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/japanese-spitz/ — run of 12 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/japanese-spitz/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/japanese-spitz/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/japanese-spitz/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/japanese-spitz/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/japanese-spitz/ — body links above the cap
+- **HIGH** `3.3b` /puppies/labradoodle/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/labradoodle/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/labradoodle/ — run of 9 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/labradoodle/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/labradoodle/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/labradoodle/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/labradoodle/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/labradoodle/ — body links above the cap
+- **HIGH** `3.3b` /puppies/maltese/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/maltese/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/maltese/ — run of 12 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/maltese/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/maltese/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/maltese/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/maltese/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/maltese/ — body links above the cap
+- **HIGH** `3.3b` /puppies/maltipoo/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/maltipoo/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/maltipoo/ — run of 9 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/maltipoo/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/maltipoo/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/maltipoo/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/maltipoo/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/maltipoo/ — body links above the cap
+- **HIGH** `3.3b` /puppies/mini-dachshund/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/mini-dachshund/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/mini-dachshund/ — run of 9 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/mini-dachshund/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/mini-dachshund/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/mini-dachshund/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/mini-dachshund/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/mini-dachshund/ — body links above the cap
+- **HIGH** `3.3b` /puppies/miniature-pinscher/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/miniature-pinscher/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/miniature-pinscher/ — run of 10 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/miniature-pinscher/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/miniature-pinscher/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/miniature-pinscher/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/miniature-pinscher/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/miniature-pinscher/ — body links above the cap
+- **HIGH** `3.3b` /puppies/miniature-schnauzer/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/miniature-schnauzer/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/miniature-schnauzer/ — run of 11 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/miniature-schnauzer/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/miniature-schnauzer/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/miniature-schnauzer/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/miniature-schnauzer/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/miniature-schnauzer/ — body links above the cap
+- **HIGH** `3.3b` /puppies/papillon/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/papillon/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/papillon/ — run of 12 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/papillon/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/papillon/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/papillon/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/papillon/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/papillon/ — body links above the cap
+- **HIGH** `3.3b` /puppies/pekingese/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/pekingese/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/pekingese/ — run of 10 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/pekingese/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/pekingese/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/pekingese/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/pekingese/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/pekingese/ — body links above the cap
+- **HIGH** `3.3b` /puppies/pomeranian/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/pomeranian/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/pomeranian/ — run of 10 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/pomeranian/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/pomeranian/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/pomeranian/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/pomeranian/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/pomeranian/ — body links above the cap
+- **HIGH** `3.3b` /puppies/pomsky/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/pomsky/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/pomsky/ — run of 12 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/pomsky/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/pomsky/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/pomsky/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/pomsky/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/pomsky/ — body links above the cap
+- **HIGH** `3.3b` /puppies/pug/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/pug/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/pug/ — run of 12 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/pug/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/pug/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/pug/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/pug/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/pug/ — body links above the cap
+- **HIGH** `3.3b` /puppies/samoyed/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/samoyed/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/samoyed/ — run of 9 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/samoyed/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/samoyed/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/samoyed/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/samoyed/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/samoyed/ — body links above the cap
+- **HIGH** `3.3b` /puppies/scottish-terrier/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/scottish-terrier/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/scottish-terrier/ — run of 11 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/scottish-terrier/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/scottish-terrier/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/scottish-terrier/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/scottish-terrier/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/scottish-terrier/ — body links above the cap
+- **HIGH** `3.3b` /puppies/sheltie/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/sheltie/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/sheltie/ — run of 10 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/sheltie/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/sheltie/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/sheltie/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/sheltie/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/sheltie/ — body links above the cap
+- **HIGH** `3.3b` /puppies/shiba-inu/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/shiba-inu/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/shiba-inu/ — run of 9 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/shiba-inu/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/shiba-inu/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/shiba-inu/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/shiba-inu/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/shiba-inu/ — body links above the cap
+- **HIGH** `3.3b` /puppies/shih-tzu/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/shih-tzu/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/shih-tzu/ — run of 13 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/shih-tzu/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/shih-tzu/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/shih-tzu/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/shih-tzu/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/shih-tzu/ — body links above the cap
+- **HIGH** `3.3b` /puppies/shihpoo/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/shihpoo/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/shihpoo/ — run of 11 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/shihpoo/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/shihpoo/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/shihpoo/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/shihpoo/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/shihpoo/ — body links above the cap
+- **HIGH** `3.3b` /puppies/siberian-husky/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/siberian-husky/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/siberian-husky/ — run of 12 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/siberian-husky/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/siberian-husky/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/siberian-husky/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/siberian-husky/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/siberian-husky/ — body links above the cap
+- **HIGH** `3.3b` /puppies/silky-terrier/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/silky-terrier/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/silky-terrier/ — run of 10 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/silky-terrier/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/silky-terrier/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/silky-terrier/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/silky-terrier/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/silky-terrier/ — body links above the cap
+- **HIGH** `3.3b` /puppies/toy-poodle/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/toy-poodle/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/toy-poodle/ — run of 13 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/toy-poodle/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/toy-poodle/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/toy-poodle/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/toy-poodle/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/toy-poodle/ — body links above the cap
+- **HIGH** `3.3b` /puppies/westie/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/westie/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/westie/ — run of 12 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/westie/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/westie/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/westie/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/westie/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/westie/ — body links above the cap
+- **HIGH** `3.3b` /puppies/whippet/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/whippet/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/whippet/ — run of 9 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/whippet/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/whippet/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/whippet/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/whippet/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/whippet/ — body links above the cap
+- **HIGH** `3.3b` /puppies/yorkshire-terrier/ — primary keyword absent from title/H1
+- **MEDIUM** `3.8b` /puppies/yorkshire-terrier/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /puppies/yorkshire-terrier/ — run of 10 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /puppies/yorkshire-terrier/ — no Sources/References block
+- **HIGH** `QUOTE` /puppies/yorkshire-terrier/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /puppies/yorkshire-terrier/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /puppies/yorkshire-terrier/ — fewer than 2 SVG figure(s) for a full route
+- **MEDIUM** `2.12b` /puppies/yorkshire-terrier/ — body links above the cap
+- **MEDIUM** `3.8b` /starter-kit/ — answer capsule does not contain the query phrase
+- **MEDIUM** `3.37` /starter-kit/ — run of 15 consecutive prose blocks (article scope, nav/form/figure/aside ignored)
+- **HIGH** `SOURCES` /starter-kit/ — no Sources/References block
+- **HIGH** `QUOTE` /starter-kit/ — no ExpertQuote/QuoteCard on the page (sme-extract quote missing)
+- **HIGH** `IMAGE-POLICY` /starter-kit/ — IMAGE_POLICY is not declared in config/project-config.md — the visual floor cannot be evaluated (REQUIRED, no default)
+- **HIGH** `FIGURE` /starter-kit/ — fewer than 2 SVG figure(s) for a full route
+- **HIGH** `3.30c` /starter-kit/ — schema_plan types not emitted: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+- **MEDIUM** `2.12b` /starter-kit/ — body links above the cap
+- **HIGH** `METHOD` /core:core/ — METHOD CHECK: uniqueness fired on 41/57 pages — probable shared-component artifact; verify config/audit-exclusions.json before listing per-page findings
+- **MEDIUM** `3.21b` /about-us/ — component-driven page below the 0.85 ledger-close floor
+- **MEDIUM** `3.21b` /available-puppies/ — component-driven page below the 0.85 ledger-close floor
+- **MEDIUM** `3.21b` /delivery/ — component-driven page below the 0.85 ledger-close floor
+- **MEDIUM** `3.21b` /pricing/ — component-driven page below the 0.85 ledger-close floor
+- **MEDIUM** `3.21b` /puppies/border-collie/ — component-driven page below the 0.85 ledger-close floor
+- **MEDIUM** `3.21b` /puppies/chow-chow/ — component-driven page below the 0.85 ledger-close floor
+- **MEDIUM** `3.21b` /puppies/corgi/ — component-driven page below the 0.85 ledger-close floor
+- **MEDIUM** `3.21b` /puppies/jack-russell-terrier/ — component-driven page below the 0.85 ledger-close floor
+- **MEDIUM** `3.21b` /puppies/pomsky/ — component-driven page below the 0.85 ledger-close floor
+- **MEDIUM** `3.21b` /puppies/shiba-inu/ — component-driven page below the 0.85 ledger-close floor
+- **MEDIUM** `3.21b` /puppies/siberian-husky/ — component-driven page below the 0.85 ledger-close floor
+- **MEDIUM** `3.21b` /starter-kit/ — component-driven page below the 0.85 ledger-close floor
+- **MEDIUM** `3.21b` /blog/ — component-driven page below the 0.85 ledger-close floor
+- **MEDIUM** `3.21b` /first-time-owners/breed-selector/ — component-driven page below the 0.85 ledger-close floor
+
+COVERAGE: 75 of 75 built routes audited (skipped: none)

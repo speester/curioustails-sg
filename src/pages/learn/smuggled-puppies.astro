@@ -1,4 +1,8 @@
 ---
+import { fileURLToPath } from 'node:url';
+import RelatedPosts from '../../components/RelatedPosts.astro';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -17,7 +21,7 @@ import boardingPen from '../../assets/delivery/3-puppy-boarding-cozy-pen-waiting
 import healthCheck from '../../assets/about-us/2-puppy-health-check-stethoscope.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
 
-const title = 'Smuggled Puppies Singapore: Cases & Red Flags | Curious Tails';
+const title = 'Smuggled Puppies: Cases and Red Flags | Curious Tails';
 const description =
   'The real cost of smuggled puppies in Singapore: parvovirus deaths at the checkpoint, a $7,000 fine for a buyer, and the 60-second check that protects you.';
 
@@ -59,13 +63,13 @@ const schemas = [
     aboutName: 'Puppy smuggling in Singapore',
     aboutAlternateName: 'smuggled puppies Singapore',
     datePublished: '2026-07-06',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   faqPageSchema(faqItems),
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/learn/smuggled-puppies" ogImage="/assets/guides/og-learn.jpg">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/learn/smuggled-puppies" ogImage="/assets/guides/og-learn.jpg">
   <Hero
     eyebrow="Buyer protection · Guide 2"
     h1="Why Unlicensed Sellers Are Dangerous: the Real Cases"
@@ -171,7 +175,7 @@ const schemas = [
 
   <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
 
-  <CaptionedBlock heading="The Hopeful Part: It's Working" imagePosition="none" variant="mid">
+  <CaptionedBlock heading="The Hopeful Part: It’s Working" imagePosition="none" variant="mid">
     <p>Enforcement is genuinely improving: ICA recorded a <a href="https://www.ica.gov.sg/news-and-publications/newsroom/media-release/33-per-cent-decrease-in-animal-smuggling-cases-recorded-in-2025" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">33% decrease in animal smuggling cases in 2025</a>, checkpoint detection keeps getting better, and the buyer-liability precedent removed the market's safest participant.</p>
     <p>The remaining gap is demand, and that is where you come in: every buyer who runs the registry check either buys licensed or walks away, and both outcomes shrink this market. Welfare groups like the <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">SPCA have campaigned on this for years</a>; the buyer-side check is the piece individuals control.</p>
     <p>What the licensed path looks like, priced and itemised, is on our transparent pricing page; the $500-to-$1,000 "premium" buys everything the car boot skipped.</p>
@@ -196,7 +200,7 @@ const schemas = [
   </CaptionedBlock>
 
   <BannerRibbon
-    heading="Unsure about a listing you've seen?"
+    heading="Unsure about a listing you’ve seen?"
     body="Send it to us. We'll tell you honestly what we see, even though we sell puppies too; helping you dodge a bad seller costs us nothing and might save you everything."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! Could I get your honest opinion on a puppy listing I found?"
@@ -230,4 +234,6 @@ const schemas = [
   />
 
   <Schema {schemas} />
+
+  <RelatedPosts route="/learn/smuggled-puppies/" />
 </BaseLayout>

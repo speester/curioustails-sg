@@ -1,0 +1,37 @@
+---
+// kit:TextBadge@1.0.0 - SEED section pattern (contracts 22). Tier A.
+// axis tuple: (inline) - this one is an EMPHASIS device used inside another pattern
+// evidence:   inherits its host section
+//
+// A word inside a heading, wrapped in a pill, a highlight or a rule. It is the cheapest
+// piece of authored typography there is, and the reason it is a component is contrast: the
+// pill sits on a tinted band on one page and a deep band on the next, and the token pair
+// has to change with it or the text fails 4.5:1 in one of the two.
+interface Props { variant?: 'pill' | 'highlight' | 'underline'; class?: string; }
+const { variant = 'pill', class: cls = '' } = Astro.props as Props;
+---
+
+<span class:list={['badge', `badge--${variant}`, cls]}><slot /></span>
+
+<style>
+  .badge { white-space: nowrap; }
+  .badge--pill {
+    display: inline-block;
+    padding: 0.1em 0.55em;
+    border-radius: 999px;
+    background: var(--color-accent, currentColor);
+    color: var(--ink-onaccent, #fff);
+    font-size: 0.9em;
+  }
+  .badge--highlight {
+    /* a marker stroke behind the baseline, not a full block: the ink colour is untouched,
+       so contrast is whatever the body text already passed */
+    background: linear-gradient(to top,
+      var(--surface-accent-soft, color-mix(in oklab, var(--color-accent, currentColor) 28%, transparent)) 0 0.45em,
+      transparent 0.45em);
+  }
+  .badge--underline {
+    border-block-end: 3px solid var(--color-accent, currentColor);
+    padding-block-end: 0.05em;
+  }
+</style>

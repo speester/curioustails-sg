@@ -1,4 +1,7 @@
 ---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -97,7 +100,7 @@ const schemas = [
     aboutName: 'Shiba Inu',
     aboutSameAs: 'https://en.wikipedia.org/wiki/Shiba_Inu',
     datePublished: '2026-07-06',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   itemListSchema([
     {
@@ -124,9 +127,9 @@ const schemas = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/puppies/shiba-inu" ogImage="/assets/shiba-inu/og-shiba-inu.jpg">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies/shiba-inu" ogImage="/assets/shiba-inu/og-shiba-inu.jpg">
   <Hero
-    eyebrow="AVS Licensed Pet Shop in Balestier"
+    eyebrow="Balestier shop, AVS licensed · Shiba Inu"
     h1="Shiba Inu Puppies for Sale in Singapore"
     h1Accent="Shiba Inu"
     subhead="Shiba prices in Singapore run roughly $4,000 to $8,000; ours are $4,788 to $6,500 all-in. The straight facts before the cute photos: Shibas are not HDB-approved, and a suspiciously cheap Shiba online is a risk, not a bargain. Private housing? Let's talk properly."
@@ -211,7 +214,7 @@ const schemas = [
       <p>Our honest note after two years of matching: we have talked people out of Shibas more than into them. We'd rather talk you out of the wrong breed than sell you the wrong dog.</p>
     </CaptionedBlock>
 
-    <CaptionedBlock heading="The Recall Rule: Assume It's Leash-For-Life" imageAlt="Shiba Inu on a secure harness walk at a Singapore void deck, leash held close" imageSrc={voidDeckWalk} imagePosition="right" variant="card">
+    <CaptionedBlock heading="The Recall Rule: Assume It’s Leash-For-Life" imageAlt="Shiba Inu on a secure harness walk at a Singapore void deck, leash held close" imageSrc={voidDeckWalk} imagePosition="right" variant="card">
       <p>Every Shiba owner learns the same lesson, ideally the easy way: recall is unreliable in this breed, permanently. A Shiba that spots something interesting consults its own judgment, not yours.</p>
       <p>So the rule is simple: leashed walks and secured spaces, always, on a well-fitted harness, because Shibas are also gifted escape artists. Gate checks and door discipline become household habits.</p>
       <p>None of this is a flaw; it is the breed working as designed. It just needs to be known before the deposit, which is why it is on this page and in our first conversation.</p>
@@ -348,7 +351,7 @@ const schemas = [
   </div>
 
   <div id="first-week" class="scroll-mt-40">
-    <CaptionedBlock heading="Your Shiba's First Week at Home" imagePosition="none" variant="card">
+    <CaptionedBlock heading="Your Shiba’s First Week at Home" imagePosition="none" variant="card">
       <p>Day 0: we deliver free, usually morning or evening, with the playpen set up before your Shiba explores; see how our free home delivery and setup works. Shibas assess new territory carefully; give it the dignity of a quiet first survey.</p>
       <p>Days 1 to 3: same food, fixed times, minimal fuss. A Shiba respects calm competence, and toilet training usually clicks embarrassingly fast.</p>
       <p>Days 4 to 7: book the free first lesson; see what the free training lesson covers. Early, rewards-based work matters double with an independent breed.</p>

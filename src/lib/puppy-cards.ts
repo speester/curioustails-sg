@@ -42,7 +42,7 @@ export const pupTitle = (p: Pup, breedName: string) => {
   // A cross is never titled with the pure breed name.
   const noun = p.crossLabel ?? breedName;
   const desc = p.color ? `${p.color} ${half(p.gender)}` : `${noun} ${half(p.gender)}`;
-  return p.name ? `${p.name} — ${desc}` : `${desc} #${p.id}`;
+  return p.name ? `${p.name} - ${desc}` : `${desc} #${p.id}`;
 };
 
 const pupAlt = (p: Pup, breedName: string, state: 'available' | 'placed') =>
@@ -93,7 +93,7 @@ export function pupCard(
           tagVariant: 'muted' as const,
           meta: 'Ask about similar',
           href: whatsappLink(
-            `Hi! The ${breedName} puppies on your site were recently placed — could you let me know about similar ${breedName} puppies coming up?`,
+            `Hi! The ${breedName} puppies on your site were recently placed - could you let me know about similar ${breedName} puppies coming up?`,
           ),
         }),
   };

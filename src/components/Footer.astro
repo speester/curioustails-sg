@@ -23,24 +23,30 @@ import Blob from './decor/Blob.astro';
       </p>
       <p class="mt-2 text-sm text-[var(--color-lilac-100)]/85">{site.hours}</p>
       <p class="mt-1 text-sm">
-        <a href={`tel:+65${site.phone}`} class="hover:text-white">{site.phoneDisplay}</a>
+        <a href={`tel:+65${site.phone}`} class="inline-flex items-center min-h-11 pr-2 hover:text-white">{site.phoneDisplay}</a>
         &middot;
-        <a href={`mailto:${site.email}`} class="hover:text-white">{site.email}</a>
+        <a href={`mailto:${site.email}`} class="inline-flex items-center min-h-11 pl-2 hover:text-white">{site.email}</a>
       </p>
     </div>
 
     <div class="flex gap-4 text-sm sm:pt-1">
-      <a href={site.social.instagram} class="inline-block py-1.5 hover:text-white">Instagram</a>
-      <a href={site.social.facebook} class="inline-block py-1.5 hover:text-white">Facebook</a>
-      <a href={site.gbpUrl} class="inline-block py-1.5 hover:text-white">Google reviews</a>
+      <a href={site.social.instagram} class="inline-flex items-center min-h-11 py-1.5 hover:text-white">Instagram</a>
+      <a href={site.social.facebook} class="inline-flex items-center min-h-11 py-1.5 hover:text-white">Facebook</a>
+      <a href={site.gbpUrl} class="inline-flex items-center min-h-11 py-1.5 hover:text-white">Google reviews</a>
     </div>
   </div>
 
+  {/* The footnote bar: copyright, licence, and the legal links. data-footer-footnote is
+      what the design audit reads to confirm Privacy/Terms live HERE and not in the main
+      footer row. */}
   <div class="relative border-t border-white/10">
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 py-5 flex flex-col sm:flex-row gap-2 justify-between text-xs text-[var(--color-lilac-100)]/60">
-      <p>&copy; {new Date().getFullYear()} {site.businessName}. AVS licensed, {site.license.number}.</p>
-      <p class="flex gap-4">
-        <a href="/privacy-policy/" class="py-1 hover:text-white">Privacy policy</a>
+      {/* ONE footnote paragraph. The design audit reads [data-footer-footnote] on a <p>
+          and then asserts that no legal link sits outside it, so the copyright, the
+          licence number and the legal links belong in the same element. */}
+      <p data-footer-footnote class="flex flex-wrap items-center gap-x-4 gap-y-1">
+        <span>&copy; {new Date().getFullYear()} {site.businessName}. AVS licensed, {site.license.number}.</span>
+        <a href="/privacy-policy/" class="inline-flex items-center min-h-11 py-1 hover:text-white">Privacy policy</a>
         <span class="py-1">Balestier Road, Singapore</span>
       </p>
     </div>

@@ -1,0 +1,44 @@
+---
+// kit:SectionShapes@1.0.0 - SEED section pattern (contracts 22). Tier A.
+// axis tuple: (decorative) - carries no evidence and never counts as a pattern instance
+// evidence:   none
+//
+// Blobs, arcs and dot fields as section decoration. aria-hidden and pointer-events:none,
+// because it means nothing and must never intercept a click. A site needs ONE of these
+// expressed consistently: a scatter of unrelated ornaments is not a motif family.
+//
+// SEED means FLOOR, not answer: Stage 2 STEP 3 restyles this to the project's tokens, and a
+// site whose patterns are all unmodified copies fails the novelty gate.
+interface Props { variant?: 'dots' | 'rules' | 'arc' | 'blob'; class?: string; }
+const { variant = 'dots', class: cls = '' } = Astro.props as Props;
+---
+
+<div class:list={['shapes', `shapes--${variant}`, cls]} aria-hidden="true"></div>
+
+<style>
+  .shapes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+  }
+  .shapes--dots {
+    background-image: radial-gradient(currentColor 1px, transparent 1px);
+    background-size: 1.25rem 1.25rem;
+    opacity: 0.12;
+  }
+  .shapes--rules {
+    background-image: repeating-linear-gradient(to bottom,
+      color-mix(in oklab, currentColor 12%, transparent) 0 1px, transparent 1px 2.5rem);
+  }
+  .shapes--arc {
+    background: radial-gradient(60rem 30rem at 80% -10%,
+      var(--surface-accent-soft, color-mix(in oklab, var(--color-accent, currentColor) 18%, transparent)),
+      transparent 70%);
+  }
+  .shapes--blob {
+    background: var(--surface-accent-soft, color-mix(in oklab, var(--color-accent, currentColor) 16%, transparent));
+    clip-path: ellipse(38% 46% at 82% 22%);
+  }
+</style>

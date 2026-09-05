@@ -1,0 +1,43 @@
+---
+// kit:Figure@1.0.0 - real <figure>, focusable scroll canvas, 600px legibility floor.
+interface Props {
+  heading: string;
+  caption: string;
+  level?: 2 | 3 | 4;
+  href?: string;          // when the caption names a subject the site explains elsewhere
+  minWidth?: number;      // canvas floor; never below 600
+  id?: string;
+  /** How this figure moves or responds. Emits data-figure-interactive, which the exit
+      gate measures as a LIVE behaviour, so set it only when the child actually animates
+      or responds to hover, focus, step, scrub or draw. */
+  interactive?: 'hover' | 'step' | 'scrub' | 'draw' | 'toggle';
+}
+const { heading, caption, level = 3, href, minWidth = 600, id, interactive } = Astro.props as Props;
+if (minWidth < 600) throw new Error('[Figure] minWidth < 600 - labels drop below ~11px at 375. The floor is 600.');
+const H = `h${level}`;
+---
+<figure class="figure" id={id} data-treatment="figure" data-figure
+        data-figure-interactive={interactive}>
+  <H class="figure__heading">{heading}</H>
+  <div class="figure__canvas" tabindex="0" role="group" aria-label={heading} style={`--fig-min:${minWidth}px`}>
+    <slot />
+  </div>
+  <figcaption class="figure__caption">
+    {href ? <a href={href}>{caption}</a> : caption}
+  </figcaption>
+</figure>
+
+<style>
+  .figure { margin-block: clamp(1.5rem, 4vw, 2.5rem); }
+  .figure__heading { margin: 0 0 .5rem; font-size: var(--text-lg); }
+  /* Wide diagrams SCROLL; they never shrink their labels. */
+  .figure__canvas { overflow-x: auto; overscroll-behavior-x: contain; border: 1px solid var(--border-soft); border-radius: var(--radius-md); background: var(--surface-card); padding: 1rem; }
+  .figure__canvas:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+  .figure__canvas > :global(svg) { display: block; width: 100%; min-width: var(--fig-min); height: auto; }
+  .figure__caption { margin-top: .5rem; font-size: var(--text-sm); color: var(--ink-soft); }
+  .figure__canvas :global(.fig-label) { font-size: 12px; fill: var(--ink); }
+  .figure__canvas :global(.fig-label-soft) { font-size: 11px; fill: var(--ink-soft); }
+  @media (prefers-reduced-motion: reduce) {
+    .figure__canvas :global([data-draw]) { stroke-dasharray: none !important; stroke-dashoffset: 0 !important; animation: none !important; }
+  }
+</style>

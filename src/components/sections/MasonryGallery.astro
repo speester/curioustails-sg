@@ -1,0 +1,41 @@
+---
+// kit:MasonryGallery@1.0.0 - SEED section pattern (contracts 22). Tier A.
+// axis tuple: offset-grid/none/mosaic/gutter/photo/none/photo/photo
+// evidence:   photo
+//
+// An uneven grid on CSS `columns`. Column flow reorders reading order top-to-bottom per
+// column, which is fine for a gallery and wrong for anything sequential - so this pattern
+// is for photographs, never for steps.
+//
+// SEED means FLOOR, not answer: Stage 2 STEP 3 restyles this to the project's tokens, and a
+// site whose patterns are all unmodified copies fails the novelty gate.
+interface Props {
+  items?: Array<Record<string, string>>;
+  heading?: string;
+  class?: string;
+}
+const { items = [], heading, class: cls = '' } = Astro.props as Props;
+---
+
+<div class:list={['mason', cls]} data-section-pattern="masonry-gallery" data-pattern-evidence="photo">
+  {items.map((it) => (
+    <figure class="mason__item">
+      <img src={it.src} alt={it.alt} width={it.width} height={it.height} loading="lazy" decoding="async" />
+      {it.caption && <figcaption>{it.caption}</figcaption>}
+    </figure>
+  ))}
+</div>
+
+<style>
+  .mason { columns: 1; column-gap: clamp(0.75rem, 2vw, 1.25rem); }
+  @media (min-width: 40rem) { .mason { columns: 2; } }
+  @media (min-width: 64rem) { .mason { columns: 3; } }
+  .mason__item { margin: 0 0 clamp(0.75rem, 2vw, 1.25rem); break-inside: avoid; }
+  .mason__item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md, 0.75rem);
+  }
+  .mason figcaption { font-size: var(--text-sm, 0.875rem); opacity: 0.8; padding-block-start: 0.35rem; }
+</style>

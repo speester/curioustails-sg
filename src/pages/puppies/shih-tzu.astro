@@ -1,4 +1,7 @@
 ---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -127,7 +130,7 @@ const schemas = [
     aboutAlternateName: 'Shih Tzu dog',
     aboutSameAs: 'https://en.wikipedia.org/wiki/Shih_Tzu',
     datePublished: '2026-07-09',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   itemListSchema([
     {
@@ -161,9 +164,9 @@ const schemas = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/puppies/shih-tzu">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies/shih-tzu">
   <Hero
-    eyebrow="AVS Licensed Pet Shop in Balestier"
+    eyebrow="AVS licence AS24J00046 · Shih Tzu"
     h1="Shih Tzu Puppies for Sale in Singapore"
     h1Accent="Shih Tzu"
     subhead={`A Shih Tzu in Singapore costs ${priceRange} at Curious Tails, all-in, against a published local range of $3,000 to $7,000. The $500+ starter kit, free home delivery and setup, and a free first training lesson are already inside our number.`}
@@ -288,7 +291,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        The 4 to 7.5 kg range makes the Shih Tzu a sweet spot: small enough for any flat, sturdy enough for family life. If you're comparing low-shedding companions by size, the <a href="/puppies/maltese/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Maltese</a> is the daintier option and the Cavapoo the livelier one.
+        The 4 to 7.5 kg range makes the Shih Tzu a sweet spot: small enough for any flat, sturdy enough for family life. If you're comparing low-shedding companions by size, <a href="/puppies/maltese/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the Maltese</a> is the daintier option and the Cavapoo the livelier one.
       </p>
     </div>
   </div>
@@ -459,7 +462,7 @@ const schemas = [
     <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
   </div>
 
-  <CaptionedBlock heading="Your Shih Tzu's First Week at Home" imageAlt="Shih Tzu puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
+  <CaptionedBlock heading="Your Shih Tzu’s First Week at Home" imageAlt="Shih Tzu puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Shih Tzu explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
     <p>Days 1 to 3: keep it calm, cool and predictable. A fixed feeding routine, the toilet pads where we placed them, and the daily face-wipe habit starting immediately. Some night whimpering is normal adjustment.</p>
     <p>Days 4 to 7: the routine sticks. Book your free first lesson with an AVS-certified trainer this week; the Shih Tzu's gentle stubborn streak is easiest to shape early. See what the free AVS-certified training lesson covers. For anything in between, you WhatsApp us.</p>

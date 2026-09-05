@@ -1,4 +1,8 @@
 ---
+import { fileURLToPath } from 'node:url';
+import RelatedPosts from '../../components/RelatedPosts.astro';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -76,13 +80,13 @@ const schemas = [
     aboutName: 'Puppy care in the first weeks',
     aboutAlternateName: 'puppy first week home',
     datePublished: '2026-07-06',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   faqPageSchema(faqItems),
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/first-time-owners/puppy-care-101" ogImage="/assets/guides/og-puppy-care-101.jpg">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/first-time-owners/puppy-care-101" ogImage="/assets/guides/og-puppy-care-101.jpg">
   <Hero
     eyebrow="First-time owner guide · Decision 5"
     h1="Your Puppy's First Weeks Home: What to Expect"
@@ -258,4 +262,6 @@ const schemas = [
   />
 
   <Schema {schemas} />
+
+  <RelatedPosts route="/first-time-owners/puppy-care-101/" />
 </BaseLayout>

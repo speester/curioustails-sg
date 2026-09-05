@@ -16,14 +16,16 @@ const nav = [
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const isActive = (href: string) => path === href || path.startsWith(href + '/');
 
+// min-h-11 = 44px, the tap-target floor the design audit measures. At py-2 these pills
+// rendered 36px tall on every page.
 const pillBase =
-  'rounded-full px-3.5 py-2 text-sm font-semibold transition-colors';
+  'inline-flex items-center min-h-11 rounded-full px-3.5 py-2 text-sm font-semibold transition-colors';
 const pillIdle =
   'text-[var(--color-cream-700)] hover:bg-[var(--color-peach-100)] hover:text-[var(--color-coral-600)]';
 const pillActive = 'bg-[var(--color-coral-100)] text-[var(--color-coral-600)]';
 ---
 
-<header class="sticky top-0 z-sticky bg-[var(--color-surface)]/90 backdrop-blur-sm">
+<header data-site-header class="sticky top-0 z-sticky bg-[var(--color-surface)]/90 backdrop-blur-sm">
   <div class="mx-auto max-w-[1400px] px-5 sm:px-8 flex items-center justify-between h-20 py-3">
     <a href="/" class="flex items-center gap-2.5 group shrink-0">
       <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border-3 border-[var(--color-coral-600)] bg-[var(--color-coral-100)] text-[var(--color-coral-600)] shadow-[0_4px_0_0_var(--color-coral-600)] transition-transform group-hover:-rotate-6">

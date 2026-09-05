@@ -1,0 +1,46 @@
+---
+// RouteImage.astro - place a generated raster on a page that has no <Section> to carry it.
+//
+// Section.astro claims an image by matching its own heading against the `outline_section`
+// recorded when the image was generated. ArticleLayout pages are loose prose with bare <h2>
+// elements and no Section wrapper, so nothing there claims anything: those pages rendered
+// zero images while the files sat on disk. This is the same lookup, addressed explicitly.
+//
+// `slot` must be the heading the image was generated for (see image-manifest.json). A slot
+// with no generated image renders nothing rather than failing the build, because the image
+// run is long and pages are built while it is still going.
+import SectionImage from './SectionImage.astro';
+import assetMap from '../../public/images/asset-map.json';
+import imageDims from '../data/image-dims.json';
+
+interface Props {
+  /** The heading this image was generated for (image-manifest.json `slot`).
+   *  NOT named `slot`: that is a reserved Astro attribute which assigns a component to a
+   *  NAMED SLOT, so <RouteImage slot="..."> was silently dropped by the layout instead of
+   *  rendering - no error, no output, on every ArticleLayout page. */
+  section: string;
+  eager?: boolean;
+}
+const { section, eager = false } = Astro.props as Props;
+
+const routeKey = (() => {
+  const p = Astro.url.pathname;
+  return p === '/' ? '/' : p.endsWith('/') ? p : p + '/';
+})();
+
+const pool: any[] = (assetMap as Record<string, any>)[routeKey]?.images ?? [];
+const used = Astro.locals.usedImages;
+const picked = pool.find((i) => i.outline_section === section && !used?.has(i.file));
+if (picked) used?.add(picked.file);
+const d = picked ? (imageDims as Record<string, any>)[picked.file] : undefined;
+---
+
+{picked && (
+  <SectionImage
+    src={picked.file}
+    alt={picked.alt_text}
+    width={d?.width}
+    height={d?.height}
+    eager={eager}
+  />
+)}

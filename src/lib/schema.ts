@@ -64,6 +64,14 @@ function productAggregateRating() {
 // Live animals aren't returnable; delivery is free and island-wide. Reused on
 // every Product offer so GSC clears "Missing field hasMerchantReturnPolicy /
 // shippingDetails".
+// Prices are reviewed with the inventory, so an offer is quoted as valid to the end of
+// the next month. Without priceValidUntil Google downgrades the rich result once it
+// judges the price stale. Derived, never a literal, so it can never go into the past.
+function priceValidUntil(): string {
+  const d = new Date();
+  return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 2, 0)).toISOString().slice(0, 10);
+}
+
 function productReturnPolicy() {
   return {
     '@type': 'MerchantReturnPolicy',
@@ -253,7 +261,7 @@ export function serviceSchema(opts: { name: string; description: string; price?:
     description: opts.description,
     provider: { '@id': `${site.domain}#business` },
     areaServed: { '@type': 'City', name: 'Singapore' },
-    ...(opts.price ? { offers: { '@type': 'Offer', price: toPriceValue(opts.price), priceCurrency: 'SGD' } } : {}),
+    ...(opts.price ? { offers: { '@type': 'Offer', price: toPriceValue(opts.price), priceCurrency: 'SGD', priceValidUntil: priceValidUntil() } } : {}),
     ...(opts.image ? { image: opts.image } : {}),
   };
 }
@@ -381,6 +389,7 @@ function productEntity(item: { name: string; url: string; description?: string; 
                     highPrice: toPriceValue(item.priceHigh),
                     priceCurrency: 'SGD',
                     availability: availabilityFor(item.url),
+                    priceValidUntil: priceValidUntil(),
                     hasMerchantReturnPolicy: productReturnPolicy(),
                     shippingDetails: productShippingDetails(),
                   }
@@ -389,6 +398,7 @@ function productEntity(item: { name: string; url: string; description?: string; 
                     price: toPriceValue(item.price),
                     priceCurrency: 'SGD',
                     availability: availabilityFor(item.url),
+                    priceValidUntil: priceValidUntil(),
                     hasMerchantReturnPolicy: productReturnPolicy(),
                     shippingDetails: productShippingDetails(),
                   },

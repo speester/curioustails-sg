@@ -1,0 +1,331 @@
+===== check:tokens : PASS (exit 0) =====
+  --surface-panel  x13  src/components/MethodNote.astro:46
+  --border-subtle  x13  src/components/Section.astro:208
+  --ease-out  x6  src/components/sections/FlipBox.astro:54
+  --surface-accent-soft  x6  src/components/sections/FlipBox.astro:78
+  --ink-onaccent  x4  src/components/Section.astro:202
+  --radius-btn  x1  src/components/ListingGrid.astro:123
+  --ink-ondark  x1  src/components/Section.astro:138
+
+
+refs=3537 declared=165 undeclared_tokens=0 undeclared_refs=0
+PASS check-tokens
+check-tokens: checked=44 failed=0
+
+===== check:kit : PASS (exit 0) =====
+CHECK                          | RESULT
+classes rendered by components | 571
+classes declared in CSS        | 806 (source + built dist/)
+unresolved classes             | 0
+undeclared colour aliases      | 0
+manifest files missing         | 0
+
+failures=0
+PASS check-kit
+check-kit: checked=1 failed=0
+
+===== check:anchors : PASS (exit 0) =====
+anchors=210 targets=71 pages=75 over_soft_cap=0 (brand: 0, compliance: 0, other: 0)
+anchor-registry: checked=210 failed=0
+
+===== check:blog : PASS (exit 0) =====
+blog posts                   | 7 hand-authored .astro pages
+src/data/blog-content.ts     | PROJECT-OWNED (no src/data/blog-content.ts; this generator is not in play)
+PASS gen-blog-pages - nothing to generate
+
+===== check:blueprint : FAIL (exit 1) =====
+  [check 13] config/anchor-registry.json: missing _scope and/or _chrome keys
+
+SUMMARY
+rows=190 dup_primary=0 missing_evidence=190 inbound_min=0 hubs_covered=50% utility_rows=missing:/about/,/contact/,/privacy/,/terms/,/404,/blog/,/editorial-policy/ title_fail=337 reserved=0
+intent_missing=190 do_not_chase_unflagged=0 ceiling_missing=190 coverage_only_without_bet=0 value_tier_missing=0 build_order_valid=no
+title_missing_keyword=151 h1_missing_keyword=181 title_over_60=5 title_phrase_collisions=0
+keyword_not_byte_identical=0 kd_pulled_at_missing=190 kd_stale>30d=0
+silos_without_hub=0 hubs_under_inbound_floor=6 entity_hubs_unspawned=0 monetization_rows=n/a
+core_rows_without_gt=63 gt_below_min=0 core_verify_flags=0 unsourced_numeric_bullets=0
+merged_into_dangling=0 pairs_over_threshold_unmerged=0 registry=seeded anchors_over_cap=0 cancelled_log=missing forms_unregistered=0
+BLUEPRINT_FAIL (11 checks)
+validate-blueprint: checked=190 failed=11
+
+===== check:content : FAIL (exit 1) =====
+  [duplicate-blocks] src\pages\puppies\maltipoo.astro duplicates block first seen in src\pages\puppies\italian-greyhound.astro
+  [duplicate-blocks] src\pages\puppies\maltipoo.astro duplicates block first seen in src\pages\puppies\boston-terrier.astro
+  [duplicate-blocks] src\pages\puppies\miniature-pinscher.astro duplicates block first seen in src\pages\puppies\chow-chow.astro
+  [duplicate-blocks] src\pages\puppies\miniature-pinscher.astro duplicates block first seen in src\pages\puppies\coton-de-tulear.astro
+  [duplicate-blocks] src\pages\puppies\miniature-pinscher.astro duplicates block first seen in src\pages\puppies\beagle.astro
+  [duplicate-blocks] src\pages\puppies\miniature-schnauzer.astro duplicates block first seen in src\pages\puppies\chow-chow.astro
+  [duplicate-blocks] src\pages\puppies\miniature-schnauzer.astro duplicates block first seen in src\pages\puppies\maltipoo.astro
+  [duplicate-blocks] ... 44 more
+
+checks=17 failed=2
+check-content: checked=17 failed=2
+FAIL check:content
+
+===== check:contrast : PASS (exit 0) =====
+light | figure-label  | card        | 17.78:1 | PASS
+light | figure-label  | warn-panel  | 14.95:1 | PASS
+
+themes=light pairs=41 failed=0
+wrote the matrix into design-system.md
+PASS contrast-check --tokens
+CHECK            | RESULT
+computed-contrast | PASS
+
+pages=75 themes=light failures=0
+PASS contrast-check --pages
+contrast-check: checked=75 failed=0
+
+===== check:design : FAIL (exit 1) =====
+  /puppies/westie/: 23 <section> and no data-tone anywhere — not built on Section.astro, so the tone rhythm is unenforced
+  /puppies/westie/: 23 <section> and no data-treatment anywhere — not built on Section.astro, so treatment variety is unenforced
+  /puppies/whippet/: 22 <section> and no data-tone anywhere — not built on Section.astro, so the tone rhythm is unenforced
+  /puppies/whippet/: 22 <section> and no data-treatment anywhere — not built on Section.astro, so treatment variety is unenforced
+  /puppies/yorkshire-terrier/: 24 <section> and no data-tone anywhere — not built on Section.astro, so the tone rhythm is unenforced
+  /puppies/yorkshire-terrier/: 24 <section> and no data-treatment anywhere — not built on Section.astro, so treatment variety is unenforced
+  /starter-kit/: 19 <section> and no data-tone anywhere — not built on Section.astro, so the tone rhythm is unenforced
+  /starter-kit/: 19 <section> and no data-treatment anywhere — not built on Section.astro, so treatment variety is unenforced
+
+pages=75 failures=517 warnings=149
+FAIL design-audit
+design-audit: checked=75 failed=517
+
+===== check:eeat : FAIL (exit 1) =====
+HALT: research/eeat-findings.json missing. Stage 0.6 (skill eeat-research) has not run for this project.
+      A build with no evidence bank is a build with no information-gain supply;
+      it is not an empty file to generate past.
+
+===== check:fonts : PASS (exit 0) =====
+/                                  | h1=Fredoka | body=Nunito | cls=0.000
+/about-us/                         | h1=Fredoka | body=Nunito | cls=0.000
+/available-puppies/                | h1=Fredoka | body=Nunito | cls=0.000
+/blog/                             | h1=Fredoka | body=Nunito | cls=0.000
+/blog/cavapoo-vs-maltipoo/         | h1=Fredoka | body=Nunito | cls=0.000
+/blog/first-time-mistakes/         | h1=Fredoka | body=Nunito | cls=0.000
+
+faces=2 families=Fredoka, Nunito bytes=67.2 KB routes=6 failures=0
+PASS check-fonts
+check-fonts: checked=75 failed=0
+
+===== check:form : PASS (exit 0) =====
+PASS no form by design - LEAD_CAPTURE: whatsapp. Enquiries arrive
+     through that channel, so there is no config/formaloo.<key>.json to read.
+
+===== check:formstates : PASS (exit 0) =====
+PASS check-form-states (dist/ is built and no page renders a registry form)
+
+===== check:ga4 : PASS (exit 0) =====
+| eventName | eventCount |
+|---|---|
+| call_click | - |
+| cta_click | - |
+| outbound_click | - |
+| whatsapp_click | - |
+ga4-events: declared=4 observed=0 silent=0
+
+===== check:health : FAIL (exit 1) =====
+  /puppies/shihpoo/ [ga4] window.gtag is not a function (define:vars IIFE or missing config)
+  /puppies/siberian-husky/ [ga4] window.gtag is not a function (define:vars IIFE or missing config)
+  /puppies/silky-terrier/ [ga4] window.gtag is not a function (define:vars IIFE or missing config)
+  /puppies/toy-poodle/ [ga4] window.gtag is not a function (define:vars IIFE or missing config)
+  /puppies/westie/ [ga4] window.gtag is not a function (define:vars IIFE or missing config)
+  /puppies/whippet/ [ga4] window.gtag is not a function (define:vars IIFE or missing config)
+  /puppies/yorkshire-terrier/ [ga4] window.gtag is not a function (define:vars IIFE or missing config)
+  /starter-kit/ [ga4] window.gtag is not a function (define:vars IIFE or missing config)
+
+routes=75 widths=320,375,768,1440 themes=light failures=75
+FAIL page-health
+page-health: checked=75 failed=75
+
+===== check:hgates : PASS (exit 0) =====
+PASS  entity grouping        no [data-entity] cards found — mark listing cards with data-entity to enable this gate
+PASS  aside isolation        related/sidebar blocks outside <aside>: 0
+  NOTE  html weight            max 391KB on /puppies/ (reported, not gated - E6)
+PASS  render-blocking 3P     blocking third-party requests: 0
+PASS  sentence variance      σ < 4.0 (fail): 0/74 · σ 4.0-6.0 (warn): 1
+PASS  stock transitions      stock openers: 0
+PASS  capsule pattern share  max "licensed by avs" on 15% of 74 page(s) (cap 40%)
+------------------------------------------------------------------------
+PASS: 0 H-gate check(s) failing across 75 built page(s)
+h-gates: checked=75 failed=0
+
+===== check:imagesrc : PASS (exit 0) =====
+check-image-source: IMAGE_SOURCE="(unset)" — the real-first prompt constraint does not apply
+
+===== check:index : PASS (exit 0) =====
+CHECK                        | RESULT
+pages found                  | 76
+blueprint rows               | 190
+pages missing a title        | PASS
+pages not in the blueprint   | PASS
+src/data/posts.ts up to date | PASS
+
+===== check:keyboard : PASS (exit 0) =====
+KEYBOARD /puppies/toy-poodle/ | focusables=60 | stops=60 | figures=0/0
+KEYBOARD /puppies/westie/ | focusables=57 | stops=60 | figures=0/0
+KEYBOARD /puppies/yorkshire-terrier/ | focusables=56 | stops=58 | figures=0/0
+KEYBOARD /puppies/whippet/ | focusables=59 | stops=60 | figures=0/0
+KEYBOARD /starter-kit/ | focusables=42 | stops=43 | figures=0/0
+
+CHECK          | RESULT
+keyboard       | PASS
+
+routes=75 widths=320,375,768,1440 themes=light failures=0
+PASS page-health
+page-health: checked=75 failed=0
+
+===== check:links : PASS (exit 0) =====
+CHECK             | RESULT     | NOTE
+internal-links    | PASS       | every internal href resolves to a built route
+planned-not-built | PASS       | blueprint rows not yet built — listed, not failed
+asset-srcs        | PASS       | /images and /figures srcs exist on disk
+card-images       | PASS       | every card that links to a page renders its feature image
+form-handlers     | PASS       | every <form action> has a Pages Function or an external provider
+
+pages=76 routes=76 failed=0
+check-links: checked=76 failed=0
+PASS check:links
+
+===== check:page : FAIL (exit 1) =====
+PASS quote       count=1
+FAIL sources     no <section data-sources> block
+FAIL formplace   brief form_placement is '', not one of none|inline_cta|hero_form|full_form
+FAIL provenance  no corpus match: $3,288
+PASS avoid       0 absolute / 0 claim-only-as-refusal (baseline ok)
+FAIL spelling    en-US: 1 other-locale stems ['\\blicence']
+PASS emdash      emdash=0 glued=0 lt_strong=0 comments=0
+PASS markers     0
+FAIL head        schema_plan LocalBusiness missing; schema_plan Product missing
+FAIL headings    7/11 briefed H2s missing: ["What's included in a puppy starter kit?", 'The 8 categories, item by item', 'Which items matter most in week one', 'Mid-page CTA', 'Social proof']
+SUMMARY starter-kit :: w=2329 kw=fail lsiP=90% lsiS=85% lsiA=72% ent=- faq=1 paa=- h1=unique fig=0(0anim) img=6 quote=1 src=missing prov=fail avoid=0 emdash=0 glyph=0 dupid=0 ranks=ok head=fail
+FAIL checked=75 failed=75
+
+===== check:posts : PASS (exit 0) =====
+CHECK                        | RESULT
+pages found                  | 76
+blueprint rows               | 190
+pages missing a title        | PASS
+pages not in the blueprint   | PASS
+src/data/posts.ts up to date | PASS
+
+===== check:quotes : FAIL (exit 1) =====
+FAIL no expert quote on content page: /puppies/shiba-inu/
+FAIL no expert quote on content page: /puppies/shih-tzu/
+FAIL no expert quote on content page: /puppies/shihpoo/
+FAIL no expert quote on content page: /puppies/siberian-husky/
+FAIL no expert quote on content page: /puppies/silky-terrier/
+FAIL no expert quote on content page: /puppies/toy-poodle/
+FAIL no expert quote on content page: /puppies/westie/
+FAIL no expert quote on content page: /puppies/whippet/
+FAIL no expert quote on content page: /puppies/yorkshire-terrier/
+FAIL no expert quote on content page: /starter-kit/
+rendered=0 on 2 pages, second_home=0, over_2_use_cap=0, verify_true=0, unresolved=0, missing_pages=73
+check-quotes: checked=0 failed=73
+
+===== check:redirects : PASS (exit 0) =====
+CHECK                         | RESULT
+redirect-map.csv present      | PASS (none — empty template)
+rows                          | 0
+301s written                  | 0
+disavow candidates (spam>20)  | 0
+syntax problems               | PASS
+
+PASS public/_redirects up to date
+
+===== check:refs:stale : FAIL (exit 1) =====
+FAIL src/data/sources.json missing — the citation registry is the only citation source. checked=0 failed=1
+
+===== check:registry : PASS (exit 0) =====
+check                                       value       result
+--------------------------------------------------------------------
+src/data/registry.ts                        fresh       PASS
+src/data/routes.ts                          fresh       PASS
+built routes present in the registry        75/75       PASS
+REGISTRY_OK routes=76 rows=190
+
+===== check:related : PASS (exit 0) =====
+related: 17 post pages, need>=3 each, missing=0, under_filled=0, self=0, dupes=0, dead=0
+check-related: checked=17 failed=0
+
+===== check:schema : PASS (exit 0) =====
+/puppies/shihpoo/                  |    0 |      2 | -
+/puppies/siberian-husky/           |    0 |      2 | -
+/puppies/silky-terrier/            |    0 |      2 | -
+/puppies/toy-poodle/               |    0 |      2 | -
+/puppies/westie/                   |    0 |      2 | -
+/puppies/whippet/                  |    0 |      2 | -
+/puppies/yorkshire-terrier/        |    0 |      2 | -
+/starter-kit/                      |    0 |      1 | -
+
+archetype=(unset) pages=75 failures=0 warnings=0
+PASS check-schema-rich
+check-schema-rich: checked=75 failed=0
+
+===== check:schema:req : PASS (exit 0) =====
+  /blog/: Person is missing recommended url
+  /blog/: ItemList is missing recommended numberOfItems
+  /blog/: Product is missing recommended offers
+  /blog/: Person is missing recommended url
+  /blog/: Person is missing recommended jobTitle
+  /blog/: Person is missing recommended sameAs
+  /blog/: Product is missing recommended offers
+  /blog/: Person is missing recommended url
+  /blog/: Person is missing recommended jobTitle
+  …and 1138 more
+check-schema-required: checked=75 failed=0
+PASS check-schema-required
+
+===== check:sources : FAIL (exit 1) =====
+FAIL src/data/sources.json missing — the citation registry is the only citation source. checked=0 failed=1
+
+===== check:variants : PASS (exit 0) =====
+variants: 0 sources, skipped=0, missing=0, registry_drift=false
+
+===== check:dims : PASS (exit 0) =====
+CHECK                    | RESULT
+assets scanned           | 802
+dims recorded            | 746
+problems                 | PASS
+src/data/image-dims.json | PASS
+
+PASS gen-image-dims
+
+===== check:formaloo-map : PASS (exit 0) =====
+PASS no form by design - LEAD_CAPTURE: whatsapp. Enquiries arrive
+     through that channel, so there is no config/formaloo.<key>.json to read.
+
+===== qc : FAIL (exit 1) =====
+PASS quote       count=1
+FAIL sources     no <section data-sources> block
+FAIL formplace   brief form_placement is '', not one of none|inline_cta|hero_form|full_form
+FAIL provenance  no corpus match: $3,288
+PASS avoid       0 absolute / 0 claim-only-as-refusal (baseline ok)
+FAIL spelling    en-US: 1 other-locale stems ['\\blicence']
+PASS emdash      emdash=0 glued=0 lt_strong=0 comments=0
+PASS markers     0
+FAIL head        schema_plan LocalBusiness missing; schema_plan Product missing
+FAIL headings    7/11 briefed H2s missing: ["What's included in a puppy starter kit?", 'The 8 categories, item by item', 'Which items matter most in week one', 'Mid-page CTA', 'Social proof']
+SUMMARY starter-kit :: w=2329 kw=fail lsiP=90% lsiS=85% lsiA=72% ent=- faq=1 paa=- h1=unique fig=0(0anim) img=6 quote=1 src=missing prov=fail avoid=0 emdash=0 glyph=0 dupid=0 ranks=ok head=fail
+FAIL checked=75 failed=75
+
+===== audit : FAIL (exit 1) =====
+  [MEDIUM] 3.21b /puppies/chow-chow/ — component-driven page below the 0.85 ledger-close floor (measured 0.61, target >=0.85)
+  [MEDIUM] 3.21b /puppies/corgi/ — component-driven page below the 0.85 ledger-close floor (measured 0.60, target >=0.85)
+  [MEDIUM] 3.21b /puppies/jack-russell-terrier/ — component-driven page below the 0.85 ledger-close floor (measured 0.63, target >=0.85)
+  [MEDIUM] 3.21b /puppies/pomsky/ — component-driven page below the 0.85 ledger-close floor (measured 0.66, target >=0.85)
+  [MEDIUM] 3.21b /puppies/shiba-inu/ — component-driven page below the 0.85 ledger-close floor (measured 0.60, target >=0.85)
+  [MEDIUM] 3.21b /puppies/siberian-husky/ — component-driven page below the 0.85 ledger-close floor (measured 0.65, target >=0.85)
+  [MEDIUM] 3.21b /starter-kit/ — component-driven page below the 0.85 ledger-close floor (measured 0.84, target >=0.85)
+  [MEDIUM] 3.21b /blog/ — component-driven page below the 0.85 ledger-close floor (measured 0.85, target >=0.85)
+  [MEDIUM] 3.21b /first-time-owners/breed-selector/ — component-driven page below the 0.85 ledger-close floor (measured 0.85, target >=0.85)
+
+Coverage: 75 of 75 built routes audited (skipped: none)
+seo-audit: checked=743 failed=395
+
+===== ledger.py check =====
+FAIL ledger: 6732 empty cells: index.archetype_role, index.brief_depth, index.kd, index.build_order, index.brief_date, index.serp_extract, index.word_band, index.copy_date, index.copy_gate, index.copy_gate_sha, index.words, index.h3, index.tables, index.capsule_pct, index.kw_ratio, index.lsi_pct, index.entity_pct, index.paa_covered, index.paa_verbatim, index.faq_visible
+FAIL blueprint row without ledger row: available-puppies (run `ledger.py sync`)
+FAIL blueprint row without ledger row: blog/pet-ownership-course-singapore (run `ledger.py sync`)
+FAIL blueprint row without ledger row: privacy-policy (run `ledger.py sync`)
+ledger: 6732 empty cells, 0 failing copy_gate cells, 0 stale copy_gate_sha across 187 rows x 44 columns [--stage build; not yet due: staging_checked, deployed, deployed_sha, final_audit, retro]
+ledger check: checked=187 failed=6732
+interactive_patterns: 0 off-shape

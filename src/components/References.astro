@@ -1,0 +1,51 @@
+---
+// kit:References@1.0.0 — the END-OF-PAGE Sources block. The inline numbered marker is
+// Sources.astro (a Cite); this is the list those numbers point at, and it is the element
+// the Stage 3 exit gate greps for as [data-sources].
+//
+// Order is CITATION order, taken from Astro.locals.citeOrder, so the printed [3] is the
+// third entry here and the two can never disagree. Keys cited nowhere in the body are
+// appended after the cited ones rather than dropped, so a source that informed the page
+// is still disclosed.
+import sources from '../data/sources.json';
+
+interface Props {
+  /** Extra keys to disclose that the body never numbered (background reading). */
+  keys?: string[];
+  heading?: string;
+}
+const { keys = [], heading = 'Sources' } = Astro.props as Props;
+
+const all = sources as Record<string, {
+  title: string; url: string; publisher?: string; fetched?: string; kind?: string;
+}>;
+
+const cited: string[] = Astro.locals.citeOrder ?? [];
+const extra = keys.filter((k) => !cited.includes(k));
+for (const k of [...cited, ...extra]) {
+  if (!all[k]) throw new Error(`[References] unknown source key "${k}" - add it to src/data/sources.json (and OPEN the URL first).`);
+}
+const listed = [...cited, ...extra].map((k, i) => ({ k, n: i + 1, ...all[k] }));
+---
+{listed.length > 0 && (
+  <section class="refs" data-tone="paper" data-treatment="table" data-sources={listed.length} aria-labelledby="sources-heading">
+    <h2 id="sources-heading" class="refs__h">{heading}</h2>
+    <ol class="refs__list">
+      {listed.map((s) => (
+        <li class="refs__item" id={`source-${s.k}`}>
+          <a href={s.url} rel="noopener nofollow" target="_blank">{s.title}</a>
+          {s.publisher && <span class="refs__meta">{s.publisher}</span>}
+          {s.fetched && <span class="refs__meta">read {s.fetched}</span>}
+        </li>
+      ))}
+    </ol>
+  </section>
+)}
+<style>
+  .refs { margin-block: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+  .refs__h { font-size: var(--text-lg); margin-bottom: .75rem; }
+  .refs__list { padding-left: 1.25rem; display: grid; gap: .5rem; }
+  .refs__item { font-size: var(--text-sm); line-height: 1.5; }
+  .refs__meta { color: var(--ink-soft); }
+  .refs__meta::before { content: " · "; }
+</style>

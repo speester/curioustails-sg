@@ -1,0 +1,83 @@
+---
+// kit:SectionDivider@1.0.0
+// TWO-COLOUR CONTRACT: container background = `against`; the path is painted `fill`.
+// A container whose background equals the path fill is the invisible-divider bug.
+import { VARIANTS, type Variant } from '../lib/section-rhythm';
+
+interface Props {
+  variant: Variant;
+  fill: string;      // resolved CSS colour of the section this edge belongs to
+  against: string;   // resolved CSS colour of the neighbouring section
+  /** Which edge of which section this divider belongs to.
+   *  Section.astro renders the divider immediately BEFORE its own <section>, so the owner is
+   *  always the NEXT element and the edge is always "top". design-audit reads this to check
+   *  the fill against the owning section rather than inferring the side, which it cannot do:
+   *  without the attribute a divider mounted upside down still passes by luck. */
+  edge?: 'top' | 'bottom';
+}
+const { variant, fill, against, edge = 'top' } = Astro.props as Props;
+
+// ORIENTATION IS DERIVED, NEVER PASSED. Every path below is authored ONCE, as a BOTTOM edge:
+// the painted mass sits at the top of the viewBox and the shaped boundary faces DOWN. The
+// same shape at a TOP edge is that path MIRRORED. This used to be a separate optional `flip`
+// prop that no caller ever passed, while Section.astro renders every seam ABOVE the section
+// it belongs to - so every divider on the site shipped upside down ("it keeps creating the
+// divider on the flip side"). Two properties that must agree cannot be two props.
+const flip = edge === 'top';
+
+if (!fill || !against) throw new Error('[SectionDivider] both `fill` and `against` are required.');
+if (fill === against) throw new Error(`[SectionDivider] fill === against (${fill}) - that divider is invisible.`);
+if (!/^(var\(|#|rgb|hsl|oklch)/.test(fill)) throw new Error(`[SectionDivider] fill "${fill}" is not a colour - an unresolved tone reached the DOM.`);
+
+const meta = VARIANTS.find((v) => v.name === variant);
+if (!meta) throw new Error(`[SectionDivider] unknown variant "${variant}".`);
+const [hMobile, hDesktop] = meta.h;
+
+// Single continuous paths, ~10px overshoot on all sides. Geometry is per-site: regenerate
+// these `d` strings for each project (astro-build STEP 2.5 uniqueness rule) - the props,
+// families and heights are the shared contract.
+const PATHS: Record<Variant, string> = {
+  scallop: 'M-10,0 H1210 V40 q-30,18 -60,0 t-60,0 t-60,0 t-60,0 t-60,0 t-60,0 t-60,0 t-60,0 t-60,0 t-60,0 t-60,0 t-60,0 t-60,0 t-60,0 t-60,0 t-60,0 t-60,0 t-60,0 t-60,0 t-60,0 V70 H-10 Z',
+  puffy: 'M-10,0 H1210 V26 q-75,44 -150,0 t-150,0 t-150,0 t-150,0 t-150,0 t-150,0 t-150,0 t-150,0 V80 H-10 Z',
+  billow: 'M-10,0 H1210 V30 q-150,26 -300,0 t-300,0 t-300,0 t-300,0 V54 H-10 Z',
+  drops: 'M-10,0 H1210 V34 q-19,30 -38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 t-38,0 V72 H-10 Z',
+  sawtooth: 'M-10,0 H1210 V28 l-50,24 l-50,-24 l-50,24 l-50,-24 l-50,24 l-50,-24 l-50,24 l-50,-24 l-50,24 l-50,-24 l-50,24 l-50,-24 l-50,24 l-50,-24 l-50,24 l-50,-24 l-50,24 l-50,-24 l-50,24 l-50,-24 l-50,24 l-50,-24 l-50,24 l-50,-24 V58 H-10 Z',
+  pinnacle: 'M-10,0 H1210 V24 l-100,44 l-100,-44 l-100,44 l-100,-44 l-100,44 l-100,-44 l-100,44 l-100,-44 l-100,44 l-100,-44 l-100,44 l-100,-44 V78 H-10 Z',
+  slant: 'M-10,0 H1210 V22 L-10,62 Z',
+  terrace: 'M-10,0 H1210 V26 h-160 v14 h-160 v14 h-160 v14 h-160 v-14 h-160 v-14 h-160 v-14 H-10 Z',
+  ogee: 'M-10,0 H1210 V24 q-100,0 -150,26 t-150,26 t-150,-26 t-150,-26 t-150,26 t-150,26 t-150,-26 V76 H-10 Z',
+};
+---
+<div
+  class="section-divider"
+  data-edge={edge}
+  data-seam={variant}
+  data-fill-color={fill}
+  data-against-color={against}
+  aria-hidden="true"
+  style={`--divider-fill:${fill};--divider-against:${against};--divider-h:${hMobile}px;--divider-h-lg:${hDesktop}px;${flip ? 'transform:scaleY(-1);' : ''}`}
+>
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="none" focusable="false">
+    <path d={PATHS[variant]} fill="var(--divider-fill)" />
+  </svg>
+  <span class="section-divider__seal"></span>
+</div>
+
+<style>
+  .section-divider {
+    position: relative;
+    display: block;
+    background: var(--divider-against);   /* container = the NEIGHBOUR, never the fill */
+    height: var(--divider-h);
+    margin-block: -1px;                    /* -my-px: physically overlap both neighbours */
+    line-height: 0;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) { .section-divider { height: var(--divider-h-lg); } }
+  .section-divider svg { display: block; width: 100%; height: 100%; }
+  /* inset 2px bar in `fill` on the shaped side kills the residual hairline */
+  .section-divider__seal {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+    background: var(--divider-fill);
+  }
+</style>

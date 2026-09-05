@@ -1,4 +1,10 @@
 ---
+import { fileURLToPath } from 'node:url';
+import RelatedPosts from '../../components/RelatedPosts.astro';
+import PlaceholderImage from '../../components/PlaceholderImage.astro';
+import learnMicrochipScan from '../../assets/guides/6-puppy-microchip-scan-health.webp';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -51,7 +57,7 @@ const schemas = [
     aboutName: 'Puppy buyer protection in Singapore',
     aboutAlternateName: 'buying a puppy safely Singapore',
     datePublished: '2026-07-06',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   faqPageSchema(faqItems),
 ];
@@ -81,7 +87,7 @@ const guides = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/learn" ogImage="/assets/guides/og-learn.jpg">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/learn" ogImage="/assets/guides/og-learn.jpg">
   <Hero
     eyebrow="Buyer protection, from a licensed shop"
     h1="Learn Before You Buy: Pet Safety & Buyer Protection"
@@ -174,7 +180,7 @@ const guides = [
           </li>
         ))}
       </ul>
-      <p class="mt-4 text-xs text-[var(--color-cream-500)]">
+      <p class="mt-4 text-xs text-[var(--color-cream-700)]">
         Welfare context: <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2" rel="noopener">SPCA's anti-smuggling campaign</a>
       </p>
     </div>
@@ -206,4 +212,13 @@ const guides = [
   />
 
   <Schema {schemas} />
+
+  <section class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-14">
+    <figure class="clay overflow-hidden bg-[var(--color-surface-card)] p-3">
+      <PlaceholderImage src={learnMicrochipScan} alt="A microchip scan during a health check - one of the records a licensed shop can show you." ratio="aspect-[16/9]" sizes="(max-width: 1023px) 100vw, 70vw" />
+      <figcaption class="px-2 pt-3 text-sm text-[var(--color-text-muted)]">A microchip scan during a health check - one of the records a licensed shop can show you.</figcaption>
+    </figure>
+  </section>
+
+  <RelatedPosts route="/learn/" />
 </BaseLayout>

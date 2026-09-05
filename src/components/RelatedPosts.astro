@@ -1,0 +1,65 @@
+---
+// kit:RelatedPosts@1.0.0 - the READ NEXT module, as a SHIPPED KIT COMPONENT.
+//
+// WHY IT IS A COMPONENT: `scripts/check-related.mjs` gates `<aside data-related>` with
+// >=3 resolving sibling links on every page_tier=outer route, and no kit component
+// produced one. Every project was expected to hand-author the thing the gate measured,
+// so the gate passed on whatever each project happened to build - and the block inlined
+// in ArticleLayout read `p.slug` / `r.h1` / `r.targetKeyword`, none of which exist on
+// PostEntry (`path` / `title` / `kicker`). `related` was therefore ALWAYS empty and the
+// aside never rendered at all, on any site.
+import ArticleCard from './ArticleCard.astro';
+import { canonicalPath } from '../lib/url';
+import { POSTS } from '../data/posts';
+
+interface Props {
+  /** Canonical path of the page rendering this block. */
+  route: string;
+  count?: number;
+  heading?: string;
+}
+const { route, count = 3, heading = 'Keep reading' } = Astro.props as Props;
+
+const here = canonicalPath(route);
+const shippable = POSTS.filter((p) => !p.draft && !p.noindex);
+const self = shippable.find((p) => canonicalPath(p.path) === here);
+
+// Siblings share a parent. Fall back to the whole outer tier when the page has no
+// parent recorded yet, so a half-generated registry degrades to "some real links"
+// rather than to an empty block that fails the gate for a reason nobody can see.
+// Siblings first, then the rest of the outer tier. Filtering on the parent ALONE emptied the
+// block whenever a post was the only outer child of its hub - the module then vanished from
+// the page entirely, which is the failure check-related exists to catch.
+const outer = shippable.filter(
+  (p) => canonicalPath(p.path) !== here && p.path !== '/blog/' &&
+    (p.tier || '').toLowerCase() === 'outer',
+);
+const siblings = self?.parent ? outer.filter((p) => p.parent === self.parent) : [];
+const family = [...siblings, ...outer.filter((p) => !siblings.includes(p))];
+
+// Rotate the window from THIS page rather than always taking the first N: a fixed slice
+// means the last entries in registry order never receive an inbound link, which is what
+// `audit_built_html --graph` reported as orphans.
+const at = Math.max(0, family.findIndex((p) => canonicalPath(p.path) === here));
+const related = [...family.slice(at + 1), ...family.slice(0, at)].slice(0, count);
+---
+{related.length > 0 && (
+  <aside class="article-related" data-related aria-label="Related reading">
+    <h2>{heading}</h2>
+    <div class="listing-grid">
+      {related.map((r) => (
+        <ArticleCard href={canonicalPath(r.path)} title={r.title} kicker={r.kicker} />
+      ))}
+    </div>
+  </aside>
+)}
+
+<style>
+  .article-related { padding-block: clamp(2rem, 5vw, 3.5rem); max-width: 75rem;
+    margin-inline: auto; padding-inline: clamp(1.25rem, 4vw, 2.5rem); }
+  .article-related h2 { margin: 0 0 1.5rem; }
+  /* auto-FILL, never auto-fit (golden-rules RULE 34 #2): auto-fit collapses the empty
+     tracks, so a two-card row stretches each card across the whole band. */
+  .listing-grid { display: grid; gap: 1.25rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+</style>

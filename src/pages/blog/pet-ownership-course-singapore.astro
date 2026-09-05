@@ -1,4 +1,8 @@
 ---
+import { fileURLToPath } from 'node:url';
+import RelatedPosts from '../../components/RelatedPosts.astro';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import DefBox from '../../components/DefBox.astro';
@@ -17,7 +21,7 @@ import vetCheck from '../../assets/home/6-puppy-health-check-vet-care-avs.webp';
 import verifyPhone from '../../assets/guides/5-verify-seller-phone-check-puppy.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
 
-const title = 'Pet Ownership Course Singapore: What It Covers | Curious Tails';
+const title = 'Pet Ownership Course Singapore | Curious Tails';
 const description =
   'The AVS Pet Ownership Course is free, online and takes 20 to 30 minutes. First-time dog owners must finish it before a licence is issued. What is inside.';
 const datePublished = '2026-07-25';
@@ -75,7 +79,7 @@ const schemas = [
     aboutName: 'Pet Ownership Course',
     aboutAlternateName: 'AVS Pet Ownership Course',
     datePublished,
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   faqPageSchema(faqItems),
 ];
@@ -129,8 +133,9 @@ const bringList = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/blog/pet-ownership-course-singapore" ogImage="/assets/guides/og-first-time-owners.jpg">
-  <section class="bg-[var(--color-peach-100)] pb-10 pt-2">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/blog/pet-ownership-course-singapore" ogImage="/assets/guides/og-first-time-owners.jpg">
+  <section class="hero relative bg-[var(--color-peach-100)] pb-10 pt-2" data-hero-archetype="centered-statement" data-section-pattern="prose">
+    <div data-tilt aria-hidden="true" class="pointer-events-none absolute right-4 top-4 hidden h-16 w-16 rotate-6 rounded-[1.2rem] border-2 border-[var(--color-coral-300)] bg-white/50 lg:block"></div>
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pt-5">
       <Breadcrumb bare items={[{ label: 'Blog', href: '/blog/' }, { label: 'Pet Ownership Course', href: '/blog/pet-ownership-course-singapore/' }]} />
       <div class="mx-auto mt-8 max-w-[75ch]">
@@ -314,7 +319,7 @@ const bringList = [
     </div>
   </CaptionedBlock>
 
-  <CaptionedBlock heading="Why This Course Exists, and Why We're Glad It Does" imageAlt="AVS-aligned puppy health check in Singapore, part of responsible first-time dog ownership" imageSrc={vetCheck} imagePosition="right">
+  <CaptionedBlock heading="Why This Course Exists, and Why We’re Glad It Does" imageAlt="AVS-aligned puppy health check in Singapore, part of responsible first-time dog ownership" imageSrc={vetCheck} imagePosition="right">
     <p>A 30-minute gate in front of a 12 to 15 year commitment is not a burden. We would happily see it doubled.</p>
     <p>Almost every regret we have untangled in two years of matching puppies to families traces back to a decision made with no information at all: a breed picked from a photograph, a schedule nobody thought through, a seller nobody checked. None of that is stupidity. It is just how excitement works.</p>
     <p>What we tell first-time owners, though, is slightly contrarian. You do not need a lot of information upfront. You need a simple routine to follow and someone to call when you are unsure. The course gives you the baseline. The routine is what we hand over at the door, and the mistakes we spend most of our time untangling are routine problems rather than knowledge problems.</p>
@@ -374,4 +379,6 @@ const bringList = [
   />
 
   <Schema {schemas} />
+
+  <RelatedPosts route="/blog/pet-ownership-course-singapore/" />
 </BaseLayout>

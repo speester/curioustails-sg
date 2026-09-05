@@ -1,4 +1,7 @@
 ---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -107,7 +110,7 @@ const schemas = [
     aboutAlternateName: 'Sheltie',
     aboutSameAs: 'https://en.wikipedia.org/wiki/Shetland_Sheepdog',
     datePublished: '2026-07-09',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   itemListSchema([
     {
@@ -141,9 +144,9 @@ const schemas = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/puppies/sheltie">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies/sheltie">
   <Hero
-    eyebrow="AVS Licensed Pet Shop in Balestier"
+    eyebrow="Sheltie from an AVS licensed shop"
     h1="Sheltie Puppies for Sale in Singapore"
     h1Accent="Sheltie"
     subhead="Shetland Sheepdog prices in Singapore commonly run $3,000 to $10,000, with blue merles and show lines at the top. Ours are $4,988 to $6,500, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
@@ -224,7 +227,7 @@ const schemas = [
     <CaptionedBlock heading="Sheltie Temperament: A Gentle Genius That Needs a Job" imageAlt="Sheltie puppy focused on a training game at home" imageSrc={imgScene2} imagePosition="left">
       <p>The Sheltie pairs two qualities that rarely coexist: a working brain ranked in the world's top ten, and a temperament so gentle and eager to please that harshness of any kind wounds it. It learns cues in a handful of repetitions, reads its household like weather, and would genuinely rather do things with you, training, fetch patterns, trick chains, than do anything alone.</p>
       <p>The honest part, from two years of matching puppies to families: this brain and body were built for a workday, and a Sheltie without daily physical and mental output turns its talents to shadow-chasing and, above all, the voice. That's the trade this breed offers: the most rewarding trainable companion on the HDB list, in exchange for a real daily commitment. Take the deal only if you mean it.</p>
-      <p>If you want the intelligence with a smaller exercise bill, the <a href="/puppies/toy-poodle/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Toy Poodle</a> or <a href="/puppies/papillon/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Papillon</a> deliver it at toy scale.</p>
+      <p>If you want the intelligence with a smaller exercise bill, <a href="/puppies/toy-poodle/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the Toy Poodle</a> or <a href="/puppies/papillon/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Papillon</a> deliver it at toy scale.</p>
     </CaptionedBlock>
 
     <CaptionedBlock heading="Can a Sheltie Be Left Alone During Work Hours?" imagePosition="none" variant="card">
@@ -275,7 +278,7 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Sheltie Price in Singapore: What You'll Pay and What's Included"
+      heading="Sheltie Price in Singapore: What You’ll Pay and What’s Included"
       headingAccent="Price"
       subhead="Most shops make you WhatsApp them just to learn the number. Here's ours in writing: $4,988 to $6,500, all-in."
       mode="split"
@@ -439,7 +442,7 @@ const schemas = [
     <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
   </div>
 
-  <CaptionedBlock heading="Your Sheltie's First Week at Home" imageAlt="Sheltie puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
+  <CaptionedBlock heading="Your Sheltie’s First Week at Home" imageAlt="Sheltie puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Sheltie explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
     <p>Days 1 to 3: keep it calm, gentle and predictable; this sensitive breed reads household stress like a book, so a quiet settling window pays off doubly. Fixed feeding routine, toilet pads where we placed them, soft voices.</p>
     <p>Days 4 to 7: the routine sticks and the studying begins. Book your free first lesson with an AVS-certified trainer this week without fail, and start the quiet-training pattern immediately; for a Sheltie both are foundational, not optional. See what the free AVS-certified training lesson covers.</p>

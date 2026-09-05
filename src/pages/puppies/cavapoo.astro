@@ -1,4 +1,7 @@
 ---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -112,7 +115,7 @@ const schemas = [
     aboutAlternateName: 'Cavoodle',
     aboutSameAs: 'https://en.wikipedia.org/wiki/Cavapoo',
     datePublished: '2026-07-05',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   itemListSchema([
     {
@@ -147,9 +150,9 @@ const schemas = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/puppies/cavapoo" ogImage="/assets/cavapoo/og-cavapoo.jpg">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies/cavapoo" ogImage="/assets/cavapoo/og-cavapoo.jpg">
   <Hero
-    eyebrow="AVS Licensed Pet Shop in Balestier"
+    eyebrow="Cavapoo, sold under an AVS licence"
     h1="Cavapoo Puppies for Sale in Singapore"
     h1Accent="Cavapoo"
     subhead="The Cavapoo price in Singapore usually runs $4,300 to $6,500. Ours are $3,288 to $5,988, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
@@ -228,7 +231,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
 
   <div id="temperament" class="scroll-mt-40">
-    <CaptionedBlock heading="Cavapoo Temperament: What They're Really Like at Home" imageAlt="Cavapoo puppy playing gently with a family in a Singapore living room" imageSrc={familyLivingRoom} imagePosition="left">
+    <CaptionedBlock heading="Cavapoo Temperament: What They’re Really Like at Home" imageAlt="Cavapoo puppy playing gently with a family in a Singapore living room" imageSrc={familyLivingRoom} imagePosition="left">
       <p>Cavapoo puppies in Singapore homes are affectionate, loyal, intelligent, and playful; that part every seller will tell you. What matters more for your decision is this: a Cavapoo is noticeably more independent than the breeds it usually gets compared against, and that changes which homes it suits.</p>
       <p>Nelson's honest note from two years of matching puppies to families: the single most common mismatch we see is a working couple choosing a companion breed that needs company all day. Maltipoos need more daily human contact; Cavapoos cope better on their own. That one difference decides more happy outcomes than any coat colour or price tag.</p>
       <p>They're gentle with children, sociable with other dogs, and moderate barkers. A bored Cavapoo will let you know it's bored, but a settled routine keeps them calm in an apartment.</p>
@@ -269,7 +272,7 @@ const schemas = [
     <ComparisonSplit
       heading={`Cavapoo Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead={`How much is a Cavapoo in Singapore? As of ${monthStamp}, established shops charge $4,300 to $6,500. At Curious Tails a Cavapoo is ${priceRange}, all-in — starter kit, delivery and first training lesson included.`}
+      subhead={`How much is a Cavapoo in Singapore? As of ${monthStamp}, established shops charge $4,300 to $6,500. At Curious Tails a Cavapoo is ${priceRange}, all-in - starter kit, delivery and first training lesson included.`}
       mode="split"
       columns={[
         {
@@ -449,7 +452,7 @@ const schemas = [
   </div>
 
   <div id="first-week" class="scroll-mt-40">
-    <CaptionedBlock heading="Your Cavapoo's First Week at Home" imageAlt="Playpen set up and ready before a Cavapoo puppy arrives home for its first week" imageSrc={playpenReady} imagePosition="left">
+    <CaptionedBlock heading="Your Cavapoo’s First Week at Home" imageAlt="Playpen set up and ready before a Cavapoo puppy arrives home for its first week" imageSrc={playpenReady} imagePosition="left">
       <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Cavapoo explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
       <p>Days 1 to 3: keep it calm. Same food, fixed feeding times, toilet pads where we placed them, and short gentle play. Some night whimpering is normal adjustment, not distress.</p>
       <p>Days 4 to 7: the routine starts to stick. This is the right window to book your free first lesson with an AVS-certified trainer; see what the free training lesson covers. And for anything in between, you WhatsApp us; most questions are already answered in the walkthrough, but the ones that aren't get a real reply.</p>

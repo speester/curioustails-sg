@@ -1,0 +1,23 @@
+---
+// kit:ArticleHero@1.0.0 — the Outer/article hero. ArticleLayout has imported this since
+// 1.0.0 but the kit never shipped it. Wraps the shared Hero so the two archetypes cannot
+// drift apart; adds the `meta` slot ArticleLayout fills with the byline and dateline.
+import Hero from './Hero.astro';
+
+interface Props {
+  title: string; kicker?: string; dek?: string;
+  crumbs?: { label: string; href: string }[];
+  image?: { src: string; alt: string; width: number; height: number };
+}
+const { title, kicker, dek, crumbs = [], image } = Astro.props as Props;
+---
+<Hero variant="article" tone="deep" title={title} kicker={kicker} dek={dek} crumbs={crumbs} image={image}>
+  <div class="article-hero__meta"><slot name="meta" /></div>
+  <slot />
+</Hero>
+
+<style>
+  .article-hero__meta { margin-top: 1rem; font-size: 0.86rem; opacity: 0.9; }
+  .article-hero__meta :global(.article-meta) { display: flex; gap: 1rem; flex-wrap: wrap; max-width: none; margin: 0; }
+  .article-hero__meta :global(.article-meta__date) { font-family: var(--font-mono); font-size: 0.78rem; }
+</style>

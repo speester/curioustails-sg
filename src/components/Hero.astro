@@ -46,8 +46,8 @@ const {
 const h1Parts = h1Accent ? h1.split(h1Accent) : [h1, ''];
 ---
 
-<section class="relative overflow-hidden bg-[var(--color-peach-100)] pb-4 pt-2">
-  <!-- scattered decorative doodles: paw prints, bone, sparkle, drifting blobs -->
+<section class="hero relative overflow-hidden bg-[var(--color-peach-100)] pb-4 pt-2" data-hero-archetype="split-panel" data-section-pattern="split-hero">
+  
   <div class="pointer-events-none absolute inset-0" aria-hidden="true">
     <Blob class="absolute -top-16 -left-20 h-80 w-80 fill-[var(--color-mint-200)]/70 blob-drift-slow" />
     <Blob class="absolute top-10 right-[-6rem] h-72 w-72 fill-[var(--color-lilac-100)] blob-drift" />
@@ -59,7 +59,7 @@ const h1Parts = h1Accent ? h1.split(h1Accent) : [h1, ''];
     <Sparkle class="absolute left-[16%] bottom-[12%] h-5 w-5 text-[var(--color-mint-300)] blob-drift" />
   </div>
 
-  <div class="relative mx-auto max-w-[1400px] px-5 sm:px-8 pt-5 pb-14 lg:pb-20 grid gap-x-12 gap-y-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+  <div class="hero__inner relative mx-auto max-w-[1400px] px-5 sm:px-8 pt-5 pb-14 lg:pb-20 grid gap-x-12 gap-y-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
     {Astro.slots.has('breadcrumb') && (
       <div class="lg:col-span-2">
         <slot name="breadcrumb" />
@@ -139,7 +139,7 @@ const h1Parts = h1Accent ? h1.split(h1Accent) : [h1, ''];
 
     <div class="relative">
       <div data-tilt class="clay group rotate-2 bg-white p-3">
-        <div class="overflow-hidden rounded-[1.3rem]">
+        <div tabindex="-1" class="overflow-hidden rounded-[1.3rem]">
           <div class="transition-transform duration-500 ease-out group-hover:scale-[1.06]">
             <PlaceholderImage alt={imageAlt} src={imageSrc} ratio="aspect-[5/4]" loading="eager" fetchpriority="high" sizes="(max-width: 1023px) 100vw, 45vw" />
           </div>

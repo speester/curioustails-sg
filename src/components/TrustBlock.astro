@@ -1,0 +1,75 @@
+---
+// kit:TrustBlock@1.0.0 — the visible E-E-A-T block (H8; contracts §16).
+// REQUIRED on every money page. Every value is READ from the entity record via src/data/site.ts
+// — never typed into a page, so it can never contradict schema, the GBP listing or the footer.
+// 79.8% of audited pages miss at least one trust signal; a scrutinised category (pets, health,
+// finance, legal) that hides its licence, address and a named human is asking to be filtered.
+import { SITE } from '../data/site';
+
+interface Props {
+  /** Optional override for the heading; the default states the claim, not a label. */
+  heading?: string;
+  compact?: boolean;
+}
+const { heading, compact = false } = Astro.props as Props;
+
+const licence  = SITE.licence?.trim();
+const founded  = SITE.founded?.trim();
+const address  = SITE.address?.trim();
+const owner    = SITE.ownerName?.trim();
+const creds    = SITE.ownerCredentials?.trim();
+const entity   = SITE.legalEntity?.trim();
+
+// A row only renders when the entity record actually carries the value. An empty trust block is
+// honest; a placeholder one ("[TO SET]", "Est. 2020") is the failure this component exists to end.
+const rows = [
+  licence && { k: 'Licensed',  v: licence },
+  founded && founded.toLowerCase() !== 'omit' && { k: 'Trading since', v: founded },
+  address && { k: 'Find us',   v: address },
+  entity  && { k: 'Registered', v: entity },
+].filter(Boolean) as { k: string; v: string }[];
+---
+{rows.length > 0 && (
+  <section class="trust" aria-labelledby="trust-h" data-treatment="trust">
+    <h2 id="trust-h" class="trust__h">{heading ?? `Who you are buying from`}</h2>
+    <dl class="trust__grid">
+      {rows.map((r) => (
+        <div class="trust__row">
+          <dt>{r.k}</dt>
+          <dd>{r.v}</dd>
+        </div>
+      ))}
+    </dl>
+    {owner && (
+      <p class="trust__owner">
+        <strong>{owner}</strong>{creds ? ` - ${creds}` : ''}
+      </p>
+    )}
+    {!compact && SITE.editorialEmail && (
+      <p class="trust__contact">
+        Questions before you visit? <a href={`mailto:${SITE.editorialEmail}`}>{SITE.editorialEmail}</a>
+      </p>
+    )}
+  </section>
+)}
+<style>
+  .trust {
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-md, 8px);
+    background: var(--color-muted);
+    padding: var(--space-5, 20px) var(--space-6, 24px);
+  }
+  .trust__h { font-size: var(--text-lg); margin: 0 0 var(--space-4, 16px); }
+  .trust__grid { display: grid; gap: var(--space-3, 12px); margin: 0; }
+  @media (min-width: 640px) {
+    .trust__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  .trust__row { display: grid; gap: 2px; }
+  .trust__row dt {
+    font-size: var(--text-xs); letter-spacing: .08em; text-transform: uppercase;
+    color: var(--color-ink-soft);
+  }
+  .trust__row dd { margin: 0; font-weight: 600; }
+  .trust__owner { margin: var(--space-4, 16px) 0 0; }
+  .trust__contact { margin: var(--space-2, 8px) 0 0; color: var(--color-ink-soft); }
+</style>

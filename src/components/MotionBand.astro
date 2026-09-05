@@ -1,0 +1,53 @@
+---
+// kit:MotionBand@1.0.0 - N-tile seamless marquee. Decorative only: no content, no links,
+// no invented numbers. N = 4 self-contained tiles, each carrying its own trailing gap.
+interface Props {
+  items: { label: string; icon: string }[];   // icon = inline SVG markup (no numbers)
+  direction?: 'ltr' | 'rtl';
+  seconds?: number;                            // 30-60
+}
+const { items, direction = 'ltr', seconds = 42 } = Astro.props as Props;
+const N = 4;
+
+if (!items?.length) throw new Error('[MotionBand] `items` is required.');
+for (const it of items) {
+  if (/\d/.test(it.label)) {
+    throw new Error(`[MotionBand] "${it.label}" contains a number. Bands carry icons or topics, never figures - a figure needs a source and an "as of <date>" label.`);
+  }
+}
+const tiles = Array.from({ length: N }, (_, i) => i);
+---
+<div class="motion-band" aria-hidden="true">
+  <div
+    class={`motion-band__track motion-band__track--${direction}`}
+    data-marquee-track
+    data-tiles={N}
+    style={`--marquee-seconds:${seconds}s;--marquee-shift:calc(-100% / ${N});`}
+  >
+    {tiles.map((t) => (
+      <div class="motion-band__tile" data-tile={t}>
+        {items.map((it) => (
+          <span class="motion-band__item">
+            <span class="motion-band__icon" set:html={it.icon} />
+            <span class="motion-band__label">{it.label}</span>
+          </span>
+        ))}
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .motion-band { overflow: hidden; padding-block: .75rem; background: var(--surface-tint); }
+  /* NO gap at track level - each TILE owns its internal gap AND its trailing gap. */
+  .motion-band__track { display: flex; width: max-content; will-change: transform; }
+  .motion-band__tile { display: flex; align-items: center; gap: 2.5rem; padding-right: 2.5rem; }
+  .motion-band__item { display: inline-flex; align-items: center; gap: .5rem; color: var(--ink-soft); font-size: var(--text-sm); white-space: nowrap; }
+  .motion-band__icon :global(svg) { width: 1.25rem; height: 1.25rem; display: block; }
+  @media (prefers-reduced-motion: no-preference) {
+    .motion-band__track--ltr { animation: marquee-ltr var(--marquee-seconds) linear infinite; }
+    .motion-band__track--rtl { animation: marquee-rtl var(--marquee-seconds) linear infinite; }
+  }
+  @keyframes marquee-ltr { from { transform: translateX(0); } to { transform: translateX(var(--marquee-shift)); } }
+  @keyframes marquee-rtl { from { transform: translateX(var(--marquee-shift)); } to { transform: translateX(0); } }
+</style>

@@ -1,0 +1,91 @@
+---
+// kit:StepFlow@1.0.0 - an ordered checklist the reader can run, rendered as numbered
+// rows rather than three floating cards. Rows size to their own content (contracts §
+// DIVIDED PROOF PANEL): equal-height siblings leave dead space inside every card.
+//
+// Every row that names a destination the site explains elsewhere carries an href, so the
+// affordance is a real link: a numbered badge and a chevron are a promise, and an inert
+// card that looks clickable is a bug, not a style.
+import { canonicalPath } from '../lib/url';
+
+export interface Step {
+  label: string;
+  detail: string;
+  /** Optional internal destination. Renders the row as a link when present. */
+  href?: string;
+  /** Short right-aligned value: a figure, a cap, a price band. */
+  value?: string;
+}
+interface Props {
+  steps: Step[];
+  heading?: string;
+  /** Rendered as <ol> by default; a set of parallel checks can be an unordered list. */
+  ordered?: boolean;
+}
+const { steps, heading, ordered = true } = Astro.props as Props;
+if (!steps?.length) throw new Error('[StepFlow] steps[] is empty - a flow with no steps is a decorative box.');
+const Tag = ordered ? 'ol' : 'ul';
+---
+<div class="flow" data-treatment="panel">
+  {heading && <h3 class="flow__h">{heading}</h3>}
+  <Tag class="flow__list">
+    {steps.map((s, i) => (
+      <li class="flow__row">
+        <span class="flow__num" aria-hidden="true">{i + 1}</span>
+        <span class="flow__body">
+          <span class="flow__label">
+            {s.href
+              ? <a href={canonicalPath(s.href)} class="flow__link">{s.label}<span class="flow__arrow" aria-hidden="true">&#8594;</span></a>
+              : s.label}
+          </span>
+          <span class="flow__detail">{s.detail}</span>
+        </span>
+        {s.value && <span class="flow__value">{s.value}</span>}
+      </li>
+    ))}
+  </Tag>
+</div>
+<style>
+  .flow {
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg, 12px);
+    background: var(--surface-paper);
+    margin-block: 1.75rem;
+    overflow: hidden;
+  }
+  .flow__h { font-size: var(--text-lg); padding: 1rem 1.25rem .5rem; margin: 0; }
+  .flow__list { list-style: none; margin: 0; padding: 0; }
+  .flow__row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: .875rem;
+    align-items: baseline;
+    padding: .875rem 1.25rem;
+    border-top: 1px solid var(--rule);
+  }
+  .flow__list > .flow__row:first-child { border-top: 0; }
+  .flow__num {
+    display: inline-grid; place-items: center;
+    inline-size: 1.6rem; block-size: 1.6rem;
+    border-radius: 999px;
+    background: var(--color-accent); color: var(--on-accent, #fff);
+    font-size: var(--text-sm); font-weight: 600;
+    align-self: start;
+  }
+  .flow__body { display: grid; gap: .2rem; min-inline-size: 0; }
+  .flow__label { font-weight: 600; }
+  .flow__detail { color: var(--ink-soft); font-size: var(--text-sm); line-height: 1.5; }
+  .flow__value { font-variant-numeric: tabular-nums; color: var(--ink-soft); font-size: var(--text-sm); white-space: nowrap; }
+  .flow__link { text-decoration: none; }
+  .flow__link:hover, .flow__link:focus-visible { text-decoration: underline; }
+  .flow__arrow { display: inline-block; margin-inline-start: .35rem; transition: transform .18s ease; }
+  .flow__link:hover .flow__arrow, .flow__link:focus-visible .flow__arrow { transform: translateX(3px); }
+  .flow__row:has(.flow__link):hover { background: var(--surface-tint); }
+  @media (prefers-reduced-motion: reduce) {
+    .flow__arrow { transition: none; }
+  }
+  @media (max-width: 30rem) {
+    .flow__row { grid-template-columns: auto 1fr; }
+    .flow__value { grid-column: 2; }
+  }
+</style>

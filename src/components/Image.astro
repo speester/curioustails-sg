@@ -1,0 +1,30 @@
+---
+// kit:Image@1.0.0 - width/height come from the registry so nothing ships unsized.
+import dims from '../data/image-dims.json';
+import variants from '../data/image-variants.json';
+interface Props { src: string; alt: string; width?: number; height?: number; eager?: boolean; class?: string; sizes?: string; }
+const { src, alt, width, height, eager = false, class: cls = '', sizes } = Astro.props as Props;
+if (alt === undefined) throw new Error(`[Image] alt is required for ${src} (use alt="" only for decorative images).`);
+const d = (dims as Record<string, { width: number; height: number }>)[src];
+const w = width ?? d?.width;
+const h = height ?? d?.height;
+if (!w || !h) throw new Error(`[Image] no dimensions for ${src}. Run \`node scripts/gen-image-dims.mjs --write\` or pass width/height.`);
+
+// RESPONSIVE SOURCES. One `src` ships one file to every device, so a phone on a slow
+// connection downloads the full desktop raster. `sizes` was accepted here long before
+// anything emitted `srcset`, which left it inert - and astro-build's component table
+// claimed this file "wraps Astro <Image>: WebP, srcset", which it never did.
+// Widths come from the SAME generated registry the variants are built into
+// (`node scripts/gen-image-variants.mjs --write`), so a variant that was never built
+// is never referenced, and an image with no variants degrades to a plain <img>.
+const VARIANTS = (variants as Record<string, number[]>)[src] ?? [];
+const srcset = VARIANTS
+  .map((vw) => `${src.replace(/(\.[a-z0-9]+)$/i, `-${vw}w$1`)} ${vw}w`)
+  .join(', ');
+const DEFAULT_SIZES = '(max-width: 768px) 100vw, 768px';
+---
+<img src={src} alt={alt} width={w} height={h}
+     srcset={srcset || undefined}
+     sizes={srcset ? (sizes ?? DEFAULT_SIZES) : sizes}
+     loading={eager ? 'eager' : 'lazy'} decoding={eager ? 'sync' : 'async'}
+     fetchpriority={eager ? 'high' : undefined} class={cls} />

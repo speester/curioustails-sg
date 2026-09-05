@@ -1,4 +1,8 @@
 ---
+import { fileURLToPath } from 'node:url';
+import RelatedPosts from '../../components/RelatedPosts.astro';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import DefBox from '../../components/DefBox.astro';
@@ -22,9 +26,9 @@ const mal = breedPricing['maltipoo'];
 const cavRange = `$${fmtPrice(cav.low)} to $${fmtPrice(cav.high)}`;
 const malRange = `$${fmtPrice(mal.low)} to $${fmtPrice(mal.high)}`;
 
-const title = 'Cavapoo vs Maltipoo: Which Should You Choose? | Curious Tails';
+const title = 'Cavapoo vs Maltipoo: Which to Choose? | Curious Tails';
 const description =
-  'Cavapoo vs Maltipoo for Singapore families: the full comparison table, the alone-time difference that decides most matches, and the honest answer by household.';
+  'Cavapoo vs Maltipoo for Singapore families: the full comparison table, the alone-time difference that decides most matches, and the answer by household.';
 const datePublished = '2026-07-07';
 
 const faqItems = [
@@ -90,14 +94,15 @@ const schemas = [
     aboutName: 'Cavapoo vs Maltipoo comparison',
     aboutAlternateName: 'cavapoo or maltipoo',
     datePublished,
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   faqPageSchema(faqItems),
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/blog/cavapoo-vs-maltipoo" ogImage="/assets/cavapoo/og-cavapoo.jpg">
-  <section class="bg-[var(--color-peach-100)] pb-10 pt-2">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/blog/cavapoo-vs-maltipoo" ogImage="/assets/cavapoo/og-cavapoo.jpg">
+  <section class="hero relative bg-[var(--color-peach-100)] pb-10 pt-2" data-hero-archetype="centered-statement" data-section-pattern="prose">
+    <div data-tilt aria-hidden="true" class="pointer-events-none absolute right-4 top-4 hidden h-16 w-16 rotate-6 rounded-[1.2rem] border-2 border-[var(--color-coral-300)] bg-white/50 lg:block"></div>
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pt-5">
       <Breadcrumb bare items={[{ label: 'Blog', href: '/blog/' }, { label: 'Cavapoo vs Maltipoo', href: '/blog/cavapoo-vs-maltipoo/' }]} />
       <div class="mx-auto mt-8 max-w-[75ch]">
@@ -238,4 +243,6 @@ const schemas = [
   />
 
   <Schema {schemas} />
+
+  <RelatedPosts route="/blog/cavapoo-vs-maltipoo/" />
 </BaseLayout>

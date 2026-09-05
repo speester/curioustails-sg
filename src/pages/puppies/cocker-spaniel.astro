@@ -1,4 +1,7 @@
 ---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -102,7 +105,7 @@ const schemas = [
     aboutAlternateName: 'Cocker',
     aboutSameAs: 'https://en.wikipedia.org/wiki/Cocker_Spaniel',
     datePublished: '2026-07-09',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   itemListSchema([
     {
@@ -136,12 +139,12 @@ const schemas = [
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/puppies/cocker-spaniel">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies/cocker-spaniel">
   <Hero
-    eyebrow="AVS Licensed Pet Shop in Balestier"
+    eyebrow="Cocker Spaniel, sold under an AVS licence"
     h1="Cocker Spaniel Puppies for Sale in Singapore"
     h1Accent="Cocker Spaniel"
-    subhead="The honest part first: Cockers are not HDB-approved, so this page is for condo and landed homes. The merry Cocker is one of the sweetest family dogs there is — the catch is the coat and those lovely ears, which need real care in our humidity. Elsewhere Cockers run from about $3,000 at pet shops to $15,000 for show or imported lines; ours are $4,588 to $5,988, all-in and printed."
+    subhead="The honest part first: Cockers are not HDB-approved, so this page is for condo and landed homes. The merry Cocker is one of the sweetest family dogs there is - the catch is the coat and those lovely ears, which need real care in our humidity. Elsewhere Cockers run from about $3,000 at pet shops to $15,000 for show or imported lines; ours are $4,588 to $5,988, all-in and printed."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Cocker Spaniel puppies."
     secondaryCtaLabel="See price & what's included"
@@ -224,7 +227,7 @@ const schemas = [
 
     <CaptionedBlock heading="Can a Cocker Spaniel Be Left Alone During Work Hours?" imagePosition="none" variant="card">
       <p>Less happily than many breeds, and honesty matters here. Cockers are sensitive and companionable, and long daily isolation can lead to separation anxiety in this breed more than most. A midday walker, a puzzle toy, and evenings that genuinely belong to the dog make all the difference; a home that is empty from morning to night most days should think carefully.</p>
-      <p>The room needs the usual tropical basics — ventilation, shade, water — and the exercise and grooming routines below decide the rest.</p>
+      <p>The room needs the usual tropical basics - ventilation, shade, water - and the exercise and grooming routines below decide the rest.</p>
       <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
         <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
         <ul class="mt-4 space-y-3">
@@ -277,7 +280,7 @@ const schemas = [
 
   <div id="price" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Cocker Spaniel Price in Singapore: What You'll Pay and What's Included"
+      heading="Cocker Spaniel Price in Singapore: What You’ll Pay and What’s Included"
       headingAccent="Price"
       subhead="The market runs from about $3,000 at pet shops to $15,000 for show or imported lines. Here's ours in writing: $4,588 to $5,988, all-in."
       mode="split"
@@ -352,7 +355,7 @@ const schemas = [
   </div>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
-  <CaptionedBlock heading="Your Cocker Spaniel's First Week at Home" imageAlt="Cocker Spaniel puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
+  <CaptionedBlock heading="Your Cocker Spaniel’s First Week at Home" imageAlt="Cocker Spaniel puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
     <p>Day 0: we deliver, free, at a time that suits you. The playpen, bed, water, and toys are set up before your Cocker explores the room, and we walk you through all 30+ starter-kit items in person, including the ear-and-coat routine. Learn more about how our free home delivery and setup works.</p>
     <p>Days 1 to 3: keep it calm. A fixed feeding routine with measured portions, the toilet pads where we placed them, and gentle play that helps your puppy settle into its new room.</p>
     <p>Days 4 to 7: the routine sticks, and now is the time to build good habits. Book your free first lesson with an AVS-certified trainer, and start short, positive handling of the ears and coat so your Cocker grows up loving the grooming it will need for life. See what the free AVS-certified training lesson covers.</p>

@@ -1,4 +1,8 @@
 ---
+import { fileURLToPath } from 'node:url';
+import RelatedPosts from '../../components/RelatedPosts.astro';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
@@ -20,7 +24,7 @@ import ExpertQuote from '../../components/ExpertQuote.astro';
 
 const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
 
-const title = 'HDB-Approved Dog Breeds Singapore: Full Rules | Curious Tails';
+const title = 'HDB-Approved Dog Breeds: Full Rules | Curious Tails';
 const description =
   'The complete HDB dog rules: one approved-breed dog per flat, the official list explained by group, the $4,000 penalty, Project ADORE, and honest next steps.';
 
@@ -93,13 +97,13 @@ const schemas = [
     aboutAlternateName: 'HDB dog rules Singapore',
     aboutSameAs: 'https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets',
     datePublished: '2026-07-06',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: lastUpdated,
   }),
   faqPageSchema(faqItems),
 ];
 ---
 
-<BaseLayout {title} {description} canonicalPath="/first-time-owners/hdb-breeds" ogImage="/assets/bichonpoo/og-bichonpoo.jpg">
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/first-time-owners/hdb-breeds" ogImage="/assets/bichonpoo/og-bichonpoo.jpg">
   <Hero
     eyebrow="First-time owner guide · Decision 1"
     h1="The Complete HDB-Approved Dog Breeds List, Explained"
@@ -156,7 +160,7 @@ const schemas = [
 
   <div id="the-list" class="scroll-mt-40">
     <ComparisonSplit
-      heading="The Approved List, Grouped So It's Actually Usable"
+      heading="The Approved List, Grouped So It’s Actually Usable"
       headingAccent="Usable"
       subhead="Around 62 breeds qualify. Instead of an A-to-Z dump, here they are by what they're like to live with."
       mode="table"
@@ -272,4 +276,6 @@ const schemas = [
   />
 
   <Schema {schemas} />
+
+  <RelatedPosts route="/first-time-owners/hdb-breeds/" />
 </BaseLayout>

@@ -16,6 +16,7 @@ import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
 import FAQ from '../../components/FAQ.astro';
+import AnswerCapsule from '../../components/AnswerCapsule.astro';
 import Schema from '../../components/Schema.astro';
 import ScatterFloat from '../../components/decor/ScatterFloat.astro';
 import CloudDivider from '../../components/decor/CloudDivider.astro';
@@ -173,6 +174,12 @@ const schemas = [
   </Hero>
 
   <Tabs items={jumpLinks} />
+
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
+    <AnswerCapsule>
+      <p>{`Cockapoo puppies in Singapore cost ${priceRange} at Curious Tails as of ${monthStamp}. A Cocker Spaniel and Poodle cross, the Cockapoo is HDB-approved, low-shedding, and typically 6 to 10 kg grown. The price includes the $500+ starter kit, free home delivery and setup, and a first training lesson.`}</p>
+    </AnswerCapsule>
+  </div>
 
   <div id="available" class="scroll-mt-40">
     <AvailablePuppies breed="cockapoo" breedName="Cockapoo" />
@@ -424,7 +431,7 @@ const schemas = [
 
   <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
 
-  <div id="health" class="scroll-mt-40">
+  <div id="timeline" class="scroll-mt-40">
     <ComparisonSplit
       heading="Vaccination and Licensing Timeline"
       headingAccent="Timeline"

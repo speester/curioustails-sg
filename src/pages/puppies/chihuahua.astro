@@ -16,6 +16,7 @@ import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
 import FAQ from '../../components/FAQ.astro';
+import AnswerCapsule from '../../components/AnswerCapsule.astro';
 import Schema from '../../components/Schema.astro';
 import ScatterFloat from '../../components/decor/ScatterFloat.astro';
 import CloudDivider from '../../components/decor/CloudDivider.astro';
@@ -192,6 +193,12 @@ const schemas = [
   </Hero>
 
   <Tabs items={jumpLinks} />
+
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
+    <AnswerCapsule>
+      <p>{`Chihuahua puppies in Singapore cost ${priceRange} at Curious Tails as of ${monthStamp}. The Chihuahua is HDB-approved, weighs 1.5 to 3 kg fully grown, and lives 12 to 18 years. Our price includes the $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson.`}</p>
+    </AnswerCapsule>
+  </div>
 
   <div id="available" class="scroll-mt-40">
     <AvailablePuppies breed="chihuahua" breedName="Chihuahua" />

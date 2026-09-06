@@ -393,6 +393,14 @@ def phrase_in(hay, phrase, filler=0):
     hay_l = " " + re.sub(r"\s+", " ", (hay or "").lower()) + " "
     if phrase.lower() in hay_l:
         return True
+    # A DOT INSIDE A BRAND NAME is punctuation to a tokeniser and part of the name to a
+    # reader. words() drops it, so the first-100-words haystack reads "monday com review"
+    # while the blueprint's target keyword is "monday.com review", and the kw gate reported
+    # the phrase missing from a page whose opening sentence is built around it. Compare a
+    # dot-flattened form of both sides before giving up.
+    flat = lambda x: re.sub(r"\s+", " ", str(x or "").lower().replace(".", " ")).strip()
+    if "." in phrase and flat(phrase) in " " + flat(hay) + " ":
+        return True
     if filler:
         toks = [re.escape(t) for t in phrase.lower().split()]
         pat = (r"\W+(?:\w+\W+){0,%d}" % filler).join(toks)
@@ -650,8 +658,13 @@ def check_page(slug, cfg, bp, heads, assets, corpus, draft_html=None):
     # LEVEL ("L2"), not the word "hub". Reading only the latter classified both L2 hubs as
     # ordinary content pages, so the 5-link body cap meant for a leaf was applied to a page
     # whose whole job is to link to its children.
-    is_hub = (row.get("hub_or_node", "").lower() == "hub"
-              or row.get("page_type", "").lower() == "hub"
+    # The comment above says the LEVEL is what marks a hub, and then the test read only the
+    # word "hub": this blueprint writes `hub_or_node: L2`, so both L2 hubs and every pillar
+    # were still measured against the 5-link leaf cap (jeunesseglobal2.com, 2026-09-06).
+    _hn = row.get("hub_or_node", "").lower()
+    _pt = row.get("page_type", "").lower()
+    is_hub = (_hn == "hub" or _hn == "l2"
+              or _pt == "hub" or _pt.endswith("-hub") or _pt == "pillar"
               or tier == "hub" or slug == "index")
     for key, floor_pct, label in (("primary", 80, "P"), ("secondary", 70, "S"), ("all", 40, "A")):
         terms = lsi.get(key) or []
@@ -802,7 +815,11 @@ def check_page(slug, cfg, bp, heads, assets, corpus, draft_html=None):
             summ["h1"] = "unique"
 
     # ---- breaks ---------------------------------------------------------
-    plist = P_TAG.findall(body)
+    # A VERBATIM QUOTATION IS NOT OURS TO RESTRUCTURE. The paragraph ceiling shapes the
+    # site's own prose; applying it inside <blockquote> asks us to edit a sentence a named
+    # source published. Same exemption, same wording, as the em-dash and glyph rules.
+    prose_body = re.sub(r"<blockquote[\s\S]*?</blockquote>", " ", body, flags=re.I)
+    plist = P_TAG.findall(prose_body)
     longp, bad_p = [], None
     for p in plist:
         t = text_of(p)
@@ -1020,12 +1037,17 @@ def check_page(slug, cfg, bp, heads, assets, corpus, draft_html=None):
 
     # ---- glyphs / ids / ranks (Curio shipped a stray CJK glyph, a duplicate
     # ---- id and hardcoded ranks that contradicted the computed scores) ------
+    # A VERBATIM QUOTATION KEEPS THE PUNCTUATION ITS SOURCE PUBLISHED. The em-dash rule
+    # below already exempts <blockquote>; this scan did not, so the same three quotes were
+    # reported here as "out-of-script characters" - one fact, two verdicts. Same exemption,
+    # same wording (see scripts/check-content.mjs and scripts/seo-audit.mjs).
+    prose_text = text_of(re.sub(r"<blockquote[\s\S]*?</blockquote>", " ", body, flags=re.I))
     bad_glyphs = []
-    for m in re.finditer(r"[^\x00-\xff]", btext):
+    for m in re.finditer(r"[^\x00-\xff]", prose_text):
         ch = m.group(0)
         if ch in ALLOWED_GLYPHS:
             continue
-        ctx = btext[max(0, m.start() - 20):m.start() + 20].replace("\n", " ")
+        ctx = prose_text[max(0, m.start() - 20):m.start() + 20].replace("\n", " ")
         bad_glyphs.append("U+%04X in '%s'" % (ord(ch), ctx))
     summ["glyph"] = len(bad_glyphs)
     if bad_glyphs:
@@ -1215,7 +1237,11 @@ def check_page(slug, cfg, bp, heads, assets, corpus, draft_html=None):
            % (loc, len(split_list(cfg.get("SPELLING_ALLOW")))), out)
 
     # ---- emdash / markers / head ----------------------------------------
-    em = html.count("\u2014") + len(re.findall(r"&mdash;|&#8212;", html))
+    # A house punctuation rule binds this site's OWN prose, never a VERBATIM
+    # quotation: editing punctuation inside quoted material misquotes a named
+    # source. Blockquote content is removed before the count, and only there.
+    outside_quotes = re.sub(r"<blockquote[\s\S]*?</blockquote>", " ", html, flags=re.I)
+    em = outside_quotes.count("\u2014") + len(re.findall(r"&mdash;|&#8212;", outside_quotes))
     glued = len(re.findall(r"\w<a\s", html)) + len(re.findall(r"</a>\w", html))
     lts = len(re.findall(r"&lt;strong&gt;", html))
     com = len(re.findall(r"<!--", html))

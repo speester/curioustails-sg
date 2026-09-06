@@ -7,6 +7,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
+import { exemptionFor, EXEMPT } from './lib/exemptions.mjs';
 
 // A site may ship ONE palette by design; config/project-config.md says so once as
 // `SITE_THEMES: light`, and contrast-check.mjs already reads it. Hardcoding both here
@@ -219,10 +220,16 @@ await Promise.all(Array.from(
           if (!i.hasDim) fail(route, 'images', `img without width/height: ${i.src}`);
         }
         // Legal/utility routes are exempt with the error pages: the floor exists to stop a
-        // THIN CONTENT page, and a privacy policy or terms page is neither thin nor
-        // content - illustrating one is padding. (RTP Fix 2026-09-05)
-        const UTILITY = /\/(404|contact\/thank-you|privacy-policy|privacy|terms|editorial-policy|could-not-send)\//;
-        if (imgs.length < 2 && !UTILITY.test(route)) fail(route, 'images', `only ${imgs.length} <img> on the page (floor is 2)`);
+        // THIN CONTENT page, and a privacy policy or terms page is neither thin nor content -
+        // illustrating one is padding. (RTP Fix 2026-09-05)
+        //
+        // 2026-09-05: this was a SECOND inline utility-route list, which is the defect
+        // contracts_check's one-exemption-impl rule exists to catch - two lists disagree the
+        // moment either is edited. Ask the shared predicate instead; it is the same function
+        // verify_page.py, audit_built_html.py and check-references.mjs ask.
+        if (imgs.length < 2 && exemptionFor(route, 'FIGURE_EXEMPT_ROUTES') !== EXEMPT) {
+          fail(route, 'images', `only ${imgs.length} <img> on the page (floor is 2)`);
+        }
       }
 
       if (width === 1440 && theme === 'light') {
@@ -242,7 +249,11 @@ await Promise.all(Array.from(
         if (want('dates')) {
           const ld = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => m[1]).join(' ');
           const dm = (ld.match(/"dateModified":"(\d{4}-\d{2}-\d{2})/) || [, ''])[1];
-          const visible = (html.replace(/<[^>]+>/g, ' ').match(/(?:Last updated|updated|Checked against[^0-9]*)\s*([0-9]{1,2}\s+\w+\s+[0-9]{4}|\d{4}-\d{2}-\d{2})/i) || [, ''])[1];
+          // A publisher's dateline says "Reviewed 18 August 2026", not "Last updated".
+          // The narrower vocabulary failed 57 pages that carried a visible date in the
+          // hero (Insight User Conference, 2026-09-05). Accept the wordings a reader
+          // would recognise as a dateline, and both date orders.
+          const visible = (html.replace(/<[^>]+>/g, ' ').match(/(?:Last updated|updated|Reviewed(?: on)?|Published|Checked against[^0-9]*)\s*([0-9]{1,2}\s+\w+\s+[0-9]{4}|\w+\s+[0-9]{1,2},?\s+[0-9]{4}|\d{4}-\d{2}-\d{2})/i) || [, ''])[1];
           const slug = route.replace(/^\/|\/$/g, '').split('/').pop() || 'index';
           if (dm) {
             if (dm > today) fail(route, 'dates', `dateModified ${dm} is in the future`);
@@ -283,7 +294,17 @@ await Promise.all(Array.from(
             return {
               mains: document.querySelectorAll('main').length,
               h1s: document.querySelectorAll('h1').length,
-              badP: document.querySelectorAll('form p, figure p, nav p').length,
+              // A <p> inside a <figure> is only a defect when it is loose prose the
+              // author should have put in <figcaption>. The standard markup for a pull
+              // quote is figure > blockquote > p (it is MDN's own example), and a
+              // <details> disclosure inside a figure is prose that belongs to the figure,
+              // so neither is counted. Same question, narrower answer.
+              badP: Array.from(document.querySelectorAll('form p, figure p, nav p'))
+                .filter((el) => !el.closest('blockquote') && !el.closest('details')
+                                && !el.closest('figcaption')
+                                // an ARIA live region inside a form is the accessible way
+                                // to announce a submit result, not loose prose
+                                && !el.hasAttribute('aria-live') && el.getAttribute('role') !== 'status').length,
               skip,
             };
           });

@@ -11,6 +11,8 @@ import StatStrip from '../components/StatStrip.astro';
 import ComparisonSplit from '../components/ComparisonSplit.astro';
 import CaptionedBlock from '../components/CaptionedBlock.astro';
 import BannerRibbon from '../components/BannerRibbon.astro';
+import ListingGrid from '../components/ListingGrid.astro';
+import { livePupCards, liveTotal } from '../lib/puppy-cards';
 import FinalCta from '../components/FinalCta.astro';
 import Carousel from '../components/Carousel.astro';
 import FAQ from '../components/FAQ.astro';
@@ -38,8 +40,15 @@ const title = 'Puppy Starter Kit Singapore | 30+ Items | Curious Tails';
 const description =
   "What's included in a puppy starter kit? Ours has 30+ items worth $500+ across 8 categories, free with every puppy, delivered and set up at home. WhatsApp us.";
 
+// Workstream A2.3: 38 users, zero WhatsApp clicks. The kit is the strongest
+// differentiator on the site and it was being described without ever showing a
+// puppy it comes home with.
+const kitPups = livePupCards(6);
+const liveCount = liveTotal();
+
 const jumpLinks = [
   { label: 'The 8 Categories', href: '#categories' },
+  ...(kitPups.length > 0 ? [{ label: 'Available Now', href: '#available-now' }] : []),
   { label: 'Week One', href: '#week-one' },
   { label: 'DIY vs Included', href: '#diy' },
   { label: 'Itemized Value', href: '#breakdown' },
@@ -244,6 +253,19 @@ const schemas = [
       </p>
     </div>
   </div>
+
+  {kitPups.length > 0 && (
+    <div id="available-now" class="scroll-mt-40">
+      <ListingGrid
+        heading="Puppies This Kit Comes Home With, Available Right Now"
+        headingAccent="Right Now"
+        subhead={`Every price below already includes the $500+ starter kit, free delivery and the first training lesson. ${liveCount} puppies in our care today.`}
+        items={kitPups}
+        footerCtaLabel={`See all ${liveCount} puppies available now`}
+        footerCtaHref="/available-puppies/"
+      />
+    </div>
+  )}
 
   <BannerRibbon
     heading="Want to see the kit with an actual puppy?"

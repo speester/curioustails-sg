@@ -17,6 +17,7 @@ interface Item {
   comingSoon?: boolean; // page not built yet: render a non-clickable "Coming soon" card (no link, no 404)
   gender?: 'Male' | 'Female';
   age?: string; // e.g. "2 months"
+  waSource?: string; // GA4 wa_source tag (e.g. "pup:2630") for whatsapp_click attribution
 }
 interface Props {
   heading: string;
@@ -142,6 +143,7 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
             ) : (
             <a
               href={item.href}
+              data-wa-source={item.waSource}
               aria-label={item.price ? `${item.meta}: ${item.title}, $${fmtPrice(item.price)} all-in` : `${item.meta}: ${item.title}`}
               class="clay-btn clay-press mt-5 inline-flex w-full items-center justify-center gap-2 whitespace-nowrap bg-[#25D366] px-5 py-3 text-sm font-bold text-white transition-transform hover:bg-[#1ebe57]"
             >

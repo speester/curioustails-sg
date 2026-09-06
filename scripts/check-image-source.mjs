@@ -66,12 +66,35 @@ const manifests = fs.existsSync(cfgDir)
 for (const f of manifests) {
   let data;
   try { data = JSON.parse(read(path.join(cfgDir, f))); } catch { hits.push(`${f}: does not parse`); continue; }
+  // SCOPE. A generated image of the thing you sell is banned because it becomes an OFFER:
+  // a listing card with a price and an enquiry button, showing an animal nobody owns. A
+  // breed-characteristic image is not an offer - it is what the breed looks like, the same
+  // knowledge src/data/colours.ts already holds - and the project rule allows it
+  // (CLAUDE.md: "AI images only for hero/breed-characteristic/OG"). So the scope is allowed
+  // AND POLICED: it must announce itself in the alt text a reader hears, and it may not
+  // carry a price or an availability word, which is what would turn it back into an offer.
+  const OFFERY = /\b(available now|in stock|for sale|reserved|\$\s?\d|price|book (a )?viewing|enquire)\b/i;
   const walk = (node, where) => {
     if (Array.isArray(node)) return node.forEach((n, i) => walk(n, `${where}[${i}]`));
     if (!node || typeof node !== 'object') return;
+    const scoped = String(node.scope || '').toLowerCase() === 'breed-characteristic';
     for (const [k, v] of Object.entries(node)) {
       if (typeof v === 'string' && /prompt|alt|caption|scene/i.test(k)) {
         scannedPrompts++;
+        if (scoped) {
+          if (/alt/i.test(k) && !/illustration/i.test(v)) {
+            hits.push(`${f} ${where}.${k}: breed-characteristic image whose alt does not say it is an illustration - ${v.slice(0, 80)}`);
+          }
+          // A negated phrase is a DISCLAIMER, not an offer: "not a photograph of a puppy for
+      // sale" is the sentence this scope exists to require, and the first version of this
+      // check failed every correctly worded alt on the site.
+      const offer = v.match(OFFERY);
+      const negated = offer && /\b(not|never|no)\b[^.]{0,40}$/i.test(v.slice(0, offer.index));
+      if (offer && !negated) {
+            hits.push(`${f} ${where}.${k}: breed-characteristic image written like an offer ("${offer[0]}") - ${v.slice(0, 80)}`);
+          }
+          continue;
+        }
         const m = v.match(RX);
         if (m) hits.push(`${f} ${where}.${k}: depicts the sellable entity ("${m[1]}") — ${v.slice(0, 80)}`);
       } else walk(v, `${where}.${k}`);

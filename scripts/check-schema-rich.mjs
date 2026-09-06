@@ -115,6 +115,11 @@ for (const { route, html } of pages) {
   const main = (html.split('<main')[1] || '').split('</main>')[0] || '';
   const text = main.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ');
   const hrefs = new Set([...main.matchAll(/href="([^"#?]+)"/g)].map((m) => m[1].replace(/^https?:\/\/[^/]+/, '')));
+  // IN-PAGE ANCHORS. The href harvest above drops anything carrying a fragment, so an
+  // ItemList whose rows point at sections of THIS page (a five-stage process, a glossary)
+  // could never match a link the page really carries (Insight User Conference, 2026-09-06).
+  const fragments = new Set([...main.matchAll(/href="#([A-Za-z0-9_-]+)"/g)].map((m) => m[1]));
+  for (const f of fragments) hrefs.add(route + '#' + f);
 
   const lists = of('ItemList');
   const products = of('Product');
@@ -127,6 +132,15 @@ for (const { route, html } of pages) {
     if (Array.isArray(v)) return v.forEach(walkNodes);
     if (v && typeof v === 'object') {
       if (v.offers) nested.push(v);
+      // AN OfferCatalog HOLDS ITS OFFERS IN itemListElement, NOT IN `offers` (2026-09-06).
+      // The walker recognised only the `offers` PROPERTY, so a graph built the catalogue way
+      // -- Organization -> hasOfferCatalog -> OfferCatalog -> itemListElement[Offer] -- read
+      // as a page with no offers at all. thesuperpanel.com ships 23 Offer nodes on / and 23
+      // on /pricing/ and this gate reported "33 element(s) marked data-price and no Offer
+      // node" on both. It is the same defect the comment above records for ItemList rows,
+      // one level further out: count the Offer NODE wherever it lives, not the property.
+      const t = Array.isArray(v['@type']) ? v['@type'] : [v['@type']];
+      if (t.includes('Offer')) nested.push(v);
       Object.values(v).forEach(walkNodes);
     }
   };
@@ -183,7 +197,11 @@ for (const { route, html } of pages) {
   }
   // 2. A MARKED PRICE BINDS. `data-price` is how a money page renders its own figure; an
   //    element carrying it with no Offer behind it is the text-only failure, measured.
-  const marked = [...main.matchAll(/data-price(?:=["'][^"']*["'])?/g)].length;
+  // WORD BOUNDARY, OR EVERY data-price-* ATTRIBUTE IS A PRICE (2026-09-05). PriceTable's
+  // provenance line carries `data-price-source`, which says where a THIRD PARTY's figure was
+  // read -- the opposite of "this site is selling something". The unbounded pattern counted
+  // it and demanded an Offer node for a price this publisher does not charge.
+  const marked = [...main.matchAll(/data-price(?![-\w])(?:=["'][^"']*["'])?/g)].length;
   if (!noindex && marked && !offers.length) {
     fail(route, `${marked} element(s) marked data-price and no Offer node — the money page's own price is invisible to the SERP`);
   }

@@ -47,9 +47,9 @@ const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'nu
 const price = breedPricing['chihuahua'];
 const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
-const title = 'Chihuahua Puppy for Sale Singapore | Curious Tails';
+const title = `Chihuahua Puppy for Sale Singapore | $${fmtPrice(price.low)} All-In`;
 const description =
-  `Chihuahua price in Singapore (${monthStamp}): ${priceRange} all-in, AVS licensed and HDB-approved. Starter kit, free delivery and setup included.`;
+  `Chihuahua puppy Singapore from $${fmtPrice(price.low)} all-in (${monthStamp}), AVS licensed, HDB-approved. $500+ starter kit, free delivery and training lesson included.`;
 
 const jumpLinks = [
   { label: 'Puppies', href: '#available' },
@@ -553,7 +553,7 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">start at the Curious Tails home page</a>, or <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all 48 breeds we carry</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppies for sale in Singapore</a>, or <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all 48 breeds we carry</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">

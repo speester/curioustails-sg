@@ -52,6 +52,35 @@ const ownedByProject = (f) => {
   const t = fs.readFileSync(abs, 'utf8');
   return t.trim() !== '' && !t.includes(BANNER);
 };
+
+// THE BANNER IS NOT PROOF OF OWNERSHIP (2026-09-05, wgpetfarm). A file can carry the
+// generator's banner AND exports a project added underneath it - here src/data/site.ts
+// carried the banner and `whatsappLink`, which the header imports. The banner probe said
+// "mine", the rewrite dropped the export, and the build broke on a name no gate mentioned.
+// A file is therefore ALSO project-owned when it exports a name this run would not emit.
+const exportNames = (text) => {
+  const names = new Set();
+  const DECL = new RegExp('^[ \t]*export[ \t]+(?:const|let|var|function|class|interface|type)[ \t]+([A-Za-z_$][\w$]*)', 'gm');
+  for (const m of text.matchAll(DECL)) names.add(m[1]);
+  // A re-export list (`export { a, b } from './identity'`) is how a project bolts its own
+  // module onto a generated file. Missing that form is how the first version of this guard
+  // passed while still dropping `whatsappLink` and breaking the build.
+  const LIST = new RegExp('^[ \t]*export[ \t]*\{([^}]*)\}', 'gm');
+  for (const m of text.matchAll(LIST)) {
+    for (const part of m[1].split(',')) {
+      const name = part.trim().split(/\s+as\s+/).pop().trim();
+      if (/^[A-Za-z_$][\w$]*$/.test(name)) names.add(name);
+    }
+  }
+  return names;
+};
+const wouldDropExports = (f, next) => {
+  const abs = OUT + '/' + f;
+  if (!fs.existsSync(abs)) return [];
+  const have = exportNames(fs.readFileSync(abs, 'utf8'));
+  const will = exportNames(next);
+  return [...have].filter((n) => !will.has(n));
+};
 const siteOwned = ownedByProject('site.ts');
 const REG_FILE = siteOwned ? 'registry.ts' : 'site.ts';
 const REG_MOD = siteOwned ? './registry' : './site';
@@ -60,8 +89,12 @@ if (CHECK) {
   // Only the files THIS generator writes can be stale against the CSV. A project-owned
   // seed is not stale, it is not ours - calling it stale made check:registry unpassable
   // on any project that owns its own src/data/site.ts.
-  const files = [REG_FILE, 'posts.ts', 'routes.ts']
-    .filter((f) => !ownedByProject(f) || f === REG_FILE)
+  // WHERE THE REGISTRY ACTUALLY LIVES (2026-09-05). The write path moves the registry to
+  // registry.ts when site.ts carries exports this generator does not emit; --check kept
+  // measuring site.ts, so a correct run reported its own untouched seed as STALE forever.
+  const regFileNow = fs.existsSync(`${OUT}/registry.ts`) ? 'registry.ts' : REG_FILE;
+  const files = [regFileNow, 'posts.ts', 'routes.ts']
+    .filter((f) => !ownedByProject(f) || f === regFileNow)
     .map((f) => `${OUT}/${f}`);
   const csvTime = fs.statSync(CSV).mtimeMs;
   let fails = 0;
@@ -124,11 +157,19 @@ export const inSitemap = (r: Route): boolean => r.slug !== '/404' && !/thank-you
 const cfgTxt = fs.existsSync('config/project-config.md')
   ? fs.readFileSync('config/project-config.md', 'utf8') : '';
 const cfg = (k, d = '') => {
+  // `'\s'` inside a SINGLE-QUOTED string is just `s`, so this pattern was
+  // `^KEY:s*(.*)$` and matched only because `s*` also matches zero s. Use a real \s.
   const m = cfgTxt.match(new RegExp('^' + k + ':\s*(.*)$', 'm'));
   if (!m) return d;
   // project-config comment convention: value ends at 2+ spaces followed by "#"
   const v = m[1].split(/\s{2,}#/)[0].trim();
-  return (!v || /^(none|n\/a)$/i.test(v)) ? d : v;
+  // A RECORDED NON-ANSWER IS STILL A NON-ANSWER, HOWEVER IT IS QUALIFIED (2026-09-05).
+  // project-config.md's own convention is that `none` and `N/A` may carry a reason on the
+  // same line - `N/A - archetype`, `none - write trust pages without naming one`. Matching
+  // only the bare word put those SENTENCES into src/data/site.ts, and from there into the
+  // Organization schema on every page as `"areaServed":"N/A - archetype"` and into
+  // TrustBlock as the legal entity. Test the first token, not the whole string.
+  return (!v || /^(none|n\/a)/i.test(v)) ? d : v;
 };
 // Conversion destination for the header CTA. Derived, never assumed.
 // GA4 key events, derived from config/forms.json.
@@ -241,27 +282,40 @@ export const FOOTER = {
   note: ${JSON.stringify(cfg('SITE_WIDE_NOTICE'))},
 };
 `;
-if (siteOwned) {
+let regFile = REG_FILE, regMod = REG_MOD;
+const droppedSite = wouldDropExports(regFile, siteTs + identity);
+if (droppedSite.length) {
+  regFile = 'registry.ts'; regMod = './registry';
+  console.log(`NOTE src/data/${REG_FILE} exports ${droppedSite.join(', ')}, which this generator does not`);
+  console.log('     emit - it is project-extended. Writing the registry to src/data/registry.ts.');
+} else if (siteOwned) {
   console.log('NOTE src/data/site.ts is a project-authored seed — writing the route registry');
-  console.log(`     to src/data/${REG_FILE} instead, and re-exporting it from routes.ts.`);
+  console.log(`     to src/data/${regFile} instead, and re-exporting it from routes.ts.`);
 }
-fs.writeFileSync(`${OUT}/${REG_FILE}`, siteTs + identity, 'utf8');
+fs.writeFileSync(`${OUT}/${regFile}`, siteTs + identity, 'utf8');
 
 const posts = rows.filter(r => r.section_class === 'outer' && r.page_tier === 'outer');
 if (!ownedByProject('posts.ts')) fs.writeFileSync(`${OUT}/posts.ts`, `// GENERATED by scripts/gen-registry.mjs — DO NOT EDIT BY HAND.
-import type { Route } from '${REG_MOD}';
-import { ROUTES } from '${REG_MOD}';
+import type { Route } from '${regMod}';
+import { ROUTES } from '${regMod}';
 export const POSTS: Route[] = ROUTES.filter(r => r.section === 'outer' && r.tier === 'outer');
 export const POSTS_BY_SILO: Record<string, Route[]> = POSTS.reduce((acc, p) => { (acc[p.silo] ||= []).push(p); return acc; }, {} as Record<string, Route[]>);
 `, 'utf8');
 
-fs.writeFileSync(`${OUT}/routes.ts`, `// GENERATED by scripts/gen-registry.mjs — DO NOT EDIT BY HAND.
-export type { Route } from '${REG_MOD}';
-export { ROUTES, BY_SLUG, HUBS, MONEY_HUBS, UTILITY, MONETIZATION, NAV, childrenOf, inSitemap } from '${REG_MOD}';
+const routesTs = `// GENERATED by scripts/gen-registry.mjs — DO NOT EDIT BY HAND.
+export type { Route } from '${regMod}';
+export { ROUTES, BY_SLUG, HUBS, MONEY_HUBS, UTILITY, MONETIZATION, NAV, childrenOf, inSitemap } from '${regMod}';
 export const ROUTE_SLUGS: string[] = [
 ${rows.map(r => `  '${esc(r.url_slug)}'`).join(',\n')}
 ];
-`, 'utf8');
+`;
+const droppedRoutes = wouldDropExports('routes.ts', routesTs);
+if (droppedRoutes.length) {
+  console.log(`SKIP src/data/routes.ts exports ${droppedRoutes.join(', ')}, which this generator does not`);
+  console.log("     emit - leaving the project's file alone rather than breaking its importers.");
+} else {
+  fs.writeFileSync(`${OUT}/routes.ts`, routesTs, 'utf8');
+}
 
 /* ---------- 1:1 redirect rules for moved routes ---------- */
 let moved = 0;

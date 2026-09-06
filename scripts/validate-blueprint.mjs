@@ -421,6 +421,10 @@ const inbound = new Map(rows.map(r => [r.url_slug, new Set()]));
   if (/guest-post|guest post|sponsor/.test(MONETIZATION)) mon.push('/write-for-us/', '/guest-post-guidelines/', '/advertise/');
   if (/affiliate/.test(MONETIZATION)) mon.push('/reviews/');
   const ALIAS = { '/contact/': ['/contact-us/'], '/contact/thank-you/': ['/thank-you/', '/contact-us/thank-you/'],
+    // '/disclosure/' is the contract name; '/affiliate-disclosure/' is what an
+    // affiliate publisher actually ships and what its live URL already is. Without
+    // the alias the gate asks a site to rename an indexed page to satisfy a label.
+    '/disclosure/': ['/affiliate-disclosure/'],
     '/privacy/': ['/privacy-policy/'], '/terms/': ['/terms-and-conditions/', '/terms-of-service/'] };
   const missU = need.filter(s => !bySlug.has(s) && !(ALIAS[s] || []).some(a => bySlug.has(a)));
   const missM = mon.filter(s => !bySlug.has(s));
@@ -485,10 +489,25 @@ const inbound = new Map(rows.map(r => [r.url_slug, new Set()]));
     let reg; try { reg = JSON.parse(rd('config/anchor-registry.json')); } catch { reg = null; f('config/anchor-registry.json', 'not valid JSON'); }
     if (reg) {
       if (!reg._scope || !reg._chrome) f('config/anchor-registry.json', 'missing _scope and/or _chrome keys');
-      const body = Object.entries(reg).filter(([k]) => !k.startsWith('_'));
+      // READ THE REGISTRY'S REAL SHAPE. anchor-registry.mjs writes
+      // { anchors: {anchor: [pages]}, over_soft_cap: [...], ...metadata }, but this
+      // walked the TOP level as if it were {anchor: [pages]}. The only top-level value
+      // that is an array is `over_soft_cap`, so the check graded the metadata key as an
+      // anchor "planned on 5 pages" and never examined a single real anchor
+      // (oncurio.com, 2026-09-05). Fall back to the flat shape for older registries.
+      const anchorMap = (reg.anchors && typeof reg.anchors === 'object' && !Array.isArray(reg.anchors))
+        ? reg.anchors
+        : Object.fromEntries(Object.entries(reg).filter(([k, v]) => !k.startsWith('_') && Array.isArray(v)));
+      const body = Object.entries(anchorMap);
       if (body.length === 0) f('config/anchor-registry.json', 'unseeded — seed every planned body anchor from the link contract');
       else seeded = 'seeded';
+      // A brand or compliance anchor is site-wide BY DESIGN and anchor-registry.mjs
+      // exempts it. Counting it here made the two instruments disagree about one rule.
+      const exempt = new Set((reg.over_soft_cap || [])
+        .filter((o) => o && o.reason && o.reason !== 'other')
+        .map((o) => o.anchor));
       for (const [anchor, slugs] of body) {
+        if (exempt.has(anchor)) continue;
         const uniq = [...new Set(Array.isArray(slugs) ? slugs : [])];
         if (uniq.length > 3) { overCap++; f(anchor, `planned on ${uniq.length} pages (cap 3)`); }
       }

@@ -26,6 +26,7 @@ import {
   itemListSchema,
 } from '../../lib/schema';
 import { priceForHref, fmtPrice, OVERALL_LOW, OVERALL_HIGH, BREED_COUNT } from '../../data/pricing';
+import { livePupCards, liveTotal, stockedBreeds } from '../../lib/puppy-cards';
 import heroCavapoo from '../../assets/cavapoo/1-cavapoo-puppy-hero-playpen-balestier.webp';
 import cavapooPortrait from '../../assets/cavapoo/2-cavapoo-puppy-portrait-available.webp';
 import maltipooPortrait from '../../assets/maltipoo/3-maltipoo-puppy-portrait-available.webp';
@@ -393,6 +394,14 @@ const schemas = [
   }))),
   faqPageSchema(faqItems),
 ];
+
+// Workstream A2.1: this page drew 187 users and zero WhatsApp clicks with only
+// generic CTA chrome on it. A live strip of real, named, priced puppies above
+// the breed grids gives the visitor something specific to ask about — the same
+// mechanism that makes the per-breed pages convert at 13-24%.
+const livePups = livePupCards(8);
+const liveCount = liveTotal();
+const liveBreedCount = stockedBreeds().length;
 ---
 
 <BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies" ogImage="/assets/cavapoo/og-cavapoo.jpg">
@@ -446,6 +455,19 @@ const schemas = [
       </div>
     </DefBox>
   </div>
+
+  {livePups.length > 0 && (
+    <div id="available-now" class="scroll-mt-40">
+      <ListingGrid
+        heading="Puppies Available Right Now"
+        headingAccent="Right Now"
+        subhead={`${liveCount} puppies in our care today across ${liveBreedCount} breeds. Every price is the all-in price, kit, delivery and first training lesson included. Message us for more photos of any of them.`}
+        items={livePups}
+        footerCtaLabel={`See all ${liveCount} puppies available now`}
+        footerCtaHref="/available-puppies/"
+      />
+    </div>
+  )}
 
   <div id="breeds" class="scroll-mt-40">
     <ListingGrid

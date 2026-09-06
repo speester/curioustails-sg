@@ -16,9 +16,9 @@ import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from 
 import heroCare from '../assets/about-us/1-avs-licensed-pet-shop-hero-care.webp';
 import ExpertQuote from '../components/ExpertQuote.astro';
 
-const title = 'Contact Curious Tails | WhatsApp, Visit or Call | Balestier';
+const title = 'Visit Our Puppy Shop in Balestier | Curious Tails';
 const description =
-  'Contact Curious Tails: WhatsApp 8220 6408, visit 2 Balestier Road #01-701 (weekdays 12pm to 6pm, weekends 10am to 6pm), or email hello@curioustails.sg.';
+  'Visit our AVS-licensed puppy shop at 2 Balestier Road, open 7 days. WhatsApp 8220 6408 for photos and all-in prices of the puppies available today.';
 
 const faqItems = [
   {
@@ -65,7 +65,7 @@ const schemas = [
     h1Accent="Get in Touch"
     subhead="WhatsApp is the fastest way to reach Nelson and Kim: current puppy photos, exact prices, honest breed advice, and every care question after the sale. Or just come by the Balestier shop and meet the puppies."
     ctaLabel="WhatsApp us"
-    ctaMessage="Hi! I'd like to ask about your puppies."
+    ctaMessage="Hi! Could you send me photos of the puppies you have at the shop today, with prices?"
     secondaryCtaLabel="See visiting details"
     secondaryCtaHref="#visit"
     priceAnchor={`Open ${site.hours}.`}
@@ -109,7 +109,7 @@ const schemas = [
         Meeting the puppies in person beats any photo. WhatsApp first and we'll have the breeds you're considering ready; browse <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">all 48 breeds</a> before you come, and check what every price includes so the numbers hold no surprises.
       </p>
       <div class="mt-5 flex flex-wrap gap-3">
-        <a href={whatsappLink()} class="clay-btn inline-flex items-center gap-2 bg-[var(--color-accent)] px-6 py-3 text-sm font-bold text-white hover:bg-[var(--color-accent-hover)]">
+        <a href={whatsappLink("Hi! Could you send me photos of the puppies available at the shop today, with prices?")} class="clay-btn inline-flex items-center gap-2 bg-[var(--color-accent)] px-6 py-3 text-sm font-bold text-white hover:bg-[var(--color-accent-hover)]">
           WhatsApp {site.phoneDisplay}
         </a>
         <a href={site.gbpUrl} target="_blank" rel="noopener" class="clay-btn-outline inline-flex items-center gap-1.5 px-6 py-3 text-sm font-bold text-[var(--color-cream-900)] hover:text-[var(--color-coral-600)]">
@@ -157,7 +157,7 @@ const schemas = [
   <Schema {schemas} />
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppies for sale in Singapore</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">which puppies are for sale in Singapore today</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">

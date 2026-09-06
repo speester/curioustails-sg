@@ -322,7 +322,11 @@ function auditPage(file) {
   const unsized = [...html.matchAll(/<img\s[^>]*>/gi)]
     .filter((m) => !(/width="\d+"/.test(m[0]) && /height="\d+"/.test(m[0]))).length;
   if (unsized) F('HIGH', '4.4', route, 'unsized <img>', `${unsized}`, '0');
-  if (/\u2014/.test(bodyTxt)) F('HIGH', 'EMDASH', route, 'em dash in rendered body');
+  // A verbatim quotation keeps the punctuation the source published: everything inside
+  // <blockquote> is exempt, everything outside it is the site's own prose and is not.
+  // Worded to match scripts/check-content.mjs and scripts/verify_page.py.
+  const proseTxt = blockText(stripChrome(html.replace(/<blockquote[\s\S]*?<\/blockquote>/gi, ' ')));
+  if (/—/.test(proseTxt)) F('HIGH', 'EMDASH', route, 'em dash in rendered body (outside verbatim quotations)');
   const glued = (html.match(/\w<a\s/g) || []).length + (html.match(/<\/a>\w/g) || []).length;
   if (glued) F('HIGH', '4.14', route, 'anchor glued to a word (build trimmed the whitespace)', `${glued}`, '0');
   if (!/<main[\s>]/i.test(html) && !noindex) F('MEDIUM', 'LANDMARK', route, 'no <main> landmark');
@@ -334,7 +338,7 @@ function auditPage(file) {
   // The shipped component is ExpertQuote.astro, which emits class="expert-quote" and
   // data-quote-key. Matching only data-quotecard/quote-card reported "no quote on the page"
   // for pages carrying four of them, because the two scripts were written to different names.
-  const quotes = (html.match(/data-quotecard|data-quote-key|class="[^"]*(?:quote-card|expert-quote)/gi) || []).length;
+  const quotes = (html.match(/data-quotecard|data-quote-key|data-expert-quote|class="[^"]*(?:quote-card|expert-quote)/gi) || []).length;
   if (quotes < 1 && contentTier)
     F('HIGH', 'QUOTE', route, 'no ExpertQuote/QuoteCard on the page (sme-extract quote missing)');
   // count a figure either by its /figures/*.svg source or by the data-figure marker
@@ -355,7 +359,12 @@ function auditPage(file) {
   if (!hasOg && !noindex)
     F('HIGH', 'IMAGE-OG', route, 'no og:image (under IMAGE_POLICY=figure this IS the page\'s one required raster)', '0', '1');
   if (brief?.schema_plan) {
-    const planned = [].concat(brief.schema_plan.types ?? brief.schema_plan);
+    // schema_plan rows are objects ({type, notes}) in every brief in this project; a bare
+    // string is also accepted. Read the type off the row before comparing, or every planned
+    // type stringifies to [object Object] and reports as missing.
+    const planned = [].concat(brief.schema_plan.types ?? brief.schema_plan)
+      .map((x) => (typeof x === 'string' ? x : x?.type ?? x?.name ?? ''))
+      .filter(Boolean);
     const missing = planned.filter((x) => !types.includes(x));
     if (missing.length) F('HIGH', '3.30c', route, `schema_plan types not emitted: ${missing.join(', ')}`);
   }

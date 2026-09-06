@@ -56,7 +56,10 @@ for (const f of files) {
       'order': 'generate_lead',
       'newsletter': 'newsletter_signup',
     }[c.purpose] ?? (() => { throw new Error(`${f}: unknown purpose "${c.purpose}" - cannot derive a ga4_event, and form_submit has no emitter`); })()),
-    notify_to: c.notify_to ?? '', honeypot: c.honeypot_field ?? 'company_website',
+    // notify_to is the OWNER'S INBOX and this record ships in the client bundle, so it was
+    // publishing a personal address on every page carrying a form (2026-09-05). Server-side
+    // data, like displayKey: it stays in config/formaloo.<key>.json and in the Pages function.
+    honeypot: c.honeypot_field ?? 'company_website',
     submitLabel: c.submitLabel ?? (c.purpose === 'partner-pitch' ? 'Send enquiry' : 'Get help now'),
     compliance: c.compliance ?? [], fields: c.fields ?? [],
   };
@@ -105,7 +108,9 @@ console.log(`src/data/forms.ts  | ${drift ? 'FAIL (stale)' : 'PASS'}`);
       // nothing to do with contacting anyone. The failure lands back where the form IS.
       error_url: cfg.error_url ?? '',
       anchor: cfg.anchor ?? (f.purpose === 'newsletter' ? 'newsletter' : 'contact-form'),
-      notify_email: f.notify_to,
+      // Read from the CONFIG, not from the client-side record: notify_to no longer travels
+      // through src/data/forms.ts, because that file ships to the browser.
+      notify_email: cfg.notify_to ?? '',
       ga4_event: f.ga4_event,
     };
   }

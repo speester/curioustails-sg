@@ -356,7 +356,12 @@ def validate(slug, bp, comps):
     # unverified was the way to pass the verification gate. It is now the failure it
     # describes. BLOCKED is not BROKEN (same semantics as check-references.mjs): a host
     # that refuses bots (400/401/403/429) may be cited when the brief says so.
-    BLOCKED_CODES = {"400", "401", "403", "429"}
+    # 202 joins them: bot-mitigation front ends (Semantic Scholar, some Cloudflare and
+    # DataDome configurations) answer a scripted GET with 202 and a challenge page while
+    # serving the record to a browser. That is a refused bot, not a dead citation, and
+    # the alternative - swapping in a "200" that is itself a challenge page, as JSTOR's
+    # stable URLs return - would verify nothing while looking verified.
+    BLOCKED_CODES = {"202", "400", "401", "403", "429"}
     unver = []
     for e in dicts(ext):
         code = str(e.get("http_status", "")).strip()

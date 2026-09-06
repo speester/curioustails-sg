@@ -65,14 +65,26 @@ else
   grep -q 'X-Robots-Tag' dist/_headers || { echo "FAIL: dist/_headers carries no X-Robots-Tag"; exit 1; }
 fi
 
+# --branch <name> (2026-09-05): this project's staging lives on the `smoke` branch, and the
+# only way to reach it was to bypass this script and run wrangler by hand - which skips every
+# pre-check the script exists to run. A named branch is now a first-class argument, and
+# --dry-run composes with it instead of forcing main.
 BRANCH="preview"
 DRY=0
-case "${1:-}" in
-  --preview) BRANCH="preview" ;;
-  --production|"") BRANCH="main" ;;
-  --dry-run) BRANCH="main"; DRY=1 ;;
-  *) echo "FAIL: unknown argument '$1'"; exit 1 ;;
-esac
+BRANCH_SET=0
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --preview) BRANCH="preview"; BRANCH_SET=1 ;;
+    --production) BRANCH="main"; BRANCH_SET=1 ;;
+    --branch) shift; [ -n "${1:-}" ] || { echo "FAIL: --branch needs a name"; exit 1; }
+              BRANCH="$1"; BRANCH_SET=1 ;;
+    --dry-run) DRY=1 ;;
+    "") : ;;
+    *) echo "FAIL: unknown argument '$1'"; exit 1 ;;
+  esac
+  shift || true
+done
+[ "$BRANCH_SET" = 1 ] || BRANCH="main"
 
 SHA="$(node -e "process.stdout.write(require('./src/data/build-id.json').id)")"
 

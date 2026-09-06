@@ -74,6 +74,9 @@ export function pupCard(
     gender: p.gender ?? undefined,
     age: p.age ?? undefined,
     points: points.length > 0 ? points : undefined,
+    // Identifies the exact pup in GA4 `wa_source`, so the WhatsApp inbox can be
+    // reconciled against the card that produced the enquiry (Workstream A4).
+    waSource: `pup:${p.id}`,
     ...(state === 'available'
       ? {
           tag: 'Available',
@@ -97,4 +100,69 @@ export function pupCard(
           ),
         }),
   };
+}
+
+// ---------------------------------------------------------------------------
+// Live-inventory strips (Workstream A2)
+//
+// The homepage proved the mechanism: a page carrying named, priced,
+// photographed puppies converts 13-24% to WhatsApp; a page carrying generic
+// "WhatsApp us" chrome converts ~0%. These helpers let /puppies/, /pricing/,
+// /starter-kit/ and the breed selector reuse it instead of reinventing it.
+//
+// Every card href is a wa.me deep link (pupCard), never an internal URL, so a
+// strip never competes with /puppies/<breed>/ on breed queries.
+// ---------------------------------------------------------------------------
+import liveData from '../data/available-puppies.json';
+import { breedName } from '../data/breed-names';
+
+const liveBreeds = () => liveData.breeds as Record<string, BreedBucket>;
+
+/** Breed slugs that currently have at least one puppy in stock, stable order. */
+export const stockedBreeds = (): [string, BreedBucket][] =>
+  Object.entries(liveBreeds())
+    .filter(([, b]) => b.available.length > 0)
+    .sort(([a], [b]) => a.localeCompare(b));
+
+/** Total puppies in our care today, including any not filed under a breed. */
+export const liveTotal = () =>
+  stockedBreeds().reduce((n, [, b]) => n + b.available.length, 0) +
+  ((liveData as { other?: unknown[] }).other?.length ?? 0);
+
+export const liveSyncedAt = () => liveData.syncedAt;
+
+/**
+ * `count` available puppies, round-robin one per breed so a strip reads as
+ * range rather than nine of the same breed. `only` restricts to given slugs
+ * (used by the out-of-stock nearest-breed fallback and the quiz result).
+ */
+export function livePupCards(count: number, only?: string[]): ReturnType<typeof pupCard>[] {
+  const pool = only
+    ? (only
+        .map((slug) => [slug, liveBreeds()[slug]] as [string, BreedBucket | undefined])
+        .filter((e): e is [string, BreedBucket] => Boolean(e[1]?.available.length)))
+    : stockedBreeds();
+  const out: ReturnType<typeof pupCard>[] = [];
+  for (let depth = 0; out.length < count; depth++) {
+    let addedThisRound = 0;
+    for (const [slug, bucket] of pool) {
+      if (out.length >= count) break;
+      const pup = bucket.available[depth];
+      if (!pup) continue;
+      out.push(pupCard(pup, breedName(slug), 'available', { breedLabel: true }));
+      addedThisRound++;
+    }
+    if (addedThisRound === 0) break; // every bucket exhausted
+  }
+  return out;
+}
+
+/** Cheapest `count` available puppies, for price-intent pages. */
+export function cheapestPupCards(count: number): ReturnType<typeof pupCard>[] {
+  return stockedBreeds()
+    .flatMap(([slug, b]) => b.available.map((p) => ({ p, slug })))
+    .filter(({ p }) => typeof p.price === 'number')
+    .sort((a, b) => (a.p.price as number) - (b.p.price as number))
+    .slice(0, count)
+    .map(({ p, slug }) => pupCard(p, breedName(slug), 'available', { breedLabel: true }));
 }

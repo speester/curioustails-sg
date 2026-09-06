@@ -9,7 +9,13 @@
 import ListingGrid from './ListingGrid.astro';
 import AvailabilityCta from './AvailabilityCta.astro';
 import data from '../data/available-puppies.json';
-import { pupCard, type BreedBucket } from '../lib/puppy-cards';
+import { pupCard, livePupCards, stockedBreeds, type BreedBucket } from '../lib/puppy-cards';
+import { nearestBreeds } from '../data/breed-neighbours';
+import { breedName as displayBreedName } from '../data/breed-names';
+
+// "Maltipoo, Cockapoo and Cavapoo" — an Oxford-comma-free English list.
+const listNames = (names: string[]) =>
+  names.length <= 1 ? (names[0] ?? '') : `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}`;
 
 interface Props {
   breed: string; // page slug, e.g. "mini-dachshund"
@@ -24,6 +30,15 @@ const hasStock = available.length > 0;
 
 const availableItems = available.map((p) => pupCard(p, breedName, 'available'));
 const placedItems = placed.map((p) => pupCard(p, breedName, 'placed'));
+
+// Workstream A2.4: with no stock, this page used to end in an availability CTA
+// that converted 0%. Show real puppies of the nearest breeds instead — someone
+// who came for a Toy Poodle will look at a Maltipoo, but only if they can see
+// one. The waitlist ask (AvailabilityCta) still follows; a dead end does not
+// convert, a waitlist does.
+const nearest = hasStock ? [] : nearestBreeds(breed, stockedBreeds().map(([slug]) => slug));
+const nearestItems = nearest.length > 0 ? livePupCards(3, nearest) : [];
+const nearestNames = nearest.map((slug) => displayBreedName(slug));
 ---
 
 {
@@ -52,4 +67,17 @@ const placedItems = placed.map((p) => pupCard(p, breedName, 'placed'));
   )
 }
 
-{!hasStock && <AvailabilityCta breedName={breedName} standalone={placedItems.length === 0} />}
+{
+  nearestItems.length > 0 && (
+    <ListingGrid
+      heading={`No ${breedName}s In Today. These Are The Closest`}
+      headingAccent="The Closest"
+      subhead={`Real puppies in our care right now from the breeds that sit closest to the ${breedName} on size, coat and temperament: ${listNames(nearestNames)}. Every price is the all-in price. If it has to be a ${breedName}, ask us below and we will message you the moment one arrives.`}
+      items={nearestItems}
+      footerCtaLabel="See every puppy available now"
+      footerCtaHref="/available-puppies/"
+    />
+  )
+}
+
+{!hasStock && <AvailabilityCta breedName={breedName} standalone={placedItems.length === 0 && nearestItems.length === 0} />}

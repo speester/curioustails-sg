@@ -33,6 +33,8 @@ import {
   faqPageSchema,
 } from '../lib/schema';
 import { OVERALL_LOW, OVERALL_HIGH, breedPricing, fmtPrice, type BreedSlug } from '../data/pricing';
+import ListingGrid from '../components/ListingGrid.astro';
+import { cheapestPupCards, liveTotal } from '../lib/puppy-cards';
 import ExpertQuote from '../components/ExpertQuote.astro';
 
 // Slug -> display name, and slug -> known typical-market text (falls back to "Enquiry-only at most shops").
@@ -113,8 +115,16 @@ const title = 'Puppy Price Singapore | From $3,288 All-In | Curious Tails';
 const description =
   'How much does a puppy cost in Singapore? Ours start from $3,288 all-in: $500+ starter kit, free delivery and setup, and a free training lesson. WhatsApp us.';
 
+// Workstream A2.2: this page drew 128 users and zero WhatsApp clicks. It is
+// price-intent traffic with no purchasable object in front of it. Real puppies
+// at real prices, cheapest first, immediately after the price guide, turn the
+// table from a reference into something you can act on.
+const pricedNow = cheapestPupCards(6);
+const liveCount = liveTotal();
+
 const jumpLinks = [
   { label: "What’s Included", href: '#included' },
+  ...(pricedNow.length > 0 ? [{ label: 'Available Now', href: '#available-now' }] : []),
   { label: 'Market Prices', href: '#market' },
   { label: 'Why Less', href: '#why-less' },
   { label: 'By Breed', href: '#by-breed' },
@@ -384,6 +394,19 @@ const schemas = [
     </div>
   </div>
 
+  {pricedNow.length > 0 && (
+    <div id="available-now" class="scroll-mt-40">
+      <ListingGrid
+        heading="Puppies Available at These Prices Right Now"
+        headingAccent="Right Now"
+        subhead={`Not a range: these are the actual puppies in our care today, cheapest first, at the exact all-in price you would pay. ${liveCount} available in total.`}
+        items={pricedNow}
+        footerCtaLabel={`See all ${liveCount} puppies available now`}
+        footerCtaHref="/available-puppies/"
+      />
+    </div>
+  )}
+
   <BannerRibbon
     heading="Want the live number for a specific puppy?"
     body="Litters and availability change weekly. Message us and we'll send current photos, video, gender, age, and the exact price, no obligation."
@@ -614,7 +637,7 @@ const schemas = [
     breed="Puppy"
     heading="Ready to Talk Numbers? Visit or Message Us"
     body="Can't make the trip to Balestier? WhatsApp us for current availability and exact per-puppy pricing, with free home delivery across Singapore."
-    reserveMessage="Hi! I'd like to check current puppy availability and pricing."
+    reserveMessage="Hi! My budget is around $____ all-in. Which puppies do you have today at or under that, and what does the price include?"
   />
 
   <Schema {schemas} />

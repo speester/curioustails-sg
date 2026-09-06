@@ -72,7 +72,24 @@ const BROKEN = new Set([404, 410]);
 async function probe(url) {
   const opts = { redirect: 'follow', headers: { 'User-Agent': 'Mozilla/5.0 (compatible; site-reference-check/1.0)' } };
   try {
-    let r = await fetch(url, { ...opts, method: 'HEAD' });
+    // Some hosts do not merely 405 a HEAD, they refuse the connection or hang, and the
+    // request THROWS. Falling straight to the catch reported a live source as broken
+    // (openlibrary.org, Insight User Conference 2026-09-06). A HEAD that fails for any
+    // reason is retried as a GET before the URL is called dead.
+    let r;
+    try {
+      r = await fetch(url, { ...opts, method: 'HEAD' });
+    } catch {
+      // The probe runs many URLs at once, and a host under that load can drop a connection
+      // that answers fine on its own. One retry after a pause separates a transient timeout
+      // from a dead link; a 404 or 410 still fails immediately, because it ANSWERED.
+      try {
+        r = await fetch(url, { ...opts, method: 'GET' });
+      } catch {
+        await new Promise((res) => setTimeout(res, 1200));
+        r = await fetch(url, { ...opts, method: 'GET' });
+      }
+    }
     if (!r.ok) r = await fetch(url, { ...opts, method: 'GET' });   // many hosts 405 a HEAD
     if (r.ok) return { state: 'ok', code: r.status };
     if (BROKEN.has(r.status)) return { state: 'broken', code: r.status };
@@ -92,7 +109,18 @@ async function worker() {
     const url = sources[k].url;
     if (!url) { results[k] = { state: 'broken', checked: TODAY, code: 0, note: 'no url' }; continue; }
     const r = await probe(url);
-    results[k] = { ...r, checked: TODAY };
+    // A CONNECTION that never happened is not evidence the page is gone: the sweep runs 157
+    // URLs and a host under that load drops one, which then reported a live source as a dead
+    // link and failed the gate (Insight User Conference, 2026-09-06). A code-0 failure on a
+    // URL that answered on its last run is recorded as blocked-transient, keeping the date
+    // that matters for staleness. A server that ANSWERS 404 or 410 is still broken at once.
+    const wasOk = prev[k] && (prev[k].state === 'ok' || prev[k].state === 'blocked');
+    if (r.state === 'broken' && r.code === 0 && wasOk) {
+      results[k] = { state: 'blocked', code: 0, note: 'transient: ' + (r.note || 'fetch failed'),
+                     checked: TODAY, last_ok: prev[k].last_ok || prev[k].checked };
+      continue;
+    }
+    results[k] = { ...r, checked: TODAY, ...(r.state === 'ok' ? { last_ok: TODAY } : {}) };
   }
 }
 await Promise.all(Array.from({ length: CONC }, worker));

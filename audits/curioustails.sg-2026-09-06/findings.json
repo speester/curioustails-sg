@@ -1,0 +1,68 @@
+{
+  "domain": "curioustails.sg",
+  "audit_date": "2026-09-06",
+  "location": "Singapore",
+  "location_source": "project-config COUNTRY",
+  "build_audited": "LIVE 29cfab8 (tree dirty; live URLs used as ground truth)",
+  "index_age_days": 62,
+  "first_impression": "2026-07-06",
+  "paid_api_calls": 4,
+  "verdicts": [
+    {"keyword": "puppies for sale singapore", "current": "not in top 50", "current_source": "SERP",
+     "target_url": "/", "ranking_url": "/", "mapping_mismatch": false,
+     "verdict": "CAPPED", "binding_gate": 6,
+     "ceiling_on_page_only": "#8-#15", "ceiling_basis": "36x referring-domain gap to top-3 median"},
+    {"keyword": "dog breeder singapore", "current": "UNKNOWN", "verdict": "CAPPED", "binding_gate": 6},
+    {"keyword": "puppy shop singapore", "current": "UNKNOWN", "verdict": "CAPPED", "binding_gate": 6}
+  ],
+  "gates": {
+    "0_evidence": "PASS", "1_eligibility": "PASS", "2_mapping": "PASS",
+    "3_relevance": "UNKNOWN", "4_experience": "UNKNOWN",
+    "5_site_quality": "PASS (carried forward from 2026-08-27)",
+    "6_authority": "FAIL - BINDING"
+  },
+  "authority": {
+    "source": "BACKLINKS",
+    "curioustails.sg": {"rd": 5, "nofollow": 3, "followed_approx": 2, "rank": 79},
+    "top3_median_rd": 178,
+    "gap_ratio": 35.6,
+    "competitors": {
+      "cottonpups.com": {"rd": 43, "rank": 3},
+      "thelovelypets.com": {"rd": 178, "rank": 203},
+      "prettypetskennel.com": {"rd": 221, "rank": 141},
+      "thepuplife.sg": {"rd": 55, "rank": 104},
+      "pawspals.com.sg": {"rd": 39, "rank": 52},
+      "abpuppies.com": {"rd": 13, "rank": 292}
+    }
+  },
+  "trajectory": {
+    "source": "GSC",
+    "jul_06_15": {"clicks_per_day": 3, "avg_position": 30.4},
+    "aug_01_15": {"clicks_per_day": 18, "avg_position": 15.9},
+    "aug_29_sep_05": {"clicks_per_day": 50, "avg_position": 9.3},
+    "reading": "healthy young-site growth; no penalty or suppression signal"
+  },
+  "gbp": {
+    "status": "complete but under-fed",
+    "photos": 14, "competitor_photos_max": 171,
+    "services_listed": 0, "competitor_services_max": 25,
+    "primary_category": "Pet Shop",
+    "duplicate_listings_within_3km": 0,
+    "nap_defect": "GBP phone 97921567 vs project-config PHONE 82206408"
+  },
+  "review_hypothesis": {
+    "fabrication": "RULED OUT - all 56 reviews verified real via DFS pull, 2026-08-27",
+    "open_risk": "25 sentences appear verbatim under multiple distinct real reviewer names; consistent with customers being given suggested wording",
+    "measurable_from_outside": false,
+    "settled_by": "owner answer: was template/sample wording supplied when asking for reviews?"
+  },
+  "fix_queue": [
+    {"rank": 1, "gate": 6, "action": "referring domains 5 -> 30+", "owner": "outreach", "note": "only lever that raises head-term ceiling"},
+    {"rank": 2, "gate": "gbp", "action": "photos 14 -> 60+, then weekly", "skill": "local-seo-gbp-posts"},
+    {"rank": 3, "gate": "gbp", "action": "populate services/products per SILO_ITEMS", "owner": "owner"},
+    {"rank": 4, "gate": "reviews", "action": "stop supplying wording; ask every buyer; push text+photos", "owner": "owner"},
+    {"rank": 5, "gate": 3, "action": "homepage rewrite AFTER gate 6 moves", "skill": "page-brief -> content-writer"},
+    {"rank": 6, "gate": "gbp", "action": "reconcile phone number", "owner": "owner"},
+    {"rank": 7, "gate": 4, "action": "run Lighthouse - currently UNKNOWN", "skill": "seo-audit-and-fix"}
+  ]
+}

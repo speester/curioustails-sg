@@ -1,0 +1,588 @@
+{
+  "run": "2026-09-06T04-31-52",
+  "findings": [
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 0 at y=807: rgb(260,228,207) meets rgb(255,255,255) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 0, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 0,
+      "route": "/",
+      "viewport": 1440
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 4 at y=5180: rgb(255,255,255) meets rgb(34,28,70) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 4, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 4,
+      "route": "/",
+      "viewport": 1440
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 5 at y=5524: rgb(34,28,70) meets rgb(255,255,255) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 5, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 5,
+      "route": "/",
+      "viewport": 1440
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 6 at y=6153: rgb(255,255,255) meets rgb(202,243,224) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 6, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 6,
+      "route": "/",
+      "viewport": 1440
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 7 at y=6856: rgb(202,243,224) meets rgb(255,255,255) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 7, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 7,
+      "route": "/",
+      "viewport": 1440
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 12 at y=10334: rgb(255,255,255) meets rgb(34,28,70) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 12, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 12,
+      "route": "/",
+      "viewport": 1440
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 13 at y=11018: rgb(34,28,70) meets rgb(255,255,255) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 13, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 13,
+      "route": "/",
+      "viewport": 1440
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 14 at y=11264: rgb(255,255,255) meets rgb(202,243,224) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 14, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 14,
+      "route": "/",
+      "viewport": 1440
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 15 at y=11684: rgb(202,243,224) meets rgb(253,248,240) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 15, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 15,
+      "route": "/",
+      "viewport": 1440
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 16 at y=12496: rgb(253,248,240) meets rgb(202,243,224) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 16, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 16,
+      "route": "/",
+      "viewport": 1440
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 17 at y=13180: rgb(202,243,224) meets rgb(255,255,255) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 17, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 17,
+      "route": "/",
+      "viewport": 1440
+    },
+    {
+      "code": "type.scale_sprawl",
+      "severity": 2,
+      "evidence": "9 distinct font sizes rendered: 12, 14, 16, 18, 20, 24, 30, 40, 72px",
+      "what_to_change": "Collapse the page onto at most 6 sizes from the type scale.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 1440
+    },
+    {
+      "code": "type.font_fallback_visible",
+      "severity": 3,
+      "evidence": "headings render as Fredoka, \"Helvetica Neue\", sans-serif but the token names Inter Tight",
+      "what_to_change": "Fix the webfont load so Inter Tight actually renders.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 1440
+    },
+    {
+      "code": "elev.language_mixed",
+      "severity": 2,
+      "evidence": "depth is carried by shadow + border + bg-step at once across 72 panels",
+      "what_to_change": "Pick ONE elevation carrier and remove the other two.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 1440
+    },
+    {
+      "code": "color.contrast_fail",
+      "severity": 3,
+      "evidence": "oklch(0.68 0.205 34) on rgb(260,228,207) computes 2.61:1, below 3:1 — \"Sale\"",
+      "what_to_change": "Darken the foreground or lighten the ground until this pair clears 3:1.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 1440
+    },
+    {
+      "code": "color.contrast_fail",
+      "severity": 3,
+      "evidence": "rgb(255, 255, 255) on rgb(253,90,54) computes 3.14:1, below 4.5:1 — \"WhatsApp us\"",
+      "what_to_change": "Darken the foreground or lighten the ground until this pair clears 4.5:1.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 1440
+    },
+    {
+      "code": "color.contrast_fail",
+      "severity": 3,
+      "evidence": "rgb(255, 255, 255) on rgb(37,211,102) computes 1.98:1, below 4.5:1 — \"WhatsApp for photos\"",
+      "what_to_change": "Darken the foreground or lighten the ground until this pair clears 4.5:1.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 1440
+    },
+    {
+      "code": "color.contrast_fail",
+      "severity": 3,
+      "evidence": "oklch(0.68 0.205 34) on rgb(253,248,240) computes 2.97:1, below 3:1 — \"honest price\"",
+      "what_to_change": "Darken the foreground or lighten the ground until this pair clears 3:1.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 1440
+    },
+    {
+      "code": "color.contrast_fail",
+      "severity": 3,
+      "evidence": "oklch(0.82 0.13 38) on rgb(253,90,54) computes 1.72:1, below 4.5:1 — \"Take the quiz\"",
+      "what_to_change": "Darken the foreground or lighten the ground until this pair clears 4.5:1.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 1440
+    },
+    {
+      "code": "color.contrast_fail",
+      "severity": 3,
+      "evidence": "oklch(0.58 0.036 66) on rgb(255,255,255) computes 4.34:1, below 4.5:1 — \"More from Curious Tails\"",
+      "what_to_change": "Darken the foreground or lighten the ground until this pair clears 4.5:1.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 1440
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 0 at y=1269: rgb(260,228,207) meets rgb(255,255,255) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 0, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 0,
+      "route": "/",
+      "viewport": 768
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 4 at y=8605: rgb(255,255,255) meets rgb(34,28,70) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 4, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 4,
+      "route": "/",
+      "viewport": 768
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 5 at y=8955: rgb(34,28,70) meets rgb(255,255,255) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 5, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 5,
+      "route": "/",
+      "viewport": 768
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 6 at y=9621: rgb(255,255,255) meets rgb(202,243,224) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 6, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 6,
+      "route": "/",
+      "viewport": 768
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 7 at y=10811: rgb(202,243,224) meets rgb(255,255,255) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 7, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 7,
+      "route": "/",
+      "viewport": 768
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 12 at y=15478: rgb(255,255,255) meets rgb(34,28,70) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 12, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 12,
+      "route": "/",
+      "viewport": 768
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 13 at y=16649: rgb(34,28,70) meets rgb(255,255,255) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 13, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 13,
+      "route": "/",
+      "viewport": 768
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 14 at y=16915: rgb(255,255,255) meets rgb(202,243,224) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 14, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 14,
+      "route": "/",
+      "viewport": 768
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 15 at y=17459: rgb(202,243,224) meets rgb(253,248,240) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 15, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 15,
+      "route": "/",
+      "viewport": 768
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 16 at y=18836: rgb(253,248,240) meets rgb(202,243,224) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 16, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 16,
+      "route": "/",
+      "viewport": 768
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 17 at y=19827: rgb(202,243,224) meets rgb(255,255,255) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 17, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 17,
+      "route": "/",
+      "viewport": 768
+    },
+    {
+      "code": "type.scale_sprawl",
+      "severity": 2,
+      "evidence": "9 distinct font sizes rendered: 12, 14, 16, 18, 20, 24, 28, 30, 42px",
+      "what_to_change": "Collapse the page onto at most 6 sizes from the type scale.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 768
+    },
+    {
+      "code": "type.font_fallback_visible",
+      "severity": 3,
+      "evidence": "headings render as Fredoka, \"Helvetica Neue\", sans-serif but the token names Inter Tight",
+      "what_to_change": "Fix the webfont load so Inter Tight actually renders.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 768
+    },
+    {
+      "code": "elev.language_mixed",
+      "severity": 2,
+      "evidence": "depth is carried by shadow + border + bg-step at once across 72 panels",
+      "what_to_change": "Pick ONE elevation carrier and remove the other two.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 768
+    },
+    {
+      "code": "color.contrast_fail",
+      "severity": 3,
+      "evidence": "oklch(0.68 0.205 34) on rgb(260,228,207) computes 2.61:1, below 3:1 — \"Sale\"",
+      "what_to_change": "Darken the foreground or lighten the ground until this pair clears 3:1.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 768
+    },
+    {
+      "code": "color.contrast_fail",
+      "severity": 3,
+      "evidence": "rgb(255, 255, 255) on rgb(253,90,54) computes 3.14:1, below 4.5:1 — \"WhatsApp us\"",
+      "what_to_change": "Darken the foreground or lighten the ground until this pair clears 4.5:1.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 768
+    },
+    {
+      "code": "color.contrast_fail",
+      "severity": 3,
+      "evidence": "rgb(255, 255, 255) on rgb(37,211,102) computes 1.98:1, below 4.5:1 — \"WhatsApp for photos\"",
+      "what_to_change": "Darken the foreground or lighten the ground until this pair clears 4.5:1.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 768
+    },
+    {
+      "code": "color.contrast_fail",
+      "severity": 3,
+      "evidence": "oklch(0.68 0.205 34) on rgb(253,248,240) computes 2.97:1, below 3:1 — \"honest price\"",
+      "what_to_change": "Darken the foreground or lighten the ground until this pair clears 3:1.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 768
+    },
+    {
+      "code": "color.contrast_fail",
+      "severity": 3,
+      "evidence": "oklch(0.82 0.13 38) on rgb(253,90,54) computes 1.72:1, below 4.5:1 — \"Take the quiz\"",
+      "what_to_change": "Darken the foreground or lighten the ground until this pair clears 4.5:1.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 768
+    },
+    {
+      "code": "color.contrast_fail",
+      "severity": 3,
+      "evidence": "oklch(0.58 0.036 66) on rgb(255,255,255) computes 4.34:1, below 4.5:1 — \"More from Curious Tails\"",
+      "what_to_change": "Darken the foreground or lighten the ground until this pair clears 4.5:1.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 768
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 0 at y=1249: rgb(260,228,207) meets rgb(255,255,255) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 0, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 0,
+      "route": "/",
+      "viewport": 375
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 4 at y=13801: rgb(255,255,255) meets rgb(34,28,70) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 4, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 4,
+      "route": "/",
+      "viewport": 375
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 5 at y=14302: rgb(34,28,70) meets rgb(255,255,255) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 5, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 5,
+      "route": "/",
+      "viewport": 375
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 6 at y=15281: rgb(255,255,255) meets rgb(202,243,224) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 6, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 6,
+      "route": "/",
+      "viewport": 375
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 7 at y=16440: rgb(202,243,224) meets rgb(255,255,255) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 7, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 7,
+      "route": "/",
+      "viewport": 375
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 12 at y=21442: rgb(255,255,255) meets rgb(34,28,70) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 12, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 12,
+      "route": "/",
+      "viewport": 375
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 13 at y=22529: rgb(34,28,70) meets rgb(255,255,255) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 13, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 13,
+      "route": "/",
+      "viewport": 375
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 14 at y=22849: rgb(255,255,255) meets rgb(202,243,224) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 14, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 14,
+      "route": "/",
+      "viewport": 375
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 15 at y=23591: rgb(202,243,224) meets rgb(253,248,240) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 15, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 15,
+      "route": "/",
+      "viewport": 375
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 16 at y=24993: rgb(253,248,240) meets rgb(202,243,224) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 16, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 16,
+      "route": "/",
+      "viewport": 375
+    },
+    {
+      "code": "seam.missing",
+      "severity": 2,
+      "evidence": "boundary 17 at y=25906: rgb(202,243,224) meets rgb(255,255,255) with no transition element",
+      "what_to_change": "Insert a section divider at boundary 17, carrying the colour of the section below.",
+      "source": "probe",
+      "seam": 17,
+      "route": "/",
+      "viewport": 375
+    },
+    {
+      "code": "resp.tap_target_small",
+      "severity": 3,
+      "evidence": "11 target(s) under 44px at 375: a\"Search the AVS public re\" 199x20; a\"full breakdown of puppy \" 277x19; a\"AVS-Accredited Certified\" 268x22; a\"CNA Insider, Talking Poi\" 170x19",
+      "what_to_change": "Raise every interactive target to at least 44px in its smallest dimension at 375.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 375
+    },
+    {
+      "code": "type.scale_sprawl",
+      "severity": 2,
+      "evidence": "9 distinct font sizes rendered: 12, 14, 16, 18, 20, 24, 28, 30, 40px",
+      "what_to_change": "Collapse the page onto at most 6 sizes from the type scale.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 375
+    },
+    {
+      "code": "type.font_fallback_visible",
+      "severity": 3,
+      "evidence": "headings render as Fredoka, \"Helvetica Neue\", sans-serif but the token names Inter Tight",
+      "what_to_change": "Fix the webfont load so Inter Tight actually renders.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 375
+    },
+    {
+      "code": "elev.language_mixed",
+      "severity": 2,
+      "evidence": "depth is carried by shadow + border + bg-step at once across 72 panels",
+      "what_to_change": "Pick ONE elevation carrier and remove the other two.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 375
+    },
+    {
+      "code": "color.contrast_fail",
+      "severity": 3,
+      "evidence": "oklch(0.68 0.205 34) on rgb(260,228,207) computes 2.61:1, below 3:1 — \"Sale\"",
+      "what_to_change": "Darken the foreground or lighten the ground until this pair clears 3:1.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 375
+    },
+    {
+      "code": "color.contrast_fail",
+      "severity": 3,
+      "evidence": "rgb(255, 255, 255) on rgb(253,90,54) computes 3.14:1, below 4.5:1 — \"WhatsApp us\"",
+      "what_to_change": "Darken the foreground or lighten the ground until this pair clears 4.5:1.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 375
+    },
+    {
+      "code": "color.contrast_fail",
+      "severity": 3,
+      "evidence": "rgb(255, 255, 255) on rgb(37,211,102) computes 1.98:1, below 4.5:1 — \"WhatsApp for photos\"",
+      "what_to_change": "Darken the foreground or lighten the ground until this pair clears 4.5:1.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 375
+    },
+    {
+      "code": "color.contrast_fail",
+      "severity": 3,
+      "evidence": "oklch(0.68 0.205 34) on rgb(253,248,240) computes 2.97:1, below 3:1 — \"honest price\"",
+      "what_to_change": "Darken the foreground or lighten the ground until this pair clears 3:1.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 375
+    },
+    {
+      "code": "color.contrast_fail",
+      "severity": 3,
+      "evidence": "oklch(0.82 0.13 38) on rgb(253,90,54) computes 1.72:1, below 4.5:1 — \"Take the quiz\"",
+      "what_to_change": "Darken the foreground or lighten the ground until this pair clears 4.5:1.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 375
+    },
+    {
+      "code": "color.contrast_fail",
+      "severity": 3,
+      "evidence": "oklch(0.58 0.036 66) on rgb(255,255,255) computes 4.34:1, below 4.5:1 — \"More from Curious Tails\"",
+      "what_to_change": "Darken the foreground or lighten the ground until this pair clears 4.5:1.",
+      "source": "probe",
+      "route": "/",
+      "viewport": 375
+    }
+  ],
+  "facts": {}
+}

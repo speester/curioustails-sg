@@ -74,6 +74,7 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
       <script define:vars={{ id: site.ga4MeasurementId }}>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
+        window.gtag = gtag;
         gtag('js', new Date());
         gtag('config', id);
 
@@ -89,9 +90,20 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
               link_text: (link.textContent || '').trim().slice(0, 100),
             });
           } else if (/(^|\/\/)(wa\.me|api\.whatsapp\.com)\//.test(href)) {
+            // wa_source identifies WHICH page and WHICH puppy produced the
+            // enquiry, so the inbox can be reconciled against the pages that
+            // actually earn bookings. `data-wa-source` is set by pupCard-backed
+            // cards; everything else falls back to the page path plus the
+            // nearest section id, which is enough to tell chrome CTAs apart.
+            const section = link.closest('[id]');
+            const puppy = link.getAttribute('data-wa-source') || '';
             gtag('event', 'whatsapp_click', {
               link_url: href,
               link_text: (link.textContent || '').trim().slice(0, 100),
+              wa_source: [
+                location.pathname,
+                puppy || (section ? '#' + section.id : ''),
+              ].filter(Boolean).join(' '),
             });
           } else if (href.startsWith('mailto:')) {
             gtag('event', 'mailto_click', {

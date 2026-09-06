@@ -24,6 +24,9 @@ import ScatterFloat from '../components/decor/ScatterFloat.astro';
 import { site, whatsappLink } from '../data/site';
 import { localBusinessSchema, webPageSchema, personSchema, serviceSchema, reviewSchema, aggregateOfferSchema, faqPageSchema, itemListSchema, definedTermSchema, offerCatalogSchema } from '../lib/schema';
 import { priceForHref, fmtPrice, OVERALL_LOW, OVERALL_HIGH, BREED_COUNT } from '../data/pricing';
+import liveData from '../data/available-puppies.json';
+import { breedName } from '../data/breed-names';
+import { pupCard, type BreedBucket } from '../lib/puppy-cards';
 import heroCavapoo from '../assets/home/1-cavapoo-puppy-hero-balestier.png';
 import starterKit from '../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
 import trainingLesson from '../assets/home/3-avs-certified-trainer-puppy-training-lesson.webp';
@@ -120,8 +123,41 @@ const pricedBreeds = breeds.map(({ points, ...b }) => ({
   ctaLabel: `View ${b.title} Puppies`,
 }));
 
+// Live inventory teaser for the homepage. Every card's href is a WhatsApp deep
+// link (pupCard), never an internal URL, so this section proves transactional
+// intent for the head term without competing with /puppies/<breed>/ on breed
+// queries — the regression recorded above the pricedBreeds transform.
+const liveBreeds = liveData.breeds as Record<string, BreedBucket>;
+const liveStocked = Object.entries(liveBreeds)
+  .filter(([, b]) => b.available.length > 0)
+  .sort(([a], [b]) => a.localeCompare(b));
+
+// Round-robin one puppy per breed so the strip reads as range, not nine Cavapoos.
+const HOME_PUP_COUNT = 8;
+const homePups: ReturnType<typeof pupCard>[] = [];
+for (let depth = 0; homePups.length < HOME_PUP_COUNT; depth++) {
+  const roundAdded = liveStocked.reduce((added, [slug, bucket]) => {
+    const pup = bucket.available[depth];
+    if (!pup || homePups.length >= HOME_PUP_COUNT) return added;
+    homePups.push(pupCard(pup, breedName(slug), 'available', { breedLabel: true }));
+    return added + 1;
+  }, 0);
+  if (roundAdded === 0) break; // every bucket exhausted
+}
+
+const liveTotal =
+  liveStocked.reduce((n, [, b]) => n + b.available.length, 0) +
+  ((liveData as { other?: unknown[] }).other?.length ?? 0);
+const liveBreedCount = liveStocked.length;
+const liveSyncedAt = new Date(liveData.syncedAt).toLocaleDateString('en-SG', {
+  day: 'numeric',
+  month: 'long',
+  timeZone: 'Asia/Singapore',
+});
+
 const jumpLinks = [
-  { label: 'Puppies', href: '#puppies' },
+  { label: 'Available Now', href: '#puppies' },
+  { label: 'Breeds', href: '#breeds' },
   { label: 'Pricing', href: '#pricing' },
   { label: 'Starter Kit', href: '#starter-kit' },
   { label: 'Training', href: '#training' },
@@ -170,6 +206,36 @@ const faqItems = [
     question: 'Is the free training lesson really free?',
     answer:
       'Yes. It is included in the price of every puppy, delivered by an AVS Accredited Certified Dog Trainer, with no add-on fee.',
+  },
+  // Task 4 sibling-term capsules. Each answers one head-adjacent query in its
+  // first sentence, so it can be lifted whole into a People Also Ask box:
+  // "where to buy puppies in singapore", "buy puppy singapore", "dog shop
+  // singapore", "dogs for sale sg", "puppies sg", plus the two PAA questions
+  // showing on the "puppy for sale singapore" SERP.
+  {
+    question: 'Where is the best place to buy puppies in Singapore?',
+    answer:
+      "Buy from a shop or breeder holding a current AVS pet shop licence, and check the licence number yourself on the AVS public registry before you pay anything. That single check rules out the smuggled and unlicensed listings on Carousell and Telegram, which is where almost every horror story starts. Beyond the licence, the questions worth asking are whether the price is all-in or has vaccination, microchipping and licensing bolted on afterwards, whether you can visit the puppy in person, and whether anyone answers the phone a month after you pay. We are licensed under AS24J00046 and you are welcome to verify it before you visit.",
+  },
+  {
+    question: 'How much does a puppy typically cost in Singapore?',
+    answer:
+      "Expect roughly $3,000 to $8,000 from a licensed shop, depending on the breed. Our puppies start at $3,288 and that is the all-in price: vaccinations, microchipping, deworming, dog licensing, a starter kit worth over $500, free home delivery and setup, and a first training lesson with an AVS Accredited Certified Dog Trainer are already in it. Listings well under $1,500 are usually unlicensed, and the parvovirus treatment that often follows runs $5,000 to $10,000 with no guarantee the puppy survives.",
+  },
+  {
+    question: 'What should I look for in a dog shop in Singapore?',
+    answer:
+      "Four things, in this order: a verifiable AVS licence number, a physical shop you can actually walk into, one published all-in price rather than a headline figure plus extras, and honesty about which breeds are not HDB-approved. A shop that tells you a Corgi cannot go into a flat before you fall for the photo is a shop that will tell you the rest of the truth too. Our shop is at 2 Balestier Road #01-701, open seven days, and every breed page publishes its price and its HDB status.",
+  },
+  {
+    question: 'Where can I see dogs for sale in SG right now?',
+    answer:
+      "On our available puppies page, which is rebuilt from the shop's live list rather than kept as a static gallery, so what you see is what is actually in our care today, with each puppy's name, age, gender, colour and exact all-in price. Message any puppy on WhatsApp and we will send more photos, a short video, and its health records the same day. If nothing there is right, tell us the breed and we will let you know when one arrives.",
+  },
+  {
+    question: 'Are your puppies SG-born, or imported?',
+    answer:
+      "Both, and the listing says which. Every puppy carries its country of origin on its card, most commonly Australia, alongside its age and vaccination status. Imported puppies enter Singapore through the licensed AVS import process with the paperwork to match; that process is the entire difference between a legally imported puppy and a smuggled one, and it is the reason a licensed puppy costs more than a Telegram listing.",
   },
 ];
 
@@ -255,6 +321,17 @@ const schemas = [
 
   <Tabs items={jumpLinks} />
 
+  <div id="puppies" class="scroll-mt-40">
+    <ListingGrid
+      heading="Puppies for Sale in Singapore, Available Right Now"
+      headingAccent="Available Right Now"
+      subhead={`${liveTotal} puppies in our care today across ${liveBreedCount} breeds, updated ${liveSyncedAt}. Every price shown is the all-in price.`}
+      items={homePups}
+      footerCtaLabel={`See all ${liveTotal} puppies available now`}
+      footerCtaHref="/available-puppies/"
+    />
+  </div>
+
   <ValueBundle
     eyebrow="Included with every puppy"
     heading="One honest price. Everything to settle in."
@@ -284,10 +361,10 @@ const schemas = [
 
   <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
 
-  <div id="puppies" class="scroll-mt-40">
+  <div id="breeds" class="scroll-mt-40">
     <ListingGrid
-      heading="Meet Our Puppies"
-      headingAccent="Puppies"
+      heading="Breeds We Carry"
+      headingAccent="Breeds"
       subhead="Eleven breeds, each with its own published starting price, all-in. More are added as we bring new litters home."
       items={pricedBreeds}
       footerCtaLabel="Not sure which breed fits you? Take the 2-minute quiz"
@@ -339,7 +416,7 @@ const schemas = [
 
   <div id="pricing" class="scroll-mt-40">
     <ComparisonSplit
-      heading="Why Our Puppies Cost Less, Not More"
+      heading="Why Our Puppies for Sale Cost Less in Singapore, Not More"
       headingAccent="Less"
       subhead="From $3,288 per puppy, all in."
       mode="split"
@@ -544,7 +621,7 @@ const schemas = [
   </CaptionedBlock>
 
   <ComparisonSplit
-    heading="What You’re Really Getting, All-In"
+    heading="What’s Included With Every Puppy for Sale at Curious Tails"
     mode="table"
     tableHeaders={['Included with every puppy', 'What it means for you']}
     rows={[
@@ -651,13 +728,13 @@ const schemas = [
 
   <section class="mx-auto max-w-[1400px] px-5 sm:px-8 py-14 grid gap-8 lg:grid-cols-2">
     <div data-reveal>
-      <h2 class="text-3xl font-semibold text-[var(--color-cream-900)]">Visit Us in Balestier</h2>
+      <h2 class="text-3xl font-semibold text-[var(--color-cream-900)]">Visit Our Licensed Puppy Shop in Balestier, Singapore</h2>
       <p class="mt-3 text-base text-[var(--color-cream-700)]">{site.address.full}</p>
       <p class="mt-1 text-base text-[var(--color-cream-700)]">{site.hours}</p>
       <p class="mt-4 text-base leading-relaxed text-[var(--color-cream-700)]">
         Licensing and paperwork are completed at the point of purchase. We handle the process with you, so nothing is left for you to sort out afterward.
       </p>
-      <a href={whatsappLink()} class="clay-btn mt-5 inline-flex items-center gap-2 bg-[var(--color-accent)] px-6 py-3 text-sm font-bold text-white hover:bg-[var(--color-accent-hover)]">
+      <a href={whatsappLink("Hi! I'd like to visit the Balestier shop. Which puppies will be there, and what does the licensing paperwork involve?")} class="clay-btn mt-5 inline-flex items-center gap-2 bg-[var(--color-accent)] px-6 py-3 text-sm font-bold text-white hover:bg-[var(--color-accent-hover)]">
         Get in touch
       </a>
     </div>

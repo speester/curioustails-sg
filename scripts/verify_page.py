@@ -79,10 +79,15 @@ MARKER = re.compile(
 COUNT_UNITS = (r"years?|yrs?|weeks?|months?|days?|hours?|customers?|clients?|families|"
                r"puppies|litters|projects|installations|reviews|jobs|units?|homes?|"
                r"properties|patients?|students?|sessions?|visits?")
+# A NUMBER DOES NOT END IN A COMMA (2026-09-05). `\d[\d,]*` let a figure run past the
+# comma that separates it from the next word, so "weeks 8, 12 and 16, home after the first
+# two" was read as the quantity "16, home" and the provenance gate demanded a source for a
+# list separator. Digits may CONTAIN a comma; they may not end with one.
+NUM = r"\d(?:[\d,]*\d)?"
 MONEY = re.compile(
-    r"(?:S?\$\s?\d[\d,]*(?:\.\d+)?"
-    r"|\b\d[\d,]*(?:\.\d+)?\s?(?:%|per cent|percent)\b"
-    r"|\b\d[\d,]*\+?\s?(?:" + COUNT_UNITS + r")\b)", re.I)
+    r"(?:S?\$\s?" + NUM + r"(?:\.\d+)?"
+    r"|\b" + NUM + r"(?:\.\d+)?\s?(?:%|per cent|percent)\b"
+    r"|\b" + NUM + r"\+?\s?(?:" + COUNT_UNITS + r")\b)", re.I)
 SPELL = {
     "en-US": [r"\bageing", r"\brandomis", r"\borganis(?:e|ed|ing|ation)",
               r"\bstandardis", r"\brecognis", r"\bsummaris",

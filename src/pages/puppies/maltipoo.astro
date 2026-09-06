@@ -47,9 +47,9 @@ const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'nu
 const price = breedPricing['maltipoo'];
 const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
-const title = 'Maltipoo Puppy for Sale Singapore | Curious Tails';
+const title = `Maltipoo Puppy for Sale Singapore | $${fmtPrice(price.low)} All-In`;
 const description =
-  `Maltipoo price in Singapore (${monthStamp}): $${fmtPrice(price.low)} to $${fmtPrice(price.high)} all-in, AVS licensed and HDB-approved. Starter kit, free delivery and setup included.`;
+  `Maltipoo puppy Singapore from $${fmtPrice(price.low)} all-in (${monthStamp}), AVS licensed, HDB-approved. $500+ starter kit, free delivery and training lesson included.`;
 
 const jumpLinks = [
   { label: 'Puppies', href: '#available' },
@@ -522,7 +522,7 @@ const schemas = [
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
-    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the Curious Tails front page</a>, <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">other breeds in our care</a>, or <a href="/puppies/cavapoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our Cavapoo page</a>.</p>
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">browse puppies for sale in Singapore</a>, <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">other breeds in our care</a>, or <a href="/puppies/cavapoo/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our Cavapoo page</a>.</p>
   </section>
 
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">

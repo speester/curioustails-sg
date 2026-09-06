@@ -54,6 +54,8 @@ const DIST_TXT = readAll(DIST);
 // W11.7: a gate that measured nothing is not a pass.
 if (!DIST.length) { console.log('HALT: no dist/**/index.html - there is nothing to gate. Run `npm run build`, or set PROJECT_ROOT.'); process.exit(1); }
 
+const SPLIT_LINES = new RegExp(String.fromCharCode(92) + "r?" + String.fromCharCode(92) + "n");
+
 function scan(pairs, re, label) {
   const hits = [];
   for (const [file, txt] of pairs) {
@@ -104,7 +106,34 @@ if (only('markup') || flags.length === 0) {
   add('escaped-inline-html', scan(DIST_TXT, /&lt;(strong|em|a|br)&gt;/, 'escaped tag — the component must use set:html'));
   add('anchor-whitespace', scan(DIST_TXT, /[A-Za-z0-9]<a |<\/a>[A-Za-z0-9]|<\/(strong|em)>[A-Za-z]/, 'glued inline element'));
   add('html-comments', scan(DIST_TXT, /<!--/, 'comment in shipped HTML'));
-  add('em-dash-dist', scan(DIST_TXT, /—|&mdash;|&#8212;/, 'em dash'));
+  // A house punctuation rule binds the site's OWN prose. It cannot bind a VERBATIM
+  // quotation: changing the punctuation inside quoted material misquotes the source, and
+  // the source of truth for these lines (config/sme/quotes/*.json) is a transcript of what
+  // a named person published. Everything inside <blockquote> is exempt; everything outside
+  // it is not, so the rule still catches the case it exists for.
+  const outsideBlockquote = (hits, texts) => {
+    const byFile = new Map(texts);
+    return hits.filter((hit) => {
+      const m = hit.match(/^(.*):([0-9]+) em dash:/);
+      if (!m) return true;
+      const txt = byFile.get(m[1]);
+      if (!txt) return true;
+      const lines = txt.split(new RegExp('\\r?\\n'));
+      const n = Number(m[2]);
+      const upto = lines.slice(0, n).join(String.fromCharCode(10));
+      const opens = (upto.match(/<blockquote/g) || []).length;
+      const closes = (upto.match(/<\/blockquote>/g) || []).length;
+      if (opens > closes) return false;
+      const l = lines[n - 1] || '';
+      const d = l.search(/—|&mdash;|&#8212;/);
+      if (d < 0) return true;
+      const before = l.slice(0, d), after = l.slice(d);
+      return !(before.lastIndexOf('<blockquote') > before.lastIndexOf('</blockquote>')
+               && after.includes('</blockquote>'));
+    });
+  };
+  add('em-dash-dist',
+      outsideBlockquote(scan(DIST_TXT, /—|&mdash;|&#8212;/, 'em dash'), DIST_TXT));
   // Only text that can REACH dist counts. An em dash inside a // or /* */ comment is
   // never rendered, and flagging every kit comment header buried the one hit that
   // mattered (a dash inside an innerHTML string) under 40 false positives.
@@ -128,6 +157,18 @@ if (only('markup') || flags.length === 0) {
     });
     commentLineIndex.set(file, set);
   }
+  // Which SOURCE lines belong to a `quote:` value (it may span several lines).
+  const verbatimQuoteLines = new Map();
+  for (const [file, txt] of SRC_TXT) {
+    const set = new Set();
+    let inQuote = false;
+    txt.split(new RegExp('\\r?\\n')).forEach((l, i) => {
+      if (/^\s*quote:\s*"?\s*$/.test(l) || /^\s*quote:\s*"/.test(l)) inQuote = true;
+      if (inQuote) set.add(i + 1);
+      if (inQuote && /"\s*,?\s*$/.test(l) && !/^\s*quote:\s*"?\s*$/.test(l)) inQuote = false;
+    });
+    verbatimQuoteLines.set(file, set);
+  }
   const dashInComment = (hit) => {
     const m = hit.match(/^(.*):(\d+) escaped em dash in source:/);
     if (m && commentLineIndex.get(m[1])?.has(Number(m[2]))) return true;
@@ -136,10 +177,22 @@ if (only('markup') || flags.length === 0) {
     const dash = text.search(/—|&mdash;|&#8212;/);
     if (dash < 0) return false;
     const before = text.slice(0, dash);
-    return /\/\//.test(before) || /\/\*/.test(before) || /^\s*\*/.test(before);
+    if (/\/\//.test(before) || /\/\*/.test(before) || /^\s*\*/.test(before)) return true;
+    // A dash inside a THROWN message or a console line never renders, so it is not site
+    // copy. Several kit components carry one, and flagging them asked every project to
+    // edit an error message to satisfy a rule about prose.
+    if (/throw new [A-Za-z]*Error|console\.(log|warn|error|info)/.test(text)) return true;
+    // Verbatim quotation, transcribed from a named source.
+    if (m && verbatimQuoteLines.get(m[1])?.has(Number(m[2]))) return true;
+    return false;
   };
+  // A REGEX that detects em dashes must contain one: /—|–/.test(quote) is the check that
+  // enforces this very rule, and flagging it asked the detector to stop detecting
+  // (Insight User Conference, 2026-09-06). Skip a hit inside a regex literal.
+  const dashInRegex = (h) => new RegExp('/[^/\n]*[—–][^/\n]*/[gimsuy]*').test(String(h));
   add('em-dash-src-escape',
-      scan(SRC_TXT, /—|&mdash;|&#8212;/, 'escaped em dash in source').filter((h) => !dashInComment(h)));
+      scan(SRC_TXT, /—|&mdash;|&#8212;/, 'escaped em dash in source')
+        .filter((h) => !dashInComment(h) && !dashInRegex(h)));
   add('straight-apostrophe', scan(SRC_TXT.filter(([f]) => f.endsWith('.astro')), /(?:label|heading|title|cta)\s*[:=]\s*"[^"]*[A-Za-z]'[a-z]/, "straight apostrophe in a UI label — use \u2019"));
 }
 
@@ -147,7 +200,19 @@ if (only('markup') || flags.length === 0) {
 if (only('identity')) {
   add('personal-email', [...scan(SRC_TXT, /@(gmail|outlook|hotmail|yahoo|icloud)\./i, 'free-mail address'),
                          ...scan(DIST_TXT, /@(gmail|outlook|hotmail|yahoo|icloud)\./i, 'free-mail address')]);
-  add('placeholder-identity', scan(SRC_TXT, /@(example|yourdomain)\.|founded:\s*20[0-9]{2}|\[TO SET\]|\+1 ?555/i, 'invented identity value').filter(notInComment).filter(notInputPlaceholder));
+  // A founding YEAR is the commonest fabricated identity value, which is why it is listed —
+  // but a real one exists too, and the honest way to keep it is to carry its evidence. A
+  // `founded:` line whose preceding line documents where the date comes from is evidenced,
+  // not invented (Insight User Conference, 2026-09-06: cut-over date in LAUNCH-RECORD.md).
+  const evidencedFounded = (h) => {
+    const m = /^(.*?):([0-9]+)[: ]/.exec(String(h));
+    if (!m || !/founded:/i.test(String(h))) return false;
+    const file = SRC_TXT.find(([f]) => f === m[1]);
+    if (!file) return false;
+    const prev = file[1].split(SPLIT_LINES)[Number(m[2]) - 2] || String();
+    return /[/][/].*(verified|evidence|source)/i.test(prev);
+  };
+  add('placeholder-identity', scan(SRC_TXT, /@(example|yourdomain)\.|founded:\s*20[0-9]{2}|\[TO SET\]|\+1 ?555/i, 'invented identity value').filter(notInComment).filter(notInputPlaceholder).filter((h) => !evidencedFounded(h)));
 }
 
 // ---- prices only in PRICES_FILE ----
@@ -158,10 +223,19 @@ if (only('prices')) {
     txt.split(/\r?\n/).forEach((l, i) => {
       // The amount must be at least two characters. `$1` in a .replace() is a capture-group
       // backreference, not a price, and Image.astro's srcset builder tripped this on every run.
-      if (/(\$|S\$|£)\s?[0-9][0-9,.]+/.test(l) && !/data-price/.test(l)) hits.push(`${file}:${i + 1} price literal: ${l.trim().slice(0, 120)}`);
+      // TWO KINDS OF MONEY (2026-09-05). `data-price` means the SITE'S OWN price, and
+      // check-schema-rich then demands an Offer behind it. A sourced third-party figure —
+      // an HDB fine, a licence fee — is money the page reports, not money it charges, and
+      // marking it data-price made the two gates unsatisfiable together. `data-amount`
+      // marks that second kind: still marked, still greppable, never an offer.
+      if (/(\$|S\$|£)\s?[0-9][0-9,.]+/.test(l) && !/data-price|data-amount/.test(l)) hits.push(`${file}:${i + 1} price literal: ${l.trim().slice(0, 120)}`);
     });
   }
-  add('price-literals', hits, 'prices live only in src/data/pricing.ts');
+  // A price inside a SOURCE COMMENT is documentation of the rule, not rendered copy -
+  // PriceTable.astro's own header comment explains the rule using an example amount and
+  // tripped the gate that comment describes (2026-09-05). Reuse the comment filter the
+  // identity and em-dash checks already use, so the class is handled once.
+  add('price-literals', hits.filter(notInComment), 'prices live only in src/data/pricing.ts');
 }
 
 // ---- SAMPLE data feeding rendered claims ----
@@ -249,7 +323,21 @@ if (only('design-system')) {
   const conflicts = [];
   if (!ds) conflicts.push('design-system.md missing at project root');
   if (/\b(Inter|DM Sans|Poppins|Montserrat)\b/i.test(ds) && !/##\s*Font override/i.test(ds)) conflicts.push('reflex-reject font named with no "## Font override" section');
-  if (/glassmorph|glass\b/i.test(ds)) conflicts.push('glassmorphism named — astro-build bans it (premium #2 "glass" does not override this)');
+  // THE BAN IS ON THE MATERIAL, NOT THE WORD (2026-09-05). `/glass\b/` fired on a design
+  // system whose every mention of glass is its RETIREMENT ("kill the glass blur", "glass is
+  // retired"), and on the surviving `.glass` CSS class names that a retirement deliberately
+  // keeps so call sites need not be edited. Both are the opposite of the defect.
+  // Read PARAGRAPHS, not lines: a retirement clause routinely wraps away from the word it
+  // retires, and a line-scoped test reports the first half as a prescription.
+  const RETIRES = /\bretir|reject|rescind|legacy|removed?\b|no longer|kill(ed)?\b|never|bans?\b|banned|~~|provenance|\bopaque\b|is a bug|\bavoid\b/i;
+  const glassBlocks = ds.split(/\n\s*\n/).filter((b) => {
+    if (!/glassmorph|frosted glass|glass blur|backdrop-filter|\bglass\b/i.test(b)) return false;
+    if (RETIRES.test(b)) return false;
+    // `.glass` / `--glass-bg` / `.glass-strong` are CODE IDENTIFIERS a retirement keeps.
+    const stripped = b.replace(/[.`-]{0,2}glass(-strong|-bg|-border)?\b/gi, '');
+    return /glassmorph|frosted|blur|backdrop-filter/i.test(stripped);
+  });
+  if (glassBlocks.length) conflicts.push('glassmorphism prescribed as live material in ' + glassBlocks.length + ' block(s) - astro-build bans it (premium #2 "glass" does not override this): ' + glassBlocks[0].replace(/\s+/g, ' ').trim().slice(0, 110));
   const navCount = (ds.match(/^\s*[-*]\s+nav:/gim) || []).length;
   const navCap = /publisher|publication/i.test(ds) ? 5 : 4;
   if (navCount > navCap) conflicts.push(`nav spec lists ${navCount} items — cap is <=4 (local) / <=5 groups (publisher)`);

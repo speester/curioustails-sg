@@ -22,10 +22,14 @@ const handAuthored = !fs.existsSync(DATA)
 // whose entire outer tier is hand-authored and shipping. src/data/posts.ts naming built
 // routes is the same ownership claim as a hand-authored src/pages/blog/*.astro.
 const POSTS_TS = path.join('src', 'data', 'posts.ts');
-const handAuthoredElsewhere = !fs.existsSync(DATA) && fs.existsSync(POSTS_TS)
-  && /built:\s*true/.test(fs.readFileSync(POSTS_TS, 'utf8'));
+// 'built: true' was one generator's field name. gen-posts.mjs writes the same ownership
+// claim as an entry naming the page FILE on disk ("file": "src/pages/corgi-names.astro"),
+// and reading only the first shape failed a site whose whole outer tier ships.
+const postsText = fs.existsSync(POSTS_TS) ? fs.readFileSync(POSTS_TS, 'utf8') : '';
+const OWNS = /built:\s*true/.test(postsText) || /["']file["']\s*:\s*["']src[^"']*pages/.test(postsText);
+const handAuthoredElsewhere = !fs.existsSync(DATA) && fs.existsSync(POSTS_TS) && OWNS;
 if (handAuthoredElsewhere && !handAuthored) {
-  const n = (fs.readFileSync(POSTS_TS, 'utf8').match(/built:\s*true/g) ?? []).length;
+  const n = (postsText.match(/built:\s*true/g) ?? postsText.match(/["']file["']\s*:\s*["']src[^"']*pages/g) ?? []).length;
   console.log('blog posts                   | ' + n + ' hand-authored pages at their pillar paths (src/data/posts.ts)');
   console.log(DATA.padEnd(28) + ' | PROJECT-OWNED (no ' + DATA + '; this generator is not in play)');
   console.log('PASS gen-blog-pages - nothing to generate');

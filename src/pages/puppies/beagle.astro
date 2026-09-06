@@ -16,6 +16,7 @@ import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
 import FAQ from '../../components/FAQ.astro';
+import AnswerCapsule from '../../components/AnswerCapsule.astro';
 import Schema from '../../components/Schema.astro';
 import ScatterFloat from '../../components/decor/ScatterFloat.astro';
 import CloudDivider from '../../components/decor/CloudDivider.astro';
@@ -181,6 +182,13 @@ const schemas = [
   </Hero>
 
   <Tabs items={jumpLinks} />
+
+  {/* GSC 28d 2026-09-06: "beagle puppy singapore" pos 8.5, "beagle dog price" pos 6.8. The HDB answer leads, as on the Corgi page and for the same reason. */}
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
+    <AnswerCapsule>
+      <p>{`Beagle puppies are ${priceRange} all-in at Curious Tails as of ${monthStamp}. Before the price, the thing that decides it for most Singapore buyers: the Beagle is a scent hound and is not on the HDB-approved list, so it needs private housing. It is also vocal and nose-led, and 9 to 11 kg grown.`}</p>
+    </AnswerCapsule>
+  </div>
 
   <div id="available" class="scroll-mt-40">
     <AvailablePuppies breed="beagle" breedName="Beagle" />

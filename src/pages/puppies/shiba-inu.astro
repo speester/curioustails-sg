@@ -16,11 +16,13 @@ import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
 import FAQ from '../../components/FAQ.astro';
+import AnswerCapsule from '../../components/AnswerCapsule.astro';
 import Schema from '../../components/Schema.astro';
 import ScatterFloat from '../../components/decor/ScatterFloat.astro';
 import CloudDivider from '../../components/decor/CloudDivider.astro';
 import PawTrail from '../../components/decor/PawTrail.astro';
 import { site, whatsappLink } from '../../data/site';
+import { breedPricing, fmtPrice } from '../../data/pricing';
 import {
   localBusinessSchema,
   personSchema,
@@ -37,6 +39,10 @@ import voidDeckWalk from '../../assets/shiba-inu/5-shiba-void-deck-leash-walk.we
 import coatBlowBrush from '../../assets/shiba-inu/6-shiba-coat-blow-brushing.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
 import { testimonialsFor } from '../../data/reviews';
+
+const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
+const price = breedPricing['shiba-inu'];
+const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = 'Shiba Inu Puppy for Sale Singapore | Curious Tails';
 const description =
@@ -150,6 +156,13 @@ const schemas = [
   </Hero>
 
   <Tabs items={jumpLinks} />
+
+  {/* GSC 28d 2026-09-06: "shiba inu puppy singapore" pos 15.5, "how much are shiba inu puppies" pos 5.0. Price plus the housing fact that gates the purchase. */}
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
+    <AnswerCapsule>
+      <p>{`Shiba Inu puppies are ${priceRange} all-in at Curious Tails as of ${monthStamp}. Straight fact first: the Shiba Inu is not on the HDB-approved breed list, so it can only live in private housing. Shibas are also independent rather than eager to please, heavy seasonal shedders, and 8 to 10 kg grown.`}</p>
+    </AnswerCapsule>
+  </div>
 
   <div id="available" class="scroll-mt-40">
     <AvailablePuppies breed="shiba-inu" breedName="Shiba Inu" />

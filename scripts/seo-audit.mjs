@@ -461,8 +461,21 @@ function overlap(contentRoutes) {
     // text. On one site that was 400 of 400 findings, all of them the desktop nav.
     const HIDDEN_RX = /<([a-z][\w-]*)\b([^>]*(?:hidden|sr-only|visually-hidden|screen-reader-text|display\s*:\s*none)[^>]*)>([\s\S]*?)<\/\1>/gi;
     const isHiddenAttrs = (attrs) => {
-      if (/\bhidden\b/.test(String(attrs).replace(/=\s*("[^"]*"|'[^']*')/g, '=""'))) return true;
-      if (/aria-hidden\s*=\s*["']true["']/i.test(attrs)) return true;
+      // The bare `hidden` ATTRIBUTE, not the letters. `\b` treats the hyphen in
+      // `aria-hidden` as a boundary, so this test matched the very attribute the note below
+      // puts out of scope, and the aria-hidden exclusion never took effect: rule 3.22 went on
+      // firing HIGH on 16 sibling pages for a ticker every visitor can watch scroll past.
+      // Strip aria-hidden and data-*-hidden attribute NAMES before asking.
+      const bare = String(attrs).replace(/=\s*("[^"]*"|'[^']*')/g, '=""')
+        .replace(/[\w-]+-hidden\b/gi, ' ');
+      if (/\bhidden\b/.test(bare)) return true;
+      // aria-hidden is NOT this rule's subject. It hides a node from assistive technology
+      // while leaving it fully visible on screen and fully indexable - which is the correct
+      // marking for a decorative marquee, an icon, or a duplicated visual label. Rule 3.22 is
+      // about text a READER cannot see, and treating aria-hidden as invisible fired HIGH on
+      // 16 sibling pages for a ticker every visitor can watch scroll past. Where aria-hidden
+      // really does accompany hidden text, the display:none, hidden and sr-only predicates
+      // around this line still catch it.
       if (/style=["'][^"']*(?:display\s*:\s*none|visibility\s*:\s*hidden)/i.test(attrs)) return true;
       const cls = (attrs.match(/class=["']([^"']*)["']/i) || [])[1] || '';
       return /(?:^|\s)(?:sr-only|visually-hidden|screen-reader-text)(?:\s|$)/.test(cls);

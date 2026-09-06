@@ -1,0 +1,332 @@
+---
+// Workstream C4. Evidence for this page existing (2026-09-06):
+//   - "puppy for sale singapore under $500"  70/mo, and rising hard: 40/mo in
+//     Aug 2025 to 140/mo in Jul 2026 (Google Ads, SG).
+//   - "cheap puppy for sale singapore"       70/mo, stable.
+//   - "home breed puppies for sale singapore" 70/mo.
+//   - "giving away puppies free singapore"   210/mo, competition index 14.
+//   GSC 28d already shows /pricing/ ranking 11.5 for "puppies for sale
+//   singapore under $500" on a page that never answers the question. This page
+//   answers it directly and honestly, which is the only way to serve it: there
+//   is no licensed puppy at that price, and pretending otherwise would make the
+//   page worthless to the reader and to us.
+//
+//   The adoption section is deliberately NOT a conversion funnel. Someone
+//   searching "giving away puppies free singapore" should leave here with the
+//   right shelter links, not a sales pitch. That is what makes the page worth
+//   trusting on the paragraphs that DO sell.
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import AnswerCapsule from '../../components/AnswerCapsule.astro';
+import DefBox from '../../components/DefBox.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ExpertQuote from '../../components/ExpertQuote.astro';
+import RelatedPosts from '../../components/RelatedPosts.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+import { OVERALL_LOW, fmtPrice } from '../../data/pricing';
+import { cheapestPupCards, liveTotal } from '../../lib/puppy-cards';
+import budgetFlatlay from '../../assets/guides/4-puppy-budget-planning-flatlay.webp';
+import verifyPhone from '../../assets/guides/5-verify-seller-phone-check-puppy.webp';
+
+const title = 'Puppies Under $500 in Singapore | What That Buys';
+const description =
+  'No licensed puppy in Singapore costs under $500. Here is what that budget really buys, where the cheap listings come from, and the adoption route.';
+
+// The cheapest puppies we actually have, so the page ends in something real
+// rather than a lecture about what the reader cannot afford.
+const cheapest = cheapestPupCards(4);
+const liveCount = liveTotal();
+
+const jumpLinks = [
+  { label: 'The Real Floor', href: '#floor' },
+  { label: 'Where Cheap Listings Come From', href: '#listings' },
+  { label: 'Adoption', href: '#adoption' },
+  { label: 'The First-Year Number', href: '#first-year' },
+  ...(cheapest.length > 0 ? [{ label: 'Our Cheapest Today', href: '#available-now' }] : []),
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Can you buy a puppy for under $500 in Singapore?',
+    answer:
+      'Not from a licensed source. The vaccinations, deworming, microchip and dog licence that every legally sold puppy must already have cost more than $500 on their own, before the puppy itself, the import paperwork or the shop. A listing under $500 is telling you that one of those steps was skipped.',
+  },
+  {
+    question: 'What is the cheapest a licensed puppy in Singapore realistically gets?',
+    answer:
+      'Small crossbreeds from licensed shops generally start somewhere in the low thousands. Ours start at $' +
+      fmtPrice(OVERALL_LOW) +
+      ', and that figure is all-in: vaccinations, microchipping, deworming, dog licensing, a starter kit worth over $500, free home delivery and setup, and a first training lesson are inside it rather than added afterwards.',
+  },
+  {
+    question: 'Are the free puppies on Carousell, Telegram and Facebook real?',
+    answer:
+      'Some are genuine rehoming by an owner whose circumstances changed. Many are not. The pattern to watch for is a seller who will not meet in person, will not show the mother, wants a deposit before you see the puppy, or cannot produce a licence number. Ask for the licence number first; that one question ends most of these conversations.',
+  },
+  {
+    question: 'Is adopting cheaper than buying?',
+    answer:
+      'Usually yes on day one. Action for Singapore Dogs publishes an adoption package of $400 for local crossbreeds and $600 for pedigrees, and other shelters are in a similar range. It is not free, because the fee covers vetting, sterilisation and vaccination that the shelter has already paid for. If your budget is genuinely a few hundred dollars, adoption is the honest route and we will say so.',
+  },
+  {
+    question: 'What is the legal risk of buying from an unlicensed seller?',
+    answer:
+      'It is yours, not only the seller\'s. NParks has prosecuted a buyer, not just the smuggler: one purchaser was fined $7,000 for buying a smuggled dog. Selling a puppy without a licence is an offence, and a puppy bought that way has no paperwork you can rely on afterwards.',
+  },
+  {
+    question: 'The puppy was cheap and looked healthy. What is the actual downside?',
+    answer:
+      'Parvovirus. It is common in unvaccinated puppies moved through informal channels, treatment runs into thousands of dollars, and it is often fatal even when treated. The saving disappears at the first vet visit, and that is the good version of the story.',
+  },
+  {
+    question: 'What does "home breed" mean in Singapore listings?',
+    answer:
+      'It usually means the puppy was bred in someone\'s home rather than a licensed facility. It is not a quality mark and it is not a licence. Home breeding for sale still requires AVS licensing, so ask for the number and check it on the public registry the same way you would with a shop.',
+  },
+  {
+    question: 'Do you ever discount below your published range?',
+    answer:
+      'No. The published price is the price, and it is the same number whether you ask on a quiet Tuesday or the day a litter arrives. What we can do is tell you which puppies in our care today sit at the bottom of the range, which is a real answer to a real budget.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/learn/cheap-puppies-singapore/',
+    title,
+    description,
+    aboutName: 'The real cost of a puppy in Singapore',
+    aboutAlternateName: 'Cheap puppies Singapore',
+    datePublished: '2026-09-06',
+    dateModified: lastUpdated,
+  }),
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/learn/cheap-puppies-singapore" ogImage="/assets/guides/og-learn.jpg">
+  <Hero
+    eyebrow="Buyer protection · Budget"
+    h1="Puppies Under $500 in Singapore: What That Budget Actually Buys"
+    h1Accent="Under $500"
+    subhead="The honest answer is that it does not buy a licensed puppy, and this page explains exactly why, what the sub-$500 listings really are, what the genuine low-budget route looks like, and what the floor price is once you count everything a puppy legally needs."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! My budget is tight. What is the lowest all-in price you have today, and what does it include?"
+    secondaryCtaLabel="See the real floor"
+    secondaryCtaHref="#floor"
+    priceAnchor={`Our floor is $${fmtPrice(OVERALL_LOW)} all-in, and nothing is added after it.`}
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
+    imageAlt="Puppy budget planning in Singapore: notebook and calculator laid out with puppy supplies"
+    imageSrc={budgetFlatlay}
+    tagLabel="Honest answer"
+    proofChip="No upsell"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Learn', href: '/learn/' }, { label: 'Puppies Under $500', href: '/learn/cheap-puppies-singapore/' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
+    <AnswerCapsule label="The short answer">
+      <p>{`No licensed puppy in Singapore costs under $500. The vaccinations, deworming, microchip and dog licence that every legally sold puppy must already carry cost more than that on their own, before the puppy, the import paperwork or the shop. Sub-$500 listings are either a scam, a smuggled puppy, or an owner rehoming a dog that still needs all of it.`}</p>
+    </AnswerCapsule>
+  </div>
+
+  <div id="floor" class="relative scroll-mt-40">
+    <ScatterFloat />
+    <DefBox
+      term="Why is there a floor price on a puppy in Singapore?"
+      definition="Because a legally sold puppy arrives with work already done to it. It has been vaccinated more than once, dewormed, microchipped and licensed, and if it came from overseas it moved under the AVS import process with the paperwork that requires. None of that is optional and none of it is cheap, so it sets a floor that no honest seller can go under."
+      bridge="That is why the question worth asking is not 'how low can the price go' but 'what has been left out to make it go this low'."
+      citationLabel="Verify our licence on the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">What the floor is made of</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Vaccinations, given more than once before homecoming',
+            'Deworming and a vet health check',
+            'Microchipping, which is a legal requirement',
+            'The dog licence itself',
+            'Import paperwork, for a puppy from overseas',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">A listing below the floor has skipped one of these, and you inherit it.</p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="listings" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="Where the Sub-$500 Listings Actually Come From"
+      headingAccent="Sub-$500"
+      subhead="Three sources, in roughly descending order of how often we see them. Only one of them is a real puppy you can safely take home, and it is not the cheap one."
+      mode="split"
+      columns={[
+        {
+          heading: 'What the cheap listing usually is',
+          items: [
+            'A deposit scam: the puppy in the photo does not exist, and the account disappears once you transfer',
+            'A smuggled puppy, moved in without vaccination or health checks',
+            'An unlicensed home breeder selling without the AVS licence the law requires',
+            'A genuine rehoming, where the fee is low but the dog still needs vetting, licensing and microchipping at your cost',
+          ],
+        },
+        {
+          heading: 'What you are buying instead of a discount',
+          items: [
+            'Parvovirus risk, with treatment running into thousands and often fatal anyway',
+            'Your own legal exposure: one buyer was fined $7,000, not just the smuggler',
+            'No paperwork, so no licence, no insurance and no recourse',
+            'A seller with no address, who stops replying the week after payment',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-6">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        The $7,000 fine is on the record: the Straits Times covered <a href="https://www.straitstimes.com/singapore/courts-crime/dog-buyer-fined-7k-first-time-nparks-prosecuted-purchaser-over-animal-smuggling" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">the first NParks prosecution of a buyer</a> rather than a seller. If you want the longer version of what these listings cost people, we wrote it up in <a href="/learn/smuggled-puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">why unlicensed sellers are dangerous</a>, and the 60-second check that filters almost all of them is on <a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">how to verify a pet shop licence</a>.
+      </p>
+    </div>
+  </div>
+
+  <ExpertQuote
+    id="vanessa-4"
+    intro="The pricing signal cuts both ways, and it is the fastest read on a seller you will get before you meet them."
+    note="Vanessa is speaking about breeders generally rather than Singapore specifically, but the pattern holds here: the listings that sit far below the licensed floor and the ones priced far above it are both worth a second look."
+  />
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="The numbers behind the floor"
+    stats={[
+      { value: '$5,000+', label: 'typical parvovirus treatment, often fatal even so' },
+      { value: '$7,000', label: 'fine issued to a buyer of a smuggled dog' },
+      { value: '$400', label: "ASD’s published adoption package for a local crossbreed" },
+      { value: `$${fmtPrice(OVERALL_LOW)}`, label: 'our all-in floor, nothing added afterwards' },
+    ]}
+  />
+
+  <div id="adoption" class="scroll-mt-40">
+    <CaptionedBlock
+      heading="If Your Budget Is Genuinely a Few Hundred Dollars, Adopt"
+      headingAccent="Adopt"
+      imageAlt="A prospective owner checking a seller's details on their phone before meeting a puppy"
+      imageSrc={verifyPhone}
+      variant="mid"
+    >
+      <p>We sell puppies, so take this as seriously as it is meant: if a few hundred dollars is the real ceiling, a shelter is the right place to go and we are not. Buying a licensed puppy on a budget that cannot absorb a vet bill is how a dog ends up back in a shelter a year later, and that helps nobody.</p>
+      <p>Adoption is not free either, and the fee is the point: it covers sterilisation, vaccination and vetting the shelter has already paid for. <a href="https://asdsingapore.com/pages/adoption-package" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">Action for Singapore Dogs</a> publishes $400 for a local crossbreed and $600 for a pedigree. The <a href="https://www.spca.org.sg/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">SPCA</a> and <a href="https://www.causesforanimals.org/" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">Causes for Animals Singapore</a> both rehome as well; ask each one directly, because fees and what they include differ.</p>
+      <p>One HDB note that catches adopters out: most adoptable local dogs are Singapore Specials, and size and breed rules still apply to a flat. Project ADORE is the scheme that makes some larger local dogs adoptable into HDB flats, with conditions. Read the <a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB-approved breed list</a> before you fall for a photo, whichever route you take.</p>
+      <p>We do not get anything out of this section and we are not trying to. If it sends you to a shelter instead of to us, that is the section working.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="first-year" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="The Number That Actually Decides It: Year One"
+      headingAccent="Year One"
+      subhead="The purchase price is the smaller half of the first year for most owners. This is the part the cheap listings never mention, and the part worth budgeting before you shop at all."
+      mode="split"
+      columns={[
+        {
+          heading: 'Recurring, every year',
+          items: [
+            'Food, scaling with the size of the dog',
+            'Vaccination boosters and an annual vet check',
+            'Heartworm, tick and flea prevention',
+            'Grooming, which for a low-shedding coat is not optional',
+            'Dog licence renewal',
+          ],
+        },
+        {
+          heading: 'Once, in the first months',
+          items: [
+            'Playpen, crate, bedding, bowls, leash and harness',
+            'Sterilisation, unless already done',
+            'Training, which is cheapest done early',
+            'A vet buffer for the thing you did not plan for',
+            'At Curious Tails the first four of these are already in the price',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-6">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        We put real numbers against all of this in the <a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">first-year budget guide</a>, and the breed-by-breed purchase prices are on the <a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">pricing page</a>. Smaller dogs cost less to run than larger ones, which matters more over ten years than a few hundred dollars at purchase.
+      </p>
+    </div>
+  </div>
+
+  {cheapest.length > 0 && (
+    <div id="available-now" class="scroll-mt-40">
+      <ListingGrid
+        heading="Our Lowest-Priced Puppies Available Right Now"
+        headingAccent="Right Now"
+        subhead={`If your budget is real but tight, these are the actual puppies in our care today at the bottom of our range. Every price shown is all-in, with the $500+ starter kit, free delivery and first training lesson already inside it. ${liveCount} puppies available in total.`}
+        items={cheapest}
+        footerCtaLabel={`See all ${liveCount} puppies available now`}
+        footerCtaHref="/available-puppies/"
+      />
+    </div>
+  )}
+
+  <PawTrail />
+
+  <BannerRibbon
+    heading="Tell us your number and we will be straight with you"
+    body="If we have nothing at your budget we will say so, and if adoption is the better answer for your situation we will say that too."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! My budget is around $____ all-in. What do you have at or under that today, and what is included?"
+    variant="dark"
+  />
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Budget Questions, Answered" items={faqItems} />
+  </div>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Come and See What the Price Buys"
+    body="Can't make the trip to Balestier? WhatsApp us your budget and we'll send the puppies that actually fit it, with the all-in price and nothing added later."
+    reserveMessage="Hi! My budget is around $____ all-in. Which puppies do you have today at or under that?"
+    browseHref="/pricing/"
+    browseLabel="See every breed price"
+  />
+
+  <Schema {schemas} />
+
+  <RelatedPosts route="/learn/cheap-puppies-singapore/" />
+</BaseLayout>

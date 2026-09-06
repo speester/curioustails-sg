@@ -57,6 +57,8 @@ const domId = `q-${id.replace(/[^a-z0-9-]/gi, '')}`;
     <blockquote
       id={domId}
       cite={q.source_url}
+      data-expert-quote={q.id}
+      data-quote-id={q.id}
       class="relative mt-4 border-l-4 border-[var(--color-coral-600)] pl-5 text-lg leading-relaxed text-[var(--color-cream-800)] sm:text-xl"
     >
       <div>{q.quote}</div>

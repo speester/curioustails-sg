@@ -16,6 +16,7 @@ import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
 import FAQ from '../../components/FAQ.astro';
+import AnswerCapsule from '../../components/AnswerCapsule.astro';
 import Schema from '../../components/Schema.astro';
 import ScatterFloat from '../../components/decor/ScatterFloat.astro';
 import CloudDivider from '../../components/decor/CloudDivider.astro';
@@ -164,6 +165,13 @@ const schemas = [
   </Hero>
 
   <Tabs items={jumpLinks} />
+
+  {/* GSC 28d 2026-09-06: "how much is a corgi in singapore" pos 8.6, "corgi for sale singapore" pos 12.5. The HDB answer leads the price, because for a flat-dweller it makes the price irrelevant. */}
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
+    <AnswerCapsule>
+      <p>{`A Corgi costs ${priceRange} all-in at Curious Tails as of ${monthStamp}, but the price is the second thing you need. The first: Corgis are not on the HDB-approved breed list, so they can only live in condo or landed housing. If you are in a flat, we will point you to an approved breed instead.`}</p>
+    </AnswerCapsule>
+  </div>
 
   <div id="available" class="scroll-mt-40">
     <AvailablePuppies breed="corgi" breedName="Corgi" />

@@ -16,6 +16,7 @@ import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
 import FAQ from '../../components/FAQ.astro';
+import AnswerCapsule from '../../components/AnswerCapsule.astro';
 import Schema from '../../components/Schema.astro';
 import ScatterFloat from '../../components/decor/ScatterFloat.astro';
 import CloudDivider from '../../components/decor/CloudDivider.astro';
@@ -186,6 +187,13 @@ const schemas = [
   </Hero>
 
   <Tabs items={jumpLinks} />
+
+  {/* GSC 28d 2026-09-06: "teacup poodle singapore price" pos 7.2 / 18 impr is this page's top query, ahead of "toy poodle for sale singapore" pos 14.5. So the capsule answers the teacup question first, honestly - the page already does further down. */}
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
+    <AnswerCapsule>
+      <p>{`Toy Poodle puppies at Curious Tails are ${priceRange} all-in as of ${monthStamp}. There is no separate teacup Poodle breed: teacup is a marketing word for an undersized Toy, and breeding deliberately for it carries real health cost. We sell Toy Poodles to the standard, 3 to 4.5 kg grown, HDB-approved, priced openly.`}</p>
+    </AnswerCapsule>
+  </div>
 
   <div id="available" class="scroll-mt-40">
     <AvailablePuppies breed="toy-poodle" breedName="Toy Poodle" />

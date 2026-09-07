@@ -172,6 +172,13 @@ if (only('markup') || flags.length === 0) {
   const dashInComment = (hit) => {
     const m = hit.match(/^(.*):(\d+) escaped em dash in source:/);
     if (m && commentLineIndex.get(m[1])?.has(Number(m[2]))) return true;
+    // VERBATIM QUOTATION IS CHECKED FIRST, and that ordering is the fix (2026-09-07).
+    // This test used to sit below the `dash < 0` early return further down. `text` is the
+    // TRUNCATED display excerpt, so on any quote long enough for the dash to fall past the
+    // truncation the function returned false before it ever reached here - the exemption
+    // was unreachable for exactly the long customer reviews it exists to protect. Line
+    // membership does not depend on the excerpt, so it belongs above anything that reads one.
+    if (m && verbatimQuoteLines.get(m[1])?.has(Number(m[2]))) return true;
     const line = hit;
     const text = line.slice(line.indexOf(' in source:') + ' in source:'.length);
     const dash = text.search(/—|&mdash;|&#8212;/);
@@ -182,8 +189,6 @@ if (only('markup') || flags.length === 0) {
     // copy. Several kit components carry one, and flagging them asked every project to
     // edit an error message to satisfy a rule about prose.
     if (/throw new [A-Za-z]*Error|console\.(log|warn|error|info)/.test(text)) return true;
-    // Verbatim quotation, transcribed from a named source.
-    if (m && verbatimQuoteLines.get(m[1])?.has(Number(m[2]))) return true;
     return false;
   };
   // A REGEX that detects em dashes must contain one: /—|–/.test(quote) is the check that

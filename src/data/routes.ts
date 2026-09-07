@@ -15,6 +15,7 @@ export const ROUTE_SLUGS: string[] = [
   '/free-training',
   '/starter-kit',
   '/about-us',
+  '/reviews',
   '/delivery',
   '/first-time-owners',
   '/first-time-owners/breed-selector',

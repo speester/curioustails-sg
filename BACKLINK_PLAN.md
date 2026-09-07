@@ -39,3 +39,38 @@ Log each acquired link (date, source, target page, anchor) at the bottom of this
 
 | Date | Source | Target | Anchor |
 |---|---|---|---|
+| 2026-09-07 | puppysingapore.com/about/ | curioustails.sg/ | Curious Tails |
+| 2026-09-07 | puppysingapore.com/list-of-hdb-approved-dogs-in-singapore/ | curioustails.sg/puppies/ | every breed it carries with its HDB status |
+| 2026-09-07 | puppysingapore.com/dog-adoption-guide-singapore/ | curioustails.sg/learn/cheap-puppies-singapore/ | an honest breakdown of what a few hundred dollars actually buys in Singapore |
+| 2026-09-07 | maltipoo.sg/puppies/ | curioustails.sg/puppies/maltipoo/ | Maltipoo puppies available in Singapore right now |
+| 2026-09-07 | corgi.sg/puppies/ | curioustails.sg/puppies/corgi/ | Curious Tails |
+| 2026-09-07 | chihuahua.sg/puppies/ | curioustails.sg/puppies/chihuahua/ | the Balestier shop’s Chihuahua page |
+| 2026-09-07 | maltese.sg/puppies/ | curioustails.sg/puppies/maltese/ | Curious Tails in Balestier |
+| 2026-09-07 | cavapoopuppy.sg/puppies/ | curioustails.sg/puppies/cavapoo/ | Cavapoo puppies in Singapore |
+| 2026-09-07 | shihtzu.sg/puppies/ | curioustails.sg/puppies/shih-tzu/ | The shop’s own Shih Tzu listing |
+| 2026-09-07 | dachshund.sg/puppies/ | curioustails.sg/puppies/mini-dachshund/ | Mini Dachshund puppies in Singapore |
+| 2026-09-07 | pomeranian.sg/puppies/ | curioustails.sg/puppies/pomeranian/ | The shop keeps its current list public |
+| 2026-09-07 | bichon.sg/puppies/ | curioustails.sg/puppies/bichon-frise/ | Curious Tails |
+| 2026-09-07 | shibainu.sg/puppies/ | curioustails.sg/puppies/shiba-inu/ | The shop page for this breed |
+
+**All 13 placed 2026-09-07, owned network (Tier 3).** One link per source domain, all
+in-content, all deep except the puppysingapore.com/about/ one, all followed, all
+non-reciprocal (curioustails.sg links back to none of these domains). Anchor mix as
+specified: 4 brand, 5 natural, 4 partial, no exact-match commercial phrase, no anchor
+repeated across two domains.
+
+Two things worth recording about how this went:
+
+1. **The breed network was passing nothing before today.** All ten `.sg` breed domains
+   already mentioned curioustails.sg, but only inside JSON-LD `parentOrganization.url`
+   and an email address. A schema `url` field is not a link, which is the whole reason
+   ten owned domains produced five referring domains.
+2. **`puppysingapore.com` needed an owner ruling reversed.** Its page source recorded a
+   2026-08-25 ruling that curious tails "is not named"; the owner overturned that on
+   2026-09-07 and the three links went in. `wgpetfarm.com` is still staged, not live,
+   pending the DNS cutover.
+
+Re-pull referring domains 30 days from now (2026-10-07). Baseline is 5, of which 2 are
+followed. If 13 followed links from 11 live domains have not moved that number at all,
+stop and diagnose before placing more.
+

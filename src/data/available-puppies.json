@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-09-06T04:51:55.431Z",
+  "syncedAt": "2026-09-07T04:57:43.575Z",
   "breeds": {
     "bichon-frise": {
       "available": [],
@@ -297,20 +297,6 @@
     },
     "cavapoo": {
       "available": [
-        {
-          "id": 2590,
-          "name": "Todo",
-          "color": "Red White",
-          "gender": "Male",
-          "age": "3 months",
-          "price": 3488,
-          "image": "2590-1-8b1b3164.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true
-        },
         {
           "id": 2649,
           "name": "Swee",
@@ -739,7 +725,7 @@
           "name": "Six",
           "color": "Golden",
           "gender": "Female",
-          "age": "2 months",
+          "age": "3 months",
           "price": 4800,
           "image": "2622-1-ddb59f7b.webp",
           "location": "Choa Chu Kang Area",
@@ -1561,6 +1547,21 @@
       "age": "3 months",
       "price": 6500,
       "image": "2640-1-a96cab95.webp",
+      "location": "Joo Chiat",
+      "origin": "UK",
+      "sizeNote": null,
+      "crossLabel": null,
+      "hdbApproved": null,
+      "breedLabel": "Sheepadoodle"
+    },
+    {
+      "id": 2641,
+      "name": "Ziggy",
+      "color": "Black White",
+      "gender": "Female",
+      "age": "3 months",
+      "price": 6500,
+      "image": "2641-1-f727ab8b.webp",
       "location": "Joo Chiat",
       "origin": "UK",
       "sizeNote": null,

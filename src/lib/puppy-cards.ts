@@ -80,8 +80,17 @@ export function pupCard(
     ...(state === 'available'
       ? {
           tag: 'Available',
-          // Card CTA labels must stay short enough for one line in a quarter-width card.
-          meta: 'WhatsApp for photos',
+          // The button is already WhatsApp green and carries the WhatsApp glyph, so
+          // naming the channel in the label said the same thing twice. "Photos" also
+          // undersold it: the prefilled message asks for photos AND the price, and
+          // buyers use the same thread for temperament, HDB status and timing. The
+          // label stays anchored to the individual puppy, which is the thing that makes
+          // these cards convert at 13-24% where generic chrome converts near zero.
+          // BUDGET: measured at the button's computed font (700 14px Nunito), the old
+          // "WhatsApp for photos" rendered 142px and fits one line in a quarter-width
+          // card, so 142px is the proven ceiling. This label is 138px. It also feeds the
+          // aria-label as "{meta}: {title}, $price all-in", which reads correctly.
+          meta: 'Ask about this puppy',
           href: whatsappLink(
             `Hi! I'd like more photos and the price for ${p.name ?? `puppy #${p.id}`}, the ${[
               p.color?.toLowerCase(),

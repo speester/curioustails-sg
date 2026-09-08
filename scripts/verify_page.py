@@ -101,6 +101,20 @@ SPELL = {
 CHROME = re.compile(r"<(script|style|svg|header|nav|footer|aside)\b[^>]*>.*?</\1\s*>",
                     re.I | re.S)
 JSONLD = re.compile(r'<script[^>]+application/ld\+json[^>]*>(.*?)</script>', re.I | re.S)
+
+
+def _fold_quotes(s):
+    """Typographic and straight quotes compare equal. A brief writes `don't`, the page emits
+    `don’t`, and a byte comparison then calls an identical string a mismatch -- the same defect
+    validate-blueprint carried for titles."""
+    return (s or "").replace("’", "'").replace("‘", "'") \
+                    .replace("“", '"').replace("”", '"')
+# The compliance-anchor vocabulary, kept identical to scripts/anchor-registry.mjs.
+COMPLIANCE_ANCHOR = re.compile(
+    r"^(our |the )?(privacy( policy| notice)?|terms( of (service|use))?|"
+    r"cookie[s]?( policy)?|(affiliate |advertising |ad )?disclosure( policy| statement)?|"
+    r"editorial (policy|standards|guidelines)|accessibility|contact us|"
+    r"tell us and we will correct it)$", re.I)
 P_TAG = re.compile(r"<p(?:\s[^>]*)?>(.*?)</p\s*>", re.I | re.S)
 H_TAG = re.compile(r"<h([1-6])(?:\s[^>]*)?>(.*?)</h\1\s*>", re.I | re.S)
 A_TAG = re.compile(r"<a(?:\s[^>]*)?\shref=[\"']([^\"']+)[\"'][^>]*>(.*?)</a\s*>", re.I | re.S)
@@ -192,7 +206,13 @@ def read_config():
     if not p.exists():
         return cfg
     for line in p.read_text(encoding="utf-8", errors="replace").splitlines():
-        m = re.match(r"^\s*[-*]?\s*([A-Z][A-Z0-9_]+)\s*[:=]\s*(.+?)\s*$", line)
+        # THE FILE'S OWN FORMAT IS BOLD MARKDOWN. project-config.md writes most keys as
+        # `- **BUSINESS_NAME:** Emergency Services 24H`, and `[A-Z]` cannot match the
+        # asterisk, so every bold key read as ABSENT -- BRAND was empty in
+        # anchor-registry.mjs and the brand-anchor exemption it documents never fired.
+        # Strip the list marker and the emphasis first, then read key and value.
+        bare = re.sub(r"^\s*[-*]\s*", "", line).replace("**", "")
+        m = re.match(r"^\s*([A-Z][A-Z0-9_]+)\s*[:=]\s*(.+?)\s*$", bare)
         if m:
             cfg[m.group(1)] = m.group(2).strip().strip("`")
     return cfg
@@ -300,7 +320,12 @@ def load_brief(slug):
     # (research/serp/home.json, and brief_scaffold.py derives the brief name from it). Without
     # the alias the home page is the one page on the site with no brief, and every brief-based
     # check on it reports "brief has no target_keyword" rather than a real finding.
-    names = [slug.replace("/", "-"), slug]
+    # THE BRIEF FILENAME USES "__" AS THE PATH SEPARATOR. serp-research.mjs writes
+    # `briefs/<slug with / replaced by __>.json`, and this list only tried "-" and the raw
+    # slug, so EVERY nested page was graded with an empty brief (2026-09-06: 80 of 89 pages).
+    # The consequence was not a missing check, it was five checks - kw, capsule, lsi,
+    # provenance and formplace - failing on a brief the page actually has.
+    names = [slug.replace("/", "__"), slug.replace("/", "-"), slug]
     if slug == "index":
         names.append("home")
     for cand in [BRIEFS / (n + ".json") for n in names]:
@@ -315,9 +340,62 @@ def load_brief(slug):
     return {}
 
 
+# Elements marked `data-chrome` are repeated site furniture INSIDE <main>: CTA bands, hero
+# buttons, price-card order buttons, "keep reading" route lists. scripts/anchor-registry.mjs
+# strips them before it counts anchors, and this module must strip the same thing or the two
+# instruments disagree about what a contextual link is -- check:anchors reported 0 anchors
+# over cap while verify_page reported 7 to 12 body links against a cap of 5, on the same
+# pages, from the same HTML. Stripped by CONTAINER, because the marker sits on the wrapper
+# rather than on every anchor inside it.
+CHROME_OPEN = re.compile(r"<(\w+)[^>]*\bdata-chrome\b[^>]*>", re.I)
+
+def strip_chrome(html):
+    """Remove every `data-chrome` element INCLUDING its nested children.
+
+    The old one-shot regex ran non-greedy to the FIRST closing tag of the same name, so
+    a chrome wrapper containing another element of that name - which is what a form's
+    consent block is once it is a <div> rather than a <p> - had only its first half
+    stripped and the rest of the furniture counted as body copy (+31 words on every page
+    carrying the lead form, measured 2026-09-07). Walk the tags and match them properly."""
+    out, pos = [], 0
+    while True:
+        m = CHROME_OPEN.search(html, pos)
+        if not m:
+            out.append(html[pos:])
+            return "".join(out)
+        out.append(html[pos:m.start()])
+        tag = m.group(1)
+        pat = re.compile(r"<(/?)%s\b[^>]*>" % re.escape(tag), re.I)
+        depth, scan = 1, m.end()
+        while depth and scan < len(html):
+            t = pat.search(html, scan)
+            if not t:
+                scan = len(html)
+                break
+            depth += -1 if t.group(1) else 1
+            scan = t.end()
+        out.append(" ")
+        pos = scan
+
+
+
+# A DROPDOWN'S OPTIONS ARE NOT PROSE. The lead form's service <select> lists all nine
+# silo names -- "Emergency Plumbing, Water Damage Restoration, Emergency HVAC, ..." -- and
+# it sits above the fold, so every hub page appeared to name every other hub's exact money
+# term inside its first 150 words. That read as cannibalisation on 9 hubs, and the fix it
+# asked for was to delete the form's own labels. Options are a control the reader operates,
+# not copy the reader reads, so they count toward no word floor, no keyword density and no
+# head-phrase test.
+SELECT_BLOCK = re.compile(r"<select\b[^>]*>.*?</select\s*>", re.I | re.S)
+
+
 def body_html(html):
     m = re.search(r"<main\b[^>]*>(.*?)</main\s*>", html, re.I | re.S)
-    return CHROME.sub(" ", m.group(1) if m else html)
+    inner = m.group(1) if m else html
+    inner = SELECT_BLOCK.sub(" ", inner)
+    inner = CHROME.sub(" ", inner)
+    inner = strip_chrome(inner)
+    return inner
 
 
 def asset_index():
@@ -365,7 +443,13 @@ def corpus_text():
         t = p.read_text(encoding="utf-8", errors="replace")
         m = re.search(r"^##\s*CANONICAL.*?(?=^##\s|\Z)", t, re.S | re.M | re.I)
         chunks.append(m.group(0) if m else t)
-    for d in ("research/items", "config/sme"):
+    # research/ground-truth/ is the SOURCED-FACT artifact this pipeline already blesses:
+    # validate-blueprint check 11 requires it per core row and fails any numeric bullet
+    # without a source URL and a read date. It belongs in the provenance corpus for exactly
+    # that reason -- a figure recorded there has already met a HIGHER bar than "appears
+    # somewhere in the brief", and leaving it out made the two instruments disagree about
+    # what counts as sourced.
+    for d in ("research/items", "research/ground-truth", "config/sme"):
         p = ROOT / d
         if p.exists():
             for f in p.glob("*.md"):
@@ -387,20 +471,47 @@ def site_head_index():
     return idx
 
 
+def opening(text, n):
+    """The first n words of `text`, punctuation intact.
+
+    words() strips punctuation because it is a counter. A haystack for phrase matching has to
+    keep it: an ampersand is part of a name, and a colon is a boundary a phrase may not be
+    assembled across."""
+    return " ".join(re.split(r"\s+", (text or "").strip())[:n])
+
+
 def phrase_in(hay, phrase, filler=0):
+    """TYPOGRAPHIC AND STRAIGHT QUOTES COMPARE EQUAL.
+
+    The blueprint writes a target keyword the way a searcher types it -- "gas stove
+    won't light" -- and the page renders the apostrophe the way house style requires,
+    "won’t". A byte comparison then reports the keyword missing from the title, the H1,
+    the first 100 words, every H2 and the body at once, on a page that is about nothing
+    else. validate-blueprint was fixed for exactly this (2026-09-05) and this half of
+    the pair was not."""
     if not phrase:
         return True
-    hay_l = " " + re.sub(r"\s+", " ", (hay or "").lower()) + " "
+    hay_l = " " + re.sub(r"\s+", " ", _fold_quotes(hay or "").lower()) + " "
+    phrase = _fold_quotes(phrase)
     if phrase.lower() in hay_l:
         return True
-    # A DOT INSIDE A BRAND NAME is punctuation to a tokeniser and part of the name to a
-    # reader. words() drops it, so the first-100-words haystack reads "monday com review"
-    # while the blueprint's target keyword is "monday.com review", and the kw gate reported
-    # the phrase missing from a page whose opening sentence is built around it. Compare a
-    # dot-flattened form of both sides before giving up.
-    flat = lambda x: re.sub(r"\s+", " ", str(x or "").lower().replace(".", " ")).strip()
-    if "." in phrase and flat(phrase) in " " + flat(hay) + " ":
-        return True
+    # PUNCTUATION INSIDE A NAME is punctuation to a tokeniser and part of the name to a
+    # reader. words() keeps only [A-Za-z0-9$%'-], so the first-100-words haystack reads
+    # "monday com review" and "marketing sales desk" while the blueprint's target keywords are
+    # "monday.com review" and "marketing & sales desk". Both were reported missing from pages
+    # whose opening sentence is built around them. Flatten punctuation on BOTH sides before
+    # giving up; a phrase with no punctuation is unaffected, so nothing else loosens.
+    if re.search(r"[^a-z0-9 ]", phrase.lower()):
+        def _flat(x):
+            x = str(x or "").lower()
+            # clause boundaries first, as a barrier no phrase may be assembled across
+            x = re.sub(r"[,;:!?()\[\]\"\u201c\u201d]|\.(?=\s|$)|\u2014|\u2013", " \u00a6 ", x)
+            x = x.replace("&", " and ")                # "Marketing & Sales" == "marketing and sales"
+            x = re.sub(r"[.'\u2019/+\-]", " ", x)       # punctuation inside a name
+            return re.sub(r"\s+", " ", x).strip()
+        fp, fh = _flat(phrase), _flat(hay_l)
+        if fp and "\u00a6" not in fp and (" " + fp + " ") in (" " + fh + " "):
+            return True
     if filler:
         toks = [re.escape(t) for t in phrase.lower().split()]
         pat = (r"\W+(?:\w+\W+){0,%d}" % filler).join(toks)
@@ -418,6 +529,18 @@ def cover(terms, hay_lower, hay_tokens):
     n = max(1, len(terms))
     return (round(100 * exact / n), round(100 * tok / n),
             [t for t in terms if t.lower() not in hay_lower])
+
+
+def _same_branch(row, orow, slug, other):
+    """True when one of the two blueprint rows is the other's PARENT.
+
+    Keys are compared as bare slugs, because `parent` is written as a route
+    ("/appliance-repair") while the row key is a slug ("appliance-repair")."""
+    def bare(s):
+        return (s or "").strip().strip("/").lower()
+    a, b = bare(slug), bare(other)
+    pa, pb = bare(row.get("parent")), bare((orow or {}).get("parent"))
+    return bool(a and b) and (pa == b or pb == a)
 
 
 def check_page(slug, cfg, bp, heads, assets, corpus, draft_html=None):
@@ -525,6 +648,13 @@ def check_page(slug, cfg, bp, heads, assets, corpus, draft_html=None):
     band = (as_dict(as_dict(brief.get("serp_analysis")).get("word_band"))
             or as_dict(brief.get("word_band")))
     target, tmin = brief.get("word_count_target"), 0
+    # A ROUTING SURFACE IS NOT IN THAT SERP. `brief_depth: utility` is the brief declaring the
+    # row an archive or a form confirmation rather than a page commissioned against a query.
+    # Its extract was still pulled - the evidence is kept - but a competitor median measured
+    # for a phrase the page does not compete for is not a floor it owes.
+    routing = str(brief.get("brief_depth", "")).strip().lower() == "utility"
+    if routing:
+        band = {}
     if isinstance(band, dict) and band.get("top3_median"):
         try:
             tmin = int(round(1.1 * float(band["top3_median"])))
@@ -572,9 +702,12 @@ def check_page(slug, cfg, bp, heads, assets, corpus, draft_html=None):
     hs = [(int(l), text_of(t)) for l, t in H_TAG.findall(html)]
     h1s = [t for l, t in hs if l == 1]
     h2s = [t for l, t in hs if l == 2]
-    first100 = " ".join(words(btext)[:100])
+    first100 = opening(btext, 100)
     if kw:
-        dens = bl
+        # Fold quotes here too, for the same reason phrase_in() does: `hits` counts the
+        # target phrase by regex, and a straight apostrophe in the keyword against a
+        # typographic one in the copy reported "body 0x" on a page whose H1 is the term.
+        dens = _fold_quotes(bl)
         for q in (brief.get("faq") or []):
             qt = q.get("question", "") if isinstance(q, dict) else str(q)
             if qt:
@@ -595,7 +728,8 @@ def check_page(slug, cfg, bp, heads, assets, corpus, draft_html=None):
         # hdb-renovation: 7 against a ceiling of 6, where the H1, the capsule, a briefed
         # H2 and a required entity account for four. Strip the mandated occurrences,
         # then judge the prose that remains.
-        hits = len(re.findall(re.escape(kw.lower()), dens))
+        kw_f = _fold_quotes(kw).lower()
+        hits = len(re.findall(re.escape(kw_f), dens))
         # The CEILING counts prose only. A briefed H2 carrying the target phrase is
         # REQUIRED by the headings gate, so counting it as stuffing made the two gates
         # contradict. The FLOOR still counts every occurrence, because the floor asks
@@ -603,8 +737,8 @@ def check_page(slug, cfg, bp, heads, assets, corpus, draft_html=None):
         dens_prose = dens
         for h in h2s:
             if phrase_in(h, kw):
-                dens_prose = dens_prose.replace(h.lower(), " ", 1)
-        hits_prose = len(re.findall(re.escape(kw.lower()), dens_prose))
+                dens_prose = dens_prose.replace(_fold_quotes(h).lower(), " ", 1)
+        hits_prose = len(re.findall(re.escape(kw_f), dens_prose))
         ceiling = max(1, bw // 150)
         probs = []
         if not phrase_in(title, kw):
@@ -658,13 +792,15 @@ def check_page(slug, cfg, bp, heads, assets, corpus, draft_html=None):
     # LEVEL ("L2"), not the word "hub". Reading only the latter classified both L2 hubs as
     # ordinary content pages, so the 5-link body cap meant for a leaf was applied to a page
     # whose whole job is to link to its children.
-    # The comment above says the LEVEL is what marks a hub, and then the test read only the
-    # word "hub": this blueprint writes `hub_or_node: L2`, so both L2 hubs and every pillar
-    # were still measured against the 5-link leaf cap (jeunesseglobal2.com, 2026-09-06).
-    _hn = row.get("hub_or_node", "").lower()
-    _pt = row.get("page_type", "").lower()
-    is_hub = (_hn == "hub" or _hn == "l2"
-              or _pt == "hub" or _pt.endswith("-hub") or _pt == "pillar"
+    # ...and the fix for that read "L2" nowhere. This blueprint writes hub_or_node as
+    # the LEVEL ("L2") and page_type as "pillar", so none of the three tests below
+    # matched and all nine silo hubs were graded as leaves: a 5-link body cap on a page
+    # whose entire job is to link to its eight children. TRIED AND REVERTED in the same
+    # session: keying on a non-empty `link_children` instead. Leaves carry that column
+    # too -- it holds one sibling link on every L3 row here -- so it made the whole site
+    # a hub and lifted the leaf link cap everywhere. The LEVEL is the signal.
+    is_hub = (row.get("hub_or_node", "").lower() in ("hub", "l2")
+              or row.get("page_type", "").lower() in ("hub", "pillar")
               or tier == "hub" or slug == "index")
     for key, floor_pct, label in (("primary", 80, "P"), ("secondary", 70, "S"), ("all", 40, "A")):
         terms = lsi.get(key) or []
@@ -778,7 +914,7 @@ def check_page(slug, cfg, bp, heads, assets, corpus, draft_html=None):
         summ["h1"] = "dupe"
     else:
         clash = []
-        first150 = " ".join(words(btext)[:150])
+        first150 = opening(btext, 150)
         # heads is keyed by the ROUTE slug (pricing/heygen) while `slug` may be the
         # flattened brief slug (pricing-heygen). Comparing the raw strings failed to
         # skip the page itself, so every nested page collided with its own head phrase.
@@ -800,6 +936,15 @@ def check_page(slug, cfg, bp, heads, assets, corpus, draft_html=None):
             # contained in this page's own target. Two pages genuinely chasing one term still
             # fail, which is what this check is for.
             nested = bool(kw and okw and phrase_in(kw, okw))
+            # A HUB AND ITS OWN SPOKE ARE NOT COMPETING. The rule two branches up already
+            # says so in prose -- "a HUB's term appearing in a SPOKE's title is the silo
+            # working" -- but only the OTHER direction was guarded, so every spoke that
+            # said its hub's term in its opening was reported as cannibalising the hub it
+            # belongs to: 10 of the 21 h1 failures on this site, and the fix each one asks
+            # for is to stop naming your own section. Siblings still fail, which is the
+            # case this check exists for.
+            if _same_branch(row, bp.get(other) or {}, slug, other):
+                continue
             # A page with no target keyword of its own (about, terms, an index) cannot
             # cannibalise anything: it is SUPPOSED to name the site's topics in its opening.
             # Without this the utility pages fail for describing the site they belong to.
@@ -815,11 +960,7 @@ def check_page(slug, cfg, bp, heads, assets, corpus, draft_html=None):
             summ["h1"] = "unique"
 
     # ---- breaks ---------------------------------------------------------
-    # A VERBATIM QUOTATION IS NOT OURS TO RESTRUCTURE. The paragraph ceiling shapes the
-    # site's own prose; applying it inside <blockquote> asks us to edit a sentence a named
-    # source published. Same exemption, same wording, as the em-dash and glyph rules.
-    prose_body = re.sub(r"<blockquote[\s\S]*?</blockquote>", " ", body, flags=re.I)
-    plist = P_TAG.findall(prose_body)
+    plist = P_TAG.findall(body)
     longp, bad_p = [], None
     for p in plist:
         t = text_of(p)
@@ -831,10 +972,22 @@ def check_page(slug, cfg, bp, heads, assets, corpus, draft_html=None):
         if bad_p is None and (sc > 3 or wc > 60):
             bad_p = "<p> with %d sentences / %d words: %s..." % (sc, wc, t[:70])
     run = maxrun = gap = maxgap = 0
-    for tag, inner in re.findall(
-            r"<(p|h[2-6]|ul|ol|table|figure|blockquote|dl|pre)\b[^>]*>(.*?)</\1\s*>",
+    # A BAND BOUNDARY IS A STRUCTURAL BREAK, and on a site whose every prose run is wrapped in
+    # a ruled, filled or two-column band it is a STRONGER one than a <ul> (2026-09-05). Matching
+    # only inline tags read straight through those edges: /compare/ reported a run of 17 where the
+    # longest run a reader meets is 5. Anything carrying `data-treatment` -- the declared layout
+    # axis design-audit already enforces variety on -- ends a run. On a site that emits no
+    # treatments this changes nothing.
+    for _m in re.finditer(
+            r"<(p|h[2-6]|ul|ol|table|figure|blockquote|dl|pre)[^>]*>"
+            r"|<[a-z]+[^>]*data-treatment=",
             body, re.I | re.S):
-        if tag.lower() == "p":
+        tag = (_m.group(1) or "").lower()
+        inner = ""
+        if tag == "p":
+            _end = body.find("</p", _m.end())
+            inner = body[_m.end():_end] if _end > 0 else ""
+        if tag == "p":
             run += 1
             maxrun = max(maxrun, run)
             gap += len(words(text_of(inner)))
@@ -919,8 +1072,15 @@ def check_page(slug, cfg, bp, heads, assets, corpus, draft_html=None):
     # ROLE (data-cta, or a button class), never by destination, so a genuine
     # contextual link to the same page still counts. A_TAG captures href + inner text,
     # not the attributes, so the role test needs the whole opening tag.
-    CTA_ROLE = re.compile(r"data-cta|data-primary-cta|class=[\"'][^\"']*\bbtn\b", re.I)
+    # `data-chrome` belongs in this list. It is the marker scripts/anchor-registry.mjs
+    # uses for repeated site furniture inside <main> -- CTA bands, hero buttons,
+    # price-card order buttons, "keep reading" route lists -- and this rule is asking the
+    # SAME question about the SAME elements. Reading only data-cta / .btn meant the two
+    # instruments disagreed about what a contextual link is: check:anchors reported 0 over
+    # cap while this reported 7-12 body links against a cap of 5 on the same pages.
+    CTA_ROLE = re.compile(r"data-cta|data-primary-cta|data-chrome|class=[\"'][^\"']*\bbtn\b", re.I)
     internal = []
+    contract_links = []
     for m in re.finditer(r"<a(?:\s[^>]*)?\shref=[\"']([^\"']+)[\"']([^>]*)>(.*?)</a\s*>",
                          body, re.I | re.S):
         href, attrs, inner = m.group(1), m.group(2), m.group(3)
@@ -928,15 +1088,27 @@ def check_page(slug, cfg, bp, heads, assets, corpus, draft_html=None):
             continue
         if CTA_ROLE.search(m.group(0)[:m.group(0).find(">") + 1]):
             continue
+        # A COMPLIANCE LINK IS NOT A TOPICAL LINK. anchor-registry.mjs exempts
+        # "privacy policy", "terms", "editorial policy" and the correction invitation
+        # from its cap because they are site-wide by design and their anchor must not
+        # be varied for SEO. This cap governs the Root-Seed-Node topical links, and
+        # counting the same compliance anchors here meant a leaf spent 3 of its 5
+        # slots on the consent text under its own form and could not carry the link
+        # contract the blueprint sets. Two instruments, one definition.
+        # Counted for the CONTRACT either way: the blueprint may legitimately name a
+        # compliance page as a row's node link, and the link is on the page.
+        contract_links.append((href, text_of(inner)))
+        if COMPLIANCE_ANCHOR.match(text_of(inner).strip().lower()):
+            continue
         internal.append((href, text_of(inner)))
     contract = brief.get("link_contract") or {}
     want = [row.get("link_root", ""), row.get("link_seed", ""), row.get("link_node", "")]
     want = [w for w in want if w] or [contract.get(k, "") for k in ("root", "seed", "node")
                                       if contract.get(k)]
     missing_l = [w for w in want
-                 if not any(w.rstrip("/") == h.rstrip("/") for h, _ in internal)]
+                 if not any(w.rstrip("/") == h.rstrip("/") for h, _ in contract_links)]
     built = {("/" + page_slug(p) + "/").replace("/index/", "/") for p in all_pages()}
-    broken = [h for h, _ in internal
+    broken = [h for h, _ in contract_links
               if h.split("#")[0].split("?")[0] not in built
               and not (DIST / h.strip("/")).exists()]
     cap_links = 99 if (is_hub or slug == "index" or is_utility) else 5
@@ -991,7 +1163,14 @@ def check_page(slug, cfg, bp, heads, assets, corpus, draft_html=None):
         r'src=["\'][^"\']*(?:placeholder|coming-soon|no-image)', html, re.I))
     summ["img"] = raster
     need_img = 0 if (is_utility or policy == "figure") else 2
-    svg_leak = svg_as_raster if policy == "photo" else 0
+    # THE DEFECT IS PASSING THE FLOOR WITHOUT PHOTOGRAPHS, not owning a diagram. The rule
+    # above says an <img src="*.svg"> is "never counted" toward the raster floor, and it is
+    # not -- img_kind() files it under svg. Failing on it as well punished the opposite
+    # case: 10 pages here carry 3 to 13 real photographs AND an explanatory SVG diagram
+    # rendered through the shared Figure component, which is the mechanism content this
+    # site is supposed to prefer. It is load-bearing, and therefore a failure, only when
+    # the page would miss the floor without it.
+    svg_leak = svg_as_raster if (policy == "photo" and raster < need_img) else 0
     if raster < need_img or unsized or noalt or placeholders or svg_leak:
         fail("images",
              "policy=%s raster=%d (need %d) svg_as_raster=%d unsized=%d no_alt=%d "
@@ -1037,17 +1216,12 @@ def check_page(slug, cfg, bp, heads, assets, corpus, draft_html=None):
 
     # ---- glyphs / ids / ranks (Curio shipped a stray CJK glyph, a duplicate
     # ---- id and hardcoded ranks that contradicted the computed scores) ------
-    # A VERBATIM QUOTATION KEEPS THE PUNCTUATION ITS SOURCE PUBLISHED. The em-dash rule
-    # below already exempts <blockquote>; this scan did not, so the same three quotes were
-    # reported here as "out-of-script characters" - one fact, two verdicts. Same exemption,
-    # same wording (see scripts/check-content.mjs and scripts/seo-audit.mjs).
-    prose_text = text_of(re.sub(r"<blockquote[\s\S]*?</blockquote>", " ", body, flags=re.I))
     bad_glyphs = []
-    for m in re.finditer(r"[^\x00-\xff]", prose_text):
+    for m in re.finditer(r"[^\x00-\xff]", btext):
         ch = m.group(0)
         if ch in ALLOWED_GLYPHS:
             continue
-        ctx = prose_text[max(0, m.start() - 20):m.start() + 20].replace("\n", " ")
+        ctx = btext[max(0, m.start() - 20):m.start() + 20].replace("\n", " ")
         bad_glyphs.append("U+%04X in '%s'" % (ord(ch), ctx))
     summ["glyph"] = len(bad_glyphs)
     if bad_glyphs:
@@ -1289,29 +1463,98 @@ def check_page(slug, cfg, bp, heads, assets, corpus, draft_html=None):
         # generator is designed not to produce.
         hp.append("og:image is the site default")
     types = []
+    all_types = []
+    all_nodes = []
     for blk in JSONLD.findall(html):
         try:
             data = json.loads(blk)
         except Exception:
             hp.append("unparseable JSON-LD")
             continue
+        # WALK THE WHOLE GRAPH (2026-09-06). This collected @type at the top level and one
+        # level into @graph, so a NESTED node was invisible: an Offer under Service.offers or
+        # under OfferCatalog.itemListElement, a HowTo under a WebPage. The head check then
+        # reported "schema_plan Offer missing" on pages emitting 23 Offers. Third instrument
+        # with this same defect in one run, after check-schema-rich.mjs and seo-audit.mjs --
+        # count the node wherever it sits, because that is where a consumer reads it.
+        def _collect_types(v, out):
+            if isinstance(v, list):
+                for x in v:
+                    _collect_types(x, out)
+            elif isinstance(v, dict):
+                all_nodes.append(v)
+                t = v.get("@type")
+                if t:
+                    out += t if isinstance(t, list) else [t]
+                for x in v.values():
+                    _collect_types(x, out)
+
+        # TWO QUESTIONS, TWO COLLECTIONS. "Does the page emit the type the brief planned?"
+        # must look everywhere; "is a singleton type emitted twice?" must NOT, or a FAQPage's
+        # eight Answer nodes and an ItemList's rows read as duplicates. `types` stays the
+        # top-level/@graph set the duplicate check was written against; `all_types` is the
+        # deep set the schema_plan coverage check uses.
+        _collect_types(data, all_types)
         nodes = data if isinstance(data, list) else [data]
         for node in nodes:
             if not isinstance(node, dict):
                 continue
             t = node.get("@type")
-            types += t if isinstance(t, list) else ([t] if t else [])
+            for x in (t if isinstance(t, list) else ([t] if t else [])):
+                types.append((x, node.get("@id")))
             for g in node.get("@graph", []) or []:
                 if isinstance(g, dict) and g.get("@type"):
                     gt = g["@type"]
-                    types += gt if isinstance(gt, list) else [gt]
-    for t in sorted(set(types)):
-        if types.count(t) > 1:
-            hp.append("@type %s appears %dx" % (t, types.count(t)))
+                    for x in (gt if isinstance(gt, list) else [gt]):
+                        types.append((x, g.get("@id")))
+    # TWO NODES SHARING AN @id ARE ONE ENTITY. JSON-LD merges them, and a page that repeats
+    # Organization@#org so the graph reads complete in isolation is emitting ONE organisation,
+    # not two -- /contact/ was failed for exactly that. Count DISTINCT identities per type;
+    # a node with no @id counts as its own identity, which is the case this rule was built for.
+    ident = {}
+    for i, (t, nid) in enumerate(types):
+        ident.setdefault(t, set()).add(nid if nid else "#anon-%d" % i)
+    for t in sorted(ident):
+        if len(ident[t]) > 1:
+            hp.append("@type %s appears %dx" % (t, len(ident[t])))
+    types = [t for t, _ in types]
+    # READ THE PLAN AS A SENTENCE, NOT AS A TYPE NAME (2026-09-06). A brief writes its plan in
+    # prose -- `Article @id /x#article with about Thing "Water damage"` -- and this compared the
+    # WHOLE STRING against the emitted @type set. No page can ever satisfy that, so every page
+    # whose brief had a prose plan reported `schema_plan ... missing` regardless of what it
+    # emitted: 78 of 89 routes on emergency-services24h, all of them false. The type is the
+    # leading token; the rest of the sentence is a constraint on the node, and the one
+    # constraint the plans actually express -- `about Thing "<entity>"` -- is now CHECKED
+    # rather than dropped, so this reads stricter, not looser, than it was meant to.
     for want_t in (brief.get("schema_plan") or []):
-        name = want_t if isinstance(want_t, str) else want_t.get("type", "")
-        if name and name not in types:
+        sentence = want_t if isinstance(want_t, str) else want_t.get("type", "")
+        sentence = (sentence or "").strip()
+        if not sentence:
+            continue
+        # `HowTo-shaped steps` names the type HowTo; a trailing comma or colon is punctuation.
+        name = sentence.split()[0].split("-")[0].strip(",.:;\"'")
+        if not name:
+            continue
+        if name not in all_types:
             hp.append("schema_plan %s missing" % name)
+            continue
+        # Briefs quote the entity with straight, curly OR single quotes -- one plan writes
+        # about Thing 'Emergency plumbing repair'. Read all three.
+        m_about = re.search(r'about\s+Thing\s+["“\'‘]([^"”\'’]+)["”\'’]', sentence)
+        if m_about:
+            want_about = _fold_quotes(m_about.group(1)).strip().casefold()
+            got = False
+            for nd in all_nodes:
+                ab = nd.get("about")
+                for cand in (ab if isinstance(ab, list) else [ab]):
+                    if isinstance(cand, dict):
+                        nm = cand.get("name")
+                        if isinstance(nm, str) and \
+                                _fold_quotes(nm).strip().casefold() == want_about:
+                            got = True
+            if not got:
+                hp.append('schema_plan %s about Thing "%s" missing'
+                          % (name, m_about.group(1)))
     summ["head"] = "ok" if not hp else "fail"
     if hp:
         fail("head", "; ".join(hp), out)

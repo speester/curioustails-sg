@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-09-12T04:46:35.113Z",
+  "syncedAt": "2026-09-13T05:01:15.523Z",
   "breeds": {
     "bichon-frise": {
       "available": [],
@@ -298,6 +298,20 @@
     "cavapoo": {
       "available": [
         {
+          "id": 2690,
+          "name": null,
+          "color": "Blemheim",
+          "gender": "Female",
+          "age": "2 months",
+          "price": 4288,
+          "image": "2690-1-801d38ad.webp",
+          "location": "Choa Chu Kang",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true
+        },
+        {
           "id": 2649,
           "name": "Swee",
           "color": "Apricot",
@@ -312,20 +326,6 @@
           "hdbApproved": true
         },
         {
-          "id": 2651,
-          "name": "Potat",
-          "color": "Apricot",
-          "gender": "Female",
-          "age": "2 months",
-          "price": 4088,
-          "image": "2651-1-54b2e0e8.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true
-        },
-        {
           "id": 2652,
           "name": "Potatoe",
           "color": "Apricot",
@@ -333,7 +333,7 @@
           "age": "2 months",
           "price": 3888,
           "image": "2652-1-789e0c0e.webp",
-          "location": "Choa Chu Kang",
+          "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
           "crossLabel": null,
@@ -806,7 +806,9 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": null
-        },
+        }
+      ],
+      "recentlyPlaced": [
         {
           "id": 2645,
           "name": "Echo",
@@ -820,9 +822,7 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": null
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2603,
           "name": "Rufus",
@@ -861,20 +861,6 @@
           "image": "2249-2-bb0b3784.webp",
           "location": "Balestier Area",
           "origin": "Australia",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true
-        },
-        {
-          "id": 2058,
-          "name": null,
-          "color": "Cream",
-          "gender": "Female",
-          "age": "4 months",
-          "price": 4688,
-          "image": "2058-2-f00358bf.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": true
@@ -960,7 +946,9 @@
           "sizeNote": null,
           "crossLabel": "Maltese x Cavalier King Charles",
           "hdbApproved": true
-        },
+        }
+      ],
+      "recentlyPlaced": [
         {
           "id": 2628,
           "name": "Sixt",
@@ -974,9 +962,7 @@
           "sizeNote": null,
           "crossLabel": "Maltese x Shih Tzu",
           "hdbApproved": true
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2629,
           "name": "Eight",
@@ -1023,20 +1009,6 @@
     },
     "maltipoo": {
       "available": [
-        {
-          "id": 2579,
-          "name": "Erika",
-          "color": "Apricot",
-          "gender": "Female",
-          "age": "3 months",
-          "price": 3688,
-          "image": "2579-1-7c3d5a96.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true
-        },
         {
           "id": 2664,
           "name": null,
@@ -1128,6 +1100,20 @@
     "mini-dachshund": {
       "available": [
         {
+          "id": 2692,
+          "name": null,
+          "color": "Dapple",
+          "gender": "Female",
+          "age": "5 weeks",
+          "price": 4888,
+          "image": "2692-1-ddbb10ca.webp",
+          "location": "Choa Chu Kang",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true
+        },
+        {
           "id": 2608,
           "name": "Eirenos",
           "color": "Golden",
@@ -1135,7 +1121,7 @@
           "age": "3 months",
           "price": 4688,
           "image": "2608-1-a79d60e7.webp",
-          "location": "Balestier Area",
+          "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
           "crossLabel": null,
@@ -1149,20 +1135,6 @@
           "age": "3 months",
           "price": 4588,
           "image": "2544-1-3a0fee2e.webp",
-          "location": "Choa Chu Kang",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true
-        },
-        {
-          "id": 2545,
-          "name": "Anya",
-          "color": "Golden",
-          "gender": "Female",
-          "age": "3 months",
-          "price": 4488,
-          "image": "2545-1-08c092e1.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
@@ -1356,7 +1328,7 @@
           "color": "Tri Color",
           "gender": "Male",
           "age": "6 months",
-          "price": 4388,
+          "price": 4688,
           "image": "2485-1-d09d8a2d.webp",
           "location": "Choa Chu Kang",
           "origin": "Australia",
@@ -1376,7 +1348,50 @@
       "recentlyPlaced": []
     },
     "toy-poodle": {
-      "available": [],
+      "available": [
+        {
+          "id": 2691,
+          "name": null,
+          "color": "Black White",
+          "gender": "Female",
+          "age": "2 months",
+          "price": 3488,
+          "image": "2691-1-3949607c.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": "Poodle cross",
+          "hdbApproved": true
+        },
+        {
+          "id": 2689,
+          "name": null,
+          "color": "Black",
+          "gender": "Female",
+          "age": "2 months",
+          "price": 2888,
+          "image": "2689-1-f4a4e572.webp",
+          "location": "Choa Chu Kang",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": "Poodle cross",
+          "hdbApproved": true
+        },
+        {
+          "id": 2688,
+          "name": null,
+          "color": "Red",
+          "gender": "Male",
+          "age": "8 weeks",
+          "price": 2688,
+          "image": "2688-1-dec819b4.webp",
+          "location": "Choa Chu Kang",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": "Poodle cross",
+          "hdbApproved": true
+        }
+      ],
       "recentlyPlaced": [
         {
           "id": 2660,

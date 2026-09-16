@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-09-15T05:04:47.315Z",
+  "syncedAt": "2026-09-16T05:00:17.733Z",
   "breeds": {
     "bichon-frise": {
       "available": [],
@@ -64,6 +64,20 @@
     },
     "bichonpoo": {
       "available": [
+        {
+          "id": 2702,
+          "name": null,
+          "color": "Cream",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 6500,
+          "image": "2702-1-6d87f3f3.webp",
+          "location": "Serangoon",
+          "origin": "Australia",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true
+        },
         {
           "id": 2685,
           "name": null,
@@ -304,7 +318,7 @@
           "gender": "Female",
           "age": "2 months",
           "price": 3888,
-          "image": "2652-1-789e0c0e.webp",
+          "image": "2652-1-cc93a2ec.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
@@ -318,7 +332,7 @@
           "gender": "Male",
           "age": "2 months",
           "price": 4488,
-          "image": "2693-1-58418977.webp",
+          "image": "2693-1-2088ece4.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
@@ -329,10 +343,24 @@
           "id": 2694,
           "name": null,
           "color": "Apricot",
+          "gender": "Male",
+          "age": "2 months",
+          "price": 3888,
+          "image": "2694-1-ea137f49.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true
+        },
+        {
+          "id": 2704,
+          "name": null,
+          "color": "Apricot",
           "gender": "Female",
           "age": "2 months",
           "price": 3888,
-          "image": "2694-1-a7a1af2a.webp",
+          "image": "2704-1-6e8c816d.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
@@ -422,7 +450,9 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": true
-        },
+        }
+      ],
+      "recentlyPlaced": [
         {
           "id": 2658,
           "name": "Nifl",
@@ -436,9 +466,7 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": true
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2627,
           "name": "Fift",
@@ -475,20 +503,6 @@
           "age": "2 months",
           "price": 4088,
           "image": "2651-2-e01072dd.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true
-        },
-        {
-          "id": 2590,
-          "name": "Todo",
-          "color": "Red White",
-          "gender": "Male",
-          "age": "3 months",
-          "price": 3488,
-          "image": "2590-2-3cdd0227.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
@@ -572,7 +586,8 @@
       "recentlyPlaced": []
     },
     "corgi": {
-      "available": [
+      "available": [],
+      "recentlyPlaced": [
         {
           "id": 2655,
           "name": "Yoda",
@@ -586,9 +601,7 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": null
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2656,
           "name": "Leia",
@@ -630,20 +643,6 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": null
-        },
-        {
-          "id": 2431,
-          "name": "Leo",
-          "color": "Red White",
-          "gender": "Male",
-          "age": "6 months",
-          "price": 3488,
-          "image": "2431-2-792159ed.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": null
         }
       ]
     },
@@ -674,7 +673,9 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": null
-        },
+        }
+      ],
+      "recentlyPlaced": [
         {
           "id": 2666,
           "name": null,
@@ -716,9 +717,7 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": null
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2622,
           "name": "Six",
@@ -727,34 +726,6 @@
           "age": "3 months",
           "price": 4800,
           "image": "2622-1-ddb59f7b.webp",
-          "location": "Choa Chu Kang Area",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": null
-        },
-        {
-          "id": 2535,
-          "name": "Kuro",
-          "color": "Cream",
-          "gender": "Female",
-          "age": "5 months",
-          "price": 3500,
-          "image": "2535-1-3490a8ba.webp",
-          "location": "Eng Kong",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": null
-        },
-        {
-          "id": 1931,
-          "name": null,
-          "color": "Golden",
-          "gender": "Male",
-          "age": "3 months",
-          "price": 4500,
-          "image": "1931-2-b3c63bfa.webp",
           "location": "Choa Chu Kang Area",
           "origin": "Local",
           "sizeNote": null,
@@ -919,6 +890,22 @@
     "maltese": {
       "available": [
         {
+          "id": 2703,
+          "name": null,
+          "color": "Tri Color",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 5988,
+          "image": "2703-1-75b80b26.webp",
+          "location": "Serangoon",
+          "origin": "Australia",
+          "sizeNote": null,
+          "crossLabel": "Maltese x Shih Tzu",
+          "hdbApproved": true
+        }
+      ],
+      "recentlyPlaced": [
+        {
           "id": 2654,
           "name": "Bonnie",
           "color": "Brown White",
@@ -931,9 +918,7 @@
           "sizeNote": null,
           "crossLabel": "Maltese x Cavalier King Charles",
           "hdbApproved": true
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2101,
           "name": null,
@@ -967,6 +952,20 @@
     "maltipoo": {
       "available": [
         {
+          "id": 2701,
+          "name": null,
+          "color": "Apricot White",
+          "gender": "Male",
+          "age": "3 months",
+          "price": 5988,
+          "image": "2701-1-defcb296.webp",
+          "location": "Serangoon",
+          "origin": "Australia",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true
+        },
+        {
           "id": 2696,
           "name": null,
           "color": "White",
@@ -993,7 +992,9 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": true
-        },
+        }
+      ],
+      "recentlyPlaced": [
         {
           "id": 2665,
           "name": null,
@@ -1007,9 +1008,7 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": true
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2598,
           "name": "Rica",
@@ -1051,20 +1050,6 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": true
-        },
-        {
-          "id": 2682,
-          "name": null,
-          "color": "Apricot",
-          "gender": "Female",
-          "age": "4 months",
-          "price": 5988,
-          "image": "2682-1-59c234aa.webp",
-          "location": "Serangoon",
-          "origin": "Australia",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true
         }
       ]
     },
@@ -1075,7 +1060,7 @@
           "name": null,
           "color": "Dapple",
           "gender": "Female",
-          "age": "5 weeks",
+          "age": "6 weeks",
           "price": 4888,
           "image": "2692-1-28d61be7.webp",
           "location": "Choa Chu Kang",
@@ -1327,8 +1312,50 @@
           "gender": "Female",
           "age": "2 months",
           "price": 3488,
-          "image": "2691-1-3949607c.webp",
+          "image": "2691-1-ee55e76f.webp",
           "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": "Poodle cross",
+          "hdbApproved": true
+        },
+        {
+          "id": 2698,
+          "name": null,
+          "color": "Apricot",
+          "gender": "Male",
+          "age": "2 months",
+          "price": 3488,
+          "image": "2698-1-ce5a837d.webp",
+          "location": "Choa Chu Kang",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": "Poodle cross",
+          "hdbApproved": true
+        },
+        {
+          "id": 2699,
+          "name": null,
+          "color": "Apricot",
+          "gender": "Male",
+          "age": "2 months",
+          "price": 3488,
+          "image": "2699-1-2668653d.webp",
+          "location": "Choa Chu Kang",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": "Poodle cross",
+          "hdbApproved": true
+        },
+        {
+          "id": 2700,
+          "name": null,
+          "color": "Apricot",
+          "gender": "Male",
+          "age": "9 weeks",
+          "price": 3488,
+          "image": "2700-1-7b9101cb.webp",
+          "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
           "crossLabel": "Poodle cross",

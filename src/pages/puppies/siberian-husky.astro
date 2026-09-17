@@ -71,7 +71,7 @@ const faqItems = [
   {
     question: 'How much is a Husky in Singapore?',
     answer:
-      `A Husky in Singapore costs ${priceRange} at Curious Tails, all-in. We re-checked the market in ${monthStamp}: the top-ranking local listing quotes $7,000 to $15,000, so ours is well under it, and that price already includes the $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free first training lesson with an AVS-certified trainer. The real cost of a Husky was never the price tag anyway; it is the daily routine, and we would rather you budget for that.`,
+      `A Husky in Singapore costs ${priceRange} at Curious Tails, all-in. We re-checked the market in ${monthStamp}: the top-ranking local listing quotes $7,000 to $15,000, so ours is well under it, and that price already includes the $500+ starter kit, free home delivery and setup *For Selected Puppies Only*, and a free first training lesson with an AVS-certified trainer. The real cost of a Husky was never the price tag anyway; it is the daily routine, and we would rather you budget for that.`,
   },
   {
     question: 'What is the Husky price in Singapore right now?',
@@ -111,7 +111,7 @@ const faqItems = [
   {
     question: 'What happens after I reserve a Husky?',
     answer:
-      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave, including an escape-proofing check of gates, fences and doors.",
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items *For Selected Puppies Only* before we leave, including an escape-proofing check of gates, fences and doors.",
   },
 ];
 
@@ -133,7 +133,7 @@ const schemas = [
       name: 'Siberian Husky puppy',
       url: '/puppies/siberian-husky/',
       description:
-        `Siberian Husky puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free AVS-certified training lesson included.`,
+        `Siberian Husky puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit, free home delivery and setup *For Selected Puppies Only*, and a free AVS-certified training lesson included.`,
       price: '5088',
       image: imgHero.src,
     },
@@ -190,7 +190,7 @@ const schemas = [
       <p>Our Husky puppies in Singapore arrive and are reserved quickly, and Husky buyers get our most careful matching conversation, because no breed we carry has a wider gap between the photo people fall for and the routine the dog needs. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Husky puppies available now, right after we've talked about your mornings.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Siberian Husky for sale in Singapore here is between ${fmtPrice(price.low)} and ${fmtPrice(price.high)}, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Siberian Husky puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Husky photos and prices</a>, or meet our Husky puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Siberian Husky puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Husky photos and prices</a>, or meet our Husky puppies at our Balestier pet shop in person, with free home delivery in Singapore *For Selected Puppies Only* once you reserve.
       </p>
     </CaptionedBlock>
   </div>
@@ -320,7 +320,7 @@ const schemas = [
           items: [
             `${priceRange}, printed right here`,
             '$500+ starter kit *For Selected Puppies Only* with 30+ items included',
-            'Free home delivery with playpen setup and an escape-proofing check',
+            'Free home delivery *For Selected Puppies Only* with playpen setup and an escape-proofing check',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
           ],
           emphasis: true,
@@ -370,7 +370,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
   <CaptionedBlock heading="Husky vs Pomsky vs Samoyed: The Arctic Shelf" imagePosition="none" variant="dark">
     <p>Three Arctic looks, three different deals. The Husky is the full athlete: maximum engine, maximum independence, the training-partner breed. The Pomsky is the look at half scale with a genuinely gentler routine, though still a private-housing cross with real energy. The Samoyed trades the free spirit for people-fused devotion, similar coat contract, opposite attachment style.</p>
-    <p>All three are private-housing breeds with the tropical coat rules, and with us the price, the starter kit, and the aftercare are identical across the shelf. The choice is honest self-assessment: how much engine, how much independence, how much coat.</p>
+    <p>All three are private-housing breeds with the tropical coat rules, and with us the price, the starter kit, and the aftercare *For Selected Puppies Only* are identical across the shelf. The choice is honest self-assessment: how much engine, how much independence, how much coat.</p>
     <p>Message us your routine and we'll match you to the right amount of Arctic.</p>
     <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
       <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
@@ -409,7 +409,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
   <CaptionedBlock heading="Your Husky’s First Week at Home" imageAlt="Siberian Husky puppy settling into a set-up playpen during its first week home" imageSrc={imgScene6} imagePosition="left">
-    <p>Day 0: we deliver, free, at a time that suits you, and for this breed the setup includes the escape audit: gates, fence lines, door habits, balcony access, checked together before the puppy explores. The playpen, bed, water, and toys are ready first. Learn more about how our free home delivery and setup works.</p>
+    <p>Day 0: we deliver, free, at a time that suits you, and for this breed the setup includes the escape audit: gates, fence lines, door habits, balcony access, checked together before the puppy explores. The playpen, bed, water, and toys are ready first. Learn more about how our free home delivery and setup *For Selected Puppies Only* works.</p>
     <p>Days 1 to 3: keep it calm and structured. A fixed feeding routine, the toilet pads where we placed them, and short play sessions; the engine arrives before the training does, so channel it gently from the start.</p>
     <p>Days 4 to 7: the routine sticks, and the two lifelong habits begin: the cool-hours exercise slot enters the family calendar permanently, and the free first lesson with an AVS-certified trainer gets booked, non-negotiable for a dog headed to 25 kilograms of enthusiasm. See what the free AVS-certified training lesson covers.</p>
   </CaptionedBlock>
@@ -495,9 +495,9 @@ const schemas = [
       <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
       <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
       <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items) *For Selected Puppies Only*</a></li>
       <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup *For Selected Puppies Only*</a></li>
       <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
       <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
       <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>

@@ -48,7 +48,7 @@ const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = `Mini Dachshund Puppy for Sale Singapore | $${fmtPrice(price.low)} All-In`;
 const description =
-  `Mini Dachshund puppy Singapore from $${fmtPrice(price.low)} all-in (${monthStamp}), AVS licensed, HDB-approved. $500+ starter kit *For Selected Puppies Only*, free delivery and training lesson included.`;
+  `Mini Dachshund puppy Singapore from $${fmtPrice(price.low)} all-in (${monthStamp}), AVS licensed, HDB-approved. $500+ starter kit, free delivery *For Selected Puppies Only* and training lesson included.`;
 
 const jumpLinks = [
   { label: 'Puppies', href: '#available' },
@@ -65,7 +65,7 @@ const faqItems = [
   {
     question: 'How much does a Mini Dachshund cost in Singapore?',
     answer:
-      'The market runs anywhere from $2,500 to $9,000 depending on coat type, colour, and origin. At Curious Tails, Mini Dachshund puppies are $4,288 to $6,088, and that price already includes the $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      'The market runs anywhere from $2,500 to $9,000 depending on coat type, colour, and origin. At Curious Tails, Mini Dachshund puppies are $4,288 to $6,088, and that price already includes the $500+ starter kit, free home delivery and setup *For Selected Puppies Only*, and a free first training lesson with an AVS-certified trainer.',
   },
   {
     question: 'Can I keep a Mini Dachshund in an HDB flat?',
@@ -95,7 +95,7 @@ const faqItems = [
   {
     question: 'What happens after I reserve a Mini Dachshund?',
     answer:
-      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, usually mornings or evenings, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, usually mornings or evenings, and we set up the playpen and walk you through all 30+ starter-kit items *For Selected Puppies Only* before we leave.",
   },
 ];
 
@@ -117,7 +117,7 @@ const schemas = [
       name: 'Mini Dachshund puppy',
       url: '/puppies/mini-dachshund/',
       description:
-        'Mini Dachshund puppy from an AVS licensed Singapore pet shop, priced $4,288 to $6,088 with a $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free AVS-certified training lesson included.',
+        'Mini Dachshund puppy from an AVS licensed Singapore pet shop, priced $4,288 to $6,088 with a $500+ starter kit, free home delivery and setup *For Selected Puppies Only*, and a free AVS-certified training lesson included.',
       price: String(price.low),
       priceHigh: String(price.high),
       image: heroDachshund.src,
@@ -143,7 +143,7 @@ const schemas = [
     eyebrow="Mini Dachshund from an AVS licensed shop"
     h1="Mini Dachshund Puppies for Sale in Singapore"
     h1Accent="Mini Dachshund"
-    subhead="Mini Dachshund prices in Singapore run anywhere from $2,500 to $9,000, usually without explanation. Ours are $4,288 to $6,088, printed here, with the $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free first training lesson already in the price."
+    subhead="Mini Dachshund prices in Singapore run anywhere from $2,500 to $9,000, usually without explanation. Ours are $4,288 to $6,088, printed here, with the $500+ starter kit, free home delivery and setup *For Selected Puppies Only*, and a free first training lesson already in the price."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Mini Dachshund puppies."
     secondaryCtaLabel="See price & what's included"
@@ -164,7 +164,7 @@ const schemas = [
 
   <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
     <AnswerCapsule>
-      <p>{`Mini Dachshund puppies in Singapore cost ${priceRange} at Curious Tails as of ${monthStamp}, against a market range of $2,500 to $9,000. Every dachshund here is HDB-approved, comes from an AVS licensed shop at Balestier, and includes the $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a first training lesson.`}</p>
+      <p>{`Mini Dachshund puppies in Singapore cost ${priceRange} at Curious Tails as of ${monthStamp}, against a market range of $2,500 to $9,000. Every dachshund here is HDB-approved, comes from an AVS licensed shop at Balestier, and includes the $500+ starter kit, free home delivery and setup *For Selected Puppies Only*, and a first training lesson.`}</p>
     </AnswerCapsule>
   </div>
 
@@ -303,7 +303,7 @@ const schemas = [
           items: [
             '$4,288 to $6,088, printed right here',
             '$500+ starter kit *For Selected Puppies Only* with 30+ items included',
-            'Free home delivery with the playpen set up before you arrive',
+            'Free home delivery with the playpen set up before you arrive *For Selected Puppies Only*',
             'Free first lesson with an AVS-certified trainer',
             'Free boarding after deposit until you are ready',
           ],
@@ -443,7 +443,7 @@ const schemas = [
 
   <div id="first-week" class="scroll-mt-40">
     <CaptionedBlock heading="Your Mini Dachshund’s First Week at Home" imagePosition="none">
-      <p>Day 0: we deliver free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your puppy explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
+      <p>Day 0: we deliver free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your puppy explores the room, and we walk you through all 30+ starter-kit items *For Selected Puppies Only* in person. Learn more about how our free home delivery and setup *For Selected Puppies Only* works.</p>
       <p>Days 1 to 3: keep it calm. Same food, fixed feeding times, toilet pads where we placed them, gentle short play. Some night whimpering is normal adjustment, not distress.</p>
       <p>Days 4 to 7: the routine starts sticking, and this is the window to book your free first lesson; see what the free training lesson covers. For everything in between, you WhatsApp us and get a real reply.</p>
       <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
@@ -544,10 +544,10 @@ const schemas = [
       <li><a href="/first-time-owners/breed-selector/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Breed selector quiz</a></li>
       <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
       <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items) *For Selected Puppies Only*</a></li>
       <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
       <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup *For Selected Puppies Only*</a></li>
       <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
       <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>

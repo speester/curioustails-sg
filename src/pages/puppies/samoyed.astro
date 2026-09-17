@@ -65,7 +65,7 @@ const faqItems = [
   {
     question: 'How much does a Samoyed cost in Singapore?',
     answer:
-      'Samoyed prices in Singapore commonly run $3,500 to $8,000, usually quoted only on enquiry. At Curious Tails, Samoyed puppies are $5,500 to $6,988, and that price already includes the $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      'Samoyed prices in Singapore commonly run $3,500 to $8,000, usually quoted only on enquiry. At Curious Tails, Samoyed puppies are $5,500 to $6,988, and that price already includes the $500+ starter kit, free home delivery and setup *For Selected Puppies Only*, and a free first training lesson with an AVS-certified trainer.',
   },
   {
     question: 'Is Singapore too hot for a Samoyed?',
@@ -90,7 +90,7 @@ const faqItems = [
   {
     question: 'What happens after I reserve a Samoyed?',
     answer:
-      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items *For Selected Puppies Only* before we leave.",
   },
 ];
 
@@ -112,7 +112,7 @@ const schemas = [
       name: 'Samoyed puppy',
       url: '/puppies/samoyed/',
       description:
-        'Samoyed puppy from an AVS licensed Singapore pet shop, priced $5,500 to $6,988 with a $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free AVS-certified training lesson included.',
+        'Samoyed puppy from an AVS licensed Singapore pet shop, priced $5,500 to $6,988 with a $500+ starter kit, free home delivery and setup *For Selected Puppies Only*, and a free AVS-certified training lesson included.',
       price: '5500',
       image: imgHero.src,
     },
@@ -144,7 +144,7 @@ const schemas = [
     eyebrow="Samoyed, sold under an AVS licence"
     h1="Samoyed Puppies for Sale in Singapore"
     h1Accent="Samoyed"
-    subhead="Two honest facts before the smile wins: Samoyeds are not HDB-approved, and that Arctic coat is genuine work at one degree north of the equator. Still reading? Good. Samoyed prices here run $3,500 to $8,000; ours are $5,500 to $6,988, with the $500+ starter kit *For Selected Puppies Only*, free delivery and setup, and a free first training lesson included."
+    subhead="Two honest facts before the smile wins: Samoyeds are not HDB-approved, and that Arctic coat is genuine work at one degree north of the equator. Still reading? Good. Samoyed prices here run $3,500 to $8,000; ours are $5,500 to $6,988, with the $500+ starter kit, free delivery and setup *For Selected Puppies Only*, and a free first training lesson included."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Samoyed puppies."
     secondaryCtaLabel="See price & what's included"
@@ -169,7 +169,7 @@ const schemas = [
       <p>Our Samoyed puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and a short walkthrough video for the Sammy puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Samoyed for sale in Singapore here is between $5,500 and $6,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Samoyed puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Samoyed photos and prices</a>, or meet our Samoyed puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Samoyed puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Samoyed photos and prices</a>, or meet our Samoyed puppies at our Balestier pet shop in person, with free home delivery in Singapore *For Selected Puppies Only* once you reserve.
       </p>
     </CaptionedBlock>
   </div>
@@ -294,7 +294,7 @@ const schemas = [
           items: [
             '$5,500 to $6,988, printed right here',
             '$500+ starter kit *For Selected Puppies Only* with 30+ items included',
-            'Free home delivery with the playpen set up before you arrive',
+            'Free home delivery with the playpen set up before you arrive *For Selected Puppies Only*',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
           ],
           emphasis: true,
@@ -352,7 +352,7 @@ const schemas = [
         {[
           'Samoyed: 16-30 kg, private housing, serious coat contract',
           'Japanese Spitz: 5-9 kg, HDB-approved, manageable coat',
-          'Same price, same starter kit, same aftercare either way',
+          'Same price, same starter kit *For Selected Puppies Only*, same aftercare either way',
         ].map((fact) => (
           <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
@@ -383,7 +383,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
   <CaptionedBlock heading="Your Sammy’s First Week at Home" imageAlt="Samoyed puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
-    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Sammy explores the room, and we walk you through all 30+ starter-kit items in person, including the line-brushing demonstration. Learn more about how our free home delivery and setup works.</p>
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Sammy explores the room, and we walk you through all 30+ starter-kit items *For Selected Puppies Only* in person, including the line-brushing demonstration. Learn more about how our free home delivery and setup *For Selected Puppies Only* works.</p>
     <p>Days 1 to 3: keep it calm, cool and predictable. A fixed feeding routine, the toilet pads where we placed them, joint-safe floor play, and the daily brush habit starting now, while the puppy coat makes it easy practice.</p>
     <p>Days 4 to 7: the routine sticks and the personality arrives, all of it. Book your free first lesson with an AVS-certified trainer this week; manners installed before twenty kilograms arrive are a gift to everyone. See what the free AVS-certified training lesson covers.</p>
   </CaptionedBlock>
@@ -469,9 +469,9 @@ const schemas = [
       <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
       <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
       <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items) *For Selected Puppies Only*</a></li>
       <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup *For Selected Puppies Only*</a></li>
       <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
       <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
       <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>

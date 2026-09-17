@@ -344,7 +344,7 @@ const faqItems = [
   {
     question: 'Which breeds does Curious Tails carry?',
     answer:
-      'Forty-eight, with more arriving regularly. The range spans HDB-approved companions like the Cavapoo, Maltipoo, Maltese, Bichon Frise, Pomeranian, Shih Tzu, Pug and Cavalier King Charles Spaniel, through to private-housing breeds like the Corgi, Shiba Inu, French Bulldog, Golden Retriever and Siberian Husky. Prices start from $3,288 all-in and vary by breed, and every price includes the $500+ starter kit *For Selected Puppies Only*, free delivery and setup, and a free training lesson.',
+      'Forty-eight, with more arriving regularly. The range spans HDB-approved companions like the Cavapoo, Maltipoo, Maltese, Bichon Frise, Pomeranian, Shih Tzu, Pug and Cavalier King Charles Spaniel, through to private-housing breeds like the Corgi, Shiba Inu, French Bulldog, Golden Retriever and Siberian Husky. Prices start from $3,288 all-in and vary by breed, and every price includes the $500+ starter kit, free delivery and setup *For Selected Puppies Only*, and a free training lesson.',
   },
   {
     question: 'Which of your breeds are HDB-approved?',
@@ -545,20 +545,20 @@ const liveBreedCount = stockedBreeds().length;
   <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
 
   <ValueBundle
-    eyebrow="Included with every breed"
-    heading="What every puppy comes with"
-    headingAccent="every puppy"
+    eyebrow="Included with selected puppies"
+    heading="What selected puppies come with"
+    headingAccent="selected puppies"
     subhead="The price on every card is the full price, whichever breed you choose. Details on the transparent pricing page."
     items={[
       {
         icon: 'kit',
-        title: '$500+ Starter Kit',
+        title: '$500+ Starter Kit *For Selected Puppies Only*',
         body: 'Over 30 items across eight categories, from playpen to toys, delivered with your puppy and explained item by item.',
         highlight: '30+ items',
       },
       {
         icon: 'delivery',
-        title: 'Free Delivery & Setup',
+        title: 'Free Delivery & Setup *For Selected Puppies Only*',
         body: 'Island-wide, scheduled around you, with the playpen set up before your puppy explores the room.',
         highlight: 'Free',
       },

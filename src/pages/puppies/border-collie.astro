@@ -71,7 +71,7 @@ const faqItems = [
   {
     question: 'How much is a Border Collie in Singapore?',
     answer:
-      `A Border Collie in Singapore costs ${priceRange} at Curious Tails, all-in. We checked the shops ranking for this search in ${monthStamp} and none of them publish a Border Collie price, so there is no market figure to compare against, only enquiry forms. Ours includes the $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
+      `A Border Collie in Singapore costs ${priceRange} at Curious Tails, all-in. We checked the shops ranking for this search in ${monthStamp} and none of them publish a Border Collie price, so there is no market figure to compare against, only enquiry forms. Ours includes the $500+ starter kit, free home delivery and setup *For Selected Puppies Only*, and a free first training lesson with an AVS-certified trainer.`,
   },
   {
     question: 'What is the Border Collie price in Singapore right now?',
@@ -111,7 +111,7 @@ const faqItems = [
   {
     question: 'What happens after I reserve a Border Collie?',
     answer:
-      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items *For Selected Puppies Only* before we leave.",
   },
 ];
 
@@ -133,7 +133,7 @@ const schemas = [
       name: 'Border Collie puppy',
       url: '/puppies/border-collie/',
       description:
-        `Border Collie puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free AVS-certified training lesson included.`,
+        `Border Collie puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit, free home delivery and setup *For Selected Puppies Only*, and a free AVS-certified training lesson included.`,
       price: '5880',
       image: imgHero.src,
     },
@@ -190,7 +190,7 @@ const schemas = [
       <p>Our Border Collie puppies in Singapore arrive and are reserved quickly, and, like our Husky buyers, Collie buyers get our most careful matching conversation, because the gap between the smartest-breed reputation and the daily reality fills Singapore's adoption boards. As an AVS licensed pet shop, we'll send you photos, gender, age, colour, and a short walkthrough video for the Border Collie puppies available now, right after we've talked about what the dog will do all day.</p>
       <p>Unlike the import listings you'll compare us against, we tell you the number upfront: every Border Collie for sale in Singapore here is between $5,880 and $6,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Border Collie puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Border Collie photos and prices</a>, or meet our Collie puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Border Collie puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Border Collie photos and prices</a>, or meet our Collie puppies at our Balestier pet shop in person, with free home delivery in Singapore *For Selected Puppies Only* once you reserve.
       </p>
     </CaptionedBlock>
   </div>
@@ -319,7 +319,7 @@ const schemas = [
           items: [
             `${priceRange}, printed right here`,
             '$500+ starter kit *For Selected Puppies Only* with 30+ items included',
-            'Free home delivery with the playpen set up before you arrive',
+            'Free home delivery with the playpen set up before you arrive *For Selected Puppies Only*',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
           ],
           emphasis: true,
@@ -369,7 +369,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
   <CaptionedBlock heading="Border Collie vs Sheltie: The Herding Question, Both Directions" imagePosition="none" variant="dark">
     <p>Our Sheltie page sends flat-dwelling herding-brain seekers here when they have private housing; this page sends them back when they don't. The honest split: the Border Collie is the full working intensity, the sharpest mind in dogs demanding genuine daily employment, private housing only. The Sheltie is the same family of intelligence at a genuinely achievable budget, gentler, smaller, HDB-approved.</p>
-    <p>We talk more people from Collie to Sheltie than the reverse, and the ones who stay Collie-bound are exactly the homes that should. With us the price, the starter kit, and the aftercare are identical either way.</p>
+    <p>We talk more people from Collie to Sheltie than the reverse, and the ones who stay Collie-bound are exactly the homes that should. With us the price, the starter kit, and the aftercare *For Selected Puppies Only* are identical either way.</p>
     <p>Message us your housing and your honest appetite for daily training, and we'll point you at the right end of the herding shelf.</p>
     <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
       <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
@@ -377,7 +377,7 @@ const schemas = [
         {[
           'Border Collie: full working intensity, private housing only',
           'Sheltie: herding brain, achievable budget, HDB-approved',
-          'Same price, same starter kit, same aftercare either way',
+          'Same price, same starter kit *For Selected Puppies Only*, same aftercare either way',
         ].map((fact) => (
           <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
@@ -408,7 +408,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
   <CaptionedBlock heading="Your Collie’s First Week at Home" imageAlt="Border Collie puppy settling into a set-up playpen during its first week home" imageSrc={imgScene6} imagePosition="left">
-    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Collie maps the room, and it will map the room, and we walk you through all 30+ starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Collie maps the room, and it will map the room, and we walk you through all 30+ starter-kit items *For Selected Puppies Only* in person. Learn more about how our free home delivery and setup *For Selected Puppies Only* works.</p>
     <p>Days 1 to 3: keep it calm and structured. A fixed feeding routine, the toilet pads where we placed them, and short, gentle play. You'll notice the watching immediately; the puppy is already learning your patterns, so make them good ones.</p>
     <p>Days 4 to 7: the routine sticks and employment begins: first tiny training games, thirty seconds at a time, and the free first lesson with an AVS-certified trainer booked now, not later, because a Collie's education begins whether or not anyone is teaching. See what the free AVS-certified training lesson covers.</p>
   </CaptionedBlock>
@@ -494,9 +494,9 @@ const schemas = [
       <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
       <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
       <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items) *For Selected Puppies Only*</a></li>
       <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup *For Selected Puppies Only*</a></li>
       <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
       <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
       <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>

@@ -103,7 +103,7 @@ const schemas = [
       <ListingGrid
         heading={`${breedName(slug)} Puppies Available Now`}
         headingAccent={breedName(slug)}
-        subhead={`${bucket.available.length} ${breedName(slug)} ${bucket.available.length === 1 ? 'puppy' : 'puppies'} with us today. Prices are all-in - vaccinations, microchip, licence, starter kit *For Selected Puppies Only* and free delivery included.`}
+        subhead={`${bucket.available.length} ${breedName(slug)} ${bucket.available.length === 1 ? 'puppy' : 'puppies'} with us today. Prices are all-in - vaccinations, microchip, licence, starter kit and free delivery *For Selected Puppies Only* included.`}
         items={bucket.available.map((p) => pupCard(p, breedName(slug), 'available', { breedLabel: true }))}
         footerCtaLabel={`Read the ${breedName(slug)} breed guide`}
         footerCtaHref={`/puppies/${slug}/`}
@@ -139,7 +139,7 @@ const schemas = [
   <FinalCta
     breed="Puppy"
     heading="Come Meet Them at Balestier"
-    body="Can't make the trip? WhatsApp us and we'll send current photos, video and prices for any puppy on this page, with free home delivery across Singapore."
+    body="Can't make the trip? WhatsApp us and we'll send current photos, video and prices for any puppy on this page, with free home delivery across Singapore *For Selected Puppies Only*."
     reserveMessage="Hi! I'd like to reserve one of the puppies on your available puppies page."
   />
 

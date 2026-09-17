@@ -70,12 +70,12 @@ const faqItems = [
   {
     question: 'How much does a Goldendoodle cost in Singapore?',
     answer:
-      `A Goldendoodle in Singapore costs ${priceRange} at Curious Tails, all-in. For the comparison we checked the shops ranking for this search in ${monthStamp}: one lists a mini Goldendoodle UK import at $4,980, another a mini at $4,500, and most of the rest ask you to enquire. Ours already includes the $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
+      `A Goldendoodle in Singapore costs ${priceRange} at Curious Tails, all-in. For the comparison we checked the shops ranking for this search in ${monthStamp}: one lists a mini Goldendoodle UK import at $4,980, another a mini at $4,500, and most of the rest ask you to enquire. Ours already includes the $500+ starter kit, free home delivery and setup *For Selected Puppies Only*, and a free first training lesson with an AVS-certified trainer.`,
   },
   {
     question: 'What is the Goldendoodle price in Singapore right now?',
     answer:
-      `As of ${monthStamp}, a Goldendoodle puppy at Curious Tails is ${priceRange}. That is the full price, not a figure that grows at collection: kit, delivery, setup, first training lesson and boarding after deposit are all inside it. We update this number on the page when it changes rather than asking you to message us for it.`,
+      `As of ${monthStamp}, a Goldendoodle puppy at Curious Tails is ${priceRange}. That is the full price, not a figure that grows at collection: kit, delivery, setup, first training lesson *For Selected Puppies Only* and boarding after deposit are all inside it. We update this number on the page when it changes rather than asking you to message us for it.`,
   },
   {
     question: 'Why are some Singapore Goldendoodles cheaper, and what is the risk?',
@@ -110,7 +110,7 @@ const faqItems = [
   {
     question: 'What happens after I reserve a Goldendoodle?',
     answer:
-      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items, including the coat-care routine, before we leave.",
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items *For Selected Puppies Only*, including the coat-care routine, before we leave.",
   },
 ];
 
@@ -132,7 +132,7 @@ const schemas = [
       name: 'Goldendoodle puppy',
       url: '/puppies/goldendoodle/',
       description:
-        'Goldendoodle puppy from an AVS licensed Singapore pet shop, priced $3,800 to $4,988 with a $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free AVS-certified training lesson included.',
+        'Goldendoodle puppy from an AVS licensed Singapore pet shop, priced $3,800 to $4,988 with a $500+ starter kit, free home delivery and setup *For Selected Puppies Only*, and a free AVS-certified training lesson included.',
       price: '3800',
       image: imgHero.src,
     },
@@ -189,7 +189,7 @@ const schemas = [
       <p>Our Goldendoodle puppies in Singapore are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and a short walkthrough video for the Goldendoodle puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Goldendoodle for sale in Singapore here is between $3,800 and $4,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Goldendoodle puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Goldendoodle photos and prices</a>, or meet our Goldendoodle puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Goldendoodle puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Goldendoodle photos and prices</a>, or meet our Goldendoodle puppies at our Balestier pet shop in person, with free home delivery in Singapore *For Selected Puppies Only* once you reserve.
       </p>
     </CaptionedBlock>
   </div>
@@ -319,7 +319,7 @@ const schemas = [
           items: [
             '$3,800 to $4,988, printed right here',
             '$500+ starter kit *For Selected Puppies Only* with 30+ items included',
-            'Free home delivery with the playpen set up before you arrive',
+            'Free home delivery with the playpen set up before you arrive *For Selected Puppies Only*',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
           ],
           emphasis: true,
@@ -400,7 +400,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
   <CaptionedBlock heading="Your Goldendoodle’s First Week at Home" imageAlt="Goldendoodle puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
-    <p>Day 0: we deliver, free, at a time that suits you. The playpen, bed, water, and toys are set up before your Goldendoodle explores the room, and we walk you through all 30+ starter-kit items in person, including the coat-care routine. Learn more about how our free home delivery and setup works.</p>
+    <p>Day 0: we deliver, free, at a time that suits you. The playpen, bed, water, and toys are set up before your Goldendoodle explores the room, and we walk you through all 30+ starter-kit items *For Selected Puppies Only* in person, including the coat-care routine. Learn more about how our free home delivery and setup *For Selected Puppies Only* works.</p>
     <p>Days 1 to 3: keep it calm. A fixed feeding routine with measured portions, the toilet pads where we placed them, and gentle play that helps your puppy settle into its new room.</p>
     <p>Days 4 to 7: the routine sticks, and now is the time to build good habits. Book your free first lesson with an AVS-certified trainer, and start short, positive brushing sessions so your Doodle grows up loving the grooming it will need for life. See what the free AVS-certified training lesson covers.</p>
   </CaptionedBlock>
@@ -486,9 +486,9 @@ const schemas = [
       <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
       <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
       <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items) *For Selected Puppies Only*</a></li>
       <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup *For Selected Puppies Only*</a></li>
       <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
       <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
       <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>

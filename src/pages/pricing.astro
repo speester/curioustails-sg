@@ -113,7 +113,7 @@ const sortableBreedRows = (Object.keys(breedPricing) as BreedSlug[])
 
 const title = 'Puppy Price Singapore | From $3,288 All-In | Curious Tails';
 const description =
-  'How much does a puppy cost in Singapore? Ours start from $3,288 all-in: $500+ starter kit, free delivery and setup, and a free training lesson. WhatsApp us.';
+  'How much does a puppy cost in Singapore? Ours start from $3,288 all-in: $500+ starter kit *For Selected Puppies Only*, free delivery and setup, and a free training lesson. WhatsApp us.';
 
 // Workstream A2.2: this page drew 128 users and zero WhatsApp clicks. It is
 // price-intent traffic with no purchasable object in front of it. Real puppies
@@ -137,7 +137,7 @@ const faqItems = [
   {
     question: 'How much does a puppy cost at Curious Tails?',
     answer:
-      'Every puppy is priced from $3,288 all-in, varying by breed, and the price always includes the 30+ item starter kit worth $500+, free home delivery with playpen setup, a free training lesson with an AVS-certified trainer, and licensing paperwork completed at purchase. The exact price depends on the individual puppy, so WhatsApp 8220 6408 for current litters.',
+      'Every puppy is priced from $3,288 all-in, varying by breed, and the price always includes the 30+ item starter kit *For Selected Puppies Only* worth $500+, free home delivery with playpen setup, a free training lesson with an AVS-certified trainer, and licensing paperwork completed at purchase. The exact price depends on the individual puppy, so WhatsApp 8220 6408 for current litters.',
   },
   {
     question: "Why don't you list an exact price for each puppy?",
@@ -172,17 +172,17 @@ const faqItems = [
   {
     question: 'How much does a Cavapoo cost in Singapore?',
     answer:
-      'The Cavapoo price in Singapore commonly runs $4,300 to $6,500 at established shops. At Curious Tails, Cavapoo puppies are $3,288 to $5,988 all-in, with the $500+ starter kit, free delivery and setup, and a free AVS-certified training lesson already inside the price.',
+      'The Cavapoo price in Singapore commonly runs $4,300 to $6,500 at established shops. At Curious Tails, Cavapoo puppies are $3,288 to $5,988 all-in, with the $500+ starter kit *For Selected Puppies Only*, free delivery and setup, and a free AVS-certified training lesson already inside the price.',
   },
   {
     question: 'How much does a Bichon Frise cost in Singapore?',
     answer:
-      'Bichon Frise prices in Singapore commonly run $3,000 to $7,000. At Curious Tails, Bichon Frise puppies are $3,888 to $5,988 all-in, including the starter kit, delivery and setup, and the free training lesson.',
+      'Bichon Frise prices in Singapore commonly run $3,000 to $7,000. At Curious Tails, Bichon Frise puppies are $3,888 to $5,988 all-in, including the starter kit *For Selected Puppies Only*, delivery and setup, and the free training lesson.',
   },
   {
     question: 'How much does a Chihuahua cost in Singapore?',
     answer:
-      'Chihuahua prices in Singapore commonly run $2,500 to $6,000. At Curious Tails, Chihuahua puppies are $4,288 to $4,888 all-in, with the starter kit, free delivery and setup, and the free training lesson included.',
+      'Chihuahua prices in Singapore commonly run $2,500 to $6,000. At Curious Tails, Chihuahua puppies are $4,288 to $4,888 all-in, with the starter kit *For Selected Puppies Only*, free delivery and setup, and the free training lesson included.',
   },
   {
     question: 'How much does a Corgi cost in Singapore?',
@@ -192,7 +192,7 @@ const faqItems = [
   {
     question: 'How much does a Cockapoo cost in Singapore?',
     answer:
-      'At Curious Tails, Cockapoo puppies are $3,288 to $5,300 all-in, including the $500+ starter kit, free home delivery and playpen setup, and the free first lesson with an AVS-certified trainer.',
+      'At Curious Tails, Cockapoo puppies are $3,288 to $5,300 all-in, including the $500+ starter kit *For Selected Puppies Only*, free home delivery and playpen setup, and the free first lesson with an AVS-certified trainer.',
   },
   {
     question: 'Is adopting cheaper than buying a puppy in Singapore?',
@@ -223,7 +223,7 @@ const schemas = [
     eyebrow="Pricing from an AVS licensed shop"
     h1="Puppy Prices in Singapore: Everything Included"
     h1Accent="Prices"
-    subhead="Most shops make you message them just to hear a number. Ours is in writing: every puppy is priced from $3,288 all-in, and that already covers the $500+ starter kit, free home delivery and setup, and a free first lesson with an AVS-certified trainer."
+    subhead="Most shops make you message them just to hear a number. Ours is in writing: every puppy is priced from $3,288 all-in, and that already covers the $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free first lesson with an AVS-certified trainer."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! Could you share current puppy availability and prices?"
     secondaryCtaLabel="See what's included"
@@ -232,7 +232,7 @@ const schemas = [
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
-    imageAlt="Puppy pricing in Singapore made transparent: apricot Cavapoo puppy in its playpen with the included starter kit around it"
+    imageAlt="Puppy pricing in Singapore made transparent: apricot Cavapoo puppy in its playpen with the included starter kit *For Selected Puppies Only* around it"
     imageSrc={heroPricing}
     tagLabel="All-in pricing"
     proofChip="5.0 on Google"
@@ -271,7 +271,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-4 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Two more inclusions do not fit in a card: after your deposit we board your puppy free, food and lodging covered, until your home is ready, and the dog licensing paperwork is completed with our full assistance at purchase. Read how the free AVS-certified training lesson works and <a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">everything inside the 30+ item starter kit</a>.
+        Two more inclusions do not fit in a card: after your deposit we board your puppy free, food and lodging covered, until your home is ready, and the dog licensing paperwork is completed with our full assistance at purchase. Read how the free AVS-certified training lesson works and <a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">everything inside the 30+ item starter kit *For Selected Puppies Only*</a>.
       </p>
     </div>
   </div>
@@ -280,7 +280,7 @@ const schemas = [
     <ScatterFloat />
     <DefBox
       term="How much does a puppy cost in Singapore?"
-      definition="Puppy prices in Singapore run from roughly $800 to $13,900 depending on breed, size, coat, and seller, and established shops commonly list small breeds at $3,500 to $7,800. At Curious Tails, prices start from $3,288 all-in, with the $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson already inside the price."
+      definition="Puppy prices in Singapore run from roughly $800 to $13,900 depending on breed, size, coat, and seller, and established shops commonly list small breeds at $3,500 to $7,800. At Curious Tails, prices start from $3,288 all-in, with the $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free AVS-certified training lesson already inside the price."
       bridge="Curious Tails is an AVS licensed pet shop at 2 Balestier Road. We publish our full price range because comparing puppy pricing in Singapore only works when someone puts a real number in writing first."
       citationLabel="Verify our licence on the AVS public registry"
       citationHref={site.license.registryUrl}
@@ -290,7 +290,7 @@ const schemas = [
         <ul class="mt-4 space-y-3">
           {[
             'Every puppy: from $3,288, all-in',
-            'Starter kit worth $500+, 30+ items',
+            'Starter kit *For Selected Puppies Only* worth $500+, 30+ items',
             'Free home delivery and playpen setup',
             'Free first AVS-certified training lesson',
             'Licensing paperwork done at purchase',
@@ -313,7 +313,7 @@ const schemas = [
     heading="Why Singapore families trust our pricing"
     stats={[
       { value: '$3,288', label: 'puppy pricing starts here, all-in' },
-      { value: '$500+', label: 'starter kit included in every price' },
+      { value: '$500+', label: 'starter kit *For Selected Puppies Only* included in every price' },
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
       { value: '2+', label: 'years in Balestier' },
     ]}
@@ -334,7 +334,7 @@ const schemas = [
         { label: 'Cavapoo, typical Singapore market', values: ['$4,300 to $6,500'] },
         { label: 'Maltipoo, typical Singapore market', values: ['$5,000 to $9,000'] },
         { label: 'Rare and large breeds', values: ['Up to $13,900 at the top of the market'] },
-        { label: 'Curious Tails, all 48 breeds', values: ['From $3,288 all-in, with kit, delivery, setup, and training already included'] },
+        { label: 'Curious Tails, all 48 breeds', values: ['From $3,288 all-in, with kit *For Selected Puppies Only*, delivery, setup, and training already included'] },
       ]}
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
@@ -371,7 +371,7 @@ const schemas = [
 
   <div id="why-less" class="scroll-mt-40">
     <CloudDivider fillClass="fill-[var(--color-mint-100)]" againstColor="var(--color-surface-card)" />
-    <CaptionedBlock heading="Why We’re $500 to $2,000 Less Than the Big-Name Shops" imageAlt="Puppy starter kit included in the price: playpen panels, carrier, bowls, grooming brush and toys laid out in a Singapore home" imageSrc={kitFlatlay} imagePosition="right" variant="mid">
+    <CaptionedBlock heading="Why We’re $500 to $2,000 Less Than the Big-Name Shops" imageAlt="Puppy starter kit *For Selected Puppies Only* included in the price: playpen panels, carrier, bowls, grooming brush and toys laid out in a Singapore home" imageSrc={kitFlatlay} imagePosition="right" variant="mid">
       <p>The honest answer is boring: marketing. The established names have been in the market longer and spend heavily on advertising and social reach, and that spend has to come back through the puppy price. We spend almost nothing on ads and let the pricing do the talking.</p>
       <p>The licence on the wall is the same. Every AVS licensed pet shop, us included, answers to the same welfare standards, inspections, and health requirements, so a lower price here is not a shortcut on care. Verify any shop, ours first, on the <a href={site.license.registryUrl} class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS public registry of licensed pet shops</a>.</p>
       <p>We would rather win on what is included and on word of mouth. It is slower than advertising, and it has given us {site.reviews.count} five-star reviews in two years.</p>
@@ -438,7 +438,7 @@ const schemas = [
           'Vet-checked, vaccinated, dewormed, and microchipped before homecoming',
           'Licensing paperwork completed at purchase',
           'A shop that is still there tomorrow, and answers its WhatsApp',
-          'The $500+ starter kit and training already included',
+          'The $500+ starter kit *For Selected Puppies Only* and training already included',
         ],
         emphasis: true,
       },
@@ -508,7 +508,7 @@ const schemas = [
     tableHeaders={['Your situation', 'Our honest take']}
     rows={[
       { label: 'Budget under $500', values: ['Adopt. Shelters like Action for Singapore Dogs rehome for $70 to $400, and a rehomed dog is a genuinely good dog'] },
-      { label: 'Want a specific small breed, first dog, want support', values: ['A licensed shop is your path; ours starts from $3,288 all-in with the kit, setup, and training lesson included'] },
+      { label: 'Want a specific small breed, first dog, want support', values: ['A licensed shop is your path; ours starts from $3,288 all-in with the kit *For Selected Puppies Only*, setup, and training lesson included'] },
       { label: 'Found a $1,500 "deal" on Carousell or Telegram', values: ['Check the seller on the AVS registry before paying anything. No licence means the discount is the risk'] },
       { label: 'Torn between two breeds at different prices', values: ['Decide on routine fit, not price. WhatsApp us your 8am to 6pm reality and we will tell you straight which breed suits it'] },
     ]}

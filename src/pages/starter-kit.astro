@@ -38,7 +38,7 @@ import ExpertQuote from '../components/ExpertQuote.astro';
 
 const title = 'Puppy Starter Kit Singapore | 30+ Items | Curious Tails';
 const description =
-  "What's included in a puppy starter kit? Ours has 30+ items worth $500+ across 8 categories, free with every puppy, delivered and set up at home. WhatsApp us.";
+  "What's included in a puppy starter kit? Ours has 30+ items worth $500+ across 8 categories, free with selected puppies *For Selected Puppies Only*, delivered and set up at home. WhatsApp us.";
 
 // Workstream A2.3: 38 users, zero WhatsApp clicks. The kit is the strongest
 // differentiator on the site and it was being described without ever showing a
@@ -61,7 +61,7 @@ const faqItems = [
   {
     question: 'Is the starter kit really free?',
     answer:
-      'It is included in every puppy\'s price, which is from $3,288 all-in. There is no add-on charge, no minimum spend, and no membership to sign up for. Bought separately, the same 30 items add up to $533 - the full itemized breakdown is on this page.',
+      'For selected puppies, yes: it is included in the puppy\'s price, which is from $3,288 all-in. There is no add-on charge, no minimum spend, and no membership to sign up for. Bought separately, the same 30 items add up to $533 - the full itemized breakdown is on this page.',
   },
   {
     question: 'What exactly is in the puppy starter kit?',
@@ -105,7 +105,7 @@ const schemas = [
   serviceSchema({
     name: 'Puppy Starter Kit & Home Setup (30+ items)',
     description:
-      '30+ item puppy starter kit worth $500+, included with every puppy: playpen, carrier, grooming tools, food, outdoor gear, toilet training supplies, oral care and toys, delivered and set up at the buyer\'s home with a full item-by-item walkthrough.',
+      '30+ item puppy starter kit *For Selected Puppies Only* worth $500+, included with selected puppies: playpen, carrier, grooming tools, food, outdoor gear, toilet training supplies, oral care and toys, delivered and set up at the buyer\'s home with a full item-by-item walkthrough.',
     price: 'Included',
   }),
   faqPageSchema(faqItems),
@@ -114,7 +114,7 @@ const schemas = [
 
 <BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/starter-kit" ogImage="/assets/starter-kit/og-starter-kit.jpg">
   <Hero
-    eyebrow="Included with every puppy"
+    eyebrow="Included with selected puppies"
     h1="Inside Our Puppy Starter Kit: 30+ Items, $500+ Value"
     h1Accent="Starter Kit"
     subhead="Retail 'starter kits' in Singapore are $20 to $200 bundles of samples and toys. Ours is the full day-one setup: 30+ items across 8 categories, delivered free, set up in your home, and explained item by item before we leave."
@@ -122,7 +122,7 @@ const schemas = [
     ctaMessage="Hi! I'd like to ask about your puppies and the starter kit."
     secondaryCtaLabel="See the 8 categories"
     secondaryCtaHref="#categories"
-    priceAnchor="Included in every puppy's price. Never sold separately, never billed as an add-on."
+    priceAnchor="*For Selected Puppies Only* Included in the puppy's price. Never sold separately, never billed as an add-on."
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
@@ -140,7 +140,7 @@ const schemas = [
     <ComparisonSplit
       heading="Starter Kit Itemized Value Breakdown"
       headingAccent="Itemized"
-      subhead="Every item in the kit, priced individually. 30 items, $533 in total - included with every puppy."
+      subhead="Every item in the kit, priced individually. 30 items, $533 in total - included with selected puppies *For Selected Puppies Only*."
       mode="table"
       tableHeaders={['Category', 'Items included', 'Value']}
       rows={[
@@ -152,12 +152,12 @@ const schemas = [
         { label: 'Oral health', values: ['Mouth wash ($17), tooth paste ($15), tooth brush ($12), teeth wipes ($5)', '$49'] },
         { label: 'Feeding', values: ['Food bowl ($18), puppy kibbles ($23), measure cup ($1)', '$42'] },
         { label: 'Toys & play', values: ['Soft toy ($13), chew toy ($3), chew bone ($3)', '$19'] },
-        { label: 'Total', values: ['30 items, everything above - included with every puppy', '$533'] },
+        { label: 'Total', values: ['30 items, everything above - included with selected puppies', '$533'] },
       ]}
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Values are what each item costs at retail, bought individually. The kit is never billed as an add-on: the full $533 set comes home with your puppy inside the price, from $3,288 all-in.
+        Values are what each item costs at retail, bought individually. The kit *For Selected Puppies Only* is never billed as an add-on: the full $533 set comes home with your puppy inside the price, from $3,288 all-in.
       </p>
     </div>
   </div>
@@ -166,9 +166,9 @@ const schemas = [
   <div class="relative">
     <ScatterFloat />
     <DefBox
-      term="What's included in a puppy starter kit?"
+      term="What's included in a puppy starter kit *For Selected Puppies Only*?"
       definition="A complete puppy starter kit covers eight categories: housing (playpen and bed), transport (carrier), feeding (bowls and food), toilet training (pads and cleaner), grooming tools, oral care, outdoor gear (leash and harness), and toys. Retail kits in Singapore run $20 to $200 and cover only part of that list; a complete set bought separately costs $500 or more."
-      bridge="Curious Tails includes the full eight-category kit, over 30 items, with every puppy. It comes home with your puppy, gets set up by us, and every item is explained before we leave."
+      bridge="Curious Tails includes the full eight-category kit, over 30 items, with selected puppies *For Selected Puppies Only*. It comes home with your puppy, gets set up by us, and every item is explained before we leave."
       citationLabel="Verify our licence on the AVS public registry"
       citationHref={site.license.registryUrl}
     >
@@ -211,7 +211,7 @@ const schemas = [
 
   <div id="categories" class="scroll-mt-40">
     <CaptionedBlock heading="Housing and Comfort: Where Your Puppy Actually Lives" imageAlt="Puppy starter kit housing items in use: apricot Cavapoo asleep in the fleece bed inside its playpen corner" imageSrc={asleepBed} imagePosition="right">
-      <p>The playpen is the single most important item in the kit, and the one new owners most often buy wrongly on their own: too small, too flimsy, or set up somewhere the puppy is either isolated or overstimulated. Ours comes with a proper bed, and we set both up in the right spot in your home.</p>
+      <p>The playpen is the single most important item in the kit *For Selected Puppies Only*, and the one new owners most often buy wrongly on their own: too small, too flimsy, or set up somewhere the puppy is either isolated or overstimulated. Ours comes with a proper bed, and we set both up in the right spot in your home.</p>
       <p>A puppy that treats its playpen as home territory settles into alone time instead of fretting through it. That is the foundation for everything else: toilet training, sleep, and a working couple's 8am to 6pm absence.</p>
       <p>The playpen, the bed, and the placement advice all come with your puppy; see <a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">what happens on delivery day</a>.</p>
     </CaptionedBlock>
@@ -223,11 +223,11 @@ const schemas = [
 
     <CaptionedBlock heading="Grooming and Oral Care: Small Tools, Big First-Year Difference" imageAlt="Grooming tools from the puppy starter kit in use: brushing an apricot Cavapoo coat with the slicker brush" imageSrc={groomingCare} imagePosition="right">
       <p>The low-shedding coats we carry, Cavapoo, Maltipoo, Bichonpoo, Cockapoo, mat faster in Singapore's humidity than overseas care guides let on. The kit's brush handles the 3-to-4-times-a-week routine that prevents it, and the puppy shampoo and nail tools cover the rest of the basics.</p>
-      <p>Oral care is the category everyone skips and later regrets: the kit includes a puppy toothbrush and dental care so the habit starts young, while your puppy still thinks everything is a game.</p>
+      <p>Oral care is the category everyone skips and later regrets: the kit *For Selected Puppies Only* includes a puppy toothbrush and dental care so the habit starts young, while your puppy still thinks everything is a game.</p>
     </CaptionedBlock>
 
     <CaptionedBlock heading="Outdoor Gear and Toys: Walks, Play, and Teething" imageAlt="Outdoor gear from the puppy starter kit: apricot Cavapoo in a small harness on a shaded morning walk in Singapore" imageSrc={outdoorWalk} imagePosition="left" variant="card">
-      <p>The kit includes a leash, a properly sized harness, and poo bags for the park connector walks that bracket a Singapore dog's day, morning and evening, around the heat.</p>
+      <p>The kit *For Selected Puppies Only* includes a leash, a properly sized harness, and poo bags for the park connector walks that bracket a Singapore dog's day, morning and evening, around the heat.</p>
       <p>Toys are not filler: a teething puppy will chew something, and the kit decides that it is a rubber toy rather than your table leg. A comfort toy in the playpen also does quiet work on night one.</p>
       <p>Toilet training supplies, pads and an enzymatic cleaner, round out the list; where the pads go is part of the setup we do in your home.</p>
     </CaptionedBlock>
@@ -259,7 +259,7 @@ const schemas = [
       <ListingGrid
         heading="Puppies This Kit Comes Home With, Available Right Now"
         headingAccent="Right Now"
-        subhead={`Every price below already includes the $500+ starter kit, free delivery and the first training lesson. ${liveCount} puppies in our care today.`}
+        subhead={`Every price below already includes the $500+ starter kit *For Selected Puppies Only*, free delivery and the first training lesson. ${liveCount} puppies in our care today.`}
         items={kitPups}
         footerCtaLabel={`See all ${liveCount} puppies available now`}
         footerCtaHref="/available-puppies/"
@@ -307,7 +307,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        The kit is one reason <a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing</a> reads lower than it is: the price, from $3,288 all-in, already covers what other buyers spend again after leaving the shop. For everything beyond day one, plan with the first-year puppy budget planner.
+        The kit *For Selected Puppies Only* is one reason <a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">our transparent puppy pricing</a> reads lower than it is: the price, from $3,288 all-in, already covers what other buyers spend again after leaving the shop. For everything beyond day one, plan with the first-year puppy budget planner.
       </p>
     </div>
   </div>

@@ -70,7 +70,7 @@ const faqItems = [
   {
     question: 'How much does a Goldendoodle cost in Singapore?',
     answer:
-      `A Goldendoodle in Singapore costs ${priceRange} at Curious Tails, all-in. For the comparison we checked the shops ranking for this search in ${monthStamp}: one lists a mini Goldendoodle UK import at $4,980, another a mini at $4,500, and most of the rest ask you to enquire. Ours already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
+      `A Goldendoodle in Singapore costs ${priceRange} at Curious Tails, all-in. For the comparison we checked the shops ranking for this search in ${monthStamp}: one lists a mini Goldendoodle UK import at $4,980, another a mini at $4,500, and most of the rest ask you to enquire. Ours already includes the $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
   },
   {
     question: 'What is the Goldendoodle price in Singapore right now?',
@@ -132,7 +132,7 @@ const schemas = [
       name: 'Goldendoodle puppy',
       url: '/puppies/goldendoodle/',
       description:
-        'Goldendoodle puppy from an AVS licensed Singapore pet shop, priced $3,800 to $4,988 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+        'Goldendoodle puppy from an AVS licensed Singapore pet shop, priced $3,800 to $4,988 with a $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '3800',
       image: imgHero.src,
     },
@@ -232,7 +232,7 @@ const schemas = [
     stats={[
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
       { value: `$${fmtPrice(price.low)}`, label: 'Goldendoodle pricing starts here, all-in' },
-      { value: '$500+', label: 'starter kit included free' },
+      { value: '$500+', label: 'starter kit *For Selected Puppies Only* included free' },
       { value: '2+', label: 'years in Balestier' },
     ]}
   />
@@ -302,7 +302,7 @@ const schemas = [
     <ComparisonSplit
       heading="Goldendoodle Price in Singapore: What You’ll Pay and What’s Included"
       headingAccent="Price"
-      subhead={`How much is a Goldendoodle in Singapore? As of ${monthStamp}, the shops ranking for this search list mini Goldendoodles at $4,500 and $4,980, and most publish no figure at all. Ours is ${priceRange}, all-in, with the starter kit, delivery and first training lesson included.`}
+      subhead={`How much is a Goldendoodle in Singapore? As of ${monthStamp}, the shops ranking for this search list mini Goldendoodles at $4,500 and $4,980, and most publish no figure at all. Ours is ${priceRange}, all-in, with the starter kit *For Selected Puppies Only*, delivery and first training lesson included.`}
       mode="split"
       columns={[
         {
@@ -318,7 +318,7 @@ const schemas = [
           heading: 'Curious Tails',
           items: [
             '$3,800 to $4,988, printed right here',
-            '$500+ starter kit with 30+ items included',
+            '$500+ starter kit *For Selected Puppies Only* with 30+ items included',
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
           ],
@@ -335,7 +335,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <CaptionedBlock heading="The $500+ Starter Kit Every Goldendoodle Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
-    <p>Every Goldendoodle leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this coat the brush is the tool that earns its keep, and on delivery day we show you how to keep that curly coat mat-free between grooms.</p>
+    <p>Every Goldendoodle leaves us with a starter kit *For Selected Puppies Only* worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this coat the brush is the tool that earns its keep, and on delivery day we show you how to keep that curly coat mat-free between grooms.</p>
     <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Goldendoodle's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
     <p>See the full 30+ item kit breakdown, category by category.</p>
   </CaptionedBlock>
@@ -369,7 +369,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
   <CaptionedBlock heading="Goldendoodle vs Golden Retriever vs Labradoodle" imagePosition="none" variant="dark">
     <p>Three ways to the same warm, family temperament, with one real choice at the centre: coat. The <a href="/puppies/golden-retriever/" class="underline underline-offset-2">Golden Retriever</a> is the fully predictable original and pays for it in heavy, year-round shedding. The Goldendoodle trades a little of that predictability for a low-shedding coat and a salon schedule. The Labradoodle is the Labrador-based version of the same idea, often a touch more energetic.</p>
-    <p>All three are private-housing breeds in Singapore, all need real daily exercise, and with us the price, the starter kit, and the aftercare are identical. Allergies or hair-free floors point to a Doodle; benchmark predictability points to the Golden. Message us your priorities and we'll tell you straight which fits.</p>
+    <p>All three are private-housing breeds in Singapore, all need real daily exercise, and with us the price, the starter kit *For Selected Puppies Only*, and the aftercare are identical. Allergies or hair-free floors point to a Doodle; benchmark predictability points to the Golden. Message us your priorities and we'll tell you straight which fits.</p>
     <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
       <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
       <ul class="mt-4 space-y-3">

@@ -49,7 +49,7 @@ const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = 'Pug Puppy for Sale Singapore | Curious Tails';
 const description =
-  'Pug puppies for sale in Singapore from $4,588, AVS licensed and HDB-approved. Real prices, temperament, heat care for flat faces, $500+ starter kit included.';
+  'Pug puppies for sale in Singapore from $4,588, AVS licensed and HDB-approved. Real prices, temperament, heat care for flat faces, $500+ starter kit *For Selected Puppies Only* included.';
 
 const jumpLinks = [
   { label: 'Puppies', href: '#available' },
@@ -66,7 +66,7 @@ const faqItems = [
   {
     question: 'How much is a Pug in Singapore?',
     answer:
-      `A Pug in Singapore costs ${priceRange} at Curious Tails, all-in. Checking the shops publishing figures in ${monthStamp}, Pugs are listed from $4,000 to $9,000, with two separate shops quoting $4,800, so ours sits at the lower end of the real market. That price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
+      `A Pug in Singapore costs ${priceRange} at Curious Tails, all-in. Checking the shops publishing figures in ${monthStamp}, Pugs are listed from $4,000 to $9,000, with two separate shops quoting $4,800, so ours sits at the lower end of the real market. That price already includes the $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
   },
   {
     question: 'What is the Pug price in Singapore right now?',
@@ -133,7 +133,7 @@ const schemas = [
       name: 'Pug puppy',
       url: '/puppies/pug/',
       description:
-        `Pug puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.`,
+        `Pug puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free AVS-certified training lesson included.`,
       price: '4588',
       image: imgHero.src,
     },
@@ -165,7 +165,7 @@ const schemas = [
     eyebrow="AVS licence AS24J00046 · Pug"
     h1="Pug Puppies for Sale in Singapore"
     h1Accent="Pug"
-    subhead={`A Pug in Singapore costs ${priceRange} at Curious Tails, all-in, at the lower end of the $4,000 to $9,000 that Singapore shops publish. The $500+ starter kit, free home delivery and setup, and a free first training lesson are already inside it.`}
+    subhead={`A Pug in Singapore costs ${priceRange} at Curious Tails, all-in, at the lower end of the $4,000 to $9,000 that Singapore shops publish. The $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free first training lesson are already inside it.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Pug puppies."
     secondaryCtaLabel="See price & what's included"
@@ -185,7 +185,7 @@ const schemas = [
 
   <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
     <AnswerCapsule>
-      <p>{`Pug puppies in Singapore cost ${priceRange} at Curious Tails as of ${monthStamp}. The Pug is HDB-approved, 6 to 8 kg grown, and needs cool indoor rest rather than long walks in our heat. The price includes the $500+ starter kit, free home delivery and setup, and a first training lesson.`}</p>
+      <p>{`Pug puppies in Singapore cost ${priceRange} at Curious Tails as of ${monthStamp}. The Pug is HDB-approved, 6 to 8 kg grown, and needs cool indoor rest rather than long walks in our heat. The price includes the $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a first training lesson.`}</p>
     </AnswerCapsule>
   </div>
 
@@ -239,7 +239,7 @@ const schemas = [
     stats={[
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
       { value: '$4,588', label: 'Pug pricing starts here, all-in' },
-      { value: '$500+', label: 'starter kit included free' },
+      { value: '$500+', label: 'starter kit *For Selected Puppies Only* included free' },
       { value: '2+', label: 'years in Balestier' },
     ]}
   />
@@ -318,7 +318,7 @@ const schemas = [
           heading: 'Curious Tails',
           items: [
             `${priceRange}, printed right here`,
-            '$500+ starter kit with 30+ items included',
+            '$500+ starter kit *For Selected Puppies Only* with 30+ items included',
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
           ],
@@ -335,7 +335,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <CaptionedBlock heading="The $500+ Starter Kit Every Pug Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
-    <p>Every Pug leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For a Pug the measuring cup is the quiet hero of the kit; portion discipline from day one is the single best thing you can do for this breed's health, and the harness matters because flat-faced dogs should never take pressure on the throat.</p>
+    <p>Every Pug leaves us with a starter kit *For Selected Puppies Only* worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For a Pug the measuring cup is the quiet hero of the kit; portion discipline from day one is the single best thing you can do for this breed's health, and the harness matters because flat-faced dogs should never take pressure on the throat.</p>
     <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Pug's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
     <p>See the full 30+ item kit breakdown, category by category.</p>
   </CaptionedBlock>

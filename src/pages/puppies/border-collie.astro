@@ -71,7 +71,7 @@ const faqItems = [
   {
     question: 'How much is a Border Collie in Singapore?',
     answer:
-      `A Border Collie in Singapore costs ${priceRange} at Curious Tails, all-in. We checked the shops ranking for this search in ${monthStamp} and none of them publish a Border Collie price, so there is no market figure to compare against, only enquiry forms. Ours includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
+      `A Border Collie in Singapore costs ${priceRange} at Curious Tails, all-in. We checked the shops ranking for this search in ${monthStamp} and none of them publish a Border Collie price, so there is no market figure to compare against, only enquiry forms. Ours includes the $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
   },
   {
     question: 'What is the Border Collie price in Singapore right now?',
@@ -133,7 +133,7 @@ const schemas = [
       name: 'Border Collie puppy',
       url: '/puppies/border-collie/',
       description:
-        `Border Collie puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.`,
+        `Border Collie puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free AVS-certified training lesson included.`,
       price: '5880',
       image: imgHero.src,
     },
@@ -233,7 +233,7 @@ const schemas = [
     stats={[
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
       { value: '$5,880', label: 'Border Collie pricing starts here, all-in' },
-      { value: '$500+', label: 'starter kit included free' },
+      { value: '$500+', label: 'starter kit *For Selected Puppies Only* included free' },
       { value: '2+', label: 'years in Balestier' },
     ]}
   />
@@ -318,7 +318,7 @@ const schemas = [
           heading: 'Curious Tails',
           items: [
             `${priceRange}, printed right here`,
-            '$500+ starter kit with 30+ items included',
+            '$500+ starter kit *For Selected Puppies Only* with 30+ items included',
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
           ],
@@ -335,7 +335,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <CaptionedBlock heading="The $500+ Starter Kit Every Collie Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
-    <p>Every Border Collie leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed, reread that last category: the toys are not toys, they are the first training equipment, and on delivery day we show you how each becomes a job.</p>
+    <p>Every Border Collie leaves us with a starter kit *For Selected Puppies Only* worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed, reread that last category: the toys are not toys, they are the first training equipment, and on delivery day we show you how each becomes a job.</p>
     <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Collie's daily employment. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
     <p>See the full 30+ item kit breakdown, category by category.</p>
   </CaptionedBlock>

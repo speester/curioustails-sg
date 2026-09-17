@@ -103,7 +103,7 @@ const schemas = [
       <ListingGrid
         heading={`${breedName(slug)} Puppies Available Now`}
         headingAccent={breedName(slug)}
-        subhead={`${bucket.available.length} ${breedName(slug)} ${bucket.available.length === 1 ? 'puppy' : 'puppies'} with us today. Prices are all-in - vaccinations, microchip, licence, starter kit and free delivery included.`}
+        subhead={`${bucket.available.length} ${breedName(slug)} ${bucket.available.length === 1 ? 'puppy' : 'puppies'} with us today. Prices are all-in - vaccinations, microchip, licence, starter kit *For Selected Puppies Only* and free delivery included.`}
         items={bucket.available.map((p) => pupCard(p, breedName(slug), 'available', { breedLabel: true }))}
         footerCtaLabel={`Read the ${breedName(slug)} breed guide`}
         footerCtaHref={`/puppies/${slug}/`}

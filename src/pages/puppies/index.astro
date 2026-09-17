@@ -344,7 +344,7 @@ const faqItems = [
   {
     question: 'Which breeds does Curious Tails carry?',
     answer:
-      'Forty-eight, with more arriving regularly. The range spans HDB-approved companions like the Cavapoo, Maltipoo, Maltese, Bichon Frise, Pomeranian, Shih Tzu, Pug and Cavalier King Charles Spaniel, through to private-housing breeds like the Corgi, Shiba Inu, French Bulldog, Golden Retriever and Siberian Husky. Prices start from $3,288 all-in and vary by breed, and every price includes the $500+ starter kit, free delivery and setup, and a free training lesson.',
+      'Forty-eight, with more arriving regularly. The range spans HDB-approved companions like the Cavapoo, Maltipoo, Maltese, Bichon Frise, Pomeranian, Shih Tzu, Pug and Cavalier King Charles Spaniel, through to private-housing breeds like the Corgi, Shiba Inu, French Bulldog, Golden Retriever and Siberian Husky. Prices start from $3,288 all-in and vary by breed, and every price includes the $500+ starter kit *For Selected Puppies Only*, free delivery and setup, and a free training lesson.',
   },
   {
     question: 'Which of your breeds are HDB-approved?',
@@ -359,7 +359,7 @@ const faqItems = [
   {
     question: 'Do all breeds cost the same?',
     answer:
-      'No. Each breed has its own published price, starting from $3,288 all-in and rising with breed, coat, colour, and age. Every price still includes the starter kit, delivery and training, and we quote the exact figure per puppy on WhatsApp.',
+      'No. Each breed has its own published price, starting from $3,288 all-in and rising with breed, coat, colour, and age. Every price still includes the starter kit *For Selected Puppies Only*, delivery and training, and we quote the exact figure per puppy on WhatsApp.',
   },
   {
     question: 'Can you help us choose between breeds?',
@@ -414,7 +414,7 @@ const liveBreedCount = stockedBreeds().length;
     ctaMessage="Hi! I'm choosing between breeds. Here's my routine and housing type:"
     secondaryCtaLabel="Browse all breeds"
     secondaryCtaHref="#breeds"
-    priceAnchor="Every breed priced from $3,288, kit, delivery and training included."
+    priceAnchor="Every breed priced from $3,288, kit *For Selected Puppies Only*, delivery and training included."
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
@@ -461,7 +461,7 @@ const liveBreedCount = stockedBreeds().length;
       <ListingGrid
         heading="Puppies Available Right Now"
         headingAccent="Right Now"
-        subhead={`${liveCount} puppies in our care today across ${liveBreedCount} breeds. Every price is the all-in price, kit, delivery and first training lesson included. Message us for more photos of any of them.`}
+        subhead={`${liveCount} puppies in our care today across ${liveBreedCount} breeds. Every price is the all-in price, kit *For Selected Puppies Only*, delivery and first training lesson included. Message us for more photos of any of them.`}
         items={livePups}
         footerCtaLabel={`See all ${liveCount} puppies available now`}
         footerCtaHref="/available-puppies/"
@@ -492,7 +492,7 @@ const liveBreedCount = stockedBreeds().length;
     stats={[
       { value: String(BREED_COUNT), label: 'breeds, honestly matched' },
       { value: '$3,288', label: 'every breed starts here, all-in' },
-      { value: '$500+', label: 'starter kit with every puppy' },
+      { value: '$500+', label: 'starter kit with selected puppies *For Selected Puppies Only*' },
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
     ]}
   />

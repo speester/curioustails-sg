@@ -49,7 +49,7 @@ const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = `Chihuahua Puppy for Sale Singapore | $${fmtPrice(price.low)} All-In`;
 const description =
-  `Chihuahua puppy Singapore from $${fmtPrice(price.low)} all-in (${monthStamp}), AVS licensed, HDB-approved. $500+ starter kit, free delivery and training lesson included.`;
+  `Chihuahua puppy Singapore from $${fmtPrice(price.low)} all-in (${monthStamp}), AVS licensed, HDB-approved. $500+ starter kit *For Selected Puppies Only*, free delivery and training lesson included.`;
 
 const jumpLinks = [
   { label: 'Puppies', href: '#available' },
@@ -66,7 +66,7 @@ const faqItems = [
   {
     question: 'How much is a Chihuahua in Singapore?',
     answer:
-      `A Chihuahua in Singapore costs ${priceRange} at Curious Tails, all-in. Comparing that to the market is harder than it should be: we checked the shops ranking for this search in ${monthStamp} and not one of them publishes a Chihuahua price, so the honest comparison is not a number against a number, it is a printed price against an enquiry form. Ours includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
+      `A Chihuahua in Singapore costs ${priceRange} at Curious Tails, all-in. Comparing that to the market is harder than it should be: we checked the shops ranking for this search in ${monthStamp} and not one of them publishes a Chihuahua price, so the honest comparison is not a number against a number, it is a printed price against an enquiry form. Ours includes the $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
   },
   {
     question: 'What is the Chihuahua price in Singapore right now?',
@@ -143,7 +143,7 @@ const schemas = [
       name: 'Chihuahua puppy',
       url: '/puppies/chihuahua/',
       description:
-        `Chihuahua puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.`,
+        `Chihuahua puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free AVS-certified training lesson included.`,
       price: '4288',
       image: heroChihuahua.src,
     },
@@ -175,7 +175,7 @@ const schemas = [
     eyebrow="Chihuahua from an AVS licensed shop"
     h1="Chihuahua Puppies for Sale in Singapore"
     h1Accent="Chihuahua"
-    subhead={`A Chihuahua in Singapore costs ${priceRange} at Curious Tails, all-in. The shops ranking alongside us do not publish a Chihuahua price at all, so here is ours in writing, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already inside it.`}
+    subhead={`A Chihuahua in Singapore costs ${priceRange} at Curious Tails, all-in. The shops ranking alongside us do not publish a Chihuahua price at all, so here is ours in writing, with the $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free first training lesson already inside it.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Chihuahua puppies."
     secondaryCtaLabel="See price & what's included"
@@ -196,7 +196,7 @@ const schemas = [
 
   <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
     <AnswerCapsule>
-      <p>{`Chihuahua puppies in Singapore cost ${priceRange} at Curious Tails as of ${monthStamp}. The Chihuahua is HDB-approved, weighs 1.5 to 3 kg fully grown, and lives 12 to 18 years. Our price includes the $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson.`}</p>
+      <p>{`Chihuahua puppies in Singapore cost ${priceRange} at Curious Tails as of ${monthStamp}. The Chihuahua is HDB-approved, weighs 1.5 to 3 kg fully grown, and lives 12 to 18 years. Our price includes the $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free AVS-certified training lesson.`}</p>
     </AnswerCapsule>
   </div>
 
@@ -250,7 +250,7 @@ const schemas = [
     stats={[
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
       { value: '$4,288', label: 'Chihuahua pricing starts here, all-in' },
-      { value: '$500+', label: 'starter kit included free' },
+      { value: '$500+', label: 'starter kit *For Selected Puppies Only* included free' },
       { value: '2+', label: 'years in Balestier' },
     ]}
   />
@@ -313,7 +313,7 @@ const schemas = [
     <ComparisonSplit
       heading={`Chihuahua Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead={`How much is a Chihuahua in Singapore? As of ${monthStamp}, none of the shops ranking for that search publish a figure. Ours is ${priceRange}, all-in, with the starter kit, delivery and first training lesson included.`}
+      subhead={`How much is a Chihuahua in Singapore? As of ${monthStamp}, none of the shops ranking for that search publish a figure. Ours is ${priceRange}, all-in, with the starter kit *For Selected Puppies Only*, delivery and first training lesson included.`}
       mode="split"
       columns={[
         {
@@ -329,7 +329,7 @@ const schemas = [
           heading: 'Curious Tails',
           items: [
             `${priceRange}, printed right here`,
-            '$500+ starter kit with 30+ items included',
+            '$500+ starter kit *For Selected Puppies Only* with 30+ items included',
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
           ],
@@ -346,7 +346,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <CaptionedBlock heading="The $500+ Starter Kit Every Chihuahua Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
-    <p>Every Chihuahua leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For a tiny breed like the Chihuahua, the oral care items and the toy-breed feeding routine matter from day one.</p>
+    <p>Every Chihuahua leaves us with a starter kit *For Selected Puppies Only* worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For a tiny breed like the Chihuahua, the oral care items and the toy-breed feeding routine matter from day one.</p>
     <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Chihuahua's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
     <p>See the full 30+ item kit breakdown, category by category.</p>
   </CaptionedBlock>

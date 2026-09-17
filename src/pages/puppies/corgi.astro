@@ -48,7 +48,7 @@ const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = `Corgi Puppy for Sale Singapore | $${fmtPrice(price.low)} All-In`;
 const description =
-  `Corgi puppy Singapore from $${fmtPrice(price.low)} all-in (${monthStamp}), AVS licensed. Not HDB-approved, we say so first. $500+ kit, free delivery and training included.`;
+  `Corgi puppy Singapore from $${fmtPrice(price.low)} all-in (${monthStamp}), AVS licensed. Not HDB-approved, we say so first. $500+ kit *For Selected Puppies Only*, free delivery and training included.`;
 
 const jumpLinks = [
   { label: 'Puppies', href: '#available' },
@@ -69,7 +69,7 @@ const faqItems = [
   {
     question: 'How much does a Corgi cost in Singapore?',
     answer:
-      'The market commonly runs $6,000 to $10,000 for a Corgi. At Curious Tails, Corgi puppies are $3,688 to $5,500, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      'The market commonly runs $6,000 to $10,000 for a Corgi. At Curious Tails, Corgi puppies are $3,688 to $5,500, and that price already includes the $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
   },
   {
     question: 'Pembroke or Cardigan: which Corgi is sold in Singapore?',
@@ -121,7 +121,7 @@ const schemas = [
       name: 'Corgi puppy',
       url: '/puppies/corgi/',
       description:
-        'Pembroke Welsh Corgi puppy from an AVS licensed Singapore pet shop, priced $3,688 to $5,500 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included. Not HDB-approved; suited to condos and landed homes.',
+        'Pembroke Welsh Corgi puppy from an AVS licensed Singapore pet shop, priced $3,688 to $5,500 with a $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free AVS-certified training lesson included. Not HDB-approved; suited to condos and landed homes.',
       price: String(price.low),
       priceHigh: String(price.high),
       image: heroCorgi.src,
@@ -178,7 +178,7 @@ const schemas = [
 
     <CaptionedBlock heading="Looking for a Corgi for Sale in Singapore?" imageAlt="Red and white Corgi puppy available in Singapore, seated portrait with one ear up" imageSrc={redWhitePortrait} variant="mid">
       <p>Corgi litters are less frequent than the small crosses, so availability genuinely moves; we update this list as puppies are reserved and confirm the rest on WhatsApp. Message us for photos, gender, age, and a short walkthrough video of the Corgi puppies available now.</p>
-      <p>Every Corgi here is between $3,688 and $5,500, full price in writing, kit and delivery and training included. One honest gate first: we will ask about your housing before anything else, because a Corgi cannot go to an HDB flat and we do not bend that rule.</p>
+      <p>Every Corgi here is between $3,688 and $5,500, full price in writing, kit *For Selected Puppies Only* and delivery and training included. One honest gate first: we will ask about your housing before anything else, because a Corgi cannot go to an HDB flat and we do not bend that rule.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Corgi puppies? I'm in private housing.")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Corgi photos and prices</a>, or visit us in Balestier.
       </p>
@@ -223,7 +223,7 @@ const schemas = [
     stats={[
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
       { value: '$3,688', label: 'Corgi pricing starts here, all-in' },
-      { value: '$500+', label: 'starter kit included free' },
+      { value: '$500+', label: 'starter kit *For Selected Puppies Only* included free' },
       { value: '2+', label: 'years in Balestier' },
     ]}
   />
@@ -276,7 +276,7 @@ const schemas = [
     <ComparisonSplit
       heading={`Corgi Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead={`How much is a Corgi in Singapore? As of ${monthStamp}, the market commonly quotes $6,000 to $10,000. At Curious Tails a Corgi is ${priceRange}, all-in - starter kit, delivery and first training lesson included.`}
+      subhead={`How much is a Corgi in Singapore? As of ${monthStamp}, the market commonly quotes $6,000 to $10,000. At Curious Tails a Corgi is ${priceRange}, all-in - starter kit *For Selected Puppies Only*, delivery and first training lesson included.`}
       mode="split"
       columns={[
         {
@@ -293,7 +293,7 @@ const schemas = [
           heading: 'Curious Tails',
           items: [
             '$3,688 to $5,500, printed right here',
-            '$500+ starter kit with 30+ items included',
+            '$500+ starter kit *For Selected Puppies Only* with 30+ items included',
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer',
             'Free boarding after deposit until you are ready',

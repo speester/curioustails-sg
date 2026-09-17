@@ -67,7 +67,7 @@ const faqItems = [
   {
     question: 'How much does a Shiba Inu cost in Singapore?',
     answer:
-      'Market listings run roughly $4,000 to $8,000, with imports at the top. At Curious Tails, Shiba Inu puppies are $4,788 to $6,500, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      'Market listings run roughly $4,000 to $8,000, with imports at the top. At Curious Tails, Shiba Inu puppies are $4,788 to $6,500, and that price already includes the $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
   },
   {
     question: 'A Shiba online for $1,500 or less: is it real?',
@@ -113,7 +113,7 @@ const schemas = [
       name: 'Shiba Inu puppy',
       url: '/puppies/shiba-inu/',
       description:
-        'Shiba Inu puppy from an AVS licensed Singapore pet shop, priced $4,788 to $6,500 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included. Not HDB-approved; suited to condos and landed homes.',
+        'Shiba Inu puppy from an AVS licensed Singapore pet shop, priced $4,788 to $6,500 with a $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free AVS-certified training lesson included. Not HDB-approved; suited to condos and landed homes.',
       price: '4788',
       image: heroShiba.src,
     },
@@ -169,7 +169,7 @@ const schemas = [
 
     <CaptionedBlock heading="Looking for a Shiba Inu for Sale in Singapore?" imageAlt="Red Shiba Inu puppy available in Singapore, seated portrait with curled tail" imageSrc={redPortrait} variant="mid">
       <p>Shiba litters move quickly and colours vary between them, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. Message us for photos, gender, age, colour, and a short walkthrough video of the Shiba puppies available now.</p>
-      <p>Every Shiba here is between $4,788 and $6,500, full price in writing, kit and delivery and training included. Housing comes first in our conversation, because a Shiba cannot go to an HDB flat and we don't bend that rule for a sale.</p>
+      <p>Every Shiba here is between $4,788 and $6,500, full price in writing, kit *For Selected Puppies Only* and delivery and training included. Housing comes first in our conversation, because a Shiba cannot go to an HDB flat and we don't bend that rule for a sale.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Shiba Inu puppies? I'm in private housing.")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Shiba photos and prices</a>, or meet them at our Balestier shop.
       </p>
@@ -214,7 +214,7 @@ const schemas = [
     stats={[
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
       { value: '$4,788', label: 'Shiba pricing starts here, all-in' },
-      { value: '$500+', label: 'starter kit included free' },
+      { value: '$500+', label: 'starter kit *For Selected Puppies Only* included free' },
       { value: '2+', label: 'years in Balestier' },
     ]}
   />
@@ -280,7 +280,7 @@ const schemas = [
           items: [
             '$4,788 to $6,500, printed right here',
             'Licence AS24J00046, checkable in 60 seconds',
-            '$500+ starter kit with 30+ items included',
+            '$500+ starter kit *For Selected Puppies Only* with 30+ items included',
             'Free delivery, setup, and first training lesson',
             'Free boarding after deposit until you are ready',
           ],

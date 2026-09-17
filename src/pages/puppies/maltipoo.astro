@@ -50,7 +50,7 @@ const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = `Maltipoo Puppy for Sale Singapore | $${fmtPrice(price.low)} All-In`;
 const description =
-  `Maltipoo puppy Singapore from $${fmtPrice(price.low)} all-in (${monthStamp}), AVS licensed, HDB-approved. $500+ starter kit, free delivery and training lesson included.`;
+  `Maltipoo puppy Singapore from $${fmtPrice(price.low)} all-in (${monthStamp}), AVS licensed, HDB-approved. $500+ starter kit *For Selected Puppies Only*, free delivery and training lesson included.`;
 
 const jumpLinks = [
   { label: 'Puppies', href: '#available' },
@@ -67,7 +67,7 @@ const faqItems = [
   {
     question: 'How much does a Maltipoo cost in Singapore?',
     answer:
-      'The Maltipoo price in Singapore ranges widely, from around $3,000 to $9,000 depending on size, coat, and shop. At Curious Tails, Maltipoo puppies are $3,288 to $5,988, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      'The Maltipoo price in Singapore ranges widely, from around $3,000 to $9,000 depending on size, coat, and shop. At Curious Tails, Maltipoo puppies are $3,288 to $5,988, and that price already includes the $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
   },
   {
     question: 'Is a Maltipoo HDB-approved?',
@@ -119,7 +119,7 @@ const schemas = [
       name: 'Maltipoo puppy',
       url: '/puppies/maltipoo/',
       description:
-        'Maltipoo puppy from an AVS licensed Singapore pet shop, priced $3,288 to $5,988 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+        'Maltipoo puppy from an AVS licensed Singapore pet shop, priced $3,288 to $5,988 with a $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: String(price.low),
       priceHigh: String(price.high),
       image: heroMaltipoo.src,
@@ -152,7 +152,7 @@ const schemas = [
     eyebrow="Licensed by AVS · Maltipoo in Balestier"
     h1="Maltipoo Puppies for Sale in Singapore"
     h1Accent="Maltipoo"
-    subhead="Maltipoo prices in Singapore run anywhere from $3,000 to $9,000. Ours are $3,288 to $5,988, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    subhead="Maltipoo prices in Singapore run anywhere from $3,000 to $9,000. Ours are $3,288 to $5,988, with the $500+ starter kit *For Selected Puppies Only*, free home delivery and setup, and a free first training lesson already in the price."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Maltipoo puppies."
     secondaryCtaLabel="See price & what's included"
@@ -228,7 +228,7 @@ const schemas = [
     stats={[
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
       { value: '$3,288', label: 'Maltipoo pricing starts here, all-in' },
-      { value: '$500+', label: 'starter kit included free' },
+      { value: '$500+', label: 'starter kit *For Selected Puppies Only* included free' },
       { value: '2+', label: 'years in Balestier' },
     ]}
   />
@@ -291,7 +291,7 @@ const schemas = [
     <ComparisonSplit
       heading={`Maltipoo Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead={`How much is a Maltipoo in Singapore? As of ${monthStamp}, most shops charge $3,000 to $9,000. At Curious Tails a Maltipoo is ${priceRange}, all-in - starter kit, delivery and first training lesson included.`}
+      subhead={`How much is a Maltipoo in Singapore? As of ${monthStamp}, most shops charge $3,000 to $9,000. At Curious Tails a Maltipoo is ${priceRange}, all-in - starter kit *For Selected Puppies Only*, delivery and first training lesson included.`}
       mode="split"
       columns={[
         {
@@ -307,7 +307,7 @@ const schemas = [
           heading: 'Curious Tails',
           items: [
             '$3,288 to $5,988, printed right here',
-            '$500+ starter kit with 30+ items included',
+            '$500+ starter kit *For Selected Puppies Only* with 30+ items included',
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
           ],
@@ -324,7 +324,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <CaptionedBlock heading="The $500+ Starter Kit Every Maltipoo Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
-    <p>Every Maltipoo leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For a coat-and-eye breed like the Maltipoo, the grooming tools and the eye-wipe routine start on day one.</p>
+    <p>Every Maltipoo leaves us with a starter kit *For Selected Puppies Only* worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For a coat-and-eye breed like the Maltipoo, the grooming tools and the eye-wipe routine start on day one.</p>
     <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Maltipoo's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
     <p>See the full 30+ item kit breakdown, category by category.</p>
   </CaptionedBlock>

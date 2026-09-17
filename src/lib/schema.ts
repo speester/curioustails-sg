@@ -136,7 +136,7 @@ export function localBusinessSchema() {
     telephone: `+65${site.phone}`,
     email: site.email,
     priceRange: site.priceRange,
-    description: 'AVS-licensed puppy shop in Singapore offering Cavapoo, Maltipoo, Maltese, Mini Dachshund, Corgi, Shiba Inu, Bichonpoo, Bichon Frise, Cavapoochon, Chihuahua, and Cockapoo puppies with starter kit, free delivery, and training lessons included.',
+    description: 'AVS-licensed puppy shop in Singapore offering Cavapoo, Maltipoo, Maltese, Mini Dachshund, Corgi, Shiba Inu, Bichonpoo, Bichon Frise, Cavapoochon, Chihuahua, and Cockapoo puppies with starter kit *For Selected Puppies Only*, free delivery, and training lessons included.',
     address: {
       '@type': 'PostalAddress',
       streetAddress: site.address.street,

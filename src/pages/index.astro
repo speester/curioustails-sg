@@ -51,7 +51,7 @@ import ExpertQuote from '../components/ExpertQuote.astro';
 
 const title = 'Puppy for Sale Singapore | AVS Licensed | Curious Tails';
 const description =
-  'AVS licensed puppies for sale in Singapore, from $3,288 all-in: Cavapoo, Maltipoo, Corgi and 45 more breeds. $500+ starter kit and free delivery included.';
+  'AVS licensed puppies for sale in Singapore, from $3,288 all-in: Cavapoo, Maltipoo, Corgi and 45 more breeds. $500+ starter kit *For Selected Puppies Only* and free delivery included.';
 
 const breeds = [
   {
@@ -175,7 +175,7 @@ const faqItems = [
   {
     question: 'How much does a puppy cost in Singapore?',
     answer:
-      'At Curious Tails, puppies published from $3,288 all-in, and that price includes a $500+ starter kit, free delivery and setup, and a free first training lesson. Elsewhere, prices for comparable breeds can run higher once those extras are added separately.',
+      'At Curious Tails, puppies published from $3,288 all-in, and that price includes a $500+ starter kit *For Selected Puppies Only*, free delivery and setup, and a free first training lesson. Elsewhere, prices for comparable breeds can run higher once those extras are added separately.',
   },
   {
     question: 'How do I know if a pet shop is licensed in Singapore?',
@@ -183,7 +183,7 @@ const faqItems = [
       "Search the shop's name or licence number on the AVS public registry. Curious Tails holds AVS pet shop licence AS24J00046. If a seller can't be found there, they aren't licensed, regardless of what they claim.",
   },
   {
-    question: "What's included in your starter kit?",
+    question: "What's included in your starter kit *For Selected Puppies Only*?",
     answer:
       'Over 30 items across eight categories: a playpen, a carrier, grooming tools, food, outdoor gear, toilet training supplies, oral health care, and toys, worth more than $500 in total. We also walk you through how to use each one.',
   },
@@ -220,7 +220,7 @@ const faqItems = [
   {
     question: 'How much does a puppy typically cost in Singapore?',
     answer:
-      "Expect roughly $3,000 to $8,000 from a licensed shop, depending on the breed. Our puppies start at $3,288 and that is the all-in price: vaccinations, microchipping, deworming, dog licensing, a starter kit worth over $500, free home delivery and setup, and a first training lesson with an AVS Accredited Certified Dog Trainer are already in it. Listings well under $1,500 are usually unlicensed, and the parvovirus treatment that often follows runs $5,000 to $10,000 with no guarantee the puppy survives. If your budget is tighter than that, we set out what it really buys, and the adoption route, on our under-$500 page.",
+      "Expect roughly $3,000 to $8,000 from a licensed shop, depending on the breed. Our puppies start at $3,288 and that is the all-in price: vaccinations, microchipping, deworming, dog licensing, a starter kit *For Selected Puppies Only* worth over $500, free home delivery and setup, and a first training lesson with an AVS Accredited Certified Dog Trainer are already in it. Listings well under $1,500 are usually unlicensed, and the parvovirus treatment that often follows runs $5,000 to $10,000 with no guarantee the puppy survives. If your budget is tighter than that, we set out what it really buys, and the adoption route, on our under-$500 page.",
   },
   {
     question: 'What should I look for in a dog shop in Singapore?',
@@ -304,12 +304,12 @@ const schemas = [
     eyebrow="AVS Licensed Puppy Shop in Balestier"
     h1="Puppies for Sale in Singapore"
     h1Accent="Sale"
-    subhead="Every puppy comes with a $500+ starter kit, free home delivery, and a free first training lesson. Priced honestly, not padded for marketing spend."
+    subhead="Every puppy comes with free home delivery, a $500+ starter kit *For Selected Puppies Only*, and a free first training lesson. Priced honestly, not padded for marketing spend."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your puppies."
     secondaryCtaLabel="See available puppies & pricing"
     secondaryCtaHref="#puppies"
-    priceAnchor="From $3,288, all-in - starter kit, home delivery and first training lesson included."
+    priceAnchor="From $3,288, all-in - starter kit *For Selected Puppies Only*, home delivery and first training lesson included."
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
@@ -409,7 +409,7 @@ const schemas = [
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
       { value: '2+', label: 'years in Balestier' },
       { value: '7', label: 'breeds, more added regularly' },
-      { value: '$500+', label: 'starter kit included free' },
+      { value: '$500+', label: 'starter kit *For Selected Puppies Only* included free' },
     ]}
   />
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
@@ -433,7 +433,7 @@ const schemas = [
         {
           heading: 'Curious Tails',
           items: [
-            'From $3,288, starter kit included',
+            'From $3,288, starter kit *For Selected Puppies Only* included',
             '$500+ worth of starter kit items, no extra cost',
             'First training lesson free, with an AVS-certified trainer',
             'Free home delivery, with the playpen already set up',
@@ -451,7 +451,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
 
   <div id="starter-kit" class="scroll-mt-40">
-    <CaptionedBlock heading="What’s Actually Inside the Starter Kit" imageAlt="Starter kit items including a playpen, carrier, and grooming tools" imageSrc={starterKit} variant="mid">
+    <CaptionedBlock heading="What’s Actually Inside the Starter Kit *For Selected Puppies Only*" imageAlt="Starter kit items including a playpen, carrier, and grooming tools" imageSrc={starterKit} variant="mid">
       <p>Every puppy leaves Curious Tails with more than 30 items, worth over $500, covering eight categories: a playpen, a carrier, grooming tools, food, outdoor gear, toilet training supplies, oral health care, and toys. Your puppy is microchipped and vaccinated before going home, so the paperwork and the health side are already settled.</p>
       <p>We don't just hand over a box. On delivery day, Nelson or Kim goes through each item with you: how to use it, and how it fits into caring for your puppy day to day. We'll talk you through the first night home, the potty routine, and what's normal in the first week, so you're not guessing at 11pm.</p>
       <p>That's deliberate. Most of the questions a new owner would normally have to ask later are already answered before we leave your home. For the item-by-item detail, see what's inside our puppy starter kit.</p>
@@ -551,7 +551,7 @@ const schemas = [
         'Place a deposit to secure your puppy.',
         "We board your puppy for free, lodging and food covered, until you're ready.",
         'Delivery is scheduled around your availability, usually mornings or evenings.',
-        'On delivery day, we set up the playpen, walk through the starter kit, and book your free training lesson.',
+        'On delivery day, we set up the playpen, walk through the starter kit *For Selected Puppies Only*, and book your free training lesson.',
       ].map((step, i) => (
         <li data-reveal style={`--i:${i}`} class="clay clay-hover bg-[var(--color-surface-card)] p-5">
           <span class="font-[family-name:var(--font-heading)] font-bold text-[var(--color-coral-500)]" style="font-size: clamp(2rem, 3vw, 2.75rem); line-height: 1;">
@@ -626,7 +626,7 @@ const schemas = [
     tableHeaders={['Included with every puppy', 'What it means for you']}
     rows={[
       { label: 'Puppy, health-checked and vaccinated', values: ['Following the Singapore Vaccination Guidelines for Dogs and Cats'] },
-      { label: 'Starter kit, 30+ items', values: ['Worth $500+, covering playpen, carrier, grooming, food, outdoor gear, toilet training, oral health, and toys'] },
+      { label: 'Starter kit *For Selected Puppies Only*, 30+ items', values: ['Worth $500+, covering playpen, carrier, grooming, food, outdoor gear, toilet training, oral health, and toys'] },
       { label: 'Free boarding after deposit', values: ["Lodging and food covered until you're ready"] },
       { label: 'Free home delivery and setup', values: ['Scheduled around your own availability'] },
       { label: 'Free first training lesson', values: ['With an AVS-Accredited Certified Dog Trainer'] },

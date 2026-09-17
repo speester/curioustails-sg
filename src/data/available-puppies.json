@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-09-16T05:00:17.733Z",
+  "syncedAt": "2026-09-17T06:10:26.881Z",
   "breeds": {
     "bichon-frise": {
       "available": [],
@@ -10,7 +10,7 @@
           "color": "White",
           "gender": "Male",
           "age": "4 months",
-          "price": 2488,
+          "price": 2888,
           "image": "2251-2-f8d0e5e2.webp",
           "location": "Balestier Area",
           "origin": "Australia",
@@ -299,7 +299,7 @@
           "color": "Blenheim",
           "gender": "Male",
           "age": null,
-          "price": 1300,
+          "price": 2888,
           "image": "1334-2-83f46473.webp",
           "location": "MacPherson",
           "origin": "Ireland",
@@ -428,7 +428,7 @@
           "name": "Yuji",
           "color": "Apricot",
           "gender": "Female",
-          "age": "3 months",
+          "age": "4 months",
           "price": 2788,
           "image": "2588-1-0c0a4f64.webp",
           "location": "Choa Chu Kang",
@@ -679,7 +679,7 @@
         {
           "id": 2666,
           "name": null,
-          "color": "Brown",
+          "color": "Cream",
           "gender": "Female",
           "age": "2 months",
           "price": 5800,
@@ -906,20 +906,6 @@
       ],
       "recentlyPlaced": [
         {
-          "id": 2654,
-          "name": "Bonnie",
-          "color": "Brown White",
-          "gender": "Female",
-          "age": "3 months",
-          "price": 5300,
-          "image": "2654-1-e67c1b50.webp",
-          "location": "Katong",
-          "origin": "Australia",
-          "sizeNote": null,
-          "crossLabel": "Maltese x Cavalier King Charles",
-          "hdbApproved": true
-        },
-        {
           "id": 2101,
           "name": null,
           "color": "White",
@@ -992,9 +978,7 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": true
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2665,
           "name": null,
@@ -1008,7 +992,9 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": true
-        },
+        }
+      ],
+      "recentlyPlaced": [
         {
           "id": 2598,
           "name": "Rica",
@@ -1046,6 +1032,20 @@
           "price": 4688,
           "image": "2600-1-555cfc1e.webp",
           "location": "MacPherson",
+          "origin": "Australia",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true
+        },
+        {
+          "id": 2682,
+          "name": null,
+          "color": "Apricot",
+          "gender": "Female",
+          "age": "4 months",
+          "price": 5988,
+          "image": "2682-1-59c234aa.webp",
+          "location": "Serangoon",
           "origin": "Australia",
           "sizeNote": null,
           "crossLabel": null,
@@ -1352,7 +1352,7 @@
           "name": null,
           "color": "Apricot",
           "gender": "Male",
-          "age": "9 weeks",
+          "age": "2 months",
           "price": 3488,
           "image": "2700-1-7b9101cb.webp",
           "location": "Choa Chu Kang",
@@ -1374,23 +1374,23 @@
           "sizeNote": null,
           "crossLabel": "Poodle cross",
           "hdbApproved": true
-        },
+        }
+      ],
+      "recentlyPlaced": [
         {
           "id": 2688,
           "name": null,
           "color": "Red",
           "gender": "Male",
-          "age": "8 weeks",
+          "age": "1 months",
           "price": 2688,
-          "image": "2688-1-dec819b4.webp",
+          "image": "2688-2-a942d2ef.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
           "crossLabel": "Poodle cross",
           "hdbApproved": true
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2660,
           "name": "Glast",
@@ -1425,26 +1425,12 @@
           "color": "Apricot",
           "gender": "Male",
           "age": "9 months",
-          "price": 1888,
+          "price": 2888,
           "image": "2470-2-02a6c4c0.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
           "crossLabel": null,
-          "hdbApproved": true
-        },
-        {
-          "id": 2567,
-          "name": "Kenji",
-          "color": "Black White",
-          "gender": "Female",
-          "age": "3 months",
-          "price": 3288,
-          "image": "2567-2-e77a6825.webp",
-          "location": "Choa Chu Kang",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": "Poodle cross",
           "hdbApproved": true
         }
       ]

@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-09-17T06:12:50.097Z",
+  "syncedAt": "2026-09-18T04:55:44.310Z",
   "breeds": {
     "bichon-frise": {
       "available": [],
@@ -673,9 +673,7 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": null
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2666,
           "name": null,
@@ -689,7 +687,9 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": null
-        },
+        }
+      ],
+      "recentlyPlaced": [
         {
           "id": 2667,
           "name": null,
@@ -727,6 +727,20 @@
           "price": 4800,
           "image": "2622-1-ddb59f7b.webp",
           "location": "Choa Chu Kang Area",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": null
+        },
+        {
+          "id": 2535,
+          "name": "Kuro",
+          "color": "Cream",
+          "gender": "Female",
+          "age": "5 months",
+          "price": 3500,
+          "image": "2535-1-3490a8ba.webp",
+          "location": "Eng Kong",
           "origin": "Local",
           "sizeNote": null,
           "crossLabel": null,
@@ -1082,20 +1096,6 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": true
-        },
-        {
-          "id": 2544,
-          "name": "Frieren",
-          "color": "Golden",
-          "gender": "Female",
-          "age": "3 months",
-          "price": 4588,
-          "image": "2544-1-3a0fee2e.webp",
-          "location": "Choa Chu Kang",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true
         }
       ],
       "recentlyPlaced": [
@@ -1128,6 +1128,20 @@
           "hdbApproved": true
         },
         {
+          "id": 2544,
+          "name": "Frieren",
+          "color": "Golden",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 4588,
+          "image": "2544-2-e2ff414b.webp",
+          "location": "Choa Chu Kang",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true
+        },
+        {
           "id": 2591,
           "name": "Tiny",
           "color": "Black Tan",
@@ -1136,20 +1150,6 @@
           "price": 4488,
           "image": "2591-2-af0d69f4.webp",
           "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true
-        },
-        {
-          "id": 2601,
-          "name": null,
-          "color": "Dapple",
-          "gender": "Female",
-          "age": "3 months",
-          "price": 4488,
-          "image": "2601-2-7900cc41.webp",
-          "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
           "crossLabel": null,

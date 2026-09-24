@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-09-23T04:55:53.599Z",
+  "syncedAt": "2026-09-24T05:06:10.231Z",
   "breeds": {
     "bichon-frise": {
       "available": [
@@ -8,7 +8,7 @@
           "name": null,
           "color": "White",
           "gender": "Female",
-          "age": "2 months",
+          "age": "3 months",
           "price": 5888,
           "image": "2889-1-71edd57b.webp",
           "location": "MacPherson",
@@ -22,23 +22,9 @@
           "name": null,
           "color": "White",
           "gender": "Male",
-          "age": "2 months",
+          "age": "3 months",
           "price": 5888,
           "image": "2890-1-8af5d362.webp",
-          "location": "MacPherson",
-          "origin": "Ireland",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true
-        },
-        {
-          "id": 2891,
-          "name": null,
-          "color": "White",
-          "gender": "Male",
-          "age": "2 months",
-          "price": 5888,
-          "image": "2891-1-cf2f0ad6.webp",
           "location": "MacPherson",
           "origin": "Ireland",
           "sizeNote": null,
@@ -47,6 +33,20 @@
         }
       ],
       "recentlyPlaced": [
+        {
+          "id": 2891,
+          "name": null,
+          "color": "White",
+          "gender": "Male",
+          "age": "3 months",
+          "price": 5888,
+          "image": "2891-1-cf2f0ad6.webp",
+          "location": "MacPherson",
+          "origin": "Ireland",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true
+        },
         {
           "id": 2251,
           "name": "Franky",
@@ -88,25 +88,12 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": true
-        },
-        {
-          "id": 2102,
-          "name": null,
-          "color": "Cream",
-          "gender": "Male",
-          "age": "3 months",
-          "price": 4288,
-          "image": "2102-2-b0908c76.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true
         }
       ]
     },
     "bichonpoo": {
-      "available": [
+      "available": [],
+      "recentlyPlaced": [
         {
           "id": 2702,
           "name": null,
@@ -120,9 +107,7 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": true
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2685,
           "name": null,
@@ -164,54 +149,12 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": true
-        },
-        {
-          "id": 2512,
-          "name": "Lukimi",
-          "color": "Apricot",
-          "gender": "Female",
-          "age": "5 months",
-          "price": 4388,
-          "image": "2512-1-8cb19b7d.webp",
-          "location": "MacPherson",
-          "origin": "Ireland",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true
         }
       ]
     },
     "border-collie": {
       "available": [],
       "recentlyPlaced": [
-        {
-          "id": 2684,
-          "name": null,
-          "color": "Black White",
-          "gender": "Female",
-          "age": "5 months",
-          "price": 6988,
-          "image": "2684-1-955390a5.webp",
-          "location": "Serangoon",
-          "origin": "Australia",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": null
-        },
-        {
-          "id": 2679,
-          "name": null,
-          "color": "Black White",
-          "gender": "Female",
-          "age": "4 months",
-          "price": 6988,
-          "image": "2679-1-723fcc41.webp",
-          "location": "Serangoon",
-          "origin": "Australia",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": null
-        },
         {
           "id": 2056,
           "name": null,
@@ -360,6 +303,20 @@
           "age": "2 months",
           "price": 3888,
           "image": "2896-1-364602d6.webp",
+          "location": "Choa Chu Kang",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true
+        },
+        {
+          "id": 2897,
+          "name": null,
+          "color": "Apricot White",
+          "gender": "Female",
+          "age": "2 months",
+          "price": 3888,
+          "image": "2897-1-54bb21d4.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
@@ -579,7 +536,7 @@
           "name": "Yoda",
           "color": "Sable",
           "gender": "Male",
-          "age": "3 months",
+          "age": "4 months",
           "price": 6500,
           "image": "2655-1-0fe4a483.webp",
           "location": "Katong",
@@ -593,7 +550,7 @@
           "name": "Leia",
           "color": "Sable",
           "gender": "Female",
-          "age": "3 months",
+          "age": "4 months",
           "price": 6500,
           "image": "2656-1-11d545a2.webp",
           "location": "Katong",
@@ -777,7 +734,50 @@
       ]
     },
     "goldendoodle": {
-      "available": [],
+      "available": [
+        {
+          "id": 2913,
+          "name": null,
+          "color": "Golden",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 4000,
+          "image": "2913-1-c97245a0.webp",
+          "location": "Serangoon Garden",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true
+        },
+        {
+          "id": 2911,
+          "name": null,
+          "color": "Golden",
+          "gender": "Male",
+          "age": "3 months",
+          "price": 4000,
+          "image": "2911-1-7419eb86.webp",
+          "location": "Serangoon Garden",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true
+        },
+        {
+          "id": 2912,
+          "name": null,
+          "color": "Golden",
+          "gender": "Male",
+          "age": "3 months",
+          "price": 4000,
+          "image": "2912-1-8ca4b5e6.webp",
+          "location": "Serangoon Garden",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true
+        }
+      ],
       "recentlyPlaced": [
         {
           "id": 2661,
@@ -842,7 +842,50 @@
       "recentlyPlaced": []
     },
     "italian-greyhound": {
-      "available": [],
+      "available": [
+        {
+          "id": 2908,
+          "name": null,
+          "color": "Blue White",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 6880,
+          "image": "2908-1-0a60c0c4.webp",
+          "location": "Bedok",
+          "origin": "Australia",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true
+        },
+        {
+          "id": 2909,
+          "name": null,
+          "color": "Blue White",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 6880,
+          "image": "2909-1-c5dcd5c0.webp",
+          "location": "Bedok",
+          "origin": "Australia",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true
+        },
+        {
+          "id": 2910,
+          "name": null,
+          "color": "Blue Fawn",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 6880,
+          "image": "2910-1-e7dd2b07.webp",
+          "location": "Bedok",
+          "origin": "Australia",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true
+        }
+      ],
       "recentlyPlaced": []
     },
     "jack-russell-terrier": {
@@ -857,7 +900,7 @@
           "name": "Gigi",
           "color": "White",
           "gender": "Female",
-          "age": "3 months",
+          "age": "4 months",
           "price": 5200,
           "image": "2657-1-09a57a51.webp",
           "location": "Katong",
@@ -901,7 +944,8 @@
       "recentlyPlaced": []
     },
     "maltese": {
-      "available": [
+      "available": [],
+      "recentlyPlaced": [
         {
           "id": 2703,
           "name": null,
@@ -915,9 +959,7 @@
           "sizeNote": null,
           "crossLabel": "Maltese x Shih Tzu",
           "hdbApproved": true
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2101,
           "name": null,
@@ -949,7 +991,8 @@
       ]
     },
     "maltipoo": {
-      "available": [
+      "available": [],
+      "recentlyPlaced": [
         {
           "id": 2701,
           "name": null,
@@ -963,16 +1006,14 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": true
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2696,
           "name": null,
           "color": "White",
           "gender": "Female",
           "age": "3 months",
-          "price": 4680,
+          "price": 4280,
           "image": "2696-1-1ced6faf.webp",
           "location": "Bedok",
           "origin": "Australia",
@@ -1004,20 +1045,6 @@
           "image": "2665-1-3415f3cc.webp",
           "location": "Eng Kong",
           "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true
-        },
-        {
-          "id": 2598,
-          "name": "Rica",
-          "color": "Apricot",
-          "gender": "Female",
-          "age": "3 months",
-          "price": 4388,
-          "image": "2598-1-10a2ea1e.webp",
-          "location": "MacPherson",
-          "origin": "Australia",
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": true
@@ -1089,7 +1116,7 @@
           "name": "Frieren",
           "color": "Golden",
           "gender": "Female",
-          "age": "3 months",
+          "age": "4 months",
           "price": 4588,
           "image": "2544-2-e2ff414b.webp",
           "location": "Choa Chu Kang",
@@ -1319,13 +1346,13 @@
           "hdbApproved": true
         },
         {
-          "id": 2897,
+          "id": 2907,
           "name": null,
           "color": "Tri Color",
           "gender": "Male",
           "age": "2 months",
           "price": 3088,
-          "image": "2897-1-f846f6c8.webp",
+          "image": "2907-1-f846f6c8.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,
@@ -1421,13 +1448,14 @@
       ]
     },
     "westie": {
-      "available": [
+      "available": [],
+      "recentlyPlaced": [
         {
           "id": 2892,
           "name": null,
           "color": "White",
           "gender": "Female",
-          "age": "2 months",
+          "age": "3 months",
           "price": 5888,
           "image": "2892-1-83b59621.webp",
           "location": "MacPherson",
@@ -1441,7 +1469,7 @@
           "name": null,
           "color": "White",
           "gender": "Female",
-          "age": "2 months",
+          "age": "3 months",
           "price": 5888,
           "image": "2893-1-2236c9c3.webp",
           "location": "MacPherson",
@@ -1455,7 +1483,7 @@
           "name": null,
           "color": "White",
           "gender": "Male",
-          "age": "2 months",
+          "age": "3 months",
           "price": 5888,
           "image": "2894-1-a5ef5084.webp",
           "location": "MacPherson",
@@ -1464,8 +1492,7 @@
           "crossLabel": null,
           "hdbApproved": true
         }
-      ],
-      "recentlyPlaced": []
+      ]
     },
     "whippet": {
       "available": [],

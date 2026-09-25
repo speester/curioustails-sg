@@ -109,6 +109,17 @@ for (const { route, html } of pages) {
     try { const j = JSON.parse(b); nodes.push(...(j['@graph'] ?? [j])); }
     catch { fail(route, 'invalid JSON-LD block'); }
   }
+  // A PAGE'S MAIN ENTITY IS ITS OWN NODE (rapamycin.store, 2026-09-13). schema.org's own
+  // pattern for a listing page is CollectionPage.mainEntity -> ItemList, and only TOP-LEVEL
+  // nodes were read, so a hub emitting exactly that reported "hub/CollectionPage emits no
+  // ItemList". Lift mainEntity (and a WebPage's hasPart) into the node set once.
+  for (const n of [...nodes]) {
+    for (const k of ['mainEntity', 'hasPart']) {
+      for (const child of [].concat(n?.[k] ?? [])) {
+        if (child && typeof child === 'object' && child['@type']) nodes.push(child);
+      }
+    }
+  }
   const typeOf = (n) => (Array.isArray(n['@type']) ? n['@type'] : [n['@type']]).filter(Boolean);
   const of = (t) => nodes.filter((n) => typeOf(n).includes(t));
   const noindex = /name="robots"[^>]*noindex/.test(html);

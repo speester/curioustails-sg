@@ -78,6 +78,9 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
                 <span class="ml-1 text-xs font-semibold text-[var(--color-cream-600)]">all-in</span>
               </p>
             )}
+            {(item.gender || item.age) && (
+              <p class="mt-1 text-sm font-semibold text-[var(--color-cream-700)]">Location: Balestier Area</p>
+            )}
             {(!item.points || item.points.length === 0) && item.ctaLabel && (
               <p class="mt-2 mb-4 text-sm leading-snug text-[var(--color-cream-700)]">{item.meta}</p>
             )}

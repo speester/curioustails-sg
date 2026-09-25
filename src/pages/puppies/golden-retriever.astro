@@ -71,7 +71,7 @@ const faqItems = [
   {
     question: 'How much is a Golden Retriever in Singapore?',
     answer:
-      `A Golden Retriever in Singapore costs ${priceRange} at Curious Tails, all-in. Checking the shops publishing figures in ${monthStamp}, Goldens are listed from $3,000 to $9,000, and one Australian import is priced at $5,600, so ours sits in the lower half of the real market with inclusions the others do not spell out: the $500+ starter kit, free home delivery and setup *For Selected Puppies Only*, and a free first training lesson with an AVS-certified trainer.`,
+      `A Golden Retriever in Singapore costs ${priceRange} at Curious Tails, all-in. Checking the shops publishing figures in ${monthStamp}, Goldens are listed from $3,000 to $9,000, and one Australian import is priced at $5,600, so ours sits in the lower half of the real market with inclusions the others do not spell out: the $500+ starter kit*, free home delivery and setup*, and a free first training lesson* with an AVS-certified trainer.`,
   },
   {
     question: 'What is the Golden Retriever price in Singapore right now?',
@@ -111,7 +111,7 @@ const faqItems = [
   {
     question: 'What happens after I reserve a Golden Retriever?',
     answer:
-      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items *For Selected Puppies Only* before we leave.",
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items* before we leave.",
   },
 ];
 
@@ -133,7 +133,7 @@ const schemas = [
       name: 'Golden Retriever puppy',
       url: '/puppies/golden-retriever/',
       description:
-        `Golden Retriever puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit, free home delivery and setup *For Selected Puppies Only*, and a free AVS-certified training lesson included.`,
+        `Golden Retriever puppy from an AVS licensed Singapore pet shop, priced ${priceRange} with a $500+ starter kit*, free home delivery and setup*, and a free AVS-certified training lesson* included.`,
       price: '4588',
       image: imgHero.src,
     },
@@ -190,7 +190,7 @@ const schemas = [
       <p>Our Golden Retriever puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat shade, and a short walkthrough video for the Golden puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Golden Retriever for sale in Singapore here is between $4,588 and $5,500, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready - a genuine help if you're mid-renovation.</p>
       <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Golden Retriever puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Golden photos and prices</a>, or meet our Golden Retriever puppies at our Balestier pet shop in person, with free home delivery in Singapore *For Selected Puppies Only* once you reserve.
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Golden Retriever puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Golden photos and prices</a>, or meet our Golden Retriever puppies at our Balestier pet shop in person, with free home delivery in Singapore* once you reserve.
       </p>
     </CaptionedBlock>
   </div>
@@ -233,7 +233,7 @@ const schemas = [
     stats={[
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
       { value: '$4,588', label: 'Golden pricing starts here, all-in' },
-      { value: '$500+', label: 'starter kit *For Selected Puppies Only* included free' },
+      { value: '$500+', label: 'starter kit* included free' },
       { value: '2+', label: 'years in Balestier' },
     ]}
   />
@@ -319,8 +319,8 @@ const schemas = [
           heading: 'Curious Tails',
           items: [
             `${priceRange}, printed right here`,
-            '$500+ starter kit *For Selected Puppies Only* with 30+ items included',
-            'Free home delivery with the playpen set up before you arrive *For Selected Puppies Only*',
+            '$500+ starter kit* with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive*',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
           ],
           emphasis: true,
@@ -336,7 +336,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <CaptionedBlock heading="The $500+ Starter Kit Every Golden Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
-    <p>Every Golden Retriever leaves us with a starter kit *For Selected Puppies Only* worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the brush and the leash are the working tools, both will see daily use for a decade, and on delivery day we talk through large-breed feeding: controlled growth in the first year protects those hips for life.</p>
+    <p>Every Golden Retriever leaves us with a starter kit* worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the brush and the leash are the working tools, both will see daily use for a decade, and on delivery day we talk through large-breed feeding: controlled growth in the first year protects those hips for life.</p>
     <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Golden's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
     <p>See the full 30+ item kit breakdown, category by category.</p>
   </CaptionedBlock>
@@ -370,7 +370,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
   <CaptionedBlock heading="Golden Retriever vs Goldendoodle: Original or Low-Shed Remix" imagePosition="none" variant="dark">
     <p>The most natural cross-shop on this page: same golden warmth, one crucial coat difference. The purebred Golden gives you complete predictability, the temperament, the look, the water-love, all guaranteed, and pays for it in hair: heavy shedding, twice-yearly blows, a vacuum on retainer. The <a href="/puppies/goldendoodle/" class="underline underline-offset-2">Goldendoodle</a> trades a little predictability (crosses vary) for a low-shedding coat that swaps the vacuum for a salon schedule.</p>
-    <p>Both are private-housing breeds in Singapore, both need the same real exercise, and with us the price, the starter kit *For Selected Puppies Only*, and the aftercare are identical. Allergies or hair-free floors point to the doodle; benchmark predictability points to the original; the <a href="/puppies/labradoodle/" class="underline underline-offset-2">Labradoodle</a> rounds out the trio.</p>
+    <p>Both are private-housing breeds in Singapore, both need the same real exercise, and with us the price, the starter kit*, and the aftercare are identical. Allergies or hair-free floors point to the doodle; benchmark predictability points to the original; the <a href="/puppies/labradoodle/" class="underline underline-offset-2">Labradoodle</a> rounds out the trio.</p>
     <p>Message us your priorities and we'll tell you straight which fits.</p>
     <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
       <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
@@ -378,7 +378,7 @@ const schemas = [
         {[
           'Golden: fully predictable, heavy shedding',
           'Goldendoodle: low-shed coat, salon schedule, some variance',
-          'Same price, same starter kit *For Selected Puppies Only*, same aftercare either way',
+          'Same price, same starter kit*, same aftercare either way',
         ].map((fact) => (
           <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
@@ -409,7 +409,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
   <CaptionedBlock heading="Your Golden’s First Week at Home" imageAlt="Golden Retriever puppy settling into a set-up playpen during its first week home" imageSrc={imgScene6} imagePosition="left">
-    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Golden explores the room, and we walk you through all 30+ starter-kit items *For Selected Puppies Only* in person, including the large-breed feeding plan. Learn more about how our free home delivery and setup *For Selected Puppies Only* works.</p>
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Golden explores the room, and we walk you through all 30+ starter-kit items* in person, including the large-breed feeding plan. Learn more about how our free home delivery and setup* works.</p>
     <p>Days 1 to 3: keep it calm and joint-safe. A fixed feeding routine with measured portions, the toilet pads where we placed them, and play that stays on the floor, no leaping, no stairs, while those big-breed joints are growing.</p>
     <p>Days 4 to 7: the routine sticks, and for a dog headed to thirty kilograms this is the non-negotiable week: book your free first lesson with an AVS-certified trainer now, because manners installed at five kilos are a gift at thirty. See what the free AVS-certified training lesson covers.</p>
   </CaptionedBlock>
@@ -495,9 +495,9 @@ const schemas = [
       <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
       <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
       <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items) *For Selected Puppies Only*</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)*</a></li>
       <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup *For Selected Puppies Only*</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup*</a></li>
       <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
       <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
       <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>

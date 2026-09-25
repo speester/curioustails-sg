@@ -28,7 +28,17 @@ const available = entry?.available ?? [];
 const placed = entry?.recentlyPlaced ?? [];
 const hasStock = available.length > 0;
 
-const availableItems = available.map((p) => pupCard(p, breedName, 'available'));
+// Truthful scarcity: when a breed is genuinely down to its last few, the tag
+// states the exact count left (straight from the live feed - never invented).
+// Above that threshold the neutral "Available" tag stands, so the urgency only
+// ever appears when it is real.
+const LOW_STOCK = 3;
+const availableItems = available.map((p) => {
+  const card = pupCard(p, breedName, 'available');
+  return available.length <= LOW_STOCK
+    ? { ...card, tag: available.length === 1 ? 'Last one available' : `Only ${available.length} left` }
+    : card;
+});
 const placedItems = placed.map((p) => pupCard(p, breedName, 'placed'));
 
 // Workstream A2.4: with no stock, this page used to end in an availability CTA

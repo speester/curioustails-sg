@@ -44,6 +44,29 @@ if (!CHECK && !WRITE) {
   process.exit(2);
 }
 if (!existsSync(IMAGES)) {
+  // A FIGURE-ONLY SITE HAS NO RASTERS TO VARY (rapamycin.store, 2026-09-13). IMAGE_POLICY is
+  // photo|figure|mixed (contracts §3). Under `figure` the page visuals are SVG, there is no
+  // image root, and this HALTed forever on a correctly built site. The honest reading is a
+  // population of zero WITH its reason - and the registry must then be empty, or Image.astro
+  // is emitting srcsets for files that do not exist.
+  const policy = (() => {
+    try {
+      const m = readFileSync('config/project-config.md', 'utf8').match(/^IMAGE_POLICY:(.*)$/m);
+      return m ? m[1].split('#')[0].trim().toLowerCase() : '';
+    } catch { return ''; }
+  })();
+  if (policy === 'figure') {
+    const reg = existsSync(OUT) ? JSON.parse(readFileSync(OUT, 'utf8')) : {};
+    const n = Object.keys(reg).length;
+    if (n) {
+      console.log(`FAIL IMAGE_POLICY=figure and ${IMAGE_ROOT} is absent, but ${OUT} lists ${n} raster(s)`);
+      console.log(`gen-image-variants: checked=0 failed=1`);
+      process.exit(1);
+    }
+    console.log(`PASS not in play: IMAGE_POLICY=figure, no ${IMAGE_ROOT}, variant registry empty`);
+    console.log(`gen-image-variants: checked=0 failed=0 (no rasters by declared policy)`);
+    process.exit(0);
+  }
   console.log(`HALT: ${IMAGES} missing - run from PROJECT_ROOT after images exist`);
   process.exit(1);
 }

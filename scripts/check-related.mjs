@@ -57,13 +57,25 @@ if (iSlug < 0 || iTier < 0) {
   process.exit(1);
 }
 const tier = new Map();
+// AN ARCHIVE HUB IS NOT A POST (rapamycin.store, 2026-09-13). /blog/ carries page_tier=outer
+// because it belongs to the outer section, but it IS the reading list: its body links every
+// post, so a READ NEXT module of three more cards on it is a duplicate of the page itself.
+// The gate failed the hub on every site whose archive is tiered outer. A row is a hub when
+// page_type says so or hub_or_node is L1/L2 - the same columns validate-blueprint check 8
+// uses to decide which rows owe link_children.
+const iType = head.indexOf('page_type');
+const iLevel = head.indexOf('hub_or_node');
+const hubs = new Set();
 for (const c of csv.slice(1)) {
   if (c.length <= Math.max(iSlug, iTier)) continue;
-  tier.set((c[iSlug] || '').trim().replace(/^\/+|\/+$/g, '') || 'index',
-           (c[iTier] || '').trim().toLowerCase());
+  const key = (c[iSlug] || '').trim().replace(/^\/+|\/+$/g, '') || 'index';
+  tier.set(key, (c[iTier] || '').trim().toLowerCase());
+  const type = iType >= 0 ? (c[iType] || '').trim().toLowerCase() : '';
+  const level = iLevel >= 0 ? (c[iLevel] || '').trim().toUpperCase() : '';
+  if (/(^|-)hub$|^archive$/.test(type) || level === 'L1' || level === 'L2') hubs.add(key);
 }
 
-const posts = pages.filter((f) => tier.get(routeOf(f)) === 'outer');
+const posts = pages.filter((f) => tier.get(routeOf(f)) === 'outer' && !hubs.has(routeOf(f)));
 if (!posts.length) {
   // A zero-population gate must be LOUD. Audited 2026-09-04: only 8 of 29
   // blueprints spell the tier 'outer'; the rest carry L3 / 3 / blog / cluster,

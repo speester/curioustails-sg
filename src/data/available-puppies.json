@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-09-29T05:55:07.626Z",
+  "syncedAt": "2026-09-30T05:45:44.206Z",
   "breeds": {
     "bichon-frise": {
       "available": [],
@@ -607,9 +607,7 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": null
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2905,
           "name": null,
@@ -623,7 +621,9 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": null
-        },
+        }
+      ],
+      "recentlyPlaced": [
         {
           "id": 2906,
           "name": null,
@@ -752,20 +752,6 @@
       ],
       "recentlyPlaced": [
         {
-          "id": 2661,
-          "name": null,
-          "color": "Brown",
-          "gender": "Female",
-          "age": "3 months",
-          "price": 3800,
-          "image": "2661-1-2c4788e7.webp",
-          "location": "Eng Kong",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true
-        },
-        {
           "id": 2643,
           "name": "Nova",
           "color": "Black White",
@@ -806,6 +792,20 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": null
+        },
+        {
+          "id": 2249,
+          "name": "Robin",
+          "color": "Golden",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 4488,
+          "image": "2249-2-bb0b3784.webp",
+          "location": "Balestier Area",
+          "origin": "Australia",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true
         }
       ]
     },
@@ -1030,7 +1030,7 @@
           "name": null,
           "color": "Red",
           "gender": "Male",
-          "age": "7 weeks",
+          "age": "8 weeks",
           "price": 4488,
           "image": "2916-1-be621565.webp",
           "location": "Choa Chu Kang",
@@ -1044,7 +1044,7 @@
           "name": null,
           "color": "Choco Tan",
           "gender": "Male",
-          "age": "7 weeks",
+          "age": "8 weeks",
           "price": 4488,
           "image": "2914-1-a2f9af3c.webp",
           "location": "Choa Chu Kang",
@@ -1058,7 +1058,7 @@
           "name": null,
           "color": "Dapple",
           "gender": "Female",
-          "age": "7 weeks",
+          "age": "8 weeks",
           "price": 4488,
           "image": "2915-1-69703ae1.webp",
           "location": "Choa Chu Kang",
@@ -1072,7 +1072,7 @@
           "name": null,
           "color": "Dapple",
           "gender": "Female",
-          "age": "7 weeks",
+          "age": "8 weeks",
           "price": 4888,
           "image": "2692-1-28d61be7.webp",
           "location": "Choa Chu Kang",
@@ -1283,7 +1283,7 @@
           "gender": "Male",
           "age": "2 months",
           "price": 4588,
-          "image": "2918-1-5e19df9b.webp",
+          "image": "2918-1-aeff5fad.webp",
           "location": "Balestier Area",
           "origin": "Australia",
           "sizeNote": null,
@@ -1388,20 +1388,6 @@
           "hdbApproved": true
         },
         {
-          "id": 2898,
-          "name": null,
-          "color": "Black Tan",
-          "gender": "Female",
-          "age": "2 months",
-          "price": 3088,
-          "image": "2898-1-d3700e3c.webp",
-          "location": "Choa Chu Kang",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": "Poodle cross",
-          "hdbApproved": true
-        },
-        {
           "id": 2899,
           "name": null,
           "color": "Apricot",
@@ -1417,6 +1403,20 @@
         }
       ],
       "recentlyPlaced": [
+        {
+          "id": 2898,
+          "name": null,
+          "color": "Black Tan",
+          "gender": "Female",
+          "age": "2 months",
+          "price": 3088,
+          "image": "2898-2-d3700e3c.webp",
+          "location": "Choa Chu Kang",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": "Poodle cross",
+          "hdbApproved": true
+        },
         {
           "id": 2689,
           "name": null,
@@ -1453,20 +1453,6 @@
           "age": "2 months",
           "price": 3688,
           "image": "2660-2-d0fe1446.webp",
-          "location": "Choa Chu Kang",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": "Poodle cross",
-          "hdbApproved": true
-        },
-        {
-          "id": 2569,
-          "name": "Taro",
-          "color": "Black White",
-          "gender": "Male",
-          "age": "4 months",
-          "price": 3188,
-          "image": "2569-2-cf0ef97f.webp",
           "location": "Choa Chu Kang",
           "origin": "Local",
           "sizeNote": null,

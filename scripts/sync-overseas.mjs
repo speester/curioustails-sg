@@ -80,13 +80,18 @@ function ageLabel(months) {
 async function fetchImageBytes(url) {
   const noScheme = url.replace(/^https?:\/\//, '');
   const proxy = `https://images.weserv.nl/?url=${encodeURIComponent(noScheme)}&w=800&output=webp&q=80`;
-  for (const u of [proxy, url]) {
+  // weserv fetch is network-variable, so retry the proxy a few times before the
+  // direct fallback. Reliability matters: a pup with no image is hidden entirely.
+  const attempts = [proxy, proxy, proxy, url];
+  for (const u of attempts) {
     try {
       const res = await fetch(u, { headers: { 'User-Agent': 'Mozilla/5.0' } });
-      if (!res.ok) continue;
-      const buf = Buffer.from(await res.arrayBuffer());
-      if (buf.byteLength > 1500) return buf;
+      if (res.ok) {
+        const buf = Buffer.from(await res.arrayBuffer());
+        if (buf.byteLength > 1500) return buf;
+      }
     } catch { /* try next */ }
+    await new Promise((r) => setTimeout(r, 600));
   }
   return null;
 }
@@ -153,8 +158,11 @@ for (const r of rows) {
     image: image || null,
   });
 }
-// prune only our generated files no longer referenced
-for (const f of await readdir(OUT)) if (/^os-[0-9a-f]{8}\.webp$/.test(f) && !referenced.has(f)) await unlink(path.join(OUT, f));
+// NO PRUNE (2026-10-01): weserv fetches are network-variable, so a run that
+// transiently fails to re-fetch an image must NOT delete the copy already on
+// disk — that is what made the overseas sections flicker between builds. Images
+// are committed to git and persist; an occasional orphaned file is harmless.
+void readdir; void unlink; void referenced;
 
 const out = {
   syncedAt: new Date().toISOString(),

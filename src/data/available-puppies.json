@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-09-30T05:45:44.206Z",
+  "syncedAt": "2026-10-01T06:12:12.273Z",
   "breeds": {
     "bichon-frise": {
       "available": [],
@@ -112,7 +112,7 @@
           "name": "Manectric",
           "color": "Apricot",
           "gender": "Female",
-          "age": "5 months",
+          "age": "6 months",
           "price": 4388,
           "image": "2510-1-1d157a6e.webp",
           "location": "MacPherson",
@@ -607,7 +607,9 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": null
-        },
+        }
+      ],
+      "recentlyPlaced": [
         {
           "id": 2905,
           "name": null,
@@ -621,9 +623,7 @@
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": null
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2906,
           "name": null,
@@ -1517,6 +1517,24 @@
       "recentlyPlaced": []
     }
   },
-  "other": [],
-  "unmapped": []
+  "other": [
+    {
+      "id": "",
+      "name": null,
+      "color": null,
+      "gender": null,
+      "age": null,
+      "price": null,
+      "image": "-1-0da0d9e8.webp",
+      "location": null,
+      "origin": null,
+      "sizeNote": null,
+      "crossLabel": null,
+      "hdbApproved": null,
+      "breedLabel": "Import Services"
+    }
+  ],
+  "unmapped": [
+    "Import Services"
+  ]
 }

@@ -39,7 +39,7 @@ const hasStock = available.length > 0;
 // ever appears when it is real.
 const LOW_STOCK = 3;
 const availableItems = available.map((p) => {
-  const card = pupCard(p, breedName, 'available');
+  const card = pupCard(p, breedName, 'available', { breedSlug: breed });
   return available.length <= LOW_STOCK
     ? { ...card, tag: available.length === 1 ? 'Last one available' : `Only ${available.length} left` }
     : card;

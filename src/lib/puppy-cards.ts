@@ -45,6 +45,16 @@ export const photoFor = (file: string | null) =>
 
 const half = (g: Pup['gender']) => (g === 'Female' ? 'Girl' : g === 'Male' ? 'Boy' : 'Puppy');
 
+// Canonical URL of a puppy's own page (/puppies/<breed>/<id>/). The individual
+// puppy route and every card that links to it MUST derive the slug from here, so
+// the link and the generated path can never drift apart.
+export const pupPageSlug = (p: Pup) =>
+  `${p.id}-${p.color ?? ''}-${half(p.gender)}`
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+export const pupPageHref = (breedSlug: string, p: Pup) => `/puppies/${breedSlug}/${pupPageSlug(p)}/`;
+
 export const pupTitle = (p: Pup, breedName: string) => {
   // A cross is never titled with the pure breed name.
   const noun = p.crossLabel ?? breedName;
@@ -65,7 +75,7 @@ export function pupCard(
   p: Pup,
   breedName: string,
   state: 'available' | 'placed',
-  opts: { breedLabel?: boolean } = {},
+  opts: { breedLabel?: boolean; breedSlug?: string } = {},
 ) {
   const points = [
     ...(opts.breedLabel ? [`${breedName} puppy`] : []),
@@ -103,6 +113,8 @@ export function pupCard(
           // id is stamped on the GA4 whatsapp_click event via `waVariant`.
           meta: activeWaVariant().text,
           waVariant: activeWaVariant().id,
+          // Link to this puppy's own page (when the breed has the route wired).
+          pageHref: opts.breedSlug ? pupPageHref(opts.breedSlug, p) : undefined,
           href: whatsappLink(
             `Hi! I'd like more photos and the price for ${p.name ?? `puppy #${p.id}`}, the ${[
               p.color?.toLowerCase(),
@@ -172,7 +184,7 @@ export function livePupCards(count: number, only?: string[]): ReturnType<typeof 
       if (out.length >= count) break;
       const pup = bucket.available[depth];
       if (!pup) continue;
-      out.push(pupCard(pup, breedName(slug), 'available', { breedLabel: true }));
+      out.push(pupCard(pup, breedName(slug), 'available', { breedLabel: true, breedSlug: slug }));
       addedThisRound++;
     }
     if (addedThisRound === 0) break; // every bucket exhausted
@@ -187,5 +199,5 @@ export function cheapestPupCards(count: number): ReturnType<typeof pupCard>[] {
     .filter(({ p }) => typeof p.price === 'number')
     .sort((a, b) => (a.p.price as number) - (b.p.price as number))
     .slice(0, count)
-    .map(({ p, slug }) => pupCard(p, breedName(slug), 'available', { breedLabel: true }));
+    .map(({ p, slug }) => pupCard(p, breedName(slug), 'available', { breedLabel: true, breedSlug: slug }));
 }

@@ -150,7 +150,7 @@ for (let depth = 0; homePups.length < HOME_PUP_COUNT; depth++) {
   const roundAdded = liveStocked.reduce((added, [slug, bucket]) => {
     const pup = bucket.available[depth];
     if (!pup || homePups.length >= HOME_PUP_COUNT) return added;
-    homePups.push(pupCard(pup, breedName(slug), 'available', { breedLabel: true }));
+    homePups.push(pupCard(pup, breedName(slug), 'available', { breedLabel: true, breedSlug: slug }));
     return added + 1;
   }, 0);
   if (roundAdded === 0) break; // every bucket exhausted

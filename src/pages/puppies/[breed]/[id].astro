@@ -1,0 +1,207 @@
+---
+// Individual puppy page — one page per live puppy at /puppies/<breed>/<id>/.
+// NEW FILE (added 2026-10-01). Driven by src/data/available-puppies.json and the
+// shared design system: BaseLayout + Section + clay tokens, so brand colours,
+// the starter-kit marquee and the review slider all come from the real components.
+// Business-level reviews stay on LocalBusiness (schema), never on the puppy Product.
+import { Image } from 'astro:assets';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Section from '../../../components/Section.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import ListingGrid from '../../../components/ListingGrid.astro';
+import StarterKitMarquee from '../../../components/StarterKitMarquee.astro';
+import ReviewSlider from '../../../components/ReviewSlider.astro';
+import FinalCta from '../../../components/FinalCta.astro';
+import Schema from '../../../components/Schema.astro';
+import { site, whatsappLink } from '../../../data/site';
+import { breedName as displayBreedName } from '../../../data/breed-names';
+import { localBusinessSchema } from '../../../lib/schema';
+import { photoFor, pupCard, pupTitle, pupPageSlug, type Pup, type BreedBucket } from '../../../lib/puppy-cards';
+import data from '../../../data/available-puppies.json';
+
+const breeds = data.breeds as Record<string, BreedBucket>;
+const half = (g: Pup['gender']) => (g === 'Female' ? 'Girl' : g === 'Male' ? 'Boy' : 'Puppy');
+
+export function getStaticPaths() {
+  const breedsLocal = (data.breeds as Record<string, BreedBucket>);
+  const paths: { params: { breed: string; id: string }; props: { pup: Pup; breed: string } }[] = [];
+  for (const [breed, bucket] of Object.entries(breedsLocal)) {
+    for (const pup of bucket.available ?? []) {
+      if (!pup.image || !photoFor(pup.image)) continue; // only pups with a real photo
+      paths.push({ params: { breed, id: pupPageSlug(pup) }, props: { pup, breed } });
+    }
+  }
+  return paths;
+}
+
+const { pup, breed } = Astro.props as { pup: Pup; breed: string };
+const breedNameDisp = displayBreedName(breed);
+const title0 = pupTitle(pup, breedNameDisp);
+const hero = photoFor(pup.image)!;
+const canonicalPath = `/puppies/${breed}/${pupPageSlug(pup)}/`;
+const priceStr = pup.price ? `$${pup.price.toLocaleString('en-SG')}` : 'Ask for price';
+const genderNoun = half(pup.gender).toLowerCase();
+
+const pageTitle = `${title0} — ${breedNameDisp} Puppy for Sale Singapore | Curious Tails`;
+const description =
+  `Meet ${title0}, a ${(pup.color ?? '').toLowerCase()} ${breedNameDisp} ${genderNoun}${pup.age ? `, ${pup.age}` : ''}. ` +
+  `${priceStr} all-in${pup.hdbApproved ? ', HDB-approved' : ''}. Vaccinated, microchipped and vet-checked. WhatsApp Curious Tails, Balestier.`;
+
+// Honest, attribute-derived intro — no invented personality claims.
+const TEMPERAMENT: Record<string, string> = {
+  cavapoo: 'gentle, people-focused and easygoing',
+  cockapoo: 'warm, sociable and great with children',
+  'shih-tzu': 'calm, affectionate and well suited to apartment living',
+};
+const temperament = TEMPERAMENT[breed] ?? 'friendly and family-oriented';
+const pronoun = pup.gender === 'Female' ? 'She' : pup.gender === 'Male' ? 'He' : 'This puppy';
+const pronounLc = pup.gender === 'Female' ? 'she' : pup.gender === 'Male' ? 'he' : 'they';
+
+const waMsg = whatsappLink(
+  `Hi! I'd like more photos and the price for ${pup.name ?? `puppy #${pup.id}`}, the ${[
+    pup.color?.toLowerCase(),
+    pup.gender?.toLowerCase(),
+  ].filter(Boolean).join(' ')} ${breedNameDisp} puppy (ID ${pup.id}).`,
+);
+const waBook = whatsappLink(`Hi! I'd like to book a viewing for ${pup.name ?? `puppy #${pup.id}`} (ID ${pup.id}) at Balestier.`);
+
+const spec: { k: string; v: string }[] = [
+  { k: 'Breed', v: pup.crossLabel ?? breedNameDisp },
+  { k: 'Puppy ID', v: `#${pup.id}` },
+  ...(pup.gender ? [{ k: 'Gender', v: pup.gender }] : []),
+  ...(pup.color ? [{ k: 'Colour', v: pup.color }] : []),
+  ...(pup.age ? [{ k: 'Age', v: pup.age }] : []),
+  ...(pup.origin ? [{ k: 'Origin', v: pup.origin }] : []),
+  ...(pup.hdbApproved ? [{ k: 'HDB approved', v: 'Yes' }] : []),
+  { k: 'Price', v: `${priceStr} all-in` },
+];
+
+const included = [
+  'Vaccinated', 'Dewormed', 'Microchipped', 'Vet health-checked',
+  'AVS licensed', 'Vaccination & health records',
+];
+
+// Other available puppies across the shop (exclude this one), for the cross-sell grid.
+// pupCard now carries pageHref (breedSlug), so the grid renders a "Learn more" link itself.
+const others = Object.entries(breeds).flatMap(([slug, b]) =>
+  (b.available ?? [])
+    .filter((p) => String(p.id) !== String(pup.id) && p.image && photoFor(p.image))
+    .map((p) => pupCard(p, displayBreedName(slug), 'available', { breedLabel: true, breedSlug: slug })),
+).slice(0, 6);
+
+const heroAbs = new URL(hero.src, site.domain).toString();
+const productLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: `${title0} — ${breedNameDisp} Puppy`,
+  image: heroAbs,
+  description,
+  category: `${breedNameDisp} puppy`,
+  sku: String(pup.id),
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'SGD',
+    ...(pup.price ? { price: pup.price } : {}),
+    availability: 'https://schema.org/InStock',
+    url: new URL(canonicalPath, site.domain).toString(),
+    seller: { '@id': `${site.domain}#business` },
+  },
+};
+---
+<BaseLayout title={pageTitle} description={description} canonicalPath={canonicalPath} ogImage={heroAbs}>
+  <Schema schemas={[productLd, localBusinessSchema()]} />
+
+  <!-- HERO -->
+  <Section tone="paper" treatment="split" seam={false} decor={false}>
+    <Breadcrumb
+      items={[
+        { label: 'Puppies', href: '/puppies/' },
+        { label: breedNameDisp, href: `/puppies/${breed}/` },
+        { label: title0, href: canonicalPath },
+      ]}
+      bare
+    />
+    <div class="mt-6 grid items-start gap-8 lg:grid-cols-[1.1fr_.9fr]">
+      <div class="clay overflow-hidden bg-[var(--color-surface-card)]">
+        <Image src={hero} alt={`${title0} — ${breedNameDisp} puppy available in Singapore`} widths={[480, 768, 900]} sizes="(max-width:1024px) 100vw, 55vw" class="aspect-[4/3] w-full object-cover" />
+      </div>
+      <div>
+        <p class="text-sm font-bold uppercase tracking-widest text-[var(--color-coral-600)]">{breedNameDisp} · {pup.gender ?? 'Puppy'}</p>
+        <h1 class="mt-2 font-semibold text-[var(--color-cream-900)]" style="font-size: clamp(1.9rem, 4vw, 2.9rem);">{title0}</h1>
+        <p class="mt-2 text-[var(--color-cream-600)]">Puppy ID #{pup.id}{pup.age ? ` · ${pup.age}` : ''}</p>
+
+        <div class="mt-4 flex flex-wrap gap-2">
+          {pup.hdbApproved && <span class="rounded-full bg-[var(--color-mint-100)] px-3 py-1.5 text-xs font-bold text-[var(--color-cream-900)]">✓ HDB Approved</span>}
+          <span class="rounded-full bg-[var(--color-mint-100)] px-3 py-1.5 text-xs font-bold text-[var(--color-cream-900)]">✓ Vaccinated</span>
+          <span class="rounded-full bg-[var(--color-mint-100)] px-3 py-1.5 text-xs font-bold text-[var(--color-cream-900)]">✓ Microchipped</span>
+          <span class="rounded-full bg-[var(--color-peach-100)] px-3 py-1.5 text-xs font-bold text-[var(--color-cream-900)]">Vet health-checked</span>
+        </div>
+
+        <div class="mt-5 flex items-baseline gap-3 border-y-2 border-[var(--color-border)] py-4">
+          <span class="font-semibold text-[var(--color-coral-600)]" style="font-size: clamp(2rem, 5vw, 2.8rem);">{priceStr}</span>
+          <span class="rounded-full bg-[var(--color-mint-100)] px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-[var(--color-cream-900)]">All-in price</span>
+        </div>
+
+        <div class="mt-5 flex flex-col gap-3">
+          <a href={waMsg} data-wa-source={`pup:${pup.id}`} class="clay-btn inline-flex items-center justify-center gap-2 bg-[var(--color-coral-500)] px-6 py-4 text-base font-bold text-white">💬 Enquire on WhatsApp</a>
+          <a href={pup.bookHref ?? waBook} class="clay-btn-outline inline-flex items-center justify-center gap-2 bg-white px-6 py-3.5 text-base font-bold text-[var(--color-cream-800)]">Book a viewing</a>
+        </div>
+        <p class="mt-4 text-sm text-[var(--color-cream-600)]">No hidden fees — vaccination, microchip &amp; licence are already in the price. Completed vet check by our vet.</p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- ABOUT + DETAILS -->
+  <Section tone="tint" treatment="prose" heading={`About ${pup.name ?? `#${pup.id}`}`} kicker={`Meet #${pup.id}`}>
+    <div class="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
+      <div class="max-w-[62ch] text-[1.05rem] leading-relaxed text-[var(--color-cream-800)]">
+        <p>
+          {title0} is a {(pup.color ?? '').toLowerCase()} {breedNameDisp} {genderNoun}{pup.age ? `, around ${pup.age} old` : ''}, ready for a loving Singapore home.
+          {` ${breedNameDisp}s are ${temperament}.`}
+        </p>
+        <p class="mt-4">
+          {pronoun} is vaccinated, dewormed, microchipped and has passed a vet health check before going home.
+          {pup.hdbApproved ? ` ${pronounLc.charAt(0).toUpperCase() + pronounLc.slice(1)} is HDB-approved, so ${pronounLc} transfers into a flat with no separate approval needed.` : ''}
+          {' You are welcome to meet '}{pronounLc}{' at our Balestier shop before you decide — no pressure to adopt.'}
+        </p>
+        <h3 class="mt-7 text-lg font-bold text-[var(--color-cream-900)]">Health &amp; what's included</h3>
+        <ul class="mt-3 grid grid-cols-2 gap-2 text-sm">
+          {included.map((i) => (
+            <li class="flex items-center gap-2 text-[var(--color-cream-800)]"><span class="text-[var(--color-mint-300)] font-black">✓</span> {i}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="clay bg-[var(--color-surface-card)] p-6">
+        <h3 class="text-sm font-bold uppercase tracking-widest text-[var(--color-coral-600)]">This puppy's profile</h3>
+        <dl class="mt-3 divide-y divide-[var(--color-border)]">
+          {spec.map((r) => (
+            <div class="flex items-center justify-between gap-4 py-3">
+              <dt class="text-xs font-bold uppercase tracking-wide text-[var(--color-cream-600)]">{r.k}</dt>
+              <dd class="text-right font-semibold text-[var(--color-cream-900)]" style="font-variant-numeric: tabular-nums;">{r.v}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </Section>
+
+  <!-- FREE GIFT MARQUEE (shared component) -->
+  <StarterKitMarquee />
+
+  <!-- GOOGLE REVIEWS (shared component, per-breed) -->
+  <ReviewSlider slug={breed} heading="What Curious Tails owners say" />
+
+  <!-- OTHER PUPPIES AVAILABLE -->
+  {others.length > 0 && (
+    <Section tone="paper" treatment="cards">
+      <ListingGrid
+        heading="Other Puppies Available Now"
+        headingAccent="Available Now"
+        subhead="More real puppies in our care right now, every price all-in. Tap any pup to see its own page."
+        items={others}
+      />
+    </Section>
+  )}
+
+  <FinalCta breed={breedNameDisp} reserveMessage={`Hi! I'd like to reserve ${pup.name ?? `puppy #${pup.id}`} (ID ${pup.id}).`} browseHref="/available-puppies/" browseLabel="Browse all available puppies" />
+</BaseLayout>

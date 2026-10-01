@@ -22,6 +22,7 @@ interface Item {
   bookHref?: string; // cal.com booking link for this pup; renders a "Book Appointment" button
   waSource?: string; // GA4 wa_source tag (e.g. "pup:2630") for whatsapp_click attribution
   waVariant?: string; // GA4 wa_variant tag for the button-text A/B experiment
+  pageHref?: string; // this puppy's own page (/puppies/<breed>/<id>/); renders a "Learn more" link
 }
 interface Props {
   heading: string;
@@ -174,6 +175,16 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
               </svg>
               {item.meta}
             </a>
+            {item.pageHref && (
+              <a
+                href={item.pageHref}
+                aria-label={`Learn more about ${item.title}`}
+                class="clay-btn-outline clay-press inline-flex w-full items-center justify-center gap-2 whitespace-nowrap bg-white px-5 py-2.5 text-sm font-bold text-[var(--color-coral-600)] transition-transform"
+              >
+                Learn more
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+            )}
             {item.bookHref && (
               <a
                 href={item.bookHref}

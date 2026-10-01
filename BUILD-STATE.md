@@ -78,3 +78,7 @@
 - deployed_build: 1450fe3ebef9 · deployed_at: 2026-09-30T05:08:59Z · branch: main · project: curioustails-sg
 
 - deployed_build: edf63c4aae6d · deployed_at: 2026-10-01T02:09:55Z · branch: main · project: curioustails-sg
+
+- deployed_build: 3f3e4de2f501 · deployed_at: 2026-10-01T12:57:32Z · branch: main · project: curioustails-sg
+
+- deployed_build: 0a24de5cb02d · deployed_at: 2026-10-01T14:32:06Z · branch: main · project: curioustails-sg

@@ -1,6 +1,6 @@
 // Single source of truth for per-breed pricing (SGD, all-in).
 // `low` is the published starting ("from") price shown on cards and in schema;
-// `high` is the top of that breed's range. Update this map only — schema,
+// `high` is the top of that breed's range. Update this map only - schema,
 // breed cards, and aggregate copy all derive from it.
 export const breedPricing = {
   'cavapoo': { low: 3288, high: 5988 },
@@ -62,7 +62,7 @@ export const OVERALL_LOW = Math.min(...lows);   // 3288
 export const OVERALL_HIGH = Math.max(...highs); // 10888
 export const BREED_COUNT = Object.keys(breedPricing).length;
 
-// "3,288" — comma-grouped, no currency symbol or cents.
+// "3,288" - comma-grouped, no currency symbol or cents.
 export function fmtPrice(n: number): string {
   return n.toLocaleString('en-US');
 }

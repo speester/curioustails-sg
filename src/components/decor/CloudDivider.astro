@@ -1,5 +1,5 @@
 ---
-// A clean, continuous scalloped edge between two full-bleed section colors —
+// A clean, continuous scalloped edge between two full-bleed section colors -
 // a seamless "conveyor belt" scroll loop that drifts endlessly in one direction.
 //
 // SEAM-PROOFING (learned the hard way): a divider band between two solid
@@ -12,13 +12,13 @@
 //     against the coloured section is fill-on-fill and can never show through;
 //   • the "light" side is painted as an explicit `--color-surface` (or caller-
 //     supplied `againstColor`) path that OVERSHOOTS every edge, so the seam
-//     against the light section is light-on-light with overlap — no gap.
+//     against the light section is light-on-light with overlap - no gap.
 // Nothing anywhere is left transparent, so the page background is never visible.
 //   • Belt-and-braces: the container also carries `-my-px`, physically OVERLAPPING
 //     both neighbouring sections by 1px so there is no fractional gap between the
 //     block boxes to expose the page background in the first place. (Container-bg
 //     alone only hides the divider's own transparency; it does NOT close a real
-//     gap between two stacked boxes — that gap shows the ROOT background, which is
+//     gap between two stacked boxes - that gap shows the ROOT background, which is
 //     what produced the persistent hairline. The overlap is what actually kills it.)
 interface Props {
   fillClass: string; // Tailwind fill-* class matching the coloured section the divider borders

@@ -12,6 +12,8 @@ import ListingGrid from '../../components/ListingGrid.astro';
 import ValueBundle from '../../components/ValueBundle.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
+import StarterKitMarquee from '../../components/StarterKitMarquee.astro';
+import TestimonialWall from '../../components/TestimonialWall.astro';
 import FAQ from '../../components/FAQ.astro';
 import Schema from '../../components/Schema.astro';
 import ScatterFloat from '../../components/decor/ScatterFloat.astro';
@@ -79,14 +81,14 @@ import yorkshireTerrierCard from '../../assets/yorkshire-terrier/7-blue-and-tan-
 import ExpertQuote from '../../components/ExpertQuote.astro';
 
 // This page targets the breed-comparison query ("dog breeds singapore"), NOT
-// "puppies for sale singapore" — that transactional term belongs to the
+// "puppies for sale singapore" - that transactional term belongs to the
 // homepage alone. Keep the title, H1 and inbound anchor text on the
 // directory/comparison framing so the two pages stop competing for one query.
 const title = `Dog Breeds in Singapore: ${BREED_COUNT} Breeds Compared | Curious Tails`;
 const description =
   `Compare ${BREED_COUNT} dog breeds available in Singapore side by side: HDB-approved status, adult size, shedding, grooming, temperament and the real all-in price of each.`;
 
-// HDB-approved breeds and crosses — safe for flat living (one dog per flat).
+// HDB-approved breeds and crosses - safe for flat living (one dog per flat).
 const hdbBreeds = [
   {
     title: 'Cavapoo', href: '/puppies/cavapoo/', imageSrc: cavapooPortrait, imageAlt: 'Cavapoo puppy, an HDB-approved independent companion breed in Singapore',
@@ -250,7 +252,7 @@ const hdbBreeds = [
   },
 ];
 
-// Not on the HDB-approved list — condos and landed homes only.
+// Not on the HDB-approved list - condos and landed homes only.
 const privateBreeds = [
   {
     title: 'Corgi', href: '/puppies/corgi/', imageSrc: corgiPortrait, imageAlt: 'Corgi puppy, a herding breed for private housing in Singapore (not HDB-approved)',
@@ -344,7 +346,7 @@ const faqItems = [
   {
     question: 'Which breeds does Curious Tails carry?',
     answer:
-      'Forty-eight, with more arriving regularly. The range spans HDB-approved companions like the Cavapoo, Maltipoo, Maltese, Bichon Frise, Pomeranian, Shih Tzu, Pug and Cavalier King Charles Spaniel, through to private-housing breeds like the Corgi, Shiba Inu, French Bulldog, Golden Retriever and Siberian Husky. Prices start from $3,288 all-in and vary by breed, and every price includes the $500+ starter kit*, free delivery and setup*, and a free training lesson*.',
+      'Forty-eight, with more arriving regularly. The range spans HDB-approved companions like the Cavapoo, Maltipoo, Maltese, Bichon Frise, Pomeranian, Shih Tzu, Pug and Cavalier King Charles Spaniel, through to private-housing breeds like the Corgi, Shiba Inu, French Bulldog, Golden Retriever and Siberian Husky. Prices start from $3,288 all-in and vary by breed, and every price includes the $500+ starter kit, free delivery and setup, and a free training lesson.',
   },
   {
     question: 'Which of your breeds are HDB-approved?',
@@ -359,7 +361,7 @@ const faqItems = [
   {
     question: 'Do all breeds cost the same?',
     answer:
-      'No. Each breed has its own published price, starting from $3,288 all-in and rising with breed, coat, colour, and age. Every price still includes the starter kit*, delivery and training, and we quote the exact figure per puppy on WhatsApp.',
+      'No. Each breed has its own published price, starting from $3,288 all-in and rising with breed, coat, colour, and age. Every price still includes the starter kit, delivery and training, and we quote the exact figure per puppy on WhatsApp.',
   },
   {
     question: 'Can you help us choose between breeds?',
@@ -397,9 +399,9 @@ const schemas = [
 
 // Workstream A2.1: this page drew 187 users and zero WhatsApp clicks with only
 // generic CTA chrome on it. A live strip of real, named, priced puppies above
-// the breed grids gives the visitor something specific to ask about — the same
+// the breed grids gives the visitor something specific to ask about - the same
 // mechanism that makes the per-breed pages convert at 13-24%.
-const livePups = livePupCards(8);
+const livePups = livePupCards(Number.MAX_SAFE_INTEGER);
 const liveCount = liveTotal();
 const liveBreedCount = stockedBreeds().length;
 ---
@@ -414,14 +416,14 @@ const liveBreedCount = stockedBreeds().length;
     ctaMessage="Hi! I'm choosing between breeds. Here's my routine and housing type:"
     secondaryCtaLabel="Browse all breeds"
     secondaryCtaHref="#breeds"
-    priceAnchor="Every breed priced from $3,288, kit*, delivery and training included."
+    priceAnchor="Every breed priced from $3,288, kit, delivery and training included."
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
     imageAlt="Puppy breeds Singapore: Cavapoo puppy in a set-up playpen, one of the breeds at Curious Tails"
     imageSrc={heroCavapoo}
     tagLabel={`${BREED_COUNT} breeds`}
-    proofChip="5.0 on Google"
+    proofChip="4.9 on Google"
   >
     <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies/' }]} />
   </Hero>
@@ -461,10 +463,8 @@ const liveBreedCount = stockedBreeds().length;
       <ListingGrid
         heading="Puppies Available Right Now"
         headingAccent="Right Now"
-        subhead={`${liveCount} puppies in our care today across ${liveBreedCount} breeds. Every price is the all-in price, kit*, delivery and first training lesson included. Message us for more photos of any of them.`}
+        subhead={`${liveCount} puppies in our care today across ${liveBreedCount} breeds. Every price is the all-in price, kit, delivery and first training lesson included. Message us for more photos of any of them.`}
         items={livePups}
-        footerCtaLabel={`See all ${liveCount} puppies available now`}
-        footerCtaHref="/available-puppies/"
       />
     </div>
   )}
@@ -492,7 +492,7 @@ const liveBreedCount = stockedBreeds().length;
     stats={[
       { value: String(BREED_COUNT), label: 'breeds, honestly matched' },
       { value: '$3,288', label: 'every breed starts here, all-in' },
-      { value: '$500+', label: 'starter kit with selected puppies*' },
+      { value: '$500+', label: 'starter kit with every puppy' },
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
     ]}
   />
@@ -545,20 +545,20 @@ const liveBreedCount = stockedBreeds().length;
   <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
 
   <ValueBundle
-    eyebrow="Included with selected puppies"
-    heading="What selected puppies come with"
-    headingAccent="selected puppies"
+    eyebrow="Included with every puppy"
+    heading="What every puppy comes with"
+    headingAccent="every puppy"
     subhead="The price on every card is the full price, whichever breed you choose. Details on the transparent pricing page."
     items={[
       {
         icon: 'kit',
-        title: '$500+ Starter Kit*',
+        title: '$500+ Starter Kit',
         body: 'Over 30 items across eight categories, from playpen to toys, delivered with your puppy and explained item by item.',
         highlight: '30+ items',
       },
       {
         icon: 'delivery',
-        title: 'Free Delivery & Setup*',
+        title: 'Free Delivery & Setup',
         body: 'Island-wide, scheduled around you, with the playpen set up before your puppy explores the room.',
         highlight: 'Free',
       },
@@ -602,6 +602,9 @@ const liveBreedCount = stockedBreeds().length;
     </ul>
   </aside>
 
+
+  <StarterKitMarquee />
+  <TestimonialWall />
 
   <FinalCta
     breed="Puppy"

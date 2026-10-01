@@ -1,6 +1,7 @@
 ---
 import { site } from '../data/site';
-import PawPrint from './decor/PawPrint.astro';
+import { Image } from 'astro:assets';
+import logo from '../assets/curious-tails-logo.png';
 import Blob from './decor/Blob.astro';
 // Lean chrome: NAP + hours + legal only. Architecture links live in body
 // content and per-page <aside> blocks, not the footer.
@@ -13,9 +14,7 @@ import Blob from './decor/Blob.astro';
   <div class="relative mx-auto max-w-[1400px] px-5 sm:px-8 py-14 flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
     <div>
       <div class="flex items-center gap-2.5">
-        <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl border-3 border-[var(--color-coral-400)] bg-[var(--color-lilac-700)] text-[var(--color-coral-400)]">
-          <PawPrint class="h-5 w-5" />
-        </span>
+        <Image src={logo} alt={`${site.businessName} logo`} width={80} height={80} class="h-11 w-11 shrink-0" />
         <p class="font-[family-name:var(--font-heading)] text-lg font-semibold text-white">{site.businessName}</p>
       </div>
       <p class="mt-4 text-sm leading-relaxed text-[var(--color-lilac-100)]/85 max-w-[36ch]">
@@ -45,7 +44,6 @@ import Blob from './decor/Blob.astro';
           and then asserts that no legal link sits outside it, so the copyright, the
           licence number and the legal links belong in the same element. */}
       <p data-footer-footnote class="flex flex-wrap items-center gap-x-4 gap-y-1">
-        <span class="basis-full text-sm font-semibold text-[var(--color-lilac-100)]">* For selected puppies only.</span>
         <span>&copy; {new Date().getFullYear()} {site.businessName}. AVS licensed, {site.license.number}.</span>
         <a href="/privacy-policy/" class="inline-flex items-center min-h-11 py-1 hover:text-white">Privacy policy</a>
         <span class="py-1">Balestier Road, Singapore</span>

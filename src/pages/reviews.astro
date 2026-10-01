@@ -64,9 +64,10 @@ const withPhotos = REVIEW_WALL.filter((r) => r.photos.length > 0);
 // (3 columns of ~810px cards), which pushed every CTA on this page past 12,000px. The
 // first dozen carry the argument; the rest stay in the HTML behind a native <details>
 // so they are still crawlable and still one click away, without burying the page.
-const WALL_LEAD = 12;
-const leadPhotos = withPhotos.slice(0, WALL_LEAD);
-const restPhotos = withPhotos.slice(WALL_LEAD);
+// Owner decision 2026-09-28: show ALL photo reviews at once, no "show more"
+// button. leadPhotos carries the whole set; restPhotos stays empty.
+const leadPhotos = withPhotos;
+const restPhotos: typeof withPhotos = [];
 const textOnly = REVIEW_WALL.filter((r) => r.photos.length === 0 && r.quote);
 const photoCount = REVIEW_WALL.reduce((n, r) => n + r.photos.length, 0);
 // The wall shows what we hold; site.reviews.count is the true GBP total and is always
@@ -76,7 +77,7 @@ const held = REVIEW_WALL.length;
 const initials = (name: string) =>
   name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]?.toUpperCase() ?? '').join('');
 
-const livePups = livePupCards(4);
+const livePups = livePupCards(Number.MAX_SAFE_INTEGER);
 const liveCount = liveTotal();
 
 // The three breeds the reviews themselves talk about most, which is also where the
@@ -111,7 +112,7 @@ const jumpLinks = [
   { label: 'FAQ', href: '#faq' },
 ];
 
-const title = 'Curious Tails Reviews | 61 Five-Star Google Reviews';
+const title = `Curious Tails Reviews | ${site.reviews.count} Google Reviews`;
 const description =
   `Read every Google review of Curious Tails in full, verbatim, with the ${photoCount} puppy photos our customers took. ${site.reviews.count} reviews at ${site.reviews.rating} out of 5, AVS licensed.`;
 
@@ -377,7 +378,7 @@ const schemas = [
         },
         {
           h: 'Delivery and playpen setup',
-          p: 'Free home delivery* with the playpen built and the puppy settled before we leave. Reviewers mention it more than the price, which surprised us until we did it a hundred times.',
+          p: 'Free home delivery with the playpen built and the puppy settled before we leave. Reviewers mention it more than the price, which surprised us until we did it a hundred times.',
           href: '/delivery/', cta: 'How delivery works',
         },
         {
@@ -444,7 +445,7 @@ const schemas = [
           ))}
         </ul>
         <div class="mt-8">
-          <a href={site.gbpUrl} target="_blank" rel="noopener" class="clay-btn-outline inline-flex items-center gap-2 bg-white px-6 py-3 text-base font-bold text-[var(--color-coral-600)]">
+          <a href="https://www.google.com/search?kgmid=%2Fg%2F11w_rhg9mv&hl=en-SG&q=Curious+Tails&num=100#mpd=~12778213239298603205/customers/reviews" target="_blank" rel="noopener" class="clay-btn-outline inline-flex items-center gap-2 bg-white px-6 py-3 text-base font-bold text-[var(--color-coral-600)]">
             See all {site.reviews.count} on Google
           </a>
         </div>
@@ -455,12 +456,10 @@ const schemas = [
   {livePups.length > 0 && (
     <div id="available-now" class="scroll-mt-40">
       <ListingGrid
-        heading="The Puppies Those Reviews Were Written About"
-        headingAccent="Those Reviews"
-        subhead={`Same shop, same people, same all-in price. These are the puppies in our care today; ${liveCount} available in total.`}
+        heading="Puppies Available Right Now"
+        headingAccent="Right Now"
+        subhead={`Same shop, same people, same all-in price the reviews above talk about. These are the puppies for sale in our care today; ${liveCount} available in total.`}
         items={livePups}
-        footerCtaLabel={`See all ${liveCount} puppies available now`}
-        footerCtaHref="/available-puppies/"
       />
     </div>
   )}
@@ -489,7 +488,7 @@ const schemas = [
   <FinalCta
     breed="Puppy"
     heading="Come and See If the Reviews Are Right"
-    body="Can't make the trip to Balestier? WhatsApp us for photos and all-in prices of the puppies available today, with free home delivery across Singapore*."
+    body="Can't make the trip to Balestier? WhatsApp us for photos and all-in prices of the puppies available today, with free home delivery across Singapore."
     reserveMessage="Hi! I read your Google reviews. Could you send photos and prices for the puppies you have today?"
     browseHref="/available-puppies/"
     browseLabel="See every puppy available now"

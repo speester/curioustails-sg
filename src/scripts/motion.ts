@@ -1,4 +1,4 @@
-// kit:motion@1.0.0 — vanilla motion kit. Budget: <= 10 KB raw.
+// kit:motion@1.0.0 - vanilla motion kit. Budget: <= 10 KB raw.
 // Rules: entrance on the OUTER wrapper, ambient loop on an INNER element; every handler
 // writes its observable state synchronously so it is assertable without a compositing pane.
 import { bindAutoEvents } from '../lib/track';
@@ -9,7 +9,7 @@ const DEAD_MAN_MS = 2500;
 
 function revealAllNow(): void {
   for (const el of Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'))) {
-    // transition FIRST, then opacity — the fallback must not depend on the transition
+    // transition FIRST, then opacity - the fallback must not depend on the transition
     // that may itself be the thing that stalled.
     el.style.transition = 'none';
     el.style.opacity = '1';

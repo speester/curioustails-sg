@@ -12,9 +12,13 @@ import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
 import AvailablePuppies from '../../components/AvailablePuppies.astro';
+import OverseasPuppies from '../../components/OverseasPuppies.astro';
+import StarterKitMarquee from '../../components/StarterKitMarquee.astro';
+import TestimonialWall from '../../components/TestimonialWall.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
+import ReviewSlider from '../../components/ReviewSlider.astro';
 import FAQ from '../../components/FAQ.astro';
 import Schema from '../../components/Schema.astro';
 import ScatterFloat from '../../components/decor/ScatterFloat.astro';
@@ -60,7 +64,7 @@ const faqItems = [
   {
     question: 'How much does a Jack Russell Terrier cost in Singapore?',
     answer:
-      'Jack Russell prices in Singapore range more widely than most expect: pet-shop pups often sit around $2,000 to $4,500, while some shops quote as high as $7,000 to $9,000. At Curious Tails, Jack Russell Terrier puppies are $3,888 to $5,988, and that price already includes the $500+ starter kit*, free home delivery and setup*, and a free first training lesson* with an AVS-certified trainer.',
+      'Jack Russell prices in Singapore range more widely than most expect: pet-shop pups often sit around $2,000 to $4,500, while some shops quote as high as $7,000 to $9,000. At Curious Tails, Jack Russell Terrier puppies are $3,888 to $5,988, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
   },
   {
     question: 'Is a Jack Russell Terrier HDB-approved?',
@@ -95,7 +99,7 @@ const faqItems = [
   {
     question: 'What happens after I reserve a Jack Russell?',
     answer:
-      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items* before we leave.",
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
   },
 ];
 
@@ -117,7 +121,7 @@ const schemas = [
       name: 'Jack Russell Terrier puppy',
       url: '/puppies/jack-russell-terrier/',
       description:
-        'Jack Russell Terrier puppy from an AVS licensed Singapore pet shop, priced $3,888 to $5,988 with a $500+ starter kit*, free home delivery and setup*, and a free AVS-certified training lesson* included.',
+        'Jack Russell Terrier puppy from an AVS licensed Singapore pet shop, priced $3,888 to $5,988 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: '3888',
       image: imgHero.src,
     },
@@ -149,7 +153,7 @@ const schemas = [
     eyebrow="Licensed by AVS · Jack Russell Terrier in Balestier"
     h1="Jack Russell Terrier Puppies for Sale in Singapore"
     h1Accent="Jack Russell"
-    subhead="Jack Russell prices in Singapore swing widely, from about $2,000 to a quoted $9,000. Ours are $3,888 to $5,988, with the $500+ starter kit*, free home delivery and setup*, and a free first training lesson* already in the price. Read the energy section before you fall for the face."
+    subhead="Jack Russell prices in Singapore swing widely, from about $2,000 to a quoted $9,000. Ours are $3,888 to $5,988, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price. Read the energy section before you fall for the face."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Jack Russell Terrier puppies."
     secondaryCtaLabel="See price & what's included"
@@ -160,7 +164,7 @@ const schemas = [
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved working terrier']}
     imageAlt="White and tan Jack Russell Terrier puppy sitting in a set-up playpen at a Balestier home" imageSrc={imgHero}
     tagLabel="Jack Russell"
-    proofChip="5.0 on Google"
+    proofChip="4.9 on Google"
   >
     <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies/' }, { label: 'Jack Russell Terrier', href: '/puppies/jack-russell-terrier/' }]} />
   </Hero>
@@ -168,13 +172,17 @@ const schemas = [
   <Tabs items={jumpLinks} />
 
   <div id="available" class="scroll-mt-40">
-    <AvailablePuppies breed="jack-russell-terrier" breedName="Jack Russell" />
+    <TestimonialWall />
+    <AvailablePuppies breed="jack-russell-terrier" breedName="Jack Russell" only="available" />
+    <OverseasPuppies breed="jack-russell-terrier" breedName="Jack Russell" />
+    <AvailablePuppies breed="jack-russell-terrier" breedName="Jack Russell" only="placed" />
+    <StarterKitMarquee />
 
     <CaptionedBlock heading="Looking to Buy a Jack Russell in Singapore?" imageAlt="White and tan Jack Russell Terrier puppy portrait, one of the Jack Russell puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Jack Russell puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat type, and a short walkthrough video for the Jack Russell Terrier puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Jack Russell for sale in Singapore here is between $3,888 and $5,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>
-        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Jack Russell puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Jack Russell photos and prices</a>, or meet our Jack Russell puppies at our Balestier pet shop in person, with free home delivery in Singapore* once you reserve.
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available Jack Russell puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Jack Russell photos and prices</a>, or meet our Jack Russell puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
       </p>
     </CaptionedBlock>
   </div>
@@ -217,7 +225,7 @@ const schemas = [
     stats={[
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
       { value: '$3,888', label: 'Jack Russell pricing starts here, all-in' },
-      { value: '$500+', label: 'starter kit* included free' },
+      { value: '$500+', label: 'starter kit included free' },
       { value: '2+', label: 'years in Balestier' },
     ]}
   />
@@ -296,8 +304,8 @@ const schemas = [
           heading: 'Curious Tails',
           items: [
             '$3,888 to $5,988, printed right here',
-            '$500+ starter kit* with 30+ items included',
-            'Free home delivery with the playpen set up before you arrive*',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
           ],
           emphasis: true,
@@ -313,7 +321,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <CaptionedBlock heading="The $500+ Starter Kit Every Jack Russell Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
-    <p>Every Jack Russell leaves us with a starter kit* worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the outdoor category is the main event: the harness and leash will see more kilometres than any other breed's, and the chew toys are load-bearing equipment, not decoration.</p>
+    <p>Every Jack Russell leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the outdoor category is the main event: the harness and leash will see more kilometres than any other breed's, and the chew toys are load-bearing equipment, not decoration.</p>
     <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Jack Russell's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
     <p>See the full 30+ item kit breakdown, category by category.</p>
   </CaptionedBlock>
@@ -347,7 +355,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
   <CaptionedBlock heading="Jack Russell vs Corgi: Two Big Engines, One HDB Answer" imagePosition="none" variant="dark">
     <p>Both are high-energy, big-personality dogs that need real daily exercise, and buyers weighing one often ask about the other. In Singapore the housing rules split them cleanly: the Jack Russell is on the HDB-approved list; the Corgi is not. If you live in a flat and want a genuinely energetic dog, the Jack Russell is the legal answer.</p>
-    <p>Beyond housing: the Corgi is heavier, sheds far more, and herds; the Jack Russell is lighter, faster, and hunts. Both need owners who exercise like they mean it. With us the price, the starter kit, and the aftercare* are identical either way.</p>
+    <p>Beyond housing: the Corgi is heavier, sheds far more, and herds; the Jack Russell is lighter, faster, and hunts. Both need owners who exercise like they mean it. With us the price, the starter kit, and the aftercare are identical either way.</p>
     <p>In private housing and weighing both? See our <a href="/puppies/corgi/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Corgi puppies</a>, or message us your routine and we'll tell you straight.</p>
     <div slot="side" class="clay h-full bg-white/10 p-6 sm:p-8">
       <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Quick comparison</p>
@@ -355,7 +363,7 @@ const schemas = [
         {[
           'Jack Russell: 5 to 8 kg, HDB-approved, hunting drive',
           'Corgi: 9 to 14 kg, private housing only, herding drive',
-          'Same price, same starter kit*, same aftercare either way',
+          'Same price, same starter kit, same aftercare either way',
         ].map((fact) => (
           <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
@@ -443,17 +451,13 @@ const schemas = [
   </div>
 
   <CaptionedBlock heading="Your Jack Russell’s First Week at Home" imageAlt="Jack Russell puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
-    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Jack Russell explores the room, and we walk you through all 30+ starter-kit items* in person. Learn more about how our free home delivery and setup* works.</p>
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Jack Russell explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
     <p>Days 1 to 3: keep it calm and predictable, which for this breed means structured play in short bursts, a fixed feeding routine, and the toilet pads where we placed them. Don't let the puppy leap off furniture while joints are growing, and yes, it will try.</p>
     <p>Days 4 to 7: the routine sticks and the engine warms up. Book your free first lesson with an AVS-certified trainer this week without fail; for this breed early training is the difference between a partner and a project. See what the free AVS-certified training lesson covers.</p>
   </CaptionedBlock>
 
   <div id="reviews" class="scroll-mt-40">
-    <Carousel
-      heading="What Curious Tails Owners Say"
-      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
-      items={testimonialsFor('puppies/jack-russell-terrier')}
-    />
+    <ReviewSlider slug="puppies/jack-russell-terrier" />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
         Read more about Nelson and Kim and how the shop runs, or see all reviews on Google.
@@ -528,16 +532,14 @@ const schemas = [
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
       <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
       <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)*</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
       <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup*</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
       <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
       <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
       <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
-
-
   <FinalCta breed="Jack Russell Terrier" reserveMessage="Hi! I'd like to reserve a Jack Russell Terrier puppy." />
 
   <Schema {schemas} />

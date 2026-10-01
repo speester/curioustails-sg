@@ -7,7 +7,7 @@
 // page shows them one.
 //
 // Neighbours are grouped by what a buyer actually substitutes on: adult size,
-// coat and shedding, and temperament — not by kennel-club group. Order matters;
+// coat and shedding, and temperament - not by kennel-club group. Order matters;
 // the first stocked neighbour is shown first. Anything without an entry falls
 // back to the general pool in `nearestBreeds()`.
 

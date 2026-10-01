@@ -1,4 +1,4 @@
-// kit:middleware@1.0.0 — the ONE place Astro.locals.rhythm is created.
+// kit:middleware@1.0.0 - the ONE place Astro.locals.rhythm is created.
 // Every section component (Hero, Section, MotionBand, Separator) calls claimSlot() or
 // markTone() against this object to decide its tone band and whether a seam is emitted.
 // Without it those components read `undefined.usedVariants` and the build dies on the

@@ -8,7 +8,7 @@ const heroImageUrl = new URL(heroImage.src, site.domain).toString();
 
 // Absolute URL of a page route. Mirrors the trailing slash that BaseLayout puts
 // on the canonical and the sitemap emits, so schema @id/url values identify the
-// same URL Google indexes. Only for routes — asset URLs must not gain a slash.
+// same URL Google indexes. Only for routes - asset URLs must not gain a slash.
 function pageUrl(path: string): string {
   const withSlash = path.endsWith('/') ? path : `${path}/`;
   return new URL(withSlash, site.domain).toString();
@@ -18,13 +18,13 @@ function pageUrl(path: string): string {
 // is the live feed (written by `npm run sync:puppies`); a breed with an empty
 // `available` array has its stock section rendering "recently placed" cards, so
 // claiming InStock there is a structured-data claim the page does not support.
-// Non-breed URLs (no feed entry) fall back to InStock — those are not stock-backed
+// Non-breed URLs (no feed entry) fall back to InStock - those are not stock-backed
 // listings and the feed says nothing about them.
 const puppyFeed = (availablePuppies as { breeds: Record<string, { available: unknown[] }> }).breeds;
 
 function availabilityFor(path: string): string {
   const slug = path.replace(/^\/puppies\//, '').replace(/\/$/, '');
-  // Not a breed page (the path did not change) — the feed says nothing about it.
+  // Not a breed page (the path did not change) - the feed says nothing about it.
   if (slug === path) return 'https://schema.org/InStock';
   // A breed page absent from the feed has no listings at all, same as an empty one.
   const entry = puppyFeed[slug];
@@ -34,7 +34,7 @@ function availabilityFor(path: string): string {
 }
 
 // Strip currency symbols, thousands separators, and prose ("From $3,288") so
-// Offer.price is a bare numeric string — Google rejects anything else and
+// Offer.price is a bare numeric string - Google rejects anything else and
 // flags "Invalid price format". Non-numeric inputs like "Included" become "0".
 function toPriceValue(price: string): string {
   const numeric = price.replace(/[^0-9.]/g, '');
@@ -136,7 +136,7 @@ export function localBusinessSchema() {
     telephone: `+65${site.phone}`,
     email: site.email,
     priceRange: site.priceRange,
-    description: 'AVS-licensed puppy shop in Singapore offering Cavapoo, Maltipoo, Maltese, Mini Dachshund, Corgi, Shiba Inu, Bichonpoo, Bichon Frise, Cavapoochon, Chihuahua, and Cockapoo puppies with starter kit, free delivery*, and training lessons included.',
+    description: 'AVS-licensed puppy shop in Singapore offering Cavapoo, Maltipoo, Maltese, Mini Dachshund, Corgi, Shiba Inu, Bichonpoo, Bichon Frise, Cavapoochon, Chihuahua, and Cockapoo puppies with starter kit, free delivery, and training lessons included.',
     address: {
       '@type': 'PostalAddress',
       streetAddress: site.address.street,
@@ -144,6 +144,15 @@ export function localBusinessSchema() {
       postalCode: site.address.postalCode,
       addressCountry: site.address.country,
     },
+    // Precise storefront coordinates (Balestier Hill Shopping Centre, 2 Balestier
+    // Road), pulled from the Google Maps embed. Helps Google tie the domain to the
+    // verified storefront that surfaces the "Nearby shop" chip in search results.
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 1.3262441,
+      longitude: 103.8410197,
+    },
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=Curious+Tails+Balestier',
     areaServed: {
       '@type': 'City',
       name: 'Singapore',
@@ -354,7 +363,7 @@ export function itemListSchema(items: { name: string; url: string; description?:
   // ItemList makes it a one-item carousel, which is not what Google renders a
   // price snippet from. Sister site puppysingapore.com/corgi/ earns a
   // "$3,688.00 to $5,500.00" rich result on the same query where this site earns
-  // none (SERP pull, "corgi singapore", 2026-08-20) — so single-item pages emit
+  // none (SERP pull, "corgi singapore", 2026-08-20) - so single-item pages emit
   // the Product on its own, and only genuine multi-item pages keep the ItemList.
   if (products.length === 1) {
     return { '@context': 'https://schema.org', ...products[0] };

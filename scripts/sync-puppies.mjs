@@ -31,6 +31,13 @@ const AVAILABLE_ROWS = 33; // top of the sheet = page 1 of the spread site
 const MAX_PLACED = 4;
 const IMG_WIDTH = 800;
 
+// Owner decision 2026-09-29: only puppies physically at "Balestier Area" are
+// shown on curioustails.sg. Choa Chu Kang (and every other location) is dropped
+// from BOTH available and recently-placed.
+const ALLOWED_LOCATIONS = new Set(['balestier area']);
+const locationAllowed = (p) =>
+  !!p.location && ALLOWED_LOCATIONS.has(p.location.trim().toLowerCase());
+
 // Feed breed label (Chinese stripped, lowercased) -> breed page slug.
 // Labels with no page here are reported as unmapped and never rendered.
 const BREED_MAP = {
@@ -106,7 +113,10 @@ const BREED_MAP = {
 // must NOT be mapped here — it goes to the `other` bucket under its own name.
 const CROSS_MAP = {
   'cavapoo x': { slug: 'cavapoo', crossLabel: 'Cavapoo cross' },
-  'poodle x': { slug: 'toy-poodle', crossLabel: 'Poodle cross' },
+  // "Poodle X" in the feed carries the Chinese 可卡贵宾犬 (Cocker + Poodle), i.e. a
+  // Cockapoo, NOT a pure/toy Poodle. Owner confirmed 2026-09-29. Route it to the
+  // Cockapoo page so the listing reads truthfully.
+  'poodle x': { slug: 'cockapoo', crossLabel: 'Cockapoo' },
   'malshi': { slug: 'maltese', crossLabel: 'Maltese x Shih Tzu' },
   'mal-shi': { slug: 'maltese', crossLabel: 'Maltese x Shih Tzu' },
   'malshih': { slug: 'maltese', crossLabel: 'Maltese x Shih Tzu' },
@@ -300,6 +310,12 @@ function normalize(row) {
     location: cell(row, 'Location-') || null,
     origin: cell(row, 'Origin-') || null,
     sizeNote,
+    // Per-puppy short clip (owner fills the sheet's Video- column over time).
+    // Empty until then; the card's video affordance only renders when set.
+    video: cell(row, 'Video-') || null,
+    // The shop's own cal.com booking link for this exact pup, carried straight
+    // from the feed (CalLink-, e.g. cal.com/puppy-singapore/appointment?puppyid=2916).
+    calLink: cell(row, 'CalLink-') || null,
     // The sheet's HDBApproved column is the shop's own transfer-tested answer
     // (a tick means the buyer needs no separate HDB approval to take the pup
     // into an HDB flat). Only a tick counts as yes; a blank is "unknown".
@@ -315,7 +331,12 @@ function normalize(row) {
 const rows = await fetchAllRows();
 await mkdir(ASSET_DIR, { recursive: true });
 
-const pups = rows.map(normalize);
+const allPups = rows.map(normalize);
+// Location gate (owner decision 2026-09-27): drop everything outside Choa Chu
+// Kang / Balestier before any bucketing, so neither available nor recently
+// placed can ever surface an out-of-area puppy.
+const pups = allPups.filter(locationAllowed);
+const droppedByLocation = allPups.length - pups.length;
 const summary = { droppedOverlaid: [], unmapped: new Map(), imageErrors: [] };
 
 const breeds = {}; // slug -> { available: [], recentlyPlaced: [] }
@@ -334,6 +355,8 @@ const toJson = (p, imageFile, { live }) => ({
   sizeNote: p.sizeNote,
   crossLabel: p.crossLabel ?? null,
   hdbApproved: p.hdbApproved ?? null,
+  video: p.video ?? null,
+  bookHref: p.calLink ?? null,
 });
 
 // Stock whose label matches no breed page and is not a nameable cross. It still
@@ -417,6 +440,7 @@ await writeFile(VERDICT_FILE, JSON.stringify(verdicts) + '\n');
 
 // ---- report -----------------------------------------------------------------
 console.log('\n=== sync summary ===');
+console.log(`location filter: kept ${pups.length}, dropped ${droppedByLocation} out-of-area (Choa Chu Kang / Balestier only)`);
 const avail = Object.entries(breeds).filter(([, b]) => b.available.length > 0);
 console.log(`available: ${avail.reduce((n, [, b]) => n + b.available.length, 0)} pups across ${avail.length} breeds`);
 for (const [slug, b] of avail.sort()) console.log(`  ${slug}: ${b.available.length}`);

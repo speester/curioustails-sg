@@ -1,9 +1,12 @@
 ---
 import { fileURLToPath } from 'node:url';
+import ReviewSlider from '../components/ReviewSlider.astro';
 import { updatedFor } from '../lib/page-updated';
 const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import StarterKitMarquee from '../components/StarterKitMarquee.astro';
+import TestimonialWall from '../components/TestimonialWall.astro';
 import ValueBundle from '../components/ValueBundle.astro';
 import ListingGrid from '../components/ListingGrid.astro';
 import DefBox from '../components/DefBox.astro';
@@ -51,7 +54,7 @@ import ExpertQuote from '../components/ExpertQuote.astro';
 
 const title = 'Puppy for Sale Singapore | AVS Licensed | Curious Tails';
 const description =
-  'AVS licensed puppies for sale in Singapore, from $3,288 all-in: Cavapoo, Maltipoo, Corgi and 45 more breeds. $500+ starter kit and free delivery* included.';
+  'AVS licensed puppies for sale in Singapore, from $3,288 all-in: Cavapoo, Maltipoo, Corgi and 45 more breeds. $500+ starter kit and free delivery included.';
 
 const breeds = [
   {
@@ -115,7 +118,7 @@ const breeds = [
 // Google attribute breed queries to the breed pages instead of the homepage).
 // The per-breed bullet points stay OFF the homepage on purpose: cards are
 // teasers (name + price + one line) so the breed pages are the unambiguous
-// ranking target for breed queries — the homepage was soaking ~49% of
+// ranking target for breed queries - the homepage was soaking ~49% of
 // impressions at pos 30 for queries the breed pages should own.
 const pricedBreeds = breeds.map(({ points, ...b }) => ({
   ...b,
@@ -126,7 +129,7 @@ const pricedBreeds = breeds.map(({ points, ...b }) => ({
 // Live inventory teaser for the homepage. Every card's href is a WhatsApp deep
 // link (pupCard), never an internal URL, so this section proves transactional
 // intent for the head term without competing with /puppies/<breed>/ on breed
-// queries — the regression recorded above the pricedBreeds transform.
+// queries - the regression recorded above the pricedBreeds transform.
 // Homepage shows only puppies at the Balestier and Choa Chu Kang locations.
 // The feed spells these inconsistently ("Choa Chu Kang" / "Choa Chu Kang Area").
 const HOME_LOCATIONS = /^(balestier|choa chu kang)\b/i;
@@ -140,7 +143,8 @@ const liveStocked = Object.entries(liveBreeds)
   .sort(([a], [b]) => a.localeCompare(b));
 
 // Round-robin one puppy per breed so the strip reads as range, not nine Cavapoos.
-const HOME_PUP_COUNT = 8;
+// Owner decision 2026-09-29: show EVERY available puppy on the home page, no cap.
+const HOME_PUP_COUNT = Number.MAX_SAFE_INTEGER;
 const homePups: ReturnType<typeof pupCard>[] = [];
 for (let depth = 0; homePups.length < HOME_PUP_COUNT; depth++) {
   const roundAdded = liveStocked.reduce((added, [slug, bucket]) => {
@@ -184,7 +188,7 @@ const faqItems = [
   {
     question: 'How much does a puppy cost in Singapore?',
     answer:
-      'At Curious Tails, puppies published from $3,288 all-in, and that price includes a $500+ starter kit*, free delivery and setup*, and a free first training lesson*. Elsewhere, prices for comparable breeds can run higher once those extras are added separately.',
+      'At Curious Tails, puppies published from $3,288 all-in, and that price includes a $500+ starter kit, free delivery and setup, and a free first training lesson. Elsewhere, prices for comparable breeds can run higher once those extras are added separately.',
   },
   {
     question: 'How do I know if a pet shop is licensed in Singapore?',
@@ -192,7 +196,7 @@ const faqItems = [
       "Search the shop's name or licence number on the AVS public registry. Curious Tails holds AVS pet shop licence AS24J00046. If a seller can't be found there, they aren't licensed, regardless of what they claim.",
   },
   {
-    question: "What's included in your starter kit*?",
+    question: "What's included in your starter kit?",
     answer:
       'Over 30 items across eight categories: a playpen, a carrier, grooming tools, food, outdoor gear, toilet training supplies, oral health care, and toys, worth more than $500 in total. We also walk you through how to use each one.',
   },
@@ -229,7 +233,7 @@ const faqItems = [
   {
     question: 'How much does a puppy typically cost in Singapore?',
     answer:
-      "Expect roughly $3,000 to $8,000 from a licensed shop, depending on the breed. Our puppies start at $3,288 and that is the all-in price: vaccinations, microchipping, deworming, dog licensing, a starter kit* worth over $500, free home delivery and setup*, and a first training lesson* with an AVS Accredited Certified Dog Trainer are already in it. Listings well under $1,500 are usually unlicensed, and the parvovirus treatment that often follows runs $5,000 to $10,000 with no guarantee the puppy survives. If your budget is tighter than that, we set out what it really buys, and the adoption route, on our under-$500 page.",
+      "Expect roughly $3,000 to $8,000 from a licensed shop, depending on the breed. Our puppies start at $3,288 and that is the all-in price: vaccinations, microchipping, deworming, dog licensing, a starter kit worth over $500, free home delivery and setup, and a first training lesson with an AVS Accredited Certified Dog Trainer are already in it. Listings well under $1,500 are usually unlicensed, and the parvovirus treatment that often follows runs $5,000 to $10,000 with no guarantee the puppy survives. If your budget is tighter than that, we set out what it really buys, and the adoption route, on our under-$500 page.",
   },
   {
     question: 'What should I look for in a dog shop in Singapore?',
@@ -266,8 +270,8 @@ const schemas = [
     price: 'Included',
   }),
   serviceSchema({
-    name: 'Free Home Delivery & Setup*',
-    description: 'Free home delivery across Singapore* with playpen, bed, and toys setup included',
+    name: 'Free Home Delivery & Setup',
+    description: 'Free home delivery across Singapore with playpen, bed, and toys setup included',
     price: 'Included',
   }),
   serviceSchema({
@@ -313,22 +317,24 @@ const schemas = [
     eyebrow="AVS Licensed Puppy Shop in Balestier"
     h1="Puppies for Sale in Singapore"
     h1Accent="Sale"
-    subhead="Every puppy comes with a free first training lesson, plus free home delivery and a $500+ starter kit*. Priced honestly, not padded for marketing spend."
+    subhead="Every puppy comes with a free first training lesson, plus free home delivery and a $500+ starter kit. Priced honestly, not padded for marketing spend."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your puppies."
     secondaryCtaLabel="See available puppies & pricing"
     secondaryCtaHref="#puppies"
-    priceAnchor="From $3,288, all-in - starter kit*, home delivery and first training lesson included."
+    priceAnchor="From $3,288, all-in - starter kit, home delivery and first training lesson included."
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
     imageAlt="Cavapoo puppy in a set-up playpen at a Balestier Road home"
     imageSrc={heroCavapoo}
     tagLabel={`${BREED_COUNT} breeds`}
-    proofChip="5.0 on Google"
+    proofChip="4.9 on Google"
   />
 
   <Tabs items={jumpLinks} />
+
+  <TestimonialWall count={24} />
 
   <div id="puppies" class="scroll-mt-40">
     <ListingGrid
@@ -336,32 +342,32 @@ const schemas = [
       headingAccent="Available Right Now"
       subhead={`${liveTotal} puppies in our care today across ${liveBreedCount} breeds, updated ${liveSyncedAt}. Every price shown is the all-in price.`}
       items={homePups}
-      footerCtaLabel={`See all ${liveTotal} puppies available now`}
-      footerCtaHref="/available-puppies/"
     />
   </div>
 
+  <StarterKitMarquee />
+
   <ValueBundle
-    eyebrow="Included with selected puppies"
+    eyebrow="Included with every puppy"
     heading="One honest price. Everything to settle in."
     headingAccent="honest price"
-    subhead="No add-ons quietly billed later. The kit and the delivery* and the first lesson are already in the price you see."
+    subhead="No add-ons quietly billed later. The kit and the delivery and the first lesson are already in the price you see."
     items={[
       {
         icon: 'kit',
-        title: '$500+ Starter Kit*',
+        title: '$500+ Starter Kit',
         body: 'Over 30 items across eight categories - playpen, carrier, grooming, food, outdoor gear, toilet training, oral care and toys. Included, never sold separately.',
         highlight: '30+ items',
       },
       {
         icon: 'delivery',
-        title: 'Free Home Delivery & Setup*',
+        title: 'Free Home Delivery & Setup',
         body: 'We bring your puppy home and set up the playpen, bed and toys before you arrive, scheduled around your own availability.',
         highlight: 'Free',
       },
       {
         icon: 'training',
-        title: 'Free First Training Lesson*',
+        title: 'Free First Training Lesson',
         body: 'Your first lesson with an AVS-Accredited Certified Dog Trainer, built into the price to cover settling in and a potty routine.',
         highlight: 'AVS-certified',
       },
@@ -418,7 +424,7 @@ const schemas = [
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
       { value: '2+', label: 'years in Balestier' },
       { value: '7', label: 'breeds, more added regularly' },
-      { value: '$500+', label: 'starter kit* included free' },
+      { value: '$500+', label: 'starter kit included free' },
     ]}
   />
   <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
@@ -442,10 +448,10 @@ const schemas = [
         {
           heading: 'Curious Tails',
           items: [
-            'From $3,288, starter kit* included',
-            '$500+ worth of starter kit items, no extra cost*',
+            'From $3,288, starter kit included',
+            '$500+ worth of starter kit items, no extra cost',
             'First training lesson free, with an AVS-certified trainer',
-            'Free home delivery*, with the playpen already set up',
+            'Free home delivery, with the playpen already set up',
           ],
           emphasis: true,
         },
@@ -460,8 +466,8 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
 
   <div id="starter-kit" class="scroll-mt-40">
-    <CaptionedBlock heading="What’s Actually Inside the Starter Kit*" imageAlt="Starter kit items including a playpen, carrier, and grooming tools" imageSrc={starterKit} variant="mid">
-      <p>Selected puppies leave Curious Tails with more than 30 items, worth over $500, covering eight categories*: a playpen, a carrier, grooming tools, food, outdoor gear, toilet training supplies, oral health care, and toys. Your puppy is microchipped and vaccinated before going home, so the paperwork and the health side are already settled.</p>
+    <CaptionedBlock heading="What’s Actually Inside the Starter Kit" imageAlt="Starter kit items including a playpen, carrier, and grooming tools" imageSrc={starterKit} variant="mid">
+      <p>Every puppy leaves Curious Tails with more than 30 items, worth over $500, covering eight categories: a playpen, a carrier, grooming tools, food, outdoor gear, toilet training supplies, oral health care, and toys. Your puppy is microchipped and vaccinated before going home, so the paperwork and the health side are already settled.</p>
       <p>We don't just hand over a box. On delivery day, Nelson or Kim goes through each item with you: how to use it, and how it fits into caring for your puppy day to day. We'll talk you through the first night home, the potty routine, and what's normal in the first week, so you're not guessing at 11pm.</p>
       <p>That's deliberate. Most of the questions a new owner would normally have to ask later are already answered before we leave your home. For the item-by-item detail, see what's inside our puppy starter kit.</p>
     </CaptionedBlock>
@@ -560,7 +566,7 @@ const schemas = [
         'Place a deposit to secure your puppy.',
         "We board your puppy for free, lodging and food covered, until you're ready.",
         'Delivery is scheduled around your availability, usually mornings or evenings.',
-        'On delivery day, we set up the playpen, walk through the starter kit*, and book your free training lesson.',
+        'On delivery day, we set up the playpen, walk through the starter kit, and book your free training lesson.',
       ].map((step, i) => (
         <li data-reveal style={`--i:${i}`} class="clay clay-hover bg-[var(--color-surface-card)] p-5">
           <span class="font-[family-name:var(--font-heading)] font-bold text-[var(--color-coral-500)]" style="font-size: clamp(2rem, 3vw, 2.75rem); line-height: 1;">
@@ -591,36 +597,7 @@ const schemas = [
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
   <div id="reviews" class="scroll-mt-40">
-    <Carousel
-      heading="What Our Customers Say"
-      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
-      items={[
-        {
-          quote:
-            "Couldn't recommend Curious Tails in Balestier enough after bringing home our Cavapoo. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
-          name: 'Andrew Mak',
-          meta: 'Google review',
-        },
-        {
-          quote:
-            'Very nice and friendly owners! All the puppies are so cute. Well and detailed explanation on how to take care of the puppy. All essential items are provided with purchase of the puppy.',
-          name: 'YihShy',
-          meta: 'Google review',
-        },
-        {
-          quote:
-            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
-          name: 'Michi',
-          meta: 'Google review',
-        },
-        {
-          quote:
-            'We visited a few places before Curious Tails, but their Balestier store stood out immediately. Nelson was professional and reassuring, attentive and genuinely helpful, and made sure we felt confident every step of the way. The full vaccination was already covered, which showed how much they care. They gave us ample time to interact with the puppies before we decided. If you want peace of mind buying a puppy, this is the place.',
-          name: 'Jaden Chua',
-          meta: 'Google review',
-        },
-      ]}
-    />
+    <ReviewSlider slug="index" heading="What Our Customers Say" />
   </div>
 
   <CaptionedBlock heading="Our Care and Support Promise" imageAlt="Nelson and Kim checking on a puppy at the shop" imageSrc={careSupport} imagePosition="left" variant="card">
@@ -630,14 +607,14 @@ const schemas = [
   </CaptionedBlock>
 
   <ComparisonSplit
-    heading="What’s Included With Selected Puppies for Sale at Curious Tails"
+    heading="What’s Included With Every Puppy for Sale at Curious Tails"
     mode="table"
-    tableHeaders={['Included with selected puppies', 'What it means for you']}
+    tableHeaders={['Included with every puppy', 'What it means for you']}
     rows={[
       { label: 'Puppy, health-checked and vaccinated', values: ['Following the Singapore Vaccination Guidelines for Dogs and Cats'] },
-      { label: 'Starter kit*, 30+ items', values: ['Worth $500+, covering playpen, carrier, grooming, food, outdoor gear, toilet training, oral health, and toys'] },
+      { label: 'Starter kit, 30+ items', values: ['Worth $500+, covering playpen, carrier, grooming, food, outdoor gear, toilet training, oral health, and toys'] },
       { label: 'Free boarding after deposit', values: ["Lodging and food covered until you're ready"] },
-      { label: 'Free home delivery and setup*', values: ['Scheduled around your own availability'] },
+      { label: 'Free home delivery and setup', values: ['Scheduled around your own availability'] },
       { label: 'Free first training lesson', values: ['With an AVS-Accredited Certified Dog Trainer'] },
       { label: 'Ongoing customer support', values: ['Free, plus a 5-day nurse-back safety net if your puppy falls sick'] },
     ]}
@@ -785,7 +762,7 @@ const schemas = [
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)*</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
       <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
       <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
       <li><a href="/blog/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Puppy guides on the blog</a></li>

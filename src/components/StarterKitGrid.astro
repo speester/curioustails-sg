@@ -1,0 +1,55 @@
+---
+// Browsable grid of every starter-kit item, so buyers can learn about each free
+// gift (photo + name + individual retail price + category). Data from
+// src/data/starter-kit-items.json (npm run sync:starter-kit).
+import { Image } from 'astro:assets';
+import kit from '../data/starter-kit-items.json';
+
+const photos = import.meta.glob<ImageMetadata>('../assets/starter-kit/*.webp', {
+  eager: true,
+  import: 'default',
+});
+const imgFor = (file: string) => photos[`../assets/starter-kit/${file}`];
+
+const items = (kit.items as { title: string; price: number | null; category: string | null; image: string }[])
+  .filter((i) => imgFor(i.image));
+const total = items.reduce((n, i) => n + (i.price ?? 0), 0);
+---
+
+<section id="every-item" class="mx-auto max-w-[1400px] scroll-mt-40 px-5 sm:px-8 py-16">
+  <div class="max-w-[65ch]">
+    <h2 class="font-semibold text-[var(--color-cream-900)]" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">
+      Every <span class="text-[var(--color-coral-500)]">Free Gift</span> in the Kit
+    </h2>
+    <p class="mt-2 text-base text-[var(--color-cream-600)]">
+      All {items.length} items, priced individually - ${total} of gear at pet-shop retail, yours free with every Curious Tails puppy. Tap through to see exactly what comes home with your pup.
+    </p>
+  </div>
+
+  <ul class="mt-9 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+    {items.map((item, i) => (
+      <li>
+        <div class={`kit-card group clay flex h-full flex-col overflow-hidden bg-[var(--color-surface-card)] p-4 ${i % 2 === 0 ? '-rotate-1' : 'rotate-1'}`}>
+          <div class="relative overflow-hidden rounded-[1.15rem] bg-gradient-to-br from-white to-[var(--color-cream-100)] p-3">
+            <Image src={imgFor(item.image)} alt={item.title} width={360} height={360} loading="lazy" class="mx-auto h-[210px] w-full object-contain transition-transform duration-500 ease-out group-hover:scale-105" />
+            {item.price != null && (
+              <span class="absolute right-3 top-3 inline-flex items-center rounded-full bg-[var(--color-coral-500)] px-2.5 py-1 text-xs font-bold text-white shadow-[0_3px_0_0_var(--color-coral-700)]">${item.price}</span>
+            )}
+          </div>
+          <div class="flex flex-1 flex-col px-1 pt-4">
+            {item.category && (
+              <span class="inline-flex w-fit rounded-full bg-[var(--color-mint-100)] px-2.5 py-0.5 text-[0.7rem] font-bold uppercase tracking-wide text-[var(--color-lilac-700)]">{item.category}</span>
+            )}
+            <p class="mt-2 text-lg font-semibold leading-snug text-[var(--color-cream-900)]">{item.title}</p>
+            <p class="mt-auto pt-2 text-sm font-bold text-[var(--color-coral-600)]">Included <span class="font-semibold text-[var(--color-cream-600)]">free with your puppy</span></p>
+          </div>
+        </div>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .kit-card { transition: transform .25s ease, box-shadow .25s ease; }
+  .kit-card:hover { transform: translateY(-4px) rotate(0deg); }
+</style>

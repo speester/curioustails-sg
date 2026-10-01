@@ -30,7 +30,7 @@ export const site = {
   priceRange: "$3,288–$10,888",
   primaryCta: "WhatsApp us",
   license: {
-    // AVS pet shop licence — the number the public verifies on the AVS registry.
+    // AVS pet shop licence - the number the public verifies on the AVS registry.
     // `number` is the primary displayed licence (AVS). ACRA is the separate
     // company-registration id, kept for legal/footer use, not the AVS licence.
     number: "AS24J00046",
@@ -40,8 +40,8 @@ export const site = {
       "https://avs.nparks.gov.sg/outreach/resources/public-registry-of-avs-licensed-pet-shops/",
   },
   reviews: {
-    count: 61,
-    rating: 5.0,
+    count: 65,
+    rating: 4.9,
   },
   ga4MeasurementId: "G-S1WGGDQKQ4",
 } as const;

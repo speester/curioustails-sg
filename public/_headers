@@ -25,7 +25,7 @@
   # stop injected inline script. To close it: move those blocks to external files under
   # /_astro/ and drop 'unsafe-inline' here — do it as one change and re-test, never by
   # deleting 'unsafe-inline' and hoping.
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; form-action 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://i.ytimg.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://drive.google.com; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; form-action 'self'
 
 # HTML is revalidated every time: the edge may hold it, but a redeploy must be visible
 # immediately. `max-age=0, must-revalidate` still serves from cache on a 304, so this

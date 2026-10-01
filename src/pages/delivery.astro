@@ -1,5 +1,6 @@
 ---
 import { fileURLToPath } from 'node:url';
+import ReviewSlider from '../components/ReviewSlider.astro';
 import { updatedFor } from '../lib/page-updated';
 const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -48,17 +49,17 @@ const faqItems = [
   {
     question: 'Is delivery really free, island-wide?',
     answer:
-      'Yes. Home delivery is free anywhere in Singapore with selected puppies, and it includes the playpen setup and the starter-kit walkthrough. It is all inside the price, from $3,288 all-in, with no delivery surcharge for any district.',
+      'Yes. Home delivery is free anywhere in Singapore with every puppy, and it includes the playpen setup and the starter-kit walkthrough. It is all inside the price, from $3,288 all-in, with no delivery surcharge for any district.',
   },
   {
     question: 'How long do the delivery and setup take?',
     answer:
-      'Plan for about an hour. Setup comes first, so your puppy walks into a ready space, then we go through the 30+ starter-kit items with you*. It runs longer if you have questions, and questions are the point of us being there.',
+      'Plan for about an hour. Setup comes first, so your puppy walks into a ready space, then we go through the 30+ starter-kit items with you. It runs longer if you have questions, and questions are the point of us being there.',
   },
   {
     question: 'Can I collect my puppy from the shop instead?',
     answer:
-      'Of course. Collection from our Balestier shop works too; you still take the full starter kit home*, and we run the same item-by-item walkthrough at the shop before you leave.',
+      'Of course. Collection from our Balestier shop works too; you still take the full starter kit home, and we run the same item-by-item walkthrough at the shop before you leave.',
   },
   {
     question: 'How long can you board my puppy after the deposit?',
@@ -84,7 +85,7 @@ const schemas = [
     path: '/delivery/',
     title,
     description,
-    aboutName: 'Puppy home delivery and setup*',
+    aboutName: 'Puppy home delivery and setup',
     aboutAlternateName: 'puppy delivery Singapore',
     datePublished: '2026-07-06',
     dateModified: lastUpdated,
@@ -101,10 +102,10 @@ const schemas = [
 
 <BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/delivery" ogImage="/assets/delivery/og-delivery.jpg">
   <Hero
-    eyebrow="Included with selected puppies"
-    h1="Free Home Delivery*, Playpen Setup Included"
+    eyebrow="Included with every puppy"
+    h1="Free Home Delivery, Playpen Setup Included"
     h1Accent="Free"
-    subhead="Most shops hand you a carrier at the counter. We deliver your puppy home free, anywhere in Singapore, set up the playpen before your puppy explores the room, and walk you through all 30+ starter-kit items* before we leave."
+    subhead="Most shops hand you a carrier at the counter. We deliver your puppy home free, anywhere in Singapore, set up the playpen before your puppy explores the room, and walk you through all 30+ starter-kit items before we leave."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your puppies and how home delivery works."
     secondaryCtaLabel="See how delivery day runs"
@@ -116,7 +117,7 @@ const schemas = [
     imageAlt="Puppy home delivery Singapore: carrier with an apricot Cavapoo arriving at an HDB doorway on delivery day"
     imageSrc={heroArrival}
     tagLabel="Island-wide"
-    proofChip="5.0 on Google"
+    proofChip="4.9 on Google"
   >
     <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Delivery', href: '/delivery/' }]} />
   </Hero>
@@ -138,8 +139,8 @@ const schemas = [
           {[
             'Free, island-wide, no district surcharge',
             'Scheduled around you, usually mornings or evenings',
-            'Playpen set up before your puppy explores*',
-            'All 30+ kit items explained in person*',
+            'Playpen set up before your puppy explores',
+            'All 30+ kit items explained in person',
             'Delivered by the owners, not a courier',
           ].map((fact) => (
             <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
@@ -159,7 +160,7 @@ const schemas = [
     heading="Handover the way it should be"
     stats={[
       { value: 'Free', label: 'delivery, anywhere in Singapore' },
-      { value: '~1 hr', label: 'setup plus full kit walkthrough*' },
+      { value: '~1 hr', label: 'setup plus full kit walkthrough' },
       { value: '30+', label: 'items explained before we leave' },
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
     ]}
@@ -177,13 +178,13 @@ const schemas = [
         { label: '1. Scheduling', values: ['We fix a slot around your availability, usually a morning or an evening, never around ours'] },
         { label: '2. The ride', values: ['Your puppy travels in a secure carrier; short, calm, and air-conditioned'] },
         { label: '3. Setup first', values: ['Playpen assembled and placed, bed in, water filled, pads down, before your puppy is let out to explore'] },
-        { label: '4. The walkthrough', values: ['All 30+ starter-kit items explained*: feeding amounts, pad placement, grooming basics, harness fit'] },
+        { label: '4. The walkthrough', values: ['All 30+ starter-kit items explained: feeding amounts, pad placement, grooming basics, harness fit'] },
         { label: '5. Before we leave', values: ['Health records handed over, your free training lesson slot booked, and our WhatsApp confirmed on your phone'] },
       ]}
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        The kit* itself is its own story: see everything inside the 30+ item starter kit, and how the free AVS-certified training lesson slots into week one.
+        The kit itself is its own story: see everything inside the 30+ item starter kit, and how the free AVS-certified training lesson slots into week one.
       </p>
     </div>
 
@@ -246,30 +247,7 @@ const schemas = [
   </div>
 
   <div id="reviews" class="scroll-mt-40">
-    <Carousel
-      heading="What Families Say About the Handover"
-      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
-      items={[
-        {
-          quote:
-            "Had such a wonderful experience bringing home our new furry family member from Curious Tails in Balestier. Honestly, Nelson and Kim couldn't have been more helpful and answered every single question we had, which made the whole thing stress-free. Our pup was clean, well-socialised, and full of energy when we brought it home. The puppy came home healthy and vet-checked, which gave us real peace of mind. A truly lovely experience from start to finish, thank you!",
-          name: 'Damon Fong',
-          meta: 'Google review',
-        },
-        {
-          quote:
-            'Had a really good experience getting our new puppy! The seller provided very clear instructions on feeding, care, and daily routine, which made the transition much easier for us. Our puppy is healthy, active, and very well taken care of. Really appreciate the patience and guidance throughout the process. Highly recommended!',
-          name: 'Michi',
-          meta: 'Google review',
-        },
-        {
-          quote:
-            "Couldn't recommend Curious Tails in Balestier enough after bringing home our Cavapoo. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
-          name: 'Andrew Mak',
-          meta: 'Google review, Cavapoo owner',
-        },
-      ]}
-    />
+    <ReviewSlider slug="delivery" heading="What Families Say About the Handover" />
   </div>
 
   <div id="faq" class="scroll-mt-40">
@@ -285,7 +263,7 @@ const schemas = [
   <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)*</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
       <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
       <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
       <li><a href="/first-time-owners/puppy-care-101/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Puppy care 101</a></li>

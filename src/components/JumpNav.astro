@@ -1,5 +1,5 @@
 ---
-// kit:JumpNav@1.0.0 — "On this page". Never a bare <p> of links.
+// kit:JumpNav@1.0.0 - "On this page". Never a bare <p> of links.
 interface Props { headings: { id: string; label: string }[]; label?: string; }
 const { headings, label = 'On this page' } = Astro.props as Props;
 if (!headings?.length) throw new Error('[JumpNav] `headings` is required - pass the brief\'s jump_links.');

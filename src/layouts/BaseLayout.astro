@@ -25,7 +25,7 @@ interface Props {
 
 const { title, description, canonicalPath = '/', noindex = false, ogImage, updated } = Astro.props;
 // The build emits directory-style routes and the host 308s /path to /path/, so the
-// canonical must carry the trailing slash too — otherwise it points at a redirect
+// canonical must carry the trailing slash too - otherwise it points at a redirect
 // and Google discards it in favour of its own pick.
 const canonicalPathname = canonicalPath.endsWith('/') ? canonicalPath : `${canonicalPath}/`;
 const canonicalURL = new URL(canonicalPathname, site.domain);
@@ -44,6 +44,7 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="/curious-tails-icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="canonical" href={canonicalURL} />
   {noindex && <meta name="robots" content="noindex, nofollow" />}
 
@@ -97,6 +98,9 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
             // nearest section id, which is enough to tell chrome CTAs apart.
             const section = link.closest('[id]');
             const puppy = link.getAttribute('data-wa-source') || '';
+            // wa_variant powers the button-text A/B experiment (src/data/wa-experiment.ts).
+            // Register it as a GA4 event-scoped custom dimension to segment CVR by variant.
+            const waVariant = link.getAttribute('data-wa-variant') || '';
             gtag('event', 'whatsapp_click', {
               link_url: href,
               link_text: (link.textContent || '').trim().slice(0, 100),
@@ -104,6 +108,7 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
                 location.pathname,
                 puppy || (section ? '#' + section.id : ''),
               ].filter(Boolean).join(' '),
+              ...(waVariant ? { wa_variant: waVariant } : {}),
             });
           } else if (href.startsWith('mailto:')) {
             gtag('event', 'mailto_click', {
@@ -184,7 +189,7 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
     }
 
     // Bigger "section" entrance: every other top-level section grows/fades in as
-    // a whole, on top of its own internal [data-reveal] item stagger — gives the
+    // a whole, on top of its own internal [data-reveal] item stagger - gives the
     // page a stronger sense of moving between distinct scenes while scrolling.
     if (!reducedMotion) {
       const topSections = Array.from(

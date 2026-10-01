@@ -12,9 +12,13 @@ import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
 import AvailablePuppies from '../../components/AvailablePuppies.astro';
+import OverseasPuppies from '../../components/OverseasPuppies.astro';
+import StarterKitMarquee from '../../components/StarterKitMarquee.astro';
+import TestimonialWall from '../../components/TestimonialWall.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import Carousel from '../../components/Carousel.astro';
+import ReviewSlider from '../../components/ReviewSlider.astro';
 import FAQ from '../../components/FAQ.astro';
 import AnswerCapsule from '../../components/AnswerCapsule.astro';
 import Schema from '../../components/Schema.astro';
@@ -54,7 +58,7 @@ const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
 const title = `Cavapoo Puppy for Sale Singapore | $${fmtPrice(price.low)} All-In`;
 const description =
-  `Cavapoo puppy Singapore from $${fmtPrice(price.low)} all-in (${monthStamp}), AVS licensed, HDB-approved. $500+ starter kit, free delivery* and training lesson included.`;
+  `Cavapoo puppy Singapore from $${fmtPrice(price.low)} all-in (${monthStamp}), AVS licensed, HDB-approved. $500+ starter kit, free delivery and training lesson included.`;
 
 const jumpLinks = [
   { label: 'Puppies', href: '#available' },
@@ -71,7 +75,7 @@ const faqItems = [
   {
     question: 'How much does a Cavapoo cost in Singapore?',
     answer:
-      'The Cavapoo price in Singapore typically runs $4,300 to $6,500 at established shops. At Curious Tails, Cavapoo puppies are $3,288 to $5,988, and that price already includes the $500+ starter kit*, free home delivery and setup*, and a free first training lesson* with an AVS-certified trainer.',
+      'The Cavapoo price in Singapore typically runs $4,300 to $6,500 at established shops. At Curious Tails, Cavapoo puppies are $3,288 to $5,988, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
   },
   {
     question: 'Can I keep a Cavapoo in an HDB flat?',
@@ -91,12 +95,12 @@ const faqItems = [
   {
     question: 'How much grooming does a Cavapoo need?',
     answer:
-      "Brush the coat 3 to 4 times a week to prevent matting, and book professional grooming every 6 to 8 weeks. Singapore's humidity speeds up matting and makes weekly ear checks worthwhile, since those floppy ears trap moisture. The brush and grooming tools are already in your starter kit*.",
+      "Brush the coat 3 to 4 times a week to prevent matting, and book professional grooming every 6 to 8 weeks. Singapore's humidity speeds up matting and makes weekly ear checks worthwhile, since those floppy ears trap moisture. The brush and grooming tools are already in your starter kit.",
   },
   {
     question: 'What happens after I reserve a Cavapoo?',
     answer:
-      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, usually mornings or evenings, and we set up the playpen and walk you through all 30+ starter-kit items* before we leave.",
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, usually mornings or evenings, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
   },
   {
     question: 'How do I check that a puppy seller is licensed?',
@@ -123,7 +127,7 @@ const schemas = [
       name: 'Cavapoo puppy',
       url: '/puppies/cavapoo/',
       description:
-        'Cavapoo puppy from an AVS licensed Singapore pet shop, priced $3,288 to $5,988 with a $500+ starter kit*, free home delivery and setup*, and a free AVS-certified training lesson* included.',
+        'Cavapoo puppy from an AVS licensed Singapore pet shop, priced $3,288 to $5,988 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
       price: String(price.low),
       priceHigh: String(price.high),
       image: heroCavapoo.src,
@@ -156,7 +160,7 @@ const schemas = [
     eyebrow="Cavapoo, sold under an AVS licence"
     h1="Cavapoo Puppies for Sale in Singapore"
     h1Accent="Cavapoo"
-    subhead="The Cavapoo price in Singapore usually runs $4,300 to $6,500. Ours are $3,288 to $5,988, with the $500+ starter kit*, free home delivery and setup*, and a free first training lesson* already in the price."
+    subhead="The Cavapoo price in Singapore usually runs $4,300 to $6,500. Ours are $3,288 to $5,988, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Cavapoo puppies."
     secondaryCtaLabel="See price & what's included"
@@ -168,7 +172,7 @@ const schemas = [
     imageAlt="Cavapoo puppy with a wavy apricot coat sitting in a Balestier home playpen"
     imageSrc={heroCavapoo}
     tagLabel="Cavapoo"
-    proofChip="5.0 on Google"
+    proofChip="4.9 on Google"
   >
     <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies/' }, { label: 'Cavapoo', href: '/puppies/cavapoo/' }]} />
   </Hero>
@@ -177,12 +181,16 @@ const schemas = [
 
   <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
     <AnswerCapsule>
-      <p>{`Cavapoo puppies in Singapore cost ${priceRange} at Curious Tails as of ${monthStamp}. The Cavapoo is a Cavalier King Charles Spaniel and Poodle cross, HDB-approved, low-shedding, and 5 to 8 kg grown. The price includes the $500+ starter kit*, free home delivery and setup*, and a first training lesson*.`}</p>
+      <p>{`Cavapoo puppies in Singapore cost ${priceRange} at Curious Tails as of ${monthStamp}. The Cavapoo is a Cavalier King Charles Spaniel and Poodle cross, HDB-approved, low-shedding, and 5 to 8 kg grown. The price includes the $500+ starter kit, free home delivery and setup, and a first training lesson.`}</p>
     </AnswerCapsule>
   </div>
 
   <div id="available" class="scroll-mt-40">
-    <AvailablePuppies breed="cavapoo" breedName="Cavapoo" />
+    <TestimonialWall />
+    <AvailablePuppies breed="cavapoo" breedName="Cavapoo" only="available" />
+    <OverseasPuppies breed="cavapoo" breedName="Cavapoo" />
+    <AvailablePuppies breed="cavapoo" breedName="Cavapoo" only="placed" />
+    <StarterKitMarquee />
 
     <CaptionedBlock heading="Looking for a Cavapoo for Sale in Singapore?" imageAlt="Cavapoo puppy portrait, one of the Cavapoo puppies available in Singapore" imageSrc={availablePortrait} variant="mid">
       <p>Our litters arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. Message us and we'll send photos, gender, age, and a short walkthrough video for the Cavapoo puppies available now.</p>
@@ -231,7 +239,7 @@ const schemas = [
     stats={[
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
       { value: '$3,288', label: 'Cavapoo pricing starts here, all-in' },
-      { value: '$500+', label: 'starter kit* included free' },
+      { value: '$500+', label: 'starter kit included free' },
       { value: '2+', label: 'years in Balestier' },
     ]}
   />
@@ -279,7 +287,7 @@ const schemas = [
     <ComparisonSplit
       heading={`Cavapoo Price in Singapore (${monthStamp}): What You'll Pay and What's Included`}
       headingAccent="Price"
-      subhead={`How much is a Cavapoo in Singapore? As of ${monthStamp}, established shops charge $4,300 to $6,500. At Curious Tails a Cavapoo is ${priceRange}, all-in - starter kit*, delivery and first training lesson included.`}
+      subhead={`How much is a Cavapoo in Singapore? As of ${monthStamp}, established shops charge $4,300 to $6,500. At Curious Tails a Cavapoo is ${priceRange}, all-in - starter kit, delivery and first training lesson included.`}
       mode="split"
       columns={[
         {
@@ -296,8 +304,8 @@ const schemas = [
           heading: 'Curious Tails',
           items: [
             '$3,288 to $5,988, printed right here',
-            '$500+ starter kit* with 30+ items included',
-            'Free home delivery with the playpen set up before you arrive*',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer',
             'Free boarding after deposit until you are ready',
           ],
@@ -317,7 +325,7 @@ const schemas = [
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
   <CaptionedBlock heading="The $500+ Starter Kit Every Cavapoo Goes Home With" imageAlt="Starter kit for a Cavapoo puppy with playpen, carrier, grooming tools and food" imageSrc={starterKit} variant="mid">
-    <p>Every Cavapoo leaves us with a starter kit* worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For a small, coat-heavy cross like a Cavapoo, the grooming brush and the playpen do the heaviest lifting in the first month.</p>
+    <p>Every Cavapoo leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For a small, coat-heavy cross like a Cavapoo, the grooming brush and the playpen do the heaviest lifting in the first month.</p>
     <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Cavapoo's daily care. Most of the questions new owners would otherwise ask at 11pm are answered before we leave your home.</p>
     <p>See everything inside the starter kit, item by item.</p>
   </CaptionedBlock>
@@ -421,7 +429,7 @@ const schemas = [
 
   <CaptionedBlock heading="Cavapoo Grooming and Coat Care in Our Humid Climate" imageAlt="Cavapoo puppy being brushed with grooming tools from the starter kit" imageSrc={groomingBrush} variant="card">
     <p>Brush 3 to 4 times a week; that wavy, low-shedding coat mats faster in Singapore's humidity than overseas care guides suggest. Book professional grooming every 6 to 8 weeks to keep the coat manageable and nails in check.</p>
-    <p>Those soft floppy ears trap moisture here, so make a quick weekly ear check part of the routine; it's the cheapest ear-infection prevention there is. The brush and grooming tools you need for the first months are already in the starter kit*.</p>
+    <p>Those soft floppy ears trap moisture here, so make a quick weekly ear check part of the routine; it's the cheapest ear-infection prevention there is. The brush and grooming tools you need for the first months are already in the starter kit.</p>
   </CaptionedBlock>
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" againstColor="var(--color-surface-card)" />
@@ -460,18 +468,14 @@ const schemas = [
 
   <div id="first-week" class="scroll-mt-40">
     <CaptionedBlock heading="Your Cavapoo’s First Week at Home" imageAlt="Playpen set up and ready before a Cavapoo puppy arrives home for its first week" imageSrc={playpenReady} imagePosition="left">
-      <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Cavapoo explores the room, and we walk you through all 30+ starter-kit items* in person. Learn more about how our free home delivery and setup* works.</p>
+      <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Cavapoo explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
       <p>Days 1 to 3: keep it calm. Same food, fixed feeding times, toilet pads where we placed them, and short gentle play. Some night whimpering is normal adjustment, not distress.</p>
       <p>Days 4 to 7: the routine starts to stick. This is the right window to book your free first lesson with an AVS-certified trainer; see what the free training lesson covers. And for anything in between, you WhatsApp us; most questions are already answered in the walkthrough, but the ones that aren't get a real reply.</p>
     </CaptionedBlock>
   </div>
 
   <div id="reviews" class="scroll-mt-40">
-    <Carousel
-      heading="What Cavapoo Owners Say About Us"
-      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
-      items={testimonialsFor('puppies/cavapoo')}
-    />
+    <ReviewSlider slug="puppies/cavapoo" />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
         Read more about Nelson and Kim and how the shop runs, or see all reviews on Google.
@@ -546,18 +550,16 @@ const schemas = [
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
       <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
       <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)*</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
       <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
       <li><a href="/first-time-owners/breed-selector/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Breed selector quiz</a></li>
       <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
-      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup*</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
       <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
       <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
       <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
     </ul>
   </aside>
-
-
   <FinalCta breed="Cavapoo" reserveMessage="Hi! I'd like to reserve a Cavapoo puppy." />
 
   <Schema {schemas} />

@@ -391,7 +391,7 @@ export const REVIEW_WALL: WallReview[] = [
   },
   {
     id: "Ci9DQUlRQUNvZENodHljRjlvT2poMUxUWnhlSE5FUTFaTE56UnhOVEJRZEU5QmNtYxAB",
-    quote: "Had such a wonderful experience at Curious Tails! From the moment I stepped in, Kim and Nelson were incredibly warm, patient, and genuinely passionate about what they do. They took the time to walk me through everything and made sure I felt confident and informed every step of the way.\n\nThe puppies were well taken care of — clean, active, and clearly loved. I really appreciated the transparency with health checks and all the details provided, which gave me a lot of peace of mind.\n\nWhat stood out the most was the aftercare support — you can tell they truly care about both the pets and the owners, not just making a sale.\n\nI got my furkid from them on the very day in 2025, and she has brought so much joy into my life. I’m really glad I chose Curious Tails.\n\nHighly recommend Curious Tails to anyone looking for a trustworthy and caring pet shop. 🐶💖",
+    quote: "Had such a wonderful experience at Curious Tails! From the moment I stepped in, Kim and Nelson were incredibly warm, patient, and genuinely passionate about what they do. They took the time to walk me through everything and made sure I felt confident and informed every step of the way.\n\nThe puppies were well taken care of - clean, active, and clearly loved. I really appreciated the transparency with health checks and all the details provided, which gave me a lot of peace of mind.\n\nWhat stood out the most was the aftercare support - you can tell they truly care about both the pets and the owners, not just making a sale.\n\nI got my furkid from them on the very day in 2025, and she has brought so much joy into my life. I’m really glad I chose Curious Tails.\n\nHighly recommend Curious Tails to anyone looking for a trustworthy and caring pet shop. 🐶💖",
     name: "Jenn Tan",
     rating: 5,
     timeAgo: "4 months ago",
@@ -595,7 +595,7 @@ export const REVIEW_WALL: WallReview[] = [
   },
   {
     id: "Ci9DQUlRQUNvZENodHljRjlvT2twVVZVTkVTaTFxZFhka1owaGxZMEV0Wm14clUzYxAB",
-    quote: "I had an absolutely wonderful experience with this pet shop and highly recommend them to anyone looking to welcome a new puppy into their home.\n\nFrom the start, their pricing was very reasonable and transparent, which gave me confidence right away. What truly impressed me was their level of service—they even arranged for the puppy to be delivered directly to my home at no extra charge, which made the whole process so convenient and stress-free.\n\nThey went above and beyond by helping to handle the licence transfer and patiently guiding me through the pet ownership course requirements. As a new owner, this kind of support made a huge difference and gave me peace of mind.\n\nOn top of that, they provided a generous starter kit that included a full set of food and essential accessories for my puppy—everything I needed to get started immediately. They also covered the full vaccination, which shows how much they genuinely care about the well-being of their animals.\n\nOverall, their professionalism, care, and dedication really stood out. You can tell they are not just selling pets—they truly want both the puppy and the owner to have the best possible start together.",
+    quote: "I had an absolutely wonderful experience with this pet shop and highly recommend them to anyone looking to welcome a new puppy into their home.\n\nFrom the start, their pricing was very reasonable and transparent, which gave me confidence right away. What truly impressed me was their level of service-they even arranged for the puppy to be delivered directly to my home at no extra charge, which made the whole process so convenient and stress-free.\n\nThey went above and beyond by helping to handle the licence transfer and patiently guiding me through the pet ownership course requirements. As a new owner, this kind of support made a huge difference and gave me peace of mind.\n\nOn top of that, they provided a generous starter kit that included a full set of food and essential accessories for my puppy-everything I needed to get started immediately. They also covered the full vaccination, which shows how much they genuinely care about the well-being of their animals.\n\nOverall, their professionalism, care, and dedication really stood out. You can tell they are not just selling pets-they truly want both the puppy and the owner to have the best possible start together.",
     name: "ash lee",
     rating: 5,
     timeAgo: "4 months ago",
@@ -694,3 +694,24 @@ export const REVIEW_WALL: WallReview[] = [
 /** Reviews that carry at least one real customer photo. */
 export const REVIEWS_WITH_PHOTOS = REVIEW_WALL.filter((r) => r.photos.length > 0);
 
+
+/** Deterministic, evenly spread selection of photo-carrying reviews for a slug,
+ *  so each breed page shows a stable, varied slice of the photo wall. */
+export function reviewsWithPhotosFor(slug: string, n = 8): WallReview[] {
+  const pool = REVIEWS_WITH_PHOTOS;
+  const total = pool.length;
+  if (total === 0) return [];
+  let h = 0;
+  for (let i = 0; i < slug.length; i++) h = (h * 31 + slug.charCodeAt(i)) >>> 0;
+  const start = h % total;
+  const stride = Math.max(1, Math.floor(total / Math.max(1, n)));
+  const out: WallReview[] = [];
+  const seen = new Set<string>();
+  for (let i = 0; out.length < Math.min(n, total); i++) {
+    const r = pool[(start + i * stride + (i % stride)) % total];
+    if (seen.has(r.id)) continue;
+    seen.add(r.id);
+    out.push(r);
+  }
+  return out;
+}

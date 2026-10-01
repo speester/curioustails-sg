@@ -1,0 +1,82 @@
+---
+// Real customer handover photos (families collecting their puppy from Curious
+// Tails). Infinite auto-scrolling, full-bleed rail - used on the home page,
+// every breed page and the puppies hub. No Section wrapper so it runs
+// edge-to-edge with no auto section-divider.
+import { Image } from 'astro:assets';
+
+interface Props {
+  subhead?: string;
+  count?: number;
+}
+const {
+  subhead = 'Real families collecting their puppy from us in Balestier. Every photo is a Curious Tails home, not a stock image.',
+  count = 24,
+} = Astro.props;
+
+const photos = Object.values(
+  import.meta.glob<ImageMetadata>('../assets/testimonials/*.webp', { eager: true, import: 'default' }),
+);
+const total = photos.length;
+const n = Math.min(count, total);
+const step = n > 0 ? total / n : 1;
+const picks = Array.from({ length: n }, (_, i) => photos[Math.floor(i * step)]).filter(Boolean);
+const track = [...picks, ...picks];
+---
+
+<section class="w-full overflow-hidden bg-[var(--color-peach-100)] py-14 sm:py-20" data-tone="tint" data-treatment="rail">
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
+    <div class="max-w-[65ch]">
+      <h2 class="font-semibold text-[var(--color-cream-900)]" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">
+        Happy Curious Tails <span class="text-[var(--color-coral-500)]">Families</span>
+      </h2>
+      {subhead && <p class="mt-2 text-base text-[var(--color-cream-600)]">{subhead}</p>}
+    </div>
+  </div>
+
+  <div class="ct-fam-marquee mt-10" aria-label="Photos of Curious Tails customers with their puppies">
+    <ul class="ct-fam-marquee__track">
+      {track.map((img, i) => (
+        <li class={`ct-fam-marquee__card ${i % 2 === 0 ? '-rotate-1' : 'rotate-1'}`} aria-hidden={i >= picks.length ? 'true' : undefined}>
+          <div class="clay overflow-hidden bg-[var(--color-surface-card)] p-2.5">
+            <Image src={img} alt="A Curious Tails customer with their new puppy in Singapore" width={260} height={260} loading="lazy" class="h-[240px] w-[240px] rounded-[1rem] object-cover" />
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="mx-auto mt-6 max-w-[1400px] px-5 sm:px-8">
+    <p class="text-sm font-semibold text-[var(--color-cream-600)]">
+      <a href="/reviews/" class="text-[var(--color-coral-600)] underline underline-offset-2">Read the full reviews and see more families →</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .ct-fam-marquee {
+    position: relative;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+  }
+  .ct-fam-marquee__track {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    padding-inline: 1rem;
+    padding-block: 0.75rem 2rem;
+    animation: ct-fam-scroll 80s linear infinite;
+  }
+  .ct-fam-marquee:hover .ct-fam-marquee__track,
+  .ct-fam-marquee:focus-within .ct-fam-marquee__track { animation-play-state: paused; }
+  .ct-fam-marquee__card { flex: 0 0 auto; }
+  @keyframes ct-fam-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ct-fam-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+    .ct-fam-marquee__track { animation: none; }
+  }
+</style>

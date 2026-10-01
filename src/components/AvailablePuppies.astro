@@ -13,15 +13,20 @@ import { pupCard, livePupCards, stockedBreeds, type BreedBucket } from '../lib/p
 import { nearestBreeds } from '../data/breed-neighbours';
 import { breedName as displayBreedName } from '../data/breed-names';
 
-// "Maltipoo, Cockapoo and Cavapoo" — an Oxford-comma-free English list.
+// "Maltipoo, Cockapoo and Cavapoo" - an Oxford-comma-free English list.
 const listNames = (names: string[]) =>
   names.length <= 1 ? (names[0] ?? '') : `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}`;
 
 interface Props {
   breed: string; // page slug, e.g. "mini-dachshund"
   breedName: string; // display name, e.g. "Mini Dachshund"
+  // Render one half only, so a breed page can slot other sections between the
+  // "Available" grid and the "Recently Placed" grid. Omit to render both.
+  only?: 'available' | 'placed';
 }
-const { breed, breedName } = Astro.props;
+const { breed, breedName, only } = Astro.props;
+const showAvailable = only !== 'placed'; // available grid + no-stock fallback/CTA
+const showPlaced = only !== 'available'; // recently-placed grid
 
 const entry = (data.breeds as Record<string, BreedBucket>)[breed];
 const available = entry?.available ?? [];
@@ -42,7 +47,7 @@ const availableItems = available.map((p) => {
 const placedItems = placed.map((p) => pupCard(p, breedName, 'placed'));
 
 // Workstream A2.4: with no stock, this page used to end in an availability CTA
-// that converted 0%. Show real puppies of the nearest breeds instead — someone
+// that converted 0%. Show real puppies of the nearest breeds instead - someone
 // who came for a Toy Poodle will look at a Maltipoo, but only if they can see
 // one. The waitlist ask (AvailabilityCta) still follows; a dead end does not
 // convert, a waitlist does.
@@ -52,7 +57,7 @@ const nearestNames = nearest.map((slug) => displayBreedName(slug));
 ---
 
 {
-  hasStock && (
+  showAvailable && hasStock && (
     <ListingGrid
       heading={`Available ${breedName} Puppies`}
       headingAccent="Available"
@@ -63,7 +68,7 @@ const nearestNames = nearest.map((slug) => displayBreedName(slug));
 }
 
 {
-  placedItems.length > 0 && (
+  showPlaced && placedItems.length > 0 && (
     <ListingGrid
       heading={`Recently Placed ${breedName} Puppies`}
       headingAccent="Recently Placed"
@@ -78,7 +83,7 @@ const nearestNames = nearest.map((slug) => displayBreedName(slug));
 }
 
 {
-  nearestItems.length > 0 && (
+  showAvailable && nearestItems.length > 0 && (
     <ListingGrid
       heading={`No ${breedName}s In Today. These Are The Closest`}
       headingAccent="The Closest"
@@ -90,4 +95,4 @@ const nearestNames = nearest.map((slug) => displayBreedName(slug));
   )
 }
 
-{!hasStock && <AvailabilityCta breedName={breedName} standalone={placedItems.length === 0 && nearestItems.length === 0} />}
+{showAvailable && !hasStock && <AvailabilityCta breedName={breedName} standalone={placedItems.length === 0 && nearestItems.length === 0} />}

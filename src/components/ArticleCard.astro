@@ -31,6 +31,9 @@ const asset = slashTolerant(assetMap as Record<string, any>, route);
 // instead - a card with no picture still moves a reader and still moves authority.
 const src = asset?.feature;
 const d = (dims as Record<string, { width: number; height: number }>)[src] ?? { width: 640, height: 480 };
+// SEO titles carry a " | Curious Tails" suffix for the browser tab; a card is not a tab,
+// so show the clean headline (everything before the first pipe).
+const displayTitle = title.split('|')[0].trim() || title;
 ---
 <a class="article-card" href={route} data-card>
   {src && <span class="article-card__media">
@@ -42,21 +45,24 @@ const d = (dims as Record<string, { width: number; height: number }>)[src] ?? { 
   </span>}
   <span class="article-card__body">
     {kickerLabel && <span class="article-card__kicker">{kickerLabel}</span>}
-    <span class="article-card__title">{title}</span>
+    <span class="article-card__title">{displayTitle}</span>
     {blurb && <span class="article-card__blurb">{blurb}</span>}
-    <span class="article-card__arrow" aria-hidden="true">-&gt;</span>
+    <span class="article-card__arrow" aria-hidden="true">Read more -&gt;</span>
   </span>
 </a>
 <style>
-  .article-card { display: grid; grid-template-rows: auto 1fr; text-decoration: none; color: inherit; border: 1px solid var(--border-soft); border-radius: var(--radius-md); overflow: hidden; background: var(--surface-card); transition: box-shadow .25s ease, transform .25s ease; }
-  .article-card:hover, .article-card:focus-visible { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .article-card { display: grid; grid-template-rows: auto 1fr; text-decoration: none; color: inherit;
+    border: 2px solid var(--color-cream-200); border-radius: 1.25rem; overflow: hidden;
+    background: var(--color-surface-card); box-shadow: 0 4px 0 0 var(--color-cream-200);
+    transition: box-shadow .25s ease, transform .25s ease; }
+  .article-card:hover, .article-card:focus-visible { box-shadow: 0 8px 22px rgba(0,0,0,0.10); transform: translateY(-3px); }
   .article-card__media img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .35s ease; }
   .article-card:hover .article-card__media img { transform: scale(1.06); }
-  .article-card__body { display: grid; gap: .35rem; padding: 1rem; }
-  .article-card__kicker { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-kicker); }
-  .article-card__title { font-family: var(--font-display); font-size: var(--text-lg); }
-  .article-card__blurb { color: var(--ink-soft); font-size: var(--text-sm); }
-  .article-card__arrow { justify-self: end; transition: transform .25s ease; }
+  .article-card__body { display: grid; gap: .5rem; padding: 1.25rem; }
+  .article-card__kicker { font-size: 0.75rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; color: var(--color-coral-600); }
+  .article-card__title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 600; line-height: 1.25; color: var(--color-cream-900); }
+  .article-card__blurb { color: var(--color-cream-600); font-size: 0.9rem; }
+  .article-card__arrow { justify-self: start; margin-top: .35rem; font-size: 0.85rem; font-weight: 700; color: var(--color-coral-600); transition: transform .25s ease; }
   .article-card:hover .article-card__arrow { transform: translateX(4px); }
   @media (prefers-reduced-motion: reduce) { .article-card, .article-card__media img, .article-card__arrow { transition: none; } }
 </style>

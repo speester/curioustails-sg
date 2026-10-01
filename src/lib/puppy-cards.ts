@@ -2,6 +2,7 @@
 // written by `npm run sync:puppies`). Used by the per-breed AvailablePuppies
 // section and by the site-wide /available-puppies/ page.
 import { whatsappLink } from '../data/site';
+import { activeWaVariant } from '../data/wa-experiment';
 
 export interface Pup {
   id: number | string;
@@ -18,10 +19,16 @@ export interface Pup {
   // on the base breed's page. It must reach the card, so the listing never
   // presents a cross as the pure breed.
   crossLabel?: string | null;
-  // true when the shop's sheet ticks HDBApproved for this pup — the breed
+  // true when the shop's sheet ticks HDBApproved for this pup - the breed
   // transfers into an HDB flat with no separate HDB approval needed. null =
   // not stated; never render a claim from a blank.
   hdbApproved?: boolean | null;
+  // Per-puppy short clip URL (feed Video- column). Empty until the shop fills
+  // it in; when set, the card shows a play badge that opens a video lightbox.
+  video?: string | null;
+  // The shop's cal.com booking link for this exact pup (feed CalLink-), used by
+  // the "Book Appointment" button under available cards.
+  bookHref?: string | null;
 }
 
 export interface BreedBucket {
@@ -73,6 +80,8 @@ export function pupCard(
     price: p.price ?? undefined,
     gender: p.gender ?? undefined,
     age: p.age ?? undefined,
+    location: p.location ?? undefined,
+    video: p.video ?? undefined,
     points: points.length > 0 ? points : undefined,
     // Identifies the exact pup in GA4 `wa_source`, so the WhatsApp inbox can be
     // reconciled against the card that produced the enquiry (Workstream A4).
@@ -90,7 +99,10 @@ export function pupCard(
           // "WhatsApp for photos" rendered 142px and fits one line in a quarter-width
           // card, so 142px is the proven ceiling. This label is 138px. It also feeds the
           // aria-label as "{meta}: {title}, $price all-in", which reads correctly.
-          meta: 'Ask about this puppy',
+          // A/B experiment: the label rotates on a fixed cadence and the variant
+          // id is stamped on the GA4 whatsapp_click event via `waVariant`.
+          meta: activeWaVariant().text,
+          waVariant: activeWaVariant().id,
           href: whatsappLink(
             `Hi! I'd like more photos and the price for ${p.name ?? `puppy #${p.id}`}, the ${[
               p.color?.toLowerCase(),
@@ -99,6 +111,8 @@ export function pupCard(
               .filter(Boolean)
               .join(' ')} ${p.crossLabel ?? breedName} puppy (ID ${p.id}).`,
           ),
+          // Secondary CTA: the shop's cal.com booking link for this exact pup.
+          bookHref: p.bookHref ?? undefined,
         }
       : {
           tag: 'Recently placed',

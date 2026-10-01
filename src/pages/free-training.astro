@@ -1,5 +1,6 @@
 ---
 import { fileURLToPath } from 'node:url';
+import ReviewSlider from '../components/ReviewSlider.astro';
 import { updatedFor } from '../lib/page-updated';
 const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -111,7 +112,7 @@ const schemas = [
 
 <BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/free-training" ogImage="/assets/free-training/og-free-training.jpg">
   <Hero
-    eyebrow="Included with selected puppies"
+    eyebrow="Included with every puppy"
     h1="Your Free First Dog Training Lesson, AVS-Certified"
     h1Accent="Free"
     subhead="Training schools sell packages. We include the first lesson with every puppy: an AVS-Accredited Certified Dog Trainer, booked into your puppy's first week home, covering the settling-in and potty routine a new owner actually needs."
@@ -119,14 +120,14 @@ const schemas = [
     ctaMessage="Hi! I'd like to ask about your puppies and the free training lesson."
     secondaryCtaLabel="What the lesson covers"
     secondaryCtaHref="#covers"
-    priceAnchor="Free with selected puppies. No add-on fee."
+    priceAnchor="Free with every puppy. No add-on fee."
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
     imageAlt="Free puppy training lesson Singapore: trainer guiding an apricot Cavapoo into a sit with a treat lure at home"
     imageSrc={heroTraining}
     tagLabel="AVS-certified"
-    proofChip="5.0 on Google"
+    proofChip="4.9 on Google"
   >
     <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Free Training', href: '/free-training/' }]} />
   </Hero>
@@ -171,7 +172,7 @@ const schemas = [
   <StatStrip
     heading="Training that starts before the problems do"
     stats={[
-      { value: 'Free', label: 'first lesson with selected puppies' },
+      { value: 'Free', label: 'first lesson with every puppy' },
       { value: 'Week 1', label: 'when we book it for you' },
       { value: '3–16', label: 'weeks: the socialisation window' },
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
@@ -203,7 +204,7 @@ const schemas = [
 
   <BannerRibbon
     heading="Ask about our puppies and the free lesson"
-    body="Message us for current availability. Every puppy's price includes the lesson, the $500+ starter kit*, and free home delivery with setup*."
+    body="Message us for current availability. Every puppy's price includes the lesson, the $500+ starter kit, and free home delivery with setup."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! Could you share current puppy availability? I'd also like to know about the free training lesson."
     variant="dark"
@@ -225,7 +226,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        The lesson slots around free home delivery and setup*, and the full cost picture is on the transparent puppy pricing page: from $3,288 all-in, lesson included.
+        The lesson slots around free home delivery and setup, and the full cost picture is on the transparent puppy pricing page: from $3,288 all-in, lesson included.
       </p>
     </div>
   </div>
@@ -260,11 +261,7 @@ const schemas = [
   </div>
 
   <div id="reviews" class="scroll-mt-40">
-    <Carousel
-      heading="What Owners Say About the Guidance"
-      subhead={`${site.reviews.count} Google reviews, ${site.reviews.rating.toFixed(1)} average, and counting.`}
-      items={testimonialsFor('free-training')}
-    />
+    <ReviewSlider slug="free-training" heading="What Owners Say About the Guidance" />
   </div>
 
   <div id="faq" class="scroll-mt-40">
@@ -281,7 +278,7 @@ const schemas = [
     <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
       <li><a href="/first-time-owners/puppy-care-101/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Puppy care 101</a></li>
-      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup*</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
       <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
     </ul>
   </aside>
@@ -290,7 +287,7 @@ const schemas = [
   <FinalCta
     breed="Puppy"
     heading="Meet the Puppies Behind the Free Lesson"
-    body="Can't make the trip to Balestier? WhatsApp us for current puppies and prices; the lesson, kit*, and delivery are already included."
+    body="Can't make the trip to Balestier? WhatsApp us for current puppies and prices; the lesson, kit, and delivery are already included."
     reserveMessage="Hi! I'd like to see your current puppies. I understand the training lesson is included."
   />
 

@@ -1,12 +1,13 @@
 ---
 import { site, whatsappLink } from '../data/site';
-import PawPrint from './decor/PawPrint.astro';
+import { Image } from 'astro:assets';
+import logo from '../assets/curious-tails-logo.png';
 
 // Lean chrome: logo + four money links + the blog + CTA. The site's architecture
 // is carried by contextual body links (Root-Seed-Node contract), not the nav.
 const nav = [
   { label: 'Available Puppies', href: '/available-puppies/' },
-  { label: 'Our Puppies', href: '/puppies/' },
+  { label: 'Breeds', href: '/puppies/' },
   { label: 'Pricing', href: '/pricing/' },
   { label: 'Starter Kit', href: '/starter-kit/' },
   { label: 'Blog', href: '/blog/' },
@@ -28,9 +29,8 @@ const pillActive = 'bg-[var(--color-coral-100)] text-[var(--color-coral-600)]';
 <header data-site-header class="sticky top-0 z-sticky bg-[var(--color-surface)]/90 backdrop-blur-sm">
   <div class="mx-auto max-w-[1400px] px-5 sm:px-8 flex items-center justify-between h-20 py-3">
     <a href="/" class="flex items-center gap-2.5 group shrink-0">
-      <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border-3 border-[var(--color-coral-600)] bg-[var(--color-coral-100)] text-[var(--color-coral-600)] shadow-[0_4px_0_0_var(--color-coral-600)] transition-transform group-hover:-rotate-6">
-        <PawPrint class="h-6 w-6" />
-      </span>
+      <Image src={logo} alt={`${site.businessName} logo`} width={88} height={88} class="h-12 w-12 shrink-0 transition-transform group-hover:-rotate-6" />
+
       <span class="font-[family-name:var(--font-heading)] text-xl font-semibold text-[var(--color-cream-900)]">
         {site.businessName}
       </span>

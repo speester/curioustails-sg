@@ -1,9 +1,9 @@
-// offers.ts — THE SINGLE PRICE SOURCE, in machine-readable form (golden rule "One price
+// offers.ts - THE SINGLE PRICE SOURCE, in machine-readable form (golden rule "One price
 // source"; Checkpoint 1 item 6 locks the numbers).
 //
-// WHY THIS FILE EXISTS (2026-09-02): the pipeline had a whole price apparatus —
+// WHY THIS FILE EXISTS (2026-09-02): the pipeline had a whole price apparatus -
 // MONETIZATION: productized-services, a price locked at Checkpoint 1, and
-// `python scripts/refresh_prices.py --check` failing any figure older than 90 days — and
+// `python scripts/refresh_prices.py --check` failing any figure older than 90 days - and
 // then shipped every one of those prices as TEXT ONLY. No price, currency or availability
 // reached structured data, so the money pages were ineligible for the one rich result they
 // actually qualify for. A price now enters the site ONCE, here, and leaves twice: rendered
@@ -13,12 +13,12 @@
 //
 // STAMP RULE: every entry carries `sourceHref` and a "read <D Month YYYY>" note, in the
 // exact spelling refresh_prices.py greps for. A price with no readable source is a price
-// the owner confirmed — say so in `note` and leave sourceHref out; refresh_prices.py only
+// the owner confirmed - say so in `note` and leave sourceHref out; refresh_prices.py only
 // re-reads what is stamped.
 //
 // A DELIBERATE SILENCE IS A VALID ENTRY: when the owner publishes no number, the page says
 // "contact us" and this registry carries no row for that route. Never invent a placeholder
-// — an invented price is a false claim in machine-readable form, which is the worst kind.
+// - an invented price is a false claim in machine-readable form, which is the worst kind.
 
 import type { OfferInput, ProductInput, ServiceInput } from '../lib/schema';
 

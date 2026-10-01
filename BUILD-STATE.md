@@ -58,3 +58,21 @@
 - deployed_build: ae05c284f474 · deployed_at: 2026-09-25T04:53:27Z · branch: main · project: curioustails-sg
 
 - deployed_build: 6f57109c3851 · deployed_at: 2026-09-25T05:49:54Z · branch: main · project: curioustails-sg
+
+- deployed_build: 6f57109c3851 · deployed_at: 2026-09-25T05:51:47Z · branch: main · project: curioustails-sg
+
+- deployed_build: 2b028641a975 · deployed_at: 2026-09-28T08:06:23Z · branch: main · project: curioustails-sg
+
+- deployed_build: 46db7d8bdf0b · deployed_at: 2026-09-29T06:11:57Z · branch: main · project: curioustails-sg
+
+- deployed_build: 702237872301 · deployed_at: 2026-09-29T14:15:30Z · branch: main · project: curioustails-sg
+
+- deployed_build: f19548913a41 · deployed_at: 2026-09-30T02:52:51Z · branch: main · project: curioustails-sg
+
+- deployed_build: 1dd289ca7190 · deployed_at: 2026-09-30T03:41:31Z · branch: main · project: curioustails-sg
+
+- deployed_build: 1f021e100a0f · deployed_at: 2026-09-30T04:00:31Z · branch: main · project: curioustails-sg
+
+- deployed_build: dee83824f549 · deployed_at: 2026-09-30T04:47:17Z · branch: main · project: curioustails-sg
+
+- deployed_build: 1450fe3ebef9 · deployed_at: 2026-09-30T05:08:59Z · branch: main · project: curioustails-sg

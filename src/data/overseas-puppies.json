@@ -1,10 +1,24 @@
 {
-  "syncedAt": "2026-09-30T04:45:47.760Z",
+  "syncedAt": "2026-10-01T02:07:33.213Z",
   "breeds": {
+    "beagle": [
+      {
+        "id": "os-59701d7d",
+        "listingId": "76641",
+        "breedLabel": "Beagle",
+        "crossLabel": null,
+        "gender": "Both",
+        "age": "8 weeks",
+        "canFly": false,
+        "price": null,
+        "deposit": null,
+        "image": "os-59701d7d.webp"
+      }
+    ],
     "border-collie": [
       {
         "id": "os-8b777ae0",
-        "listingId": null,
+        "listingId": "74317",
         "breedLabel": "Border Collie x Sausage Dog",
         "crossLabel": "Border Collie x Sausage Dog",
         "gender": "Both",
@@ -16,7 +30,7 @@
       },
       {
         "id": "os-6c152beb",
-        "listingId": null,
+        "listingId": "44008",
         "breedLabel": "Border Collie x Kelpie",
         "crossLabel": "Border Collie x Kelpie",
         "gender": "Both",
@@ -27,22 +41,22 @@
         "image": "os-6c152beb.webp"
       },
       {
-        "id": "os-4401a366",
-        "listingId": null,
+        "id": "os-a9451884",
+        "listingId": "43524",
         "breedLabel": "Border Collie",
         "crossLabel": null,
-        "gender": "Male",
-        "age": "2 months",
-        "canFly": false,
+        "gender": "Both",
+        "age": null,
+        "canFly": null,
         "price": null,
         "deposit": null,
-        "image": "os-4401a366.webp"
+        "image": "os-a9451884.webp"
       }
     ],
     "cavapoo": [
       {
         "id": "os-ceb9e485",
-        "listingId": null,
+        "listingId": "57083",
         "breedLabel": "Cavoodle x Pomeranian",
         "crossLabel": "Cavoodle x Pomeranian",
         "gender": "Both",
@@ -53,32 +67,8 @@
         "image": "os-ceb9e485.webp"
       },
       {
-        "id": "os-5bc0daf2",
-        "listingId": null,
-        "breedLabel": "Cavoodle",
-        "crossLabel": null,
-        "gender": "Both",
-        "age": "2 months",
-        "canFly": false,
-        "price": 6000,
-        "deposit": 3000,
-        "image": "os-5bc0daf2.webp"
-      },
-      {
-        "id": "os-b7c8a310",
-        "listingId": null,
-        "breedLabel": "Cavoodle",
-        "crossLabel": null,
-        "gender": "Both",
-        "age": "2 months",
-        "canFly": false,
-        "price": 6000,
-        "deposit": 3000,
-        "image": "os-b7c8a310.webp"
-      },
-      {
         "id": "os-cdfb767b",
-        "listingId": null,
+        "listingId": "12205",
         "breedLabel": "Cavoodle",
         "crossLabel": null,
         "gender": "Female",
@@ -90,7 +80,7 @@
       },
       {
         "id": "os-22bf52ad",
-        "listingId": null,
+        "listingId": "63956",
         "breedLabel": "Cavoodle",
         "crossLabel": null,
         "gender": null,
@@ -102,7 +92,7 @@
       },
       {
         "id": "os-00fc350d",
-        "listingId": null,
+        "listingId": "77098",
         "breedLabel": "Cavoodle",
         "crossLabel": null,
         "gender": "Both",
@@ -114,7 +104,7 @@
       },
       {
         "id": "os-78c80080",
-        "listingId": null,
+        "listingId": "11573",
         "breedLabel": "Cavoodle",
         "crossLabel": null,
         "gender": "Female",
@@ -127,20 +117,8 @@
     ],
     "chihuahua": [
       {
-        "id": "os-18a3756b",
-        "listingId": null,
-        "breedLabel": "Chihuahua",
-        "crossLabel": null,
-        "gender": "Both",
-        "age": null,
-        "canFly": null,
-        "price": 4600,
-        "deposit": 2300,
-        "image": "os-18a3756b.webp"
-      },
-      {
         "id": "os-8b5770d4",
-        "listingId": null,
+        "listingId": "33155",
         "breedLabel": "Chihuahua",
         "crossLabel": null,
         "gender": "Female",
@@ -154,7 +132,7 @@
     "cockapoo": [
       {
         "id": "os-18d38967",
-        "listingId": null,
+        "listingId": "74453",
         "breedLabel": "Spoodle",
         "crossLabel": null,
         "gender": "Female",
@@ -166,7 +144,7 @@
       },
       {
         "id": "os-311f0298",
-        "listingId": null,
+        "listingId": "62341",
         "breedLabel": "Spoodle",
         "crossLabel": null,
         "gender": "Male",
@@ -180,7 +158,7 @@
     "cocker-spaniel": [
       {
         "id": "os-a21091c4",
-        "listingId": null,
+        "listingId": "76418",
         "breedLabel": "Cocker Spaniel",
         "crossLabel": null,
         "gender": "Both",
@@ -189,24 +167,12 @@
         "price": 6700,
         "deposit": 3350,
         "image": null
-      },
-      {
-        "id": "os-b6dadc85",
-        "listingId": null,
-        "breedLabel": "Cocker Spaniel",
-        "crossLabel": null,
-        "gender": "Female",
-        "age": "5 weeks",
-        "canFly": false,
-        "price": null,
-        "deposit": null,
-        "image": "os-b6dadc85.webp"
       }
     ],
     "french-bulldog": [
       {
         "id": "os-ed20d82b",
-        "listingId": null,
+        "listingId": "14073",
         "breedLabel": "French Bulldog",
         "crossLabel": null,
         "gender": null,
@@ -217,20 +183,8 @@
         "image": "os-ed20d82b.webp"
       },
       {
-        "id": "os-f92c0f5e",
-        "listingId": null,
-        "breedLabel": "French Bulldog",
-        "crossLabel": null,
-        "gender": "Male",
-        "age": null,
-        "canFly": null,
-        "price": null,
-        "deposit": null,
-        "image": "os-f92c0f5e.webp"
-      },
-      {
         "id": "os-3b282e99",
-        "listingId": null,
+        "listingId": "88441",
         "breedLabel": "French Bulldog",
         "crossLabel": null,
         "gender": "Both",
@@ -242,7 +196,7 @@
       },
       {
         "id": "os-7d6afb6d",
-        "listingId": null,
+        "listingId": "56684",
         "breedLabel": "French Bulldog",
         "crossLabel": null,
         "gender": "Male",
@@ -254,7 +208,7 @@
       },
       {
         "id": "os-97719a26",
-        "listingId": null,
+        "listingId": "16873",
         "breedLabel": "French Bulldog",
         "crossLabel": null,
         "gender": "Both",
@@ -266,7 +220,7 @@
       },
       {
         "id": "os-836ccbd0",
-        "listingId": null,
+        "listingId": "26831",
         "breedLabel": "French Bulldog",
         "crossLabel": null,
         "gender": "Female",
@@ -278,7 +232,7 @@
       },
       {
         "id": "os-63de90f3",
-        "listingId": null,
+        "listingId": "34385",
         "breedLabel": "French Bulldog",
         "crossLabel": null,
         "gender": "Male",
@@ -290,7 +244,7 @@
       },
       {
         "id": "os-7ed60ba3",
-        "listingId": null,
+        "listingId": "32811",
         "breedLabel": "French Bulldog",
         "crossLabel": null,
         "gender": "Female",
@@ -304,7 +258,7 @@
     "german-shepherd": [
       {
         "id": "os-6ca35b65",
-        "listingId": null,
+        "listingId": "93334",
         "breedLabel": "German Shepherd Dog",
         "crossLabel": null,
         "gender": "Both",
@@ -316,7 +270,7 @@
       },
       {
         "id": "os-304e8b61",
-        "listingId": null,
+        "listingId": "14081",
         "breedLabel": "German Shepherd",
         "crossLabel": null,
         "gender": "Female",
@@ -330,7 +284,7 @@
     "golden-retriever": [
       {
         "id": "os-805b9900",
-        "listingId": null,
+        "listingId": "65590",
         "breedLabel": "Golden Retriever",
         "crossLabel": null,
         "gender": "Both",
@@ -342,7 +296,7 @@
       },
       {
         "id": "os-99af37f5",
-        "listingId": null,
+        "listingId": "17132",
         "breedLabel": "Golden Retriever",
         "crossLabel": null,
         "gender": "Female",
@@ -354,7 +308,7 @@
       },
       {
         "id": "os-6a1e7720",
-        "listingId": null,
+        "listingId": "64832",
         "breedLabel": "Golden Retriever",
         "crossLabel": null,
         "gender": "Both",
@@ -363,12 +317,36 @@
         "price": 6000,
         "deposit": 3000,
         "image": null
+      },
+      {
+        "id": "os-70a7c43d",
+        "listingId": "52499",
+        "breedLabel": "Golden Retriever",
+        "crossLabel": null,
+        "gender": "Male",
+        "age": "4 weeks",
+        "canFly": false,
+        "price": 4900,
+        "deposit": 2450,
+        "image": "os-70a7c43d.webp"
+      },
+      {
+        "id": "os-80fefa9e",
+        "listingId": "28740",
+        "breedLabel": "Golden Retriever",
+        "crossLabel": null,
+        "gender": "Both",
+        "age": null,
+        "canFly": null,
+        "price": 7000,
+        "deposit": 3500,
+        "image": "os-80fefa9e.webp"
       }
     ],
     "havanese": [
       {
         "id": "os-65859503",
-        "listingId": null,
+        "listingId": "81421",
         "breedLabel": "Havanese",
         "crossLabel": null,
         "gender": "Both",
@@ -379,38 +357,10 @@
         "image": "os-65859503.webp"
       }
     ],
-    "jack-russell-terrier": [
-      {
-        "id": "os-75afcc96",
-        "listingId": null,
-        "breedLabel": "Jack Russell",
-        "crossLabel": null,
-        "gender": "Female",
-        "age": "2 months",
-        "canFly": false,
-        "price": 4500,
-        "deposit": 2250,
-        "image": "os-75afcc96.webp"
-      }
-    ],
-    "japanese-spitz": [
-      {
-        "id": "os-94ee00f0",
-        "listingId": null,
-        "breedLabel": "Japanese Spitz x Pomeranian",
-        "crossLabel": "Japanese Spitz x Pomeranian",
-        "gender": "Female",
-        "age": "8 weeks",
-        "canFly": false,
-        "price": 6000,
-        "deposit": 3000,
-        "image": "os-94ee00f0.webp"
-      }
-    ],
     "maltese": [
       {
         "id": "os-d9eff28e",
-        "listingId": null,
+        "listingId": "30781",
         "breedLabel": "Maltese",
         "crossLabel": null,
         "gender": "Both",
@@ -422,7 +372,7 @@
       },
       {
         "id": "os-346dce23",
-        "listingId": null,
+        "listingId": "57951",
         "breedLabel": "Maltese x Pomeranian",
         "crossLabel": "Maltese x Pomeranian",
         "gender": "Both",
@@ -436,7 +386,7 @@
     "mini-dachshund": [
       {
         "id": "os-bc484c2f",
-        "listingId": null,
+        "listingId": "76847",
         "breedLabel": "Dachshund",
         "crossLabel": null,
         "gender": "Both",
@@ -448,7 +398,7 @@
       },
       {
         "id": "os-e8efdc25",
-        "listingId": null,
+        "listingId": "43536",
         "breedLabel": "Dachshund",
         "crossLabel": null,
         "gender": "Female",
@@ -459,20 +409,8 @@
         "image": "os-e8efdc25.webp"
       },
       {
-        "id": "os-3b43724c",
-        "listingId": null,
-        "breedLabel": "Dachshund",
-        "crossLabel": null,
-        "gender": "Female",
-        "age": "2 months",
-        "canFly": false,
-        "price": 5000,
-        "deposit": 2500,
-        "image": "os-3b43724c.webp"
-      },
-      {
         "id": "os-481df0b8",
-        "listingId": null,
+        "listingId": "44420",
         "breedLabel": "Miniature Dachshund",
         "crossLabel": null,
         "gender": "Both",
@@ -483,20 +421,8 @@
         "image": null
       },
       {
-        "id": "os-bfb609a0",
-        "listingId": null,
-        "breedLabel": "Miniature Dachshund",
-        "crossLabel": null,
-        "gender": "Female",
-        "age": "3 months",
-        "canFly": true,
-        "price": null,
-        "deposit": null,
-        "image": "os-bfb609a0.webp"
-      },
-      {
         "id": "os-8f1f496d",
-        "listingId": null,
+        "listingId": "98417",
         "breedLabel": "Miniature Dachshund",
         "crossLabel": null,
         "gender": "Female",
@@ -508,7 +434,7 @@
       },
       {
         "id": "os-8f1f496d",
-        "listingId": null,
+        "listingId": "25655",
         "breedLabel": "Miniature Dachshund",
         "crossLabel": null,
         "gender": "Male",
@@ -517,12 +443,24 @@
         "price": null,
         "deposit": null,
         "image": "os-8f1f496d.webp"
+      },
+      {
+        "id": "os-a3562f70",
+        "listingId": "43187",
+        "breedLabel": "Miniature Dachshund",
+        "crossLabel": null,
+        "gender": "Both",
+        "age": "8 weeks",
+        "canFly": false,
+        "price": 6300,
+        "deposit": 3150,
+        "image": "os-a3562f70.webp"
       }
     ],
     "pomeranian": [
       {
         "id": "os-5b99730e",
-        "listingId": null,
+        "listingId": "58422",
         "breedLabel": "Pomeranian",
         "crossLabel": null,
         "gender": "Female",
@@ -536,7 +474,7 @@
     "toy-poodle": [
       {
         "id": "os-f47adf9d",
-        "listingId": null,
+        "listingId": "51951",
         "breedLabel": "Miniature Poodle",
         "crossLabel": null,
         "gender": "Female",
@@ -548,7 +486,7 @@
       },
       {
         "id": "os-48169451",
-        "listingId": null,
+        "listingId": "92814",
         "breedLabel": "Poodle",
         "crossLabel": null,
         "gender": "Both",
@@ -557,6 +495,18 @@
         "price": 5400,
         "deposit": 2700,
         "image": null
+      },
+      {
+        "id": "os-00b8a022",
+        "listingId": "74615",
+        "breedLabel": "Toy Poodle x Moodle",
+        "crossLabel": "Toy Poodle x Moodle",
+        "gender": "Both",
+        "age": null,
+        "canFly": null,
+        "price": 5000,
+        "deposit": 2500,
+        "image": "os-00b8a022.webp"
       }
     ]
   },
@@ -565,13 +515,12 @@
     "Australian Cattle Dog",
     "Australian Kelpie x Labrador",
     "Boxer",
+    "Cane Corso (Italian Mastiff)",
     "English Staffy Mix",
     "Labrador Retriever",
     "Lhasa Apso",
     "Miniature American Shepherd",
-    "Saluki",
     "Schnoodle",
-    "Tibetan Mastiff",
-    "Weimaraner"
+    "Tibetan Mastiff"
   ]
 }

@@ -305,6 +305,15 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
   .pms *{box-sizing:border-box}
   .pms h1,.pms h2,.pms h3{font-family:"Fredoka","Nunito",sans-serif;margin:0;line-height:1.05;font-weight:600}
   .pms .app{width:100%;max-width:412px;margin-inline:auto;height:min(80vh,720px);display:flex;flex-direction:column}
+  @media (min-width:900px){
+    .pms .app{max-width:560px;height:min(82vh,780px)}
+    .pms .card{max-width:480px!important}
+    .pms .title h1{font-size:30px}
+    .pms .intro{padding:34px 30px}
+    .pms .intro h2{font-size:26px}
+    .pms .opt{font-size:15px;padding:14px 10px}
+    .pms .start{font-size:18px;padding:16px}
+  }
 
   .pms .head{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
   .pms .title h1{font-size:clamp(23px,6.4vw,27px);letter-spacing:-.01em;font-weight:700}

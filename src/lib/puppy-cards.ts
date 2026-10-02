@@ -2,7 +2,14 @@
 // written by `npm run sync:puppies`). Used by the per-breed AvailablePuppies
 // section and by the site-wide /available-puppies/ page.
 import { whatsappLink } from '../data/site';
-import { activeWaVariant } from '../data/wa-experiment';
+
+// Owner decision (2026-10-02): the rotating WhatsApp-label A/B experiment is
+// retired on the card in favour of one fixed, question-led label that tests best
+// in review ("is this exact pup still available?" is the buyer's real first
+// question). The GA4 wa_variant stamp is pinned to this constant so the inbox
+// attribution keeps working without the rotation.
+const WA_LABEL = 'Chat now — Is it available?';
+const WA_VARIANT = 'fixed-2026-10';
 
 export interface Pup {
   id: number | string;
@@ -77,12 +84,6 @@ export function pupCard(
   state: 'available' | 'placed',
   opts: { breedLabel?: boolean; breedSlug?: string } = {},
 ) {
-  const points = [
-    ...(opts.breedLabel ? [`${breedName} puppy`] : []),
-    ...(p.crossLabel ? [p.crossLabel] : []),
-    ...(p.hdbApproved ? ['HDB approved'] : []),
-    ...(p.sizeNote ? [p.sizeNote] : []),
-  ];
   return {
     title: pupTitle(p, breedName),
     imageSrc: photoFor(p.image),
@@ -92,27 +93,21 @@ export function pupCard(
     age: p.age ?? undefined,
     location: p.location ?? undefined,
     video: p.video ?? undefined,
-    points: points.length > 0 ? points : undefined,
+    // New card (2026-10): breed rides a coloured "ticket" tag beside the price
+    // instead of a bullet in the points list; a cross is tagged as the cross,
+    // never the pure breed. HDB status becomes a chip in the gender/age row.
+    isPup: true as const,
+    breed: p.crossLabel ?? breedName,
+    hdbApproved: p.hdbApproved ?? null,
+    sizeNote: p.sizeNote ?? undefined,
     // Identifies the exact pup in GA4 `wa_source`, so the WhatsApp inbox can be
     // reconciled against the card that produced the enquiry (Workstream A4).
     waSource: `pup:${p.id}`,
     ...(state === 'available'
       ? {
           tag: 'Available',
-          // The button is already WhatsApp green and carries the WhatsApp glyph, so
-          // naming the channel in the label said the same thing twice. "Photos" also
-          // undersold it: the prefilled message asks for photos AND the price, and
-          // buyers use the same thread for temperament, HDB status and timing. The
-          // label stays anchored to the individual puppy, which is the thing that makes
-          // these cards convert at 13-24% where generic chrome converts near zero.
-          // BUDGET: measured at the button's computed font (700 14px Nunito), the old
-          // "WhatsApp for photos" rendered 142px and fits one line in a quarter-width
-          // card, so 142px is the proven ceiling. This label is 138px. It also feeds the
-          // aria-label as "{meta}: {title}, $price all-in", which reads correctly.
-          // A/B experiment: the label rotates on a fixed cadence and the variant
-          // id is stamped on the GA4 whatsapp_click event via `waVariant`.
-          meta: activeWaVariant().text,
-          waVariant: activeWaVariant().id,
+          meta: WA_LABEL,
+          waVariant: WA_VARIANT,
           // Link to this puppy's own page (when the breed has the route wired).
           pageHref: opts.breedSlug ? pupPageHref(opts.breedSlug, p) : undefined,
           href: whatsappLink(
@@ -122,6 +117,17 @@ export function pupCard(
             ]
               .filter(Boolean)
               .join(' ')} ${p.crossLabel ?? breedName} puppy (ID ${p.id}).`,
+          ),
+          // Always-present Video action: when the shop hasn't filled a clip yet,
+          // the button opens WhatsApp pre-asking for a video of this exact pup,
+          // so the action never dead-ends (owner decision 2026-10-02).
+          videoHref: whatsappLink(
+            `Hi! Could you send a video of ${p.name ?? `puppy #${p.id}`}, the ${[
+              p.color?.toLowerCase(),
+              p.gender?.toLowerCase(),
+            ]
+              .filter(Boolean)
+              .join(' ')} ${p.crossLabel ?? breedName} puppy (ID ${p.id})? I'd love to see it.`,
           ),
           // Secondary CTA: the shop's cal.com booking link for this exact pup.
           bookHref: p.bookHref ?? undefined,

@@ -23,7 +23,21 @@ interface Item {
   waSource?: string; // GA4 wa_source tag (e.g. "pup:2630") for whatsapp_click attribution
   waVariant?: string; // GA4 wa_variant tag for the button-text A/B experiment
   pageHref?: string; // this puppy's own page (/puppies/<breed>/<id>/); renders a "Learn more" link
+  isPup?: boolean; // real-inventory puppy card: new 2026-10 layout (breed ticket, chip row, icon actions)
+  breed?: string; // display breed (or cross label) shown on the coloured ticket tag beside the price
+  hdbApproved?: boolean | null; // true -> "HDB ✓" chip, false -> "HDB ✕" chip, null -> no claim
+  videoHref?: string; // WhatsApp fallback used by the Video action when no clip is on file
 }
+
+// Per-breed ticket colour: a stable hash picks one of a small brand-safe palette
+// so every breed keeps the same tag colour across the site, with legible white
+// text on each. New breeds slot in automatically.
+const TAG_PALETTE = ['#d64545', '#c9893b', '#8a5a3c', '#7a6cc4', '#2f8b74', '#c2567f', '#3f7cc0', '#b5671d'];
+const breedTagColor = (breed: string) => {
+  let h = 0;
+  for (let i = 0; i < breed.length; i++) h = (h * 31 + breed.charCodeAt(i)) >>> 0;
+  return TAG_PALETTE[h % TAG_PALETTE.length];
+};
 interface Props {
   heading: string;
   headingAccent?: string;
@@ -74,10 +88,30 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
             )}
           </div>
           <div class="flex flex-1 flex-col p-5">
-            <h3 class="text-lg font-[family-name:var(--font-heading)] font-semibold text-[var(--color-cream-900)]">
-              {item.title}
-            </h3>
-            {item.price && (
+            {!item.isPup && (
+              <h3 class="text-lg font-[family-name:var(--font-heading)] font-semibold text-[var(--color-cream-900)]">
+                {item.title}
+              </h3>
+            )}
+            {item.isPup ? (
+              <div class="flex items-end justify-between gap-2">
+                {item.price ? (
+                  <p class="text-xl font-bold text-[var(--color-coral-600)]">
+                    ${fmtPrice(item.price)}
+                    <span class="ml-1 text-xs font-semibold text-[var(--color-cream-600)]">all-in</span>
+                  </p>
+                ) : <span></span>}
+                {item.breed && (
+                  <span
+                    class="relative inline-flex items-center gap-1.5 py-1.5 pl-4 pr-3 text-[13px] font-bold leading-none text-white"
+                    style={`background:${breedTagColor(item.breed)};clip-path:polygon(10px 0,100% 0,100% 100%,10px 100%,0 50%)`}
+                  >
+                    <PawPrint class="h-3.5 w-3.5 text-white/90" />
+                    {item.breed}
+                  </span>
+                )}
+              </div>
+            ) : item.price && (
               <p class="mt-1 text-xl font-bold text-[var(--color-coral-600)]">
                 ${fmtPrice(item.price)}
                 <span class="ml-1 text-xs font-semibold text-[var(--color-cream-600)]">all-in</span>
@@ -96,12 +130,12 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
                 ))}
               </ul>
             )}
-            {(item.gender || item.age) && (
-              <div class="mt-3 flex flex-wrap gap-2">
+            {(item.gender || item.age || (item.isPup && item.hdbApproved != null)) && (
+              <div class="mt-3 flex flex-nowrap items-center gap-1.5 overflow-hidden">
                 {item.gender && (
                   <span
                     class:list={[
-                      'inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold',
+                      'inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-bold',
                       item.gender === 'Female'
                         ? 'bg-[var(--color-coral-100)] text-[var(--color-coral-700)]'
                         : 'bg-[var(--color-lilac-100)] text-[var(--color-lilac-700)]',
@@ -116,9 +150,20 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
                   </span>
                 )}
                 {item.age && (
-                  <span class="inline-flex items-center gap-1.5 rounded-full bg-[var(--color-mint-100)] px-3 py-1 text-xs font-bold text-[var(--color-lilac-700)]">
+                  <span class="inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-full bg-[var(--color-mint-100)] px-2.5 py-1 text-xs font-bold text-[var(--color-lilac-700)]">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" stroke-linecap="round" stroke-linejoin="round" /></svg>
                     {item.age}
+                  </span>
+                )}
+                {item.isPup && item.hdbApproved === true && (
+                  <span class="inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-full bg-[var(--color-mint-100)] px-2.5 py-1 text-xs font-bold text-[var(--color-mint-800,#1f7a56)]">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.3 3.3a1 1 0 0 1 1.4 0l8 7.3a1 1 0 0 1-.7 1.7H19V20a1 1 0 0 1-1 1h-3v-5h-4v5H8a1 1 0 0 1-1-1v-7.7H4a1 1 0 0 1-.7-1.7Z" /></svg>
+                    HDB ✓
+                  </span>
+                )}
+                {item.isPup && item.hdbApproved === false && (
+                  <span class="inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-full bg-[#fde6d6] px-2.5 py-1 text-xs font-bold text-[#b5651d]">
+                    HDB ✕
                   </span>
                 )}
               </div>
@@ -145,6 +190,73 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
               </a>
+            ) : item.isPup && (item.pageHref || item.videoHref || item.bookHref) ? (
+            // New 2026-10 layout: one loud WhatsApp pill, then a row of three cute
+            // icon actions (Book Appt / Video / Learn more). The Video action is
+            // always present - with a clip it opens the lightbox, without one it
+            // opens WhatsApp pre-asking for a video so it never dead-ends.
+            <div class="mt-auto flex flex-col gap-3.5 pt-5">
+              <a
+                href={item.href}
+                data-wa-source={item.waSource}
+                data-wa-variant={item.waVariant}
+                aria-label={item.price ? `${item.meta}: ${item.title}, $${fmtPrice(item.price)} all-in` : `${item.meta}: ${item.title}`}
+                class="clay-btn clay-press inline-flex w-full min-w-0 items-center justify-center gap-2 whitespace-nowrap bg-[#25D366] px-4 py-3 text-sm font-bold text-white transition-transform hover:bg-[#1ebe57]"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="shrink-0" aria-hidden="true">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.13c-.25.7-1.44 1.33-1.99 1.37-.53.05-.53.42-3.34-.7-2.81-1.12-4.55-3.98-4.69-4.16-.14-.19-1.12-1.49-1.12-2.84 0-1.35.71-2.01.96-2.29.25-.28.55-.35.73-.35.18 0 .37 0 .53.01.17.01.4-.06.62.48.25.6.85 2.06.92 2.21.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.28.28-.12.56.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.69-.81.88-1.09.19-.28.37-.23.62-.14.25.09 1.6.76 1.87.9.28.14.46.21.53.32.07.12.07.65-.18 1.35z" />
+                </svg>
+                <span class="min-w-0 truncate">{item.meta}</span>
+              </a>
+              <div class="grid grid-cols-3 gap-2">
+                <a
+                  href={item.bookHref ?? item.href}
+                  {...item.bookHref ? { target: '_blank', rel: 'noopener' } : {}}
+                  aria-label={`Book an appointment to visit ${item.title}`}
+                  class="group/ic flex flex-col items-center gap-1.5 text-center"
+                >
+                  <span class="flex h-11 w-11 items-center justify-center rounded-full border-2 border-[var(--color-cream-200)] bg-white text-[var(--color-coral-600)] transition group-hover/ic:-translate-y-0.5 group-hover/ic:border-transparent group-hover/ic:bg-[var(--color-coral-500)] group-hover/ic:text-white">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="17" rx="3" /><path d="M3 9h18M8 2.5v4M16 2.5v4" /></svg>
+                  </span>
+                  <span class="text-[11px] font-bold text-[var(--color-cream-700)]">Book Appt</span>
+                </a>
+                {item.video ? (
+                  <button
+                    type="button"
+                    data-video={item.video}
+                    data-video-title={item.title}
+                    aria-label={`Watch a video of ${item.title}`}
+                    class="js-video-open group/ic flex flex-col items-center gap-1.5 text-center"
+                  >
+                    <span class="flex h-11 w-11 items-center justify-center rounded-full border-2 border-[var(--color-cream-200)] bg-white text-[var(--color-coral-600)] transition group-hover/ic:-translate-y-0.5 group-hover/ic:border-transparent group-hover/ic:bg-[var(--color-coral-500)] group-hover/ic:text-white">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="6" /><path d="M10 9l5 3-5 3z" fill="#fff" /></svg>
+                    </span>
+                    <span class="text-[11px] font-bold text-[var(--color-cream-700)]">Video</span>
+                  </button>
+                ) : (
+                  <a
+                    href={item.videoHref ?? item.href}
+                    aria-label={`Ask on WhatsApp for a video of ${item.title}`}
+                    class="group/ic flex flex-col items-center gap-1.5 text-center"
+                  >
+                    <span class="flex h-11 w-11 items-center justify-center rounded-full border-2 border-[var(--color-cream-200)] bg-white text-[var(--color-coral-600)] transition group-hover/ic:-translate-y-0.5 group-hover/ic:border-transparent group-hover/ic:bg-[var(--color-coral-500)] group-hover/ic:text-white">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="6" /><path d="M10 9l5 3-5 3z" fill="#fff" /></svg>
+                    </span>
+                    <span class="text-[11px] font-bold text-[var(--color-cream-700)]">Ask video</span>
+                  </a>
+                )}
+                <a
+                  href={item.pageHref ?? item.href}
+                  aria-label={`Learn more about ${item.title}`}
+                  class="group/ic flex flex-col items-center gap-1.5 text-center"
+                >
+                  <span class="flex h-11 w-11 items-center justify-center rounded-full border-2 border-[var(--color-cream-200)] bg-white text-[var(--color-coral-600)] transition group-hover/ic:-translate-y-0.5 group-hover/ic:border-transparent group-hover/ic:bg-[var(--color-coral-500)] group-hover/ic:text-white">
+                    <PawPrint class="h-[18px] w-[18px]" />
+                  </span>
+                  <span class="text-[11px] font-bold text-[var(--color-cream-700)]">Learn more</span>
+                </a>
+              </div>
+            </div>
             ) : (
             <div class="mt-auto flex flex-col gap-3 pt-5">
             {item.video ? (

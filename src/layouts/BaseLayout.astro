@@ -7,7 +7,6 @@ import buildId from '../data/build-id.json';
 import { site } from '../data/site';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import StickyMobileCTA from '../components/StickyMobileCTA.astro';
 import PawPrint from '../components/decor/PawPrint.astro';
 import defaultOgImage from '../assets/home/1-cavapoo-puppy-hero-balestier.png';
 
@@ -143,7 +142,6 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
     )}
   </main>
   <Footer />
-  <StickyMobileCTA />
 
   <script>
     import { gsap } from 'gsap';

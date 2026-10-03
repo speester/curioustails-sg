@@ -9,6 +9,7 @@ import data from '../data/available-puppies.json';
 import { photoFor, type BreedBucket } from '../lib/puppy-cards';
 import { breedName as displayBreedName } from '../data/breed-names';
 import { site } from '../data/site';
+import pawderLogo from '../assets/home/pawder-logo.webp';
 
 const half = (g: string | null) => (g === 'Female' ? 'Girl' : g === 'Male' ? 'Boy' : 'Puppy');
 
@@ -52,8 +53,8 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
   <div class="pms">
     <div class="app" id="pmsApp">
       <div class="head">
-        <div class="title"><h1>Find your <em>paw</em>-fect match</h1>
-          <span class="sub"><span class="paw">🐾</span> Curious Tails · AVS-licensed</span>
+        <div class="title">
+          <img class="pms-logo" src={pawderLogo.src} width={pawderLogo.width} height={pawderLogo.height} alt="Pawder — find your paw-fect match at Curious Tails" />
         </div>
         <span class="counter" id="pmsCounter" hidden></span>
       </div>
@@ -314,7 +315,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
   @media (min-width:900px){
     .pms .app{max-width:560px;height:min(82vh,780px)}
     .pms .card{max-width:480px!important}
-    .pms .title h1{font-size:21px}
+    .pms .pms-logo{width:200px}
     .pms .intro{padding:34px 30px}
     .pms .intro h2{font-size:26px}
     .pms .opt{font-size:15px;padding:14px 10px}
@@ -322,10 +323,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
   }
 
   .pms .head{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;margin-bottom:12px}
-  .pms .title h1{font-size:clamp(16px,4.4vw,19px);letter-spacing:-.01em;font-weight:700}
-  .pms .title h1 em{font-style:normal;color:var(--coral)}
-  .pms .title .sub{display:block;margin-top:2px;font-size:11px;font-weight:700;color:var(--ink-soft)}
-  .pms .title .paw{color:var(--coral)}
+  .pms .pms-logo{display:block;width:clamp(132px,44%,172px);height:auto;margin:0 auto}
   .pms .counter{position:absolute;right:0;top:0;flex:none;font-family:"Fredoka",sans-serif;font-size:12px;color:var(--coral-600);
     font-weight:600;background:var(--coral-soft);padding:5px 11px;border-radius:999px;
     border:2px solid var(--border-strong);font-variant-numeric:tabular-nums}

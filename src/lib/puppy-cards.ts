@@ -111,7 +111,7 @@ export function pupCard(
           // Link to this puppy's own page (when the breed has the route wired).
           pageHref: opts.breedSlug ? pupPageHref(opts.breedSlug, p) : undefined,
           href: whatsappLink(
-            `Hi! I'd like more photos and the price for ${p.name ?? 'this'}, the ${[
+            `Hi! I'd like more photos and the price for ${p.name ?? 'your pup'}, the ${[
               p.color?.toLowerCase(),
               p.gender?.toLowerCase(),
             ]
@@ -122,7 +122,7 @@ export function pupCard(
           // the button opens WhatsApp pre-asking for a video of this exact pup,
           // so the action never dead-ends (owner decision 2026-10-02).
           videoHref: whatsappLink(
-            `Hi! Could you send a video of ${p.name ?? 'this'}, the ${[
+            `Hi! Could you send a video of ${p.name ?? 'your pup'}, the ${[
               p.color?.toLowerCase(),
               p.gender?.toLowerCase(),
             ]

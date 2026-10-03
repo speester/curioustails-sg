@@ -29,15 +29,41 @@ interface Item {
   videoHref?: string; // WhatsApp fallback used by the Video action when no clip is on file
 }
 
-// Per-breed ticket colour: a stable hash picks one of a small brand-safe palette
-// so every breed keeps the same tag colour across the site, with legible white
-// text on each. New breeds slot in automatically.
-const TAG_PALETTE = ['#d64545', '#c9893b', '#8a5a3c', '#7a6cc4', '#2f8b74', '#c2567f', '#3f7cc0', '#b5671d'];
+// Per-breed ticket colour. The common breeds are pinned to well-separated hues
+// so visually close breeds (e.g. Cockapoo vs Shih Tzu) never share a near-identical
+// tag; anything unpinned falls back to a hash over a palette whose hues are spaced
+// far apart, so a future breed cannot land on an adjacent brown by accident.
+const BREED_TAG: Record<string, string> = {
+  Cavapoo: '#d64545', // red
+  Cockapoo: '#e0861a', // orange
+  'Shih Tzu': '#6a4bbd', // violet (kept far from Cockapoo's orange)
+  Maltipoo: '#2f8b74', // teal
+  Poodle: '#c2567f', // magenta
+  'Toy Poodle': '#c2567f',
+  Maltese: '#3f7cc0', // blue
+  Pomeranian: '#2f9e9e', // cyan
+  Corgi: '#b5671d', // brown
+  Chihuahua: '#8a5a3c', // taupe
+  'Bichon Frise': '#5a8f3c', // green
+  Goldendoodle: '#c98b2f', // amber-gold
+  Cavachon: '#b5497a', // rose
+  Cavapoochon: '#7a6cc4', // periwinkle
+};
+// Evenly spaced hues (gap ~40deg) for breeds not pinned above.
+const TAG_PALETTE = ['#d64545', '#e0861a', '#2f8b74', '#3f7cc0', '#6a4bbd', '#c2567f', '#5a8f3c', '#2f9e9e'];
 const breedTagColor = (breed: string) => {
+  if (BREED_TAG[breed]) return BREED_TAG[breed];
   let h = 0;
-  for (let i = 0; i < breed.length; i++) h = (h * 31 + breed.charCodeAt(i)) >>> 0;
+  for (let i = 0; i < breed.length; i++) h = (h * 131 + breed.charCodeAt(i)) >>> 0;
   return TAG_PALETTE[h % TAG_PALETTE.length];
 };
+
+// Pastel icon-action badges (match the design-study staging): each action has its
+// own soft tint at rest and fills coral on hover.
+const ICON_BADGE = 'flex h-11 w-11 items-center justify-center rounded-full border-2 border-transparent transition group-hover/ic:-translate-y-0.5 group-hover/ic:bg-[var(--color-coral-500)] group-hover/ic:text-white';
+const bookBadge = `${ICON_BADGE} bg-[var(--color-mint-100)] text-[#1f7a56]`;
+const videoBadge = `${ICON_BADGE} bg-[var(--color-coral-100)] text-[var(--color-coral-600)]`;
+const learnBadge = `${ICON_BADGE} bg-[var(--color-lilac-100)] text-[var(--color-lilac-700)]`;
 interface Props {
   heading: string;
   headingAccent?: string;
@@ -227,7 +253,7 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
                   aria-label={`Book an appointment to visit ${item.title}`}
                   class="group/ic flex flex-col items-center gap-1.5 text-center"
                 >
-                  <span class="flex h-11 w-11 items-center justify-center rounded-full border-2 border-[var(--color-cream-200)] bg-white text-[var(--color-coral-600)] transition group-hover/ic:-translate-y-0.5 group-hover/ic:border-transparent group-hover/ic:bg-[var(--color-coral-500)] group-hover/ic:text-white">
+                  <span class={bookBadge}>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="17" rx="3" /><path d="M3 9h18M8 2.5v4M16 2.5v4" /></svg>
                   </span>
                   <span class="text-[11px] font-bold text-[var(--color-cream-700)]">Book Appt</span>
@@ -240,7 +266,7 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
                     aria-label={`Watch a video of ${item.title}`}
                     class="js-video-open group/ic flex flex-col items-center gap-1.5 text-center"
                   >
-                    <span class="flex h-11 w-11 items-center justify-center rounded-full border-2 border-[var(--color-cream-200)] bg-white text-[var(--color-coral-600)] transition group-hover/ic:-translate-y-0.5 group-hover/ic:border-transparent group-hover/ic:bg-[var(--color-coral-500)] group-hover/ic:text-white">
+                    <span class={videoBadge}>
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="6" /><path d="M10 9l5 3-5 3z" fill="#fff" /></svg>
                     </span>
                     <span class="text-[11px] font-bold text-[var(--color-cream-700)]">Video</span>
@@ -251,7 +277,7 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
                     aria-label={`Ask on WhatsApp for a video of ${item.title}`}
                     class="group/ic flex flex-col items-center gap-1.5 text-center"
                   >
-                    <span class="flex h-11 w-11 items-center justify-center rounded-full border-2 border-[var(--color-cream-200)] bg-white text-[var(--color-coral-600)] transition group-hover/ic:-translate-y-0.5 group-hover/ic:border-transparent group-hover/ic:bg-[var(--color-coral-500)] group-hover/ic:text-white">
+                    <span class={videoBadge}>
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="6" /><path d="M10 9l5 3-5 3z" fill="#fff" /></svg>
                     </span>
                     <span class="text-[11px] font-bold text-[var(--color-cream-700)]">Ask video</span>
@@ -262,7 +288,7 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
                   aria-label={`Learn more about ${item.title}`}
                   class="group/ic flex flex-col items-center gap-1.5 text-center"
                 >
-                  <span class="flex h-11 w-11 items-center justify-center rounded-full border-2 border-[var(--color-cream-200)] bg-white text-[var(--color-coral-600)] transition group-hover/ic:-translate-y-0.5 group-hover/ic:border-transparent group-hover/ic:bg-[var(--color-coral-500)] group-hover/ic:text-white">
+                  <span class={learnBadge}>
                     <PawPrint class="h-[18px] w-[18px]" />
                   </span>
                   <span class="text-[11px] font-bold text-[var(--color-cream-700)]">Learn more</span>

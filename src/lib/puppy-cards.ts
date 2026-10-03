@@ -8,8 +8,8 @@ import { whatsappLink } from '../data/site';
 // in review ("is this exact pup still available?" is the buyer's real first
 // question). The GA4 wa_variant stamp is pinned to this constant so the inbox
 // attribution keeps working without the rotation.
-const WA_LABEL = 'Chat now — Is it available?';
-const WA_VARIANT = 'fixed-2026-10';
+const WA_LABEL = 'Check Availability';
+const WA_VARIANT = 'fixed-2026-10b';
 
 export interface Pup {
   id: number | string;
@@ -111,7 +111,7 @@ export function pupCard(
           // Link to this puppy's own page (when the breed has the route wired).
           pageHref: opts.breedSlug ? pupPageHref(opts.breedSlug, p) : undefined,
           href: whatsappLink(
-            `Hi! I'd like more photos and the price for ${p.name ?? `puppy #${p.id}`}, the ${[
+            `Hi! I'd like more photos and the price for ${p.name ?? 'this'}, the ${[
               p.color?.toLowerCase(),
               p.gender?.toLowerCase(),
             ]
@@ -122,7 +122,7 @@ export function pupCard(
           // the button opens WhatsApp pre-asking for a video of this exact pup,
           // so the action never dead-ends (owner decision 2026-10-02).
           videoHref: whatsappLink(
-            `Hi! Could you send a video of ${p.name ?? `puppy #${p.id}`}, the ${[
+            `Hi! Could you send a video of ${p.name ?? 'this'}, the ${[
               p.color?.toLowerCase(),
               p.gender?.toLowerCase(),
             ]

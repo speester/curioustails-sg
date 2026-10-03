@@ -58,8 +58,9 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
         <span class="counter" id="pmsCounter" hidden></span>
       </div>
 
-      {/* intent intro */}
-      <div class="intro" id="pmsIntro">
+      {/* intent intro — hidden by default; filters removed (owner 2026-10-03),
+          the deck opens straight away. Kept in the DOM as a graceful fallback. */}
+      <div class="intro" id="pmsIntro" hidden>
         <div>
           <h2>Let's find the right pup 😽</h2>
           <p class="lead" style="color:var(--ink-soft);font-weight:600;margin:6px 0 0;font-size:14px">Two quick taps so we only show puppies that fit your home.</p>
@@ -84,7 +85,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
       </div>
 
       {/* swipe stage */}
-      <div class="stage" id="pmsStage" hidden>
+      <div class="stage" id="pmsStage">
         <div class="deck" id="pmsDeck"></div>
         <div class="controls" id="pmsControls">
           <button class="btn sm nope" id="pmsNope" aria-label="Pass">
@@ -189,7 +190,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
       card.addEventListener("pointerup",up);card.addEventListener("pointercancel",up);
     }
     function fly(card,dir){
-      animating=true;
+      animating=true;card.classList.remove("nudge");
       try{if(navigator.vibrate)navigator.vibrate(dir>0?[8,30,8]:12);}catch(_){}
       var off=(window.innerWidth||412)*1.15*dir;
       card.style.transition="transform .42s var(--pop)";
@@ -281,6 +282,11 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
       deck.hidden=false;index=0;liked=[];history=[];animating=false;bUndo.disabled=true;
       controls.style.display="";$("pmsStage").querySelector(".hint").style.display="";render(true);
     }
+
+    // Filters removed (owner 2026-10-03): open straight on the swipe deck with the
+    // full live pool. homeLabel() falls back to "home" for the WhatsApp message.
+    POOL=PUPPIES.slice();
+    render(true);
   })();
 </script>
 
@@ -308,21 +314,21 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
   @media (min-width:900px){
     .pms .app{max-width:560px;height:min(82vh,780px)}
     .pms .card{max-width:480px!important}
-    .pms .title h1{font-size:30px}
+    .pms .title h1{font-size:21px}
     .pms .intro{padding:34px 30px}
     .pms .intro h2{font-size:26px}
     .pms .opt{font-size:15px;padding:14px 10px}
     .pms .start{font-size:18px;padding:16px}
   }
 
-  .pms .head{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
-  .pms .title h1{font-size:clamp(23px,6.4vw,27px);letter-spacing:-.01em;font-weight:700}
+  .pms .head{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;margin-bottom:12px}
+  .pms .title h1{font-size:clamp(16px,4.4vw,19px);letter-spacing:-.01em;font-weight:700}
   .pms .title h1 em{font-style:normal;color:var(--coral)}
-  .pms .title .sub{display:block;margin-top:3px;font-size:12px;font-weight:700;color:var(--ink-soft)}
+  .pms .title .sub{display:block;margin-top:2px;font-size:11px;font-weight:700;color:var(--ink-soft)}
   .pms .title .paw{color:var(--coral)}
-  .pms .counter{margin-left:auto;flex:none;font-family:"Fredoka",sans-serif;font-size:12px;color:var(--coral-600);
+  .pms .counter{position:absolute;right:0;top:0;flex:none;font-family:"Fredoka",sans-serif;font-size:12px;color:var(--coral-600);
     font-weight:600;background:var(--coral-soft);padding:5px 11px;border-radius:999px;
-    border:2px solid var(--border-strong);font-variant-numeric:tabular-nums;margin-top:2px}
+    border:2px solid var(--border-strong);font-variant-numeric:tabular-nums}
 
   .pms .intro{flex:1;display:flex;flex-direction:column;justify-content:center;gap:18px;
     background:var(--card);border:3px solid var(--border);border-radius:1.8rem;box-shadow:var(--sh-md);padding:26px 22px}
@@ -348,7 +354,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
     box-shadow:var(--sh-lg);display:flex;flex-direction:column;
     touch-action:none;user-select:none;-webkit-user-select:none;will-change:transform}
   .pms .card.top{cursor:grab}.pms .card.top:active{cursor:grabbing}
-  .pms .nudge{animation:pms-nudge 1.1s var(--pop) 1}
+  .pms .nudge{animation:pms-nudge 1.5s var(--pop) infinite}
   @keyframes pms-nudge{0%,100%{transform:rotate(0)}30%{transform:translateX(26px) rotate(5deg)}60%{transform:translateX(-18px) rotate(-3deg)}}
   .pms .photo{flex:1;position:relative;min-height:0;background:var(--cream-mid)}
   .pms .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block;pointer-events:none}
@@ -386,7 +392,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
     display:flex;align-items:center;justify-content:center;transition:transform .14s var(--pop);color:var(--ink);border:3px solid var(--border)}
   .pms .btn:hover{transform:scale(1.09)}.pms .btn:active{transform:scale(.9)}
   .pms .btn:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
-  .pms .btn svg{width:44%;height:44%}.pms .btn.big{width:66px;height:66px}.pms .btn.sm{width:48px;height:48px}
+  .pms .btn svg{width:54%;height:54%}.pms .btn.big{width:88px;height:88px}.pms .btn.sm{width:64px;height:64px}
   .pms .btn.nope{border-color:#f3c9cd}.pms .btn.nope svg{color:var(--nope)}
   .pms .btn.like{border-color:var(--coral-600);background:var(--coral)}.pms .btn.like svg{color:#fff}
   .pms .btn.undo svg{color:var(--ink-soft)}

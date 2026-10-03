@@ -45,8 +45,8 @@ const track = [...items, ...items];
       {track.map((item, i) => (
         <li class="ct-marquee__card" aria-hidden={i >= items.length ? 'true' : undefined}>
           <div class="clay flex h-full w-[230px] flex-col overflow-hidden bg-[var(--color-surface-card)] p-3.5">
-            <div class="relative overflow-hidden rounded-[1.15rem] bg-gradient-to-br from-white to-[var(--color-cream-100)] p-3">
-              <Image src={imgFor(item.image)} alt={item.title} width={280} height={280} loading="lazy" class="mx-auto h-[180px] w-full object-contain" />
+            <div class="relative overflow-hidden rounded-[1.15rem]">
+              <Image src={imgFor(item.image)} alt={item.title} width={280} height={280} loading="lazy" class="aspect-square w-full object-cover" />
               {item.price != null && (
                 <span class="absolute right-3 top-3 inline-flex items-center rounded-full bg-[var(--color-coral-500)] px-2.5 py-1 text-xs font-bold text-white shadow-[0_3px_0_0_var(--color-coral-700)]">${item.price}</span>
               )}

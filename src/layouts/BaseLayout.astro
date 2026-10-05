@@ -7,6 +7,7 @@ import buildId from '../data/build-id.json';
 import { site } from '../data/site';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 import PawPrint from '../components/decor/PawPrint.astro';
 import defaultOgImage from '../assets/home/1-cavapoo-puppy-hero-balestier.png';
 
@@ -130,6 +131,9 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
   <div id="cursor-buddy" class="pointer-events-none fixed left-0 top-0 z-[999] opacity-0" aria-hidden="true">
     <PawPrint class="h-6 w-6 -translate-x-1/2 -translate-y-1/2 text-[var(--color-coral-400)] drop-shadow-[0_2px_2px_rgba(0,0,0,0.12)]" />
   </div>
+  <div class="sticky top-0 z-sticky flex h-[3rem] sm:h-[2.25rem] items-center justify-center bg-[#c8102e] px-4 text-center text-xs sm:text-sm leading-tight font-semibold text-white" role="status">
+    We will be closed from 05 Oct to 09 Oct, we will resume on 10 Oct. Thank you
+  </div>
   <Header />
   <main id="main">
     <article>
@@ -142,6 +146,7 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
     )}
   </main>
   <Footer />
+  <WhatsAppFloat />
 
   <script>
     import { gsap } from 'gsap';

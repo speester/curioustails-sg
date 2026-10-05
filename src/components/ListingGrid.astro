@@ -1,6 +1,7 @@
 ---
 import PlaceholderImage from './PlaceholderImage.astro';
 import PawPrint from './decor/PawPrint.astro';
+import PupCard from './PupCard.astro';
 import { fmtPrice } from '../data/pricing';
 
 interface Item {
@@ -89,6 +90,7 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
   <ul class="mt-9 grid gap-7 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
     {items.map((item, i) => (
       <li data-reveal style={`--i:${i % 6}`}>
+        {item.isPup ? <PupCard item={item} tagColor={breedTagColor(item.breed ?? '')} /> : (
         <div
           data-tilt
           class={`group clay clay-hover relative flex h-full flex-col bg-[var(--color-surface-card)] overflow-hidden ${rotations[i % rotations.length]}`}
@@ -353,6 +355,7 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
             )}
           </div>
         </div>
+        )}
       </li>
     ))}
   </ul>

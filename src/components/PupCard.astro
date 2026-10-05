@@ -1,0 +1,201 @@
+---
+// Real-inventory puppy card (2026-10 mockup): photo with coat + origin pills,
+// price + breed ticket, status line, sex/age/HDB chip row, a scrolling perks
+// strip, and four round icon actions (Chat / Book / Video / Details).
+import PlaceholderImage from './PlaceholderImage.astro';
+import { fmtPrice } from '../data/pricing';
+
+interface Props {
+  item: any;
+  tagColor: string;
+}
+const { item, tagColor } = Astro.props;
+
+// Coat swatch per feed colour; two-tone coats render as a split dot.
+const SW: Record<string, string> = {
+  White: '#f6f3ee',
+  Cream: '#f1d6b0',
+  Apricot: '#e8b98a',
+  Golden: '#d9a441',
+  Red: '#a8643a',
+  Blenheim: 'linear-gradient(90deg,#a0522d 50%,#fff 50%)',
+  'Brown White': 'linear-gradient(90deg,#6b4226 50%,#fff 50%)',
+  'Red White': 'linear-gradient(90deg,#7a3e1d 50%,#fff 50%)',
+  'Apricot White': 'linear-gradient(90deg,#e8b98a 50%,#fff 50%)',
+  'Blue Tan': 'linear-gradient(90deg,#5b6b7a 50%,#c58a4a 50%)',
+  'Black Tan': 'linear-gradient(90deg,#222 50%,#c58a4a 50%)',
+  'Tri Color': 'conic-gradient(#222 0 33%,#fff 0 66%,#c58a4a 0)',
+  'Premium Chocolate Liver': '#5a3220',
+};
+const swatch = item.color ? (SW[item.color] ?? '#d9b896') : null;
+const isAu = item.origin === 'Australia';
+const placed = item.state === 'placed';
+const statusText = placed ? '⚪ Placed' : item.tag && item.tag !== 'Available' ? `🟠 ${item.tag}` : '🟢 Available';
+
+const PERKS: [string, string][] = [
+  ['vax', 'Vaccinated'],
+  ['chip', 'Microchipped'],
+  ['worm', 'Dewormed'],
+  ['vet', 'Vet-Checked'],
+  ['lic', 'Licensed'],
+  ['gift', 'Free 30-Item Starter Kit'],
+];
+const IC: Record<string, string> = {
+  vax: '<rect x="7" y="7" width="6" height="12" rx="1.5" transform="rotate(45 10 13)" fill="#cfe9ff"/><rect x="8" y="11" width="4" height="7" transform="rotate(45 10 13)" fill="#4aa8ff"/><path d="M15 5l4 4" stroke="#7d8aa0" stroke-width="2.4" stroke-linecap="round"/><path d="M17 7l-2.5 2.5" stroke="#7d8aa0" stroke-width="2"/><path d="M5.5 18.5 3 21" stroke="#9aa3b2" stroke-width="1.6" stroke-linecap="round"/>',
+  chip: '<g stroke="#c9a227" stroke-width="2" stroke-linecap="round"><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></g><rect x="5" y="5" width="14" height="14" rx="3" fill="#3d4b63"/><rect x="9" y="9" width="6" height="6" rx="1" fill="#6ee7b7"/>',
+  worm: '<rect x="7" y="3" width="10" height="3" rx="1" fill="#5aa469"/><path d="M8 6h8v13a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2Z" fill="#fff" stroke="#cbd5e1"/><rect x="8" y="10" width="8" height="5" fill="#8bd17c"/><circle cx="18.5" cy="17" r="3.3" fill="#ffb84d"/><path d="M17 17h3" stroke="#fff" stroke-width="1.3"/>',
+  vet: '<path d="M6 3v6a4 4 0 0 0 8 0V3" fill="none" stroke="#7d8aa0" stroke-width="2.2" stroke-linecap="round"/><path d="M10 13v3a5 5 0 0 0 10 0v-2" fill="none" stroke="#7d8aa0" stroke-width="2.2"/><circle cx="20" cy="12" r="2.6" fill="#ff6b6b"/><circle cx="6" cy="3" r="1.4" fill="#4a5568"/><circle cx="14" cy="3" r="1.4" fill="#4a5568"/>',
+  lic: '<rect x="2.5" y="5" width="19" height="14" rx="2.5" fill="#7cc4ff"/><rect x="2.5" y="5" width="19" height="3.5" rx="1.5" fill="#3b82f6"/><circle cx="8" cy="13" r="2.4" fill="#fff"/><rect x="12" y="11" width="7" height="1.6" rx=".8" fill="#fff"/><rect x="12" y="14" width="5" height="1.6" rx=".8" fill="#fff"/>',
+  gift: '<rect x="3" y="11" width="18" height="10" rx="1.5" fill="#ff6b8a"/><rect x="2" y="8" width="20" height="4" rx="1" fill="#ff8fa6"/><rect x="10.5" y="8" width="3" height="13" fill="#ffd34d"/><path d="M12 8C10 3 5.5 4 6.5 6.5 7.2 8 12 8 12 8Zm0 0c2-5 6.5-4 5.5-1.5C16.8 8 12 8 12 8Z" fill="#ffd34d"/>',
+  female: '<circle cx="12" cy="9" r="6" fill="#ff7aa8"/><circle cx="12" cy="9" r="3.2" fill="#fff"/><rect x="10.7" y="14" width="2.6" height="8" rx="1.3" fill="#ff7aa8"/><rect x="8" y="17.5" width="8" height="2.6" rx="1.3" fill="#ff7aa8"/>',
+  male: '<circle cx="10" cy="14" r="6" fill="#5b8def"/><circle cx="10" cy="14" r="3.2" fill="#fff"/><path d="M13.5 10.5 20 4" stroke="#5b8def" stroke-width="2.6" stroke-linecap="round"/><path d="M14.5 3.5H20.5V9.5Z" fill="#5b8def"/>',
+  age: '<rect x="4" y="12" width="16" height="9" rx="2" fill="#f7c873"/><path d="M4 15c2 1.5 4 1.5 6 0s4-1.5 6 0 3 1 4 0v-1H4Z" fill="#ff8fb1"/><rect x="11" y="7" width="2" height="5" fill="#7fc4ff"/><path d="M12 2.5c1.4 1.6 1.4 3 0 4-1.4-1-1.4-2.4 0-4Z" fill="#ff9a2e"/>',
+  hdb: '<rect x="4" y="3" width="11" height="18" rx="1.5" fill="#ff9e6d"/><rect x="15" y="9" width="5" height="12" rx="1" fill="#e07a4e"/><g fill="#fff6d8"><rect x="6.5" y="6" width="2" height="2"/><rect x="10.5" y="6" width="2" height="2"/><rect x="6.5" y="10" width="2" height="2"/><rect x="10.5" y="10" width="2" height="2"/><rect x="6.5" y="14" width="2" height="2"/><rect x="10.5" y="14" width="2" height="2"/></g><rect x="8.5" y="18" width="2.5" height="3" fill="#7a4a2e"/>',
+};
+const svg = (k: string) => `<svg viewBox="0 0 24 24" aria-hidden="true">${IC[k]}</svg>`;
+const perkRun = PERKS.map(([i, t]) => `<span>${svg(i)}${t}</span>`).join('');
+const FLAG_SG = '<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="10" fill="#EF3340"/><rect y="10" width="30" height="10" fill="#fff"/><circle cx="7" cy="5" r="3.4" fill="#fff"/><circle cx="8.3" cy="5" r="3.2" fill="#EF3340"/><g fill="#fff"><circle cx="9.6" cy="3" r=".6"/><circle cx="11.6" cy="4.2" r=".6"/><circle cx="11" cy="6.6" r=".6"/><circle cx="8.3" cy="6.6" r=".6"/><circle cx="7.6" cy="4.2" r=".6"/></g></svg>';
+const FLAG_AU = '<svg viewBox="0 0 20 10" aria-hidden="true"><rect width="20" height="10" fill="#012169"/><path d="M0 0l10 5M10 0L0 5" stroke="#fff" stroke-width="1.2"/><path d="M5 0v5M0 2.5h10" stroke="#fff" stroke-width="1.6"/><path d="M5 0v5M0 2.5h10" stroke="#C8102E" stroke-width=".9"/><g fill="#fff"><circle cx="5" cy="7.6" r="1"/><circle cx="15" cy="2" r=".5"/><circle cx="17" cy="4" r=".5"/><circle cx="15" cy="8" r=".5"/><circle cx="13" cy="4.6" r=".5"/></g></svg>';
+const WA = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.8-1.1-4.6-4-4.8-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>';
+const CAL = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="4" fill="#fff"/><path d="M3 9a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v2H3Z" fill="#ef4444"/><rect x="7" y="2.5" width="2.2" height="5" rx="1.1" fill="#64748b"/><rect x="14.8" y="2.5" width="2.2" height="5" rx="1.1" fill="#64748b"/><path d="m8.5 15.5 2.4 2.4 4.6-4.6" fill="none" stroke="#22c55e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const VID = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4.5" fill="#ff0033"/><path d="m10 8.8 5.5 3.2-5.5 3.2Z" fill="#fff"/></svg>';
+const PAW = '<svg viewBox="0 0 24 24" aria-hidden="true"><g fill="#8b5cf6"><ellipse cx="5.5" cy="10.5" rx="2.2" ry="2.7"/><ellipse cx="9.5" cy="6" rx="2.2" ry="2.8"/><ellipse cx="14.5" cy="6" rx="2.2" ry="2.8"/><ellipse cx="18.5" cy="10.5" rx="2.2" ry="2.7"/><path d="M12 11c-3 0-6 4-6 6.2 0 2 2 2.4 3 1.9s2-.6 3-.6 2 .1 3 .6 3 .1 3-1.9C18 15 15 11 12 11Z"/></g></svg>';
+const chatLabel = placed ? 'Similar' : 'Chat';
+---
+
+<div class="pc">
+  {item.pageHref && <a href={item.pageHref} tabindex="-1" aria-hidden="true" class="pc-stretch"></a>}
+  <div class="pc-media">
+    <div class="pc-photo">
+      <PlaceholderImage alt={item.imageAlt} src={item.imageSrc} ratio="aspect-[4/3]" />
+    </div>
+    {swatch && (
+      <span class="pc-pill pc-badge"><span class="pc-sw" style={`background:${swatch}`}></span>{item.color}</span>
+    )}
+    {item.origin && (
+      <span class="pc-pill pc-flag"><span class="pc-fi" set:html={isAu ? FLAG_AU : FLAG_SG} />{isAu ? 'Bred in AU' : 'Bred in SG'}</span>
+    )}
+  </div>
+  <div class="pc-row">
+    {item.price ? <span class="pc-price">${fmtPrice(item.price)} <small>all-in</small></span> : <span></span>}
+    {item.breed && <span class="pc-breed" style={`background:${tagColor}`}>🐾 {item.breed}</span>}
+  </div>
+  <div class="pc-status">{statusText} {item.pupId && <span class="pc-id">· ID {item.pupId}</span>}</div>
+  <div class="pc-chips">
+    {item.gender && (
+      <span class:list={['pc-chip', item.gender === 'Male' ? 'pc-m' : 'pc-f']}><Fragment set:html={svg(item.gender === 'Male' ? 'male' : 'female')} />{item.gender}</span>
+    )}
+    {item.age && <span class="pc-chip pc-a"><Fragment set:html={svg('age')} />{item.age}</span>}
+    {item.hdbApproved === true && <span class="pc-chip pc-h"><Fragment set:html={svg('hdb')} />HDB OK</span>}
+    {item.hdbApproved === false && <span class="pc-chip pc-h">Not HDB</span>}
+  </div>
+  <div class="pc-strip" aria-label={PERKS.map((x) => x[1]).join(', ')}>
+    <div class="pc-track" aria-hidden="true" set:html={perkRun + perkRun} />
+  </div>
+  <div class="pc-acts">
+    <a
+      class="pc-act"
+      href={item.href}
+      target="_blank"
+      rel="noopener"
+      data-wa-source={item.waSource}
+      data-wa-variant={item.waVariant}
+      aria-label={`${item.meta}: ${item.title}${item.price ? `, $${fmtPrice(item.price)} all-in` : ''}`}
+    ><span class="pc-ico pc-i-wa" set:html={WA} />{chatLabel}</a>
+    <a
+      class="pc-act"
+      href={item.bookHref ?? item.href}
+      {...(item.bookHref ? { target: '_blank', rel: 'noopener' } : {})}
+      aria-label={`Book an appointment to visit ${item.title}`}
+    ><span class="pc-ico pc-i-cal" set:html={CAL} />Book</a>
+    {item.video ? (
+      <button type="button" class="pc-act js-video-open" data-video={item.video} data-video-title={item.title} aria-label={`Watch a video of ${item.title}`}>
+        <span class="pc-ico pc-i-vid" set:html={VID} />Video
+      </button>
+    ) : (
+      <a class="pc-act" href={item.videoHref ?? item.href} aria-label={`Ask on WhatsApp for a video of ${item.title}`}>
+        <span class="pc-ico pc-i-vid" set:html={VID} />Video
+      </a>
+    )}
+    <a class="pc-act" href={item.pageHref ?? item.href} aria-label={`Details about ${item.title}`}>
+      <span class="pc-ico pc-i-paw" set:html={PAW} />Details
+    </a>
+  </div>
+</div>
+
+<style>
+  .pc {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #fffaf3;
+    border: 2px solid #e3cdb4;
+    border-radius: 22px;
+    padding: 12px;
+    box-shadow: 0 6px 0 #d8c9bb;
+    min-width: 0;
+    overflow: hidden;
+    font-family: Nunito, var(--font-body, sans-serif);
+    color: #5a4a3c;
+  }
+  .pc-stretch { position: absolute; inset: 0; z-index: 1; }
+  .pc-media { position: relative; }
+  .pc-photo { border-radius: 14px; overflow: hidden; }
+  .pc-photo :global(img) { transition: transform 0.5s ease-out; }
+  .pc:hover .pc-photo :global(img) { transform: scale(1.05); }
+  .pc-pill {
+    position: absolute; top: 8px; display: flex; align-items: center; gap: 5px;
+    background: #fff; border-radius: 999px; padding: 3px 9px 3px 5px;
+    font-size: 11px; font-weight: 800; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+  .pc-badge { left: 8px; }
+  .pc-flag { right: 8px; }
+  .pc-sw { width: 11px; height: 11px; border-radius: 50%; border: 1px solid rgba(0, 0, 0, 0.2); }
+  .pc-fi { display: flex; }
+  .pc-fi :global(svg) { width: 20px; height: 14px; border-radius: 3px; }
+  .pc-row { display: flex; align-items: center; justify-content: space-between; margin: 10px 6px 4px; }
+  .pc-price { color: #c8312b; font-weight: 800; font-size: 19px; }
+  .pc-price small { color: #5a4a3c; font-size: 11px; font-weight: 600; }
+  .pc-breed {
+    color: #fff; font-size: 12px; font-weight: 800; padding: 4px 12px 4px 16px;
+    clip-path: polygon(10px 0, 100% 0, 100% 100%, 10px 100%, 0 50%); white-space: nowrap;
+  }
+  .pc-status { margin: 0 6px 8px; font-size: 12px; font-weight: 700; display: flex; gap: 6px; align-items: center; }
+  .pc-id { color: #9a8572; }
+  .pc-chips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 0 6px 10px; }
+  .pc-chip {
+    display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+    font-size: 11px; font-weight: 700; padding: 4px 6px; border-radius: 999px;
+    white-space: nowrap; line-height: 1; min-width: 0; overflow: hidden;
+  }
+  .pc-chip :global(svg) { width: 12px; height: 12px; flex: none; }
+  .pc-f { background: #fde0db; color: #b23a2a; }
+  .pc-m { background: #e8defc; color: #5b3fa6; }
+  .pc-a { background: #d8f3ea; color: #2f6f5a; }
+  .pc-h { background: #fff0d6; color: #a5561c; }
+  .pc-strip { overflow: hidden; background: #fff3e3; border-block: 1px dashed #e3cdb4; margin: 0 -12px 12px; padding: 6px 0; }
+  .pc-track { display: flex; width: max-content; animation: pc-scroll 18s linear infinite; }
+  .pc-strip:hover .pc-track { animation-play-state: paused; }
+  .pc-track :global(span) {
+    display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 800;
+    white-space: nowrap; padding: 0 14px; color: #7a5a3a;
+  }
+  .pc-track :global(svg) { width: 16px; height: 16px; flex: none; }
+  @keyframes pc-scroll { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .pc-track { animation: none; flex-wrap: wrap; width: auto; } }
+  .pc-acts { position: relative; z-index: 2; margin-top: auto; display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 8px; }
+  .pc-act {
+    display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 12px; font-weight: 700;
+    color: #5a4a3c; text-decoration: none; cursor: pointer; text-align: center; line-height: 1.15;
+    white-space: nowrap; background: none; border: 0; padding: 0; font-family: inherit;
+  }
+  .pc-ico { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; transition: transform 0.15s; }
+  .pc-act:hover .pc-ico { transform: translateY(-2px); }
+  .pc-ico :global(svg) { width: 22px; height: 22px; }
+  .pc-i-wa { background: #25d366; color: #fff; box-shadow: 0 3px 0 #1a9e4c; }
+  .pc-i-cal { background: #fde8e8; }
+  .pc-i-vid { background: #ffe1e1; }
+  .pc-i-paw { background: #efe7ff; }
+  .pc-act:focus-visible { outline: 3px solid #c8312b; outline-offset: 3px; border-radius: 12px; }
+</style>

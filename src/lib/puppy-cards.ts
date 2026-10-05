@@ -100,6 +100,10 @@ export function pupCard(
     breed: p.crossLabel ?? breedName,
     hdbApproved: p.hdbApproved ?? null,
     sizeNote: p.sizeNote ?? undefined,
+    pupId: String(p.id),
+    color: p.color ?? undefined,
+    origin: p.origin ?? undefined,
+    state,
     // Identifies the exact pup in GA4 `wa_source`, so the WhatsApp inbox can be
     // reconciled against the card that produced the enquiry (Workstream A4).
     waSource: `pup:${p.id}`,

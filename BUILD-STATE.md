@@ -90,3 +90,7 @@
 - deployed_build: 631ac5f0463c · deployed_at: 2026-10-03T06:45:35Z · branch: main · project: curioustails-sg
 
 - deployed_build: cce130111bb5 · deployed_at: 2026-10-03T07:45:00Z · branch: main · project: curioustails-sg
+
+- deployed_build: ddae2cfb3e1a · deployed_at: 2026-10-03T07:55:12Z · branch: main · project: curioustails-sg
+
+- deployed_build: 2f9dc7a7c4d2 · deployed_at: 2026-10-04T04:07:02Z · branch: main · project: curioustails-sg

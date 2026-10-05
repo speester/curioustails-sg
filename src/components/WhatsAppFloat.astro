@@ -1,0 +1,36 @@
+---
+import { whatsappLink } from '../data/site';
+---
+
+<a
+  href={whatsappLink("Hi! I'd like to ask about your puppies.")}
+  target="_blank"
+  rel="noopener"
+  aria-label="Chat with us on WhatsApp"
+  class="wa-float"
+>
+  <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" fill="#fff">
+    <path d="M16.004 3C8.825 3 3 8.825 3 16.004c0 2.293.6 4.533 1.74 6.508L3 29l6.65-1.712A12.96 12.96 0 0 0 16.004 29C23.18 29 29 23.18 29 16.004 29 8.825 23.18 3 16.004 3Zm0 23.68c-1.98 0-3.92-.533-5.612-1.54l-.402-.24-3.947 1.016 1.054-3.846-.262-.415a10.62 10.62 0 0 1-1.63-5.651c0-5.88 4.785-10.664 10.8-10.664 5.88 0 10.664 4.785 10.664 10.664 0 5.88-4.785 10.676-10.665 10.676Zm5.85-7.99c-.32-.16-1.896-.935-2.19-1.042-.293-.107-.507-.16-.72.16-.214.32-.827 1.042-1.014 1.256-.187.213-.373.24-.693.08-.32-.16-1.352-.498-2.575-1.588-.952-.849-1.594-1.897-1.78-2.217-.187-.32-.02-.493.14-.652.144-.143.32-.373.48-.56.16-.187.213-.32.32-.533.107-.214.053-.4-.027-.56-.08-.16-.72-1.735-.987-2.375-.26-.624-.524-.54-.72-.55l-.613-.01c-.214 0-.56.08-.853.4-.294.32-1.12 1.094-1.12 2.668 0 1.575 1.147 3.096 1.307 3.31.16.213 2.257 3.447 5.468 4.833.764.33 1.36.527 1.825.674.767.244 1.465.21 2.017.127.615-.092 1.896-.775 2.163-1.523.267-.747.267-1.388.187-1.522-.08-.133-.293-.213-.613-.373Z"/>
+  </svg>
+</a>
+
+<style>
+  .wa-float {
+    position: fixed;
+    right: 20px;
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    z-index: 60;
+    width: 56px;
+    height: 56px;
+    border-radius: 9999px;
+    background: #25d366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .wa-float:hover { transform: scale(1.06); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28); }
+  .wa-float:focus-visible { outline: 3px solid #128c7e; outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { .wa-float { transition: none; } }
+</style>

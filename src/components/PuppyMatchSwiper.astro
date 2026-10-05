@@ -54,7 +54,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
     <div class="app" id="pmsApp">
       <div class="head">
         <div class="title">
-          <img class="pms-logo" src={pawderLogo.src} width={pawderLogo.width} height={pawderLogo.height} alt="Pawder — find your paw-fect match at Curious Tails" />
+          <img class="pms-logo" src={pawderLogo.src} width={pawderLogo.width} height={pawderLogo.height} alt="Pawder, find your paw-fect match at Curious Tails" />
         </div>
         <span class="counter" id="pmsCounter" hidden></span>
       </div>
@@ -96,7 +96,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
           <button class="btn big like" id="pmsLike" aria-label="Love">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
         </div>
-        <p class="hint">Drag or tap — ❤️ keep, ✖ pass</p>
+        <p class="hint">Drag or tap: ❤️ keep, ✖ pass</p>
       </div>
     </div>
   </div>
@@ -230,7 +230,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
 
     function waLink(list){
       var msg;
-      if(!list.length)msg="Hi Curious Tails! I was using your puppy matcher — could you help me find a good fit for my home ("+homeLabel()+")?";
+      if(!list.length)msg="Hi Curious Tails! I was using your puppy matcher, could you help me find a good fit for my home ("+homeLabel()+")?";
       else{var names=list.map(function(p){return p.name+" ("+p.breed+", "+p.priceStr+")";}).join(", ");
         msg="Hi Curious Tails! I used your puppy matcher (home: "+homeLabel()+") and I'd love to hear more about: "+names+". Are they still available?";}
       return "https://wa.me/"+WA+"?text="+encodeURIComponent(msg);
@@ -246,7 +246,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
       var head,body;
       if(!liked.length){
         head='<div class="empty-ill">&#128054;</div><h2>No favourites yet?</h2>'
-          +'<p class="lead">No pressure — swipe again, or just say hi and we\'ll help you find the right fit.</p>';
+          +'<p class="lead">No pressure, swipe again, or just say hi and we\'ll help you find the right fit.</p>';
         body='<a class="wa-all" href="'+waLink([])+'" target="_blank" rel="noopener">'+waIcon()+'Chat with Curious Tails</a>'
           +'<div class="row2"><button class="ghost" id="pmsAgain">&#8634; Swipe again</button></div>';
       }else{
@@ -269,9 +269,9 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
     }
     function doShare(){
       var names=liked.map(function(p){return p.name+" ("+p.breed+")";}).join(", ");
-      var text="I found my puppy match"+(liked.length>1?"es":"")+" at Curious Tails 🐾 "+names+" — curioustails.sg";
+      var text="I found my puppy match"+(liked.length>1?"es":"")+" at Curious Tails 🐾 "+names+" · curioustails.sg";
       if(navigator.share){navigator.share({title:"My Curious Tails match",text:text,url:"https://curioustails.sg"}).catch(function(){});}
-      else if(navigator.clipboard){navigator.clipboard.writeText(text).then(function(){toast("Copied — paste to a friend!");}).catch(function(){toast(text);});}
+      else if(navigator.clipboard){navigator.clipboard.writeText(text).then(function(){toast("Copied! Paste to a friend");}).catch(function(){toast(text);});}
       else toast("Share: "+text);
     }
     var toastEl;

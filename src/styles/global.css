@@ -271,8 +271,11 @@ th[aria-sort="descending"] .sort-arrow::after { content: "\2193"; opacity: 1; }
 /* Every in-page jump target clears the sticky header. Without this the heading a
    hash link points at sits UNDER the bar and a working link reads as broken
    (page-health `jump`). --header-height is the sticky header's own height. */
-:root { --header-height: 4.5rem; }
-[id] { scroll-margin-top: calc(var(--header-height) + 1rem); }
+:root { --header-height: 5.25rem; }
+@media (min-width: 40rem) { :root { --header-height: 5.75rem; } }
+@media (min-width: 64rem) { :root { --header-height: 7.25rem; } }
+/* bar + header; jump targets also clear the sticky jump-tabs (~3rem) */
+[id] { scroll-margin-top: calc(var(--header-height) + 3.5rem); }
 
 /* A focus ring drawn just outside an element is clipped away by an
    `overflow: hidden` ancestor, so the stop paints no visible indicator. Inset the

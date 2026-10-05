@@ -9,10 +9,10 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<nav aria-label="Jump to a section" class="relative bg-[var(--color-surface)] sticky top-20 z-subnav py-4 border-b-2 border-[var(--color-border)]/60">
+<nav aria-label="Jump to a section" class="relative bg-[var(--color-surface)] sticky top-[5.25rem] sm:top-[5.75rem] lg:top-[7.25rem] z-subnav py-1.5 lg:py-4 border-b-2 border-[var(--color-border)]/60">
   <div class="relative mx-auto max-w-[1400px]">
     <ul
-      class="flex gap-3 overflow-x-auto no-scrollbar px-5 sm:px-8 pt-1 pb-3"
+      class="flex gap-3 overflow-x-auto no-scrollbar px-5 sm:px-8 pt-0.5 pb-1 lg:pt-1 lg:pb-3"
       data-tabs
       role="tablist"
     >
@@ -22,7 +22,7 @@ const { items } = Astro.props;
             href={item.href}
             role="tab"
             tabindex={i === 0 ? 0 : -1}
-            class="jump-link clay-btn-outline whitespace-nowrap inline-flex items-center bg-[var(--color-surface-card)] px-5 py-2.5 text-sm font-bold text-[var(--color-cream-700)] hover:text-[var(--color-coral-600)]"
+            class="jump-link clay-btn-outline whitespace-nowrap inline-flex items-center bg-[var(--color-surface-card)] px-3.5 py-1.5 lg:px-5 lg:py-2.5 text-xs lg:text-sm font-bold text-[var(--color-cream-700)] hover:text-[var(--color-coral-600)]"
           >
             {item.label}
           </a>

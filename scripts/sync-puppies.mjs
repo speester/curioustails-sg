@@ -27,6 +27,13 @@ const SHEET = 'I1dT5XVf1N96882pe1ZISdPxULIp0uvEMWU1nEaf-qstyqVRK-IKhTNhSjTAY1Gev
 const OPTIONS =
   'eyJyb3dzTGltaXQiOjUwMDAsImRlYWxUeXBlIjoiYXBwc3VtbyIsImR5bmFtaWNEYXRhIjp7InNoZWV0SGFzaCI6IjEwNzA0MzA4NTMiLCJTQ1BUYWJsZUxhdGVzdFVwZGF0ZVRpbWVzdGFtcCI6MTc4NTM5MTI4NDg3MX0sInNlYXJjaCI6eyJlbmFibGVkIjp0cnVlLCJjb2x1bW5zIjpbIkJyZWVkLSIsIlByaWNlJC0iLCJDb2xvci0iLCJBZ2UtIiwiR2VuZGVyLSIsIkhEQkFwcHJvdmVkLSIsIlNpemUtIiwiTG9jYXRpb24tIiwiT3JpZ2luLSIsIkltYWdlLSJdfSwic29ydGluZyI6eyJlbmFibGVkIjp0cnVlLCJzaHVmZmxlIjpmYWxzZX0sInBhZ2luYXRpb24iOnsiZW5hYmxlZCI6dHJ1ZSwiaXRlbXNQZXJQYWdlIjoiMzMifSwiZmlsdGVycyI6eyJlbmFibGVkIjp0cnVlLCJ2YWx1ZXMiOlt7ImlkIjoiQnJlZWQtIiwidHlwZSI6Im11bHRpcGxlIn0seyJpZCI6IkdlbmRlci0iLCJ0eXBlIjoibXVsdGlwbGUifSx7ImlkIjoiTG9jYXRpb24tIiwidHlwZSI6Im11bHRpcGxlIn0seyJpZCI6IkhEQkFwcHJvdmVkLSIsInR5cGUiOiJtdWx0aXBsZSJ9XX0sIm1hcFZpZXciOnsiZW5hYmxlZCI6ZmFsc2UsImlkIjpudWxsLCJtYXJrZXJUeXBlIjoicGluIiwiaW1hZ2VDb2xJZCI6IiJ9LCJjYWxlbmRhclZpZXciOnsiZW5hYmxlZCI6ZmFsc2UsInN0YXJ0RGF0ZUNvbElkIjpudWxsLCJ0aXRsZUNvbElkIjoiQnJlZWQtIn19';
 
+// Owner-reported sales the sheet has not marked yet (src/data/sold-overrides.json).
+const MANUAL_SOLD = new Set(
+  existsSync(path.join(ROOT, 'src', 'data', 'sold-overrides.json'))
+    ? JSON.parse(await readFile(path.join(ROOT, 'src', 'data', 'sold-overrides.json'), 'utf8')).sold.map(Number)
+    : [],
+);
+
 const AVAILABLE_ROWS = 33; // top of the sheet = page 1 of the spread site
 const MAX_PLACED = 4;
 const IMG_WIDTH = 800;
@@ -366,6 +373,10 @@ const other = [];
 
 // Available: top rows, drop sold-overlaid photos.
 for (const p of pups.slice(0, AVAILABLE_ROWS)) {
+  if (MANUAL_SOLD.has(Number(p.id))) {
+    summary.droppedOverlaid.push(`${p.id} ${p.breedLabel} (owner-reported sold)`);
+    continue;
+  }
   let imageFile = null;
   if (p.images[0]) {
     try {

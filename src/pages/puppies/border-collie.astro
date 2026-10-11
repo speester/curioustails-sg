@@ -51,7 +51,7 @@ const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'nu
 const price = breedPricing['border-collie'];
 const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
-const title = `Border Collie Puppy for Sale Singapore | From $${fmtPrice(price.low)}`;
+const title = `Border Collie Singapore: Puppies for Sale from $${fmtPrice(price.low)} All-In`;
 const description =
   'Border Collie puppies for sale in Singapore from $5,880 all-in. Not HDB-approved, and the world\'s smartest breed genuinely needs a real job.';
 
@@ -67,6 +67,11 @@ const jumpLinks = [
 ];
 
 const faqItems = [
+  {
+    question: 'Is a border collie right for a Singapore home?',
+    answer:
+      `A border collie suits a Singapore home only if someone can give it real daily work: exercise plus training and puzzles. It is not HDB-approved, so it needs a condo or landed home. At Curious Tails a border collie puppy is ${priceRange} all-in as of ${monthStamp}.`,
+  },
   {
     question: 'Can I keep a Border Collie in an HDB flat?',
     answer:
@@ -194,7 +199,7 @@ const schemas = [
     <AvailablePuppies breed="border-collie" breedName="Border Collie" only="placed" />
     <StarterKitMarquee />
 
-    <CaptionedBlock heading="Looking to Buy a Border Collie in Singapore?" imageAlt="Black and white Border Collie puppy portrait, one of the Border Collie puppies available in Singapore" imageSrc={imgScene1} variant="mid">
+    <CaptionedBlock heading="Looking for a Border Collie in Singapore?" imageAlt="Black and white Border Collie puppy portrait, one of the Border Collie puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Border Collie puppies in Singapore arrive and are reserved quickly, and, like our Husky buyers, Collie buyers get our most careful matching conversation, because the gap between the smartest-breed reputation and the daily reality fills Singapore's adoption boards. As an AVS licensed pet shop, we'll send you photos, gender, age, colour, and a short walkthrough video for the Border Collie puppies available now, right after we've talked about what the dog will do all day.</p>
       <p>Unlike the import listings you'll compare us against, we tell you the number upfront: every Border Collie for sale in Singapore here is between $5,880 and $6,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>

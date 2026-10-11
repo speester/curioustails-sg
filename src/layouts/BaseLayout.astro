@@ -73,6 +73,13 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
     <>
       <script async src={`https://www.googletagmanager.com/gtag/js?id=${site.ga4MeasurementId}`}></script>
       <script define:vars={{ id: site.ga4MeasurementId }}>
+        // Hostname guard: GA only counts production hosts. localhost, preview
+        // *.pages.dev and any other host set the official ga-disable flag, so
+        // dev sessions never reach property 530833097 (no Admin API data-filter
+        // endpoint exists to exclude them server-side).
+        if (!/^(www\.)?curioustails\.sg$/.test(location.hostname)) {
+          window['ga-disable-' + id] = true;
+        }
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         window.gtag = gtag;

@@ -51,7 +51,7 @@ const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'nu
 const price = breedPricing['pug'];
 const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
-const title = 'Pug Puppy for Sale Singapore | Curious Tails';
+const title = `Pug Singapore: Pug Puppies for Sale from $${fmtPrice(price.low)} All-In`;
 const description =
   'Pug puppies for sale in Singapore from $4,588, AVS licensed and HDB-approved. Real prices, temperament, heat care for flat faces, $500+ starter kit included.';
 
@@ -67,6 +67,11 @@ const jumpLinks = [
 ];
 
 const faqItems = [
+  {
+    question: 'Where can I get a pug in Singapore?',
+    answer:
+      `You can get a pug in Singapore from Curious Tails, an AVS licensed pet shop in Balestier, at ${priceRange} all-in as of ${monthStamp}. The Pug is HDB-approved, and the price includes the $500+ starter kit, free home delivery and setup, and a first training lesson.`,
+  },
   {
     question: 'How much is a Pug in Singapore?',
     answer:
@@ -200,7 +205,7 @@ const schemas = [
     <AvailablePuppies breed="pug" breedName="Pug" only="placed" />
     <StarterKitMarquee />
 
-    <CaptionedBlock heading="Looking to Buy a Pug in Singapore?" imageAlt="Fawn Pug puppy portrait, one of the Pug puppies available in Singapore" imageSrc={imgScene1} variant="mid">
+    <CaptionedBlock heading="Looking for a Pug in Singapore?" imageAlt="Fawn Pug puppy portrait, one of the Pug puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Pug puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Pug puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Pug for sale in Singapore here is between $4,588 and $5,288, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
       <p>

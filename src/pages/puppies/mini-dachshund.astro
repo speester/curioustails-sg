@@ -50,7 +50,7 @@ const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'nu
 const price = breedPricing['mini-dachshund'];
 const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
-const title = `Mini Dachshund Puppy for Sale Singapore | $${fmtPrice(price.low)} All-In`;
+const title = `Dachshund Singapore: Mini Dachshund Puppies from $${fmtPrice(price.low)} All-In`;
 const description =
   `Mini Dachshund puppy Singapore from $${fmtPrice(price.low)} all-in (${monthStamp}), AVS licensed, HDB-approved. $500+ starter kit, free delivery and training lesson included.`;
 
@@ -66,6 +66,11 @@ const jumpLinks = [
 ];
 
 const faqItems = [
+  {
+    question: 'Where can I buy a dachshund in Singapore?',
+    answer:
+      `Curious Tails sells mini dachshund puppies in Singapore at ${priceRange} all-in as of ${monthStamp}, from our AVS licensed shop in Balestier. The mini dachshund is HDB-approved, and every puppy goes home with the $500+ starter kit, free delivery and setup, and a first training lesson.`,
+  },
   {
     question: 'How much does a Mini Dachshund cost in Singapore?',
     answer:
@@ -179,7 +184,7 @@ const schemas = [
     <AvailablePuppies breed="mini-dachshund" breedName="Mini Dachshund" only="placed" />
     <StarterKitMarquee />
 
-    <CaptionedBlock heading="Looking for a Mini Dachshund for Sale in Singapore?" imageAlt="Red smooth-coat Mini Dachshund puppy available in Singapore, seated portrait" imageSrc={redPortrait} variant="mid">
+    <CaptionedBlock heading="Looking for a Dachshund in Singapore?" imageAlt="Red smooth-coat Mini Dachshund puppy available in Singapore, seated portrait" imageSrc={redPortrait} variant="mid">
       <p>Litters arrive and get reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. Message us and we'll send photos, gender, age, coat type, and a short walkthrough video for the Mini Dachshund puppies available now.</p>
       <p>Every Mini Dachshund puppy for sale here is between $4,288 and $6,088, and what you see is the full price. After you reserve with a deposit, we board your puppy free, food and lodging covered, until your home is ready.</p>
       <p>

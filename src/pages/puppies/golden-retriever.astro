@@ -51,7 +51,7 @@ const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'nu
 const price = breedPricing['golden-retriever'];
 const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
 
-const title = `Golden Retriever Puppy for Sale Singapore | From $${fmtPrice(price.low)}`;
+const title = `Golden Retriever Puppy Singapore: From $${fmtPrice(price.low)} All-In`;
 const description =
   'Golden Retriever puppies for sale in Singapore from $4,588 all-in. Not HDB-approved. Real prices, the exercise reality and heat care in our climate.';
 
@@ -67,6 +67,11 @@ const jumpLinks = [
 ];
 
 const faqItems = [
+  {
+    question: 'Where can I buy a golden retriever puppy in Singapore?',
+    answer:
+      `A golden retriever puppy in Singapore costs ${priceRange} at Curious Tails, our AVS licensed shop in Balestier, with the $500+ starter kit, free home delivery and setup, and a first training lesson included. The Golden is not HDB-approved, so it needs a landed home or condo, and roughly an hour of exercise a day timed around our heat.`,
+  },
   {
     question: 'Can I keep a Golden Retriever in an HDB flat?',
     answer:
@@ -194,7 +199,7 @@ const schemas = [
     <AvailablePuppies breed="golden-retriever" breedName="Golden Retriever" only="placed" />
     <StarterKitMarquee />
 
-    <CaptionedBlock heading="Looking to Buy a Golden Retriever in Singapore?" imageAlt="Golden Retriever puppy portrait, one of the Golden puppies available in Singapore" imageSrc={imgScene1} variant="mid">
+    <CaptionedBlock heading="Looking for a Golden Retriever Puppy in Singapore?" imageAlt="Golden Retriever puppy portrait, one of the Golden puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Golden Retriever puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat shade, and a short walkthrough video for the Golden puppies available now.</p>
       <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Golden Retriever for sale in Singapore here is between $4,588 and $5,500, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready - a genuine help if you're mid-renovation.</p>
       <p>

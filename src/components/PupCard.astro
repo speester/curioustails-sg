@@ -28,7 +28,6 @@ const SW: Record<string, string> = {
   'Premium Chocolate Liver': '#5a3220',
 };
 const swatch = item.color ? (SW[item.color] ?? '#d9b896') : null;
-const isAu = item.origin === 'Australia';
 const placed = item.state === 'placed';
 const statusText = placed ? '⚪ Placed' : item.tag && item.tag !== 'Available' ? `🟠 ${item.tag}` : '🟢 Available';
 
@@ -56,6 +55,18 @@ const svg = (k: string) => `<svg viewBox="0 0 24 24" aria-hidden="true">${IC[k]}
 const perkRun = PERKS.map(([i, t]) => `<span>${svg(i)}${t}</span>`).join('');
 const FLAG_SG = '<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="10" fill="#EF3340"/><rect y="10" width="30" height="10" fill="#fff"/><circle cx="7" cy="5" r="3.4" fill="#fff"/><circle cx="8.3" cy="5" r="3.2" fill="#EF3340"/><g fill="#fff"><circle cx="9.6" cy="3" r=".6"/><circle cx="11.6" cy="4.2" r=".6"/><circle cx="11" cy="6.6" r=".6"/><circle cx="8.3" cy="6.6" r=".6"/><circle cx="7.6" cy="4.2" r=".6"/></g></svg>';
 const FLAG_AU = '<svg viewBox="0 0 20 10" aria-hidden="true"><rect width="20" height="10" fill="#012169"/><path d="M0 0l10 5M10 0L0 5" stroke="#fff" stroke-width="1.2"/><path d="M5 0v5M0 2.5h10" stroke="#fff" stroke-width="1.6"/><path d="M5 0v5M0 2.5h10" stroke="#C8102E" stroke-width=".9"/><g fill="#fff"><circle cx="5" cy="7.6" r="1"/><circle cx="15" cy="2" r=".5"/><circle cx="17" cy="4" r=".5"/><circle cx="15" cy="8" r=".5"/><circle cx="13" cy="4.6" r=".5"/></g></svg>';
+const FLAG_UK = '<svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="pcuk"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#pcuk)" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></svg>';
+const FLAG_IE = '<svg viewBox="0 0 3 2" aria-hidden="true"><rect width="1" height="2" fill="#169B62"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#FF883E"/></svg>';
+// Feed Origin- values: Local, Australia, UK, Ireland. Unknown values show their own text, never a wrong country.
+const ORIGINS: Record<string, [string, string]> = {
+  Local: ['SG', FLAG_SG],
+  Singapore: ['SG', FLAG_SG],
+  Australia: ['AU', FLAG_AU],
+  UK: ['UK', FLAG_UK],
+  'United Kingdom': ['UK', FLAG_UK],
+  Ireland: ['IE', FLAG_IE],
+};
+const [originCode, flag] = ORIGINS[item.origin] ?? [item.origin, ''];
 const WA = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.8-1.1-4.6-4-4.8-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>';
 const CAL = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="4" fill="#fff"/><path d="M3 9a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v2H3Z" fill="#ef4444"/><rect x="7" y="2.5" width="2.2" height="5" rx="1.1" fill="#64748b"/><rect x="14.8" y="2.5" width="2.2" height="5" rx="1.1" fill="#64748b"/><path d="m8.5 15.5 2.4 2.4 4.6-4.6" fill="none" stroke="#22c55e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const VID = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4.5" fill="#ff0033"/><path d="m10 8.8 5.5 3.2-5.5 3.2Z" fill="#fff"/></svg>';
@@ -73,7 +84,7 @@ const chatLabel = placed ? 'Similar' : 'Chat';
       <span class="pc-pill pc-badge"><span class="pc-sw" style={`background:${swatch}`}></span>{item.color}</span>
     )}
     {item.origin && (
-      <span class="pc-pill pc-flag"><span class="pc-fi" set:html={isAu ? FLAG_AU : FLAG_SG} />{isAu ? 'Bred in AU' : 'Bred in SG'}</span>
+      <span class="pc-pill pc-flag">{flag && <span class="pc-fi" set:html={flag} />}Bred in {originCode}</span>
     )}
   </div>
   <div class="pc-row">

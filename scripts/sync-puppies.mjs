@@ -10,6 +10,9 @@
 //   (Image2 preferred, else Image1 if it passes the overlay check), max 4.
 // - Photos are downloaded, resized to 800px WebP, and served natively by
 //   Astro; files no longer referenced get pruned.
+// - Puppies that leave the available list are kept in src/data/placed-archive.json
+//   (never rebuilt from scratch) for "Puppies That Found Their Loving Homes" and
+//   their own pages. See the placed-archive section below.
 
 import { createHash } from 'node:crypto';
 import { mkdir, readdir, readFile, unlink, writeFile } from 'node:fs/promises';
@@ -17,10 +20,27 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
+import {
+  archiveFile,
+  archivePhotos,
+  classify,
+  isExpired,
+  needsOverlayCheck,
+  recordDepartures,
+  sgtDate,
+} from './lib/placed-archive.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ASSET_DIR = path.join(ROOT, 'src', 'assets', 'live');
 const DATA_FILE = path.join(ROOT, 'src', 'data', 'available-puppies.json');
+const ARCHIVE_FILE = path.join(ROOT, 'src', 'data', 'placed-archive.json');
+
+// The "before" picture, read before this run overwrites anything: every puppy
+// the last run listed that this run does not is a departure for the archive.
+const prevFeed = existsSync(DATA_FILE) ? JSON.parse(await readFile(DATA_FILE, 'utf8')) : null;
+const archive = existsSync(ARCHIVE_FILE)
+  ? JSON.parse(await readFile(ARCHIVE_FILE, 'utf8'))
+  : { pups: [] };
 
 const SHEET = 'I1dT5XVf1N96882pe1ZISdPxULIp0uvEMWU1nEaf-qstyqVRK-IKhTNhSjTAY1GevnSG';
 // Options blob captured from the live site (33 rows/page, its known-good config).
@@ -371,10 +391,13 @@ const toJson = (p, imageFile, { live }) => ({
 // under the label the shop actually uses, rather than dropped on the floor.
 const other = [];
 
-// Available: top rows, drop sold-overlaid photos.
+// Available: top rows, drop sold-overlaid photos. The sold rows dropped here are
+// the newest sales on the sheet, so they lead the recently-placed walk below.
+const soldTop = [];
 for (const p of pups.slice(0, AVAILABLE_ROWS)) {
   if (MANUAL_SOLD.has(Number(p.id))) {
     summary.droppedOverlaid.push(`${p.id} ${p.breedLabel} (owner-reported sold)`);
+    soldTop.push(p);
     continue;
   }
   let imageFile = null;
@@ -382,6 +405,7 @@ for (const p of pups.slice(0, AVAILABLE_ROWS)) {
     try {
       if (await checkOverlaid(p.images[0])) {
         summary.droppedOverlaid.push(`${p.id} ${p.breedLabel}`);
+        soldTop.push(p);
         continue; // sold between sheet edits — not available after all
       }
       imageFile = await savePhoto(p.id, 1, p.images[0]);
@@ -397,11 +421,13 @@ for (const p of pups.slice(0, AVAILABLE_ROWS)) {
   }
 }
 
-// Recently placed: walk history (below the fold), newest first, per breed,
-// until MAX_PLACED pups with a clean photo. Collected for EVERY breed, in
-// stock or not — breed pages show available + recently placed side by side. Image2 preferred (Image1 is
-// usually the overlay); Image1 only if it passes the overlay check.
-for (const p of pups.slice(AVAILABLE_ROWS)) {
+// Recently placed: walk history (the sold rows still on page 1, then everything
+// below the fold), newest first, per breed, until MAX_PLACED pups with a clean
+// photo. Collected for EVERY breed, in stock or not. Since 2026-10-14 this is the
+// undated top-up for "Puppies That Found Their Loving Homes": the dated placed
+// archive leads, these fill a breed that has fewer than its card limit. Image2
+// preferred (Image1 is usually the overlay); Image1 only if it passes the check.
+for (const p of [...soldTop, ...pups.slice(AVAILABLE_ROWS)]) {
   if (!p.slug) continue;
   const bucket = ensure(p.slug);
   if (bucket.recentlyPlaced.length >= MAX_PLACED) continue;
@@ -423,15 +449,85 @@ for (const p of pups.slice(AVAILABLE_ROWS)) {
   }
 }
 
-// Prune assets no longer referenced.
-const referenced = new Set(
-  [
-    ...Object.values(breeds).flatMap((b) => [...b.available, ...b.recentlyPlaced]),
-    ...other,
-  ]
+// ---- placed archive -----------------------------------------------------------
+// Owner decision 2026-10-14: a puppy that leaves the available list is kept, not
+// deleted. Each departure is recorded once, dated the day this sync first saw it
+// gone, with the clean photo it was listed with. Its status is re-read from the
+// sheet's own sold evidence on every run, because the shop often stamps the
+// overlay days after a pup drops off page 1:
+//   placed    - owner-reported sold (sold-overrides.json), or the row's current
+//               Image1 carries the "found a loving home" overlay, at Balestier.
+//               Shown under "Puppies That Found Their Loving Homes"; page stays up.
+//   withdrawn - no sold evidence (row gone, moved out of Balestier, or sunk off
+//               page 1 unstamped). Never shown; its page 301s to the breed page.
+//   expired   - left more than RETENTION_DAYS (120) ago. Page 301s, photo pruned.
+// A puppy that comes back onto the available list leaves the archive.
+//
+// The rules themselves live in scripts/lib/placed-archive.mjs (tested by
+// scripts/test-placed-archive.mjs); this block feeds them the sheet and photos.
+const today = sgtDate(Date.now());
+const listedNow = new Set([
+  ...Object.values(breeds).flatMap((b) => b.available.map((p) => String(p.id))),
+  ...other.map((p) => String(p.id)),
+]);
+const { archived, departures } = recordDepartures({ archive, prevFeed, listedNow, today });
+
+const rowById = new Map(allPups.map((p) => [String(p.id), p]));
+const archiveCounts = { placed: 0, withdrawn: 0, expired: 0 };
+for (const [id, a] of archived) {
+  if (isExpired(a, today)) {
+    a.status = 'expired';
+    a.image = null;
+    archiveCounts.expired++;
+    continue;
+  }
+  const row = rowById.get(id);
+  const facts = { id, row, manualSold: MANUAL_SOLD, locationAllowed };
+  let overlaid;
+  if (needsOverlayCheck(facts)) {
+    try {
+      overlaid = await checkOverlaid(row.images[0]);
+    } catch (e) {
+      // A failed download says nothing about the pup: classify() keeps the last verdict.
+      summary.imageErrors.push(`${id} (archive): ${e.message}`);
+    }
+  }
+  // `evidence` records WHY, so a surprising verdict can be checked without
+  // re-running anything.
+  const { evidence, status } = classify({ ...facts, overlaid, previous: a.evidence });
+  a.evidence = evidence;
+  a.status = status;
+  // A placed card needs its photo. Departures keep the clean photo they were
+  // listed with; if that is gone, take a clean one from the row (Image2 first,
+  // as for recently placed), never the overlay itself.
+  if (a.status === 'placed' && row && (!a.image || !existsSync(path.join(ASSET_DIR, a.image)))) {
+    a.image = null;
+    for (const n of [2, 3, 4, 5, 1]) {
+      const url = row.images[n - 1];
+      if (!url) continue;
+      try {
+        if (await checkOverlaid(url)) continue;
+        a.image = await savePhoto(row.id, n, url);
+        break;
+      } catch (e) {
+        summary.imageErrors.push(`${id} (archive photo): ${e.message}`);
+      }
+    }
+  }
+  archiveCounts[a.status]++;
+}
+
+const archiveOut = archiveFile({ archived, breeds, now: new Date().toISOString() });
+
+// Prune assets no longer referenced. Withdrawn puppies keep their photo while in
+// retention: a late overlay stamp turns them into placed, and CI has no git
+// history to restore a pruned file from.
+const referenced = new Set([
+  ...[...Object.values(breeds).flatMap((b) => [...b.available, ...b.recentlyPlaced]), ...other]
     .map((p) => p.image)
     .filter(Boolean),
-);
+  ...archivePhotos(archiveOut.pups),
+]);
 let pruned = 0;
 for (const f of await readdir(ASSET_DIR)) {
   if (f.endsWith('.webp') && !referenced.has(f)) {
@@ -447,6 +543,7 @@ const out = {
   unmapped: [...summary.unmapped.keys()].sort(),
 };
 await writeFile(DATA_FILE, JSON.stringify(out, null, 2) + '\n');
+await writeFile(ARCHIVE_FILE, JSON.stringify(archiveOut, null, 2) + '\n');
 await writeFile(VERDICT_FILE, JSON.stringify(verdicts) + '\n');
 
 // ---- report -----------------------------------------------------------------
@@ -470,6 +567,10 @@ if (out.unmapped.length) {
     `no breed page (top ${AVAILABLE_ROWS}): ${labels} — ${other.length} pup(s) listed under "other" on /available-puppies/`,
   );
 }
+console.log(
+  `placed archive: ${archiveCounts.placed} placed, ${archiveCounts.withdrawn} withdrawn, ${archiveCounts.expired} expired` +
+    (departures.length ? ` (left the list today: ${departures.join(', ')})` : ''),
+);
 if (summary.imageErrors.length) console.log(`image errors:\n  ${summary.imageErrors.join('\n  ')}`);
 console.log(`photos pruned: ${pruned}`);
 console.log(`wrote ${path.relative(ROOT, DATA_FILE)}`);

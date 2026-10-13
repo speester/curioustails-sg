@@ -193,5 +193,6 @@ export const ROUTE_SLUGS: string[] = [
   '/blog',
   '/available-puppies',
   '/privacy-policy',
-  '/blog/pet-ownership-course-singapore'
+  '/blog/pet-ownership-course-singapore',
+  '/found-loving-homes'
 ];

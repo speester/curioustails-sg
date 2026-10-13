@@ -1,5 +1,10 @@
 ---
 // Individual puppy page — one page per live puppy at /puppies/<breed>/<id>/.
+// Since 2026-10-14 a puppy that found its home keeps its page for the placed
+// archive's retention window (src/data/placed-archive.json): same URL, no price,
+// no booking, a "found a loving home" banner and the puppies still available,
+// and no Product node (an Offer needs a visible price). After retention the URL
+// 301s to its breed page (scripts/lib/puppy-redirects.mjs).
 // NEW FILE (added 2026-10-01). Driven by src/data/available-puppies.json and the
 // shared design system: BaseLayout + clay tokens + shared components, so brand
 // colours, the starter-kit marquee and the review slider all come from the real
@@ -20,6 +25,7 @@ import { site, whatsappLink } from '../../../data/site';
 import { breedName as displayBreedName } from '../../../data/breed-names';
 import { localBusinessSchema } from '../../../lib/schema';
 import { photoFor, pupCard, pupTitle, pupPageSlug, type Pup, type BreedBucket } from '../../../lib/puppy-cards';
+import { placedPups, placedWhen, type PlacedPup } from '../../../lib/loving-homes';
 import data from '../../../data/available-puppies.json';
 
 const breeds = data.breeds as Record<string, BreedBucket>;
@@ -27,28 +33,47 @@ const half = (g: Pup['gender']) => (g === 'Female' ? 'Girl' : g === 'Male' ? 'Bo
 
 export function getStaticPaths() {
   const breedsLocal = (data.breeds as Record<string, BreedBucket>);
-  const paths: { params: { breed: string; id: string }; props: { pup: Pup; breed: string } }[] = [];
+  const paths: { params: { breed: string; id: string }; props: { pup: Pup; breed: string; placed: PlacedPup | null } }[] = [];
   for (const [breed, bucket] of Object.entries(breedsLocal)) {
     for (const pup of bucket.available ?? []) {
       if (!pup.image || !photoFor(pup.image)) continue; // only pups with a real photo
-      paths.push({ params: { breed, id: pupPageSlug(pup) }, props: { pup, breed } });
+      paths.push({ params: { breed, id: pupPageSlug(pup) }, props: { pup, breed, placed: null } });
     }
+  }
+  // Placed puppies (sold evidence, inside retention, real photo) keep their URL.
+  const live = new Set(paths.map((p) => `${p.params.breed}/${p.params.id}`));
+  for (const placed of placedPups()) {
+    const pup = placed as unknown as Pup;
+    const id = pupPageSlug(pup);
+    if (live.has(`${placed.breed}/${id}`)) continue;
+    paths.push({ params: { breed: placed.breed, id }, props: { pup, breed: placed.breed, placed } });
   }
   return paths;
 }
 
-const { pup, breed } = Astro.props as { pup: Pup; breed: string };
+const { pup, breed, placed } = Astro.props as { pup: Pup; breed: string; placed: PlacedPup | null };
+const sold = placed !== null;
 const breedNameDisp = displayBreedName(breed);
 const title0 = pupTitle(pup, breedNameDisp);
 const hero = photoFor(pup.image)!;
 const canonicalPath = `/puppies/${breed}/${pupPageSlug(pup)}/`;
 const priceStr = pup.price ? `$${pup.price.toLocaleString('en-SG')}` : 'Ask for price';
 const genderNoun = half(pup.gender).toLowerCase();
+const breedNoun = pup.crossLabel ?? breedNameDisp;
+// "in October 2026", or "between September and October 2026" when the daily
+// snapshots straddle two months (src/lib/loving-homes.ts placedWhen).
+const when = placed ? placedWhen(placed) : null;
+const inMonth = when ? ` ${when.phrase}` : '';
+const soldName = pup.name ?? `This ${(pup.color ?? '').toLowerCase()} ${breedNoun} ${genderNoun}`.replace(/\s+/g, ' ');
+const soldHeadline = pup.name ? `${pup.name} the ${breedNoun} Found a Loving Home` : `${title0} Found a Loving Home`;
 
-const pageTitle = `${title0}: ${breedNameDisp} Puppy for Sale Singapore | Curious Tails`;
-const description =
-  `Meet ${title0}, a ${(pup.color ?? '').toLowerCase()} ${breedNameDisp} ${genderNoun}${pup.age ? `, ${pup.age}` : ''}. ` +
-  `${priceStr} all-in${pup.hdbApproved ? ', HDB-approved' : ''}. Vaccinated, microchipped and vet-checked. WhatsApp Curious Tails, Balestier.`;
+const pageTitle = sold
+  ? `${soldHeadline} | Curious Tails`
+  : `${title0}: ${breedNameDisp} Puppy for Sale Singapore | Curious Tails`;
+const description = sold
+  ? `${soldName}, a ${(pup.color ?? '').toLowerCase()} ${breedNoun} ${genderNoun}, found a loving Singapore home${inMonth} through Curious Tails. See the ${breedNameDisp} and other puppies available now at our AVS-licensed Balestier shop.`.replace(/\s+/g, ' ')
+  : `Meet ${title0}, a ${(pup.color ?? '').toLowerCase()} ${breedNameDisp} ${genderNoun}${pup.age ? `, ${pup.age}` : ''}. ` +
+    `${priceStr} all-in${pup.hdbApproved ? ', HDB-approved' : ''}. Vaccinated, microchipped and vet-checked. WhatsApp Curious Tails, Balestier.`;
 
 // Honest, attribute-derived intro — no invented personality claims.
 const TEMPERAMENT: Record<string, string> = {
@@ -61,23 +86,30 @@ const pronoun = pup.gender === 'Female' ? 'She' : pup.gender === 'Male' ? 'He' :
 const pronounLc = pup.gender === 'Female' ? 'she' : pup.gender === 'Male' ? 'he' : 'they';
 const pronounObj = pup.gender === 'Female' ? 'her' : pup.gender === 'Male' ? 'him' : 'them';
 
-const waMsg = whatsappLink(
-  `Hi! I'd like more photos and the price for ${pup.name ?? `puppy #${pup.id}`}, the ${[
-    pup.color?.toLowerCase(),
-    pup.gender?.toLowerCase(),
-  ].filter(Boolean).join(' ')} ${breedNameDisp} puppy (ID ${pup.id}).`,
-);
+const pupColourGender = [pup.color?.toLowerCase(), pup.gender?.toLowerCase()].filter(Boolean).join(' ');
+const waMsg = sold
+  ? whatsappLink(
+      `Hi! I saw ${pup.name ?? `puppy #${pup.id}`} (ID ${pup.id}) found a home. Do you have a similar ${[pup.color?.toLowerCase(), breedNoun].filter(Boolean).join(' ')} puppy available now or coming soon?`,
+    )
+  : whatsappLink(
+      `Hi! I'd like more photos and the price for ${pup.name ?? `puppy #${pup.id}`}, the ${pupColourGender} ${breedNameDisp} puppy (ID ${pup.id}).`,
+    );
 const waBook = whatsappLink(`Hi! I'd like to book a viewing for ${pup.name ?? `puppy #${pup.id}`} (ID ${pup.id}) at Balestier.`);
+// GA4 wa_source: a sold page's enquiries are the "missed this one" demand.
+const waSource = sold ? `sold:${pup.id}` : `pup:${pup.id}`;
 
 const spec: { k: string; v: string }[] = [
   { k: 'Breed', v: pup.crossLabel ?? breedNameDisp },
   { k: 'Puppy ID', v: `#${pup.id}` },
   ...(pup.gender ? [{ k: 'Gender', v: pup.gender }] : []),
   ...(pup.color ? [{ k: 'Colour', v: pup.color }] : []),
-  ...(pup.age ? [{ k: 'Age', v: pup.age }] : []),
+  // A placed puppy's listed age is stale the day it leaves; its status replaces it.
+  ...(!sold && pup.age ? [{ k: 'Age', v: pup.age }] : []),
   ...(pup.origin ? [{ k: 'Origin', v: pup.origin }] : []),
   ...(pup.hdbApproved ? [{ k: 'HDB approved', v: 'Yes' }] : []),
-  { k: 'Price', v: `${priceStr} all-in` },
+  sold
+    ? { k: 'Status', v: when ? `Found a home, ${when.short}` : 'Found a home' }
+    : { k: 'Price', v: `${priceStr} all-in` },
 ];
 
 const included = [
@@ -120,12 +152,17 @@ const whyChoose = [
   },
 ];
 
-// Other available puppies across the shop (exclude this one), for the cross-sell grid.
-const others = Object.entries(breeds).flatMap(([slug, b]) =>
-  (b.available ?? [])
-    .filter((p) => String(p.id) !== String(pup.id) && p.image && photoFor(p.image))
-    .map((p) => pupCard(p, displayBreedName(slug), 'available', { breedLabel: true, breedSlug: slug })),
-).slice(0, 8);
+// Other available puppies across the shop (exclude this one), for the cross-sell
+// grid. On a placed puppy's page the same breed leads: that is what the visitor
+// came for, and the grid is the page's way forward.
+const others = Object.entries(breeds)
+  .sort(([a], [b]) => (sold ? Number(b === breed) - Number(a === breed) : 0))
+  .flatMap(([slug, b]) =>
+    (b.available ?? [])
+      .filter((p) => String(p.id) !== String(pup.id) && p.image && photoFor(p.image))
+      .map((p) => pupCard(p, displayBreedName(slug), 'available', { breedLabel: true, breedSlug: slug })),
+  )
+  .slice(0, 8);
 
 const heroAbs = new URL(hero.src, site.domain).toString();
 const productLd = {
@@ -147,7 +184,7 @@ const productLd = {
 };
 ---
 <BaseLayout title={pageTitle} description={description} canonicalPath={canonicalPath} ogImage={heroAbs}>
-  <Schema schemas={[productLd, localBusinessSchema()]} />
+  <Schema schemas={sold ? [localBusinessSchema()] : [productLd, localBusinessSchema()]} />
 
   {/* HERO */}
   <section class="mx-auto max-w-[1400px] px-5 sm:px-8 pt-8 pb-14">
@@ -160,19 +197,25 @@ const productLd = {
       bare
     />
     <div class="mt-6 grid items-start gap-8 lg:grid-cols-2">
-      <div class="clay overflow-hidden bg-[var(--color-surface-card)] p-3">
+      <div class="clay relative overflow-hidden bg-[var(--color-surface-card)] p-3">
         <Image
           src={hero}
-          alt={`${title0}, ${breedNameDisp} puppy available in Singapore`}
+          alt={sold ? `${title0}, a ${breedNoun} puppy who found a loving home in Singapore` : `${title0}, ${breedNameDisp} puppy available in Singapore`}
           widths={[480, 768, 1000]}
           sizes="(max-width:1023px) 92vw, 640px"
           class="aspect-[4/3] w-full rounded-[1.1rem] object-cover"
         />
+        {sold && (
+          <span class="absolute bottom-7 left-7 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-extrabold text-[var(--color-forest-700)] shadow-[0_3px_10px_rgba(0,0,0,0.18)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-coral-500)" aria-hidden="true"><path d="M12 20.3 4.3 12.6a4.6 4.6 0 0 1 6.5-6.5l1.2 1.2 1.2-1.2a4.6 4.6 0 0 1 6.5 6.5z" /></svg>
+            Found a loving home
+          </span>
+        )}
       </div>
       <div class="lg:py-2">
         <p class="text-sm font-bold uppercase tracking-widest text-[var(--color-coral-600)]">{breedNameDisp} · {pup.gender ?? 'Puppy'}</p>
-        <h1 class="mt-2 font-semibold text-[var(--color-cream-900)]" style="font-size: clamp(1.9rem, 4vw, 2.9rem);">{title0}</h1>
-        <p class="mt-2 text-[var(--color-cream-600)]">Puppy ID #{pup.id}{pup.age ? ` · ${pup.age}` : ''}</p>
+        <h1 class="mt-2 font-semibold text-[var(--color-cream-900)]" style="font-size: clamp(1.9rem, 4vw, 2.9rem);">{sold ? soldHeadline : title0}</h1>
+        <p class="mt-2 text-[var(--color-cream-600)]">Puppy ID #{pup.id}{sold ? ` · found a home${inMonth}` : pup.age ? ` · ${pup.age}` : ''}</p>
 
         <div class="mt-4 flex flex-wrap gap-2">
           {pup.hdbApproved && <span class="rounded-full bg-[var(--color-mint-100)] px-3 py-1.5 text-xs font-bold text-[var(--color-cream-900)]">✓ HDB Approved</span>}
@@ -181,26 +224,63 @@ const productLd = {
           <span class="rounded-full bg-[var(--color-peach-100)] px-3 py-1.5 text-xs font-bold text-[var(--color-cream-900)]">Vet health-checked</span>
         </div>
 
-        <div class="mt-5 flex items-baseline gap-3 border-y-2 border-[var(--color-cream-200)] py-4">
-          <span class="font-semibold text-[var(--color-coral-600)]" style="font-size: clamp(2rem, 5vw, 2.8rem);">{priceStr}</span>
-          <span class="rounded-full bg-[var(--color-mint-100)] px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-[var(--color-cream-900)]">All-in price</span>
-        </div>
+        {sold ? (
+          <div class="mt-5 rounded-[1.3rem] border-2 border-[var(--color-mint-300)] bg-[var(--color-mint-100)] p-5">
+            <p class="font-bold text-[var(--color-cream-900)]">{pup.name ?? 'This puppy'} is no longer available.</p>
+            <p class="mt-1 text-[0.95rem] leading-relaxed text-[var(--color-cream-800)]">
+              {pup.name ?? 'This puppy'} found {pup.gender === 'Female' ? 'her' : pup.gender === 'Male' ? 'his' : 'their'} family{inMonth}. Looking for a {breedNoun} like {pup.gender === 'Female' ? 'her' : pup.gender === 'Male' ? 'him' : 'this one'}? WhatsApp us and we'll send photos of similar puppies available now or arriving soon.
+            </p>
+          </div>
+        ) : (
+          <div class="mt-5 flex items-baseline gap-3 border-y-2 border-[var(--color-cream-200)] py-4">
+            <span class="font-semibold text-[var(--color-coral-600)]" style="font-size: clamp(2rem, 5vw, 2.8rem);">{priceStr}</span>
+            <span class="rounded-full bg-[var(--color-mint-100)] px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-[var(--color-cream-900)]">All-in price</span>
+          </div>
+        )}
 
         <div class="mt-5 flex flex-col gap-3">
-          <a href={waMsg} data-wa-source={`pup:${pup.id}`} class="clay-btn clay-press inline-flex items-center justify-center gap-2 bg-[#25D366] px-6 py-4 text-base font-bold text-white transition-transform hover:bg-[#1ebe57]">
+          <a href={waMsg} data-wa-source={waSource} class="clay-btn clay-press inline-flex items-center justify-center gap-2 bg-[#25D366] px-6 py-4 text-base font-bold text-white transition-transform hover:bg-[#1ebe57]">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
-            <span class="lg:hidden">Enquire on WhatsApp</span>
-            <span class="hidden lg:inline">WhatsApp Us 8220 6408</span>
+            {sold ? (
+              <span>Ask about a similar puppy</span>
+            ) : (
+              <>
+                <span class="lg:hidden">Enquire on WhatsApp</span>
+                <span class="hidden lg:inline">WhatsApp Us 8220 6408</span>
+              </>
+            )}
           </a>
-          <a href={pup.bookHref ?? waBook} target={pup.bookHref ? '_blank' : undefined} rel={pup.bookHref ? 'noopener' : undefined} class="clay-btn-outline clay-press inline-flex items-center justify-center gap-2 bg-white px-6 py-3.5 text-base font-bold text-[var(--color-coral-600)] transition-transform">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            Book a viewing
-          </a>
+          {sold ? (
+            <a href="/available-puppies/" class="clay-btn-outline clay-press inline-flex items-center justify-center gap-2 bg-white px-6 py-3.5 text-base font-bold text-[var(--color-coral-600)] transition-transform">
+              See puppies available now
+            </a>
+          ) : (
+            <a href={pup.bookHref ?? waBook} target={pup.bookHref ? '_blank' : undefined} rel={pup.bookHref ? 'noopener' : undefined} class="clay-btn-outline clay-press inline-flex items-center justify-center gap-2 bg-white px-6 py-3.5 text-base font-bold text-[var(--color-coral-600)] transition-transform">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              Book a viewing
+            </a>
+          )}
         </div>
-        <p class="mt-4 text-sm text-[var(--color-cream-600)]">No hidden fees: vaccination, microchip &amp; licence are already in the price. Vet-checked before going home.</p>
+        <p class="mt-4 text-sm text-[var(--color-cream-600)]">
+          {sold
+            ? 'Every puppy we place goes home vaccinated, microchipped and vet-checked, at one all-in price with nothing added later.'
+            : 'No hidden fees: vaccination, microchip & licence are already in the price. Vet-checked before going home.'}
+        </p>
       </div>
     </div>
   </section>
+
+  {/* PLACED: the way forward comes straight after the news, not at the foot. */}
+  {sold && others.length > 0 && (
+    <ListingGrid
+      heading={`Puppies Available Now`}
+      headingAccent="Available Now"
+      subhead={`${pup.name ?? 'This puppy'} has gone home, but these real puppies are with us today, every price all-in. Tap any pup to see its own page.`}
+      items={others}
+      footerCtaLabel="See every puppy available now"
+      footerCtaHref="/available-puppies/"
+    />
+  )}
 
   {/* ABOUT + PROFILE (tint band) */}
   <section class="bg-[var(--color-peach-100)] py-16 sm:py-20">
@@ -209,20 +289,34 @@ const productLd = {
 
         {/* LEFT: about card */}
         <div class="clay flex flex-col bg-[var(--color-surface-card)] p-7 sm:p-9">
-          <p class="text-sm font-bold uppercase tracking-widest text-[var(--color-coral-600)]">Meet {pup.name ?? 'this puppy'}</p>
+          <p class="text-sm font-bold uppercase tracking-widest text-[var(--color-coral-600)]">{sold ? 'Found a loving home' : `Meet ${pup.name ?? 'this puppy'}`}</p>
           <h2 class="mt-2 font-semibold text-[var(--color-cream-900)]" style="font-size: clamp(1.7rem, 3vw, 2.4rem);">About {pup.name ?? 'this puppy'}</h2>
 
-          <div class="mt-5 space-y-4 text-[1.05rem] leading-relaxed text-[var(--color-cream-800)]">
-            <p>
-              <span class="font-semibold text-[var(--color-cream-900)]">{title0}</span> is {['a','e','i','o','u'].includes((pup.color ?? '')[0]?.toLowerCase()) ? 'an' : 'a'} {(pup.color ?? '').toLowerCase()} {breedNameDisp} {genderNoun}{pup.age ? `, around ${pup.age} old` : ''}, ready for a loving Singapore home.
-              {` ${breedNameDisp}s are ${temperament}.`}
-            </p>
-            <p>
-              {pronoun} is vaccinated, dewormed, microchipped and has passed a vet health check before going home.
-              {pup.hdbApproved ? ` ${pronounLc.charAt(0).toUpperCase() + pronounLc.slice(1)} is HDB-approved, so ${pronounLc} transfers into a flat with no separate approval needed.` : ''}
-              {' You are welcome to meet '}{pronounObj}{' at our Balestier shop before you decide, with no pressure to buy.'}
-            </p>
-          </div>
+          {sold ? (
+            <div class="mt-5 space-y-4 text-[1.05rem] leading-relaxed text-[var(--color-cream-800)]">
+              <p>
+                <span class="font-semibold text-[var(--color-cream-900)]">{title0}</span> is {['a','e','i','o','u'].includes((pup.color ?? '')[0]?.toLowerCase()) ? 'an' : 'a'} {(pup.color ?? '').toLowerCase()} {breedNoun} {genderNoun} who found a loving Singapore home{inMonth}.
+                {` ${breedNameDisp}s are ${temperament}.`}
+              </p>
+              <p>
+                Like every puppy from our Balestier shop, {pronounLc} went home vaccinated, dewormed, microchipped and vet-checked.
+                {pup.hdbApproved ? ` ${pronounLc.charAt(0).toUpperCase() + pronounLc.slice(1)} is HDB-approved, so ${pronounLc} moved into a flat with no separate approval needed.` : ''}
+                {` If you were hoping for a ${breedNoun} like ${pronounObj}, WhatsApp us: new puppies arrive regularly, and we will tell you honestly when the next one is due.`}
+              </p>
+            </div>
+          ) : (
+            <div class="mt-5 space-y-4 text-[1.05rem] leading-relaxed text-[var(--color-cream-800)]">
+              <p>
+                <span class="font-semibold text-[var(--color-cream-900)]">{title0}</span> is {['a','e','i','o','u'].includes((pup.color ?? '')[0]?.toLowerCase()) ? 'an' : 'a'} {(pup.color ?? '').toLowerCase()} {breedNameDisp} {genderNoun}{pup.age ? `, around ${pup.age} old` : ''}, ready for a loving Singapore home.
+                {` ${breedNameDisp}s are ${temperament}.`}
+              </p>
+              <p>
+                {pronoun} is vaccinated, dewormed, microchipped and has passed a vet health check before going home.
+                {pup.hdbApproved ? ` ${pronounLc.charAt(0).toUpperCase() + pronounLc.slice(1)} is HDB-approved, so ${pronounLc} transfers into a flat with no separate approval needed.` : ''}
+                {' You are welcome to meet '}{pronounObj}{' at our Balestier shop before you decide, with no pressure to buy.'}
+              </p>
+            </div>
+          )}
 
           <div class="mt-auto pt-8">
             <div class="rounded-[1.3rem] border-2 border-[var(--color-cream-200)] bg-[var(--color-peach-100)] p-6 sm:p-7">
@@ -255,9 +349,9 @@ const productLd = {
               </div>
             ))}
           </dl>
-          <a href={waMsg} data-wa-source={`pup:${pup.id}`} class="clay-btn clay-press mt-auto inline-flex w-full items-center justify-center gap-2 bg-[#25D366] px-5 py-3.5 text-sm font-bold text-white transition-transform hover:bg-[#1ebe57]">
+          <a href={waMsg} data-wa-source={waSource} class="clay-btn clay-press mt-auto inline-flex w-full items-center justify-center gap-2 bg-[#25D366] px-5 py-3.5 text-sm font-bold text-white transition-transform hover:bg-[#1ebe57]">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
-            Ask about {pup.name ?? 'this puppy'}
+            {sold ? 'Ask about a similar puppy' : `Ask about ${pup.name ?? 'this puppy'}`}
           </a>
         </div>
       </div>
@@ -279,7 +373,9 @@ const productLd = {
           Why choose <span class="text-[var(--color-coral-500)]">Curious Tails</span>
         </h2>
         <p class="mx-auto mt-3 max-w-[52ch] text-base text-[var(--color-cream-700)]">
-          Bringing {pup.name ?? 'a puppy'} home is a 15-year decision. Here is what you get when {pronounLc} comes from us: not just a healthy puppy, but a licensed shop that stands behind {pronounObj}.
+          {sold
+            ? 'Bringing a puppy home is a 15-year decision. Here is what every family gets when their puppy comes from us: not just a healthy puppy, but a licensed shop that stands behind it.'
+            : `Bringing ${pup.name ?? 'a puppy'} home is a 15-year decision. Here is what you get when ${pronounLc} comes from us: not just a healthy puppy, but a licensed shop that stands behind ${pronounObj}.`}
         </p>
       </div>
 
@@ -317,9 +413,9 @@ const productLd = {
       <div class="mt-10 flex flex-col items-center justify-between gap-5 rounded-[1.5rem] bg-[var(--color-surface-card)] px-7 py-6 text-center sm:flex-row sm:text-left">
         <div>
           <p class="font-bold text-[var(--color-cream-900)]">Licensed Singapore pet shop, not a backyard seller.</p>
-          <p class="mt-1 text-sm text-[var(--color-cream-600)]">AVS pet shop licence AS24J00046 · 2 Balestier Road · Meet {pup.name ?? 'the puppy'} before you decide.</p>
+          <p class="mt-1 text-sm text-[var(--color-cream-600)]">AVS pet shop licence AS24J00046 · 2 Balestier Road · Meet {sold ? 'the puppies' : (pup.name ?? 'the puppy')} before you decide.</p>
         </div>
-        <a href={waMsg} data-wa-source={`pup:${pup.id}`} class="clay-btn clay-press inline-flex shrink-0 items-center justify-center gap-2 bg-[#25D366] px-6 py-3.5 text-sm font-bold text-white transition-transform hover:bg-[#1ebe57]">
+        <a href={waMsg} data-wa-source={waSource} class="clay-btn clay-press inline-flex shrink-0 items-center justify-center gap-2 bg-[#25D366] px-6 py-3.5 text-sm font-bold text-white transition-transform hover:bg-[#1ebe57]">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
           Chat with us on WhatsApp
         </a>
@@ -337,7 +433,7 @@ const productLd = {
   <ReviewSlider slug={breed} heading="What Curious Tails owners say" />
 
   {/* OTHER PUPPIES AVAILABLE */}
-  {others.length > 0 && (
+  {!sold && others.length > 0 && (
     <ListingGrid
       heading="Other Puppies Available Now"
       headingAccent="Available Now"
@@ -346,5 +442,12 @@ const productLd = {
     />
   )}
 
-  <FinalCta breed={breedNameDisp} reserveMessage={`Hi! I'd like to reserve ${pup.name ?? `puppy #${pup.id}`} (ID ${pup.id}).`} browseHref="/available-puppies/" browseLabel="Browse all available puppies" />
+  <FinalCta
+    breed={breedNameDisp}
+    reserveMessage={sold
+      ? `Hi! I saw ${pup.name ?? `puppy #${pup.id}`} (ID ${pup.id}) found a home. I'd like to reserve a similar ${breedNoun} puppy.`
+      : `Hi! I'd like to reserve ${pup.name ?? `puppy #${pup.id}`} (ID ${pup.id}).`}
+    browseHref="/available-puppies/"
+    browseLabel="Browse all available puppies"
+  />
 </BaseLayout>

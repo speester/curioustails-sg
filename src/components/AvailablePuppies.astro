@@ -2,14 +2,18 @@
 // Real inventory section for breed pages, driven by src/data/available-puppies.json
 // (written by `npm run sync:puppies` from the owner's SpreadSimple sheet).
 // Every breed page renders BOTH sections when it has the data:
-//  - Available <breed> Puppies:        real pups in stock right now
-//  - Recently Placed <breed> Puppies:  the breed's latest real placed pups
-// With no stock, an "contact us for latest availability" CTA sits directly
-// under the recently-placed grid (or stands alone when there are no cards).
+//  - Available <breed> Puppies:   real pups in stock right now
+//  - Puppies That Found Their Loving Homes: the breed's real placed pups
+//    (src/data/placed-archive.json, topped up from the sheet's history),
+//    always BELOW anything available (owner decision 2026-10-14)
+// With no stock, the nearest breeds' available pups and an "contact us for the
+// latest availability" CTA follow the available slot.
 import ListingGrid from './ListingGrid.astro';
 import AvailabilityCta from './AvailabilityCta.astro';
+import LovingHomesSection from './LovingHomesSection.astro';
 import data from '../data/available-puppies.json';
 import { pupCard, livePupCards, stockedBreeds, type BreedBucket } from '../lib/puppy-cards';
+import { lovingHomeCards } from '../lib/loving-homes';
 import { nearestBreeds } from '../data/breed-neighbours';
 import { breedName as displayBreedName } from '../data/breed-names';
 
@@ -21,16 +25,16 @@ interface Props {
   breed: string; // page slug, e.g. "mini-dachshund"
   breedName: string; // display name, e.g. "Mini Dachshund"
   // Render one half only, so a breed page can slot other sections between the
-  // "Available" grid and the "Recently Placed" grid. Omit to render both.
+  // "Available" grid and the loving-homes grid. Omit to render both.
   only?: 'available' | 'placed';
 }
 const { breed, breedName, only } = Astro.props;
 const showAvailable = only !== 'placed'; // available grid + no-stock fallback/CTA
-const showPlaced = only !== 'available'; // recently-placed grid
+const showPlaced = only !== 'available'; // loving-homes grid
 
+const PLACED_LIMIT = 4;
 const entry = (data.breeds as Record<string, BreedBucket>)[breed];
 const available = entry?.available ?? [];
-const placed = entry?.recentlyPlaced ?? [];
 const hasStock = available.length > 0;
 
 // Truthful scarcity: when a breed is genuinely down to its last few, the tag
@@ -44,7 +48,7 @@ const availableItems = available.map((p) => {
     ? { ...card, tag: available.length === 1 ? 'Last one available' : `Only ${available.length} left` }
     : card;
 });
-const placedItems = placed.map((p) => pupCard(p, breedName, 'placed'));
+const placedCount = showPlaced ? lovingHomeCards({ breed, limit: PLACED_LIMIT }).length : 0;
 
 // Workstream A2.4: with no stock, this page used to end in an availability CTA
 // that converted 0%. Show real puppies of the nearest breeds instead - someone
@@ -68,21 +72,6 @@ const nearestNames = nearest.map((slug) => displayBreedName(slug));
 }
 
 {
-  showPlaced && placedItems.length > 0 && (
-    <ListingGrid
-      heading={`Recently Placed ${breedName} Puppies`}
-      headingAccent="Recently Placed"
-      subhead={
-        hasStock
-          ? `Recent ${breedName} puppies for sale in Singapore that have already found their families. Here is a sense of the colours, sizes and prices that come through our Balestier shop.`
-          : `These ${breedName} puppies for sale in Singapore found their families fast, and most litters are reserved within days. Ask about a similar puppy and we'll WhatsApp you photos, prices and timing for the next ${breedName} litter.`
-      }
-      items={placedItems}
-    />
-  )
-}
-
-{
   showAvailable && nearestItems.length > 0 && (
     <ListingGrid
       heading={`No ${breedName}s In Today. These Are The Closest`}
@@ -95,4 +84,7 @@ const nearestNames = nearest.map((slug) => displayBreedName(slug));
   )
 }
 
-{showAvailable && !hasStock && <AvailabilityCta breedName={breedName} standalone={placedItems.length === 0 && nearestItems.length === 0} />}
+{showAvailable && !hasStock && <AvailabilityCta breedName={breedName} standalone={nearestItems.length === 0} />}
+
+{/* Placed puppies render after everything available that this component draws. */}
+{showPlaced && placedCount > 0 && <LovingHomesSection breed={breed} breedName={breedName} limit={PLACED_LIMIT} />}

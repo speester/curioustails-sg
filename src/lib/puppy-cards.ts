@@ -2,6 +2,7 @@
 // written by `npm run sync:puppies`). Used by the per-breed AvailablePuppies
 // section and by the site-wide /available-puppies/ page.
 import { whatsappLink } from '../data/site';
+import { pupPageSlug as slugOf } from './pup-slug.mjs';
 
 // Owner decision (2026-10-02): the rotating WhatsApp-label A/B experiment is
 // retired on the card in favour of one fixed, question-led label that tests best
@@ -53,13 +54,10 @@ export const photoFor = (file: string | null) =>
 const half = (g: Pup['gender']) => (g === 'Female' ? 'Girl' : g === 'Male' ? 'Boy' : 'Puppy');
 
 // Canonical URL of a puppy's own page (/puppies/<breed>/<id>/). The individual
-// puppy route and every card that links to it MUST derive the slug from here, so
-// the link and the generated path can never drift apart.
-export const pupPageSlug = (p: Pup) =>
-  `${p.id}-${p.color ?? ''}-${half(p.gender)}`
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
+// puppy route, every card that links to it and the retired-page 301s MUST derive
+// the slug from here (defined once in pup-slug.mjs), so the link, the generated
+// path and the redirect can never drift apart.
+export const pupPageSlug = (p: Pup): string => slugOf(p);
 export const pupPageHref = (breedSlug: string, p: Pup) => `/puppies/${breedSlug}/${pupPageSlug(p)}/`;
 
 export const pupTitle = (p: Pup, breedName: string) => {

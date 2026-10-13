@@ -5,6 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ListingGrid from '../components/ListingGrid.astro';
 import AvailabilityCta from '../components/AvailabilityCta.astro';
+import LovingHomesSection from '../components/LovingHomesSection.astro';
 import FinalCta from '../components/FinalCta.astro';
 import Schema from '../components/Schema.astro';
 import data from '../data/available-puppies.json';
@@ -125,6 +126,9 @@ const schemas = [
   )}
 
   {inStock.length === 0 && otherPups.length === 0 && <AvailabilityCta breedName="Puppy" standalone />}
+
+  {/* Below every available puppy, never above (owner decision 2026-10-14). */}
+  <LovingHomesSection limit={12} mobileLimit={6} />
 
   <section aria-label="Not seeing your breed" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
     <p class="max-w-[70ch] text-base leading-relaxed text-[var(--color-cream-700)]">

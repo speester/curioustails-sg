@@ -1,0 +1,150 @@
+---
+// "Puppies That Found Their Loving Homes": every placed puppy inside the
+// retention window, newest month first, from src/data/placed-archive.json
+// (`npm run sync:puppies`). The trust page behind the section that sits under
+// the available puppies on /available-puppies/ and every breed page. Only
+// puppies the sheet confirms as sold appear; no prices, no booking links.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import LovingHomeCard from '../components/LovingHomeCard.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Schema from '../components/Schema.astro';
+import liveData from '../data/available-puppies.json';
+import { webPageSchema, localBusinessSchema } from '../lib/schema';
+import {
+  LOVING_HOMES_ACCENT,
+  LOVING_HOMES_PATH,
+  LOVING_HOMES_TITLE,
+  lovingHomeCards,
+  placedWhen,
+  placedPups,
+  placedStats,
+  similarPuppyLink,
+} from '../lib/loving-homes';
+
+const pups = placedPups();
+const stats = placedStats();
+const breedsPlaced = new Set(pups.map((p) => p.breed)).size;
+const cards = lovingHomeCards({ limit: pups.length });
+const cardById = new Map(cards.map((c) => [c.id, c]));
+
+// Month groups, newest first (pups arrive sorted). A puppy whose snapshots
+// straddle two months is grouped under that window ("between September and
+// October 2026"), in date order, never filed under a month it may not belong to.
+const groups = new Map<string, { heading: string; cards: typeof cards }>();
+for (const p of pups) {
+  const when = placedWhen(p);
+  const card = cardById.get(String(p.id));
+  if (!card || !when) continue;
+  if (!groups.has(when.key)) groups.set(when.key, { heading: `Found their homes ${when.phrase}`, cards: [] });
+  groups.get(when.key)!.cards.push(card);
+}
+const ordered = [...groups.entries()];
+
+const inStock = Object.values(liveData.breeds).reduce((n, b) => n + b.available.length, 0);
+const [before, after] = LOVING_HOMES_TITLE.split(LOVING_HOMES_ACCENT);
+const lastUpdated = new Date(liveData.syncedAt).toLocaleDateString('en-SG', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'Asia/Singapore',
+});
+
+const title = `${LOVING_HOMES_TITLE} | Curious Tails`;
+const description =
+  stats.count > 0
+    ? `${stats.count} real puppies from our AVS-licensed Balestier shop that went home with Singapore families since ${stats.since}, by month and breed. See who is available now.`
+    : 'Real puppies from our AVS-licensed Balestier shop that went home with Singapore families. See who is available now.';
+
+const schemas = [
+  webPageSchema({
+    path: LOVING_HOMES_PATH,
+    title,
+    description,
+    aboutName: 'Puppies placed with Singapore families by Curious Tails',
+    type: 'CollectionPage',
+    dateModified: liveData.syncedAt,
+  }),
+  localBusinessSchema(),
+];
+---
+
+<BaseLayout title={title} description={description} canonicalPath={LOVING_HOMES_PATH}>
+  <Breadcrumb
+    items={[
+      { label: 'Available Puppies', href: '/available-puppies/' },
+      { label: LOVING_HOMES_TITLE, href: LOVING_HOMES_PATH },
+    ]}
+  />
+
+  <section class="hero relative mx-auto max-w-[1400px] px-5 sm:px-8 pt-4 pb-2" data-hero-archetype="centered-statement" data-section-pattern="prose">
+    <p class="text-xs font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">
+      Real puppies, real Singapore families &middot; updated {lastUpdated}
+    </p>
+    <h1 class="mt-2 font-semibold text-[var(--color-cream-900)]" style="font-size: clamp(2rem, 4.5vw, 3.25rem);">
+      {before}<span class="text-[var(--color-coral-500)]">{LOVING_HOMES_ACCENT}</span>{after}
+    </h1>
+    <p class="mt-4 max-w-[65ch] text-lg leading-relaxed text-[var(--color-cream-700)]">
+      {stats.count > 0
+        ? `${stats.count} puppies across ${breedsPlaced} ${breedsPlaced === 1 ? 'breed' : 'breeds'} have gone home from our AVS-licensed Balestier shop since ${stats.since}. Every one here is a real puppy, photographed with us before it left, and listed only once the sale was confirmed.`
+        : 'Real puppies from our AVS-licensed Balestier shop that have gone home with Singapore families, listed only once each sale was confirmed.'}
+      {' '}If one of these is what you were looking for, ask us about a similar puppy.
+    </p>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a
+        href="/available-puppies/"
+        class="clay-btn clay-press inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] px-6 py-3 text-sm font-bold text-white transition-transform hover:bg-[var(--color-accent-hover)]"
+      >
+        See {inStock === 1 ? 'the puppy' : `the ${inStock} puppies`} available now
+      </a>
+      <a
+        href={similarPuppyLink()}
+        data-wa-source="loving-homes:archive"
+        class="clay-btn-outline inline-flex items-center justify-center gap-2 bg-white px-6 py-3 text-sm font-bold text-[var(--color-coral-600)]"
+      >
+        Ask about a similar puppy
+      </a>
+    </div>
+  </section>
+
+  {ordered.map(([key, group]) => (
+    <section class="mx-auto max-w-[1400px] px-5 sm:px-8 py-10" aria-labelledby={`m-${key.replace(/\./g, '-')}`}>
+      <h2 id={`m-${key.replace(/\./g, '-')}`} class="font-semibold text-[var(--color-cream-900)]" style="font-size: clamp(1.4rem, 2.4vw, 1.9rem);">
+        {group.heading}
+        <span class="ml-2 align-middle text-sm font-bold text-[var(--color-cream-500)]">{group.cards.length}</span>
+      </h2>
+      <ul class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-4 xl:grid-cols-6">
+        {group.cards.map((card) => (
+          <li><LovingHomeCard card={card} /></li>
+        ))}
+      </ul>
+    </section>
+  ))}
+
+  {pups.length === 0 && (
+    <section class="mx-auto max-w-[1400px] px-5 sm:px-8 py-10">
+      <p class="max-w-[65ch] text-base text-[var(--color-cream-700)]">
+        Our list of puppies that have gone home is being rebuilt. In the meantime, see the <a href="/available-puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppies available now</a>.
+      </p>
+    </section>
+  )}
+
+  <section aria-label="How this list works" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="max-w-[70ch] text-base leading-relaxed text-[var(--color-cream-700)]">
+      This page updates every morning from our shop list. A puppy appears here once its sale is confirmed, with the month it
+      found its home, and stays for about four months. Looking for a particular breed? Each <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">breed guide</a> shows
+      its own recent puppies, and we're happy to tell you honestly when the next litter is due.
+    </p>
+  </section>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Your Puppy Could Be Next"
+    body="WhatsApp us the breed, colour and size you are hoping for and we'll send photos and all-in prices of matching puppies, with free home delivery across Singapore."
+    reserveMessage="Hi! I saw the puppies that found their homes on your site. I'd like to reserve a similar puppy."
+    browseHref="/available-puppies/"
+    browseLabel="Browse all available puppies"
+  />
+
+  <Schema {schemas} />
+</BaseLayout>

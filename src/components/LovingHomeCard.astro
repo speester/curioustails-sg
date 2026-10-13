@@ -1,0 +1,122 @@
+---
+// One puppy that found its home: photo with a "Found a home" ribbon, name,
+// breed ticket and the month it went (when the snapshots pin it). Deliberately
+// smaller and quieter than PupCard, with no price and no booking or chat action:
+// it is proof, not stock. The whole card links to the puppy's own page while
+// that page is live (src/lib/loving-homes.ts).
+import PlaceholderImage from './PlaceholderImage.astro';
+import { breedTagColor } from '../lib/breed-tag-color';
+import type { LovingHomeCard } from '../lib/loving-homes';
+
+interface Props {
+  card: LovingHomeCard;
+}
+const { card } = Astro.props;
+const Tag = card.href ? 'a' : 'div';
+const label = `${card.title}, ${card.breed}, found a loving home${card.month ? ` in ${card.month}` : ''}`;
+---
+
+<Tag
+  href={card.href}
+  class:list={['lh-card', card.href && 'lh-link']}
+  data-loving-home={card.id}
+  aria-label={card.href ? `${label}. View profile` : undefined}
+>
+  <div class="lh-media">
+    <PlaceholderImage
+      alt={card.imageAlt}
+      src={card.imageSrc}
+      ratio="aspect-[4/3]"
+      sizes="(max-width: 639px) 46vw, (max-width: 1023px) 31vw, 260px"
+    />
+    <span class="lh-ribbon">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3 4.3 12.6a4.6 4.6 0 0 1 6.5-6.5l1.2 1.2 1.2-1.2a4.6 4.6 0 0 1 6.5 6.5z" /></svg>
+      Found a home
+    </span>
+  </div>
+  <p class="lh-title">{card.title}</p>
+  <div class="lh-meta">
+    <span class="lh-breed" style={`background:${breedTagColor(card.breed)}`}>{card.breed}</span>
+    {card.month && <span class="lh-when">{card.month}</span>}
+  </div>
+  {card.href && (
+    <span class="lh-more" aria-hidden="true">
+      View profile
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+    </span>
+  )}
+</Tag>
+
+<style>
+  .lh-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #fffaf3;
+    border: 2px solid #e3cdb4;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 5px 0 #d8c9bb;
+    color: #5a4a3c;
+    text-decoration: none;
+    font-family: Nunito, var(--font-body, sans-serif);
+    min-width: 0;
+  }
+  .lh-link { transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; }
+  .lh-link:hover { transform: translateY(-3px); box-shadow: 0 8px 0 #d8c9bb; }
+  .lh-link:focus-visible { outline: 3px solid var(--color-coral-600); outline-offset: 3px; }
+  .lh-media { position: relative; }
+  .lh-media :global(img) { transition: transform 0.5s ease-out; }
+  .lh-link:hover .lh-media :global(img) { transform: scale(1.05); }
+  .lh-ribbon {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #fff;
+    color: #2f6f5a;
+    border-radius: 999px;
+    padding: 4px 10px 4px 7px;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  }
+  .lh-ribbon svg { width: 13px; height: 13px; fill: var(--color-coral-500); flex: none; }
+  .lh-title {
+    margin: 10px 4px 6px;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.25;
+    color: #3d3027;
+    overflow-wrap: anywhere;
+  }
+  .lh-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin: 0 4px; }
+  .lh-breed {
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 10px 3px 13px;
+    clip-path: polygon(8px 0, 100% 0, 100% 100%, 8px 100%, 0 50%);
+    white-space: nowrap;
+  }
+  .lh-when { font-size: 12px; font-weight: 700; color: #7a6450; }
+  .lh-more {
+    margin: auto 4px 2px;
+    padding-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--color-coral-600);
+  }
+  .lh-more svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  @media (prefers-reduced-motion: reduce) {
+    .lh-link, .lh-media :global(img) { transition: none; }
+    .lh-link:hover { transform: none; }
+    .lh-link:hover .lh-media :global(img) { transform: none; }
+  }
+</style>

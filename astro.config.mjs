@@ -7,6 +7,7 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import { puppyRedirects } from './scripts/lib/puppy-redirects.mjs';
 
 const pagesDir = new URL('./src/pages/', import.meta.url);
 
@@ -65,5 +66,5 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [mdx(), sitemap({ serialize: sitemapLastmod })]
+  integrations: [mdx(), sitemap({ serialize: sitemapLastmod }), puppyRedirects()]
 });

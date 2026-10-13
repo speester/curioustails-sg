@@ -1,0 +1,99 @@
+---
+// "Puppies That Found Their Loving Homes" (owner decision 2026-10-14): real
+// puppies from the placed archive, rendered BELOW a page's available puppies.
+// Breed pages pass `breed` (4 cards); /available-puppies/ is site-wide (12).
+// One action only: ask for a similar puppy on WhatsApp. Renders nothing when
+// there is no puppy to show, so an empty section never stands on a page.
+import LovingHomeCard from './LovingHomeCard.astro';
+import {
+  LOVING_HOMES_ACCENT,
+  LOVING_HOMES_ID,
+  LOVING_HOMES_PATH,
+  LOVING_HOMES_TITLE,
+  lovingHomeCards,
+  placedStats,
+  similarPuppyLink,
+} from '../lib/loving-homes';
+
+interface Props {
+  breed?: string; // breed page slug; omit for site-wide
+  breedName?: string; // display name, e.g. "Mini Dachshund"
+  limit: number;
+  mobileLimit?: number; // cards past this are hidden below the sm breakpoint
+  showAllLink?: boolean;
+}
+const { breed, breedName, limit, mobileLimit = limit, showAllLink = true } = Astro.props;
+
+const cards = lovingHomeCards({ breed, limit });
+const stats = placedStats(breed);
+const siteStats = breed ? placedStats() : stats;
+const [before, after] = LOVING_HOMES_TITLE.split(LOVING_HOMES_ACCENT);
+
+const subhead = breed
+  ? `Recent ${breedName} puppies for sale in Singapore that have already gone home with their families. Every one is a real puppy from our Balestier shop, shown so you can see the colours and sizes that come through, and how quickly they go.`
+  : stats.count >= 5 && stats.since
+    ? `${stats.count} puppies have found their families through our Balestier shop since ${stats.since}. Every one is real and was photographed here before going home. If you missed one you liked, we can usually match you with a similar puppy.`
+    : `Real puppies from our Balestier shop that have already gone home with Singapore families. If you missed one you liked, we can usually match you with a similar puppy.`;
+
+const grid = limit <= 4 ? 'grid-cols-2 lg:grid-cols-4' : 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6';
+// One to three cards in a four-up row leave a dead half-column (design-audit), so a
+// short row sits beside the heading instead of under it, at its natural card size.
+const compact = cards.length < Math.min(limit, 4);
+const waSource = breed ? `loving-homes:${breed}` : 'loving-homes';
+// The link to every placed puppy only earns its place when there are more to see.
+const showAll = showAllLink && siteStats.count > cards.length;
+---
+
+{cards.length > 0 && (
+  <section id={LOVING_HOMES_ID} class="mx-auto max-w-[1400px] scroll-mt-28 px-5 py-16 sm:px-8" data-loving-homes>
+    <div class:list={[compact && 'lg:flex lg:items-center lg:gap-12']}>
+      <div class:list={['max-w-[65ch]', compact && 'lg:flex-1']}>
+        <p class="text-xs font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">
+          Real puppies, real Singapore families
+        </p>
+        <h2 class="mt-2 font-semibold text-[var(--color-cream-900)]" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">
+          {before}<span class="text-[var(--color-coral-500)]">{LOVING_HOMES_ACCENT}</span>{after}
+        </h2>
+        <p class="mt-2 text-base text-[var(--color-cream-600)]">{subhead}</p>
+      </div>
+
+      <ul class:list={['mt-8 grid gap-4 sm:gap-5', compact ? 'grid-cols-2 lg:mt-0 lg:flex lg:shrink-0' : grid]}>
+        {cards.map((card, i) => (
+          <li class:list={[i >= mobileLimit && 'hidden sm:block', compact && 'lg:w-[250px]']}>
+            <LovingHomeCard card={card} />
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="clay mt-9 flex flex-col gap-5 bg-[var(--color-peach-100)] px-6 py-6 sm:px-8 lg:flex-row lg:items-center lg:justify-between">
+      <div class="max-w-[60ch]">
+        <p class="text-lg font-bold text-[var(--color-cream-900)]">Missed one of these?</p>
+        <p class="mt-1 text-base leading-relaxed text-[var(--color-cream-700)]">
+          WhatsApp us the {breedName ?? 'breed'} and colour you liked and we'll send photos of similar puppies available now or
+          arriving soon, with their all-in prices.
+        </p>
+      </div>
+      <div class="flex shrink-0 flex-col gap-3 sm:flex-row">
+        <a
+          href={similarPuppyLink(breedName)}
+          data-wa-source={waSource}
+          class="clay-btn clay-press inline-flex items-center justify-center gap-2 bg-[#25D366] px-6 py-3 text-sm font-bold text-white transition-transform hover:bg-[#1ebe57]"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.13c-.25.7-1.44 1.33-1.99 1.37-.53.05-.53.42-3.34-.7-2.81-1.12-4.55-3.98-4.69-4.16-.14-.19-1.12-1.49-1.12-2.84 0-1.35.71-2.01.96-2.29.25-.28.55-.35.73-.35.18 0 .37 0 .53.01.17.01.4-.06.62.48.25.6.85 2.06.92 2.21.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.28.28-.12.56.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.69-.81.88-1.09.19-.28.37-.23.62-.14.25.09 1.6.76 1.87.9.28.14.46.21.53.32.07.12.07.65-.18 1.35z" />
+          </svg>
+          Ask about a similar puppy
+        </a>
+        {showAll && (
+          <a
+            href={LOVING_HOMES_PATH}
+            class="clay-btn-outline inline-flex items-center justify-center gap-2 bg-white px-6 py-3 text-sm font-bold text-[var(--color-coral-600)]"
+          >
+            See all {siteStats.count} that found homes
+          </a>
+        )}
+      </div>
+    </div>
+  </section>
+)}

@@ -111,7 +111,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
     var root=document.querySelector(".pms");if(!root)return;
     var esc=function(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});};
     var $=function(id){return document.getElementById(id);};
-    // GA4 funnel: pms_start -> pms_swipe -> pms_end -> pms_whatsapp. No-op without gtag.
+    // GA4 funnel: pms_view -> pms_start (first swipe) -> pms_swipe -> pms_end -> pms_whatsapp. No-op without gtag.
     var ga=function(n,p){try{if(typeof window.gtag==="function")window.gtag("event",n,p||{});}catch(_){}};
     var swipes=0;
     var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches;
@@ -206,7 +206,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
     }
     function commit(dir){var p=POOL[index];history.push({index:index,liked:dir>0});
       if(dir>0){liked.push(p);}
-      swipes++;ga("pms_swipe",{pms_direction:dir>0?"like":"pass",pms_puppy:p&&p.name,pms_breed:p&&p.breed,pms_swipe_n:swipes});
+      swipes++;if(swipes===1)ga("pms_start",{pms_pool:POOL.length});ga("pms_swipe",{pms_direction:dir>0?"like":"pass",pms_puppy:p&&p.name,pms_breed:p&&p.breed,pms_swipe_n:swipes});
       index++;bUndo.disabled=false;animating=false;render();}
     function swipe(dir){if(animating||index>=POOL.length)return;var c=deck.querySelector(".card.top");if(c)fly(c,dir);else commit(dir);}
     function undo(){if(!history.length||animating)return;var l=history.pop();index=l.index;if(l.liked)liked.pop();bUndo.disabled=history.length===0;render();}
@@ -298,6 +298,13 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
     // full live pool. homeLabel() falls back to "home" for the WhatsApp message.
     POOL=PUPPIES.slice();
     render(true);
+    // Deck opens without a Start button, so pms_start fires on the first swipe;
+    // pms_view (once, when half the widget is on screen) is the funnel's top.
+    if("IntersectionObserver" in window){
+      var seen=new IntersectionObserver(function(es){
+        if(es.some(function(x){return x.isIntersecting;})){ga("pms_view",{pms_pool:POOL.length});seen.disconnect();}
+      },{threshold:0.5});seen.observe(root);
+    }
   })();
 </script>
 

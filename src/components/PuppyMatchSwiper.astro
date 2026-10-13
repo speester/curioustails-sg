@@ -56,6 +56,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
         <div class="title">
           <img class="pms-logo" src={pawderLogo.src} width={pawderLogo.width} height={pawderLogo.height} alt="Pawder, find your paw-fect match at Curious Tails" />
         </div>
+        <p class="pms-tag">Swipe to find your match: 30 seconds</p>
         <span class="counter" id="pmsCounter" hidden></span>
       </div>
 
@@ -159,9 +160,9 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
         var p=POOL[i],pos=i-index;
         var card=document.createElement("div");
         card.className="card"+(pos===0?" top":"")+(pos===0&&p.video?" hasvid":"");
-        card.style.transform="translateY("+(pos*-8)+"px) scale("+(1-pos*0.045)+")";
+        card.style.transform=pos===0?"translateY(0) scale(1)":"translateX("+(pos===1?-14:14)+"px) translateY("+(pos*20)+"px) rotate("+(pos===1?-5:5)+"deg) scale("+(1-pos*0.04)+")";
         card.style.zIndex=String(10-pos);
-        card.style.opacity=pos<2?"1":"0";
+        card.style.opacity=pos===0?"1":(pos===1?".9":".75");
         card.innerHTML=
           '<div class="photo"><img src="'+p.img+'" alt="'+esc(p.name)+', a '+esc(p.breed)+' puppy" draggable="false">'
           +'<div class="fade"></div>'
@@ -341,6 +342,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
 
   .pms .head{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;margin-bottom:12px}
   .pms .pms-logo{display:block;width:clamp(150px,50%,192px);height:auto;margin:0 auto}
+  .pms .pms-tag{margin:2px 0 0;font-family:"Fredoka",sans-serif;font-weight:600;font-size:clamp(16px,4.2vw,19px);color:var(--ink);line-height:1.25}
   .pms .counter{position:absolute;right:0;top:0;flex:none;font-family:"Fredoka",sans-serif;font-size:12px;color:var(--coral-600);
     font-weight:600;background:var(--coral-soft);padding:5px 11px;border-radius:999px;
     border:2px solid var(--border-strong);font-variant-numeric:tabular-nums}
@@ -363,7 +365,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
   .pms .start:disabled{opacity:.5;cursor:default;transform:none}
 
   .pms .stage{flex:1;display:flex;flex-direction:column;min-height:0}
-  .pms .deck{position:relative;flex:1;display:flex;align-items:center;justify-content:center;min-height:0;margin-bottom:12px}
+  .pms .deck{position:relative;flex:1;padding-bottom:28px;display:flex;align-items:center;justify-content:center;min-height:0;margin-bottom:12px}
   .pms .card{position:absolute;width:100%;max-width:360px;aspect-ratio:3/4.15;max-height:100%;
     border-radius:1.9rem;overflow:hidden;background:var(--card);border:3px solid var(--border);
     box-shadow:var(--sh-lg);display:flex;flex-direction:column;

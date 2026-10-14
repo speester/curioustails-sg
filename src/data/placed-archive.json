@@ -1,8 +1,34 @@
 {
   "_note": "Written by scripts/sync-puppies.mjs, never rebuilt from scratch: puppies that left the available list. status: placed (sold evidence, shown under \"Puppies That Found Their Loving Homes\"), withdrawn (no evidence, never shown), expired (past retention). placedAt = the day the sync first saw it gone (SGT); lastListed = the last day it was listed. Do not hand-edit; to mark a sale, add the id to sold-overrides.json and re-run the sync.",
   "lastSync": {
-    "at": "2026-10-13T17:11:54.974Z",
+    "at": "2026-10-14T04:12:44.179Z",
     "listed": [
+      {
+        "id": 2915,
+        "breed": "mini-dachshund",
+        "name": null,
+        "color": "Dapple",
+        "gender": "Female",
+        "age": "2 months",
+        "image": "2915-1-69703ae1.webp",
+        "origin": "Local",
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": true
+      },
+      {
+        "id": 2608,
+        "breed": "mini-dachshund",
+        "name": "Eirenos",
+        "color": "Golden",
+        "gender": "Male",
+        "age": "4 months",
+        "image": "2608-1-a79d60e7.webp",
+        "origin": "Local",
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": true
+      },
       {
         "id": 2940,
         "breed": "maltese",
@@ -602,24 +628,6 @@
       "gender": "Male",
       "age": "3 months",
       "image": "2619-1-29670416.webp",
-      "origin": "Local",
-      "sizeNote": null,
-      "crossLabel": null,
-      "hdbApproved": true,
-      "evidence": "out-of-area"
-    },
-    {
-      "id": 2608,
-      "breed": "mini-dachshund",
-      "status": "withdrawn",
-      "placedAt": "2026-10-01",
-      "lastListed": "2026-09-17",
-      "source": "git-history",
-      "name": "Eirenos",
-      "color": "Golden",
-      "gender": "Male",
-      "age": "3 months",
-      "image": "2608-1-a79d60e7.webp",
       "origin": "Local",
       "sizeNote": null,
       "crossLabel": null,

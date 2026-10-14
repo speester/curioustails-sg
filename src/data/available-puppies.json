@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-10-13T17:11:54.975Z",
+  "syncedAt": "2026-10-14T04:12:44.181Z",
   "breeds": {
     "bichon-frise": {
       "available": [],
@@ -250,22 +250,6 @@
       ],
       "recentlyPlaced": [
         {
-          "id": 2939,
-          "name": null,
-          "color": "Apricot",
-          "gender": "Female",
-          "age": null,
-          "price": 4588,
-          "image": "2939-1-3c800c7f.webp",
-          "location": "Balestier Area",
-          "origin": "UK",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true,
-          "video": null,
-          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2939"
-        },
-        {
           "id": 2897,
           "name": null,
           "color": "Apricot White",
@@ -312,6 +296,22 @@
           "hdbApproved": true,
           "video": null,
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2917"
+        },
+        {
+          "id": 2693,
+          "name": null,
+          "color": "Red White",
+          "gender": "Male",
+          "age": "3 months",
+          "price": 4888,
+          "image": "2693-2-942ea32a.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true,
+          "video": "https://youtube.com/shorts/9VSSvTxVZFw?si=vCeYztgCeT5rlT8D",
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2693"
         }
       ]
     },
@@ -624,7 +624,40 @@
       ]
     },
     "mini-dachshund": {
-      "available": [],
+      "available": [
+        {
+          "id": 2915,
+          "name": null,
+          "color": "Dapple",
+          "gender": "Female",
+          "age": "2 months",
+          "price": 4488,
+          "image": "2915-1-69703ae1.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true,
+          "video": null,
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2915"
+        },
+        {
+          "id": 2608,
+          "name": "Eirenos",
+          "color": "Golden",
+          "gender": "Male",
+          "age": "4 months",
+          "price": 3888,
+          "image": "2608-1-a79d60e7.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true,
+          "video": null,
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2608"
+        }
+      ],
       "recentlyPlaced": [
         {
           "id": 2591,

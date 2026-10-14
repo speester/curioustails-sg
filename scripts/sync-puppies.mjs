@@ -54,6 +54,13 @@ const MANUAL_SOLD = new Set(
     : [],
 );
 
+// Owner-reported moves the sheet's Location column has not caught up with
+// (src/data/location-overrides.json, id -> location). Applied in normalize(),
+// so the location gate and the archive both see the pup where it really is.
+const LOCATION_OVERRIDES = existsSync(path.join(ROOT, 'src', 'data', 'location-overrides.json'))
+  ? JSON.parse(await readFile(path.join(ROOT, 'src', 'data', 'location-overrides.json'), 'utf8')).locations
+  : {};
+
 const AVAILABLE_ROWS = 33; // top of the sheet = page 1 of the spread site
 const MAX_PLACED = 4;
 const IMG_WIDTH = 800;
@@ -325,8 +332,9 @@ function normalize(row) {
   const sizeNote = cell(row, 'Size-') || null;
   const key = label.toLowerCase();
   const cross = CROSS_MAP[key];
+  const id = numCell(row, 'ID-') ?? cell(row, 'ID-') ?? String(row.rowIndex);
   return {
-    id: numCell(row, 'ID-') ?? cell(row, 'ID-') ?? String(row.rowIndex),
+    id,
     breedLabel: label,
     slug: BREED_MAP[key] ?? cross?.slug ?? null,
     crossLabel: cross?.crossLabel ?? null,
@@ -334,7 +342,7 @@ function normalize(row) {
     color: cell(row, 'Color-') || null,
     gender,
     price: numCell(row, 'Price$-'),
-    location: cell(row, 'Location-') || null,
+    location: LOCATION_OVERRIDES[String(id)] ?? (cell(row, 'Location-') || null),
     origin: cell(row, 'Origin-') || null,
     sizeNote,
     // Per-puppy short clip (owner fills the sheet's Video- column over time).

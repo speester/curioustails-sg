@@ -1,12 +1,12 @@
 {
   "_note": "Written by scripts/sync-puppies.mjs, never rebuilt from scratch: puppies that left the available list. status: placed (sold evidence, shown under \"Puppies That Found Their Loving Homes\"), withdrawn (no evidence, never shown), expired (past retention). placedAt = the day the sync first saw it gone (SGT); lastListed = the last day it was listed. Do not hand-edit; to mark a sale, add the id to sold-overrides.json and re-run the sync.",
   "lastSync": {
-    "at": "2026-10-14T05:06:27.132Z",
+    "at": "2026-10-15T04:55:20.722Z",
     "listed": [
       {
         "id": 2915,
         "breed": "mini-dachshund",
-        "name": null,
+        "name": "Luna",
         "color": "Dapple",
         "gender": "Female",
         "age": "2 months",
@@ -19,7 +19,7 @@
       {
         "id": 2608,
         "breed": "mini-dachshund",
-        "name": "Eirenos",
+        "name": "Poppy",
         "color": "Golden",
         "gender": "Male",
         "age": "4 months",
@@ -32,7 +32,7 @@
       {
         "id": 2940,
         "breed": "maltese",
-        "name": null,
+        "name": "Teddy",
         "color": "Choco Liver",
         "gender": "Female",
         "age": "3 months",
@@ -45,7 +45,7 @@
       {
         "id": 2652,
         "breed": "cavapoo",
-        "name": "Potatoe",
+        "name": "Coco",
         "color": "Apricot",
         "gender": "Female",
         "age": "3 months",

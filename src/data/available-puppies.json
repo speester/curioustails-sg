@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-10-16T04:45:44.296Z",
+  "syncedAt": "2026-10-17T04:43:21.773Z",
   "breeds": {
     "bichon-frise": {
       "available": [],
@@ -337,7 +337,24 @@
       ]
     },
     "cockapoo": {
-      "available": [],
+      "available": [
+        {
+          "id": 2698,
+          "name": "Maple",
+          "color": "Apricot",
+          "gender": "Male",
+          "age": "3 months",
+          "price": 3488,
+          "image": "2698-1-ce5a837d.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": "Cockapoo",
+          "hdbApproved": true,
+          "video": null,
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2698"
+        }
+      ],
       "recentlyPlaced": [
         {
           "id": 2700,
@@ -555,7 +572,40 @@
       ]
     },
     "maltipoo": {
-      "available": [],
+      "available": [
+        {
+          "id": 2938,
+          "name": "Biscuit",
+          "color": "Apricot",
+          "gender": "Female",
+          "age": "2 months",
+          "price": 3688,
+          "image": "2938-1-1f575126.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true,
+          "video": null,
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2938"
+        },
+        {
+          "id": 2931,
+          "name": "Finn",
+          "color": "Cream",
+          "gender": "Male",
+          "age": "2 months",
+          "price": 4088,
+          "image": "2931-1-d1579f3c.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true,
+          "video": null,
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2931"
+        }
+      ],
       "recentlyPlaced": [
         {
           "id": 2579,

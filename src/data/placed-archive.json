@@ -1,7 +1,7 @@
 {
   "_note": "Written by scripts/sync-puppies.mjs, never rebuilt from scratch: puppies that left the available list. status: placed (sold evidence, shown under \"Puppies That Found Their Loving Homes\"), withdrawn (no evidence, never shown), expired (past retention). placedAt = the day the sync first saw it gone (SGT); lastListed = the last day it was listed. Do not hand-edit; to mark a sale, add the id to sold-overrides.json and re-run the sync.",
   "lastSync": {
-    "at": "2026-10-16T04:45:44.292Z",
+    "at": "2026-10-17T04:43:21.772Z",
     "listed": [
       {
         "id": 2915,
@@ -40,6 +40,45 @@
         "origin": "Australia",
         "sizeNote": null,
         "crossLabel": "Maltese x Shih Tzu",
+        "hdbApproved": true
+      },
+      {
+        "id": 2938,
+        "breed": "maltipoo",
+        "name": "Biscuit",
+        "color": "Apricot",
+        "gender": "Female",
+        "age": "2 months",
+        "image": "2938-1-1f575126.webp",
+        "origin": "Local",
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": true
+      },
+      {
+        "id": 2931,
+        "breed": "maltipoo",
+        "name": "Finn",
+        "color": "Cream",
+        "gender": "Male",
+        "age": "2 months",
+        "image": "2931-1-d1579f3c.webp",
+        "origin": "Local",
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": true
+      },
+      {
+        "id": 2698,
+        "breed": "cockapoo",
+        "name": "Maple",
+        "color": "Apricot",
+        "gender": "Male",
+        "age": "3 months",
+        "image": "2698-1-ce5a837d.webp",
+        "origin": "Local",
+        "sizeNote": null,
+        "crossLabel": "Cockapoo",
         "hdbApproved": true
       },
       {
@@ -271,24 +310,6 @@
       "origin": "Australia",
       "sizeNote": null,
       "crossLabel": null,
-      "hdbApproved": true,
-      "evidence": "out-of-area"
-    },
-    {
-      "id": 2698,
-      "breed": "toy-poodle",
-      "status": "withdrawn",
-      "placedAt": "2026-10-01",
-      "lastListed": "2026-09-17",
-      "source": "git-history",
-      "name": null,
-      "color": "Apricot",
-      "gender": "Male",
-      "age": "2 months",
-      "image": "2698-1-ce5a837d.webp",
-      "origin": "Local",
-      "sizeNote": null,
-      "crossLabel": "Poodle cross",
       "hdbApproved": true,
       "evidence": "out-of-area"
     },

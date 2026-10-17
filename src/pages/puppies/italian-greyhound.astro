@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { updatedFor } from '../../lib/page-updated';
 const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { breedPricing, fmtPrice } from '../../data/pricing';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
 import Tabs from '../../components/Tabs.astro';
@@ -45,7 +46,8 @@ import imgScene5 from '../../assets/italian-greyhound/6-italian-greyhound-puppy-
 import ExpertQuote from '../../components/ExpertQuote.astro';
 import { testimonialsFor } from '../../data/reviews';
 
-const title = 'Italian Greyhound Puppy for Sale Singapore | Curious Tails';
+const price = breedPricing['italian-greyhound'];
+const title = `Italian Greyhound Puppy for Sale Singapore | From $${fmtPrice(price.low)}`;
 const description =
   'Italian Greyhound puppies for sale in Singapore from $6,500, AVS licensed and HDB-approved. Real prices, temperament, fragile-leg honesty, $500+ starter kit.';
 

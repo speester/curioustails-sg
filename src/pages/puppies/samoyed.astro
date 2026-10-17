@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { updatedFor } from '../../lib/page-updated';
 const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { breedPricing, fmtPrice } from '../../data/pricing';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
 import Tabs from '../../components/Tabs.astro';
@@ -45,7 +46,8 @@ import imgScene5 from '../../assets/samoyed/6-samoyed-puppy-settling-into-a-set-
 import ExpertQuote from '../../components/ExpertQuote.astro';
 import { testimonialsFor } from '../../data/reviews';
 
-const title = 'Samoyed Puppy for Sale Singapore | Curious Tails';
+const price = breedPricing['samoyed'];
+const title = `Samoyed Puppy for Sale Singapore | From $${fmtPrice(price.low)}`;
 const description =
   'Samoyed puppies for sale in Singapore from $5,500 all-in. Not HDB-approved, and the Arctic coat is real work here. Private housing? We match you.';
 

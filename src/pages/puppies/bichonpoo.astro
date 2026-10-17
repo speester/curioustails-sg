@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { updatedFor } from '../../lib/page-updated';
 const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { breedPricing, fmtPrice } from '../../data/pricing';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
 import Tabs from '../../components/Tabs.astro';
@@ -41,7 +42,8 @@ import faceWipe from '../../assets/bichonpoo/6-bichonpoo-face-wipe-tear-stain-ca
 import ExpertQuote from '../../components/ExpertQuote.astro';
 import { testimonialsFor } from '../../data/reviews';
 
-const title = 'Bichonpoo Puppy for Sale Singapore | Curious Tails';
+const price = breedPricing['bichonpoo'];
+const title = `Bichonpoo Puppy for Sale Singapore | From $${fmtPrice(price.low)}`;
 const description =
   'Bichonpoo (Poochon) puppies for sale in Singapore from $3,288 all-in. Low-shedding, HDB-approved, playful; market runs $5,000 to $8,000. Starter kit included.';
 

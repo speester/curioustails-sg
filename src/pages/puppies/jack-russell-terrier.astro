@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { updatedFor } from '../../lib/page-updated';
 const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { breedPricing, fmtPrice } from '../../data/pricing';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
 import Tabs from '../../components/Tabs.astro';
@@ -45,7 +46,8 @@ import imgScene5 from '../../assets/jack-russell-terrier/6-jack-russell-puppy-se
 import ExpertQuote from '../../components/ExpertQuote.astro';
 import { testimonialsFor } from '../../data/reviews';
 
-const title = 'Jack Russell Terrier Puppy for Sale Singapore';
+const price = breedPricing['jack-russell-terrier'];
+const title = `Jack Russell Terrier Puppy for Sale Singapore | From $${fmtPrice(price.low)}`;
 const description =
   'Jack Russell Terrier puppies for sale in Singapore from $3,888, AVS licensed and HDB-approved. Real prices, temperament and honest energy expectations.';
 

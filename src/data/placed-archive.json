@@ -1,21 +1,8 @@
 {
   "_note": "Written by scripts/sync-puppies.mjs, never rebuilt from scratch: puppies that left the available list. status: placed (sold evidence, shown under \"Puppies That Found Their Loving Homes\"), withdrawn (no evidence, never shown), expired (past retention). placedAt = the day the sync first saw it gone (SGT); lastListed = the last day it was listed. Do not hand-edit; to mark a sale, add the id to sold-overrides.json and re-run the sync.",
   "lastSync": {
-    "at": "2026-10-17T04:43:21.772Z",
+    "at": "2026-10-18T04:49:16.167Z",
     "listed": [
-      {
-        "id": 2915,
-        "breed": "mini-dachshund",
-        "name": "Luna",
-        "color": "Dapple",
-        "gender": "Female",
-        "age": "2 months",
-        "image": "2915-1-69703ae1.webp",
-        "origin": "Local",
-        "sizeNote": null,
-        "crossLabel": null,
-        "hdbApproved": true
-      },
       {
         "id": 2608,
         "breed": "mini-dachshund",
@@ -24,6 +11,19 @@
         "gender": "Male",
         "age": "4 months",
         "image": "2608-1-a79d60e7.webp",
+        "origin": "Local",
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": true
+      },
+      {
+        "id": 2915,
+        "breed": "mini-dachshund",
+        "name": "Luna",
+        "color": "Dapple",
+        "gender": "Female",
+        "age": "2 months",
+        "image": "2915-1-1d21ac00.webp",
         "origin": "Local",
         "sizeNote": null,
         "crossLabel": null,
@@ -80,23 +80,28 @@
         "sizeNote": null,
         "crossLabel": "Cockapoo",
         "hdbApproved": true
-      },
-      {
-        "id": 2652,
-        "breed": "cavapoo",
-        "name": "Coco",
-        "color": "Apricot",
-        "gender": "Female",
-        "age": "3 months",
-        "image": "2652-1-cc93a2ec.webp",
-        "origin": "Local",
-        "sizeNote": null,
-        "crossLabel": null,
-        "hdbApproved": true
       }
     ]
   },
   "pups": [
+    {
+      "id": 2652,
+      "breed": "cavapoo",
+      "name": "Coco",
+      "color": "Apricot",
+      "gender": "Female",
+      "age": "3 months",
+      "image": "2652-1-cc93a2ec.webp",
+      "origin": "Local",
+      "sizeNote": null,
+      "crossLabel": null,
+      "hdbApproved": true,
+      "status": "placed",
+      "placedAt": "2026-10-18",
+      "lastListed": "2026-10-17",
+      "source": "sync",
+      "evidence": "sold-overlay"
+    },
     {
       "id": 2939,
       "breed": "cavapoo",

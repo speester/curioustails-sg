@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-10-17T04:43:21.773Z",
+  "syncedAt": "2026-10-18T04:49:16.169Z",
   "breeds": {
     "bichon-frise": {
       "available": [],
@@ -230,15 +230,16 @@
       ]
     },
     "cavapoo": {
-      "available": [
+      "available": [],
+      "recentlyPlaced": [
         {
           "id": 2652,
           "name": "Coco",
           "color": "Apricot",
           "gender": "Female",
-          "age": "3 months",
+          "age": null,
           "price": 3488,
-          "image": "2652-1-cc93a2ec.webp",
+          "image": "2652-2-5f81ca76.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
@@ -246,9 +247,7 @@
           "hdbApproved": true,
           "video": "https://youtube.com/shorts/nWUxggRKSqk?si=trcyjcf-3gxLV8MU",
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2652"
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2897,
           "name": "Dobby",
@@ -296,22 +295,6 @@
           "hdbApproved": true,
           "video": null,
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2917"
-        },
-        {
-          "id": 2693,
-          "name": "Suki",
-          "color": "Red White",
-          "gender": "Male",
-          "age": null,
-          "price": 4888,
-          "image": "2693-2-942ea32a.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true,
-          "video": "https://youtube.com/shorts/9VSSvTxVZFw?si=vCeYztgCeT5rlT8D",
-          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2693"
         }
       ]
     },
@@ -579,7 +562,7 @@
           "color": "Apricot",
           "gender": "Female",
           "age": "2 months",
-          "price": 3688,
+          "price": 4088,
           "image": "2938-1-1f575126.webp",
           "location": "Balestier Area",
           "origin": "Local",
@@ -676,22 +659,6 @@
     "mini-dachshund": {
       "available": [
         {
-          "id": 2915,
-          "name": "Luna",
-          "color": "Dapple",
-          "gender": "Female",
-          "age": "2 months",
-          "price": 4488,
-          "image": "2915-1-69703ae1.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true,
-          "video": null,
-          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2915"
-        },
-        {
           "id": 2608,
           "name": "Poppy",
           "color": "Golden",
@@ -706,6 +673,22 @@
           "hdbApproved": true,
           "video": null,
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2608"
+        },
+        {
+          "id": 2915,
+          "name": "Luna",
+          "color": "Dapple",
+          "gender": "Female",
+          "age": "2 months",
+          "price": 4488,
+          "image": "2915-1-1d21ac00.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true,
+          "video": null,
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2915"
         }
       ],
       "recentlyPlaced": [

@@ -183,6 +183,14 @@ export function localBusinessSchema() {
       availableLanguage: ['en'],
     },
     knowsAbout: ['Puppy sales', 'Dog training', 'Pet care', 'Puppy health'],
+    hasCredential: {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'AVS pet shop licence',
+      identifier: site.license.avsNumber,
+      recognizedBy: { '@type': 'GovernmentOrganization', name: 'Animal and Veterinary Service, National Parks Board', url: site.license.registryUrl },
+    },
+    // Owner-supplied facts (2026-10-18). Keep wording exact: a nursing promise, not a refund/replacement guarantee.
+    slogan: 'AVS licensed pet shop homing 200+ puppies a year. If a puppy falls sick within 5 days of going home, we help nurse it until it recovers. Partner vet: Vets For Pets.',
   };
 }
 

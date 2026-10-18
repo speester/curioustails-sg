@@ -25,6 +25,7 @@ export const ROUTE_SLUGS: string[] = [
   '/learn',
   '/learn/smuggled-puppies',
   '/learn/verify-license',
+  '/blog/where-to-buy-puppy-singapore',
   '/learn/puppy-health',
   '/learn/cheap-puppies-singapore',
   '/blog/first-time-mistakes',

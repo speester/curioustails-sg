@@ -1,0 +1,192 @@
+---
+import { fileURLToPath } from 'node:url';
+import RelatedPosts from '../../components/RelatedPosts.astro';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import DefBox from '../../components/DefBox.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import ExpertQuote from '../../components/ExpertQuote.astro';
+import { site } from '../../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+import verifyPhone from '../../assets/guides/5-verify-seller-phone-check-puppy.webp';
+
+const title = 'Where to Buy a Puppy in Singapore | Curious Tails';
+const description =
+  'Where to buy a puppy in Singapore safely: licensed shops, licensed farms, adoption or private listings, plus 5 checks to run on any seller before a deposit.';
+const datePublished = '2026-10-18';
+
+const faqItems = [
+  {
+    question: 'Where is the safest place to buy a puppy in Singapore?',
+    answer:
+      'From a seller you can verify on the AVS public registry of licensed pet shops (or licensed farms), whose premises you can visit, and who shows the puppy\'s vaccination and microchip records before you pay. Adoption from a registered shelter is the other safe route.',
+  },
+  {
+    question: 'How do I know if a pet shop in Singapore is reputable?',
+    answer:
+      'Ask for its AVS licence number and search it on the AVS registry, visit the shop, read recent Google reviews, and ask what happens if the puppy falls sick in the first days at home. A reputable shop answers all four without hesitation.',
+  },
+  {
+    question: 'How much does a puppy cost in Singapore?',
+    answer:
+      'Popular small breeds from licensed sellers mostly sit between about $3,000 and $9,000, depending on breed, generation and colour. A price far below every licensed listing is the classic sign of a smuggled or unlicensed puppy.',
+  },
+  {
+    question: 'Should I buy a puppy from Carousell or Facebook?',
+    answer:
+      'Only if the seller is a licensed business you can verify and visit. Private home-bred listings are where most smuggled-puppy cases and deposit scams start, and buyers can be fined too.',
+  },
+  {
+    question: 'Is Curious Tails a licensed pet shop?',
+    answer:
+      'Yes. Curious Tails holds AVS pet shop licence AS24J00046, at 2 Balestier Road #01-701. We are a seller, so this guide discloses that; run the same registry check on us that we tell you to run on anyone.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/blog/where-to-buy-puppy-singapore/',
+    title,
+    description,
+    aboutName: 'Buying a puppy in Singapore',
+    aboutAlternateName: 'Where to buy a puppy in Singapore',
+    aboutSameAs: site.license.registryUrl,
+    datePublished,
+    dateModified: lastUpdated,
+  }),
+  faqPageSchema(faqItems),
+];
+
+const link = 'underline underline-offset-2 text-[var(--color-accent-hover)]';
+---
+
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/blog/where-to-buy-puppy-singapore" ogImage="/assets/guides/og-learn.jpg">
+  <Hero
+    eyebrow="Buyer guide"
+    h1="Where to Buy a Puppy in Singapore Safely"
+    h1Accent="Safely"
+    subhead="There are four real places to get a puppy in Singapore. Two are traceable and safe, one is safe but different, and one is where almost every scam and smuggling case starts. Here is how to tell them apart and check any seller, including us."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'm deciding where to buy a puppy and have a question."
+    secondaryCtaLabel="Compare the options"
+    secondaryCtaHref="#options"
+    priceAnchor="We're a seller: verify us at AS24J00046."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, '200+ puppies homed a year', 'Partner vet: Vets For Pets']}
+    imageAlt="Where to buy a puppy in Singapore: buyer checking a seller's AVS licence on their phone"
+    imageSrc={verifyPhone}
+    tagLabel="4 options"
+    proofChip="Honest guide"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Blog', href: '/blog/' }, { label: 'Where to Buy a Puppy', href: '/blog/where-to-buy-puppy-singapore/' }]} />
+  </Hero>
+
+  <DefBox
+    term="Where should you buy a puppy in Singapore?"
+    definition="Buy from an AVS-licensed pet shop or licensed farm that you can verify on the AVS public registry, visit in person, and that shows the puppy's vaccination and microchip records before payment; or adopt from a registered shelter. Avoid unlicensed private listings, however cheap. Expect roughly $3,000 to $9,000 for popular small breeds from licensed sellers."
+    bridge="Disclosure: Curious Tails is one of those licensed shops. Everything below applies to us exactly as it applies to anyone else."
+    citationLabel="Open the AVS public registry"
+    citationHref={site.license.registryUrl}
+  />
+
+  <div id="options" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="The Four Places to Get a Puppy"
+      headingAccent="Four Places"
+      subhead="Traceability is the line that matters: can you prove where the puppy came from?"
+      mode="table"
+      tableHeaders={['Option', 'What you get', 'Watch for']}
+      rows={[
+        { label: 'Licensed pet shop', values: ['Visit the shop, see the puppy, paperwork shown up front; often includes vaccination, microchip, after-sales support', 'Confirm the licence number on the AVS registry; ask what support covers if the puppy falls sick'] },
+        { label: 'Licensed farm (e.g. Sungei Tengah)', values: ['Larger range of breeds, sometimes meet the parents', 'Same registry check; farm visits can be by appointment only'] },
+        { label: 'Adoption (SPCA, registered shelters)', values: ['Lowest cost, a dog that needs a home; often older or mixed-breed', 'Waiting lists and home checks; fewer young purebred puppies'] },
+        { label: 'Private / online listings', values: ['Cheapest prices', 'Where smuggled puppies and deposit scams cluster; buyers have been fined $7,000; no licence, no recourse'] },
+      ]}
+    />
+  </div>
+
+  <CaptionedBlock heading="The Five Checks Before Any Deposit" imagePosition="none" variant="card">
+    <p>1. <strong>Licence.</strong> Ask for the AVS licence number and search it on the <a href={site.license.registryUrl} class={link} rel="noopener">AVS public registry</a>. Our full walkthrough: <a href="/learn/verify-license/" class={link}>how to check a pet shop licence</a>.</p>
+    <p>2. <strong>Premises.</strong> A real address you can walk into. Carpark or void-deck handovers are a red flag.</p>
+    <p>3. <strong>Paperwork.</strong> Vaccination record with vet stamps, deworming dates and microchip number, shown before payment. See <a href="/learn/puppy-health/" class={link}>reading a vaccination record</a>.</p>
+    <p>4. <strong>Price.</strong> In the licensed range for the breed. Far below it is the smuggling tell: <a href="/learn/cheap-puppies-singapore/" class={link}>why cheap puppies cost more</a>.</p>
+    <p>5. <strong>After-sales.</strong> Ask, in writing, what happens if the puppy falls sick in the first days at home. Vague answers are an answer.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="Questions to Ask at the Viewing" imagePosition="none" variant="mid">
+    <p>A viewing is an interview in both directions. A licensed shop has to assess you through the Pet Purchase Declaration; you should assess the shop just as carefully.</p>
+    <ul class="list-disc pl-5 space-y-1">
+      <li>How old is the puppy, and when were the first vaccination and deworming done? Which clinic signed the record?</li>
+      <li>Is the puppy microchipped, and will the chip be transferred into my name?</li>
+      <li>Where did the puppy come from: a licensed local farm or an import with AVS permits?</li>
+      <li>What is included in the price, and what will I pay for separately in the first month?</li>
+      <li>What happens if the puppy falls sick in the first week? Who pays, and who does the nursing?</li>
+      <li>Can I see the puppy eat, play and interact before I commit?</li>
+    </ul>
+    <p>Write the answers down. Comparing two shops on the same six questions tells you more than any advert.</p>
+  </CaptionedBlock>
+
+  <CaptionedBlock heading="If You Are Considering Adoption" imagePosition="none" variant="card">
+    <p>Adoption is a genuinely good route, and we say that as a shop. Registered shelters such as the SPCA and smaller rescues home dogs of every age, and the cost is a fraction of a shop price.</p>
+    <p>The trade-offs are real too: home checks, waiting lists, and fewer young small-breed puppies. If your heart is set on a specific breed because of an HDB flat or allergies, a licensed seller is usually the practical choice. If you are flexible on breed and age, start with the shelters.</p>
+    <p>Either way, the HDB rules apply the same: only approved breeds can live in a flat. Our <a href="/first-time-owners/hdb-breeds/" class={link}>HDB-approved breeds guide</a> lists them.</p>
+  </CaptionedBlock>
+
+  <ExpertQuote id="spca-2" />
+
+  <CaptionedBlock heading="Red Flags That End the Conversation" imagePosition="none" variant="mid">
+    <p>Any one of these is enough to walk away, however cute the photos are.</p>
+    <ul class="list-disc pl-5 space-y-1">
+      <li>No licence number, or excuses instead of one.</li>
+      <li>A price far below every licensed listing for the same breed.</li>
+      <li>No premises you can visit, or a handover at a carpark.</li>
+      <li>"Records will follow later" for vaccinations or the microchip.</li>
+      <li>Pressure: a deposit today because "another buyer is coming".</li>
+    </ul>
+    <p>The full case files are in our <a href="/learn/smuggled-puppies/" class={link}>smuggled puppies guide</a>. Buyers, not only sellers, have been fined.</p>
+  </CaptionedBlock>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <CaptionedBlock heading="How Curious Tails Answers Those Five Checks" imagePosition="none" variant="mid">
+    <p>We are a seller, so judge us by the same list.</p>
+    <ul class="list-disc pl-5 space-y-1">
+      <li><strong>Licence:</strong> AVS pet shop licence {site.license.avsNumber}.</li>
+      <li><strong>Premises:</strong> {site.address.full}, open {site.hours}.</li>
+      <li><strong>Paperwork:</strong> every puppy goes home vet-checked, vaccinated, dewormed and microchipped; our partner vet is Vets For Pets.</li>
+      <li><strong>Price:</strong> published, from $3,288 all-in, on our <a href="/pricing/" class={link}>pricing page</a>.</li>
+      <li><strong>After-sales:</strong> if a puppy falls sick within 5 days of going home, we help nurse it until it recovers.</li>
+    </ul>
+    <p>We home more than 200 puppies a year, and owners Nelson and Kim run the shop hands-on. If another seller suits you better, we would still rather you pass the five checks with them than skip them.</p>
+  </CaptionedBlock>
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="Buying a Puppy in Singapore: Questions" items={faqItems} />
+  </div>
+
+  <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">More honest advice on <a href="/blog/" class={link}>the Curious Tails blog</a>, or start from <a href="/" class={link}>our home page</a> and <a href="/puppies/" class={link}>browse every breed</a>.</p>
+  </section>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Run the Checks on Us"
+    body="Search AS24J00046, then WhatsApp us for current puppies, prices and paperwork."
+    reserveMessage="Hi! I've checked your licence. Could you share your current puppies?"
+  />
+
+  <Schema {schemas} />
+
+  <RelatedPosts route="/blog/where-to-buy-puppy-singapore/" />
+</BaseLayout>

@@ -1,7 +1,7 @@
 {
   "_note": "Written by scripts/sync-puppies.mjs, never rebuilt from scratch: puppies that left the available list. status: placed (sold evidence, shown under \"Puppies That Found Their Loving Homes\"), withdrawn (no evidence, never shown), expired (past retention). placedAt = the day the sync first saw it gone (SGT); lastListed = the last day it was listed. Do not hand-edit; to mark a sale, add the id to sold-overrides.json and re-run the sync.",
   "lastSync": {
-    "at": "2026-10-22T05:05:56.820Z",
+    "at": "2026-10-23T05:05:50.221Z",
     "listed": [
       {
         "id": 2608,
@@ -9,7 +9,7 @@
         "name": "Poppy",
         "color": "Golden",
         "gender": "Male",
-        "age": "4 months",
+        "age": "5 months",
         "image": "2608-1-a79d60e7.webp",
         "origin": "Local",
         "sizeNote": null,
@@ -27,19 +27,6 @@
         "origin": "Local",
         "sizeNote": null,
         "crossLabel": null,
-        "hdbApproved": true
-      },
-      {
-        "id": 2940,
-        "breed": "maltese",
-        "name": "Teddy",
-        "color": "Choco Liver",
-        "gender": "Female",
-        "age": "3 months",
-        "image": "2940-1-69c1a155.webp",
-        "origin": "Australia",
-        "sizeNote": null,
-        "crossLabel": "Maltese x Shih Tzu",
         "hdbApproved": true
       },
       {
@@ -62,15 +49,72 @@
         "color": "Apricot",
         "gender": "Male",
         "age": "3 months",
-        "image": "2698-1-1c99a21d.webp",
+        "image": "2698-1-6f614194.webp",
         "origin": "Local",
         "sizeNote": null,
         "crossLabel": "Cockapoo",
+        "hdbApproved": true
+      },
+      {
+        "id": 2977,
+        "breed": "toy-poodle",
+        "name": "Cocoa",
+        "color": "Brown White",
+        "gender": "Female",
+        "age": null,
+        "image": "2977-1-edcaa875.webp",
+        "origin": "UK",
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": true
+      },
+      {
+        "id": 2978,
+        "breed": "maltese",
+        "name": "Indy",
+        "color": "Tri Color",
+        "gender": "Female",
+        "age": null,
+        "image": "2978-1-886ea24c.webp",
+        "origin": "UK",
+        "sizeNote": null,
+        "crossLabel": "Maltese x Shih Tzu",
+        "hdbApproved": true
+      },
+      {
+        "id": 2979,
+        "breed": "bichon-frise",
+        "name": "Aspen",
+        "color": "White",
+        "gender": "Female",
+        "age": null,
+        "image": "2979-1-4de2aba8.webp",
+        "origin": "Australia",
+        "sizeNote": null,
+        "crossLabel": null,
         "hdbApproved": true
       }
     ]
   },
   "pups": [
+    {
+      "id": 2940,
+      "breed": "maltese",
+      "name": "Teddy",
+      "color": "Choco Liver",
+      "gender": "Female",
+      "age": "3 months",
+      "image": "2940-1-69c1a155.webp",
+      "origin": "Australia",
+      "sizeNote": null,
+      "crossLabel": "Maltese x Shih Tzu",
+      "hdbApproved": true,
+      "status": "placed",
+      "placedAt": "2026-10-23",
+      "lastListed": "2026-10-22",
+      "source": "sync",
+      "evidence": "sold-overlay"
+    },
     {
       "id": 2931,
       "breed": "maltipoo",

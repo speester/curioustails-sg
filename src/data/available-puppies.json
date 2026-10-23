@@ -1,8 +1,25 @@
 {
-  "syncedAt": "2026-10-22T05:05:56.822Z",
+  "syncedAt": "2026-10-23T05:05:50.222Z",
   "breeds": {
     "bichon-frise": {
-      "available": [],
+      "available": [
+        {
+          "id": 2979,
+          "name": "Aspen",
+          "color": "White",
+          "gender": "Female",
+          "age": null,
+          "price": 5288,
+          "image": "2979-1-4de2aba8.webp",
+          "location": "Balestier Area",
+          "origin": "Australia",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true,
+          "video": null,
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2979"
+        }
+      ],
       "recentlyPlaced": [
         {
           "id": 2251,
@@ -328,7 +345,7 @@
           "gender": "Male",
           "age": "3 months",
           "price": 3488,
-          "image": "2698-1-1c99a21d.webp",
+          "image": "2698-1-6f614194.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
@@ -519,13 +536,31 @@
     "maltese": {
       "available": [
         {
+          "id": 2978,
+          "name": "Indy",
+          "color": "Tri Color",
+          "gender": "Female",
+          "age": null,
+          "price": 4488,
+          "image": "2978-1-886ea24c.webp",
+          "location": "Balestier Area",
+          "origin": "UK",
+          "sizeNote": null,
+          "crossLabel": "Maltese x Shih Tzu",
+          "hdbApproved": true,
+          "video": null,
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2978"
+        }
+      ],
+      "recentlyPlaced": [
+        {
           "id": 2940,
           "name": "Teddy",
           "color": "Choco Liver",
           "gender": "Female",
           "age": "3 months",
           "price": 4588,
-          "image": "2940-1-69c1a155.webp",
+          "image": "2940-2-69c1a155.webp",
           "location": "Balestier Area",
           "origin": "Australia",
           "sizeNote": null,
@@ -533,9 +568,7 @@
           "hdbApproved": true,
           "video": null,
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2940"
-        }
-      ],
-      "recentlyPlaced": [
+        },
         {
           "id": 2094,
           "name": null,
@@ -647,7 +680,7 @@
           "name": "Poppy",
           "color": "Golden",
           "gender": "Male",
-          "age": "4 months",
+          "age": "5 months",
           "price": 3888,
           "image": "2608-1-a79d60e7.webp",
           "location": "Balestier Area",
@@ -681,7 +714,7 @@
           "name": null,
           "color": "Black Tan",
           "gender": "Female",
-          "age": "4 months",
+          "age": "5 months",
           "price": 4488,
           "image": "2591-2-af0d69f4.webp",
           "location": "Balestier Area",
@@ -764,7 +797,24 @@
       ]
     },
     "toy-poodle": {
-      "available": [],
+      "available": [
+        {
+          "id": 2977,
+          "name": "Cocoa",
+          "color": "Brown White",
+          "gender": "Female",
+          "age": null,
+          "price": 4488,
+          "image": "2977-1-edcaa875.webp",
+          "location": "Balestier Area",
+          "origin": "UK",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true,
+          "video": null,
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2977"
+        }
+      ],
       "recentlyPlaced": [
         {
           "id": 2378,

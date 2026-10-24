@@ -1,7 +1,7 @@
 {
   "_note": "Written by scripts/sync-puppies.mjs, never rebuilt from scratch: puppies that left the available list. status: placed (sold evidence, shown under \"Puppies That Found Their Loving Homes\"), withdrawn (no evidence, never shown), expired (past retention). placedAt = the day the sync first saw it gone (SGT); lastListed = the last day it was listed. Do not hand-edit; to mark a sale, add the id to sold-overrides.json and re-run the sync.",
   "lastSync": {
-    "at": "2026-10-23T05:05:50.221Z",
+    "at": "2026-10-24T04:50:14.415Z",
     "listed": [
       {
         "id": 2608,
@@ -88,7 +88,20 @@
         "color": "White",
         "gender": "Female",
         "age": null,
-        "image": "2979-1-4de2aba8.webp",
+        "image": "2979-1-fadb4f50.webp",
+        "origin": "Australia",
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": true
+      },
+      {
+        "id": 2980,
+        "breed": "bichon-frise",
+        "name": "Waffles",
+        "color": "White",
+        "gender": "Male",
+        "age": null,
+        "image": "2980-1-545c5e85.webp",
         "origin": "Australia",
         "sizeNote": null,
         "crossLabel": null,

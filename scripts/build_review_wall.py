@@ -63,6 +63,8 @@ def load():
         sys.exit("missing %s - pull the Google reviews first" % SRC)
     media = json.loads(MEDIA.read_text(encoding="utf-8")) if MEDIA.exists() else {}
     rows = json.loads(SRC.read_text(encoding="utf-8"))
+    # Newest first, so _pos below is recency. Timestamps sort as strings.
+    rows.sort(key=lambda r: r.get("timestamp") or "", reverse=True)
     out = []
     for i, r in enumerate(rows):
         name = (r.get("profile_name") or "").strip()

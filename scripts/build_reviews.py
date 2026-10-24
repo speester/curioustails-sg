@@ -36,6 +36,8 @@ def load():
     if not SRC.exists():
         sys.exit("missing %s - pull the Google reviews first" % SRC)
     rows = json.loads(SRC.read_text(encoding="utf-8"))
+    # Newest first. Timestamps are "YYYY-MM-DD HH:MM:SS +00:00", so a string sort is a date sort.
+    rows.sort(key=lambda r: r.get("timestamp") or "", reverse=True)
     out = []
     for r in rows:
         text = (r.get("review_text") or "").strip()

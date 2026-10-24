@@ -90,7 +90,7 @@ def merge(existing, fresh, excluded):
     added = 0
     for r in fresh:
         rid = r.get("review_id")
-        if not rid or rid in by_id:
+        if not rid or rid in by_id or rid in excluded:
             continue
         by_id[rid] = r
         added += 1

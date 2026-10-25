@@ -1,24 +1,8 @@
 {
-  "syncedAt": "2026-10-24T04:50:14.416Z",
+  "syncedAt": "2026-10-25T04:59:06.367Z",
   "breeds": {
     "bichon-frise": {
       "available": [
-        {
-          "id": 2979,
-          "name": "Aspen",
-          "color": "White",
-          "gender": "Female",
-          "age": null,
-          "price": 5288,
-          "image": "2979-1-fadb4f50.webp",
-          "location": "Balestier Area",
-          "origin": "Australia",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true,
-          "video": null,
-          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2979"
-        },
         {
           "id": 2980,
           "name": "Waffles",
@@ -34,6 +18,22 @@
           "hdbApproved": true,
           "video": null,
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2980"
+        },
+        {
+          "id": 2979,
+          "name": "Aspen",
+          "color": "White",
+          "gender": "Female",
+          "age": null,
+          "price": 5288,
+          "image": "2979-1-fadb4f50.webp",
+          "location": "Balestier Area",
+          "origin": "Australia",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true,
+          "video": null,
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2979"
         }
       ],
       "recentlyPlaced": [
@@ -355,13 +355,47 @@
     "cockapoo": {
       "available": [
         {
+          "id": 2937,
+          "name": "Daisy",
+          "color": "Tri Color",
+          "gender": "Female",
+          "age": "3 months",
+          "price": 3288,
+          "image": "2937-1-71cc6ba1.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": "Cockapoo",
+          "hdbApproved": true,
+          "video": null,
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2937"
+        },
+        {
+          "id": 2899,
+          "name": "Archie",
+          "color": "Apricot",
+          "gender": "Male",
+          "age": "3 months",
+          "price": 3488,
+          "image": "2899-1-82f949fd.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": "Cockapoo",
+          "hdbApproved": true,
+          "video": null,
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2899"
+        }
+      ],
+      "recentlyPlaced": [
+        {
           "id": 2698,
           "name": "Maple",
           "color": "Apricot",
           "gender": "Male",
           "age": "3 months",
           "price": 3488,
-          "image": "2698-1-6f614194.webp",
+          "image": "2698-2-98defe87.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
@@ -369,24 +403,6 @@
           "hdbApproved": true,
           "video": null,
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2698"
-        }
-      ],
-      "recentlyPlaced": [
-        {
-          "id": 2700,
-          "name": "Comet",
-          "color": "Apricot",
-          "gender": "Male",
-          "age": "3 months",
-          "price": 3488,
-          "image": "2700-2-0dcf00a9.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": "Cockapoo",
-          "hdbApproved": true,
-          "video": null,
-          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2700"
         },
         {
           "id": 2699,

@@ -1,7 +1,7 @@
 {
   "_note": "Written by scripts/sync-puppies.mjs, never rebuilt from scratch: puppies that left the available list. status: placed (sold evidence, shown under \"Puppies That Found Their Loving Homes\"), withdrawn (no evidence, never shown), expired (past retention). placedAt = the day the sync first saw it gone (SGT); lastListed = the last day it was listed. Do not hand-edit; to mark a sale, add the id to sold-overrides.json and re-run the sync.",
   "lastSync": {
-    "at": "2026-10-25T04:59:06.365Z",
+    "at": "2026-10-26T05:03:14.580Z",
     "listed": [
       {
         "id": 2980,
@@ -56,6 +56,19 @@
         "hdbApproved": true
       },
       {
+        "id": 2981,
+        "breed": "cavapoo",
+        "name": "Noodle",
+        "color": "Brown",
+        "gender": "Male",
+        "age": "3 months",
+        "image": "2981-1-597709b8.webp",
+        "origin": "Local",
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": true
+      },
+      {
         "id": 2608,
         "breed": "mini-dachshund",
         "name": "Poppy",
@@ -95,19 +108,6 @@
         "hdbApproved": true
       },
       {
-        "id": 2937,
-        "breed": "cockapoo",
-        "name": "Daisy",
-        "color": "Tri Color",
-        "gender": "Female",
-        "age": "3 months",
-        "image": "2937-1-71cc6ba1.webp",
-        "origin": "Local",
-        "sizeNote": null,
-        "crossLabel": "Cockapoo",
-        "hdbApproved": true
-      },
-      {
         "id": 2899,
         "breed": "cockapoo",
         "name": "Archie",
@@ -117,7 +117,7 @@
         "image": "2899-1-82f949fd.webp",
         "origin": "Local",
         "sizeNote": null,
-        "crossLabel": "Cockapoo",
+        "crossLabel": null,
         "hdbApproved": true
       }
     ]

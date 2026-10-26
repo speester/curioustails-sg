@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-10-25T04:59:06.367Z",
+  "syncedAt": "2026-10-26T05:03:14.581Z",
   "breeds": {
     "bichon-frise": {
       "available": [
@@ -263,7 +263,24 @@
       ]
     },
     "cavapoo": {
-      "available": [],
+      "available": [
+        {
+          "id": 2981,
+          "name": "Noodle",
+          "color": "Brown",
+          "gender": "Male",
+          "age": "3 months",
+          "price": 3888,
+          "image": "2981-1-597709b8.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true,
+          "video": null,
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2981"
+        }
+      ],
       "recentlyPlaced": [
         {
           "id": 2652,
@@ -355,22 +372,6 @@
     "cockapoo": {
       "available": [
         {
-          "id": 2937,
-          "name": "Daisy",
-          "color": "Tri Color",
-          "gender": "Female",
-          "age": "3 months",
-          "price": 3288,
-          "image": "2937-1-71cc6ba1.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": "Cockapoo",
-          "hdbApproved": true,
-          "video": null,
-          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2937"
-        },
-        {
           "id": 2899,
           "name": "Archie",
           "color": "Apricot",
@@ -381,7 +382,7 @@
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
-          "crossLabel": "Cockapoo",
+          "crossLabel": null,
           "hdbApproved": true,
           "video": null,
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2899"
@@ -729,7 +730,7 @@
           "color": "Dapple",
           "gender": "Female",
           "age": "2 months",
-          "price": 4488,
+          "price": 4088,
           "image": "2915-1-53e66033.webp",
           "location": "Balestier Area",
           "origin": "Local",
@@ -915,6 +916,26 @@
       ]
     }
   },
-  "other": [],
-  "unmapped": []
+  "other": [
+    {
+      "id": 2937,
+      "name": "Daisy",
+      "color": "Tri Color",
+      "gender": "Female",
+      "age": "3 months",
+      "price": 3288,
+      "image": "2937-1-71cc6ba1.webp",
+      "location": "Balestier Area",
+      "origin": "Local",
+      "sizeNote": null,
+      "crossLabel": null,
+      "hdbApproved": null,
+      "video": null,
+      "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2937",
+      "breedLabel": "Corgipoo"
+    }
+  ],
+  "unmapped": [
+    "Corgipoo"
+  ]
 }

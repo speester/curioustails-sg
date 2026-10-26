@@ -9,6 +9,14 @@ export interface GoogleReview {
 
 export const GOOGLE_REVIEWS: GoogleReview[] = [
   {
+    id: "Ci9DQUlRQUNvZENodHljRjlvT2toRWFWWmZPSFZhVEhOeVgxaGhhbFV0Vlc5d09GRRAB",
+    quote: "No complaints whatsoever. Nelson and Kim really went out of the way to help us, not obligated to do so much and threw in a proper starter collar without a second thought. Our Cavapoo is thriving. Our Cavapoo is the best addition to the family. No hesitation recommending them to anyone.",
+    name: "Coco Tan",
+    rating: 5,
+    timeAgo: "a day ago",
+    url: "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2toRWFWWmZPSFZhVEhOeVgxaGhhbFV0Vlc5d09GRRAB!2m1!1s0x0:0xb4c1905c6481624!3m1!1s2@1:CAIQACodChtycF9oOkhEaVZfOHVaTHNyX1hhalUtVW9wOFE%7C%7C?hl=en-GB",
+  },
+  {
     id: "Ci9DQUlRQUNvZENodHljRjlvT21OVWRtSmZNRGxDVEdwVlkzaHhYMDF0VURkS1MzYxAB",
     quote: "As first-time dog owners, couldn't have picked a better place than Curious Tails in Balestier. Our Maltipoo very healthy, vet also said can see properly taken care of before we bought. We'll be recommending Curious Tails to everyone who'll listen.",
     name: "Jin RY",

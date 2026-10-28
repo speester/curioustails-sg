@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-10-27T05:19:17.937Z",
+  "syncedAt": "2026-10-28T05:58:35.081Z",
   "breeds": {
     "bichon-frise": {
       "available": [
@@ -111,7 +111,7 @@
           "name": null,
           "color": "Apricot",
           "gender": "Male",
-          "age": "7 months",
+          "age": "8 months",
           "price": 2888,
           "image": "2410-2-a479d256.webp",
           "location": "Balestier Area",
@@ -127,7 +127,7 @@
           "name": null,
           "color": "Apricot",
           "gender": "Male",
-          "age": "7 months",
+          "age": "8 months",
           "price": 3288,
           "image": "2409-2-37373b36.webp",
           "location": "Balestier Area",
@@ -143,7 +143,7 @@
           "name": null,
           "color": "Apricot",
           "gender": "Male",
-          "age": "7 months",
+          "age": "8 months",
           "price": 3488,
           "image": "2408-2-7b3cf76d.webp",
           "location": "Balestier Area",
@@ -194,7 +194,24 @@
       ]
     },
     "cavachon": {
-      "available": [],
+      "available": [
+        {
+          "id": 2954,
+          "name": "Rumi",
+          "color": "Cream",
+          "gender": "Male",
+          "age": "2 months",
+          "price": 4288,
+          "image": "2954-1-6117fda5.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true,
+          "video": null,
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2954"
+        }
+      ],
       "recentlyPlaced": [
         {
           "id": 2575,
@@ -714,7 +731,7 @@
           "color": "Golden",
           "gender": "Male",
           "age": "5 months",
-          "price": 3888,
+          "price": 2888,
           "image": "2608-1-a79d60e7.webp",
           "location": "Balestier Area",
           "origin": "Local",
@@ -846,6 +863,22 @@
           "hdbApproved": true,
           "video": null,
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2977"
+        },
+        {
+          "id": 2952,
+          "name": "Bowie",
+          "color": "Cream",
+          "gender": "Female",
+          "age": "2 months",
+          "price": 4288,
+          "image": "2952-1-cc2e953e.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true,
+          "video": null,
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2952"
         }
       ],
       "recentlyPlaced": [
@@ -929,7 +962,7 @@
       "origin": "Local",
       "sizeNote": null,
       "crossLabel": null,
-      "hdbApproved": null,
+      "hdbApproved": true,
       "video": null,
       "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2937",
       "breedLabel": "Corgipoo"

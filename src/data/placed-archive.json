@@ -1,7 +1,7 @@
 {
   "_note": "Written by scripts/sync-puppies.mjs, never rebuilt from scratch: puppies that left the available list. status: placed (sold evidence, shown under \"Puppies That Found Their Loving Homes\"), withdrawn (no evidence, never shown), expired (past retention). placedAt = the day the sync first saw it gone (SGT); lastListed = the last day it was listed. Do not hand-edit; to mark a sale, add the id to sold-overrides.json and re-run the sync.",
   "lastSync": {
-    "at": "2026-10-27T05:19:17.932Z",
+    "at": "2026-10-28T05:58:35.080Z",
     "listed": [
       {
         "id": 2980,
@@ -38,6 +38,19 @@
         "age": null,
         "image": "2977-1-edcaa875.webp",
         "origin": "UK",
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": true
+      },
+      {
+        "id": 2952,
+        "breed": "toy-poodle",
+        "name": "Bowie",
+        "color": "Cream",
+        "gender": "Female",
+        "age": "2 months",
+        "image": "2952-1-cc2e953e.webp",
+        "origin": "Local",
         "sizeNote": null,
         "crossLabel": null,
         "hdbApproved": true
@@ -115,6 +128,19 @@
         "gender": "Male",
         "age": "3 months",
         "image": "2899-1-82f949fd.webp",
+        "origin": "Local",
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": true
+      },
+      {
+        "id": 2954,
+        "breed": "cavachon",
+        "name": "Rumi",
+        "color": "Cream",
+        "gender": "Male",
+        "age": "2 months",
+        "image": "2954-1-6117fda5.webp",
         "origin": "Local",
         "sizeNote": null,
         "crossLabel": null,
@@ -805,7 +831,7 @@
       "sizeNote": null,
       "crossLabel": null,
       "hdbApproved": true,
-      "evidence": "out-of-area"
+      "evidence": "not-in-sheet"
     },
     {
       "id": 2688,

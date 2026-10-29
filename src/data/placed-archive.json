@@ -1,7 +1,7 @@
 {
   "_note": "Written by scripts/sync-puppies.mjs, never rebuilt from scratch: puppies that left the available list. status: placed (sold evidence, shown under \"Puppies That Found Their Loving Homes\"), withdrawn (no evidence, never shown), expired (past retention). placedAt = the day the sync first saw it gone (SGT); lastListed = the last day it was listed. Do not hand-edit; to mark a sale, add the id to sold-overrides.json and re-run the sync.",
   "lastSync": {
-    "at": "2026-10-28T05:58:35.080Z",
+    "at": "2026-10-29T06:04:40.808Z",
     "listed": [
       {
         "id": 2980,
@@ -82,19 +82,6 @@
         "hdbApproved": true
       },
       {
-        "id": 2608,
-        "breed": "mini-dachshund",
-        "name": "Poppy",
-        "color": "Golden",
-        "gender": "Male",
-        "age": "5 months",
-        "image": "2608-1-a79d60e7.webp",
-        "origin": "Local",
-        "sizeNote": null,
-        "crossLabel": null,
-        "hdbApproved": true
-      },
-      {
         "id": 2915,
         "breed": "mini-dachshund",
         "name": "Luna",
@@ -149,6 +136,24 @@
     ]
   },
   "pups": [
+    {
+      "id": 2608,
+      "breed": "mini-dachshund",
+      "name": "Poppy",
+      "color": "Golden",
+      "gender": "Male",
+      "age": "5 months",
+      "image": "2608-1-a79d60e7.webp",
+      "origin": "Local",
+      "sizeNote": null,
+      "crossLabel": null,
+      "hdbApproved": true,
+      "status": "placed",
+      "placedAt": "2026-10-29",
+      "lastListed": "2026-10-28",
+      "source": "sync",
+      "evidence": "sold-overlay"
+    },
     {
       "id": 2698,
       "breed": "cockapoo",

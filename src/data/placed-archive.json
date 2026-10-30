@@ -1,7 +1,7 @@
 {
   "_note": "Written by scripts/sync-puppies.mjs, never rebuilt from scratch: puppies that left the available list. status: placed (sold evidence, shown under \"Puppies That Found Their Loving Homes\"), withdrawn (no evidence, never shown), expired (past retention). placedAt = the day the sync first saw it gone (SGT); lastListed = the last day it was listed. Do not hand-edit; to mark a sale, add the id to sold-overrides.json and re-run the sync.",
   "lastSync": {
-    "at": "2026-10-29T06:04:40.808Z",
+    "at": "2026-10-30T06:05:58.838Z",
     "listed": [
       {
         "id": 2980,
@@ -49,7 +49,7 @@
         "color": "Cream",
         "gender": "Female",
         "age": "2 months",
-        "image": "2952-1-cc2e953e.webp",
+        "image": "2952-1-24e5d190.webp",
         "origin": "Local",
         "sizeNote": null,
         "crossLabel": null,
@@ -69,13 +69,26 @@
         "hdbApproved": true
       },
       {
+        "id": 2954,
+        "breed": "cavachon",
+        "name": "Rumi",
+        "color": "Cream",
+        "gender": "Male",
+        "age": "2 months",
+        "image": "2954-1-494c6ce2.webp",
+        "origin": "Local",
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": true
+      },
+      {
         "id": 2981,
         "breed": "cavapoo",
         "name": "Noodle",
         "color": "Brown",
         "gender": "Male",
         "age": "3 months",
-        "image": "2981-1-597709b8.webp",
+        "image": "2981-1-11dbb137.webp",
         "origin": "Local",
         "sizeNote": null,
         "crossLabel": null,
@@ -88,7 +101,7 @@
         "color": "Dapple",
         "gender": "Female",
         "age": "2 months",
-        "image": "2915-1-53e66033.webp",
+        "image": "2915-1-d95e54fa.webp",
         "origin": "Local",
         "sizeNote": null,
         "crossLabel": null,
@@ -101,7 +114,7 @@
         "color": "Apricot",
         "gender": "Female",
         "age": "2 months",
-        "image": "2938-1-8935828a.webp",
+        "image": "2938-1-12a1928f.webp",
         "origin": "Local",
         "sizeNote": null,
         "crossLabel": null,
@@ -115,19 +128,6 @@
         "gender": "Male",
         "age": "3 months",
         "image": "2899-1-82f949fd.webp",
-        "origin": "Local",
-        "sizeNote": null,
-        "crossLabel": null,
-        "hdbApproved": true
-      },
-      {
-        "id": 2954,
-        "breed": "cavachon",
-        "name": "Rumi",
-        "color": "Cream",
-        "gender": "Male",
-        "age": "2 months",
-        "image": "2954-1-6117fda5.webp",
         "origin": "Local",
         "sizeNote": null,
         "crossLabel": null,

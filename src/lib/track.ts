@@ -1,5 +1,7 @@
-// kit:track@1.0.0 - the only GA4 event emitter. Names come from src/data/site.ts GA4_EVENTS.
-import { GA4_EVENTS } from '../data/site';
+// kit:track@1.0.0 - the only GA4 event emitter. Names come from src/data/registry.ts GA4_EVENTS.
+// (It was imported from src/data/site.ts, which never exported it: every track() call threw
+// before its try block, so no delegated click event ever reached GA.)
+import { GA4_EVENTS } from '../data/registry';
 
 declare global {
   interface Window {
@@ -10,11 +12,11 @@ declare global {
 }
 
 export function track(name: string, params: Record<string, unknown> = {}): void {
-  if (!GA4_EVENTS.includes(name)) {
-    // A name that is not in the registry can never be registered as a key event.
-    console.warn(`[track] "${name}" is not in GA4_EVENTS - add it to src/data/site.ts or use an existing name.`);
-  }
   try {
+    if (!(GA4_EVENTS as readonly string[]).includes(name)) {
+      // A name that is not in the registry can never be registered as a key event.
+      console.warn(`[track] "${name}" is not in GA4_EVENTS - add it to src/data/registry.ts or use an existing name.`);
+    }
     if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
       window.gtag('event', name, params);
     }

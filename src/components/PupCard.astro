@@ -117,18 +117,20 @@ const chatLabel = placed ? 'Similar' : 'Chat';
       class="pc-act"
       href={item.bookHref ?? item.href}
       {...(item.bookHref ? { target: '_blank', rel: 'noopener' } : {})}
+      data-card-action={item.bookHref ? 'book' : undefined}
+      data-wa-source={item.waSource}
       aria-label={`Book an appointment to visit ${item.title}`}
     ><span class="pc-ico pc-i-cal" set:html={CAL} />Book</a>
     {item.video ? (
-      <button type="button" class="pc-act js-video-open" data-video={item.video} data-video-title={item.title} aria-label={`Watch a video of ${item.title}`}>
+      <button type="button" class="pc-act js-video-open" data-card-action="video" data-wa-source={item.waSource} data-video={item.video} data-video-title={item.title} aria-label={`Watch a video of ${item.title}`}>
         <span class="pc-ico pc-i-vid" set:html={VID} />Video
       </button>
     ) : (
-      <a class="pc-act" href={item.videoHref ?? item.href} aria-label={`Ask on WhatsApp for a video of ${item.title}`}>
+      <a class="pc-act" href={item.videoHref ?? item.href} data-wa-source={item.waSource} aria-label={`Ask on WhatsApp for a video of ${item.title}`}>
         <span class="pc-ico pc-i-vid" set:html={VID} />Video
       </a>
     )}
-    <a class="pc-act" href={item.pageHref ?? item.href} aria-label={`Details about ${item.title}`}>
+    <a class="pc-act" href={item.pageHref ?? item.href} data-card-action={item.pageHref ? 'details' : undefined} data-wa-source={item.waSource} aria-label={`Details about ${item.title}`}>
       <span class="pc-ico pc-i-paw" set:html={PAW} />Details
     </a>
   </div>

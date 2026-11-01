@@ -292,7 +292,9 @@ export const SILO_ITEMS: string[] = ["Cavapoo","Maltipoo","Mini Dachshund","Corg
 // build. Names are EXACTLY the form registry's ga4_event values (contracts: never a
 // hard-coded whatsapp_click / form_submit / cta_click list), plus cta_click only when a
 // [data-cta] element exists in the component library.
-export const GA4_EVENTS = ["cta_click"] as const;
+// Names emitted through track(): the delegated bindAutoEvents set. The card-action events
+// (book_click, video_click, details_click) and whatsapp_click are emitted straight from BaseLayout.
+export const GA4_EVENTS = ["cta_click", "outbound_click", "call_click", "whatsapp_click"] as const;
 export const PRIMARY_CTA = { label: "WhatsApp us", href: "/contact/" };
 export const FOOTER = {
   legal: UTILITY.filter(r => r.slug !== '/' && r.slug !== '/404').map(r => ({ label: r.title, href: r.slug })),

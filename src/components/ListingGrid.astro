@@ -226,6 +226,8 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
                 <a
                   href={item.bookHref ?? item.href}
                   {...item.bookHref ? { target: '_blank', rel: 'noopener' } : {}}
+                  data-card-action={item.bookHref ? 'book' : undefined}
+                  data-wa-source={item.waSource}
                   aria-label={`Book an appointment to visit ${item.title}`}
                   class="group/ic flex flex-col items-center gap-1.5 text-center"
                 >
@@ -237,6 +239,8 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
                 {item.video ? (
                   <button
                     type="button"
+                    data-card-action="video"
+                    data-wa-source={item.waSource}
                     data-video={item.video}
                     data-video-title={item.title}
                     aria-label={`Watch a video of ${item.title}`}
@@ -261,6 +265,8 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
                 )}
                 <a
                   href={item.pageHref ?? item.href}
+                  data-card-action={item.pageHref ? 'details' : undefined}
+                  data-wa-source={item.waSource}
                   aria-label={`Learn more about ${item.title}`}
                   class="group/ic flex flex-col items-center gap-1.5 text-center"
                 >
@@ -276,6 +282,8 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
             {item.video ? (
               <button
                 type="button"
+                data-card-action="video"
+                data-wa-source={item.waSource}
                 data-video={item.video}
                 data-video-title={item.title}
                 aria-label={`Watch a video of ${item.title}`}
@@ -304,6 +312,8 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
             {item.pageHref && (
               <a
                 href={item.pageHref}
+                data-card-action="details"
+                data-wa-source={item.waSource}
                 aria-label={`Learn more about ${item.title}`}
                 class="clay-btn-outline clay-press inline-flex w-full items-center justify-center gap-2 whitespace-nowrap bg-white px-5 py-2.5 text-sm font-bold text-[var(--color-coral-600)] transition-transform"
               >
@@ -316,6 +326,8 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
                 href={item.bookHref}
                 target="_blank"
                 rel="noopener"
+                data-card-action="book"
+                data-wa-source={item.waSource}
                 aria-label={`Book an appointment to visit ${item.title}`}
                 class="clay-btn-outline clay-press inline-flex w-full items-center justify-center gap-2 whitespace-nowrap bg-white px-5 py-2.5 text-sm font-bold text-[var(--color-coral-600)] transition-transform"
               >

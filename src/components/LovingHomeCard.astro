@@ -18,6 +18,8 @@ const label = `${card.title}, ${card.breed}, found a loving home${card.month ? `
 
 <Tag
   href={card.href}
+  data-card-action={card.href ? 'details' : undefined}
+  data-wa-source={`loving-home:${card.id}`}
   class:list={['lh-card', card.href && 'lh-link']}
   data-loving-home={card.id}
   aria-label={card.href ? `${label}. View profile` : undefined}

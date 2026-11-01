@@ -88,7 +88,23 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
 
         // Lead tracking: every WhatsApp (wa.me) and phone (tel:) link on the
         // site fires a GA4 event. Delegated so it covers links added anywhere.
+        // Card actions: any element tagged data-card-action="book|video|details" (puppy cards,
+        // puppy page, match swiper, loving-homes card) fires <action>_click with the puppy's
+        // wa_source. WhatsApp hrefs are skipped here, since the branch below already counts
+        // them as whatsapp_click; that keeps one tap = one event.
         document.addEventListener('click', (e) => {
+          const card = e.target instanceof Element ? e.target.closest('[data-card-action]') : null;
+          if (card) {
+            const cardHref = card.getAttribute('href') || '';
+            if (!/(^|\/\/)(wa\.me|api\.whatsapp\.com)\//.test(cardHref)) {
+              const cardSource = card.getAttribute('data-wa-source') || '';
+              gtag('event', (card.getAttribute('data-card-action') || 'card') + '_click', {
+                link_url: cardHref || undefined,
+                link_text: (card.textContent || '').trim().slice(0, 100),
+                wa_source: [location.pathname, cardSource].filter(Boolean).join(' '),
+              });
+            }
+          }
           const link = e.target instanceof Element ? e.target.closest('a[href]') : null;
           if (!link) return;
           const href = link.getAttribute('href') || '';

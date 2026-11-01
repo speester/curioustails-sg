@@ -16,7 +16,7 @@ const half = (g: string | null) => (g === 'Female' ? 'Girl' : g === 'Male' ? 'Bo
 type SwipePup = {
   name: string; breed: string; age: string; gender: string; price: number; priceStr: string;
   hdb: boolean; size: string; coat: string; color: string; origin: string; traits: string[];
-  book: string; video: string; img: string;
+  book: string; video: string; img: string; id: string;
 };
 
 const puppies: SwipePup[] = [];
@@ -39,6 +39,7 @@ for (const [slug, bucket] of Object.entries(data.breeds as Record<string, BreedB
       origin: p.origin ?? '',
       traits: ['Vaccinated', 'Vet-checked'],
       book: p.bookHref ?? '',
+      id: String(p.id ?? ''),
       video: p.video ?? '',
       img: meta.src,
     });
@@ -167,7 +168,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
           '<div class="photo"><img src="'+p.img+'" alt="'+esc(p.name)+', a '+esc(p.breed)+' puppy" draggable="false">'
           +'<div class="fade"></div>'
           +(p.hdb?'<span class="badge hdb">&#10003; HDB-approved</span>':'')
-          +(p.video?'<a class="badge vid" href="'+esc(p.video)+'" target="_blank" rel="noopener">&#9654; Video</a>':'')
+          +(p.video?'<a class="badge vid" data-card-action="video" data-wa-source="pms:'+esc(p.id)+'" href="'+esc(p.video)+'" target="_blank" rel="noopener">&#9654; Video</a>':'')
           +'<span class="gender" title="'+(p.gender==="f"?"Female":"Male")+'">'+(p.gender==="f"?"&#9792;":"&#9794;")+'</span>'
           +'<span class="stamp like">LOVE</span><span class="stamp nope">PASS</span>'
           +'<div class="onpic"><div class="nr"><h2>'+esc(p.name)+'</h2><span class="age">'+esc(p.age)+'</span></div>'
@@ -259,7 +260,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
         var items=liked.map(function(p){return '<div class="sl"><span class="sl-dot"><img src="'+p.img+'" alt=""></span>'
           +'<span><div class="n">'+esc(p.name)+'</div><div class="b">'+esc(p.breed)+' &middot; '+esc(p.priceStr)+'</div></span>'
           +'<span class="acts"><a class="mini wa" title="WhatsApp about '+esc(p.name)+'" href="'+waLink([p])+'" target="_blank" rel="noopener">'+waIcon()+'</a>'
-          +(p.book?'<a class="mini cal" title="Book a visit" href="'+esc(p.book)+'" target="_blank" rel="noopener">'+calIcon()+'</a>':'')+'</span></div>';}).join("");
+          +(p.book?'<a class="mini cal" data-card-action="book" data-wa-source="pms:'+esc(p.id)+'" title="Book a visit" href="'+esc(p.book)+'" target="_blank" rel="noopener">'+calIcon()+'</a>':'')+'</span></div>';}).join("");
         head='<h2>You\'ve got '+liked.length+' match'+(liked.length>1?'es':'')+'! &#127881;</h2>'
           +'<p class="lead">Send your shortlist and we\'ll confirm who\'s still available &amp; set up a visit.</p>';
         body='<div class="shortlist">'+items+'</div>'

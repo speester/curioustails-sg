@@ -1,7 +1,7 @@
 {
   "_note": "Written by scripts/sync-puppies.mjs, never rebuilt from scratch: puppies that left the available list. status: placed (sold evidence, shown under \"Puppies That Found Their Loving Homes\"), withdrawn (no evidence, never shown), expired (past retention). placedAt = the day the sync first saw it gone (SGT); lastListed = the last day it was listed. Do not hand-edit; to mark a sale, add the id to sold-overrides.json and re-run the sync.",
   "lastSync": {
-    "at": "2026-11-01T06:29:22.237Z",
+    "at": "2026-11-02T06:30:32.698Z",
     "listed": [
       {
         "id": 2980,
@@ -95,19 +95,6 @@
         "hdbApproved": true
       },
       {
-        "id": 2938,
-        "breed": "maltipoo",
-        "name": "Biscuit",
-        "color": "Apricot",
-        "gender": "Female",
-        "age": "2 months",
-        "image": "2938-1-12a1928f.webp",
-        "origin": "Local",
-        "sizeNote": null,
-        "crossLabel": null,
-        "hdbApproved": true
-      },
-      {
         "id": 2899,
         "breed": "cockapoo",
         "name": "Archie",
@@ -123,6 +110,24 @@
     ]
   },
   "pups": [
+    {
+      "id": 2938,
+      "breed": "maltipoo",
+      "name": "Biscuit",
+      "color": "Apricot",
+      "gender": "Female",
+      "age": "2 months",
+      "image": "2938-1-12a1928f.webp",
+      "origin": "Local",
+      "sizeNote": null,
+      "crossLabel": null,
+      "hdbApproved": true,
+      "status": "placed",
+      "placedAt": "2026-11-02",
+      "lastListed": "2026-11-01",
+      "source": "sync",
+      "evidence": "sold-overlay"
+    },
     {
       "id": 2915,
       "breed": "mini-dachshund",

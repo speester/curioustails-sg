@@ -1,7 +1,7 @@
 {
   "_note": "Written by scripts/sync-puppies.mjs, never rebuilt from scratch: puppies that left the available list. status: placed (sold evidence, shown under \"Puppies That Found Their Loving Homes\"), withdrawn (no evidence, never shown), expired (past retention). placedAt = the day the sync first saw it gone (SGT); lastListed = the last day it was listed. Do not hand-edit; to mark a sale, add the id to sold-overrides.json and re-run the sync.",
   "lastSync": {
-    "at": "2026-11-04T06:44:43.205Z",
+    "at": "2026-11-05T07:04:37.606Z",
     "listed": [
       {
         "id": 2980,
@@ -56,6 +56,19 @@
         "hdbApproved": true
       },
       {
+        "id": 2950,
+        "breed": "maltipoo",
+        "name": "Smokey",
+        "color": "Red",
+        "gender": "Male",
+        "age": "2 months",
+        "image": "2950-1-26e0791a.webp",
+        "origin": "Local",
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": true
+      },
+      {
         "id": 2954,
         "breed": "cavachon",
         "name": "Rumi",
@@ -63,19 +76,6 @@
         "gender": "Male",
         "age": "2 months",
         "image": "2954-1-494c6ce2.webp",
-        "origin": "Local",
-        "sizeNote": null,
-        "crossLabel": null,
-        "hdbApproved": true
-      },
-      {
-        "id": 2981,
-        "breed": "cavapoo",
-        "name": "Noodle",
-        "color": "Brown",
-        "gender": "Male",
-        "age": "3 months",
-        "image": "2981-1-11dbb137.webp",
         "origin": "Local",
         "sizeNote": null,
         "crossLabel": null,
@@ -97,6 +97,24 @@
     ]
   },
   "pups": [
+    {
+      "id": 2981,
+      "breed": "cavapoo",
+      "name": "Noodle",
+      "color": "Brown",
+      "gender": "Male",
+      "age": "3 months",
+      "image": "2981-1-11dbb137.webp",
+      "origin": "Local",
+      "sizeNote": null,
+      "crossLabel": null,
+      "hdbApproved": true,
+      "status": "withdrawn",
+      "placedAt": "2026-11-05",
+      "lastListed": "2026-11-04",
+      "source": "sync",
+      "evidence": "out-of-area"
+    },
     {
       "id": 2952,
       "breed": "toy-poodle",

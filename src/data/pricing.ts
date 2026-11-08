@@ -39,6 +39,8 @@ export const breedPricing = {
   'shiba-inu': { low: 4788, high: 6500 },
   'french-bulldog': { low: 6800, high: 8800 },
   'golden-retriever': { low: 4588, high: 5500 },
+  // Same-family (large retriever) band, matching the published Golden Retriever band.
+  'labrador': { low: 4588, high: 5500 },
   'samoyed': { low: 5500, high: 6988 },
   'chow-chow': { low: 6888, high: 10888 },
   'siberian-husky': { low: 5088, high: 6088 },

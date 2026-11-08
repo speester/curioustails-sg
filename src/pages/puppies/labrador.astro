@@ -1,0 +1,215 @@
+---
+/**
+ * /puppies/labrador/ - Labrador Retriever breed page. Brief: briefs/labrador.json.
+ * Target "labrador singapore" (210/mo). Not HDB-approved; the page says so before price.
+ * Price comes from pricing.ts (same-family large-retriever band), never typed.
+ */
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import AnswerCapsule from '../../components/AnswerCapsule.astro';
+import DefBox from '../../components/DefBox.astro';
+import Tabs from '../../components/Tabs.astro';
+import FAQ from '../../components/FAQ.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Schema from '../../components/Schema.astro';
+import { site, whatsappLink } from '../../data/site';
+import { breedPricing, fmtPrice } from '../../data/pricing';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+
+const path = '/puppies/labrador/';
+const price = breedPricing['labrador'];
+const priceRange = `$${fmtPrice(price.low)} to $${fmtPrice(price.high)}`;
+const title = `Labrador Singapore | Puppies for Sale | Curious Tails`;
+const description =
+  `Labrador puppies in Singapore, ${priceRange} all-in. Not HDB-approved, and the 5 minute rule, the appetite problem and hip screening explained honestly.`;
+
+const jumpLinks = [
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Exercise', href: '#exercise' },
+  { label: 'Price', href: '#price' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Is a Labrador allowed in an HDB flat?',
+    answer: 'No. The Labrador Retriever is not on HDB’s approved breed list, so it needs a condominium that permits large dogs or a landed home. We would rather say this before a sale than after one.',
+  },
+  {
+    question: 'How much is a Labrador puppy in Singapore?',
+    answer: `A Labrador from Curious Tails is ${priceRange} all-in, including the starter kit, free home delivery and playpen setup, and a first training lesson. Colour does not change the price.`,
+  },
+  {
+    question: 'What is the 5 minute rule for Labradors?',
+    answer: 'Roughly five minutes of formal exercise per month of age, up to twice a day, while the growth plates are open. A four-month-old gets about twenty minutes a session. Free play in the garden does not count towards it.',
+  },
+  {
+    question: 'Why is my Labrador always hungry?',
+    answer: 'The breed is strongly food-motivated, and a genetic variant linked to appetite has been documented in Labradors. Measured meals, food kept out of reach and a monthly body-condition check matter more than willpower.',
+  },
+  {
+    question: 'How much exercise does an adult Labrador need?',
+    answer: 'About an hour a day, split across the cooler hours. Swimming is the best exercise here: it takes the heat out of the session and is gentle on the joints.',
+  },
+  {
+    question: 'Do Labradors shed a lot?',
+    answer: 'Yes, heavily and year-round. Weekly brushing with a de-shedding tool keeps it manageable. Never shave the coat: it is a water-repellent double coat that also insulates against heat.',
+  },
+  {
+    question: 'What should I ask about the parents?',
+    answer: 'Ask whether both parents were screened for hip and elbow dysplasia, and ask to see the results rather than hear about them. Ask what the breeder does when a result is poor. A seller who cannot produce anything is telling you the screening did not happen.',
+  },
+  {
+    question: 'Are Labradors good with children?',
+    answer: 'Generally yes, and that is a large part of their reputation. A young Labrador is boisterous and heavy, so toddlers need supervised, coached interactions until the dog settles.',
+  },
+  {
+    question: 'How long do Labradors live?',
+    answer: 'Commonly 10 to 12 years. A lean weight is the variable an owner controls most, and it protects the joints through the whole life.',
+  },
+  {
+    question: 'What comes with a Labrador puppy?',
+    answer: 'Vaccinations to date, deworming at every vet visit, a vet health check, a microchip, health certification and ancestry records, plus the starter kit, delivery and setup and a first training lesson.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({ path, title, description, aboutName: 'Labrador Retriever', datePublished: '2026-10-18', dateModified: lastUpdated }),
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies/labrador">
+  <Hero
+    eyebrow="Licensed by AVS · Labrador in Balestier"
+    h1="Labrador Singapore: Puppies for Sale"
+    h1Accent="Labrador"
+    subhead={`Labradors are ${priceRange} all-in. Not HDB-approved, so this is a condo or landed dog.`}
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available Labrador puppies. I live in private housing."
+    secondaryCtaLabel="Check the HDB rules"
+    secondaryCtaHref="#hdb"
+    priceAnchor={`From $${fmtPrice(price.low)} all-in, for condo and landed homes.`}
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Viewing by appointment']}
+    imageAlt="Labrador Retriever puppy in a Singapore home"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies/' }, { label: 'Labrador', href: path }]} />
+  </Hero>
+
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
+    <AnswerCapsule>
+      <p>{`Labrador Singapore buyers ask one question first: can I keep one? No, not in an HDB flat. A Labrador costs ${priceRange} all-in at Curious Tails. Before the price, the fact that decides it for many Singapore families: the Labrador is not on the HDB approved list, so it needs a condo or landed home. It is a large, food-motivated retriever that needs an hour of exercise a day and hip screening in its parents.`}</p>
+    </AnswerCapsule>
+  </div>
+
+  <Tabs items={jumpLinks} />
+
+
+  <section id="hdb" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-10" data-reveal>
+    <DefBox
+      term="Is a Labrador allowed in an HDB flat?"
+      definition="No. The Labrador Retriever is not on HDB’s approved breed list, so it cannot be kept in an HDB flat. It may live in a condominium or landed home, subject to the estate’s own rules and the AVS limit of three dogs."
+      bridge="We say this before anything else because the housing rule cannot be trained around. If you live in a flat, the honest next step is our HDB-approved breeds guide rather than a Labrador."
+    />
+  </section>
+
+  <section id="temperament" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-10" data-reveal>
+    <h2 class="text-3xl md:text-4xl font-semibold">Temperament: an optimistic retriever that never quite grows up</h2>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      The Labrador is friendly, biddable and endlessly enthusiastic. It was bred to work beside people, retrieve on command and stay steady in water, and those traits survive in a family home. It is generally good with children, strangers and other dogs.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      The first two years are the hard part, and the breed is slower to mature than its size suggests. A young Labrador is heavy, mouthy and unaware of its own size, and it will knock over a toddler without meaning to. Training and supervised interactions are not optional in a household with small children.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      The breed also stays playful well past puppyhood, and a Labrador Singapore household that stops engaging at two years ends up with a bored, overweight dog. An adult Labrador still wants the ball, the water and the company, and a household that stops engaging at two years ends up with a bored, overweight dog.
+    </p>
+  </section>
+
+  <section id="exercise" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-10" data-reveal>
+    <h2 class="text-3xl md:text-4xl font-semibold">Exercise and the 5 minute rule</h2>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      A puppy is on the 5 minute rule until it has finished growing: roughly five minutes of formal exercise per month of age, up to twice a day. A four-month-old gets about twenty minutes a session, and free play in the garden sits outside that count.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      An adult wants an hour or more a day. In Singapore, split it across the cooler hours and use water where you can. Swimming is the exercise the breed was built for, it takes the heat out of the session, and it spares the joints.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      Labrador Singapore heat is the constraint that catches new owners out. A dog bred for cold water and cool climates will still chase a ball at noon because it wants to please, so the owner has to be the one who stops.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      The coat is the other heat factor. A Labrador’s short double coat is better suited to this climate than a husky’s, but the dog still cannot sweat through it, and a dark-coated dog absorbs more sun on an open field.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      Heat is a real constraint. A Labrador will keep running because it wants to please, so the owner has to be the one who stops. Walk early, walk late, carry water, and choose shade over distance.
+    </p>
+  </section>
+
+  <section id="price" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-10" data-reveal>
+    <h2 class="text-3xl md:text-4xl font-semibold">Labrador Singapore: price and what it includes</h2>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      {`Labradors are ${priceRange} all-in. The figure includes the puppy, vaccinations to date, deworming, a vet health check, a microchip, health certification and ancestry records, plus the starter kit, free delivery and playpen setup, and a first training lesson with an AVS-certified trainer.`}
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      Compare it with the other large breeds on the <a href="/puppies/" class="underline underline-offset-2">puppies page</a>, or with the closest temperament match on the <a href="/puppies/golden-retriever/" class="underline underline-offset-2">Golden Retriever page</a>. The two are often shortlisted together, and the Golden is the easier of the pair in a warm climate only by a small margin.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      Colour does not change the price. Black, yellow and chocolate appear in the same litters, and any seller charging a premium for a shade is charging for fashion. The <a href="/pricing/" class="underline underline-offset-2">full pricing page</a> lists every breed band.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      Budget beyond the purchase too: food for a 25 to 36kg dog is the largest monthly line, and hip or elbow treatment is the expensive event worth insuring against early. A Labrador Singapore household should also budget for a car or a pet transport service, because a 30kg dog is not a Grab-pet-friendly carry.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      If you are comparing the whole portfolio, the <a href="/" class="underline underline-offset-2">Curious Tails home page</a> lists every breed we carry and the current starting price. The Labrador is one of the larger commitments on that list, in both food and floor space.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-[1400px] px-5 sm:px-8 py-10" data-reveal>
+    <h2 class="text-3xl md:text-4xl font-semibold">Coat and grooming</h2>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      The Labrador has a short, dense double coat that sheds heavily year-round. Weekly brushing with a de-shedding tool keeps the house manageable, and the coat blows more heavily at certain times of year.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      The breed also sheds more in humid weather than the short coat suggests, so a weekly brush and a monthly check of the ears and paws is the minimum routine. A Labrador that swims needs the ears dried properly every time.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      Never shave it. The double coat insulates against heat as well as cold, and clipping it removes the layer that protects the skin. A bath when the dog is dirty, ears checked weekly and nails trimmed every few weeks is the whole routine.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-[1400px] px-5 sm:px-8 py-10" data-reveal>
+    <h2 class="text-3xl md:text-4xl font-semibold">Health: what to screen for</h2>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      Hip and elbow dysplasia are the breed’s best-known structural risks, and both are influenced by screening in the parents. Ask for the results, not a verbal assurance, and ask what the breeder does when a result is poor.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      Weight is the variable an owner controls most. A Labrador kept lean through life stays mobile years longer than one carrying extra kilograms on the same joints. A Labrador kept lean through life stays mobile years longer than one carrying extra kilograms on the same joints. Measured meals and a monthly hands-on body condition check do more than any supplement.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      A Labrador Singapore vet bill also includes the routine: annual boosters, heartworm and tick prevention, and dental care. None of it is exotic, and all of it is cheaper when the dog is lean.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      Ear infections are the other recurring cost in Singapore. Floppy ears trap moisture, so dry them after every swim or bath and check them weekly. Read the <a href="/first-time-owners/puppy-care-101/" class="underline underline-offset-2">puppy care guide</a> for the routine we send home with every puppy.
+    </p>
+  </section>
+
+  <FAQ heading="Labrador questions" items={faqItems} />
+
+  <FinalCta
+    breed="Labrador"
+    reserveMessage="Hi! I'd like to reserve a Labrador puppy."
+    browseHref="/puppies/"
+    browseLabel="Browse every breed"
+  />
+
+  <Schema schemas={schemas} />
+</BaseLayout>

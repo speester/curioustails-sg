@@ -10,3 +10,5 @@ PIPELINE-OPEN
 |------|----------------------|-----------|
 
 <!-- A "complete all" goal is SATISFIED when OWNER-ONLY is the only section with rows. -->
+- 2026-11-04 sister-domain-finder (Stage 0.2): 5 picks; defaults used: DFS cap $0.50 (spent $0.0000), modifiers ['puppy', 'puppies', 'singapore', 'price', 'sg', 'best'], market Singapore, tld .sg.
+- 2026-11-04 sister-domain-finder (Stage 0.2): 5 picks; defaults used: DFS cap $0.50 (this run $0.0000, uncached $0.0000), modifiers ['puppy', 'puppies', 'singapore', 'price', 'sg', 'best'], market Singapore, tld .sg.

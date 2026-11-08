@@ -1,0 +1,185 @@
+---
+/**
+ * /puppies/bernedoodle/ - Bernedoodle breed page. Brief: briefs/bernedoodle.json.
+ * Target "bernedoodle singapore" (170/mo) and "miniature bernedoodle" (210).
+ * No dedicated price band is published for this breed yet, so the page quotes no figure
+ * and points to an enquiry. Never invent a range.
+ */
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import AnswerCapsule from '../../components/AnswerCapsule.astro';
+import DefBox from '../../components/DefBox.astro';
+import Tabs from '../../components/Tabs.astro';
+import FAQ from '../../components/FAQ.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Schema from '../../components/Schema.astro';
+import { site, whatsappLink } from '../../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+
+const path = '/puppies/bernedoodle/';
+const title = 'Bernedoodle Singapore | Puppies | Curious Tails';
+const description =
+  'Bernedoodle puppies in Singapore: the Bernese Mountain Dog and Poodle cross. Standard and mini sizes, the honest HDB answer, coat care and what to ask before you buy.';
+
+const jumpLinks = [
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Mini or Standard', href: '#size' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Coat', href: '#coat' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Is a Bernedoodle allowed in an HDB flat?',
+    answer: 'No. The Bernedoodle is a cross between the Bernese Mountain Dog and the Poodle, and neither the Bernese parent nor a standard-size cross is on HDB’s approved list. A Mini Bernedoodle is smaller, but the breed rule follows both parents, so treat all Bernedoodles as private-housing dogs.',
+  },
+  {
+    question: 'How big does a Bernedoodle get?',
+    answer: 'It depends on the size of the Poodle parent. A standard Bernedoodle typically lands around 25 to 40kg, while a mini crosses a Miniature Poodle and usually lands around 8 to 15kg. Ask for both parents’ adult weights, because that is the honest predictor.',
+  },
+  {
+    question: 'How much is a Bernedoodle in Singapore?',
+    answer: `We do not publish a fixed Bernedoodle band yet, because the size of the Poodle parent changes the range substantially. Message us and we will confirm the current litter price in writing before any deposit. Every published breed band sits on the pricing page for comparison.`,
+  },
+  {
+    question: 'Do Bernedoodles shed?',
+    answer: 'Often less than the Bernese parent because of the Poodle coat, but never predictably. A cross inherits a mix of both coats, so one puppy in a litter can be low-shedding and the next can drop more hair. No dog is truly hypoallergenic.',
+  },
+  {
+    question: 'How much grooming does a Bernedoodle need?',
+    answer: 'A lot. The wavy to curly coat traps hair and mats close to the skin if it is not brushed. Plan on brushing several times a week and a professional trim every four to six weeks, which is the largest recurring cost after food.',
+  },
+  {
+    question: 'Are Bernedoodles good family dogs?',
+    answer: 'Generally yes. They are affectionate, sociable and usually good with children, and they inherit the Poodle’s trainability. A large cross is strong and boisterous as a young dog, so toddlers need supervised interactions until it settles.',
+  },
+  {
+    question: 'How much exercise does a Bernedoodle need?',
+    answer: 'About an hour a day for a standard, less for a mini. The Poodle half is active and clever, so mental work matters as much as distance: sniffing walks, training games and puzzle feeders tire the dog in a way a lead walk does not.',
+  },
+  {
+    question: 'Are Bernedoodles healthy?',
+    answer: 'A cross can inherit the health problems of either parent. The Bernese side carries risks around hips, elbows and certain cancers, and the Poodle side carries eye and joint risks. Ask what screening both parents had, and ask to see the records.',
+  },
+  {
+    question: 'What is the lifespan of a Bernedoodle?',
+    answer: 'Commonly 10 to 12 years for a standard, and often a little longer for a mini. Weight management and grooming are the two variables an owner controls most.',
+  },
+  {
+    question: 'Do Bernedoodles cope with Singapore heat?',
+    answer: 'A thick curly coat in a tropical climate needs management: cool-hour walks, air-conditioned rest through midday and a coat kept short enough to dry. Never leave the dog in a car, and watch for heat stress in the heavier standard size.',
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({ path, title, description, aboutName: 'Bernedoodle', datePublished: '2026-10-18', dateModified: lastUpdated }),
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies/bernedoodle">
+  <Hero
+    eyebrow="Licensed by AVS · Bernedoodle in Balestier"
+    h1="Bernedoodle Singapore: Standard and Mini Puppies"
+    h1Accent="Bernedoodle"
+    subhead="A Bernese Mountain Dog crossed with a Poodle. Not HDB-approved, so this is a condo or landed dog."
+    ctaLabel="Ask about the litter"
+    ctaMessage="Hi! I'd like to ask about your Bernedoodle puppies, standard and mini."
+    secondaryCtaLabel="Check the HDB rules"
+    secondaryCtaHref="#hdb"
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, 'Viewing by appointment']}
+    imageAlt="Bernedoodle puppy with a curly black and tan coat in a Singapore home"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies/' }, { label: 'Bernedoodle', href: path }]} />
+  </Hero>
+
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
+    <AnswerCapsule>
+      <p>Bernedoodle Singapore buyers are choosing between two sizes, and the dog usually lives about 10 to 12 years. A standard lands around 25 to 40kg and a mini around 8 to 15kg. Either way it is a Bernese Mountain Dog crossed with a Poodle, not HDB-approved, and it lives about 10 to 12 years. Ask for both parents’ adult weights before you choose.</p>
+    </AnswerCapsule>
+  </div>
+
+  <Tabs items={jumpLinks} />
+
+
+  <section id="hdb" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-10" data-reveal>
+    <DefBox
+      term="Is a Bernedoodle HDB approved?"
+      definition="No. The Bernedoodle is a cross of the Bernese Mountain Dog and the Poodle, and neither a standard-size cross nor the Bernese parent is on HDB’s approved list. It may live in a condominium or landed home, subject to the estate’s rules and the AVS limit of three dogs."
+      bridge="A Mini Bernedoodle is smaller, but size does not reclassify a breed. If you live in a flat, our HDB-approved breeds guide is the honest next step."
+    />
+  </section>
+
+  <section id="size" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-10" data-reveal>
+    <h2 class="text-3xl md:text-4xl font-semibold">Bernedoodle Singapore: mini or standard?</h2>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      The Bernedoodle is not one size. A standard pairs a Bernese with a Standard Poodle and usually lands around 25 to 40kg. A mini pairs the Bernese with a Miniature Poodle and lands around 8 to 15kg. The names are informal, and the litter is the only reliable measure.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      Ask for both parents’ adult weights rather than the puppy’s current size. A puppy photo tells you nothing about the frame it will carry, and a cross can lean toward either parent in the same litter.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      A Bernedoodle Singapore litter can also sit between the two, which is why a seller quoting a size band without the parents’ weights is guessing.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      The size changes the daily reality too. A standard needs more food, more space and a household strong enough to handle a boisterous young dog. A mini is easier to manage and easier to carry, but it is still an active dog rather than a lap ornament.
+    </p>
+  </section>
+
+  <section id="temperament" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-10" data-reveal>
+    <h2 class="text-3xl md:text-4xl font-semibold">Temperament: gentle, sociable and clever</h2>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      The Bernese side contributes a calm, affectionate, people-focused nature. The Poodle side contributes trainability and a sharper, more active mind. The combination is usually a friendly family dog that wants to be near its people.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      Cross litters vary. One puppy may take more of the Bernese calm and the next more of the Poodle drive, and no seller can promise which. Meeting the puppy and, where possible, the parents is the only honest way to judge.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      A bored Bernedoodle is a large, clever dog with time on its hands, and a house with a garden is easier than a flat for the same reason, which usually means chewing or barking, and a standard-size dog can do a lot of damage to a flat in an afternoon. Training and daily mental work are part of the breed, not an optional extra.
+    </p>
+  </section>
+
+  <section id="coat" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-10" data-reveal>
+    <h2 class="text-3xl md:text-4xl font-semibold">Coat and grooming: the real commitment</h2>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      Most Bernedoodles carry a wavy or curly coat that sheds less than the Bernese parent and mats far more easily than either. The hair does not fall out, so it tangles against the skin if it is not brushed out.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      Brush several times a week, paying attention to the ears, armpits and the back of the legs. Book a professional trim every four to six weeks. In Singapore humidity, a wet coat needs drying rather than waiting.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      Never shave a double-coated cross without a groomer’s advice. A short clip can be kinder in the heat, but it changes how the coat regrows, and the decision belongs with someone who can see the dog.
+    </p>
+  </section>
+
+  <section id="price" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-10" data-reveal>
+    <h2 class="text-3xl md:text-4xl font-semibold">Price and what to ask</h2>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      We do not publish a fixed Bernedoodle band, because the Poodle parent’s size changes the range substantially and a typed figure would be a guess. Message us and we will confirm the current litter price in writing before any deposit.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      Every puppy, at every size, comes with vaccinations to date, deworming, a vet health check, a microchip, health certification and ancestry records. Ask what health screening both parents had, and ask to see the records rather than a summary.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      For comparison across the breeds we carry, the <a href="/" class="underline underline-offset-2">Curious Tails home page</a> and  the <a href="/pricing/" class="underline underline-offset-2">pricing page</a> lists every published band, and the <a href="/puppies/goldendoodle/" class="underline underline-offset-2">Goldendoodle page</a> covers the closest doodle. Browse every breed on the <a href="/puppies/" class="underline underline-offset-2">puppies page</a> before you narrow the shortlist.
+    </p>
+  </section>
+
+  <FAQ heading="Bernedoodle questions" items={faqItems} />
+
+  <FinalCta
+    breed="Bernedoodle"
+    reserveMessage="Hi! I'd like to reserve a Bernedoodle puppy."
+    browseHref="/puppies/"
+    browseLabel="Browse every breed"
+  />
+
+  <Schema schemas={schemas} />
+</BaseLayout>

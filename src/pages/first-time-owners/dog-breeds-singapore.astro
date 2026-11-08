@@ -1,0 +1,234 @@
+---
+/**
+ * /first-time-owners/dog-breeds-singapore/ - the breed overview the hub was missing.
+ * Brief: briefs/dog-breeds-singapore.json.
+ * Targets "dog breeds singapore" (390/mo). DFS: CT ranks pos 24-39 with no dedicated page.
+ * The page is a decision table, not a breed encyclopedia: housing first, then size, coat, energy.
+ */
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import AnswerCapsule from '../../components/AnswerCapsule.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import FAQ from '../../components/FAQ.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Schema from '../../components/Schema.astro';
+import { site, whatsappLink } from '../../data/site';
+import { OVERALL_LOW, OVERALL_HIGH, fmtPrice } from '../../data/pricing';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+
+const path = '/first-time-owners/dog-breeds-singapore/';
+const title = 'Dog Breeds Singapore: The Decision Table | Curious Tails';
+const description =
+  'Dog breeds in Singapore, sorted the way the decision is actually made: HDB or private housing first, then size, coat and energy. With the honest trade-offs.';
+
+const faqItems = [
+  {
+    question: 'How many dog breeds are there in Singapore?',
+    answer: 'Dozens are sold here, but the number that matters is smaller: the breeds a first-time owner can realistically keep in their housing. HDB flats allow one dog of an approved breed, while condos and landed homes allow up to three dogs subject to estate rules.',
+  },
+  {
+    question: 'Which dog breeds are HDB approved?',
+    answer: 'The approved list is a named list of small breeds, including the Maltese, Toy and Miniature Poodle, Shih Tzu, Bichon Frise, Cavapoo, Chihuahua, Pomeranian and Miniature Dachshund. Large and many medium breeds, including the Golden Retriever, Labrador, Corgi, Beagle and Husky, are not on it.',
+  },
+  {
+    question: 'What is the easiest dog breed for a first-time owner in Singapore?',
+    answer: 'For a flat, a Maltese, Toy Poodle or <a href="https://puppysingapore.com/cavapoo/">Cavapoo</a> is the usual honest answer: small, companionable, and on the approved list. Easiest is not the same as lowest effort, though. Every breed needs daily exercise, grooming and training, and the coat usually decides the monthly cost.',
+  },
+  {
+    question: 'Should I choose a breed by looks or by lifestyle?',
+    answer: 'Lifestyle, then looks. Housing decides whether the breed is legal, your working hours decide whether it is fair, and your grooming budget decides whether the coat is manageable. A breed that fails any of those three is the wrong dog, however good it looks.',
+  },
+  {
+    question: 'How much does a puppy cost in Singapore?',
+    answer: `At Curious Tails, puppies run from $${fmtPrice(OVERALL_LOW)} to $${fmtPrice(OVERALL_HIGH)} all-in depending on breed, and every breed page publishes its own band. The price includes the starter kit, delivery and setup, and a first training lesson.`,
+  },
+  {
+    question: 'Are large dogs allowed in Singapore condos?',
+    answer: 'Condos and landed homes may keep up to three dogs, subject to the estate’s own rules and any breed restrictions the MCST imposes. That is why a Golden Retriever or Labrador can live in a condo but never in an HDB flat.',
+  },
+  {
+    question: 'Which breeds are best for Singapore heat?',
+    answer: 'Short-coated and single-coated breeds cope best, and brachycephalic breeds such as the French Bulldog and Pug need the most care. Double-coated breeds can live here with cool-hour walks and good airflow, but never shave the coat: it insulates in both directions.',
+  },
+  {
+    question: 'Do I need a licence for my dog in Singapore?',
+    answer: 'Yes. Every dog needs an annual AVS dog licence, and HDB households need one for the one approved dog they may keep. We complete the licensing at purchase so it is in your name from day one.',
+  },
+];
+
+const breeds = [
+  { name: 'Maltese', href: '/puppies/maltese/', hdb: 'Yes', size: '2 to 4kg', coat: 'Long, silky', energy: 'Low' },
+  { name: 'Toy Poodle', href: '/puppies/toy-poodle/', hdb: 'Yes', size: '2 to 4kg', coat: 'Curly, low-shed', energy: 'Medium' },
+  { name: 'Cavapoo', href: '/puppies/cavapoo/', hdb: 'Yes', size: '4 to 9kg', coat: 'Wavy, low-shed', energy: 'Medium' },
+  { name: 'Maltipoo', href: '/puppies/maltipoo/', hdb: 'Yes', size: '3 to 6kg', coat: 'Wavy, low-shed', energy: 'Medium' },
+  { name: 'Shih Tzu', href: '/puppies/shih-tzu/', hdb: 'Yes', size: '4 to 7kg', coat: 'Long, high care', energy: 'Low' },
+  { name: 'Bichon Frise', href: '/puppies/bichon-frise/', hdb: 'Yes', size: '5 to 8kg', coat: 'Curly, low-shed', energy: 'Medium' },
+  { name: 'Miniature Dachshund', href: '/puppies/mini-dachshund/', hdb: 'Yes', size: '4 to 7kg', coat: 'Smooth or long', energy: 'Medium' },
+  { name: 'Pomeranian', href: '/puppies/pomeranian/', hdb: 'Yes', size: '2 to 3.5kg', coat: 'Double, heavy', energy: 'Medium' },
+  { name: 'Chihuahua', href: '/puppies/chihuahua/', hdb: 'Yes', size: '1.5 to 3kg', coat: 'Smooth or long', energy: 'Low' },
+  { name: 'Corgi', href: '/puppies/corgi/', hdb: 'No', size: '10 to 14kg', coat: 'Double, heavy', energy: 'High' },
+  { name: 'Beagle', href: '/puppies/beagle/', hdb: 'No', size: '9 to 11kg', coat: 'Short, sheds', energy: 'High' },
+  { name: 'Golden Retriever', href: '/puppies/golden-retriever/', hdb: 'No', size: '25 to 34kg', coat: 'Double, heavy', energy: 'High' },
+  { name: 'Labrador Retriever', href: '/puppies/labrador/', hdb: 'No', size: '25 to 36kg', coat: 'Short, sheds', energy: 'High' },
+  { name: 'French Bulldog', href: '/puppies/french-bulldog/', hdb: 'No', size: '8 to 13kg', coat: 'Short', energy: 'Low' },
+  { name: 'Siberian Husky', href: '/puppies/siberian-husky/', hdb: 'No', size: '16 to 27kg', coat: 'Double, heavy', energy: 'Very high' },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({ path, title, description, aboutName: 'Dog breeds in Singapore', datePublished: '2026-10-18', dateModified: lastUpdated }),
+  faqPageSchema(faqItems),
+];
+---
+
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/first-time-owners/dog-breeds-singapore">
+  <Hero
+    eyebrow="First-time owners · Singapore"
+    h1="Dog Breeds Singapore: The Decision Table"
+    h1Accent="Dog Breeds"
+    subhead="Housing first, then size, coat and energy."
+    ctaLabel="Find a breed match"
+    ctaMessage="Hi! I'd like help choosing a dog breed for my home."
+    secondaryCtaLabel="Take the breed quiz"
+    secondaryCtaHref="/first-time-owners/breed-selector/"
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`]}
+    imageAlt="A puppy meeting a first-time owner in Balestier"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'First-time owners', href: '/first-time-owners/' }, { label: 'Dog breeds Singapore', href: path }]} />
+  </Hero>
+
+
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
+    <AnswerCapsule>
+      <p>Dog breeds Singapore buyers shortlist are chosen in one order, and the table below covers 15 of them. There are 15 in the table below, with puppies from $3,288 all-in. Your housing decides what is legal, your routine decides what is fair, and your grooming budget decides what is affordable. Start with the HDB approved list, then size, coat and energy.</p>
+    </AnswerCapsule>
+  </div>
+
+  <section class="mx-auto max-w-[1400px] px-5 sm:px-8 py-10" data-reveal>
+    <h2 class="text-3xl md:text-4xl font-semibold">Dog breeds Singapore: the decision table</h2>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      Fifteen breeds, sorted so the housing column does the first cut. This is not a breed encyclopedia; it is the shortlist a Singapore buyer actually needs.
+    </p>
+    <div class="mt-6 overflow-x-auto">
+      <table class="w-full border-collapse text-sm">
+        <thead>
+          <tr>
+            {['Breed', 'HDB', 'Adult size', 'Coat', 'Energy'].map((h) => (
+              <th scope="col" class="border-b-2 border-[var(--color-border)] px-3 py-3 text-left text-xs font-bold uppercase tracking-widest">{h}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {breeds.map((b) => (
+            <tr>
+              <td class="border-b border-[var(--color-border)]/50 px-3 py-3 font-semibold">
+                <a href={b.href} class="underline underline-offset-2">{b.name}</a>
+              </td>
+              <td class="border-b border-[var(--color-border)]/50 px-3 py-3">{b.hdb}</td>
+              <td class="border-b border-[var(--color-border)]/50 px-3 py-3">{b.size}</td>
+              <td class="border-b border-[var(--color-border)]/50 px-3 py-3">{b.coat}</td>
+              <td class="border-b border-[var(--color-border)]/50 px-3 py-3">{b.energy}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <ComparisonSplit
+    heading="Housing decides the list before anything else"
+    subhead="The same breed can be legal in one address and not the other. Start here."
+    columns={[
+      {
+        heading: 'If you live in an HDB flat',
+        items: [
+          'One dog, and it must be an approved breed',
+          'Maltese, Toy Poodle, Shih Tzu, Bichon, Cavapoo and Miniature Dachshund are approved',
+          'Corgi, Beagle, Golden Retriever, Labrador and Husky are not',
+          'Annual licence, completed at purchase',
+        ],
+      },
+      {
+        heading: 'If you live in a condo or landed home',
+        items: [
+          'Up to three dogs, subject to the estate’s rules',
+          'Larger breeds become possible, including Labradors',
+          'Check MCST by-laws before choosing a breed',
+          'The licence still applies to every dog',
+        ],
+      },
+    ]}
+  />
+
+  <section class="mx-auto max-w-[1400px] px-5 sm:px-8 py-10" data-reveal>
+    <h2 class="text-3xl md:text-4xl font-semibold">After housing: the three filters</h2>
+    <div class="mt-6 grid gap-5 md:grid-cols-3">
+      <div class="clay bg-[var(--color-mint-100)] p-6">
+        <h3 class="text-xl font-semibold">Size</h3>
+        <p class="mt-2 text-sm text-[var(--color-ink-soft)]">A 2 to 5kg dog is easy to carry and easy to trip over. A 25kg dog needs a car, a lift that permits it, and a household that can handle the lead. Match the dog to the body that will walk it.</p>
+      </div>
+      <div class="clay bg-[var(--color-lilac-100)] p-6">
+        <h3 class="text-xl font-semibold">Coat</h3>
+        <p class="mt-2 text-sm text-[var(--color-ink-soft)]">The coat decides the monthly bill. Curly and long coats need a groom every four to eight weeks; short coats need almost none. A low-shedding coat is easier on the sofa, never free.</p>
+      </div>
+      <div class="clay bg-[var(--color-cream-100)] p-6">
+        <h3 class="text-xl font-semibold">Energy</h3>
+        <p class="mt-2 text-sm text-[var(--color-ink-soft)]">A working breed needs a job, and a flat is not a substitute. Be honest about your daily hour: a herding or gundog breed will take whatever you give and invent the rest.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[1400px] px-5 sm:px-8 py-10" data-reveal>
+    <h2 class="text-3xl md:text-4xl font-semibold">The honest trade-offs</h2>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      Small and low-shedding usually means more grooming, not less care, and a $3,288 puppy still carries a decade of food, vet and grooming bills behind the price. Large and calm usually means more food and more space, not less exercise. The breed that asks least of your time is still asking for a daily walk and a decade of commitment.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      A dog breeds Singapore shortlist that ignores the housing rule is not a shortlist, it is a wish list. If your housing and routine point to different breeds, the housing rule wins. It is the one constraint you cannot train around, and it is the one that decides whether the dog can stay.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      For the legal detail, read the <a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2">HDB approved breeds guide</a>. When two breeds are still in play, the <a href="/first-time-owners/breed-selector/" class="underline underline-offset-2">breed selector</a> scores them against your actual routine, and the <a href="/first-time-owners/" class="underline underline-offset-2">first-time owner hub</a> covers the rest of the setup. Every breed on the table links to its <a href="/puppies/" class="underline underline-offset-2">puppy page</a>, and the <a href="/" class="underline underline-offset-2">Curious Tails home page</a> lists what is in Balestier this week.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-[1400px] px-5 sm:px-8 py-10" data-reveal>
+    <h2 class="text-3xl md:text-4xl font-semibold">How to use the table without wasting a visit</h2>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      Work top to bottom and cross out as you go. If you are in an HDB flat, the ten breeds marked No are gone before you read their coat or energy. That leaves a smaller list than most buyers expect, and it is the honest one.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      Then match the survivors to your week. Count the hours nobody is home, the hours you can walk, and the number of times a week you will genuinely brush. A breed that fails any of those three is the wrong dog for this household, however much you like the photo.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      Bring the shortlist to a viewing rather than arriving open-minded. Meeting three breeds with a clear question is more useful than meeting fifteen, and the puppy that suits your routine is not always the one that photographs best.
+    </p>
+
+    <h2 class="mt-10 text-3xl md:text-4xl font-semibold">What first-time owners get wrong</h2>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      The first mistake is choosing by size alone. A 4kg dog can still be a working terrier with a working terrier’s brain, and a 25kg dog can be calmer than either. Size tells you about handling, not about effort.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      The second is underestimating grooming. A low-shedding coat is not a low-maintenance coat; it is a coat that needs a groomer. The third is underestimating the first year: every breed here is work as a puppy, and the adult you get is the one you train.
+    </p>
+    <p class="mt-3 max-w-[62ch] text-[var(--color-ink-soft)]">
+      The fourth is buying before checking the seller, and it is the most expensive mistake of the four. A licence check costs one minute; a puppy bought from an unlicensed seller can cost a vet bill and a heartbreak. The breed choice takes a week; the licence check takes a minute. Our guide to <a href="/learn/verify-license/" class="underline underline-offset-2">verifying a licence</a> covers what to ask before any deposit.
+    </p>
+  </section>
+
+  <FAQ heading="Dog breeds in Singapore, answered" items={faqItems} />
+
+  <FinalCta
+    breed="puppy"
+    heading="Meet the breeds in person"
+    body="Tell us your housing, your working hours and the coat you can live with, and we will show you the breeds that fit rather than the ones that photograph best."
+    browseHref="/puppies/"
+    browseLabel="Browse every breed"
+  />
+
+  <Schema schemas={schemas} />
+</BaseLayout>

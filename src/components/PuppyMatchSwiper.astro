@@ -14,7 +14,7 @@ import pawderLogo from '../assets/home/pawder-logo.webp';
 const half = (g: string | null) => (g === 'Female' ? 'Girl' : g === 'Male' ? 'Boy' : 'Puppy');
 
 type SwipePup = {
-  name: string; breed: string; age: string; gender: string; price: number; priceStr: string;
+  id: string; name: string; breed: string; age: string; gender: string; price: number; priceStr: string;
   hdb: boolean; size: string; coat: string; color: string; origin: string; traits: string[];
   book: string; video: string; img: string; id: string;
 };
@@ -26,6 +26,7 @@ for (const [slug, bucket] of Object.entries(data.breeds as Record<string, BreedB
     if (!meta) continue; // only pups with a real photo
     const breed = (p.crossLabel ?? displayBreedName(slug)) as string;
     puppies.push({
+      id: String(p.id ?? ''),
       name: p.name ?? `${p.color ?? ''} ${half(p.gender)}`.trim(),
       breed,
       age: p.age ?? '',
@@ -98,6 +99,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
           <button class="btn big like" id="pmsLike" aria-label="Love">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
         </div>
+        <a class="chatnow" id="pmsChatNow" hidden target="_blank" rel="noopener"></a>
         <p class="hint">Drag or tap: ❤️ keep, ✖ pass</p>
       </div>
     </div>
@@ -116,6 +118,9 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
     // GA4 funnel: pms_view -> pms_start (first swipe) -> pms_swipe -> pms_end -> pms_whatsapp. No-op without gtag.
     var ga=function(n,p){try{if(typeof window.gtag==="function")window.gtag("event",n,p||{});}catch(_){}};
     var swipes=0;
+    // A/B wording for every WhatsApp button; picked once per browser session so a visitor sees one variant.
+    var WA_LABEL={a:function(n){return "Chat about "+n;},b:function(n){return "Is "+n+" still available?";}};
+    var variant=(function(){try{var v=sessionStorage.getItem("pms_wa_variant");if(v!=="a"&&v!=="b"){v=Math.random()<.5?"a":"b";sessionStorage.setItem("pms_wa_variant",v);}return v;}catch(_){return Math.random()<.5?"a":"b";}})();
     var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches;
 
     var home=null,budget=null;
@@ -174,6 +179,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
           +'<div class="onpic"><div class="nr"><h2>'+esc(p.name)+'</h2><span class="age">'+esc(p.age)+'</span></div>'
           +'<div class="br">'+esc(p.breed)+(p.color?' &middot; '+esc(p.color):'')+'</div></div></div>'
           +'<div class="tray"><div class="top-row"><span class="price">'+esc(p.priceStr)+'</span>'
+          +'<span class="avail">&#9679; Available now</span>'
           +(p.origin?'<span class="origin">'+esc(p.origin)+'</span>':'')+'</div>'
           +'<div class="chips">'+chipsHtml(p)+'</div></div>';
         deck.appendChild(card);
@@ -208,8 +214,19 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
     }
     function commit(dir){var p=POOL[index];history.push({index:index,liked:dir>0});
       if(dir>0){liked.push(p);}
-      swipes++;if(swipes===1)ga("pms_start",{pms_pool:POOL.length});ga("pms_swipe",{pms_direction:dir>0?"like":"pass",pms_puppy:p&&p.name,pms_breed:p&&p.breed,pms_swipe_n:swipes});
+      swipes++;if(swipes===1)ga("pms_start",{pms_pool:POOL.length});
+      ga("pms_swipe",{swipe_direction:dir>0?"like":"pass",card_id:p&&p.id,pms_puppy:p&&p.name,pms_breed:p&&p.breed,pms_swipe_n:swipes,wa_variant:variant});
+      if(dir>0&&p)showChatNow(p);
       index++;bUndo.disabled=false;animating=false;render();}
+    // "Chat now" pill after a like: lets the interested swiper act without waiting for the end.
+    var chatTimer=null;
+    function showChatNow(p){
+      var a=$("pmsChatNow");if(!a)return;
+      a.href=waLink([p]);a.textContent=WA_LABEL[variant](p.name);a.setAttribute("data-wa-source","swiper");
+      a.onclick=function(){ga("pms_whatsapp",{pms_button:"chat_now",card_id:p.id,wa_variant:variant,pms_likes:liked.length});};
+      a.hidden=false;a.classList.remove("show");void a.offsetWidth;a.classList.add("show");
+      clearTimeout(chatTimer);chatTimer=setTimeout(function(){a.classList.remove("show");a.hidden=true;},5000);
+    }
     function swipe(dir){if(animating||index>=POOL.length)return;var c=deck.querySelector(".card.top");if(c)fly(c,dir);else commit(dir);}
     function undo(){if(!history.length||animating)return;var l=history.pop();index=l.index;if(l.liked)liked.pop();bUndo.disabled=history.length===0;render();}
     bNope.addEventListener("click",function(){swipe(-1);});
@@ -238,7 +255,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
     function waLink(list){
       var msg;
       if(!list.length)msg="Hi Curious Tails! I was using your puppy matcher, could you help me find a good fit for my home ("+homeLabel()+")?";
-      else{var names=list.map(function(p){return p.name+" ("+p.breed+", "+p.priceStr+")";}).join(", ");
+      else{var names=list.map(function(p){return p.name+" (ID "+p.id+", "+p.breed+", "+p.priceStr+")";}).join(", ");
         msg="Hi Curious Tails! I used your puppy matcher (home: "+homeLabel()+") and I'd love to hear more about: "+names+". Are they still available?";}
       return "https://wa.me/"+WA+"?text="+encodeURIComponent(msg);
     }
@@ -251,10 +268,13 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
       controls.style.display="none";$("pmsStage").querySelector(".hint").style.display="none";
       var end=document.createElement("div");end.className="end";
       var head,body;
+      // Featured CTA for every swiper at the end: first like, else the last pup seen.
+      var feat=liked[0]||POOL[Math.max(0,index-1)];
+      var featHtml=feat?'<a class="wa-feat" data-kind="featured" href="'+waLink([feat])+'" target="_blank" rel="noopener">'+waIcon()+esc(WA_LABEL[variant](feat.name))+'</a>':'';
       if(!liked.length){
         head='<div class="empty-ill">&#128054;</div><h2>No favourites yet?</h2>'
           +'<p class="lead">No pressure, swipe again, or just say hi and we\'ll help you find the right fit.</p>';
-        body='<a class="wa-all" href="'+waLink([])+'" target="_blank" rel="noopener">'+waIcon()+'Chat with Curious Tails</a>'
+        body=featHtml+'<a class="wa-all" href="'+waLink([])+'" target="_blank" rel="noopener">'+waIcon()+'Chat with Curious Tails</a>'
           +'<div class="row2"><button class="ghost" id="pmsAgain">&#8634; Swipe again</button></div>';
       }else{
         var items=liked.map(function(p){return '<div class="sl"><span class="sl-dot"><img src="'+p.img+'" alt=""></span>'
@@ -263,7 +283,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
           +(p.book?'<a class="mini cal" data-card-action="book" data-wa-source="pms:'+esc(p.id)+'" title="Book a visit" href="'+esc(p.book)+'" target="_blank" rel="noopener">'+calIcon()+'</a>':'')+'</span></div>';}).join("");
         head='<h2>You\'ve got '+liked.length+' match'+(liked.length>1?'es':'')+'! &#127881;</h2>'
           +'<p class="lead">Send your shortlist and we\'ll confirm who\'s still available &amp; set up a visit.</p>';
-        body='<div class="shortlist">'+items+'</div>'
+        body=featHtml+'<div class="shortlist">'+items+'</div>'
           +'<a class="wa-all" href="'+waLink(liked)+'" target="_blank" rel="noopener">'+waIcon()+'Ask about all on WhatsApp</a>'
           +'<div class="row2"><button class="ghost" id="pmsShare">&#128228; Share</button><button class="ghost" id="pmsAgain">&#8634; Swipe again</button></div>';
       }
@@ -274,7 +294,8 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
       ga("pms_end",{pms_likes:liked.length,pms_swipes:swipes});
       [].forEach.call(end.querySelectorAll('a[href*="wa.me"]'),function(a){
         a.setAttribute("data-wa-source","swiper");
-        a.addEventListener("click",function(){ga("pms_whatsapp",{pms_likes:liked.length,pms_button:a.classList.contains("wa-all")?"all":"single"});});
+        var kind=a.getAttribute("data-kind")||(a.classList.contains("wa-all")?"all":"single");
+        a.addEventListener("click",function(){ga("pms_whatsapp",{pms_likes:liked.length,pms_button:kind,wa_variant:variant});});
       });
       var again=$("pmsAgain");if(again)again.addEventListener("click",reset);
       var share=$("pmsShare");if(share)share.addEventListener("click",doShare);
@@ -304,7 +325,7 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
     // pms_view (once, when half the widget is on screen) is the funnel's top.
     if("IntersectionObserver" in window){
       var seen=new IntersectionObserver(function(es){
-        if(es.some(function(x){return x.isIntersecting;})){ga("pms_view",{pms_pool:POOL.length});seen.disconnect();}
+        if(es.some(function(x){return x.isIntersecting;})){ga("pms_view",{pms_pool:POOL.length,wa_variant:variant});seen.disconnect();}
       },{threshold:0.5});seen.observe(root);
     }
   })();
@@ -437,6 +458,18 @@ const WA = `65${site.whatsapp}`; // wa.me needs the +65 country code
   .pms .wa-all{display:flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;background:#25D366;
     color:#063d20;font-family:"Fredoka",sans-serif;font-weight:600;font-size:16px;padding:15px;border-radius:1.1rem;box-shadow:var(--sh-md);border:2.5px solid #1eb257}
   .pms .wa-all svg{width:22px;height:22px}
+  .pms .wa-feat{display:flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;background:#25D366;
+    color:#063d20;font-family:"Fredoka",sans-serif;font-weight:600;font-size:17px;padding:16px;border-radius:1.1rem;box-shadow:var(--sh-md);border:2.5px solid #1eb257;margin-bottom:14px}
+  .pms .wa-feat svg{width:24px;height:24px}
+  .pms .stage{position:relative}
+  .pms .chatnow{position:absolute;left:50%;top:10px;z-index:8;transform:translate(-50%,-12px);opacity:0;white-space:nowrap;
+    display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#063d20;font-family:"Fredoka",sans-serif;font-weight:600;
+    font-size:14px;padding:9px 16px;border-radius:999px;border:2.5px solid #1eb257;box-shadow:var(--sh-md);text-decoration:none;
+    transition:opacity .25s,transform .25s var(--pop)}
+  .pms .chatnow[hidden]{display:none}
+  .pms .chatnow.show{opacity:1;transform:translate(-50%,0)}
+  .pms .avail{font-family:"Fredoka",sans-serif;font-weight:600;font-size:11.5px;color:var(--mint-ink);background:var(--mint-soft);
+    border:2px solid var(--mint);padding:3px 9px;border-radius:999px;white-space:nowrap}
   .pms .row2{display:flex;gap:9px;margin-top:9px}
   .pms .ghost{flex:1;background:var(--cream-mid);border:2.5px solid var(--border-strong);color:var(--ink);
     font-family:"Fredoka",sans-serif;font-weight:600;font-size:14px;padding:12px;border-radius:1.1rem;cursor:pointer;

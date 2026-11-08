@@ -1,0 +1,14 @@
+[2026-10-26 09:00:01] pulling newest reviews from Google via DataForSEO
+[2026-10-26 09:00:47] pulled 74; 1 new; 0 excluded; total now 73
+[2026-10-26 09:00:47] running scripts/build_reviews.py
+[2026-10-26 09:00:47] running scripts/fetch_review_media.py
+[2026-10-26 09:00:49] running scripts/build_review_wall.py
+[2026-10-26 09:00:49] checking the site builds
+[2026-10-26 09:02:44] pushed weekly refresh; Cloudflare Pages will deploy it
+[2026-11-02 09:00:00] pulling newest reviews from Google via DataForSEO
+[2026-11-02 09:00:13] pulled 77; 3 new; 0 excluded; total now 76
+[2026-11-02 09:00:13] running scripts/build_reviews.py
+[2026-11-02 09:00:13] running scripts/fetch_review_media.py
+[2026-11-02 09:00:16] running scripts/build_review_wall.py
+[2026-11-02 09:00:16] checking the site builds
+[2026-11-02 09:01:13] pushed weekly refresh; Cloudflare Pages will deploy it

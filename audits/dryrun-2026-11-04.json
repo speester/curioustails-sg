@@ -1,0 +1,625 @@
+{
+  "format": "rtp-dryrun/1",
+  "started": "2026-11-04T19:24:07",
+  "finished": "2026-11-04T19:29:00",
+  "project": "D:\\Claude Code\\Curious Tails",
+  "part": "all",
+  "steps": 41,
+  "blockers": 0,
+  "blocker_ids": [],
+  "results": [
+    {
+      "id": "help-sweep",
+      "part": "research",
+      "exit": 0,
+      "exits": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "allowed": [
+        0
+      ],
+      "seconds": 2.07,
+      "verdict": "PASS",
+      "why": "every shared instrument answers --help with 0 (contracts: help-exits-zero)",
+      "detail": ""
+    },
+    {
+      "id": "preflight-fast",
+      "part": "research",
+      "exit": 0,
+      "exits": [
+        0
+      ],
+      "allowed": [
+        0
+      ],
+      "seconds": 22.28,
+      "verdict": "PASS",
+      "why": "Stage -1 preflight: presence + config, no network",
+      "detail": ""
+    },
+    {
+      "id": "skill-ledger-gate-0.6",
+      "part": "research",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.16,
+      "verdict": "EXPECTED-FAIL",
+      "why": "PW-G02: the 0.6 stage gate runs and returns a verdict, never a crash",
+      "detail": ""
+    },
+    {
+      "id": "research-gate",
+      "part": "research",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.73,
+      "verdict": "EXPECTED-FAIL",
+      "why": "the merged research gate: a verdict, no traceback",
+      "detail": ""
+    },
+    {
+      "id": "sme-quotes-check",
+      "part": "research",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.13,
+      "verdict": "EXPECTED-FAIL",
+      "why": "RR-B01: the documented SME path must import gate_example",
+      "detail": ""
+    },
+    {
+      "id": "sme-quotes-skill-copy",
+      "part": "research",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.14,
+      "verdict": "EXPECTED-FAIL",
+      "why": "RR-B01: the SKILL copy runs too (this is the path stage-0.md names)",
+      "detail": ""
+    },
+    {
+      "id": "evidence-bank",
+      "part": "research",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.14,
+      "verdict": "EXPECTED-FAIL",
+      "why": "EEAT bank verdict",
+      "detail": ""
+    },
+    {
+      "id": "stats-ledger",
+      "part": "research",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.14,
+      "verdict": "EXPECTED-FAIL",
+      "why": "statistics ledger verdict",
+      "detail": ""
+    },
+    {
+      "id": "knowledge-extract",
+      "part": "research",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.16,
+      "verdict": "EXPECTED-FAIL",
+      "why": "knowledge units extracted (no write)",
+      "detail": ""
+    },
+    {
+      "id": "gain-score",
+      "part": "research",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.13,
+      "verdict": "EXPECTED-FAIL",
+      "why": "PW-B02: writes gain_tier_uncapped",
+      "detail": ""
+    },
+    {
+      "id": "research-pages",
+      "part": "research",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.14,
+      "verdict": "EXPECTED-FAIL",
+      "why": "clusters + fold decisions",
+      "detail": ""
+    },
+    {
+      "id": "research-pages-sync-ids",
+      "part": "research",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.14,
+      "verdict": "EXPECTED-FAIL",
+      "why": "research_ids written back to the blueprint",
+      "detail": ""
+    },
+    {
+      "id": "research-utilisation-check",
+      "part": "research",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.14,
+      "verdict": "EXPECTED-FAIL",
+      "why": "RR-B14/BR-C13: a zero denominator reports n/a, not 0%",
+      "detail": ""
+    },
+    {
+      "id": "research-utilisation-owned",
+      "part": "research",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.14,
+      "verdict": "EXPECTED-FAIL",
+      "why": "RR-B13: the owned-share floor",
+      "detail": ""
+    },
+    {
+      "id": "knowledge-allocate-plan",
+      "part": "research",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.14,
+      "verdict": "EXPECTED-FAIL",
+      "why": "RR-B06: orphans > 0 exits 1",
+      "detail": ""
+    },
+    {
+      "id": "persona-check",
+      "part": "research",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.11,
+      "verdict": "EXPECTED-FAIL",
+      "why": "RR-B12: '/' maps to home with an actionable message",
+      "detail": ""
+    },
+    {
+      "id": "big5-self-test",
+      "part": "research",
+      "exit": 0,
+      "exits": [
+        0
+      ],
+      "allowed": [
+        0
+      ],
+      "seconds": 0.14,
+      "verdict": "PASS",
+      "why": "the buyer-question probe's own suite",
+      "detail": ""
+    },
+    {
+      "id": "serp-from-pages",
+      "part": "research",
+      "exit": 0,
+      "exits": [],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.0,
+      "verdict": "SKIP",
+      "why": "BR-C07: --from-pages rebuilds entities/PAA/word-band from cache",
+      "detail": "no research/serp/<slug>-pages/ cache"
+    },
+    {
+      "id": "checkpoint-verify-1",
+      "part": "research",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 1.54,
+      "verdict": "EXPECTED-FAIL",
+      "why": "CP1 verify: a verdict, no traceback",
+      "detail": ""
+    },
+    {
+      "id": "site-kit-verify",
+      "part": "research",
+      "exit": 0,
+      "exits": [
+        0
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.32,
+      "verdict": "PASS",
+      "why": "BR-C01: verify exits 0 on a synced project and never a traceback",
+      "detail": ""
+    },
+    {
+      "id": "voice-instrument",
+      "part": "research",
+      "exit": 0,
+      "exits": [
+        0
+      ],
+      "allowed": [
+        0
+      ],
+      "seconds": 3.77,
+      "verdict": "PASS",
+      "why": "§44: the voice registry + detector regression suite",
+      "detail": ""
+    },
+    {
+      "id": "run-gates-list",
+      "part": "build",
+      "exit": 0,
+      "exits": [
+        0
+      ],
+      "allowed": [
+        0
+      ],
+      "seconds": 0.2,
+      "verdict": "PASS",
+      "why": "the gate runner lists its letters",
+      "detail": ""
+    },
+    {
+      "id": "run-gates-only",
+      "part": "build",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 2.6,
+      "verdict": "EXPECTED-FAIL",
+      "why": "BR-C03: --only/--keep-going are applied before the preconditions",
+      "detail": ""
+    },
+    {
+      "id": "validate-brief-all",
+      "part": "build",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.18,
+      "verdict": "EXPECTED-FAIL",
+      "why": "BR-C06/BR-C10: every row once, no crash on any malformed shape",
+      "detail": ""
+    },
+    {
+      "id": "image-relevance",
+      "part": "build",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.16,
+      "verdict": "EXPECTED-FAIL",
+      "why": "BR-C14: 0 content images FAILs when IMAGE_POLICY != none",
+      "detail": ""
+    },
+    {
+      "id": "fact-dedupe",
+      "part": "build",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.15,
+      "verdict": "EXPECTED-FAIL",
+      "why": "cross-page fact dedupe",
+      "detail": ""
+    },
+    {
+      "id": "build-report",
+      "part": "build",
+      "exit": 2,
+      "exits": [
+        2
+      ],
+      "allowed": [
+        0,
+        2
+      ],
+      "seconds": 0.17,
+      "verdict": "EXPECTED-FAIL",
+      "why": "BR-C15: writes the report; HALT=2 on an empty dist (no silent 0)",
+      "detail": ""
+    },
+    {
+      "id": "build-report-check",
+      "part": "build",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.16,
+      "verdict": "EXPECTED-FAIL",
+      "why": "letter y makes a verdict",
+      "detail": ""
+    },
+    {
+      "id": "checkpoint-4-self-test",
+      "part": "build",
+      "exit": 0,
+      "exits": [
+        0
+      ],
+      "allowed": [
+        0
+      ],
+      "seconds": 36.82,
+      "verdict": "PASS",
+      "why": "the checkpoint mechanisms' own suite",
+      "detail": ""
+    },
+    {
+      "id": "stage-guard-status",
+      "part": "build",
+      "exit": 1,
+      "exits": [
+        1
+      ],
+      "allowed": [
+        0,
+        1
+      ],
+      "seconds": 0.16,
+      "verdict": "EXPECTED-FAIL",
+      "why": "the guard reports, never crashes",
+      "detail": ""
+    },
+    {
+      "id": "hook-matrix",
+      "part": "hooks",
+      "exit": 0,
+      "exits": [
+        0
+      ],
+      "allowed": [
+        0
+      ],
+      "seconds": 54.0,
+      "verdict": "PASS",
+      "why": "the 283-payload matrix: stage_guard, skill_ledger, rtp_continue",
+      "detail": ""
+    },
+    {
+      "id": "hook-extra",
+      "part": "hooks",
+      "exit": 0,
+      "exits": [
+        0
+      ],
+      "allowed": [
+        0
+      ],
+      "seconds": 24.46,
+      "verdict": "PASS",
+      "why": "the dry-run's additional payloads",
+      "detail": ""
+    },
+    {
+      "id": "7.1 empty-scaffold-fails",
+      "part": "scenarios",
+      "exit": 0,
+      "exits": [],
+      "allowed": [],
+      "seconds": 0.0,
+      "verdict": "EXPECTED-FAIL",
+      "why": "behavioural scenario",
+      "detail": "empty scaffold: SPEC sweep clean and fanout_check exits 1"
+    },
+    {
+      "id": "7.2 dag-t0-concurrency",
+      "part": "scenarios",
+      "exit": 0,
+      "exits": [],
+      "allowed": [],
+      "seconds": 0.0,
+      "verdict": "PASS",
+      "why": "behavioural scenario",
+      "detail": "8 T0 nodes ready at t=0; blueprint unlocks after L1 + EEAT"
+    },
+    {
+      "id": "7.3 lane-geometry",
+      "part": "scenarios",
+      "exit": 0,
+      "exits": [],
+      "allowed": [],
+      "seconds": 0.0,
+      "verdict": "PASS",
+      "why": "behavioural scenario",
+      "detail": "nested write lane resolves; img-<hub> and img-<hub>/<child> coexist"
+    },
+    {
+      "id": "7.4 own-brief-claim",
+      "part": "scenarios",
+      "exit": 0,
+      "exits": [],
+      "allowed": [],
+      "seconds": 0.0,
+      "verdict": "PASS",
+      "why": "behavioural scenario",
+      "detail": "a writer claim needs only its own brief; no global brief barrier"
+    },
+    {
+      "id": "7.5 d3-and-stop-hook",
+      "part": "scenarios",
+      "exit": 0,
+      "exits": [],
+      "allowed": [],
+      "seconds": 0.0,
+      "verdict": "PASS",
+      "why": "behavioural scenario",
+      "detail": "round 3 red -> policy waiver + issue row; Stop hook allows the stop and records it"
+    },
+    {
+      "id": "7.6 research-import-packet",
+      "part": "scenarios",
+      "exit": 0,
+      "exits": [],
+      "allowed": [],
+      "seconds": 0.0,
+      "verdict": "PASS",
+      "why": "behavioural scenario",
+      "detail": "research import refused; missing packet refused"
+    },
+    {
+      "id": "7.7 gate-fixtures",
+      "part": "scenarios",
+      "exit": 0,
+      "exits": [],
+      "allowed": [],
+      "seconds": 0.0,
+      "verdict": "PASS",
+      "why": "behavioural scenario",
+      "detail": "all six new gates exist and pass their own bad-case + empty-tree fixtures"
+    },
+    {
+      "id": "7.8 model-resolution",
+      "part": "scenarios",
+      "exit": 0,
+      "exits": [],
+      "allowed": [],
+      "seconds": 0.0,
+      "verdict": "PASS",
+      "why": "behavioural scenario",
+      "detail": "all five launcher slots resolve to a 1M window; the other launchers mirror the .ps1"
+    },
+    {
+      "id": "7.9 fanout-width",
+      "part": "scenarios",
+      "exit": 0,
+      "exits": [],
+      "allowed": [],
+      "seconds": 0.0,
+      "verdict": "EXPECTED-FAIL",
+      "why": "behavioural scenario",
+      "detail": "serial writers fail F4 (EXPECTED); 4 concurrent writers pass"
+    }
+  ]
+}

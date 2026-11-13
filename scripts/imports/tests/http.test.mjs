@@ -175,3 +175,17 @@ test("grep: no 'weserv' or proxy usage anywhere in scripts/imports", () => {
   const hits = files.filter((p) => p !== self && bad.test(readFileSync(p, 'utf8')));
   assert.deepEqual(hits, []);
 });
+
+test('lastRequestAt from a previous run keeps the 4 s spacing across processes', async () => {
+  const clock = fakeClock();
+  const fetchImpl = mockFetch({ '/robots.txt': { body: '' }, '/a': { body: 'ok' } });
+  // Previous process finished a request to this host 1 s ago.
+  const http = createHttp({ fetchImpl, now: clock.now, sleep: clock.sleep, lastRequestAt: { 'example.test': clock.now() - 1000 } });
+  await http.get('https://example.test/a');
+  assert.equal(http.log[0].kind, 'robots');
+  assert.ok(http.log[0].gapMs >= 4000, `first request gap ${http.log[0].gapMs}`);
+  assert.ok(http.log[1].gapMs >= 4000);
+  const persisted = http.lastRequestAt();
+  assert.equal(typeof persisted['example.test'], 'number');
+  assert.ok(persisted['example.test'] >= clock.now() - 1);
+});

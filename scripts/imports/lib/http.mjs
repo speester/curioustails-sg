@@ -101,13 +101,16 @@ export function createHttp({
   cache = null, // { [url]: { etag, lastModified } }, persisted by the caller
   onEvent = () => {},
   userAgent = USER_AGENT,
+  // { host: epochMs } of the previous run's last request per host (persisted by the
+  // caller), so spacing also holds across back-to-back processes.
+  lastRequestAt = {},
 } = {}) {
   const hosts = new Map(); // host -> { robots, robotsLoaded, blocked, lastEnd, counts }
   const log = [];
   let chain = Promise.resolve();
 
   const hostState = (host) => {
-    if (!hosts.has(host)) hosts.set(host, { robots: null, robotsLoaded: false, blocked: null, lastEnd: null, lastStart: null, counts: {} });
+    if (!hosts.has(host)) hosts.set(host, { robots: null, robotsLoaded: false, blocked: null, lastEnd: lastRequestAt[host] ?? null, lastStart: lastRequestAt[host] ?? null, counts: {} });
     return hosts.get(host);
   };
   const denied = (host) => DENY_HOSTS.some((re) => re.test(host));
@@ -234,6 +237,8 @@ export function createHttp({
       return r;
     },
     isBlocked: (host) => !!hosts.get(host)?.blocked,
+    // Persist this and pass it back as lastRequestAt on the next run.
+    lastRequestAt: () => Object.fromEntries([...hosts].filter(([, st]) => st.lastEnd != null).map(([h, st]) => [h, st.lastEnd])),
     blockedHosts: () => [...hosts].filter(([, s]) => s.blocked).map(([h, s]) => ({ host: h, reason: s.blocked })),
     log,
   };

@@ -10,7 +10,9 @@ const CLI = join(REPO_ROOT, 'scripts', 'imports', 'sync-imports.mjs');
 const HEX64 = /\b[0-9a-f]{64}\b/i;
 
 function runCli(privateDir) {
-  return spawnSync(process.execPath, [CLI, '--dry-run'], {
+  // --no-fetch keeps the T1 guard test offline. The full dry run is a manual
+  // step (K-086 T14), never something a unit test triggers against live hosts.
+  return spawnSync(process.execPath, [CLI, '--dry-run', '--no-fetch'], {
     cwd: REPO_ROOT,
     env: { ...process.env, IMPORTS_PRIVATE_DIR: privateDir },
     encoding: 'utf8',

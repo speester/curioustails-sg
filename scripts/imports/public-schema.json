@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://curioustails.sg/schemas/imported-puppies.schema.json",
+  "title": "ImportedFeed",
+  "description": "The only public shape for imported puppy listings. Supplier, seller, county, microchip, source URL and original price are absent by construction; additionalProperties is false at every object level.",
+  "type": "object",
+  "required": ["syncedAt", "schema", "pups"],
+  "additionalProperties": false,
+  "properties": {
+    "syncedAt": { "type": "string", "format": "date-time" },
+    "schema": { "const": 1 },
+    "pups": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/pup" }
+    }
+  },
+  "$defs": {
+    "pup": {
+      "type": "object",
+      "required": [
+        "id", "ref", "breed", "breedLabel", "crossLabel", "name", "sex", "colours",
+        "dob", "age", "priceSGD", "depositPct", "depositSGD", "balanceSGD", "balanceDue",
+        "arrivalEstimate", "arrivalBasis", "imported", "origin", "reservation", "perks",
+        "photos", "photoAlt", "status", "publishedAt", "updatedAt", "sourceHash",
+        "hdbApproved", "eligibleSG", "specified"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^imp-[0-9a-f]{10}$" },
+        "ref": { "type": "string", "pattern": "^CT-IE-[0-9A-F]{6}$" },
+        "breed": { "type": "string", "minLength": 1 },
+        "breedLabel": { "type": "string", "minLength": 1 },
+        "crossLabel": { "type": ["string", "null"] },
+        "name": { "type": ["string", "null"] },
+        "sex": {
+          "type": "object",
+          "required": ["male", "female"],
+          "additionalProperties": false,
+          "properties": {
+            "male": { "type": "integer", "minimum": 0 },
+            "female": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "colours": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "dob": { "type": ["string", "null"], "format": "date" },
+        "age": { "type": ["string", "null"] },
+        "priceSGD": { "type": "integer", "minimum": 0 },
+        "depositPct": { "const": 50 },
+        "depositSGD": { "type": "integer", "minimum": 0 },
+        "balanceSGD": { "type": "integer", "minimum": 0 },
+        "balanceDue": { "const": "before-flight" },
+        "arrivalEstimate": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}$" },
+        "arrivalBasis": { "enum": ["dob", "age", "listing-date"] },
+        "imported": { "const": true },
+        "origin": { "const": "IE" },
+        "reservation": { "const": true },
+        "perks": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "photos": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "pattern": "^imp-[0-9a-f]{10}-[0-9]+\\.webp$" }
+        },
+        "photoAlt": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "status": { "enum": ["published", "reserved"] },
+        "publishedAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "sourceHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "hdbApproved": { "type": ["boolean", "null"] },
+        "eligibleSG": { "const": true },
+        "specified": { "const": false }
+      }
+    }
+  }
+}

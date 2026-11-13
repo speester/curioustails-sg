@@ -21,7 +21,9 @@ export function mockFetch(routes) {
     calls.push(url);
     const r = routes[url] ?? { status: 404, body: 'not found' };
     const spec = typeof r === 'function' ? r(calls.length) : r;
-    const body = typeof spec.body === 'string' ? spec.body : JSON.stringify(spec.body ?? '');
+    const body = Buffer.isBuffer(spec.body) ? spec.body
+      : typeof spec.body === 'string' ? spec.body
+        : JSON.stringify(spec.body ?? '');
     return new Response(body, { status: spec.status ?? 200, headers: spec.headers ?? {} });
   };
   fn.calls = calls;

@@ -1,39 +1,65 @@
 #!/usr/bin/env node
-// Imports pipeline entry point (T1; spec §1, §6.1).
+// Imports pipeline entry point (T14; spec §1, §6.6).
 //
-// At T1 this script owns configuration and the private-store guard only, so
-// `npm run sync:imports -- --dry-run` can prove that a store inside the repo
-// is refused before anything is fetched or written. The fetch → parse →
-// normalise → dedupe → gates → images → liveness → write pipeline is T14 and
-// is deliberately not wired here.
+// The private store guard (T1) runs before anything is fetched or written.
+// The pipeline itself lives in lib/pipeline.mjs so it can be tested offline.
 //
-// It must never print secret.key, seller fields or source records.
+// It never prints secret.key, seller fields, source URLs, microchips or source
+// listing ids. Console output is counts and public imp- ids only.
 import { pathToFileURL } from 'node:url';
 import { openStore, StoreError } from './lib/store.mjs';
+import { parseArgs, runPipeline, USAGE, RunBusyError, FeedValidationError, sanitiseLogLine } from './lib/pipeline.mjs';
 
-const KNOWN_ARGS = new Set(['--dry-run', '--no-fetch']);
+export { parseArgs };
 
-export function main(argv = process.argv.slice(2)) {
-  const unknown = argv.filter((a) => !KNOWN_ARGS.has(a));
-  if (unknown.length) {
-    console.error(`imports: unknown argument(s): ${unknown.join(' ')} (known: --dry-run, --no-fetch)`);
+export async function main(argv = process.argv.slice(2)) {
+  let args;
+  try {
+    args = parseArgs(argv);
+  } catch (e) {
+    console.error(`imports: ${e.message}`);
+    console.error(USAGE);
     return 2;
   }
+  if (args.help) {
+    console.log(USAGE);
+    return 0;
+  }
 
+  let store;
   try {
-    openStore();
+    store = openStore();
   } catch (e) {
     // StoreError messages are written for the operator; anything else is unexpected.
     console.error(`imports: ${e instanceof StoreError ? e.message : `unexpected error: ${e?.message || e}`}`);
     return 1;
   }
 
-  const mode = argv.includes('--dry-run') ? 'dry run' : 'run';
-  console.log(`imports: ${mode} — private store ready (raw/, images-src/, runs/, fixtures/).`);
-  console.log('imports: no sources are wired yet (T14); nothing was fetched or written.');
-  return 0;
+  try {
+    const { exitCode, summary } = await runPipeline({ args, store });
+    const lines = [
+      `imports: ${summary.mode} — sources ${Object.keys(summary.sources).join(', ') || 'none'}`,
+      `  discovered=${summary.discovered} records=${summary.records} groups=${summary.groups} merged=${summary.merged} rejected=${summary.rejected}`,
+      `  gates pass=${summary.gates.pass} review=${summary.gates.review} reject=${summary.gates.reject} auto-ready=${summary.gates['auto-ready']} publish=${summary.gates.publish}`,
+      `  images downloaded=${summary.images.downloaded} failed=${summary.images.failed}`,
+      `  feedPups=${summary.feedPups} published=${summary.published} unpublished=${summary.unpublished}`,
+      ...(summary.logPath ? [`  log=${summary.logPath}`] : []),
+    ];
+    for (const line of lines) console.log(sanitiseLogLine(line));
+    return exitCode;
+  } catch (e) {
+    if (e instanceof RunBusyError || e instanceof FeedValidationError) {
+      console.error(`imports: ${e.message}`);
+      return 1;
+    }
+    console.error(`imports: unexpected error: ${e?.message || e}`);
+    return 1;
+  }
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  process.exitCode = main();
+  main().then((code) => { process.exitCode = code; }, (e) => {
+    console.error(`imports: unexpected error: ${e?.message || e}`);
+    process.exitCode = 1;
+  });
 }

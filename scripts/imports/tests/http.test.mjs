@@ -18,7 +18,7 @@ function mockFetch(routes) {
   const fn = async (url, init) => {
     calls.push({ url, ua: init?.headers?.['User-Agent'] });
     const u = new URL(url);
-    const r = routes[u.pathname + u.search] ?? routes[u.pathname] ?? { status: 404, body: 'not found' };
+    const r = routes[url] ?? routes[u.pathname + u.search] ?? routes[u.pathname] ?? { status: 404, body: 'not found' };
     const spec = typeof r === 'function' ? r(calls.length) : r;
     return new Response(spec.body ?? '', { status: spec.status ?? 200, headers: spec.headers ?? {} });
   };
@@ -174,6 +174,40 @@ test("grep: no 'weserv' or proxy usage anywhere in scripts/imports", () => {
   const bad = /weserv|https?_proxy|proxy-agent|HttpsProxyAgent|ProxyAgent|puppeteer|playwright|scraperapi|zenrows|brightdata|cloudscraper/i;
   const hits = files.filter((p) => p !== self && bad.test(readFileSync(p, 'utf8')));
   assert.deepEqual(hits, []);
+});
+
+test('K-085: a redirect to a disallowed path is a robots skip, not a follow', async () => {
+  const clock = fakeClock();
+  const f = mockFetch({
+    '/robots.txt': { body: 'User-agent: *\nDisallow: /blocked\n' },
+    '/start': { status: 302, headers: { location: '/blocked' }, body: '' },
+    '/blocked': { body: 'must never be fetched' },
+  });
+  const http = createHttp({ fetchImpl: f, now: clock.now, sleep: clock.sleep });
+  const r = await http.get('https://redir.example/start', { kind: 'detail' });
+  assert.equal(r.ok, false);
+  assert.equal(r.robotsDisallowed, true);
+  assert.equal(r.redirectDisallowed, true);
+  assert.equal(r.redirectFrom, 'https://redir.example/start');
+  assert.deepEqual(f.calls.map((c) => new URL(c.url).pathname), ['/robots.txt', '/start']);
+  assert.ok(http.log.some((e) => e.outcome === 'robots-skip' && e.path === '/blocked' && e.redirectFrom));
+});
+
+test('K-085: a cross-host redirect checks the target host robots before fetching it', async () => {
+  const clock = fakeClock();
+  const f = mockFetch({
+    'https://a.example/robots.txt': { body: 'User-agent: *\nAllow: /\n' },
+    'https://a.example/start': { status: 302, headers: { location: 'https://b.example/target' }, body: '' },
+    'https://b.example/robots.txt': { body: 'User-agent: *\nDisallow: /target\n' },
+    'https://b.example/target': { body: 'must never be fetched' },
+  });
+  const http = createHttp({ fetchImpl: f, now: clock.now, sleep: clock.sleep });
+  const r = await http.get('https://a.example/start', { kind: 'detail' });
+  assert.equal(r.robotsDisallowed, true);
+  assert.deepEqual(f.calls.map((c) => c.url), [
+    'https://a.example/robots.txt', 'https://a.example/start', 'https://b.example/robots.txt',
+  ]);
+  assert.ok(http.log.some((e) => e.outcome === 'robots-skip' && e.host === 'b.example' && e.path === '/target'));
 });
 
 test('lastRequestAt from a previous run keeps the 4 s spacing across processes', async () => {

@@ -16,6 +16,7 @@ export const DEFAULT_CAPS = { detail: 60, image: 150, discover: 30 };
 export const BACKOFF_MS = [8000, 30000, 120000];
 export const MAX_ATTEMPTS = 3;
 export const MAX_RETRY_AFTER_MS = 120000;
+export const MAX_REDIRECTS = 5;
 
 // dogs.ie and images.dogs.ie hard-block us (Cloudflare 403, even robots.txt).
 // Owner D4 / K-072: zero requests to any *.dogs.ie host.
@@ -142,7 +143,10 @@ export function createHttp({
     let status = 0;
     let error = null;
     try {
-      res = await fetchImpl(url, { headers: { 'User-Agent': userAgent, Accept: '*/*', ...headers }, redirect: 'follow' });
+      // Redirects are followed by get() one hop at a time, so every target is
+      // checked against its own host's robots.txt before it is requested
+      // (K-085). 'follow' here would silently skip that check.
+      res = await fetchImpl(url, { headers: { 'User-Agent': userAgent, Accept: '*/*', ...headers }, redirect: 'manual' });
       status = res.status;
       body = as === 'buffer' ? Buffer.from(await res.arrayBuffer()) : await res.text();
     } catch (e) {
@@ -155,68 +159,123 @@ export function createHttp({
 
   async function loadRobots(u, st) {
     st.robotsLoaded = true;
-    const robotsUrl = `${u.protocol}//${u.host}/robots.txt`;
-    const { res, status, body, error } = await rawFetch(robotsUrl, { kind: 'robots' });
-    if (!error && isBlockResponse(status, body, res?.headers)) {
-      markBlocked(u.host, st, `robots.txt HTTP ${status}`, robotsUrl);
+    let robotsUrl = `${u.protocol}//${u.host}/robots.txt`;
+    // robots.txt itself may redirect. Follow at most 3 hops without a robots
+    // check (robots.txt is always an allowed path); a deny-listed target is
+    // treated as "no robots available", which means disallow-all for this run.
+    for (let hop = 0; hop < 3; hop++) {
+      const { res, status, body, error } = await rawFetch(robotsUrl, { kind: 'robots' });
+      if (!error && status >= 300 && status < 400) {
+        const loc = res?.headers?.get?.('location');
+        if (!loc) break;
+        let next;
+        try { next = new URL(loc, robotsUrl); } catch { break; }
+        if (denied(next.hostname)) break;
+        robotsUrl = next.href;
+        continue;
+      }
+      if (!error && isBlockResponse(status, body, res?.headers)) {
+        markBlocked(u.host, st, `robots.txt HTTP ${status}`, robotsUrl);
+        return;
+      }
+      if (status >= 200 && status < 300) st.robots = parseRobots(body);
+      else if (status >= 400 && status < 500) st.robots = { rules: [] }; // no robots.txt → allowed
+      else st.robots = { rules: [{ allow: false, path: '/' }] }; // 5xx or unreachable → disallow-all for this run
       return;
     }
-    if (status >= 200 && status < 300) st.robots = parseRobots(body);
-    else if (status >= 400 && status < 500) st.robots = { rules: [] }; // no robots.txt → allowed
-    else st.robots = { rules: [{ allow: false, path: '/' }] }; // 5xx or unreachable → treat as disallow-all for this run
+    // Redirect loop, bad target, or deny-listed robots host: be conservative.
+    st.robots = { rules: [{ allow: false, path: '/' }] };
   }
 
   async function get(url, { kind = 'page', as = 'text', headers = {} } = {}) {
-    const u = new URL(url);
-    const host = u.host;
-    const path = u.pathname + u.search;
-    const skip = (outcome, extra = {}) => {
-      record({ at: iso(now()), host, path, kind, status: null, outcome, gapMs: null });
-      return { ok: false, url, status: null, ...extra };
+    const requested = new URL(url);
+    const skip = (outcome, extra = {}, at = requested, redirectFrom = null) => {
+      record({
+        at: iso(now()), host: at.host, path: at.pathname + at.search, kind, status: null, outcome, gapMs: null,
+        ...(redirectFrom ? { redirectFrom } : {}),
+      });
+      return { ok: false, url: at.href, status: null, ...(redirectFrom ? { redirectFrom } : {}), ...extra };
     };
 
-    if (denied(u.hostname)) {
-      onEvent({ type: 'alert', level: 'warn', host, reason: 'deny-listed host, request refused', url });
+    if (denied(requested.hostname)) {
+      onEvent({ type: 'alert', level: 'warn', host: requested.host, reason: 'deny-listed host, request refused', url: requested.href });
       return skip('denylist', { blocked: true, denied: true });
     }
-    const st = hostState(host);
+    const st = hostState(requested.host);
     if (st.blocked) return skip('blocked-skip', { blocked: true });
-    if (!st.robotsLoaded) await loadRobots(u, st);
+    if (!st.robotsLoaded) await loadRobots(requested, st);
     if (st.blocked) return skip('blocked-skip', { blocked: true });
-    if (!robotsAllows(st.robots, path)) return skip('robots-skip', { robotsDisallowed: true });
+    if (!robotsAllows(st.robots, requested.pathname + requested.search)) return skip('robots-skip', { robotsDisallowed: true });
     const cap = caps[kind];
     if (cap != null && (st.counts[kind] || 0) >= cap) return skip('cap-skip', { capped: true });
-    st.counts[kind] = (st.counts[kind] || 0) + 1;
+    if (cap != null) st.counts[kind] = (st.counts[kind] || 0) + 1;
 
     const cond = {};
-    const c = cache?.[url];
+    const c = cache?.[requested.href];
     if (c?.etag) cond['If-None-Match'] = c.etag;
     if (c?.lastModified) cond['If-Modified-Since'] = c.lastModified;
 
-    for (let attempt = 1; ; attempt++) {
-      const { res, status, body, error } = await rawFetch(url, { kind, as, headers: { ...cond, ...headers } });
-      const textBody = typeof body === 'string' ? body : '';
-      if (!error && isBlockResponse(status, textBody, res?.headers)) {
-        markBlocked(host, st, `HTTP ${status}`, url);
-        return { ok: false, url, status, blocked: true };
-      }
-      if (status === 304) return { ok: true, url, status, notModified: true, body: null };
-      if (!error && status >= 200 && status < 300) {
-        if (cache) {
-          const etag = res.headers.get('etag');
-          const lastModified = res.headers.get('last-modified');
-          if (etag || lastModified) cache[url] = { etag: etag || undefined, lastModified: lastModified || undefined };
+    let current = requested;
+    const redirectChain = [];
+    for (let hop = 0; ; hop++) {
+      const u = new URL(current.href);
+      if (hop > 0) {
+        // K-085: every redirect hop re-checks robots for the target host and path.
+        if (denied(u.hostname)) {
+          onEvent({ type: 'alert', level: 'warn', host: u.host, reason: 'redirect target is deny-listed; not followed', url: u.href });
+          return skip('denylist', { blocked: true, denied: true, redirectDisallowed: true, redirectChain }, u, requested.href);
         }
-        return { ok: true, url, status, body, headers: res.headers };
+        const targetState = hostState(u.host);
+        if (targetState.blocked) return skip('blocked-skip', { blocked: true, redirectChain }, u, requested.href);
+        if (!targetState.robotsLoaded) await loadRobots(u, targetState);
+        if (targetState.blocked) return skip('blocked-skip', { blocked: true, redirectChain }, u, requested.href);
+        if (!robotsAllows(targetState.robots, u.pathname + u.search)) {
+          return skip(
+            'robots-skip',
+            { robotsDisallowed: true, redirectDisallowed: true, redirectChain },
+            u,
+            requested.href,
+          );
+        }
       }
-      const retryable = error || status === 429 || status >= 500;
-      if (!retryable || attempt >= MAX_ATTEMPTS) return { ok: false, url, status, error, body: textBody || null };
-      const ra = retryAfterMs(res?.headers?.get?.('retry-after'), now());
-      if (ra != null && ra > MAX_RETRY_AFTER_MS) {
-        onEvent({ type: 'alert', level: 'warn', host, reason: `Retry-After ${Math.round(ra / 1000)} s exceeds cap; giving up`, url });
-        return { ok: false, url, status, gaveUp: true };
+
+      for (let attempt = 1; ; attempt++) {
+        const { res, status, body, error } = await rawFetch(u.href, { kind, as, headers: { ...cond, ...headers } });
+        const textBody = typeof body === 'string' ? body : '';
+        const location = res?.headers?.get?.('location');
+        if (!error && status >= 300 && status < 400 && location) {
+          let next;
+          try { next = new URL(location, u.href); } catch {
+            return { ok: false, url: u.href, status, error: 'bad redirect target', redirectChain };
+          }
+          redirectChain.push({ from: u.href, to: next.href, status });
+          onEvent({ type: 'redirect', host: u.host, status, from: u.href, to: next.href });
+          if (hop >= MAX_REDIRECTS) return { ok: false, url: u.href, status, error: 'too many redirects', redirectChain };
+          current = next;
+          break; // continue with the next hop
+        }
+        if (!error && isBlockResponse(status, textBody, res?.headers)) {
+          markBlocked(u.host, hostState(u.host), `HTTP ${status}`, u.href);
+          return { ok: false, url: u.href, status, blocked: true, redirectChain };
+        }
+        if (status === 304) return { ok: true, url: u.href, status, notModified: true, body: null, redirectChain };
+        if (!error && status >= 200 && status < 300) {
+          if (cache && u.href === requested.href) {
+            const etag = res.headers.get('etag');
+            const lastModified = res.headers.get('last-modified');
+            if (etag || lastModified) cache[requested.href] = { etag: etag || undefined, lastModified: lastModified || undefined };
+          }
+          return { ok: true, url: u.href, status, body, headers: res.headers, redirectChain };
+        }
+        const retryable = error || status === 429 || status >= 500;
+        if (!retryable || attempt >= MAX_ATTEMPTS) return { ok: false, url: u.href, status, error, body: textBody || null, redirectChain };
+        const ra = retryAfterMs(res?.headers?.get?.('retry-after'), now());
+        if (ra != null && ra > MAX_RETRY_AFTER_MS) {
+          onEvent({ type: 'alert', level: 'warn', host: u.host, reason: `Retry-After ${Math.round(ra / 1000)} s exceeds cap; giving up`, url: u.href });
+          return { ok: false, url: u.href, status, gaveUp: true, redirectChain };
+        }
+        await sleep(Math.max(ra ?? 0, BACKOFF_MS[attempt - 1]));
       }
-      await sleep(Math.max(ra ?? 0, BACKOFF_MS[attempt - 1]));
     }
   }
 

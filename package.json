@@ -69,6 +69,7 @@
     "qc:all": "python scripts/verify_page.py --all",
     "sync:puppies": "node scripts/sync-puppies.mjs",
     "sync:imports": "node scripts/imports/sync-imports.mjs",
+    "test:imports": "node --test \"scripts/imports/tests/*.test.mjs\"",
     "test:archive": "node scripts/test-placed-archive.mjs",
     "sync:starter-kit": "node scripts/sync-starter-kit.mjs",
     "sync:overseas": "node scripts/sync-overseas.mjs",

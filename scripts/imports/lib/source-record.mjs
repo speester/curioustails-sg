@@ -66,6 +66,19 @@ export const numOrNull = (v) => {
 
 export const cleanStr = (v) => (v == null || v === '$undefined' ? null : String(v).trim() || null);
 
+// "5 minutes ago" / "3 days ago" / "1 week ago" → ISO at the time of first sight
+// (spec §2.1 sourcePublishedAt fallback). Months count as 30 days. null if unparsed.
+const UNIT_MS = { second: 1e3, minute: 6e4, hour: 36e5, day: 864e5, week: 6048e5, month: 2592e6, year: 31536e6 };
+export function fromRelative(text, now = new Date()) {
+  const t = String(text ?? '').trim().toLowerCase();
+  if (/^(just now|now|today)$/.test(t)) return now.toISOString();
+  if (t === 'yesterday') return new Date(now.getTime() - UNIT_MS.day).toISOString();
+  const m = /^(\d+|an?|one)\s+(second|minute|hour|day|week|month|year)s?\s+ago$/.exec(t);
+  if (!m) return null;
+  const n = /^\d+$/.test(m[1]) ? Number(m[1]) : 1;
+  return new Date(now.getTime() - n * UNIT_MS[m[2]]).toISOString();
+}
+
 // Mark a record as review-only (lead-only supplier). Idempotent.
 export function forceReview(rec, reason) {
   rec.status = 'review';

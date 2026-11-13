@@ -24,6 +24,13 @@ export const GATE_SEVERITY = {
 export const LEAD_ONLY_SUPPLIERS = new Set(['dfsi', 'dogsie']);
 export const isLeadOnly = (record) => LEAD_ONLY_SUPPLIERS.has(record?.supplier);
 
+// Review gates an owner may waive with an explicit approval (T16). Every other
+// failing gate means the listing is missing something only an edit can supply
+// (breed, price, sex count, age, arrival, photo, leak-free public object), or is
+// a hard reject, so the queue refuses to approve it.
+export const OWNER_WAIVABLE_GATES = new Set(['G9', 'G10', 'G12', 'G14']);
+export const isOwnerWaivable = (failure) => OWNER_WAIVABLE_GATES.has(failure?.gate) && failure?.severity !== 'reject';
+
 export function autopublishEnabled(env = process.env) {
   return ['1', 'true', 'yes', 'on'].includes(String(env?.IMPORTS_AUTOPUBLISH ?? '').trim().toLowerCase());
 }

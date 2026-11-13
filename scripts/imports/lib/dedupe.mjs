@@ -120,6 +120,10 @@ export function matchType(a, b, opts = {}) {
   if (chipsOf(a).some((c) => chipsB.has(c))) return 'microchip';
   const hashesB = hashesOf(b);
   if (hashesOf(a).some((h) => hashesB.some((h2) => hashesMatch(h, h2, opts.maxHashDistance ?? MAX_HASH_DISTANCE)))) return 'image';
+  // Both records already carry processed photos and none matched. Two
+  // distinct dHash sets are stronger evidence than the weakest heuristic
+  // (same breed, age, county and price), so do not merge different litters.
+  if (hashesOf(a).length && hashesB.length) return null;
   if (fuzzyMatch(a, b, opts)) return 'fuzzy';
   return null;
 }

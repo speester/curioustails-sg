@@ -17,7 +17,7 @@ import { createHttp } from './http.mjs';
 import { REPO_ROOT } from './store.mjs';
 import { publicIds } from './hash.mjs';
 import { dedupe, selectPrimary } from './dedupe.mjs';
-import { evaluateGates, ageWeeks, isLeadOnly } from './gates.mjs';
+import { evaluateGates, ageWeeks, isLeadOnly, OWNER_WAIVABLE_GATES } from './gates.mjs';
 import { buildFeed, buildPublicPup, validateFeed, findLeaks, loadPublicSchema, ageLabel, PUP_KEYS } from './public.mjs';
 import { downloadPupImages, imageFilename, isImageFilename } from './images.mjs';
 import * as dogsy from '../adapters/dogsy.mjs';
@@ -118,6 +118,7 @@ function emptyState() {
     records: {},
     suppressed: [],
     published: {},
+    decisions: {},
     supplierStats: {},
   };
 }
@@ -131,6 +132,7 @@ function readState(store) {
     records: s.records && typeof s.records === 'object' ? s.records : {},
     suppressed: Array.isArray(s.suppressed) ? s.suppressed : [],
     published: s.published && typeof s.published === 'object' ? s.published : {},
+    decisions: s.decisions && typeof s.decisions === 'object' ? s.decisions : {},
     supplierStats: s.supplierStats && typeof s.supplierStats === 'object' ? s.supplierStats : {},
   };
 }
@@ -604,7 +606,20 @@ export async function runPipeline({
 
       const already = beforePublished[ids.id]?.status === 'reserved' ? 'reserved'
         : beforePublished[ids.id]?.status === 'published' ? 'published' : null;
-      if (already === 'reserved') {
+      const decision = state.decisions?.[ids.id]?.decision || null;
+      // A group with no publishable record (dfsi, puppies.ie) can never be
+      // approved, however the owner ruling arrived in the state. A merged
+      // group with a dogsy/dogquest content record is not lead-only: that
+      // record is the listing being approved.
+      const leadOnly = leadOnlyGroup(group);
+      const approvalBlocked = failures.filter((g) => g.severity === 'reject' || !OWNER_WAIVABLE_GATES.has(g.gate));
+      const approved = decision === 'approve' && !leadOnly && approvalBlocked.length === 0;
+
+      if (decision === 'reject' || decision === 'unpublish') {
+        // An owner ruling outranks liveness: a rejected or taken-down listing
+        // never returns to the queue or the feed, even if a source relists it.
+        group.disposition = decision === 'reject' ? 'rejected' : 'unpublished';
+      } else if (already === 'reserved') {
         // A Curious Tails buyer holds it: never auto-unpublished (spec §6.6),
         // whatever the source now says (it will say sold) or the pup's age.
         group.disposition = 'reserved';
@@ -612,7 +627,8 @@ export async function runPipeline({
         // Once live, a listing comes down on a liveness trigger or on a gate
         // that still applies. G4 (>16 weeks) and G5 (arrival month) are intake
         // gates; for a live listing the 20-week and arrival-passed triggers
-        // below own age and arrival.
+        // below own age and arrival. An approval got it here; it does not keep
+        // it here once the source is sold or gone.
         const blocking = failures.filter((g) => !(g.gate === 'G4' && g.detail === 'age-over-16-weeks') && g.gate !== 'G5');
         const reasons = livenessReasons(group, started, nowMonth);
         if (reasons.length) {
@@ -624,12 +640,16 @@ export async function runPipeline({
         } else {
           group.disposition = 'published';
         }
+      } else if (approved) {
+        // Explicit owner approval. It outranks the safety valve and the
+        // IMPORTS_AUTOPUBLISH default; the next sync is what writes the feed.
+        group.disposition = 'publish';
       } else if (outcome.disposition === 'publish' && valveActiveFor(state, identity.supplier, started, env)) {
         group.disposition = 'auto-ready';
       }
       // Defence in depth for D3/D4: a group with no publishable record never
       // publishes, even if a future gate change let it through.
-      if (group.disposition === 'publish' && leadOnlyGroup(group)) group.disposition = 'review';
+      if (group.disposition === 'publish' && leadOnly) group.disposition = 'review';
 
       const queueItem = (disposition) => {
         const prev = oldQueueById.get(ids.id);
@@ -640,13 +660,17 @@ export async function runPipeline({
           firstFailedAt: prev?.firstFailedAt || atIso,
           updatedAt: atIso,
           failures,
+          gates: outcome.gates,
+          reviewReasons: outcome.reviewReasons,
           candidate: outcome.candidate,
           source: {
+            site: identity.viaSite || group.primary.viaSite || null,
             url: identity.sourceUrl || null,
             key: identity.key,
             supplier: identity.supplier,
           },
           imageCount: group.images.length,
+          leadOnly,
           decision: prev?.decision || null,
           decidedBy: prev?.decidedBy || null,
           decidedAt: prev?.decidedAt || null,
@@ -700,8 +724,9 @@ export async function runPipeline({
           detail: { reason: group.liveness ? 'liveness' : 'gate', gates: group.unpublishGates || [], liveness: group.liveness || [] },
         });
         summary.unpublished++;
-        // A gate that only needs the owner (review) puts it back in the queue.
-        if (!group.liveness && outcome.decision === 'review') queueItem('review');
+        // A gate that only needs the owner (review) puts it back in the queue,
+        // unless the owner has already ruled (unpublish/takedown stays out).
+        if (!group.liveness && outcome.decision === 'review' && decision !== 'unpublish') queueItem('review');
       } else {
         auditEvents.push({
           event: 'rejected',
@@ -728,6 +753,10 @@ export async function runPipeline({
     // private state still recognises it; it is never silently lost on a run.
     for (const [id, p] of feedById) {
       if (computedIds.has(id) || nextPublished[id]) continue;
+      // An owner rejection or takedown is final: never carry the page back
+      // from the feed just because the private record outlived it.
+      const ownerDecision = state.decisions?.[id]?.decision;
+      if (ownerDecision === 'reject' || ownerDecision === 'unpublish') continue;
       const prev = beforePublished[id];
       if (prev && (prev.status === 'reserved' || (prev.missingRuns || 0) < 2)) {
         feedPups.push(carryFeedPup(p, started, prev.status === 'reserved' ? 'reserved' : p.status));

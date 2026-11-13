@@ -65,6 +65,12 @@ else
   grep -q 'X-Robots-Tag' dist/_headers || { echo "FAIL: dist/_headers carries no X-Robots-Tag"; exit 1; }
 fi
 
+# K-089 / T15 (spec §6.7): no imported-listing leak may upload. The scan reads the private
+# store's denylist (seller fields, microchips, listing ids, source URLs, description runs) and
+# fails closed when that store is missing. build:deploy runs it too; this catches a dist built
+# some other way, or a deploy run on its own after a stale build.
+node scripts/imports/check-leaks.mjs --dist || { echo "FAIL: check:import-leaks found a leak in dist/ - not deploying"; exit 1; }
+
 # --branch <name> (2026-09-05): this project's staging lives on the `smoke` branch, and the
 # only way to reach it was to bypass this script and run wrangler by hand - which skips every
 # pre-check the script exists to run. A named branch is now a first-class argument, and

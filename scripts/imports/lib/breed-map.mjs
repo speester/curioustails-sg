@@ -96,8 +96,12 @@ export function splitParts(label) {
     .filter(Boolean);
 }
 
+// dogquest sends space-less slugs ("jackrussellterrier"), so also index every
+// label with its spaces removed. No two labels collide this way.
+const COMPACT_MAP = Object.fromEntries(Object.entries(BREED_MAP).map(([k, v]) => [k.replace(/\s+/g, ''), v]));
+
 function slugFor(part) {
-  const slug = BREED_MAP[part];
+  const slug = BREED_MAP[part] ?? COMPACT_MAP[part.replace(/\s+/g, '')];
   return pageExists(slug) ? slug : null;
 }
 

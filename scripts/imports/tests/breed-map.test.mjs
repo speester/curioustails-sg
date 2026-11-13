@@ -42,3 +42,10 @@ test('every slug in the map, and every slug returned, exists as a page file', ()
     if (slug) assert.ok(pageExists(slug), slug);
   }
 });
+
+test('dogquest space-less slugs resolve like their spaced labels', () => {
+  assert.equal(resolveBreed('jackrussellterrier').slug, 'jack-russell-terrier');
+  assert.equal(resolveBreed('x', 'yorkshireterrier').slug, 'yorkshire-terrier');
+  assert.equal(resolveBreed('goldenretriever').slug, resolveBreed('golden retriever').slug);
+  assert.equal(resolveBreed('irishsetter').slug, null);
+});

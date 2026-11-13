@@ -1,7 +1,7 @@
 {
   "_note": "Written by scripts/sync-puppies.mjs, never rebuilt from scratch: puppies that left the available list. status: placed (sold evidence, shown under \"Puppies That Found Their Loving Homes\"), withdrawn (no evidence, never shown), expired (past retention). placedAt = the day the sync first saw it gone (SGT); lastListed = the last day it was listed. Do not hand-edit; to mark a sale, add the id to sold-overrides.json and re-run the sync.",
   "lastSync": {
-    "at": "2026-11-12T07:28:18.261Z",
+    "at": "2026-11-13T06:59:22.277Z",
     "listed": [
       {
         "id": 2980,
@@ -50,6 +50,45 @@
         "gender": "Female",
         "age": null,
         "image": "2978-1-886ea24c.webp",
+        "origin": "UK",
+        "sizeNote": null,
+        "crossLabel": "Maltese x Shih Tzu",
+        "hdbApproved": true
+      },
+      {
+        "id": 3010,
+        "breed": "maltese",
+        "name": "Rowan",
+        "color": "Tri Color",
+        "gender": "Female",
+        "age": null,
+        "image": "3010-1-fbe5464d.webp",
+        "origin": "UK",
+        "sizeNote": null,
+        "crossLabel": "Maltese x Shih Tzu",
+        "hdbApproved": true
+      },
+      {
+        "id": 3011,
+        "breed": "maltese",
+        "name": "Ellis",
+        "color": "Tri Color",
+        "gender": "Female",
+        "age": null,
+        "image": "3011-1-fa41e6c6.webp",
+        "origin": "UK",
+        "sizeNote": null,
+        "crossLabel": "Maltese x Shih Tzu",
+        "hdbApproved": true
+      },
+      {
+        "id": 3012,
+        "breed": "maltese",
+        "name": "Marley",
+        "color": "Tri Color",
+        "gender": "Female",
+        "age": null,
+        "image": "3012-1-ad8cd478.webp",
         "origin": "UK",
         "sizeNote": null,
         "crossLabel": "Maltese x Shih Tzu",

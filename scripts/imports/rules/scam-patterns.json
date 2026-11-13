@@ -1,0 +1,25 @@
+{
+  "title": "Scam / placeholder patterns for gate G12",
+  "source_url": "file:reports/imported-puppy-pipeline-spec-2026-11-08.md#8-gates-libgatesmjs",
+  "source_document": "Imported puppy pipeline spec, §8 gate G12 (internal policy, not a government list)",
+  "retrieved": "2026-11-13",
+  "recheck": "quarterly (test fails when retrieved is older than 120 days)",
+  "fields": "title | description | any (title + description)",
+  "entries": [
+    { "id": "deposit-before-viewing", "field": "any", "regex": "deposit\\b[^.]{0,40}\\b(secure|hold|reserve)\\b[^.]{0,40}\\bbefore (viewing|you view|seeing)", "severity": "review" },
+    { "id": "shipping-worldwide", "field": "any", "regex": "\\b(ship(ping)?|deliver(y|ed)?)\\b[^.]{0,30}\\b(worldwide|world wide|international(ly)?|any ?where in the world)\\b", "severity": "review" },
+    { "id": "western-union", "field": "any", "regex": "western\\s*union|moneygram", "severity": "review" },
+    { "id": "telegram", "field": "any", "regex": "\\btelegram\\b", "severity": "review" },
+    { "id": "crypto", "field": "any", "regex": "\\b(crypto(currency)?|bitcoin|btc|usdt|tether|ethereum)\\b", "severity": "review" },
+    { "id": "sometimes-available", "field": "any", "regex": "sometimes available|occasionally available|available from time to time", "severity": "review" },
+    { "id": "deposits-upcoming-litter", "field": "any", "regex": "(taking|accepting)\\s+deposits?\\b[^.]{0,30}\\b(upcoming|future|planned|expected)\\s+litter", "severity": "review" },
+    { "id": "stud", "field": "title", "regex": "\\bstud(s|ding)?\\b|\\bat stud\\b|stud service", "severity": "reject" },
+    { "id": "wanted", "field": "title", "regex": "\\bwanted\\b|\\blooking for\\b|\\bwtb\\b", "severity": "reject" },
+    { "id": "rehoming", "field": "any", "regex": "\\bre-?hom(e|ing)\\b", "severity": "review" },
+    { "id": "sold", "field": "title", "regex": "\\bsold\\b", "severity": "reject" },
+    { "id": "emoji-only-title", "field": "title", "rule": "no-letters", "severity": "review" },
+    { "id": "short-description", "field": "description", "rule": "min-length", "min": 40, "severity": "review" }
+  ],
+  "aliases": {},
+  "notes": "Spec G12: matches go to review; stud / wanted / sold reject."
+}

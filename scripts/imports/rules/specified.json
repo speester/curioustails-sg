@@ -1,0 +1,48 @@
+{
+  "title": "AVS List of Specified Dogs, Part 2 (allowed with additional licensing conditions; G9 review, never auto-publish)",
+  "source_url": "https://www.nparks.gov.sg/-/media/avs/resources/dog-licensing/list-of-specified-dogs-and-additional-licensing-conditions_sep2024.pdf",
+  "source_document": "Breeds of dogs listed in the First Schedule of the Animals and Birds (Licensing and Control of Cats and Dogs) Rules 2024 — List of Specified Dogs (Sep 2024)",
+  "retrieved": "2026-11-13",
+  "retrieved_via": "web.archive.org snapshot 20251007090010 of the source_url (nparks.gov.sg returned 404 and avs.nparks.gov.sg returned CloudFront 403 to this machine on 2026-11-13; not worked around). Text extracted with pdftotext and copied verbatim.",
+  "recheck": "quarterly (test fails when retrieved is older than 120 days)",
+  "entries": [
+    "Bull Terrier",
+    "Doberman Pinscher",
+    "Rottweiler",
+    "German Shepherd Dog and its related breeds such as the Belgian Shepherd Dog and the East European Shepherd Dog",
+    "Mastiffs, including Bull Mastiff, Cane Corso and Dogue De Bordeaux",
+    "Crosses of any 2 or more breeds in items 1 to 5"
+  ],
+  "crosses_included": true,
+  "aliases": {
+    "bull terrier": "Bull Terrier",
+    "english bull terrier": "Bull Terrier",
+    "miniature bull terrier": "Bull Terrier",
+    "doberman": "Doberman Pinscher",
+    "dobermann": "Doberman Pinscher",
+    "doberman pinscher": "Doberman Pinscher",
+    "rottweiler": "Rottweiler",
+    "rottie": "Rottweiler",
+    "german shepherd": "German Shepherd Dog and its related breeds such as the Belgian Shepherd Dog and the East European Shepherd Dog",
+    "german shepherd dog": "German Shepherd Dog and its related breeds such as the Belgian Shepherd Dog and the East European Shepherd Dog",
+    "gsd": "German Shepherd Dog and its related breeds such as the Belgian Shepherd Dog and the East European Shepherd Dog",
+    "alsatian": "German Shepherd Dog and its related breeds such as the Belgian Shepherd Dog and the East European Shepherd Dog",
+    "belgian shepherd": "German Shepherd Dog and its related breeds such as the Belgian Shepherd Dog and the East European Shepherd Dog",
+    "belgian malinois": "German Shepherd Dog and its related breeds such as the Belgian Shepherd Dog and the East European Shepherd Dog",
+    "malinois": "German Shepherd Dog and its related breeds such as the Belgian Shepherd Dog and the East European Shepherd Dog",
+    "east european shepherd": "German Shepherd Dog and its related breeds such as the Belgian Shepherd Dog and the East European Shepherd Dog",
+    "mastiff": "Mastiffs, including Bull Mastiff, Cane Corso and Dogue De Bordeaux",
+    "english mastiff": "Mastiffs, including Bull Mastiff, Cane Corso and Dogue De Bordeaux",
+    "bull mastiff": "Mastiffs, including Bull Mastiff, Cane Corso and Dogue De Bordeaux",
+    "bullmastiff": "Mastiffs, including Bull Mastiff, Cane Corso and Dogue De Bordeaux",
+    "cane corso": "Mastiffs, including Bull Mastiff, Cane Corso and Dogue De Bordeaux",
+    "dogue de bordeaux": "Mastiffs, including Bull Mastiff, Cane Corso and Dogue De Bordeaux",
+    "french mastiff": "Mastiffs, including Bull Mastiff, Cane Corso and Dogue De Bordeaux",
+    "tibetan mastiff": "Mastiffs, including Bull Mastiff, Cane Corso and Dogue De Bordeaux"
+  },
+  "policy_review": {
+    "note": "NOT from AVS. Owner policy from reports/irish-supplier-research-2026-11-08.md: large guardian breeds that are not on the AVS list still go to review.",
+    "entries": ["caucasian shepherd", "central asian shepherd", "kangal", "anatolian shepherd"]
+  },
+  "notes": "Entries are verbatim from Part 2 of the PDF. Aliases map ad wording to an entry; 'miniature bull terrier' and 'tibetan mastiff' are conservative readings (review, not reject)."
+}

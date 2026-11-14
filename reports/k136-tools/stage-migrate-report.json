@@ -1,0 +1,940 @@
+{
+  "at": "2026-11-14T08:11:18.726Z",
+  "syncedAt": "2026-10-02T06:55:38.669Z",
+  "report": [
+    {
+      "n": 1,
+      "id": "imp-69e38fad3e",
+      "ref": "CT-AU-69E38F",
+      "legacyId": "os-59701d7d",
+      "listingId": "76641",
+      "breed": "beagle",
+      "label": "Beagle",
+      "priceSGD": null,
+      "depositSGD": null,
+      "photo": true,
+      "arrival": "2026-11",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: price",
+        "G3:no-price"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 2,
+      "id": "imp-de51c75565",
+      "ref": "CT-AU-DE51C7",
+      "legacyId": "os-8b777ae0",
+      "listingId": "74317",
+      "breed": "border-collie",
+      "label": "Border Collie x Sausage Dog",
+      "priceSGD": 4500,
+      "depositSGD": 2250,
+      "photo": true,
+      "arrival": "2027-01",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: dob-or-age",
+        "G4:age-unverified",
+        "G5:arrival-unverified (no age)"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 3,
+      "id": "imp-18493781d2",
+      "ref": "CT-AU-184937",
+      "legacyId": "os-6c152beb",
+      "listingId": "44008",
+      "breed": "border-collie",
+      "label": "Border Collie x Kelpie",
+      "priceSGD": 4300,
+      "depositSGD": 2150,
+      "photo": true,
+      "arrival": "2026-11",
+      "disposition": "review",
+      "approvable": true,
+      "blockedBy": [],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 4,
+      "id": "imp-c2cf5f2ff9",
+      "ref": "CT-AU-C2CF5F",
+      "legacyId": "os-a9451884",
+      "listingId": "43524",
+      "breed": "border-collie",
+      "label": "Border Collie",
+      "priceSGD": null,
+      "depositSGD": null,
+      "photo": true,
+      "arrival": "2027-01",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: price,dob-or-age",
+        "G3:no-price",
+        "G4:age-unverified",
+        "G5:arrival-unverified (no age)"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 5,
+      "id": "imp-61298df5e7",
+      "ref": "CT-AU-61298D",
+      "legacyId": "os-ceb9e485",
+      "listingId": "57083",
+      "breed": "cavapoo",
+      "label": "Cavoodle x Pomeranian",
+      "priceSGD": 6300,
+      "depositSGD": 3150,
+      "photo": true,
+      "arrival": "2026-11",
+      "disposition": "review",
+      "approvable": true,
+      "blockedBy": [],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 6,
+      "id": "imp-e0ddc48deb",
+      "ref": "CT-AU-E0DDC4",
+      "legacyId": "os-cdfb767b",
+      "listingId": "12205",
+      "breed": "cavapoo",
+      "label": "Cavoodle",
+      "priceSGD": 5300,
+      "depositSGD": 2650,
+      "photo": true,
+      "arrival": "2026-10",
+      "disposition": "reject",
+      "approvable": false,
+      "blockedBy": [
+        "G4:age-over-16-weeks (about 19 today)",
+        "G5:arrival-month-2026-10-passed"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 7,
+      "id": "imp-26784e0c88",
+      "ref": "CT-AU-26784E",
+      "legacyId": "os-22bf52ad",
+      "listingId": "63956",
+      "breed": "cavapoo",
+      "label": "Cavoodle",
+      "priceSGD": 7300,
+      "depositSGD": 3650,
+      "photo": false,
+      "arrival": "2027-01",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: sex,dob-or-age,photo",
+        "G4:age-unverified",
+        "G5:arrival-unverified (no age)",
+        "G6:no-local-photo"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 8,
+      "id": "imp-22614c1169",
+      "ref": "CT-AU-22614C",
+      "legacyId": "os-00fc350d",
+      "listingId": "77098",
+      "breed": "cavapoo",
+      "label": "Cavoodle",
+      "priceSGD": 6500,
+      "depositSGD": 3250,
+      "photo": false,
+      "arrival": "2026-10",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: photo",
+        "G5:arrival-month-2026-10-passed",
+        "G6:no-local-photo"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 9,
+      "id": "imp-54e31b84d8",
+      "ref": "CT-AU-54E31B",
+      "legacyId": "os-78c80080",
+      "listingId": "11573",
+      "breed": "cavapoo",
+      "label": "Cavoodle",
+      "priceSGD": 6000,
+      "depositSGD": 3000,
+      "photo": false,
+      "arrival": "2027-01",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G5:arrival-unverified (no age)",
+        "G6:no-local-photo"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 10,
+      "id": "imp-a0a3175b89",
+      "ref": "CT-AU-A0A317",
+      "legacyId": "os-8b5770d4",
+      "listingId": "33155",
+      "breed": "chihuahua",
+      "label": "Chihuahua",
+      "priceSGD": 6000,
+      "depositSGD": 3000,
+      "photo": true,
+      "arrival": "2026-11",
+      "disposition": "review",
+      "approvable": true,
+      "blockedBy": [],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 11,
+      "id": "imp-7207a317b2",
+      "ref": "CT-AU-7207A3",
+      "legacyId": "os-18d38967",
+      "listingId": "74453",
+      "breed": "cockapoo",
+      "label": "Spoodle",
+      "priceSGD": 6500,
+      "depositSGD": 3250,
+      "photo": false,
+      "arrival": "2027-01",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G5:arrival-unverified (no age)",
+        "G6:no-local-photo"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 12,
+      "id": "imp-eb2c690c36",
+      "ref": "CT-AU-EB2C69",
+      "legacyId": "os-311f0298",
+      "listingId": "62341",
+      "breed": "cockapoo",
+      "label": "Spoodle",
+      "priceSGD": 6000,
+      "depositSGD": 3000,
+      "photo": false,
+      "arrival": "2026-10",
+      "disposition": "reject",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: photo",
+        "G4:age-over-16-weeks (about 19 today)",
+        "G5:arrival-month-2026-10-passed",
+        "G6:no-local-photo"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 13,
+      "id": "imp-47163cdae1",
+      "ref": "CT-AU-47163C",
+      "legacyId": "os-a21091c4",
+      "listingId": "76418",
+      "breed": "cocker-spaniel",
+      "label": "Cocker Spaniel",
+      "priceSGD": 6700,
+      "depositSGD": 3350,
+      "photo": false,
+      "arrival": "2027-01",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G5:arrival-unverified (no age)",
+        "G6:no-local-photo"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 14,
+      "id": "imp-f477735bd1",
+      "ref": "CT-AU-F47773",
+      "legacyId": "os-ed20d82b",
+      "listingId": "14073",
+      "breed": "french-bulldog",
+      "label": "French Bulldog",
+      "priceSGD": null,
+      "depositSGD": null,
+      "photo": true,
+      "arrival": "2026-12",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: price,sex",
+        "G3:no-price"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 15,
+      "id": "imp-402a2ddf6a",
+      "ref": "CT-AU-402A2D",
+      "legacyId": "os-3b282e99",
+      "listingId": "88441",
+      "breed": "french-bulldog",
+      "label": "French Bulldog",
+      "priceSGD": null,
+      "depositSGD": null,
+      "photo": true,
+      "arrival": "2027-01",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: price,dob-or-age",
+        "G3:no-price",
+        "G4:age-unverified",
+        "G5:arrival-unverified (no age)"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 16,
+      "id": "imp-31729df058",
+      "ref": "CT-AU-31729D",
+      "legacyId": "os-7d6afb6d",
+      "listingId": "56684",
+      "breed": "french-bulldog",
+      "label": "French Bulldog",
+      "priceSGD": null,
+      "depositSGD": null,
+      "photo": true,
+      "arrival": "2027-01",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: price,dob-or-age",
+        "G3:no-price",
+        "G4:age-unverified",
+        "G5:arrival-unverified (no age)"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 17,
+      "id": "imp-6c1cf64c79",
+      "ref": "CT-AU-6C1CF6",
+      "legacyId": "os-97719a26",
+      "listingId": "16873",
+      "breed": "french-bulldog",
+      "label": "French Bulldog",
+      "priceSGD": null,
+      "depositSGD": null,
+      "photo": true,
+      "arrival": "2027-01",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: price,dob-or-age",
+        "G3:no-price",
+        "G4:age-unverified",
+        "G5:arrival-unverified (no age)"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 18,
+      "id": "imp-1a6c5c2866",
+      "ref": "CT-AU-1A6C5C",
+      "legacyId": "os-836ccbd0",
+      "listingId": "26831",
+      "breed": "french-bulldog",
+      "label": "French Bulldog",
+      "priceSGD": null,
+      "depositSGD": null,
+      "photo": true,
+      "arrival": "2027-01",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: price,dob-or-age",
+        "G3:no-price",
+        "G4:age-unverified",
+        "G5:arrival-unverified (no age)"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 19,
+      "id": "imp-bfda7f24bc",
+      "ref": "CT-AU-BFDA7F",
+      "legacyId": "os-63de90f3",
+      "listingId": "34385",
+      "breed": "french-bulldog",
+      "label": "French Bulldog",
+      "priceSGD": null,
+      "depositSGD": null,
+      "photo": true,
+      "arrival": "2027-01",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: price,dob-or-age",
+        "G3:no-price",
+        "G4:age-unverified",
+        "G5:arrival-unverified (no age)"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 20,
+      "id": "imp-3f6c758739",
+      "ref": "CT-AU-3F6C75",
+      "legacyId": "os-7ed60ba3",
+      "listingId": "32811",
+      "breed": "french-bulldog",
+      "label": "French Bulldog",
+      "priceSGD": null,
+      "depositSGD": null,
+      "photo": false,
+      "arrival": "2026-11",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: price,photo",
+        "G3:no-price",
+        "G6:no-local-photo"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 21,
+      "id": "imp-eb1c6995d8",
+      "ref": "CT-AU-EB1C69",
+      "legacyId": "os-6ca35b65",
+      "listingId": "93334",
+      "breed": "german-shepherd",
+      "label": "German Shepherd Dog",
+      "priceSGD": 7000,
+      "depositSGD": 3500,
+      "photo": true,
+      "arrival": "2027-01",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: dob-or-age",
+        "G4:age-unverified",
+        "G5:arrival-unverified (no age)"
+      ],
+      "waivable": [
+        "G9:specified-breed",
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 22,
+      "id": "imp-308e246805",
+      "ref": "CT-AU-308E24",
+      "legacyId": "os-304e8b61",
+      "listingId": "14081",
+      "breed": "german-shepherd",
+      "label": "German Shepherd",
+      "priceSGD": 5500,
+      "depositSGD": 2750,
+      "photo": false,
+      "arrival": "2026-10",
+      "disposition": "reject",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: photo",
+        "G4:age-over-16-weeks (about 19 today)",
+        "G5:arrival-month-2026-10-passed",
+        "G6:no-local-photo"
+      ],
+      "waivable": [
+        "G9:specified-breed",
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 23,
+      "id": "imp-c49e464017",
+      "ref": "CT-AU-C49E46",
+      "legacyId": "os-805b9900",
+      "listingId": "65590",
+      "breed": "golden-retriever",
+      "label": "Golden Retriever",
+      "priceSGD": 7000,
+      "depositSGD": 3500,
+      "photo": false,
+      "arrival": "2027-01",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G5:arrival-unverified (no age)",
+        "G6:no-local-photo"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 24,
+      "id": "imp-f153c0bf04",
+      "ref": "CT-AU-F153C0",
+      "legacyId": "os-99af37f5",
+      "listingId": "17132",
+      "breed": "golden-retriever",
+      "label": "Golden Retriever",
+      "priceSGD": null,
+      "depositSGD": null,
+      "photo": true,
+      "arrival": "2026-11",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: price",
+        "G3:no-price"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 25,
+      "id": "imp-5c48e5cbf1",
+      "ref": "CT-AU-5C48E5",
+      "legacyId": "os-6a1e7720",
+      "listingId": "64832",
+      "breed": "golden-retriever",
+      "label": "Golden Retriever",
+      "priceSGD": 6000,
+      "depositSGD": 3000,
+      "photo": false,
+      "arrival": "2026-10",
+      "disposition": "reject",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: photo",
+        "G4:age-over-16-weeks (about 19 today)",
+        "G5:arrival-month-2026-10-passed",
+        "G6:no-local-photo"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 26,
+      "id": "imp-fcbfab545d",
+      "ref": "CT-AU-FCBFAB",
+      "legacyId": "os-70a7c43d",
+      "listingId": "52499",
+      "breed": "golden-retriever",
+      "label": "Golden Retriever",
+      "priceSGD": 4900,
+      "depositSGD": 2450,
+      "photo": true,
+      "arrival": "2026-11",
+      "disposition": "review",
+      "approvable": true,
+      "blockedBy": [],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 27,
+      "id": "imp-f88d536565",
+      "ref": "CT-AU-F88D53",
+      "legacyId": "os-80fefa9e",
+      "listingId": "28740",
+      "breed": "golden-retriever",
+      "label": "Golden Retriever",
+      "priceSGD": 7000,
+      "depositSGD": 3500,
+      "photo": true,
+      "arrival": "2027-01",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: dob-or-age",
+        "G4:age-unverified",
+        "G5:arrival-unverified (no age)"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 28,
+      "id": "imp-b9512725a3",
+      "ref": "CT-AU-B95127",
+      "legacyId": "os-65859503",
+      "listingId": "81421",
+      "breed": "havanese",
+      "label": "Havanese",
+      "priceSGD": 6500,
+      "depositSGD": 3250,
+      "photo": true,
+      "arrival": "2026-11",
+      "disposition": "review",
+      "approvable": true,
+      "blockedBy": [],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 29,
+      "id": "imp-fe767f8808",
+      "ref": "CT-AU-FE767F",
+      "legacyId": "os-d9eff28e",
+      "listingId": "30781",
+      "breed": "maltese",
+      "label": "Maltese",
+      "priceSGD": 5450,
+      "depositSGD": 2725,
+      "photo": true,
+      "arrival": "2026-11",
+      "disposition": "review",
+      "approvable": true,
+      "blockedBy": [],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 30,
+      "id": "imp-a157f0cbf6",
+      "ref": "CT-AU-A157F0",
+      "legacyId": "os-346dce23",
+      "listingId": "57951",
+      "breed": "maltese",
+      "label": "Maltese x Pomeranian",
+      "priceSGD": 5800,
+      "depositSGD": 2900,
+      "photo": false,
+      "arrival": "2026-11",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: photo",
+        "G6:no-local-photo"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 31,
+      "id": "imp-9710fe7c2a",
+      "ref": "CT-AU-9710FE",
+      "legacyId": "os-bc484c2f",
+      "listingId": "76847",
+      "breed": "mini-dachshund",
+      "label": "Dachshund",
+      "priceSGD": 5000,
+      "depositSGD": 2500,
+      "photo": true,
+      "arrival": "2026-11",
+      "disposition": "review",
+      "approvable": true,
+      "blockedBy": [],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 32,
+      "id": "imp-de764f2df5",
+      "ref": "CT-AU-DE764F",
+      "legacyId": "os-e8efdc25",
+      "listingId": "43536",
+      "breed": "mini-dachshund",
+      "label": "Dachshund",
+      "priceSGD": 4700,
+      "depositSGD": 2350,
+      "photo": true,
+      "arrival": "2027-01",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: dob-or-age",
+        "G4:age-unverified",
+        "G5:arrival-unverified (no age)"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 33,
+      "id": "imp-c8c67aabef",
+      "ref": "CT-AU-C8C67A",
+      "legacyId": "os-481df0b8",
+      "listingId": "44420",
+      "breed": "mini-dachshund",
+      "label": "Miniature Dachshund",
+      "priceSGD": 4500,
+      "depositSGD": 2250,
+      "photo": false,
+      "arrival": "2026-11",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: photo",
+        "G6:no-local-photo"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 34,
+      "id": "imp-e195e2f912",
+      "ref": "CT-AU-E195E2",
+      "legacyId": "os-8f1f496d",
+      "listingId": "98417",
+      "breed": "mini-dachshund",
+      "label": "Miniature Dachshund",
+      "priceSGD": null,
+      "depositSGD": null,
+      "photo": true,
+      "arrival": "2026-12",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: price",
+        "G3:no-price",
+        "G7:shares-photo-with-listing-25655"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 35,
+      "id": "imp-d31715bf4c",
+      "ref": "CT-AU-D31715",
+      "legacyId": "os-8f1f496d",
+      "listingId": "25655",
+      "breed": "mini-dachshund",
+      "label": "Miniature Dachshund",
+      "priceSGD": null,
+      "depositSGD": null,
+      "photo": true,
+      "arrival": "2026-12",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: price",
+        "G3:no-price",
+        "G7:shares-photo-with-listing-98417"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 36,
+      "id": "imp-9eccfdb267",
+      "ref": "CT-AU-9ECCFD",
+      "legacyId": "os-a3562f70",
+      "listingId": "43187",
+      "breed": "mini-dachshund",
+      "label": "Miniature Dachshund",
+      "priceSGD": 6300,
+      "depositSGD": 3150,
+      "photo": true,
+      "arrival": "2026-10",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G5:arrival-month-2026-10-passed"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 37,
+      "id": "imp-85681143a6",
+      "ref": "CT-AU-856811",
+      "legacyId": "os-5b99730e",
+      "listingId": "58422",
+      "breed": "pomeranian",
+      "label": "Pomeranian",
+      "priceSGD": 5700,
+      "depositSGD": 2850,
+      "photo": true,
+      "arrival": "2026-11",
+      "disposition": "review",
+      "approvable": true,
+      "blockedBy": [],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 38,
+      "id": "imp-1e4d34e2aa",
+      "ref": "CT-AU-1E4D34",
+      "legacyId": "os-f47adf9d",
+      "listingId": "51951",
+      "breed": "toy-poodle",
+      "label": "Miniature Poodle",
+      "priceSGD": null,
+      "depositSGD": null,
+      "photo": true,
+      "arrival": "2026-11",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: price",
+        "G3:no-price"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 39,
+      "id": "imp-ed4b65859d",
+      "ref": "CT-AU-ED4B65",
+      "legacyId": "os-48169451",
+      "listingId": "92814",
+      "breed": "toy-poodle",
+      "label": "Poodle",
+      "priceSGD": 5400,
+      "depositSGD": 2700,
+      "photo": false,
+      "arrival": "2026-11",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: photo",
+        "G6:no-local-photo"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    },
+    {
+      "n": 40,
+      "id": "imp-809f0ec9ba",
+      "ref": "CT-AU-809F0E",
+      "legacyId": "os-00b8a022",
+      "listingId": "74615",
+      "breed": "toy-poodle",
+      "label": "Toy Poodle x Moodle",
+      "priceSGD": 5000,
+      "depositSGD": 2500,
+      "photo": true,
+      "arrival": "2027-01",
+      "disposition": "review",
+      "approvable": false,
+      "blockedBy": [
+        "G1:missing: dob-or-age",
+        "G4:age-unverified",
+        "G5:arrival-unverified (no age)"
+      ],
+      "waivable": [
+        "G10:origin-au, microchip-not-recorded",
+        "G14:au-sheet-synced-2026-10-02 (43 days ago)"
+      ]
+    }
+  ]
+}

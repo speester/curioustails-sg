@@ -71,7 +71,7 @@
     "gen:registry": "node scripts/gen-registry.mjs",
     "gen:variants": "node scripts/gen-image-variants.mjs --write",
     "indexnow": "python \"%USERPROFILE%/.claude/scripts/indexnow_submit.py\" --domain curioustails.sg --key-file config/indexnow-key.txt --verify-key --sitemap https://curioustails.sg/sitemap-index.xml",
-    "prebuild": "node scripts/gen-build-id.mjs",
+    "prebuild": "node scripts/gen-build-id.mjs && node scripts/build-disclosures.mjs",
     "preview": "astro preview",
     "review:imports": "node scripts/imports/review.mjs",
     "qc": "python scripts/verify_page.py --all",

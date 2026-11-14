@@ -1,0 +1,147 @@
+/* ==========================================================================
+   Coral die-cut layer — home page only.
+   Every selector is scoped under .dc-home so no other page is affected.
+   The motif: coral paper cut with a scalloped edge, dashed cut lines, and
+   sticker badges with a white paper rim.
+   ========================================================================== */
+
+.dc-home {
+  --dc-coral: var(--color-coral-400);
+  --dc-coral-deep: var(--color-coral-500);
+  --dc-cut: color-mix(in oklch, var(--color-coral-600) 45%, white);
+}
+
+/* A strip of coral paper with scalloped bumps along one edge. */
+.dc-scallop {
+  height: 14px;
+  background: var(--dc-coral);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14'%3E%3Cpath d='M0 14A14 14 0 0 1 28 14Z' fill='%23fff'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: repeat-x;
+  -webkit-mask-size: 28px 14px;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14'%3E%3Cpath d='M0 14A14 14 0 0 1 28 14Z' fill='%23fff'/%3E%3C/svg%3E");
+  mask-repeat: repeat-x;
+  mask-size: 28px 14px;
+}
+
+.dc-scallop--down {
+  transform: rotate(180deg);
+}
+
+/* Dashed cut line, used on cards and buttons. */
+.dc-home .clay-btn,
+.dc-home .clay-btn-outline {
+  position: relative;
+}
+
+.dc-home .clay-btn::after,
+.dc-home .clay-btn-outline::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 2px dashed rgb(255 255 255 / 0.55);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.dc-home .clay-btn-outline::after {
+  border-color: color-mix(in oklch, var(--color-coral-500) 50%, transparent);
+}
+
+/* Photo frame: a white cut line inset from the clay rim. */
+.dc-home .hero .clay {
+  position: relative;
+}
+
+.dc-home .hero .clay::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 2px dashed rgb(255 255 255 / 0.85);
+  border-radius: 1.2rem;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Sticker badges (hero tag and proof chip). */
+.dc-home .hero .dc-sticker {
+  border: 3px solid #fff;
+  box-shadow:
+    0 0 0 3px var(--color-coral-300),
+    0 8px 0 -2px rgb(0 0 0 / 0.1);
+}
+
+/* Circular die-cut seal. Hidden everywhere except the home page. */
+.dc-seal {
+  display: none;
+}
+
+.dc-home .dc-seal {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  left: -14px;
+  top: -18px;
+  z-index: 4;
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  background: var(--color-coral-500);
+  color: #fff;
+  text-align: center;
+  line-height: 1.1;
+  transform: rotate(-8deg);
+  border: 3px solid #fff;
+  box-shadow:
+    0 0 0 3px var(--color-coral-300),
+    0 10px 16px rgb(0 0 0 / 0.14);
+}
+
+.dc-home .dc-seal::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 2px dashed rgb(255 255 255 / 0.8);
+  border-radius: 50%;
+}
+
+.dc-home .dc-seal b {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.dc-home .dc-seal span {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 639px) {
+  .dc-home .dc-seal {
+    width: 86px;
+    height: 86px;
+    left: -6px;
+    top: -10px;
+  }
+
+  .dc-home .dc-seal b {
+    font-size: 1.2rem;
+  }
+
+  /* keep the "49 breeds" sticker inside the photo on phones so it cannot
+     collide with the trust chips stacked above it */
+  .dc-home .hero .hero-tag {
+    right: 6px;
+    top: 6px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dc-home .dc-seal {
+    transform: none;
+  }
+}

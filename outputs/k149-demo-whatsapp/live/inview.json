@@ -1,0 +1,110 @@
+{
+ "1440-motion": {
+  "phoneSection": "section_whatsapp",
+  "phone": [
+   957,
+   1251,
+   366,
+   900
+  ],
+  "section": [
+   146,
+   1294,
+   317,
+   949
+  ],
+  "insideSection": true,
+  "headSkin": "rgb(0, 128, 105)",
+  "running": 12,
+  "ctaB": [
+   "Following"
+  ],
+  "toast": [],
+  "bellOn": 0,
+  "stripSection": "section_telegram",
+  "stripBg": "rgb(219, 230, 207)",
+  "scrollWidth": 1440
+ },
+ "1440-reduced": {
+  "phoneSection": "section_whatsapp",
+  "phone": [
+   970,
+   1238,
+   380,
+   900
+  ],
+  "section": [
+   146,
+   1294,
+   324,
+   956
+  ],
+  "insideSection": true,
+  "headSkin": "rgb(0, 128, 105)",
+  "running": 0,
+  "ctaB": [
+   "Following"
+  ],
+  "toast": [
+   "Joined.Following. Notifications are on."
+  ],
+  "bellOn": 1,
+  "stripSection": "section_telegram",
+  "stripBg": "rgb(219, 230, 207)",
+  "scrollWidth": 1440
+ },
+ "390-motion": {
+  "phoneSection": "section_whatsapp",
+  "phone": [
+   61,
+   329,
+   226,
+   746
+  ],
+  "section": [
+   16,
+   374,
+   -124,
+   780
+  ],
+  "insideSection": true,
+  "headSkin": "rgb(0, 128, 105)",
+  "running": 12,
+  "ctaB": [
+   "Following"
+  ],
+  "toast": [],
+  "bellOn": 0,
+  "stripSection": "section_telegram",
+  "stripBg": "rgb(219, 230, 207)",
+  "scrollWidth": 390
+ },
+ "390-reduced": {
+  "phoneSection": "section_whatsapp",
+  "phone": [
+   61,
+   329,
+   226,
+   746
+  ],
+  "section": [
+   16,
+   374,
+   -124,
+   780
+  ],
+  "insideSection": true,
+  "headSkin": "rgb(0, 128, 105)",
+  "running": 0,
+  "ctaB": [
+   "Following"
+  ],
+  "toast": [
+   "Joined.Following. Notifications are on."
+  ],
+  "bellOn": 1,
+  "stripSection": "section_telegram",
+  "stripBg": "rgb(219, 230, 207)",
+  "scrollWidth": 390
+ }
+}

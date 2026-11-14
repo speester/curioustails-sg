@@ -200,6 +200,7 @@
   - Paperwork (licence, vet certificate, DAFM endorsement) and flight booking usually add **2–6 weeks**.
   - For a puppy that is already 10 or more weeks old when listed, DOB + 3 months will often be in the past or too close to meet.
   - **Recommendation (D6):** arrival = max(DOB + 3 months, today + 4 weeks), displayed as a month only, with "subject to import approval".
+  - *Superseded 2026-11-13: the owners chose an age-based estimate with no floor (puppies fly at about 3 months old; estimate = DOB + about 3 months, given as a date in the reservation confirmation). See the risks file, D6.*
 - **Irish-side law that helps data quality:**
   - Puppies may not be sold before 8 weeks.
   - Dogs must be microchipped and registered before sale *and before advertising*.

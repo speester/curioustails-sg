@@ -1,0 +1,38 @@
+{
+  "generatedAt": "2026-11-13T14:37:02.300Z",
+  "steps": [
+    {
+      "step": "fixture-published",
+      "id": "imp-43ca0ce8e2",
+      "breed": "jack-russell-terrier",
+      "photos": 3
+    },
+    {
+      "step": "local-page",
+      "path": "/puppies/bichon-frise/"
+    },
+    {
+      "step": "server",
+      "baseUrl": "http://127.0.0.1:40607"
+    },
+    {
+      "step": "ga4",
+      "pass": true,
+      "assertions": [],
+      "counts": {
+        "importedView": 1,
+        "importedWhatsapp": 1,
+        "importedPhone": 1,
+        "chips": 3,
+        "details": 1,
+        "localWhatsapp": 1
+      }
+    },
+    {
+      "step": "restored",
+      "feedPups": 0,
+      "assets": 0,
+      "fixturePageGone": true
+    }
+  ]
+}

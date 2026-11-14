@@ -188,11 +188,13 @@ listingDate = sourcePublishedAt ?? firstSeenAt
 dob = DOB if present
     else if age present → listingDate − age   (arrivalBasis 'age')
     else null                                (arrivalBasis 'listing-date')
-base = dob ? addMonths(dob, 3) : addMonths(listingDate, 3)       // owner rule
-floor = today + LEAD_WEEKS (default 4)                             // D6 — recommended; set 0 to disable
-arrival = max(base, floor)  → month precision "YYYY-MM"
+base = dob ? addMonths(dob, 3) : addMonths(listingDate, 3)       // owner rule: puppies fly at about 3 months old
+arrival = base  → month precision "YYYY-MM" for the website; the date itself goes in the reservation confirmation
 display: "Estimated arrival {Month YYYY} · subject to import approval"
 ```
+
+- **D6, decided 2026-11-13: age-based, no floor.** The earlier `floor = today + LEAD_WEEKS (default 4)` is withdrawn; there is no minimum lead time. Worked example: a puppy reserved at 8 weeks old arrives in about 4 weeks; at 6 weeks old, in about 6 weeks. The reservation confirmation gives the estimated date (DOB + about 3 months) and its month; the terms (redline B1) freeze that estimate at confirmation.
+- **Decided 2026-11-13 (owner):** when `base` is already in the past (the puppy is about 3 months old or older), the puppy "flies once its paperwork and flight are ready" and the confirmation gives our estimate (redline B1). No floor and no maximum-wait promise.
 
 - The arrival is **never** shown as a specific day. Words like "guaranteed" or "confirmed" are never used.
 - `arrivalBasis: 'listing-date'` (no DOB and no age) is allowed by the owner's rule, but it is **routed to review** by the age-verification gate. Without an age we can't confirm the puppy is under 16 weeks or will be at least 12 weeks at export.
@@ -202,16 +204,16 @@ display: "Estimated arrival {Month YYYY} · subject to import approval"
 
 1. **Card or detail CTA:** "Reserve on WhatsApp" opens a prefilled message with `ref` (CT-IE-…), breed, sex wanted and price. The message never includes the supplier. Tracked as `data-wa-source="import:<id>"`.
 2. **The owner checks the source record** and contacts the breeder to confirm that the puppy is still available, its microchip, vet status, export willingness, and **permission to use the photos** (template in the copy deck). **No deposit is taken until availability is confirmed (within 48 h).** This is the main safeguard against misrepresentation (R4).
-3. **Deposit 1 (50%)** by PayNow or bank transfer, as the shop does today. No new payment gateway is needed. A written reservation confirmation goes out: ref, price, estimated arrival month, the refund terms below, and the **5-day health promise, which starts on arrival**.
+3. **Deposit 1 (50%)** by PayNow or bank transfer, as the shop does today. No new payment gateway is needed. A written reservation confirmation goes out: ref, the breeder's name (owner decision Q6, 2026-11-13), microchip, price, estimated arrival date and month, the reservation terms, and the **5-day health promise (nursing plus vet fees at our appointed vet), which starts on arrival**.
 4. Curious Tails buys the puppy and starts the AVS import licence, the vet and DAFM health certificate, and the flight booking.
 5. **Balance (50%)** is due **before the puppy flies**, after the flight and health certificate are confirmed.
 6. Arrival, AVS clearance at Changi, then home delivery and setup plus the standard perks. **The 5-day promise starts on the day the puppy arrives home.**
 
-**Refund and force-majeure terms** (draft; **task T17: legal review before go-live**):
+**Refund and force-majeure terms** (draft; **task T17: legal review before go-live**). *Superseded 2026-11-13: the full terms are in `reports/imported-puppy-legal-redline-2026-11-11.md` (clauses A5, A6 and Part B), with the owners' T17 decisions applied. The bullets below are the 2026-11-08 base text, updated only where an owner decision changed a figure.*
 - **Import can't go ahead for reasons outside the buyer's control:** the breeder sells to someone else, the puppy fails its vet check, AVS refuses or delays the licence, an airline embargo, or a breed-rule change. **Full deposit refund within 7 business days**, or the buyer can choose to move the deposit to another puppy.
 - **Arrival slips more than 45 days past the estimated month:** the buyer may cancel for a full refund.
-- **Buyer cancels before Curious Tails has paid the breeder:** full refund less a S$___ admin fee (D8).
-- **Buyer cancels after the breeder is paid or the flight is booked:** the deposit is non-refundable except for costs that can be recovered. Legal to confirm this is fair under the CPFTA.
+- **Buyer cancels before Curious Tails has paid the breeder:** deposit refunded less a fixed S$250 administration fee (D8, closed 2026-11-13).
+- **Buyer cancels after the breeder is paid or the flight is booked:** refund of what was paid less actual, receipted, unrecoverable costs, capped at what the buyer paid, with anything later recovered passed back (owner decision 2026-11-13; redline A5.3).
 - **Balance unpaid 7 days after the flight is confirmed:** the reservation lapses. Deposit treatment as per the previous bullet.
 
 ## 6. Automation
@@ -409,7 +411,7 @@ Severity `reject` means the item is never shown and is logged only. Severity `re
 
 | Area | Requirement | Pipeline control |
 |---|---|---|
-| AVS import (Ireland = Category A) | 12 weeks or older at export; ISO microchip on all documents; AVS import licence plus dog licence; vaccinations, parasite treatment and an official DAFM-endorsed health certificate; manifest cargo into Changi; no quarantine if all conditions are met | G4 age window, G10 microchip, arrival floor (D6), copy "subject to import approval", owner SOP checklist (T20) |
+| AVS import (Ireland = Category A) | 12 weeks or older at export; ISO microchip on all documents; AVS import licence plus dog licence; vaccinations, parasite treatment and an official DAFM-endorsed health certificate; manifest cargo into Changi; no quarantine if all conditions are met | G4 age window, G10 microchip, age-based arrival estimate (D6), copy "subject to import approval", owner SOP checklist (T20) |
 | Prohibited breeds | Pit-bull types, Akita, Neapolitan Mastiff, Tosa, Dogo Argentino, Fila Brasileiro, Boerboel, Presa Canario, and crosses | G8 hard reject |
 | Specified breeds | GSD, Rottweiler, Doberman, Bull Terrier, mastiff types, and crosses: extra licence conditions | G9 review only |
 | HDB | One dog per flat, from the approved list of about 62 breeds | G11; card shows "HDB-approved breed" or "Private housing only" or nothing |

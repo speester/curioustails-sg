@@ -1,0 +1,513 @@
+---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Hero from '../../components/Hero.astro';
+import Tabs from '../../components/Tabs.astro';
+import DefBox from '../../components/DefBox.astro';
+import StatStrip from '../../components/StatStrip.astro';
+import ComparisonSplit from '../../components/ComparisonSplit.astro';
+import CaptionedBlock from '../../components/CaptionedBlock.astro';
+import ListingGrid from '../../components/ListingGrid.astro';
+import AvailablePuppies from '../../components/AvailablePuppies.astro';
+import OverseasPuppies from '../../components/OverseasPuppies.astro';
+import ImportedPuppies from '../../components/ImportedPuppies.astro';
+import StarterKitMarquee from '../../components/StarterKitMarquee.astro';
+import TestimonialWall from '../../components/TestimonialWall.astro';
+import BannerRibbon from '../../components/BannerRibbon.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Carousel from '../../components/Carousel.astro';
+import ReviewSlider from '../../components/ReviewSlider.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import ScatterFloat from '../../components/decor/ScatterFloat.astro';
+import CloudDivider from '../../components/decor/CloudDivider.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import { site, whatsappLink } from '../../data/site';
+import {
+  localBusinessSchema,
+  personSchema,
+  webPageSchema,
+  reviewSchema,
+  faqPageSchema,
+  itemListSchema,
+  definedTermSchema,
+  serviceSchema,
+} from '../../lib/schema';
+import starterKit from '../../assets/home/2-starter-kit-items-cavapoo-unboxing.webp';
+import imgHero from '../../assets/german-shepherd/1-german-shepherd-puppy-sitting-in-a-set-up-playpen-at-a.webp';
+import imgScene1 from '../../assets/german-shepherd/2-german-shepherd-puppy-portrait-one-of-the-shepherd-pupp.webp';
+import imgScene2 from '../../assets/german-shepherd/3-german-shepherd-puppy-learning-to-sit-during-an-early-t.webp';
+import imgScene3 from '../../assets/german-shepherd/4-german-shepherd-on-a-morning-walk-along-a-park-connecto.webp';
+import imgScene4 from '../../assets/german-shepherd/5-german-shepherd-having-its-double-coat-brushed-with-an.webp';
+import imgScene5 from '../../assets/german-shepherd/6-german-shepherd-puppy-at-a-veterinary-health-check-befo.webp';
+import imgScene6 from '../../assets/german-shepherd/7-german-shepherd-puppy-settling-into-a-set-up-playpen-du.webp';
+import ExpertQuote from '../../components/ExpertQuote.astro';
+import { testimonialsFor } from '../../data/reviews';
+
+const title = 'German Shepherd Puppy for Sale Singapore | Curious Tails';
+const description =
+  'German Shepherd puppies for sale in Singapore from $5,988 all-in. Not HDB-approved, and a Specified dog: leash and muzzle required in public.';
+
+const jumpLinks = [
+  { label: 'Puppies', href: '#available' },
+  { label: 'HDB Rules', href: '#hdb' },
+  { label: 'Muzzle Law', href: '#law' },
+  { label: 'Price', href: '#price' },
+  { label: 'Temperament', href: '#temperament' },
+  { label: 'Exercise', href: '#exercise' },
+  { label: 'Health', href: '#health' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Can I keep a German Shepherd in an HDB flat?',
+    answer:
+      'No. The German Shepherd is not on the HDB-approved breed list, and as a large working dog no licensing route changes that. Condos and landed homes may keep up to three dogs, subject to the estate\'s own rules, which is where the Shepherd belongs in Singapore. HDB readers: our HDB-approved breeds guide maps the genuine alternatives.',
+  },
+  {
+    question: 'Do German Shepherds have to be muzzled in public in Singapore?',
+    answer:
+      'Yes. The German Shepherd is a Specified dog under the Animals and Birds (Licensing and Control of Cats and Dogs) Rules, so by law it must be leashed and securely muzzled in every public place, alongside being microchipped and licensed. This is not optional and not a reflection on your individual dog; it is the condition of ownership here, and we make sure you understand it before you commit, not after.',
+  },
+  {
+    question: 'How much does a German Shepherd cost in Singapore?',
+    answer:
+      'German Shepherd prices in Singapore commonly run $2,500 to $6,000, with imported working and show lines at the top. At Curious Tails, German Shepherd puppies are $5,988 to $6,500, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer, which matters more for this breed than almost any other.',
+  },
+  {
+    question: 'Are German Shepherds good family dogs?',
+    answer:
+      'Exceptionally, in the right home. Raised and trained well, the Shepherd is loyal, intelligent and deeply bonded to its family, wonderful with children it grows up alongside. The honest condition is the work: this is a working breed that needs daily exercise, early socialisation and consistent training. Give it a job and it is a devoted family guardian; leave it bored and under-exercised and its intelligence turns to trouble.',
+  },
+  {
+    question: 'How much exercise does a German Shepherd need in our heat?',
+    answer:
+      'A genuine hour or more a day, split across the cool hours: a real walk before 9am and another after 6pm, never hard exertion at midday. Beyond the walk this breed needs mental work, obedience, scent games, training drills, because a tired Shepherd body with a bored Shepherd brain still finds mischief. Shade and water on every outing are non-negotiable in Singapore.',
+  },
+  {
+    question: 'Do German Shepherds shed a lot?',
+    answer:
+      'Yes, famously; the nickname "German shedder" is earned. The double coat sheds year-round and blows heavily twice a year. Brush 3 to 4 times a week, daily during the blows, and never shave the coat, as it insulates against heat as well as cold. Budget for the hair before it lands on your sofa.',
+  },
+  {
+    question: 'Do I need insurance to own a German Shepherd in Singapore?',
+    answer:
+      'Yes. Because the German Shepherd is a Specified dog, the AVS rules require more than the leash and muzzle: the dog must be microchipped and licensed, and the owner must hold third-party liability insurance covering the dog. It is a straightforward, inexpensive policy, but it is a legal condition of ownership, not an optional extra. We walk you through exactly what is needed and point you to the current AVS requirements so nothing is missed.',
+  },
+  {
+    question: 'Is a blue German Shepherd worth more?',
+    answer:
+      'No. The standard German Shepherd is black-and-tan, sable, or solid black. "Blue", "panda", "isabella" and similar are non-standard colours some sellers price at a premium as if they were rare or special; they are not a different, rarer or healthier breed. We would rather match you to a soundly bred, well-tempered puppy than a colour label.',
+  },
+  {
+    question: 'What happens after I reserve a German Shepherd?',
+    answer:
+      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items, plus the leash-and-muzzle basics, before we leave.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/puppies/german-shepherd/',
+    title,
+    description,
+    aboutName: 'German Shepherd',
+    aboutAlternateName: 'Alsatian',
+    aboutSameAs: 'https://en.wikipedia.org/wiki/German_Shepherd',
+    datePublished: '2026-07-09',
+    dateModified: lastUpdated,
+  }),
+  itemListSchema([
+    {
+      name: 'German Shepherd puppy',
+      url: '/puppies/german-shepherd/',
+      description:
+        'German Shepherd puppy from an AVS licensed Singapore pet shop, priced $5,988 to $6,500 with a $500+ starter kit, free home delivery and setup, and a free AVS-certified training lesson included.',
+      price: '5988',
+      image: imgHero.src,
+    },
+  ]),
+  serviceSchema({
+    name: 'German Shepherd Home Delivery & Playpen Setup',
+    description: "Free island-wide home delivery with playpen, bed, and toy setup for every German Shepherd puppy, scheduled around the owner's availability.",
+    price: 'Included',
+  }),
+  reviewSchema({
+    author: 'Andrew Mak',
+    reviewBody:
+      "Couldn't recommend Curious Tails in Balestier enough after bringing home our Cavapoo. Nelson and Kim gave us a clear care routine to follow, and clearly loves what they do. We loved the aftercare support; you can tell they truly care about the pups and the owners. Will absolutely return and recommend without hesitation.",
+    ratingValue: 5,
+    datePublished: '2026-06-09',
+  }),
+  faqPageSchema(faqItems),
+  definedTermSchema({
+    name: 'German Shepherd',
+    description:
+      'The German Shepherd, or Alsatian, is a large working dog of roughly 22 to 40 kg, prized for intelligence, loyalty and trainability. In Singapore it is a Specified dog that must be leashed and muzzled in public, and it is not on the HDB-approved list, so it suits private housing. Lifespan is about 9 to 13 years.',
+    sameAs: 'https://en.wikipedia.org/wiki/German_Shepherd',
+  }),
+];
+---
+
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies/german-shepherd">
+  <Hero
+    eyebrow="German Shepherd, sold under an AVS licence"
+    h1="German Shepherd Puppies for Sale in Singapore"
+    h1Accent="German Shepherd"
+    subhead="Two honest parts first: Shepherds are not HDB-approved, and they are a Specified dog that must be leashed and muzzled in public by law. If that's understood, read on - Shepherd prices here run $2,500 to $6,000; ours are $5,988 to $6,500, with the $500+ starter kit, free delivery and setup, and a free first training lesson included."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! I'd like to ask about your available German Shepherd puppies."
+    secondaryCtaLabel="See price & what's included"
+    secondaryCtaHref="#price"
+    priceAnchor="From $5,988 all-in. Private housing only. Specified-dog rules explained, not glossed over."
+    rating={site.reviews.rating}
+    reviewCount={site.reviews.count}
+    trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'Private-housing working breed']}
+    imageAlt="German Shepherd puppy sitting in a set-up playpen at a Singapore condo" imageSrc={imgHero}
+    tagLabel="German Shepherd"
+    proofChip="4.9 on Google"
+  >
+    <Breadcrumb slot="breadcrumb" bare items={[{ label: 'Puppies', href: '/puppies/' }, { label: 'German Shepherd', href: '/puppies/german-shepherd/' }]} />
+  </Hero>
+
+  <Tabs items={jumpLinks} />
+
+  <div id="available" class="scroll-mt-40">
+    <TestimonialWall />
+    <AvailablePuppies breed="german-shepherd" breedName="German Shepherd" only="available" />
+    <ImportedPuppies breed="german-shepherd" breedName="German Shepherd" />
+    <OverseasPuppies breed="german-shepherd" breedName="German Shepherd" />
+    <AvailablePuppies breed="german-shepherd" breedName="German Shepherd" only="placed" />
+    <StarterKitMarquee />
+
+    <CaptionedBlock heading="Looking to Buy a German Shepherd in Singapore?" imageAlt="German Shepherd puppy portrait, one of the Shepherd puppies available in Singapore" imageSrc={imgScene1} variant="mid">
+      <p>Our German Shepherd puppies in Singapore are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, coat pattern, and a short walkthrough video for the Shepherd puppies available now.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every German Shepherd for sale in Singapore here is between $5,988 and $6,500, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>
+        <a href={whatsappLink("Hi! Could you send me photos and prices of your available German Shepherd puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Shepherd photos and prices</a>, or meet our German Shepherd puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
+      </p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="hdb" class="relative scroll-mt-40">
+    <ScatterFloat />
+    <DefBox
+      term="Can you keep a German Shepherd in an HDB flat? No"
+      definition="The German Shepherd is not on the HDB-approved breed list, at any weight or age, and no licensing route changes that. HDB flats may keep one dog of an approved small breed; condos and landed homes may keep up to three dogs, subject to the estate's own rules, which is where the Shepherd belongs in Singapore."
+      bridge="We tell you this before you fall for the photos. If you're in an HDB flat, our HDB-approved breeds guide maps the genuine alternatives that fit both the rules and flat living. Private housing readers: carry on - but read the next section carefully, because the Shepherd carries one more legal condition most listings never mention."
+      citationLabel="Read HDB's guidelines on keeping pets"
+      citationHref="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The housing rules, straight</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'HDB flat: Shepherd not approved, no exceptions we can promise',
+            'Condo / landed: up to three dogs (AVS limits of ownership)',
+            'HDB readers: see the approved alternatives guide below',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/limits-of-ownership/" class="underline underline-offset-2">AVS limits of ownership</a> · Full list: HDB-approved breeds guide
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="law" class="relative scroll-mt-40">
+    <PawTrail />
+    <DefBox
+      term="The German Shepherd is a Specified dog: leash and muzzle in public"
+      definition="Under the Animals and Birds (Licensing and Control of Cats and Dogs) Rules, the German Shepherd is a Specified dog. By law it must be leashed and securely fitted with a muzzle sufficient to prevent biting whenever it is in a public place, in addition to being microchipped and licensed. This applies to every Shepherd, however gentle, and the responsibility is the owner's."
+      bridge="We say this plainly because it changes daily life with the dog, and no honest page should bury it. It is not a judgement on your puppy; it is the condition of owning this breed in Singapore, and a well-socialised Shepherd wears a basket muzzle happily once introduced early and kindly. We cover muzzle-conditioning in the free first training lesson, so your puppy grows up treating it as normal, not a punishment."
+      citationLabel="Read the AVS rules on Specified dogs"
+      citationHref="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/specified-dogs/"
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-coral-500)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/70" style="letter-spacing: 0.08em;">What the law requires</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Leashed in every public place, always',
+            'Securely muzzled in public (a comfy basket muzzle counts)',
+            'Microchipped and licensed as a Specified dog',
+            'Condition it early - the free first lesson helps',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/90">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-white" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/70">
+          Source: <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/specified-dogs/" class="underline underline-offset-2">AVS · Specified dogs</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" />
+  <StatStrip
+    heading="Why Singapore families get their German Shepherd from Curious Tails"
+    stats={[
+      { value: String(site.reviews.count), label: 'five-star Google reviews' },
+      { value: '$5,988', label: 'Shepherd pricing starts here, all-in' },
+      { value: '$500+', label: 'starter kit included free' },
+      { value: '2+', label: 'years in Balestier' },
+    ]}
+  />
+  <CloudDivider fillClass="fill-[var(--color-lilac-900)]" flip />
+
+  <div id="temperament" class="scroll-mt-40">
+    <CaptionedBlock heading="German Shepherd Temperament: Brilliant, Loyal, and a Full-Time Job" imageAlt="German Shepherd puppy learning to sit during an early training session" imageSrc={imgScene2} imagePosition="left">
+      <p>There is a reason the Shepherd is the world's police, search, and service dog of choice: it is one of the most intelligent, trainable and loyal breeds alive. Bonded to its family, watchful without being aggressive when properly raised, and happiest with a job to do, a well-brought-up Shepherd is a magnificent companion and a natural guardian of the home.</p>
+      <p>The honest footnotes, from two years of matching families to dogs. First, that intelligence is a responsibility: a Shepherd left bored and under-stimulated will invent its own work, and you will not enjoy the result. Second, early socialisation is not optional for this breed - a Shepherd that meets the world confidently as a puppy becomes a stable adult, and one that doesn't can become wary. Third, this is a dog for people who genuinely want to train and engage daily, not for a household that wants a dog to admire from the sofa.</p>
+      <p>Get those three right and you have the breed the whole world trusts. Skip them and you have a very large, very clever animal with time on its hands.</p>
+    </CaptionedBlock>
+
+    <CaptionedBlock heading="Can a German Shepherd Be Left Alone During Work Hours?" imagePosition="none" variant="card">
+      <p>Moderately, once mature and properly exercised, but this is a social, work-oriented breed that does not thrive on long daily isolation. A Shepherd that gets its morning exercise and mental work, and rejoins the family each evening, settles well; one left alone and unstimulated most of the week is a recipe for anxiety and destruction.</p>
+      <p>The room needs the tropical basics - ventilation, shade, water - and a safe chew or puzzle toy for the day. The exercise and training contract below is what really decides whether this breed fits your life.</p>
+      <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Good fit if</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Private housing and an active, hands-on owner',
+            'You want to train and engage the dog daily',
+            'You accept the leash-and-muzzle-in-public rule',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CaptionedBlock>
+  </div>
+
+  <div id="exercise" class="scroll-mt-40">
+    <CaptionedBlock heading="Exercise and Training: Body and Brain, Every Day" imageAlt="German Shepherd on a morning walk along a park connector" imageSrc={imgScene3} imagePosition="left">
+      <p>Here's the section that decides everything. The Shepherd needs a genuine hour or more of daily exercise, and in Singapore that hour has rules: a proper walk before 9am, another after 6pm, and never hard exertion in the midday heat. But the walk is only half the job. This breed needs mental work - obedience drills, scent games, trick training, a puzzle feeder - because a Shepherd's brain tires slower than its legs, and a bored genius finds trouble.</p>
+      <p>This is why the free first training lesson matters more for the Shepherd than for almost any breed we carry. Manners, recall, loose-leash walking and calm muzzle-wearing installed in puppyhood are the difference between a dog that is a joy in public and one that is a handful. Book it in week one; a trained Shepherd is one of the great dogs of the world.</p>
+    </CaptionedBlock>
+  </div>
+
+  <div id="size" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="German Shepherd Size, Coat and Lifespan"
+      headingAccent="Size"
+      subhead="Honest numbers for a genuinely large working dog."
+      mode="table"
+      tableHeaders={['Trait', 'What to expect']}
+      rows={[
+        { label: 'Adult weight', values: ['Roughly 22 to 40 kg; females lighter, males larger'] },
+        { label: 'Height', values: ['Around 55 to 65 cm at the shoulder'] },
+        { label: 'Coat', values: ['Dense double coat; black and tan, sable, or solid black'] },
+        { label: 'Lifespan', values: ['9 to 13 years with good weight and joint care'] },
+        { label: 'Exercise', values: ['60+ minutes daily in the cool hours, plus daily mental work, for life'] },
+        { label: 'Public rule', values: ['Specified dog: leashed and muzzled in every public place, by law'] },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        On condo space, the honest answer: floor area matters less than the exercise-and-training contract. A properly worked Shepherd is calm indoors; an under-stimulated one is destructive anywhere. Judge your routine, not your floor plan.
+      </p>
+    </div>
+  </div>
+
+  <div id="price" class="scroll-mt-40">
+    <ComparisonSplit
+      heading="German Shepherd Price in Singapore: What You’ll Pay and What’s Included"
+      headingAccent="Price"
+      subhead="The market runs $2,500 to $6,000, usually on enquiry. Here's ours in writing: $5,988 to $6,500, all-in."
+      mode="split"
+      columns={[
+        {
+          heading: 'Typical Singapore market',
+          items: [
+            'Shepherd price commonly $2,500 to $6,000',
+            'Imported working and show lines quoted higher',
+            'Inclusions rarely spelt out',
+            'Starter supplies, training and delivery charged separately',
+          ],
+        },
+        {
+          heading: 'Curious Tails',
+          items: [
+            '$5,988 to $6,500, printed right here',
+            '$500+ starter kit with 30+ items included',
+            'Free home delivery with the playpen set up before you arrive',
+            'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
+          ],
+          emphasis: true,
+        },
+      ]}
+    />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on our transparent puppy pricing page, and plan the ongoing costs, which for a large breed deserve real budgeting, with the first-year puppy budget guide.
+      </p>
+    </div>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <CaptionedBlock heading="The $500+ Starter Kit Every Shepherd Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every German Shepherd leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the leash, the undercoat rake and the training treats are the working tools, and on delivery day we talk through large-breed feeding: controlled growth in the first year protects those hips for life.</p>
+    <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Shepherd's daily care, including a first look at leash and muzzle habits. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
+    <p>See the full 30+ item kit breakdown, category by category.</p>
+  </CaptionedBlock>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <div id="match" class="relative">
+    <ScatterFloat />
+    <ComparisonSplit
+      heading="Is a German Shepherd Right for Your Lifestyle?"
+      subhead="We ask about your housing, your commitment to training, and the muzzle rule before your heart gets a vote. Here's the honest short version."
+      mode="table"
+      tableHeaders={['Your situation', 'Our honest take']}
+      rows={[
+        { label: 'Private housing, active owner who wants to train', values: ['Ideal. This is the breed the whole world trusts, in the right hands'] },
+        { label: 'First-time owner, willing to learn and commit', values: ['Workable with our free training and honest guidance; go in eyes open'] },
+        { label: 'HDB flat', values: ['Not eligible, full stop. See the HDB-approved breeds guide for alternatives'] },
+        { label: 'Uncomfortable with the leash-and-muzzle rule', values: ['Reconsider honestly. It is the law here and part of daily life'] },
+        { label: 'Sedentary household, no time to train', values: ['Reconsider. A bored, untrained Shepherd is a large, clever problem'] },
+      ]}
+    />
+  </div>
+
+  <BannerRibbon
+    heading="Not sure the Shepherd is your match?"
+    body="We'd rather talk you out of the wrong breed than sell you the wrong dog. Message us your housing type, routine and training plans and we'll tell you straight."
+    ctaLabel="WhatsApp us"
+    ctaMessage="Hi! Here's my housing type and daily routine. Is a German Shepherd the right fit for us?"
+    variant="dark"
+  />
+
+  <div id="grooming" class="scroll-mt-40">
+    <CaptionedBlock heading="Grooming: The Double Coat in the Tropics" imageAlt="German Shepherd having its double coat brushed with an undercoat rake" imageSrc={imgScene4} imagePosition="left">
+      <p>The Shepherd's double coat is a year-round commitment, and the breed's "German shedder" nickname is honestly earned. Brush 3 to 4 times a week with a proper undercoat rake, daily during the twice-yearly coat blows, and accept that the hair becomes a household fact of life. Baths every four to six weeks, with thorough drying, because a damp undercoat in tropical humidity is how hot spots start.</p>
+      <p>And the rule we repeat on every double-coated page: never shave a Shepherd. The coat insulates against heat as well as cold, protects the skin from sun, and shaving wrecks how it grows back. Brush it, don't shave it.</p>
+    </CaptionedBlock>
+  </div>
+
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
+  <div id="health" class="scroll-mt-40">
+    <CaptionedBlock heading="German Shepherd Health: What We Check and What to Watch" imageAlt="German Shepherd puppy at a veterinary health check before going home" imageSrc={imgScene5} variant="mid">
+      <p>Every Shepherd goes home vet-checked, vaccinated, dewormed, and microchipped. The breed's health conversation centres on the joints: hip and elbow dysplasia are the well-known large-breed risks, so puppyhood is joint-protective by design - controlled growth feeding, no stair marathons, no forced running before maturity, and a lean weight for life. The other watch-point is the back end in older age; keeping your Shepherd lean and well-muscled through daily exercise is the single best protection there is.</p>
+      <p>Feeding is simple but breed-specific: your puppy comes with the large-breed food it is already eating, portioned for controlled growth, and any change should be gradual over a week. See the puppy health checks explained guide.</p>
+    </CaptionedBlock>
+  </div>
+  <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
+
+  <CaptionedBlock heading="Your German Shepherd’s First Week at Home" imageAlt="German Shepherd puppy settling into a set-up playpen during its first week home" imageSrc={imgScene6} imagePosition="left">
+    <p>Day 0: we deliver, free, at a time that suits you. The playpen, bed, water, and toys are set up before your Shepherd explores the room, and we walk you through all 30+ starter-kit items in person, including the large-breed feeding plan and a gentle first introduction to the leash and muzzle. Learn more about how our free home delivery and setup works.</p>
+    <p>Days 1 to 3: keep it calm and joint-safe. A fixed feeding routine with measured portions, the toilet pads where we placed them, and play that stays on the floor, no leaping, no stairs, while those big-breed joints are growing.</p>
+    <p>Days 4 to 7: the routine sticks, and for this breed it is the most important week you'll spend. Book your free first lesson with an AVS-certified trainer now: early socialisation, basic obedience and calm muzzle-wearing installed at eight kilos are a gift at thirty-five. See what the free AVS-certified training lesson covers.</p>
+  </CaptionedBlock>
+
+  <div id="reviews" class="scroll-mt-40">
+    <ReviewSlider slug="puppies/german-shepherd" />
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pb-10">
+      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        Read more about Nelson and Kim and how the shop runs, or see all reviews on Google.
+      </p>
+    </div>
+  </div>
+
+  <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
+    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale. For a Specified breed, that first lesson is worth its weight in gold.</p>
+    <p>And the safety net we're asked about most: if your Shepherd falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
+    <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
+      <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
+      <ul class="mt-4 space-y-3">
+        {[
+          'Free first lesson, AVS-Accredited Certified Dog Trainer',
+          'Free boarding after deposit, until you\'re ready',
+          '5-day sick-return guarantee',
+        ].map((fact) => (
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-coral-500)]" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </CaptionedBlock>
+
+  <div id="trust" class="scroll-mt-40">
+    <DefBox
+      term="Buying safely: verify any pet shop's AVS licence first"
+      definition="Before any deposit on a German Shepherd, search the seller on the AVS public registry of licensed pet shops. A seller who is not on it is not licensed, whatever the listing claims."
+      bridge="Curious Tails holds AVS pet shop licence AS24J00046. Check us first; an honest shop never minds."
+      citationLabel="Search the AVS public registry"
+      citationHref={site.license.registryUrl}
+    >
+      <div slot="side" class="clay h-full bg-[var(--color-lilac-900)] p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">Before you pay anyone</p>
+        <ul class="mt-4 space-y-3">
+          {[
+            'Search the seller on the AVS public registry',
+            'Ask for the licence number; check it matches',
+          ].map((fact) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mt-0.5 shrink-0 text-[var(--color-mint-300)]" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Full walkthrough: step-by-step licence verification guide · <a href="https://spca.org.sg/campaigns/animal-smuggling/" class="underline underline-offset-2">SPCA on animal smuggling</a>
+        </p>
+      </div>
+    </DefBox>
+  </div>
+
+  <div id="faq" class="scroll-mt-40">
+
+  <ExpertQuote id="amylee-10" />
+    <FAQ heading="German Shepherd FAQs" items={faqItems} />
+  </div>
+
+  <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still comparing? See <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the main Curious Tails page</a>, <a href="/puppies/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">more breeds to compare</a>, or <a href="/puppies/border-collie/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Border Collie puppies</a>.</p>
+  </section>
+
+  <aside data-supplementary aria-label="More from Curious Tails" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
+    <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">More from Curious Tails</p>
+    <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
+      <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
+      <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
+      <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
+      <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>
+      <li><a href="/about-us/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">About Nelson and Kim</a></li>
+      <li><a href="/learn/verify-license/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Verify a pet shop licence</a></li>
+    </ul>
+  </aside>
+  <FinalCta breed="German Shepherd" reserveMessage="Hi! I'd like to reserve a German Shepherd puppy." />
+
+  <Schema {schemas} />
+</BaseLayout>

@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Channel Join Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Baloo+2:wght@500;700&family=Bricolage+Grotesque:wght@500;700&family=Chewy&family=Figtree:wght@400;600;700&family=Fraunces:wght@600;700&family=Fredoka:wght@500;700&family=Grandstander:wght@600;700&family=Hanken+Grotesk:wght@400;600;700&family=Jost:wght@400;600;700&family=Karla:wght@400;600;700&family=Lilita+One&family=Mulish:wght@400;600;700&family=Nunito:wght@400;600;700&family=Outfit:wght@400;600;700&family=Quicksand:wght@500;700&family=Rowdies:wght@400;700&family=Rubik:wght@400;600;700&family=Shippori+Mincho+B1:wght@700&family=Sora:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;700&family=Zilla+Slab:wght@600;700&display=swap">
+<link rel="stylesheet" href="modules.css">
+<style>
+  :root {
+    --g-bg: #f4f3f0; --g-panel: #ffffff; --g-ink: #1c1b1f; --g-soft: #63605c; --g-line: #e2dfda; --g-hi: #1c1b1f; --g-ok: #0e7a43;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --g-bg: #17161a; --g-panel: #212025; --g-ink: #f1efea; --g-soft: #a9a59e; --g-line: #34323a; --g-hi: #f1efea; --g-ok: #4cc785; color-scheme: dark; }
+  }
+  :root[data-theme="dark"] { --g-bg: #17161a; --g-panel: #212025; --g-ink: #f1efea; --g-soft: #a9a59e; --g-line: #34323a; --g-hi: #f1efea; --g-ok: #4cc785; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--g-bg); color: var(--g-ink); font: 15px/1.5 Archivo, system-ui, sans-serif; overflow-x: hidden; }
+  header.g-head { max-width: 1180px; margin: 0 auto; padding: 40px 16px 8px; }
+  .g-head h1 { font: 700 clamp(28px, 5vw, 44px)/1.05 "Bricolage Grotesque", system-ui, sans-serif; margin: 6px 0 10px; letter-spacing: -.02em; }
+  .g-head p { margin: 0; color: var(--g-soft); max-width: 70ch; }
+  .g-tag { font: 600 12px/1 Archivo, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--g-soft); }
+  .g-facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .g-facts span { font-size: 12.5px; padding: 6px 10px; border: 1px solid var(--g-line); border-radius: 999px; background: var(--g-panel); }
+
+  .g-bar { position: sticky; top: 0; z-index: 100; background: color-mix(in oklab, var(--g-bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--g-line); }
+  .g-bar-in { max-width: 1180px; margin: 0 auto; padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+  .g-ctl { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--g-soft); }
+  .g-ctl select, .g-seg button { font: 600 13.5px/1 Archivo, sans-serif; color: var(--g-ink); background: var(--g-panel); border: 1px solid var(--g-line); border-radius: 10px; min-height: 38px; padding: 0 10px; }
+  .g-seg { display: inline-flex; border: 1px solid var(--g-line); border-radius: 10px; overflow: hidden; }
+  .g-seg button { border: 0; border-radius: 0; cursor: pointer; }
+  .g-seg button + button { border-left: 1px solid var(--g-line); }
+  .g-seg button[aria-pressed="true"] { background: var(--g-hi); color: var(--g-bg); }
+  .g-pick { margin-left: auto; font-size: 13.5px; display: flex; align-items: center; gap: 8px; }
+  .g-pick b { font-weight: 700; }
+  .g-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--g-line); }
+  .g-pick.is-set .g-dot { background: var(--g-ok); }
+
+  main { max-width: 1180px; margin: 0 auto; padding: 18px 16px 120px; display: grid; gap: 28px; }
+  .g-card { background: var(--g-panel); border: 1px solid var(--g-line); border-radius: 22px; overflow: hidden; }
+  .g-card.is-picked { outline: 3px solid var(--g-ok); outline-offset: 3px; }
+  .g-meta { display: grid; grid-template-columns: auto 1fr auto; gap: 6px 16px; align-items: start; padding: 18px 20px 14px; border-bottom: 1px solid var(--g-line); }
+  .g-num { font: 700 30px/1 "Bricolage Grotesque", sans-serif; color: var(--g-soft); }
+  .g-meta h2 { margin: 0; font: 700 20px/1.2 "Bricolage Grotesque", sans-serif; }
+  .g-meta p { margin: 4px 0 0; color: var(--g-soft); font-size: 14px; max-width: 72ch; }
+  .g-meta dl { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 8px 0 0; font-size: 12.5px; }
+  .g-meta dt { color: var(--g-soft); display: inline; }
+  .g-meta dd { margin: 0 0 0 4px; display: inline; }
+  .g-sel { font: 700 14px/1 Archivo, sans-serif; cursor: pointer; min-height: 44px; padding: 0 18px; border-radius: 12px; border: 2px solid var(--g-hi); background: transparent; color: var(--g-ink); white-space: nowrap; }
+  .g-sel[aria-pressed="true"] { background: var(--g-ok); border-color: var(--g-ok); color: #fff; }
+
+  .g-stagewrap { padding: 22px 16px; background: repeating-linear-gradient(45deg, transparent 0 10px, color-mix(in oklab, var(--g-line) 35%, transparent) 10px 11px); }
+  /* The stage is the "site": it carries that site's paper colour and tokens.
+     transform makes it the containing block for the fixed-position dock. */
+  .g-stage { margin: 0 auto; width: 100%; max-width: 100%; background: var(--cj-paper); border-radius: 16px; padding: 24px clamp(14px, 3vw, 32px); transform: translateZ(0); transition: max-width .4s cubic-bezier(.22,1,.36,1); box-shadow: 0 1px 0 var(--g-line); }
+  [data-width="tablet"] .g-stage { max-width: 768px; }
+  [data-width="phone"] .g-stage { max-width: 390px; }
+  .g-stage.is-dock { min-height: 300px; }
+  .g-fake { display: grid; gap: 10px; }
+  .g-fake i { display: block; height: 10px; border-radius: 5px; background: color-mix(in oklab, var(--cj-ink) 10%, transparent); }
+  .g-fake i:nth-child(2) { width: 82%; } .g-fake i:nth-child(3) { width: 64%; }
+  .g-reset { font: 600 12.5px/1 Archivo, sans-serif; margin-top: 10px; background: none; border: 0; color: var(--g-soft); text-decoration: underline; cursor: pointer; padding: 8px 0; }
+
+  .g-panel { max-width: 1180px; margin: 0 auto; padding: 0 16px; }
+  .g-out { background: var(--g-panel); border: 1px solid var(--g-line); border-radius: 22px; padding: 20px; display: grid; gap: 12px; }
+  .g-out h2 { margin: 0; font: 700 20px/1.2 "Bricolage Grotesque", sans-serif; }
+  .g-out textarea { width: 100%; min-height: 70px; font: 14px/1.5 Archivo, sans-serif; color: var(--g-ink); background: var(--g-bg); border: 1px solid var(--g-line); border-radius: 12px; padding: 10px 12px; }
+  .g-out .g-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .g-btn { font: 700 14px/1 Archivo, sans-serif; cursor: pointer; min-height: 44px; padding: 0 18px; border-radius: 12px; border: 0; background: var(--g-hi); color: var(--g-bg); }
+  .g-btn.ghost { background: transparent; color: var(--g-ink); border: 2px solid var(--g-line); }
+  .g-status { font-size: 13.5px; color: var(--g-soft); }
+  .g-status.ok { color: var(--g-ok); font-weight: 600; }
+  code { font: 12.5px/1.4 ui-monospace, Consolas, monospace; background: var(--g-bg); padding: 2px 6px; border-radius: 6px; }
+  @media (max-width: 640px) {
+    .g-meta { grid-template-columns: auto 1fr; }
+    .g-sel { grid-column: 1 / -1; width: 100%; }
+    .g-pick { margin-left: 0; width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M21.94 4.3 18.9 18.63c-.23 1.01-.83 1.26-1.68.78l-4.64-3.42-2.24 2.16c-.25.25-.46.46-.94.46l.33-4.74 8.63-7.8c.38-.33-.08-.52-.58-.19L7.11 12.6 2.52 11.17c-1-.31-1.02-1 .21-1.48L20.66 2.8c.83-.31 1.56.19 1.28 1.5z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.2-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.27-.2-.57-.34zM12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.22-3.74.99 1-3.65-.24-.38a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.88-9.88 9.88zm8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.49-8.41z"/></symbol>
+  <symbol id="i-paw" viewBox="0 0 24 24"><g fill="currentColor"><ellipse cx="12" cy="16.2" rx="5" ry="4.3"/><circle cx="5.3" cy="10.3" r="2.2"/><circle cx="9.4" cy="5.9" r="2.3"/><circle cx="14.6" cy="5.9" r="2.3"/><circle cx="18.7" cy="10.3" r="2.2"/></g></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+</svg>
+
+<header class="g-head">
+  <div class="g-tag">K-003 · Channel join buttons · design lab</div>
+  <h1>Ten ways to ask a visitor to join the channels</h1>
+  <p>Each module links to the same two channels: <code>t.me/puppysingapore</code> and the Puppy Singapore WhatsApp channel. Switch the site to see each design in that site's own colours and fonts, switch the width to see it on a phone, then press <b>Select this design</b>. Your pick is saved and becomes the version rolled out to Curious Tails, Puppy Singapore and the 11 breed .sg sites.</p>
+  <div class="g-facts" aria-label="Checked facts behind the copy">
+    <span>Telegram "Puppy Singapore": 4.45K subscribers (checked 11 Nov 2026)</span>
+    <span>WhatsApp channel: 1.2K followers (checked 11 Nov 2026)</span>
+    <span>Each post lists breed, price, gender, age and puppy ID</span>
+    <span>20 posts between 18 Oct and 11 Nov 2026, so the copy does not say "daily"</span>
+  </div>
+</header>
+
+<div class="g-bar" role="region" aria-label="Lab controls">
+  <div class="g-bar-in">
+    <label class="g-ctl">Site
+      <select id="g-site"></select>
+    </label>
+    <div class="g-ctl">Width
+      <div class="g-seg" id="g-width">
+        <button type="button" data-v="full" aria-pressed="true">Desktop</button>
+        <button type="button" data-v="tablet" aria-pressed="false">Tablet</button>
+        <button type="button" data-v="phone" aria-pressed="false">Phone</button>
+      </div>
+    </div>
+    <div class="g-ctl">Motion
+      <div class="g-seg" id="g-motion">
+        <button type="button" data-v="on" aria-pressed="true">On</button>
+        <button type="button" data-v="off" aria-pressed="false">Reduced</button>
+      </div>
+    </div>
+    <div class="g-pick" id="g-pick" aria-live="polite"><span class="g-dot"></span><span>No design selected yet</span></div>
+  </div>
+</div>
+
+<main id="g-main" data-width="full">
+
+  <!-- 01 -->
+  <section class="g-card" data-design="01" data-name="Twin Pills">
+    <div class="g-meta">
+      <div class="g-num">01</div>
+      <div><h2>Twin Pills</h2>
+        <p>Two rounded brand-coloured pills. A light sheen sweeps across on hover and the icon tips forward. The quietest option; it sits anywhere without competing with the page.</p>
+        <dl><div><dt>Best placement</dt><dd>End of article, under puppy listings</dd></div><div><dt>Motion</dt><dd>Hover only: lift, sheen, icon tilt</dd></div><div><dt>Weight</dt><dd>Light</dd></div></dl></div>
+      <button class="g-sel" type="button" aria-pressed="false">Select this design</button>
+    </div>
+    <div class="g-stagewrap"><div class="g-stage">
+      <div class="cj"><div class="cj-01">
+        <div><div class="cj-kicker">Puppy Singapore channels</div>
+        <h3 class="cj-title">See new puppies when they're posted</h3>
+        <p class="cj-sub">Every post lists the breed, price, gender, age and puppy ID. Free to join, and you can leave any time.</p></div>
+        <div class="cj-row">
+          <a class="cj-pill tg" href="https://t.me/puppysingapore" target="_blank" rel="noopener"><span class="cj-ico"><svg><use href="#i-tg"/></svg></span><span>Join on Telegram<small>t.me/puppysingapore</small></span></a>
+          <a class="cj-pill wa" href="https://www.whatsapp.com/channel/0029VaDo1HT9WtCCFm6zUn3b" target="_blank" rel="noopener"><span class="cj-ico"><svg><use href="#i-wa"/></svg></span><span>Follow on WhatsApp<small>WhatsApp channel</small></span></a>
+        </div>
+      </div></div>
+    </div></div>
+  </section>
+
+  <!-- 02 -->
+  <section class="g-card" data-design="02" data-name="Paper Plane &amp; Bubble">
+    <div class="g-meta">
+      <div class="g-num">02</div>
+      <div><h2>Paper Plane &amp; Bubble</h2>
+        <p>Each icon acts out its app. The Telegram plane drifts at rest and loops out of its tile on hover; WhatsApp shows a typing bubble. Outline cards keep the colour inside the icon tiles.</p>
+        <dl><div><dt>Best placement</dt><dd>Sidebar, contact page, after FAQ</dd></div><div><dt>Motion</dt><dd>Idle plane drift; hover fly-out and typing dots</dd></div><div><dt>Weight</dt><dd>Light to medium</dd></div></dl></div>
+      <button class="g-sel" type="button" aria-pressed="false">Select this design</button>
+    </div>
+    <div class="g-stagewrap"><div class="g-stage">
+      <div class="cj"><div class="cj-02">
+        <div><div class="cj-kicker">Get puppy updates</div>
+        <h3 class="cj-title">Pick the app you already use</h3>
+        <p class="cj-sub">Same posts on both: breed, price, gender, age and puppy ID.</p></div>
+        <div class="cj-row">
+          <a class="cj-btn tg" href="https://t.me/puppysingapore" target="_blank" rel="noopener"><span class="cj-stage"><svg><use href="#i-tg"/></svg></span><span>Telegram channel<small>Join @puppysingapore</small></span></a>
+          <a class="cj-btn wa" href="https://www.whatsapp.com/channel/0029VaDo1HT9WtCCFm6zUn3b" target="_blank" rel="noopener"><span class="cj-stage"><svg><use href="#i-wa"/></svg><span class="cj-dots" aria-hidden="true"><i></i><i></i><i></i></span></span><span>WhatsApp channel<small>Follow Puppy Singapore</small></span></a>
+        </div>
+      </div></div>
+    </div></div>
+  </section>
+
+  <!-- 03 -->
+  <section class="g-card" data-design="03" data-name="Post Preview">
+    <div class="g-meta">
+      <div class="g-num">03</div>
+      <div><h2>Post Preview</h2>
+        <p>Shows what a channel post contains before asking anyone to join. The five fields light up in turn. It uses field labels, not a real puppy, so it never goes out of date.</p>
+        <dl><div><dt>Best placement</dt><dd>Listings pages, breed pillar pages</dd></div><div><dt>Motion</dt><dd>Field highlight loop (6s), hover lift</dd></div><div><dt>Weight</dt><dd>Medium</dd></div></dl></div>
+      <button class="g-sel" type="button" aria-pressed="false">Select this design</button>
+    </div>
+    <div class="g-stagewrap"><div class="g-stage">
+      <div class="cj"><div class="cj-03">
+        <div><div class="cj-kicker">Puppy Singapore channels</div>
+          <h3 class="cj-title">Every new puppy, in one post</h3>
+          <p class="cj-sub">Photo first, then the five details you would ask about anyway. Join on whichever app you check most.</p>
+          <div class="cj-actions">
+            <a class="cj-btn tg" href="https://t.me/puppysingapore" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg>Join Telegram</a>
+            <a class="cj-btn wa" href="https://www.whatsapp.com/channel/0029VaDo1HT9WtCCFm6zUn3b" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Follow WhatsApp</a>
+          </div></div>
+        <div class="cj-post" aria-hidden="true">
+          <div class="cj-post-h"><span><svg><use href="#i-paw"/></svg></span>Puppy Singapore</div>
+          <div class="cj-photo"><svg><use href="#i-paw"/></svg></div>
+          <div class="cj-fields"><b>Breed</b><b>Price</b><b>Gender</b><b>Age</b><b>Puppy ID</b></div>
+          <div class="cj-cap">What each channel post includes</div>
+        </div>
+      </div></div>
+    </div></div>
+  </section>
+
+  <!-- 04 -->
+  <section class="g-card" data-design="04" data-name="Phone Peek">
+    <div class="g-meta">
+      <div class="g-num">04</div>
+      <div><h2>Phone Peek</h2>
+        <p>A small phone rises into view with posts arriving in the feed. Tabs flip the phone between Telegram and WhatsApp colours, and one button follows the tab.</p>
+        <dl><div><dt>Best placement</dt><dd>Home page band, About page</dd></div><div><dt>Motion</dt><dd>Feed loop, phone rise on hover, tab colour morph</dd></div><div><dt>Weight</dt><dd>Heavy (section-sized)</dd></div></dl></div>
+      <button class="g-sel" type="button" aria-pressed="false">Select this design</button>
+    </div>
+    <div class="g-stagewrap"><div class="g-stage">
+      <div class="cj"><div class="cj-04" data-ch="tg">
+        <div><div class="cj-kicker">Puppy Singapore channels</div>
+          <h3 class="cj-title">New puppies, straight to your phone</h3>
+          <p class="cj-sub">Each post carries a photo with the breed, price, gender, age and puppy ID.</p>
+          <div class="cj-tabs" role="tablist" aria-label="Choose an app">
+            <button type="button" role="tab" aria-selected="true" data-ch="tg"><svg><use href="#i-tg"/></svg>Telegram</button>
+            <button type="button" role="tab" aria-selected="false" data-ch="wa"><svg><use href="#i-wa"/></svg>WhatsApp</button>
+          </div><br>
+          <a class="cj-go" href="https://t.me/puppysingapore" target="_blank" rel="noopener" data-tg="https://t.me/puppysingapore" data-wa="https://www.whatsapp.com/channel/0029VaDo1HT9WtCCFm6zUn3b"><span class="cj-go-t">Join on Telegram</span><svg><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="cj-phone" aria-hidden="true"><div class="cj-screen">
+          <div class="cj-bar"><i><svg><use href="#i-paw"/></svg></i>Puppy Singapore</div>
+          <div class="cj-feed">
+            <div class="cj-msg"><div class="ph"></div><div class="ln"></div><div class="ln s"></div></div>
+            <div class="cj-msg"><div class="ph"></div><div class="ln"></div><div class="ln s"></div></div>
+            <div class="cj-msg"><div class="ln"></div><div class="ln s"></div></div>
+          </div>
+        </div></div>
+      </div></div>
+    </div></div>
+  </section>
+
+  <!-- 05 -->
+  <section class="g-card" data-design="05" data-name="Channel Switch">
+    <div class="g-meta">
+      <div class="g-num">05</div>
+      <div><h2>Channel Switch</h2>
+        <p>A segmented switch picks the app; one large button morphs its colour, icon and label to match. One decision, one tap. The visitor's choice is remembered on their next page.</p>
+        <dl><div><dt>Best placement</dt><dd>Mid-article, under hero on mobile</dd></div><div><dt>Motion</dt><dd>Spring thumb, icon and label swap</dd></div><div><dt>Weight</dt><dd>Medium</dd></div></dl></div>
+      <button class="g-sel" type="button" aria-pressed="false">Select this design</button>
+    </div>
+    <div class="g-stagewrap"><div class="g-stage">
+      <div class="cj"><div class="cj-05" data-ch="tg">
+        <div><div class="cj-kicker">Puppy Singapore channels</div>
+        <h3 class="cj-title">Where should we send new puppies?</h3>
+        <p class="cj-sub">Breed, price, gender, age and puppy ID in every post.</p></div>
+        <fieldset>
+          <legend>Choose an app</legend>
+          <span class="cj-thumb" aria-hidden="true"></span>
+          <input type="radio" name="cj05" id="cj05-tg" value="tg" checked><label for="cj05-tg"><svg><use href="#i-tg"/></svg>Telegram</label>
+          <input type="radio" name="cj05" id="cj05-wa" value="wa"><label for="cj05-wa"><svg><use href="#i-wa"/></svg>WhatsApp</label>
+        </fieldset>
+        <a class="cj-go" href="https://t.me/puppysingapore" target="_blank" rel="noopener" data-tg="https://t.me/puppysingapore" data-wa="https://www.whatsapp.com/channel/0029VaDo1HT9WtCCFm6zUn3b">
+          <span class="cj-swap" aria-hidden="true"><svg data-show="tg"><use href="#i-tg"/></svg><svg data-show="wa"><use href="#i-wa"/></svg></span>
+          <span class="cj-label"><span data-show="tg">Join the Telegram channel</span><span data-show="wa">Follow the WhatsApp channel</span></span>
+        </a>
+      </div></div>
+    </div></div>
+  </section>
+
+  <!-- 06 -->
+  <section class="g-card" data-design="06" data-name="Die-cut Stickers">
+    <div class="g-meta">
+      <div class="g-num">06</div>
+      <div><h2>Die-cut Stickers</h2>
+        <p>Thick white borders and a slight tilt, like stickers on a notebook. Hover straightens the sticker and peels its corner. Built to sit next to Curious Tails' die-cut style.</p>
+        <dl><div><dt>Best placement</dt><dd>Playful pages, footers, blog sign-off</dd></div><div><dt>Motion</dt><dd>Hover straighten, lift, corner peel</dd></div><div><dt>Weight</dt><dd>Medium</dd></div></dl></div>
+      <button class="g-sel" type="button" aria-pressed="false">Select this design</button>
+    </div>
+    <div class="g-stagewrap"><div class="g-stage">
+      <div class="cj"><div class="cj-06">
+        <div><div class="cj-kicker">Puppy Singapore channels</div>
+        <h3 class="cj-title">Stick around for new puppies</h3>
+        <p class="cj-sub">Photos with the breed, price, gender, age and puppy ID. Free on both apps.</p></div>
+        <div class="cj-row">
+          <a class="cj-sticker tg" href="https://t.me/puppysingapore" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg><span>Telegram<small>Join the channel</small></span></a>
+          <a class="cj-sticker wa" href="https://www.whatsapp.com/channel/0029VaDo1HT9WtCCFm6zUn3b" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span>WhatsApp<small>Follow the channel</small></span></a>
+        </div>
+      </div></div>
+    </div></div>
+  </section>
+
+  <!-- 07 -->
+  <section class="g-card" data-design="07" data-name="Floating Dock">
+    <div class="g-meta">
+      <div class="g-num">07</div>
+      <div><h2>Floating Dock</h2>
+        <p>A floating button in the corner of every page. Tap it and the two channels spring out above it. A soft ring pulses once every six seconds while closed. Escape or a tap outside closes it.</p>
+        <dl><div><dt>Best placement</dt><dd>Site-wide, bottom-right (would sit above any WhatsApp chat button)</dd></div><div><dt>Motion</dt><dd>Staggered spring open, plus to close icon, idle ring</dd></div><div><dt>Weight</dt><dd>Always visible</dd></div></dl></div>
+      <button class="g-sel" type="button" aria-pressed="false">Select this design</button>
+    </div>
+    <div class="g-stagewrap"><div class="g-stage is-dock">
+      <div class="g-fake" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="cj"><div class="cj-07" data-open="false">
+        <div class="cj-menu" id="cj07-menu">
+          <a class="cj-item tg" href="https://t.me/puppysingapore" target="_blank" rel="noopener" tabindex="-1"><i><svg><use href="#i-tg"/></svg></i>Telegram channel</a>
+          <a class="cj-item wa" href="https://www.whatsapp.com/channel/0029VaDo1HT9WtCCFm6zUn3b" target="_blank" rel="noopener" tabindex="-1"><i><svg><use href="#i-wa"/></svg></i>WhatsApp channel</a>
+        </div>
+        <button class="cj-fab" type="button" aria-expanded="false" aria-controls="cj07-menu"><span class="cj-ic"><svg><use href="#i-plus"/></svg></span><span class="cj-txt">New puppy updates</span></button>
+      </div></div>
+    </div></div>
+  </section>
+
+  <!-- 08 -->
+  <section class="g-card" data-design="08" data-name="Ticker Strip">
+    <div class="g-meta">
+      <div class="g-num">08</div>
+      <div><h2>Ticker Strip</h2>
+        <p>A slim dark strip with a slow ticker and two compact buttons. It can close, and stays closed for that visitor. Works as a top-of-page bar or between sections.</p>
+        <dl><div><dt>Best placement</dt><dd>Above the header, or between listing rows</dd></div><div><dt>Motion</dt><dd>Slow marquee, pauses on hover</dd></div><div><dt>Weight</dt><dd>Light, but site-wide</dd></div></dl></div>
+      <button class="g-sel" type="button" aria-pressed="false">Select this design</button>
+    </div>
+    <div class="g-stagewrap"><div class="g-stage">
+      <div class="cj"><div class="cj-08" role="region" aria-label="Puppy Singapore channels">
+        <div class="cj-track"><div class="cj-marq" aria-hidden="true">
+          <span>New puppies posted to our channels</span><span>Breed, price, gender, age and puppy ID in every post</span><span>Free on Telegram and WhatsApp</span>
+          <span>New puppies posted to our channels</span><span>Breed, price, gender, age and puppy ID in every post</span><span>Free on Telegram and WhatsApp</span>
+        </div><span class="cj-sr">New puppies are posted to our Telegram and WhatsApp channels, with the breed, price, gender, age and puppy ID.</span></div>
+        <div class="cj-btns">
+          <a class="cj-b tg" href="https://t.me/puppysingapore" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg>Telegram</a>
+          <a class="cj-b wa" href="https://www.whatsapp.com/channel/0029VaDo1HT9WtCCFm6zUn3b" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+        </div>
+        <button class="cj-x" type="button" aria-label="Close the channel bar"><svg width="18" height="18"><use href="#i-x"/></svg></button>
+      </div></div>
+      <button class="g-reset" type="button" data-reset="08">Show the strip again</button>
+    </div></div>
+  </section>
+
+  <!-- 09 -->
+  <section class="g-card" data-design="09" data-name="Paw Trail">
+    <div class="g-meta">
+      <div class="g-num">09</div>
+      <div><h2>Paw Trail</h2>
+        <p>When the card scrolls into view a line of paw prints walks across it toward the buttons. Chunky outlined buttons press down like keys.</p>
+        <dl><div><dt>Best placement</dt><dd>End of breed guides, puppy listings</dd></div><div><dt>Motion</dt><dd>Paw walk on scroll-in (7s loop), press-down buttons</dd></div><div><dt>Weight</dt><dd>Medium</dd></div></dl></div>
+      <button class="g-sel" type="button" aria-pressed="false">Select this design</button>
+    </div>
+    <div class="g-stagewrap"><div class="g-stage">
+      <div class="cj"><div class="cj-09">
+        <div class="cj-trail" aria-hidden="true"><svg><use href="#i-paw"/></svg><svg><use href="#i-paw"/></svg><svg><use href="#i-paw"/></svg><svg><use href="#i-paw"/></svg><svg><use href="#i-paw"/></svg><svg><use href="#i-paw"/></svg><svg><use href="#i-paw"/></svg><svg><use href="#i-paw"/></svg></div>
+        <div><div class="cj-kicker">Puppy Singapore channels</div>
+          <h3 class="cj-title">Follow the paw prints to new puppies</h3>
+          <p class="cj-sub">Each post shows the breed, price, gender, age and puppy ID. Join free on the app you prefer.</p></div>
+        <div class="cj-btns">
+          <a class="cj-b tg" href="https://t.me/puppysingapore" target="_blank" rel="noopener"><i><svg><use href="#i-tg"/></svg></i>Join on Telegram</a>
+          <a class="cj-b wa" href="https://www.whatsapp.com/channel/0029VaDo1HT9WtCCFm6zUn3b" target="_blank" rel="noopener"><i><svg><use href="#i-wa"/></svg></i>Follow on WhatsApp</a>
+        </div>
+      </div></div>
+    </div></div>
+  </section>
+
+  <!-- 10 -->
+  <section class="g-card" data-design="10" data-name="Scan or Tap">
+    <div class="g-meta">
+      <div class="g-num">10</div>
+      <div><h2>Scan or Tap</h2>
+        <p>On a computer, two QR codes with a scan line let visitors join from their phone without retyping anything. On a phone the codes disappear and two full-width buttons remain.</p>
+        <dl><div><dt>Best placement</dt><dd>Desktop-heavy pages, contact page, footer</dd></div><div><dt>Motion</dt><dd>Alternating scan line</dd></div><div><dt>Weight</dt><dd>Medium to heavy on desktop, light on phone</dd></div></dl></div>
+      <button class="g-sel" type="button" aria-pressed="false">Select this design</button>
+    </div>
+    <div class="g-stagewrap"><div class="g-stage">
+      <div class="cj"><div class="cj-10">
+        <div><div class="cj-kicker">Puppy Singapore channels</div>
+          <h3 class="cj-title">Join from your phone in one scan</h3>
+          <p class="cj-sub">Point your phone camera at a code. Each post shows the breed, price, gender, age and puppy ID.</p>
+          <p class="cj-note">On a phone already? Tap the buttons instead.</p></div>
+        <div class="cj-qrs">
+          <div class="cj-qr tg"><div class="cj-code" data-qr="tg" role="img" aria-label="QR code for t.me/puppysingapore"></div>
+            <a class="cj-b" href="https://t.me/puppysingapore" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg><span>Telegram</span></a></div>
+          <div class="cj-qr wa"><div class="cj-code" data-qr="wa" role="img" aria-label="QR code for the Puppy Singapore WhatsApp channel"></div>
+            <a class="cj-b" href="https://www.whatsapp.com/channel/0029VaDo1HT9WtCCFm6zUn3b" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span>WhatsApp</span></a></div>
+        </div>
+      </div></div>
+    </div></div>
+  </section>
+</main>
+
+<div class="g-panel">
+  <div class="g-out">
+    <h2>Your selection</h2>
+    <p class="g-status" id="g-where">Pick a design above. Add a note if you want changes (copy, colours, which pages it goes on).</p>
+    <label for="g-note" class="g-tag">Note for the rollout (optional)</label>
+    <textarea id="g-note" placeholder="e.g. Use 05 on breed sites but make the button bigger; 07 site-wide on Curious Tails"></textarea>
+    <div class="g-row">
+      <button class="g-btn" type="button" id="g-save">Save selection</button>
+      <button class="g-btn ghost" type="button" id="g-copy">Copy selection text</button>
+      <span class="g-status" id="g-msg" aria-live="polite"></span>
+    </div>
+  </div>
+</div>
+<div style="height:120px"></div>
+
+<script src="qr.js"></script>
+<script src="lab.js"></script>
+</body>
+</html>

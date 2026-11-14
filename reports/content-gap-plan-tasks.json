@@ -1,0 +1,252 @@
+{
+  "card": "K-118",
+  "plan": "reports/content-gap-plan-2026-11-14.md",
+  "created": "2026-11-14",
+  "for": "DeepSeek implementation worker",
+  "ground_rules": [
+    "Never type a new sentence into a breed file. Every new fact lives once in src/data/buying-terms.ts or src/data/site.ts and reaches pages through a shared component or an identical codemod line.",
+    "Breed pages = the 48 files in src/pages/puppies/*.astro that render <AvailablePuppies>. Exclude index.astro, bernedoodle.astro, labrador.astro.",
+    "No invented facts. Copy strings are given in the plan's table (section 3). If a string is not in the plan, do not add it.",
+    "No reviews, UEN, guarantee wording changes or founder biography. K-117 is separate.",
+    "Each task must end with `npm run build` green and the existing checks (`node scripts/check-content.mjs`, `node scripts/check-links.mjs`) no worse than before the task.",
+    "Health, boarding and going-home facts are scoped to puppies at our shop. Never place them inside ImportedPuppies or OverseasPuppies."
+  ],
+  "owner_gates": [
+    {"id": "Q1", "question": "Does PayNow carry any fee?", "blocks": ["T16"], "default": "Say 'Credit card payments carry a 3% bank surcharge.' Never 'the only extra'."},
+    {"id": "Q2", "question": "Lengkok Bahru number: 8268 4039 (owner copy) vs 6255 6064 (public listing)?", "blocks": ["T16"], "default": "Clinic names only on home and breed, no phone numbers."},
+    {"id": "Q3", "question": "Week 16: core dose or optional?", "blocks": ["T16"], "default": "Keep the site-wide 'Optional fourth vaccination, if advised by your vet'."},
+    {"id": "Q4", "question": "Re-verify bus list and Novena walk time.", "blocks": [], "default": "Ship the puppy-page wording and record the check date in a comment in site.ts."},
+    {"id": "Q5", "question": "Titles and meta descriptions that say 'All-In': add the surcharge?", "blocks": [], "default": "Unchanged. The visible copy carries the disclosure."}
+  ],
+  "tasks": [
+    {
+      "id": "T01",
+      "title": "Create the single source for buying terms",
+      "points": ["A2", "A3", "A6", "A7", "B1", "B2", "B3", "B5", "C4", "D1", "D2", "D3", "D5", "D7", "D8", "G3", "G4", "I2", "I3", "F5", "F7"],
+      "files": ["src/data/buying-terms.ts (new)", "src/data/site.ts"],
+      "change": "Export from buying-terms.ts: SURCHARGE_LINE, PAYMENT_LINE, INCLUSIONS_LINE, BOARDING_LINE, AVAILABILITY_LINE, NO_PRESSURE_LINE, HELP_FIND_LINE, NEXT_LITTER_LINE, SIMILAR_PUPPY_LINE, RECORDS_LINE, VETS_FOR_PETS_LINE, POC_LINE + POC_URL, RESERVE_STEPS (5 strings), VACCINATION_ROWS (copied verbatim from cavapoo.astro:453-462), SHARED_BUY_FAQ ([{question:'How do I pay?', answer: PAYMENT_LINE + ' The 3% is a bank surcharge and applies to credit card payments. For PayNow, ask us for the account details when you reserve.'}]), KIT_TOTAL and KIT_COUNT computed from starter-kit-items.json. Add site.directions and site.ownersLine to site.ts. Use the exact strings in plan section 3. Nothing imports the file yet.",
+      "acceptance": [
+        "`npm run build` passes and dist/ is byte-identical in visible text to before (no page imports the file yet)",
+        "KIT_TOTAL === 533 and KIT_COUNT === 30 at build time (assert in a tiny node script or a console check)",
+        "grep shows no 'only extra' in buying-terms.ts (Q1 default)",
+        "grep shows no '8268' or '6255' in buying-terms.ts (Q2 default)",
+        "The VACCINATION_ROWS Week 16 label reads 'Optional fourth vaccination, if advised by your vet for extra early-life protection'"
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "T02",
+      "title": "Add the all-in surcharge gate (report mode)",
+      "points": ["A7"],
+      "files": ["scripts/check-all-in-surcharge.mjs (new)", "package.json"],
+      "change": "Script reads dist/index.html and dist/puppies/<48 slugs>/index.html. It splits the <body> into top-level <section> elements (or a component root with data-section) and, for each section whose visible text matches /all-in/i, requires /3% bank surcharge/i in the same section. It also fails on any visible 'No add-ons quietly billed later' or 'Nothing is added later'. It ignores <title>, <meta> and JSON-LD. It prints offending page and section heading. Add the npm script 'check:surcharge'. Do NOT add it to the build yet.",
+      "acceptance": [
+        "`npm run check:surcharge` runs and lists failures on home and breed pages (expected at this stage)",
+        "`npm run build` still passes (gate not wired in)"
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "T03",
+      "title": "Hero renders the surcharge line; remove 'No add-ons quietly billed later'",
+      "points": ["A7"],
+      "files": ["src/components/Hero.astro", "src/pages/puppies/*.astro (44 files, codemod)"],
+      "change": "In Hero.astro, when priceAnchor matches /all-in/i, render SURCHARGE_LINE as a small line directly under the price anchor. Codemod: delete the exact substring ' No add-ons quietly billed later.' from every priceAnchor string in src/pages/puppies/*.astro, and do nothing else to those strings.",
+      "acceptance": [
+        "grep -r 'No add-ons quietly billed later' src/pages/puppies returns 0",
+        "dist/index.html and every dist/puppies/<48>/index.html hero contains '3% bank surcharge'",
+        "Hero visual height grows by one line only (screenshot of home and maltipoo at 390 and 1440)",
+        "build green"
+      ],
+      "depends_on": ["T01"]
+    },
+    {
+      "id": "T04",
+      "title": "Home price copy: inclusions, surcharge, payment FAQ",
+      "points": ["A2", "A7", "B1", "B2", "B3"],
+      "files": ["src/pages/index.astro"],
+      "change": "ValueBundle subhead = INCLUSIONS_LINE + ' ' + SURCHARGE_LINE (replaces 'No add-ons quietly billed later…'). Append SURCHARGE_LINE to the FAQ answer 'How much does a puppy typically cost in Singapore?' (index.astro:243). Append SHARED_BUY_FAQ to faqItems so it appears in the visible FAQ and in faqPageSchema(faqItems). For the 'Puppies for Sale…' and 'Breeds We Carry' subheads that say all-in, append SURCHARGE_LINE. For StatStrip, DefBox and Hero-less labels where 'all-in' is decoration, remove the word instead.",
+      "acceptance": [
+        "The home FAQPage JSON-LD contains 'How do I pay?'",
+        "The visible text contains 'PayNow' exactly in the FAQ and nowhere unexplained",
+        "`npm run check:surcharge` shows zero failures for dist/index.html",
+        "build green"
+      ],
+      "depends_on": ["T01", "T02", "T03"]
+    },
+    {
+      "id": "T05",
+      "title": "Listing components carry one surcharge footnote",
+      "points": ["A7"],
+      "files": ["src/components/AvailablePuppies.astro", "src/components/ListingGrid.astro", "src/components/ImportedPuppies.astro", "src/components/OverseasPuppies.astro"],
+      "change": "Where a component renders any '$X all-in' price, add one small footnote line after the grid: 'All-in prices. ' + SURCHARGE_LINE. Render it once per grid, never per card.",
+      "acceptance": [
+        "Each rendered grid that shows 'all-in' has exactly one footnote",
+        "No card markup changed (diff limited to the footnote)",
+        "build green"
+      ],
+      "depends_on": ["T01"]
+    },
+    {
+      "id": "T06",
+      "title": "Breed price block footnote and shared payment FAQ (48 files)",
+      "points": ["A2", "A7", "B1", "B2", "B3"],
+      "files": ["src/pages/puppies/*.astro (48)"],
+      "change": "Codemod in each of the 48 files: (a) import { INCLUSIONS_LINE, PAYMENT_LINE, SHARED_BUY_FAQ } from '../../data/buying-terms'; (b) inside the existing footnote <p> directly under the #price ComparisonSplit, prepend {INCLUSIONS_LINE + ' ' + PAYMENT_LINE + ' '}; if a file has no footnote <p>, insert one using the same classes as maltipoo.astro:345; (c) add `const allFaqItems = [...faqItems, ...SHARED_BUY_FAQ];` and switch both faqPageSchema(faqItems) and <FAQ items={faqItems}> to allFaqItems. Then remove the decorative word 'all-in' from StatStrip and AnswerCapsule labels that the gate still flags, or append SURCHARGE_LINE where the sentence states a price as all-in (AnswerCapsule).",
+      "acceptance": [
+        "All 48 dist breed pages: the FAQPage JSON-LD includes 'How do I pay?' and the visible FAQ shows it last",
+        "All 48: the #price section contains '3% bank surcharge' and 'PayNow'",
+        "`npm run check:surcharge` = 0 failures across home + 48",
+        "build green"
+      ],
+      "depends_on": ["T03", "T04", "T05"]
+    },
+    {
+      "id": "T07",
+      "title": "Wire the surcharge gate into the build",
+      "points": ["A7"],
+      "files": ["package.json"],
+      "change": "Run check:surcharge after astro build in the build or postbuild script, so any future 'all-in' without the surcharge fails the deploy.",
+      "acceptance": [
+        "`npm run build` passes",
+        "Temporarily adding 'all-in' to a test section without the surcharge makes the build fail (revert after proving it)"
+      ],
+      "depends_on": ["T06"]
+    },
+    {
+      "id": "T08",
+      "title": "VaccinationTimeline component on 48 breed pages",
+      "points": ["D1", "D2", "D3", "D5", "D7", "D8"],
+      "files": ["src/components/VaccinationTimeline.astro (new)", "src/pages/puppies/*.astro (48)"],
+      "change": "The component renders ComparisonSplit mode='table' with heading 'Vaccination and Licensing Timeline', the VACCINATION_ROWS, and under it one note <p>: 'For puppies at our shop: ' + VETS_FOR_PETS_LINE + ' ' + RECORDS_LINE, plus the existing AVS licensing and POC links. In cavapoo, bichonpoo, cockapoo, corgi, mini-dachshund and shiba-inu, replace the inline ComparisonSplit and its footnote div with <VaccinationTimeline />. In the other 42, insert <VaccinationTimeline /> directly after the closing </div> of id='health'.",
+      "acceptance": [
+        "All 48 dist breed pages contain 'Week 6', 'Week 9', 'Vets For Pets' and 'pet ownership course'",
+        "No dist breed page contains '8268' or '6255'",
+        "grep 'Week 16' rows in src/pages/puppies = 0 (all come from the component)",
+        "The table does not appear inside an ImportedPuppies or OverseasPuppies block",
+        "build green; check-links passes for the AVS URLs"
+      ],
+      "depends_on": ["T01"]
+    },
+    {
+      "id": "T09",
+      "title": "Home health and HDB sentences",
+      "points": ["D1", "D2", "D3", "D5", "D7", "D8"],
+      "files": ["src/pages/index.astro"],
+      "change": "In 'How Every Puppy Is Checked Before You Take It Home', replace the paragraph 'We mention this once, plainly…' with one paragraph: 'Puppies at our shop are vaccinated at weeks 6, 8 and 12 with deworming at every visit, and go home about a week after the second vaccination.' + ' ' + VETS_FOR_PETS_LINE + ' ' + RECORDS_LINE + a link 'the full schedule' to /learn/puppy-health/. In 'Bringing a Puppy Home to an HDB Flat', append POC_LINE with a link to /blog/pet-ownership-course-singapore/.",
+      "acceptance": [
+        "The home visible text contains 'Vets For Pets', 'week 9' or 'second vaccination', and 'Pet Ownership Course'",
+        "The home visible text does not contain 'We mention this once, plainly'",
+        "build green"
+      ],
+      "depends_on": ["T01"]
+    },
+    {
+      "id": "T10",
+      "title": "Cap boarding at one month (home + 48)",
+      "points": ["A6"],
+      "files": ["src/pages/index.astro", "src/pages/puppies/*.astro (48)"],
+      "change": "Home: paragraph 1 of 'Free Boarding, Then Delivery When You're Ready' becomes BOARDING_LINE. Breed codemod: in the 'Free Training, Free Boarding and Real Aftercare' side list, replace the item string matching /Free boarding after deposit, until you(?:'|\\\\')re ready/ with 'Free boarding after deposit, up to a month'. In the block's first paragraph, replace 'free boarding after your deposit until you're ready' with 'free boarding for up to a month after your deposit, vaccinations kept on schedule at our cost'. Print any file where neither pattern matched and fix it by hand with the same string.",
+      "acceptance": [
+        "In dist home + 48, 'until you're ready' / 'until you are ready' / 'until your home is ready' no longer appears in a boarding sentence (grep with 'board' within 80 chars)",
+        "'up to a month' appears on home and all 48",
+        "build green"
+      ],
+      "depends_on": ["T01"]
+    },
+    {
+      "id": "T11",
+      "title": "ReserveSteps component: home extraction, then 48 breed pages",
+      "points": ["C4", "A6", "I3", "B5"],
+      "files": ["src/components/ReserveSteps.astro (new)", "src/pages/index.astro", "src/pages/puppies/*.astro (48)"],
+      "change": "Move the home <ol> (index.astro:577-591), with its markup and classes unchanged, into ReserveSteps.astro, reading RESERVE_STEPS. Steps: 01 'WhatsApp us to confirm which puppy is available, then meet them in Balestier. No pressure to buy.' 02 'Place a deposit to reserve. Availability is not guaranteed until the deposit is received.' 03 BOARDING_LINE (shortened to 'Not ready yet? We board your puppy free for up to a month, vaccinations kept on schedule at our cost.') 04 'Delivery is scheduled around your availability, usually mornings or evenings.' 05 the existing home step 5. Home uses the component plus its existing heading block. Breed: insert <ReserveSteps heading={`What Happens After You Reserve a ${breedName}`} /> directly after the 'Free Training, Free Boarding and Real Aftercare' block, and delete that block's first <p> (training/boarding/customer service), keeping the 5-day sentence and the side list.",
+      "acceptance": [
+        "Home steps render identically in layout (screenshot diff at 1440: only the step text changes)",
+        "All 48 breed pages show 5 numbered steps",
+        "The breed aftercare block still contains the 5-day sentence",
+        "build green"
+      ],
+      "depends_on": ["T10"]
+    },
+    {
+      "id": "T12",
+      "title": "FinalCta: directions, owners, no pressure, help-find, availability rule (48 breed)",
+      "points": ["G3", "G4", "I3", "I2", "B5"],
+      "files": ["src/components/FinalCta.astro"],
+      "change": "Under {site.hours} add '<p>{site.directions}</p>' and '<p>{site.ownersLine} No pressure to buy.</p>'. Default body becomes the existing sentence + ' ' + HELP_FIND_LINE. Under the WhatsApp/Get-directions buttons add a small AVAILABILITY_LINE. Do not change props or layout grid.",
+      "acceptance": [
+        "All 48 dist breed pages contain 'Toa Payoh MRT', 'Nelson and Kim', 'No pressure to buy', 'help you find' and 'Availability is not guaranteed until the deposit is received'",
+        "Pages that pass a custom body prop still render the directions and owners lines",
+        "No horizontal overflow at 360/390/768/1024/1440 on maltipoo and one long-name breed (cavalier-king-charles-spaniel)",
+        "build green"
+      ],
+      "depends_on": ["T01"]
+    },
+    {
+      "id": "T13",
+      "title": "Home visit block, Book a viewing, availability rule, ribbon cut",
+      "points": ["G3", "G4", "I3", "J3", "B5"],
+      "files": ["src/pages/index.astro"],
+      "change": "Visit section: under {site.hours} add site.directions and site.ownersLine + ' No pressure to buy.' Add a 'Book a viewing' button next to 'Get in touch', linking to whatsappLink(\"Hi! I'd like to book a viewing at Balestier.\"). In the 'Reserve Your Puppy Today' ribbon replace 'Puppies are placed on a first-confirmed basis.' with AVAILABILITY_LINE. Remove the 'Not Ready to Reserve Yet?' BannerRibbon (a duplicate of 'Still deciding?').",
+      "acceptance": [
+        "The home visible text contains 'Book a viewing', 'Toa Payoh MRT', 'No pressure to buy' and the availability line",
+        "'first-confirmed' and 'Not Ready to Reserve Yet' are absent from dist/index.html",
+        "build green"
+      ],
+      "depends_on": ["T01"]
+    },
+    {
+      "id": "T14",
+      "title": "Sold-puppy route on home; next-litter line on breed",
+      "points": ["F5", "F7"],
+      "files": ["src/pages/index.astro", "src/components/AvailablePuppies.astro"],
+      "change": "Home: after the 'Puppies for Sale… Available Right Now' ListingGrid, add one line SIMILAR_PUPPY_LINE with a WhatsApp link (prefill \"Hi! The puppy I liked is gone. Can you find me a similar one?\"). Delete the matching 'tell us the breed and we will let you know' sentence from home FAQ 13. AvailablePuppies (only='available'): render NEXT_LITTER_LINE after the grid and in the empty state.",
+      "acceptance": [
+        "The home visible text contains SIMILAR_PUPPY_LINE once",
+        "All 48 breed pages contain NEXT_LITTER_LINE once in the available section",
+        "The /available-puppies/ page still builds and shows the line at most once",
+        "build green"
+      ],
+      "depends_on": ["T01", "T05"]
+    },
+    {
+      "id": "T15",
+      "title": "Starter kit: $533 from data",
+      "points": ["A3"],
+      "files": ["src/components/StarterKitMarquee.astro", "src/pages/index.astro", "src/pages/puppies/*.astro (48)"],
+      "change": "StarterKitMarquee: heading and subhead print `$${total}` (already computed at line 24) and `${items.length} items` instead of '$500+' and '30+'. Home 'Starter Kit Itemized Value Breakdown': rebuild rows from starter-kit-items.json grouped by category (6 rows + total, which must equal KIT_TOTAL) and drop the 'Microchip insertion and vaccination' and 'Care guide' rows. Breed codemod: in visible prose only (not title, description or meta), replace '$500+ starter kit' with {`$${KIT_TOTAL} starter kit`}, 'worth $500 and up' with {`worth $${KIT_TOTAL}`}, and '30+ items' with {`${KIT_COUNT} items`}. Leave titles and meta descriptions alone.",
+      "acceptance": [
+        "dist home and 48 breed pages: no visible '$500+' outside <title> and meta",
+        "The home kit table total row reads '$533' and equals the sum of its 6 rows",
+        "check-kit.mjs passes",
+        "build green"
+      ],
+      "depends_on": ["T01"]
+    },
+    {
+      "id": "T16",
+      "title": "Apply owner answers (only after Q1, Q2, Q3 come back)",
+      "points": ["A7", "D1", "D5"],
+      "files": ["src/data/buying-terms.ts"],
+      "change": "Q1 = no PayNow fee: SURCHARGE_LINE becomes 'The only extra is the 3% bank surcharge if you pay by credit card.' Q2 confirmed number: append both clinic numbers as tel: links to VETS_FOR_PETS_LINE. Q3 = core: the Week 16 row becomes 'Fourth core vaccination'. Data file only. Every page updates from it.",
+      "acceptance": [
+        "Only buying-terms.ts changed",
+        "check:surcharge still passes (it matches '3% bank surcharge')",
+        "build green"
+      ],
+      "depends_on": ["T07", "T08"]
+    }
+  ],
+  "verification_at_end": [
+    "npm run build (includes check:surcharge)",
+    "node scripts/check-content.mjs; node scripts/check-links.mjs; node scripts/check-kit.mjs",
+    "Re-run the K-080 extractor (render3.py + match.py) against a local preview of home and maltipoo: the 23 moved points (28 minus 5 kept) should all read 'present', C2 included",
+    "Report visible word counts for home and maltipoo before and after (target: home about +5%, breed about +9%)"
+  ],
+  "not_in_scope": [
+    "starter-kit.astro, pricing.astro, delivery.astro (same '$500+' and 'all-in' issue; follow-up card)",
+    "puppy-template reverse gaps from K-080 (JSON-LD, origin, footer)",
+    "titles and meta descriptions (Q5)",
+    "K-117 praise themes"
+  ]
+}

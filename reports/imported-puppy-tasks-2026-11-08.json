@@ -77,12 +77,11 @@
     },
     {
       "id": "T6", "owner": "opencode", "phase": 1, "depends_on": [],
-      "title": "arrival.mjs (DOB+3mo, age fallback, listing-date fallback, floor)",
+      "title": "arrival.mjs (DOB+3mo, age fallback, listing-date fallback; no floor per D6 2026-11-13)",
       "files": ["scripts/imports/lib/arrival.mjs", "scripts/imports/tests/arrival.test.mjs"],
-      "do": "Implement spec §4. LEAD_WEEKS from env IMPORTS_ARRIVAL_FLOOR_WEEKS (default 4; 0 disables). Return {month:'YYYY-MM', basis, display}.",
+      "do": "Implement spec §4. No lead-time floor (owner decision D6, 2026-11-13: age-based estimate only). Return {date:'YYYY-MM-DD', month:'YYYY-MM', basis, display}. When the base date is already past, no floor and no maximum wait: the estimate is set at confirmation from paperwork and flight (owner decision 2026-11-13, redline B1).",
       "acceptance": [
-        "DOB 2026-08-28 on 2026-11-08 with floor 4 gives 2026-12, basis dob",
-        "Same input with floor 0 gives 2026-11",
+        "DOB 2026-08-28 gives date 2026-11-28 and month 2026-11, basis dob (no floor)",
         "No DOB, age '8 weeks', listing 2026-11-01 gives DOB 2026-09-06 and month 2026-12, basis age",
         "Neither DOB nor age gives basis listing-date, and the caller marks it for review",
         "The display string contains 'subject to import approval' and never contains a day number"

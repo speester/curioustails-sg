@@ -1,0 +1,110 @@
+{
+  "storeDir": "C:\\Users\\admin\\AppData\\Local\\Temp\\k091-e2e-store-5c8SrY",
+  "steps": [
+    {
+      "step": "seeded",
+      "cleanId": "imp-38ff0756bf",
+      "leadId": "imp-e52adc5d86",
+      "soldId": "imp-837e94c876",
+      "storeOutsideRepo": true
+    },
+    {
+      "step": "sync-1",
+      "feedPups": 0,
+      "cleanInFeed": false,
+      "queueIds": [
+        "imp-38ff0756bf",
+        "imp-e52adc5d86"
+      ],
+      "cleanDisposition": "auto-ready",
+      "leadDisposition": "review",
+      "leadLeadOnly": true,
+      "soldInQueue": false
+    },
+    {
+      "step": "sync-2",
+      "feedPups": 1,
+      "ids": [
+        {
+          "id": "imp-38ff0756bf",
+          "breed": "jack-russell-terrier",
+          "status": "published"
+        }
+      ],
+      "leadInFeed": false,
+      "soldInFeed": false
+    },
+    {
+      "step": "build-1",
+      "detailRendered": true,
+      "detailHasCleanRef": true,
+      "detailHasPreOrder": true,
+      "detailHasNoindexFollow": true,
+      "breedCardRendered": true,
+      "availableSectionRendered": true,
+      "leadIdInRendered": false,
+      "leadRefInRendered": false,
+      "soldIdInRendered": false,
+      "sitemapHasImported": false,
+      "redirectsBeforeTakedown": false
+    },
+    {
+      "step": "shot-t26-detail-1440",
+      "status": 200,
+      "consoleErrors": 0,
+      "overflow": false
+    },
+    {
+      "step": "shot-t26-detail-390",
+      "status": 200,
+      "consoleErrors": 0,
+      "overflow": false
+    },
+    {
+      "step": "shot-t26-breed-1440",
+      "status": 200,
+      "consoleErrors": 0,
+      "overflow": false
+    },
+    {
+      "step": "shot-t26-breed-390",
+      "status": 200,
+      "consoleErrors": 0,
+      "overflow": false
+    },
+    {
+      "step": "shot-t26-available-1440",
+      "status": 200,
+      "consoleErrors": 0,
+      "overflow": false
+    },
+    {
+      "step": "shot-t26-available-390",
+      "status": 200,
+      "consoleErrors": 0,
+      "overflow": false
+    },
+    {
+      "step": "leak-scan-dist",
+      "output": "check:import-leaks: OK (feed=1 assets=6 dist=141 denylist values=18 shingles=6)"
+    },
+    {
+      "step": "takedown",
+      "feedPups": 0,
+      "repoWebPs": [],
+      "retired": [
+        {
+          "id": "imp-38ff0756bf",
+          "breed": "jack-russell-terrier"
+        }
+      ]
+    },
+    {
+      "step": "build-2",
+      "detailRemoved": true,
+      "redirectHas301": true,
+      "importedPagesRemaining": 0,
+      "sitemapHasImported": false
+    }
+  ]
+}

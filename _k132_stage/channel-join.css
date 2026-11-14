@@ -1,0 +1,255 @@
+/* ==========================================================================
+   K-132 Channel join block: Phone Peek base, die-cut stickers, join demo.
+   Markup: <section class="cj"><div class="cj-k132" data-ch="tg">...</div></section>
+   .cj is the size container, so the block lays out by the space it is given.
+   Motion: transform / opacity only, one 7 s loop. Every element's resting
+   style IS the finished state (joined, bell on, toast shown); the keyframes
+   only run under prefers-reduced-motion: no-preference, so a visitor who
+   asked for less motion sees the finished state and nothing moves.
+   ========================================================================== */
+
+:root {
+  /* Site tokens (Curious Tails). Another site maps these to its own tokens. */
+  --cj-primary: oklch(68% 0.205 34);
+  --cj-primary-700: oklch(50% 0.16 40);
+  --cj-ink: oklch(20% 0.028 45);
+  --cj-ink-soft: oklch(42% 0.03 45);
+  --cj-paper: oklch(98% 0.012 80);
+  --cj-surface: #ffffff;
+  --cj-font-display: Fredoka, system-ui, sans-serif;
+  --cj-font-body: Nunito, system-ui, sans-serif;
+  --cj-radius: 28px;
+}
+
+.cj {
+  --cj-tg: #229ed9;           /* official Telegram blue (sticker fill) */
+  --cj-tg-700: #1773ad;       /* white text 5.13:1 */
+  --cj-wa: #25d366;           /* official WhatsApp green (sticker fill) */
+  --cj-wa-700: #0e7a43;       /* white text 5.41:1 */
+  --cj-label: #111b21;        /* sticker label: 5.79:1 on #229ed9, 8.80:1 on #25d366 */
+  --cj-ease-out: cubic-bezier(.22, 1, .36, 1);
+  --cj-spring: cubic-bezier(.34, 1.56, .64, 1);
+  --cj-loop: 7s;
+
+  container-type: inline-size;
+  display: block;
+  font-family: var(--cj-font-body);
+  color: var(--cj-ink);
+  -webkit-font-smoothing: antialiased;
+}
+.cj *, .cj *::before, .cj *::after { box-sizing: border-box; }
+.cj a { text-decoration: none; color: inherit; }
+.cj svg { display: block; flex: none; }
+.cj-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; margin: -1px; }
+
+/* ---------- Layout --------------------------------------------------------- */
+.cj-k132 {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px 56px; align-items: center;
+  padding: clamp(24px, 5cqi, 56px);
+  border-radius: var(--cj-radius);
+  background:
+    radial-gradient(120% 90% at 100% 0%, color-mix(in oklab, var(--cj-primary) 16%, transparent), transparent 60%),
+    linear-gradient(160deg, color-mix(in oklab, var(--cj-primary) 8%, var(--cj-paper)), var(--cj-paper));
+}
+.cj-title {
+  font: 600 clamp(28px, 4.6cqi, 46px)/1.06 var(--cj-font-display);
+  letter-spacing: -.015em; margin: 0 0 14px; max-width: 16ch; text-wrap: balance;
+}
+.cj-sub { font-size: 17px; line-height: 1.55; color: var(--cj-ink-soft); margin: 0; max-width: 42ch; }
+
+/* ---------- Die-cut sticker buttons --------------------------------------- */
+.cj-stickers { display: flex; flex-wrap: wrap; gap: 18px 22px; margin-top: 30px; padding: 4px 10px 12px 0; }
+.cj-stk { position: relative; display: inline-block; border-radius: 999px; -webkit-tap-highlight-color: transparent; }
+.cj-stk:focus-visible { outline: 3px solid var(--cj-ink); outline-offset: 6px; }
+/* The sticker's offset shadow: a flat ink pill behind the face, nudged down-right. */
+.cj-stk-sh {
+  position: absolute; inset: 0; border-radius: inherit;
+  background: color-mix(in oklab, var(--cj-ink) 22%, transparent);
+  transform: translate(4px, 6px); transition: transform .35s var(--cj-spring);
+}
+.cj-stk-face {
+  position: relative; display: flex; align-items: center; gap: 14px;
+  min-height: 76px; padding: 10px 30px 10px 10px; border-radius: inherit;
+  border: 6px solid #fff; color: var(--cj-label);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--cj-ink) 12%, transparent);
+  transition: transform .35s var(--cj-spring);
+}
+.cj-stk.tg .cj-stk-face { background: var(--cj-tg); }
+.cj-stk.wa .cj-stk-face { background: var(--cj-wa); }
+.cj-stk-ico { width: 46px; height: 46px; border-radius: 50%; background: #fff; display: grid; place-items: center; flex: none; }
+.cj-stk-ico svg { width: 26px; height: 26px; }
+.cj-stk.tg .cj-stk-ico { color: var(--cj-tg-700); }
+.cj-stk.tg .cj-stk-ico svg { transform: translateX(-1px); }
+.cj-stk.wa .cj-stk-ico { color: var(--cj-wa-700); }
+.cj-stk-txt { display: grid; gap: 3px; text-align: left; }
+.cj-stk-txt b { font: 600 21px/1.05 var(--cj-font-display); letter-spacing: -.005em; }
+.cj-stk-txt small { font: 800 14.5px/1.15 var(--cj-font-body); }
+@media (hover: hover) {
+  .cj-stk:hover .cj-stk-face { transform: translateY(-4px) rotate(-1deg); }
+  .cj-stk:hover .cj-stk-sh { transform: translate(5px, 9px); }
+}
+.cj-stk:active .cj-stk-face { transform: translate(3px, 4px); transition-duration: .08s; }
+.cj-stk:active .cj-stk-sh { transform: translate(1px, 2px); transition-duration: .08s; }
+
+/* ---------- Demo column: app selector + phone ----------------------------- */
+.cj-demo { display: grid; justify-items: center; gap: 22px; }
+.cj-seg {
+  display: inline-grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; padding: 4px;
+  border-radius: 999px; background: var(--cj-surface);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--cj-ink) 10%, transparent), 0 6px 14px -10px rgba(0,0,0,.35);
+}
+.cj-seg button {
+  all: unset; box-sizing: border-box; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 0 18px; border-radius: 999px;
+  font: 800 15px/1 var(--cj-font-body); color: var(--cj-ink-soft);
+  transition: background-color .25s, color .25s;
+}
+.cj-seg button svg { width: 18px; height: 18px; }
+.cj-seg button .cj-tick { width: 16px; height: 16px; display: none; }
+.cj-seg button[aria-pressed="true"] { color: #fff; }
+.cj-seg button[aria-pressed="true"] .cj-tick { display: block; }
+.cj-seg button[data-ch="tg"][aria-pressed="true"] { background: var(--cj-tg-700); }
+.cj-seg button[data-ch="wa"][aria-pressed="true"] { background: var(--cj-wa-700); }
+.cj-seg button:focus-visible { outline: 3px solid var(--cj-ink); outline-offset: 2px; }
+@media (hover: hover) { .cj-seg button[aria-pressed="false"]:hover { color: var(--cj-ink); background: color-mix(in oklab, var(--cj-ink) 6%, transparent); } }
+
+/* ---------- Phone ---------------------------------------------------------- */
+.cj-phone {
+  width: 268px; padding: 10px; border-radius: 42px; background: #17151b;
+  box-shadow: inset 0 0 0 2px #2c2a31, 0 26px 40px -22px rgba(0,0,0,.55);
+  transform: rotate(3deg); transition: transform .6s var(--cj-ease-out);
+}
+@media (hover: hover) { .cj-k132:hover .cj-phone { transform: rotate(0); } }
+
+.cj-screen {
+  /* Phone skin tokens: Telegram by default, WhatsApp under data-ch="wa". */
+  --sk-head: #3a7fbf; --sk-head-ink: #fff; --sk-feed: #dbe6cf; --sk-cta: #229ed9; --sk-cta-ink: #fff;
+  --sk-accent: #1773ad; --sk-bar: #fff;
+  position: relative; width: 248px; height: 500px; border-radius: 32px; overflow: hidden;
+  background: var(--sk-feed); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #111b21;
+  isolation: isolate;
+}
+[data-ch="wa"] .cj-screen { --sk-head: #008069; --sk-feed: #efeae2; --sk-cta: #25d366; --sk-cta-ink: #0b3b1f; --sk-accent: #008069; }
+[data-ch="tg"] [data-show="wa"], [data-ch="wa"] [data-show="tg"] { display: none; }
+
+.cj-status { position: absolute; inset: 0 0 auto; height: 26px; padding: 8px 20px 0 24px; display: flex; justify-content: space-between; font: 700 10.5px/1 system-ui, sans-serif; color: var(--sk-head-ink); background: var(--sk-head); }
+.cj-status span:last-child { display: flex; gap: 4px; align-items: center; }
+.cj-status i { display: block; width: 14px; height: 7px; border-radius: 2px; border: 1.5px solid currentColor; }
+.cj-status i + i { width: 3px; border: 0; background: currentColor; border-radius: 1px; height: 4px; }
+
+.cj-head {
+  position: absolute; top: 26px; left: 0; right: 0; height: 52px; padding: 0 8px 0 6px;
+  display: flex; align-items: center; gap: 8px; background: var(--sk-head); color: var(--sk-head-ink);
+}
+.cj-head .cj-back { width: 18px; height: 18px; opacity: .9; }
+.cj-ava { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--cj-primary); color: #fff; flex: none; }
+.cj-ava svg { width: 19px; height: 19px; }
+.cj-name { flex: 1; min-width: 0; display: grid; gap: 2px; }
+.cj-name b { font: 700 13.5px/1.1 system-ui, sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cj-name small { font: 500 10.5px/1.1 system-ui, sans-serif; opacity: .8; }
+.cj-bell { position: relative; width: 32px; height: 32px; display: grid; place-items: center; }
+.cj-bell > span { grid-area: 1 / 1; display: grid; place-items: center; }
+.cj-bell svg { width: 21px; height: 21px; }
+.cj-bell-off { opacity: 0; }
+.cj-bell-on { opacity: 1; }
+.cj-bell-on::after { content: ""; position: absolute; top: 5px; right: 6px; width: 7px; height: 7px; border-radius: 50%; background: #ffd23f; box-shadow: 0 0 0 1.5px var(--sk-head); }
+
+.cj-feed { position: absolute; top: 78px; bottom: 56px; left: 0; right: 0; padding: 12px 10px; display: flex; flex-direction: column; justify-content: flex-end; gap: 10px; }
+.cj-day { align-self: center; padding: 4px 10px; border-radius: 999px; background: rgba(17, 27, 33, .22); color: #fff; font: 700 10px/1.1 system-ui, sans-serif; }
+.cj-post { width: 196px; border-radius: 14px 14px 14px 4px; background: #fff; padding: 4px; box-shadow: 0 1px 1.5px rgba(0,0,0,.14); }
+.cj-post img { display: block; width: 188px; height: 200px; object-fit: cover; object-position: 50% 30%; border-radius: 11px 11px 4px 4px; }
+.cj-cap { padding: 7px 6px 3px; font: 500 11.5px/1.4 system-ui, sans-serif; }
+.cj-cap b { font-weight: 700; }
+.cj-cap .cj-price { color: var(--sk-accent); font-weight: 800; }
+.cj-cap .cj-meta { display: flex; justify-content: space-between; align-items: end; color: #6b7a83; }
+.cj-cap time { font-size: 9.5px; }
+
+.cj-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 56px; padding: 8px; background: var(--sk-bar); box-shadow: 0 -1px 0 rgba(0,0,0,.08); }
+.cj-cta { position: relative; height: 40px; border-radius: 12px; }
+.cj-cta > span { position: absolute; inset: 0; border-radius: inherit; display: flex; align-items: center; justify-content: center; gap: 6px; font: 800 13.5px/1 system-ui, sans-serif; letter-spacing: .02em; }
+.cj-cta-a { background: var(--sk-cta); color: var(--sk-cta-ink); opacity: 0; }
+.cj-cta-b { background: color-mix(in oklab, var(--sk-accent) 10%, #fff); color: var(--sk-accent); opacity: 1; }
+.cj-cta-b svg { width: 15px; height: 15px; }
+.cj-press { position: absolute; inset: 0; border-radius: inherit; background: #000; opacity: 0; }
+
+.cj-toast {
+  position: absolute; left: 50%; top: 88px; margin-left: -100px; width: 200px;
+  display: flex; align-items: center; gap: 7px; padding: 8px 11px; border-radius: 12px;
+  background: rgba(17, 27, 33, .9); color: #fff; font: 600 11px/1.25 system-ui, sans-serif;
+  box-shadow: 0 6px 14px -6px rgba(0,0,0,.5);
+}
+.cj-toast i { width: 18px; height: 18px; border-radius: 50%; background: #3ccf6e; display: grid; place-items: center; flex: none; }
+.cj-toast i svg { width: 11px; height: 11px; color: #fff; }
+
+/* The tapping finger: a touch dot, parked on the Join button. */
+.cj-tap, .cj-rip { position: absolute; left: 106px; top: 454px; width: 36px; height: 36px; border-radius: 50%; pointer-events: none; opacity: 0; }
+.cj-tap { background: rgba(255,255,255,.55); box-shadow: 0 0 0 2px rgba(17,27,33,.55), 0 4px 10px rgba(0,0,0,.25); z-index: 2; }
+.cj-rip { border: 2px solid rgba(255,255,255,.95); box-shadow: 0 0 0 1px rgba(17,27,33,.25); }
+.cj-rip-bell { left: 204px; top: 32px; }
+
+/* ---------- Narrow container: stack, full-width selector and stickers ------ */
+@container (max-width: 720px) {
+  .cj-k132 { grid-template-columns: minmax(0, 1fr); gap: 32px; padding: 26px 18px 34px; }
+  .cj-title { max-width: none; }
+  .cj-sub { font-size: 16px; }
+  .cj-stickers { flex-direction: column; gap: 16px; margin-top: 24px; padding: 0 6px 6px 0; }
+  .cj-stk { display: block; }
+  .cj-stk-face { min-height: 72px; }
+  .cj-demo { width: 100%; gap: 20px; }
+  .cj-seg { display: grid; width: 100%; }
+  .cj-seg button { min-height: 48px; font-size: 16px; }
+  .cj-phone, .cj-k132:hover .cj-phone { transform: none; }
+}
+
+/* ---------- The loop (only for visitors who have not asked for less motion) */
+@media (prefers-reduced-motion: no-preference) {
+  .cj-k132 .cj-post   { animation: cj-post   var(--cj-loop) var(--cj-ease-out) infinite both; }
+  .cj-k132 .cj-cta    { animation: cj-cta    var(--cj-loop) linear infinite both; }
+  .cj-k132 .cj-cta-a  { animation: cj-cta-a  var(--cj-loop) linear infinite both; }
+  .cj-k132 .cj-cta-b  { animation: cj-cta-b  var(--cj-loop) linear infinite both; }
+  .cj-k132 .cj-press  { animation: cj-press  var(--cj-loop) linear infinite both; }
+  .cj-k132 .cj-bell   { animation: cj-bell   var(--cj-loop) linear infinite both; }
+  .cj-k132 .cj-bell-off { animation: cj-boff var(--cj-loop) linear infinite both; }
+  .cj-k132 .cj-bell-on  { animation: cj-bon  var(--cj-loop) linear infinite both; }
+  .cj-k132 .cj-toast  { animation: cj-toast  var(--cj-loop) var(--cj-ease-out) infinite both; }
+  .cj-k132 .cj-tap    { animation: cj-tap    var(--cj-loop) cubic-bezier(.45, 0, .25, 1) infinite both; }
+  .cj-k132 .cj-rip-join { animation: cj-rip-join var(--cj-loop) ease-out infinite both; }
+  .cj-k132 .cj-rip-bell { animation: cj-rip-bell var(--cj-loop) ease-out infinite both; }
+  .cj-k132.is-idle .cj-screen * { animation-play-state: paused; }
+}
+/* 1% = 70 ms. Post 0.3-0.8 s, tap Join 2.0 s, Joined 2.2 s, tap bell 3.4 s,
+   toast 3.9-6.0 s, soft crossfade back to the start 6.2-6.7 s. */
+@keyframes cj-post   { 0%, 4% { opacity: 0; transform: translateY(18px) scale(.97); } 12%, 88% { opacity: 1; transform: none; } 95%, 100% { opacity: 0; transform: translateY(-6px); } }
+@keyframes cj-cta    { 0%, 27% { transform: none; } 29.5% { transform: scale(.94); } 33% { transform: scale(1.03); } 36%, 100% { transform: none; } }
+@keyframes cj-press  { 0%, 27% { opacity: 0; } 29.5% { opacity: .2; } 32%, 100% { opacity: 0; } }
+@keyframes cj-cta-a  { 0%, 30.5% { opacity: 1; } 33.5%, 89% { opacity: 0; } 95%, 100% { opacity: 1; } }
+@keyframes cj-cta-b  { 0%, 30.5% { opacity: 0; } 33.5%, 89% { opacity: 1; } 95%, 100% { opacity: 0; } }
+@keyframes cj-bell   { 0%, 46.5% { transform: none; } 48.5% { transform: scale(.82); } 51% { transform: scale(1.15) rotate(-14deg); } 54% { transform: rotate(11deg); } 57% { transform: rotate(-6deg); } 60%, 100% { transform: none; } }
+@keyframes cj-boff   { 0%, 49% { opacity: 1; } 51%, 89% { opacity: 0; } 95%, 100% { opacity: 1; } }
+@keyframes cj-bon    { 0%, 49% { opacity: 0; } 51%, 89% { opacity: 1; } 95%, 100% { opacity: 0; } }
+@keyframes cj-toast  { 0%, 54% { opacity: 0; transform: translateY(-12px) scale(.96); } 59%, 84% { opacity: 1; transform: none; } 89%, 100% { opacity: 0; transform: translateY(-6px); } }
+@keyframes cj-tap {
+  0%, 14% { opacity: 0; transform: translate(34px, 80px); }
+  18%     { opacity: 1; transform: translate(26px, 52px); }
+  26%     { opacity: 1; transform: none; }
+  29.5%   { opacity: 1; transform: scale(.78); }
+  32%     { opacity: 1; transform: none; }
+  35%     { opacity: 1; transform: none; }
+  45.5%   { opacity: 1; transform: translate(98px, -422px); }
+  48.5%   { opacity: 1; transform: translate(98px, -422px) scale(.78); }
+  51%     { opacity: 1; transform: translate(98px, -422px); }
+  55%     { opacity: 1; transform: translate(98px, -422px); }
+  61%, 100% { opacity: 0; transform: translate(118px, -396px); }
+}
+@keyframes cj-rip-join { 0%, 29% { opacity: 0; transform: scale(.5); } 30% { opacity: 1; transform: scale(.6); } 40%, 100% { opacity: 0; transform: scale(1.9); } }
+@keyframes cj-rip-bell { 0%, 48% { opacity: 0; transform: scale(.5); } 49% { opacity: 1; transform: scale(.6); } 59%, 100% { opacity: 0; transform: scale(1.9); } }
+
+/* ---------- Less motion: finished state, nothing moves --------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .cj *, .cj *::before, .cj *::after { animation: none !important; transition: none !important; }
+  .cj-phone, .cj-k132:hover .cj-phone { transform: none; }
+  .cj-stk:hover .cj-stk-face, .cj-stk:active .cj-stk-face { transform: none; }
+  .cj-stk:hover .cj-stk-sh, .cj-stk:active .cj-stk-sh { transform: translate(4px, 6px); }
+  .cj-stk:hover .cj-stk-face { box-shadow: 0 0 0 2px var(--cj-ink); }
+}

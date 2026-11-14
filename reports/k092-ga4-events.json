@@ -1,0 +1,338 @@
+{
+  "baseUrl": "http://127.0.0.1:40607",
+  "imported": "/puppies/jack-russell-terrier/imp-43ca0ce8e2/",
+  "local": "/puppies/bichon-frise/",
+  "pass": true,
+  "assertions": [
+    {
+      "name": "imported page: gtag + dataLayer exist",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "imported page: import_view fires once",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "name": "import_view: listing_type=imported",
+      "pass": true,
+      "detail": "{\"listing_type\":\"imported\",\"breed\":\"jack-russell-terrier\",\"import_id\":\"imp-43ca0ce8e2\",\"page_path\":\"/puppies/jack-russell-terrier/imp-43ca0ce8e2/\"}"
+    },
+    {
+      "name": "import_view: import_id matches the URL",
+      "pass": true,
+      "detail": "imp-43ca0ce8e2 vs imp-43ca0ce8e2"
+    },
+    {
+      "name": "import_view: breed matches the URL",
+      "pass": true,
+      "detail": "jack-russell-terrier vs jack-russell-terrier"
+    },
+    {
+      "name": "import_view: page_path matches the URL",
+      "pass": true,
+      "detail": "/puppies/jack-russell-terrier/imp-43ca0ce8e2/ vs /puppies/jack-russell-terrier/imp-43ca0ce8e2/"
+    },
+    {
+      "name": "imported page: WhatsApp link found",
+      "pass": true,
+      "detail": "a[data-wa-source^=\"import:\"][href*=\"wa.me\"]"
+    },
+    {
+      "name": "imported page: whatsapp_click fires once",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "name": "whatsapp_click (imported): listing_type=imported",
+      "pass": true,
+      "detail": "{\"link_url\":\"https://wa.me/6582206408?text=Hi%20Curious%20Tails!%20I'd%20like%20to%20reserve%20the%20Jack%20Russell%20Terrier%20puppy%2C%20ref%20CT-IE-43CA0C%20(S%244%2C550%2C%20arriving%20around%20December%202026).%20I'm%20interested%20in%20a%20boy%20or%20girl.%20Is%20it%20still%20available%3F\",\"link_text\":\"Reserve on WhatsApp\",\"wa_source\":\"/puppies/jack-russell-terrier/imp-43ca0ce8e2/ import:imp-43ca0ce8e2\",\"listing_type\":\"imported\"}"
+    },
+    {
+      "name": "whatsapp_click (imported): wa_source carries import:<id>",
+      "pass": true,
+      "detail": "/puppies/jack-russell-terrier/imp-43ca0ce8e2/ import:imp-43ca0ce8e2"
+    },
+    {
+      "name": "whatsapp_click (imported): wa_source carries the page path",
+      "pass": true,
+      "detail": "/puppies/jack-russell-terrier/imp-43ca0ce8e2/ import:imp-43ca0ce8e2"
+    },
+    {
+      "name": "imported page: phone link found",
+      "pass": true,
+      "detail": "a[href^=\"tel:\"]"
+    },
+    {
+      "name": "imported page: phone_click fires once",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "name": "phone_click (imported): listing_type=imported",
+      "pass": true,
+      "detail": "{\"link_url\":\"tel:+6582206408\",\"link_text\":\"8220 6408\",\"listing_type\":\"imported\"}"
+    },
+    {
+      "name": "available-puppies: chip bar present",
+      "pass": true,
+      "detail": "[\"all\",\"local\",\"imported\"]"
+    },
+    {
+      "name": "filter chip \"all\": chip exists",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "filter chip \"all\": import_filter_click fires once",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "name": "filter chip \"all\": filter_value=all",
+      "pass": true,
+      "detail": "{\"filter_value\":\"all\",\"filter_label\":\"All\",\"listing_type\":\"imported\",\"page_path\":\"/available-puppies/\"}"
+    },
+    {
+      "name": "filter chip \"all\": listing_type=imported",
+      "pass": true,
+      "detail": "{\"filter_value\":\"all\",\"filter_label\":\"All\",\"listing_type\":\"imported\",\"page_path\":\"/available-puppies/\"}"
+    },
+    {
+      "name": "filter chip \"all\": filter_label present",
+      "pass": true,
+      "detail": "{\"filter_value\":\"all\",\"filter_label\":\"All\",\"listing_type\":\"imported\",\"page_path\":\"/available-puppies/\"}"
+    },
+    {
+      "name": "filter chip \"all\": page_path",
+      "pass": true,
+      "detail": "{\"filter_value\":\"all\",\"filter_label\":\"All\",\"listing_type\":\"imported\",\"page_path\":\"/available-puppies/\"}"
+    },
+    {
+      "name": "filter chip \"local\": chip exists",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "filter chip \"local\": import_filter_click fires once",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "name": "filter chip \"local\": filter_value=local",
+      "pass": true,
+      "detail": "{\"filter_value\":\"local\",\"filter_label\":\"In the shop now\",\"listing_type\":\"imported\",\"page_path\":\"/available-puppies/\"}"
+    },
+    {
+      "name": "filter chip \"local\": listing_type=imported",
+      "pass": true,
+      "detail": "{\"filter_value\":\"local\",\"filter_label\":\"In the shop now\",\"listing_type\":\"imported\",\"page_path\":\"/available-puppies/\"}"
+    },
+    {
+      "name": "filter chip \"local\": filter_label present",
+      "pass": true,
+      "detail": "{\"filter_value\":\"local\",\"filter_label\":\"In the shop now\",\"listing_type\":\"imported\",\"page_path\":\"/available-puppies/\"}"
+    },
+    {
+      "name": "filter chip \"local\": page_path",
+      "pass": true,
+      "detail": "{\"filter_value\":\"local\",\"filter_label\":\"In the shop now\",\"listing_type\":\"imported\",\"page_path\":\"/available-puppies/\"}"
+    },
+    {
+      "name": "filter chip \"imported\": chip exists",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "filter chip \"imported\": import_filter_click fires once",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "name": "filter chip \"imported\": filter_value=imported",
+      "pass": true,
+      "detail": "{\"filter_value\":\"imported\",\"filter_label\":\"Arriving soon\",\"listing_type\":\"imported\",\"page_path\":\"/available-puppies/\"}"
+    },
+    {
+      "name": "filter chip \"imported\": listing_type=imported",
+      "pass": true,
+      "detail": "{\"filter_value\":\"imported\",\"filter_label\":\"Arriving soon\",\"listing_type\":\"imported\",\"page_path\":\"/available-puppies/\"}"
+    },
+    {
+      "name": "filter chip \"imported\": filter_label present",
+      "pass": true,
+      "detail": "{\"filter_value\":\"imported\",\"filter_label\":\"Arriving soon\",\"listing_type\":\"imported\",\"page_path\":\"/available-puppies/\"}"
+    },
+    {
+      "name": "filter chip \"imported\": page_path",
+      "pass": true,
+      "detail": "{\"filter_value\":\"imported\",\"filter_label\":\"Arriving soon\",\"listing_type\":\"imported\",\"page_path\":\"/available-puppies/\"}"
+    },
+    {
+      "name": "available-puppies: imported details link found",
+      "pass": true,
+      "detail": "a[data-card-action=\"import_details\"]"
+    },
+    {
+      "name": "import_details_click fires once",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "name": "import_details_click: listing_type=imported",
+      "pass": true,
+      "detail": "{\"link_url\":\"/puppies/jack-russell-terrier/imp-43ca0ce8e2/\",\"link_text\":\"See photos & details\",\"wa_source\":\"/available-puppies/ import:imp-43ca0ce8e2\",\"listing_type\":\"imported\"}"
+    },
+    {
+      "name": "import_details_click: wa_source carries import:<id>",
+      "pass": true,
+      "detail": "/available-puppies/ import:imp-43ca0ce8e2"
+    },
+    {
+      "name": "local page: pup WhatsApp link found",
+      "pass": true,
+      "detail": "a[data-wa-source^=\"pup:\"][href*=\"wa.me\"]"
+    },
+    {
+      "name": "local page: whatsapp_click fires once",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "name": "whatsapp_click (local): listing_type=local",
+      "pass": true,
+      "detail": "{\"link_url\":\"https://wa.me/6582206408?text=Hi!%20I'd%20like%20more%20photos%20and%20the%20price%20for%20Waffles%2C%20the%20white%20male%20Bichon%20Frise%20puppy%20(ID%202980).\",\"link_text\":\"Chat\",\"wa_source\":\"/puppies/bichon-frise/ pup:2980\",\"listing_type\":\"local\",\"wa_variant\":\"fixed-2026-10b\"}"
+    },
+    {
+      "name": "whatsapp_click (local): wa_source carries pup:<id>",
+      "pass": true,
+      "detail": "/puppies/bichon-frise/ pup:2980"
+    },
+    {
+      "name": "no seller name in captured payloads",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "no microchip in captured payloads",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "captured": {
+    "imported": {
+      "view": [
+        {
+          "kind": "event",
+          "name": "import_view",
+          "params": {
+            "listing_type": "imported",
+            "breed": "jack-russell-terrier",
+            "import_id": "imp-43ca0ce8e2",
+            "page_path": "/puppies/jack-russell-terrier/imp-43ca0ce8e2/"
+          }
+        }
+      ],
+      "whatsapp": [
+        {
+          "kind": "event",
+          "name": "whatsapp_click",
+          "params": {
+            "link_url": "https://wa.me/6582206408?text=Hi%20Curious%20Tails!%20I'd%20like%20to%20reserve%20the%20Jack%20Russell%20Terrier%20puppy%2C%20ref%20CT-IE-43CA0C%20(S%244%2C550%2C%20arriving%20around%20December%202026).%20I'm%20interested%20in%20a%20boy%20or%20girl.%20Is%20it%20still%20available%3F",
+            "link_text": "Reserve on WhatsApp",
+            "wa_source": "/puppies/jack-russell-terrier/imp-43ca0ce8e2/ import:imp-43ca0ce8e2",
+            "listing_type": "imported"
+          }
+        }
+      ],
+      "phone": [
+        {
+          "kind": "event",
+          "name": "phone_click",
+          "params": {
+            "link_url": "tel:+6582206408",
+            "link_text": "8220 6408",
+            "listing_type": "imported"
+          }
+        }
+      ]
+    },
+    "available": {
+      "chips": [
+        {
+          "value": "all",
+          "events": [
+            {
+              "kind": "event",
+              "name": "import_filter_click",
+              "params": {
+                "filter_value": "all",
+                "filter_label": "All",
+                "listing_type": "imported",
+                "page_path": "/available-puppies/"
+              }
+            }
+          ]
+        },
+        {
+          "value": "local",
+          "events": [
+            {
+              "kind": "event",
+              "name": "import_filter_click",
+              "params": {
+                "filter_value": "local",
+                "filter_label": "In the shop now",
+                "listing_type": "imported",
+                "page_path": "/available-puppies/"
+              }
+            }
+          ]
+        },
+        {
+          "value": "imported",
+          "events": [
+            {
+              "kind": "event",
+              "name": "import_filter_click",
+              "params": {
+                "filter_value": "imported",
+                "filter_label": "Arriving soon",
+                "listing_type": "imported",
+                "page_path": "/available-puppies/"
+              }
+            }
+          ]
+        }
+      ],
+      "details": [
+        {
+          "kind": "event",
+          "name": "import_details_click",
+          "params": {
+            "link_url": "/puppies/jack-russell-terrier/imp-43ca0ce8e2/",
+            "link_text": "See photos & details",
+            "wa_source": "/available-puppies/ import:imp-43ca0ce8e2",
+            "listing_type": "imported"
+          }
+        }
+      ]
+    },
+    "local": {
+      "whatsapp": [
+        {
+          "kind": "event",
+          "name": "whatsapp_click",
+          "params": {
+            "link_url": "https://wa.me/6582206408?text=Hi!%20I'd%20like%20more%20photos%20and%20the%20price%20for%20Waffles%2C%20the%20white%20male%20Bichon%20Frise%20puppy%20(ID%202980).",
+            "link_text": "Chat",
+            "wa_source": "/puppies/bichon-frise/ pup:2980",
+            "listing_type": "local",
+            "wa_variant": "fixed-2026-10b"
+          }
+        }
+      ]
+    }
+  }
+}

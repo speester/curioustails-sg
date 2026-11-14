@@ -1,0 +1,287 @@
+{
+  "id": "K-008",
+  "title": "Imported puppy listings: Irish supplier feed + reservation pages",
+  "created": "2026-11-08",
+  "spec": "reports/imported-puppy-pipeline-spec-2026-11-08.md",
+  "copy_deck": "reports/imported-puppy-copy-deck-2026-11-08.md",
+  "risks_and_decisions": "reports/imported-puppy-risks-and-decisions-2026-11-08.md",
+  "sample_listing": "outputs/imported-puppies/sample-normalised-listing.json",
+  "hard_rules": [
+    "No supplier name, domain, URL, listing id, seller data, county, microchip number, original price/currency, source filename or copied description may appear in src/, public/, dist/ or any schema/alt text.",
+    "Private store lives at IMPORTS_PRIVATE_DIR (outside the repo). Code must refuse to run if that path resolves inside the repo root.",
+    "Honour robots.txt; 1 request / 4 s / host; stop a host on 403 / Cloudflare challenge; no proxies, no headless browser, no UA spoofing, no images.weserv.nl or similar fallback.",
+    "priceSGD = supplier price number + 4000 (no FX). Original price only in private store.",
+    "Arrival shown as month only with 'subject to import approval'; never a guaranteed date.",
+    "Read secrets from C:\\Users\\admin\\.claude\\.env; never print them.",
+    "Do not modify scripts/sync-puppies.mjs or scripts/sync-overseas.mjs in this work order (T19 is separate and optional).",
+    "Use existing design tokens/components (clay, lilac/coral tokens, ListingGrid rhythm); no new palette."
+  ],
+  "go_live_blockers": ["D2b (markup vs landed cost)", "D3 (dfsi inclusion)", "D7 (pet-relocation partner/SOP)", "T17 legal review"],
+  "tasks": [
+    {
+      "id": "T1", "owner": "opencode", "phase": 1, "depends_on": [],
+      "title": "Scaffold scripts/imports and the private store guard",
+      "files": ["scripts/imports/lib/store.mjs", "scripts/imports/lib/hash.mjs", "scripts/imports/sync-imports.mjs", "package.json"],
+      "do": "Create the folder layout from spec §6.1. store.mjs reads IMPORTS_PRIVATE_DIR (from env or ~/.claude/.env), creates raw/, images-src/, runs/, review-queue.json, audit.jsonl, secret.key (32 random bytes, created once) and refuses any path inside the repo. hash.mjs: sourceHash = HMAC-SHA256(secret, `${supplier}:${listingId}`); id = 'imp-' + first 10 hex; ref = 'CT-IE-' + first 6 hex upper. Add npm scripts: sync:imports, check:import-leaks, imports:review, imports:approve, imports:reject, imports:unpublish, imports:reserve.",
+      "acceptance": [
+        "IMPORTS_PRIVATE_DIR set to a path inside the repo → `npm run sync:imports -- --dry-run` exits non-zero with a clear message",
+        "Valid external path → private dirs and secret.key created; secret.key not printed",
+        "node --test scripts/imports/tests/hash.test.mjs: the same input gives the same id, a different secret gives a different id, and the id contains no supplier text"
+      ]
+    },
+    {
+      "id": "T2", "owner": "opencode", "phase": 1, "depends_on": ["T1"],
+      "title": "Polite HTTP client: robots, rate limit, retries, block detection",
+      "files": ["scripts/imports/lib/http.mjs", "scripts/imports/tests/http.test.mjs"],
+      "do": "Implement spec §6.2: robots.txt parse per host per run, UA 'CuriousTailsImports/1.0 (+https://curioustails.sg/contact/)', 4 s per-host spacing, concurrency 1, caps (60 detail / 150 images per host per run), backoff 8/30/120 s on 429/5xx with Retry-After, ETag/If-Modified-Since, block detection (403, 'Attention Required! | Cloudflare', 'Sorry, you have been blocked', cf-chl challenge) → mark host blocked for the run, emit alert event, never retry.",
+      "acceptance": [
+        "Unit test with a mock server: a disallowed path is never requested",
+        "Two requests to the same host are at least 4 s apart (fake timers)",
+        "A 403 Cloudflare body marks the host blocked, and every later call for that host returns {blocked:true} without a network call",
+        "grep finds no 'weserv' or proxy usage in scripts/imports"
+      ]
+    },
+    {
+      "id": "T3", "owner": "opencode", "phase": 1, "depends_on": [],
+      "title": "Rules files: AVS prohibited, AVS specified, HDB approved list, scam patterns",
+      "files": ["scripts/imports/rules/prohibited.json", "scripts/imports/rules/specified.json", "scripts/imports/rules/hdb-approved.json", "scripts/imports/rules/scam-patterns.json"],
+      "do": "Transcribe verbatim from the AVS PDFs cited in reports/irish-supplier-research-2026-11-08.md (List of specified dogs Sep 2024; approved small breeds). Each file has {source_url, retrieved, entries[], aliases{}}. Prohibited aliases must include: pit bull, pitbull, amstaff, american staffordshire, staffordshire bull terrier, staffie, staffy, american bulldog, bully, american bully, xl bully, pocket bully, akita, tosa, neapolitan mastiff, dogo argentino, fila brasileiro, boerboel, presa canario. Scam patterns per spec §8 G12, with severity.",
+      "acceptance": [
+        "Each JSON file validates, and has a source_url and a retrieved date",
+        "The HDB list contains Shetland Sheepdog, West Highland White Terrier, Jack Russell Terrier and Chihuahua, and does not contain Border Collie or Samoyed",
+        "A test fails if any rules file's retrieved date is more than 120 days old (quarterly re-check reminder)"
+      ]
+    },
+    {
+      "id": "T4", "owner": "opencode", "phase": 1, "depends_on": [],
+      "title": "Shared breed map with Irish aliases",
+      "files": ["scripts/imports/lib/breed-map.mjs", "scripts/imports/tests/breed-map.test.mjs"],
+      "do": "New module combining the BREED_MAP (sync-puppies.mjs) and MAP (sync-overseas.mjs) entries, with no edits to those files. Add Irish aliases and misspellings: 'jack russel', 'jack russell', 'jrt', 'miniture jack russell', 'dachund', 'dashaund', 'sausage dog', 'west highland white terrier', 'westie', 'shetland sheepdog', 'sheltie', 'border collie', 'chihuahua', 'samoyed', 'poochon'→bichonpoo, 'cavapoo'/'cavoodle', 'cockapoo'/'cockerpoo'. resolveBreed(label, breed1?, breed2?) returns {slug, crossLabel}. Multi-breed strings ('Chihuahua, Yorkshire Terrier' or 'X x Y') map to the first parent that has a page, and set crossLabel. A slug is valid only if src/pages/puppies/<slug>.astro exists.",
+      "acceptance": [
+        "'Jack russel' resolves to jack-russell-terrier; 'Chihuahua, Yorkshire Terrier' resolves to chihuahua with crossLabel 'Chihuahua x Yorkshire Terrier'",
+        "'Irish Setter' and 'Caucasian Shepherd Dog' resolve to null (unmapped)",
+        "A test asserts every slug returned exists as a page file"
+      ]
+    },
+    {
+      "id": "T5", "owner": "opencode", "phase": 1, "depends_on": [],
+      "title": "price.mjs (owner rule: number + 4000)",
+      "files": ["scripts/imports/lib/price.mjs", "scripts/imports/tests/price.test.mjs"],
+      "do": "Implement spec §3 exactly.",
+      "acceptance": [
+        "€500 gives 4500 / 2250 / 2250",
+        "'€1,200.00 (Negotiable)' gives 5200 with negotiable:true",
+        "'POA', '£450', '€1234', '€100' and '€4500' each return a review reason",
+        "Per-puppy prices [650, 700] give priceSGD 4650 with from:true"
+      ]
+    },
+    {
+      "id": "T6", "owner": "opencode", "phase": 1, "depends_on": [],
+      "title": "arrival.mjs (DOB+3mo, age fallback, listing-date fallback; no floor per D6 2026-11-13)",
+      "files": ["scripts/imports/lib/arrival.mjs", "scripts/imports/tests/arrival.test.mjs"],
+      "do": "Implement spec §4. No lead-time floor (owner decision D6, 2026-11-13: age-based estimate only). Return {date:'YYYY-MM-DD', month:'YYYY-MM', basis, display}. Handling of a base date already in the past is open (owner); do not invent a floor.",
+      "acceptance": [
+        "DOB 2026-08-28 gives date 2026-11-28 and month 2026-11, basis dob (no floor)",
+        "No DOB, age '8 weeks', listing 2026-11-01 gives DOB 2026-09-06 and month 2026-12, basis age",
+        "Neither DOB nor age gives basis listing-date, and the caller marks it for review",
+        "The display string contains 'subject to import approval' and never contains a day number"
+      ]
+    },
+    {
+      "id": "T7", "owner": "opencode", "phase": 2, "depends_on": ["T2", "T4"],
+      "title": "Adapter: dogsy (via irishpuppies.ie)",
+      "files": ["scripts/imports/adapters/dogsy.mjs", "scripts/imports/tests/dogsy.test.mjs"],
+      "do": "Discover with GET https://dogsy.ie/api/public/listings?page=1..last_page. Fetch detail only for new ids. Parse Product JSON-LD (price, priceCurrency, sku), the details block (Date of Birth DD/MM/YYYY, Sex counts, Location, Country of Origin, Wormed/Vaccinated/Microchipped), the microchip table (chip, sex, colour, status), and the seller phone into seller.phone. Ignore API age_weeks (bugged). Snapshot the raw HTML to the private store. Fixtures are stored in IMPORTS_PRIVATE_DIR/fixtures, not in the repo.",
+      "acceptance": [
+        "The fixture parses to a SourceRecord with dob, priceNumber, currency EUR and ≥1 puppies[].microchip",
+        "No request goes to a robots-disallowed path ('/dogs-for-sale?*')",
+        "A second run with no new ids makes ≤ 3 requests in total"
+      ]
+    },
+    {
+      "id": "T8", "owner": "opencode", "phase": 2, "depends_on": ["T2", "T4"],
+      "title": "Adapter: dogquest",
+      "files": ["scripts/imports/adapters/dogquest.mjs", "scripts/imports/tests/dogquest.test.mjs"],
+      "do": "Discover from sitemap.xml '/listing/' URLs. Parse the RSC self.__next_f payload for the initialListing object (id, price, min/max_price, location, breed, breed_type, breed_1/2, date_of_birth, male_count, female_count, images[], puppy_details[] {sex, color, price, microchipNumber, microchipVerificationStatus}, created_at). Fall back to Product JSON-LD for price.",
+      "acceptance": [
+        "The fixture yields date_of_birth, ≥1 image URL and puppies[0].chipVerified=true when status is 'animark_verified'",
+        "A test parses the fixture with a changed RSC chunk order"
+      ]
+    },
+    {
+      "id": "T9", "owner": "opencode", "phase": 2, "depends_on": ["T2", "T4"],
+      "title": "Adapter: dogsforsaleireland (lead-only until owner decision D3)",
+      "files": ["scripts/imports/adapters/dfsi.mjs", "scripts/imports/tests/dfsi.test.mjs"],
+      "do": "Discover from sitemap_index.xml, then ad_post-sitemap*.xml entries with lastmod within 21 days. Parse Product JSON-LD (price EUR) and the details block: Breed, Date of Birth (Month D, YYYY), Number of dogs (Male/Female), Microchips list, Registered Seller ID, seller name/type, Posted date. Collect wp-content upload images and keep the largest variant per photo. Treat a 'sold' token in the title or slug as sold. Env IMPORTS_DFSI_MODE=lead-only|auto (default lead-only): lead-only forces G14 to review.",
+      "acceptance": [
+        "The fixture yields dob, sex counts and a microchip list",
+        "With the default mode, no dfsi item reaches status published",
+        "Image size variants collapse to one URL per photo"
+      ]
+    },
+    {
+      "id": "T10", "owner": "opencode", "phase": 2, "depends_on": ["T2", "T4"],
+      "title": "Adapter: puppies.ie (lead-only; dogs.ie blocked)",
+      "files": ["scripts/imports/adapters/puppiesie.mjs"],
+      "do": "Read the home page data-page JSON (initialLatestAds) and /api/latest-ads?page=1..3. Store summaries only: title, breed_name, price, currency_symbol, county_name, male/female counts, image_count, published text, url. Make NO requests to dogs.ie or images.dogs.ie. Every record goes to the review queue with gate 'no-photos-source-blocked' (owner D4).",
+      "acceptance": [
+        "A run log shows zero requests to any *.dogs.ie host",
+        "Every puppies.ie record has status review, and a '£' symbol maps to currency GBP"
+      ]
+    },
+    {
+      "id": "T11", "owner": "opencode", "phase": 2, "depends_on": ["T1"],
+      "title": "Dedupe (listingId, microchip, image dHash, fuzzy)",
+      "files": ["scripts/imports/lib/dedupe.mjs", "scripts/imports/tests/dedupe.test.mjs"],
+      "do": "Implement spec §6.5, including the merge policy and alternates group.",
+      "acceptance": [
+        "Two records from different suppliers that share one microchip produce one public pup",
+        "Records with the same breed, DOB within 2 days, the same county and price within 10% merge",
+        "A near-identical image (dHash ≤ 6) merges",
+        "A duplicate of a taken-down item is rejected"
+      ]
+    },
+    {
+      "id": "T12", "owner": "opencode", "phase": 2, "depends_on": ["T2"],
+      "title": "Image downloader + processing",
+      "files": ["scripts/imports/lib/images.mjs", "scripts/imports/tests/images.test.mjs"],
+      "do": "Download directly from the origin with the http.mjs limits. sharp().rotate() → resize 1200 (detail) and 800 (card) → webp q78, never withMetadata(). Save as src/assets/imported/imp-<id>-<n>.webp (and -card variant if needed). Keep originals in the private images-src/. Compute dHash. Do not prune images of published or reserved pups. Purge on unpublish --purge-images.",
+      "acceptance": [
+        "An output WebP has no EXIF, XMP or GPS (sharp metadata check)",
+        "Filenames match /^imp-[0-9a-f]{10}-\\d+(-card)?\\.webp$/",
+        "A 403 on an image returns null with no proxy attempt"
+      ]
+    },
+    {
+      "id": "T13", "owner": "opencode", "phase": 2, "depends_on": ["T3", "T4", "T5", "T6", "T11", "T12"],
+      "title": "Gates G1–G15",
+      "files": ["scripts/imports/lib/gates.mjs", "scripts/imports/tests/gates.test.mjs"],
+      "do": "Implement the spec §8 table with severity and detail per gate, plus the safety valve (IMPORTS_AUTOPUBLISH unset or 0 sends gate-passing items to review as 'auto-ready').",
+      "acceptance": [
+        "Fixtures: an 'XL bully' title is rejected (G8); German Shepherd goes to review (G9); age 22 weeks is rejected (G4); no microchip goes to review (G10); 'pups sometimes available' goes to review (G12); 'stud' is rejected; '£450' goes to review; a clean JRT 10 weeks with 3 photos and 3 chips passes",
+        "With IMPORTS_AUTOPUBLISH unset, the clean fixture is queued as auto-ready, not published"
+      ]
+    },
+    {
+      "id": "T14", "owner": "opencode", "phase": 3, "depends_on": ["T7", "T8", "T9", "T10", "T13"],
+      "title": "Orchestrator: sync-imports (fetch → normalise → dedupe → gates → images → liveness → write)",
+      "files": ["scripts/imports/sync-imports.mjs", "src/data/imported-puppies.json", "src/assets/imported/"],
+      "do": "Wire everything per spec §1 and §6.6. Write the public feed as ImportedFeed (spec §2.2) with only whitelisted keys (build the object from a whitelist, never by deleting fields). Recompute age, arrival and status each run. Auto-unpublish on liveness triggers unless status is reserved. Flags: --dry-run, --no-fetch (re-validate the private store only), --source <name>. Write counts-only logs to logs/imports/<date>.log and full detail to private runs/<date>.json. Append audit.jsonl events.",
+      "acceptance": [
+        "The public JSON validates against a JSON Schema (scripts/imports/public-schema.json) with additionalProperties:false",
+        "A diff of a run touches only src/data/imported-puppies.json and src/assets/imported/**",
+        "logs/imports/<date>.log contains no phone, email, URL or microchip (regex check)",
+        "--no-fetch makes zero network requests"
+      ]
+    },
+    {
+      "id": "T15", "owner": "opencode", "phase": 3, "depends_on": ["T14"],
+      "title": "Leak scanner + build:deploy wiring",
+      "files": ["scripts/imports/check-leaks.mjs", "package.json"],
+      "do": "Implement spec §6.7. Denylist = static supplier tokens plus dynamic private values (seller fields, microchips, listingIds, sourceUrls) loaded from the private store, plus 8-word shingles from source descriptions. Scan data, asset names and metadata; with --dist, scan dist/**. Insert into build:deploy: `npm run sync:puppies && npm run sync:overseas && npm run sync:imports -- --no-fetch && npm run feed:check && npm run build && npm run check:import-leaks -- --dist`.",
+      "acceptance": [
+        "Injecting 'dogsy.ie' into a test copy of the public JSON makes check:import-leaks exit 1",
+        "Injecting a real microchip number from the private store exits 1",
+        "A clean build exits 0",
+        "build:deploy stops before deploy when the scanner fails"
+      ]
+    },
+    {
+      "id": "T16", "owner": "opencode", "phase": 3, "depends_on": ["T14"],
+      "title": "Review UI, approve/reject/reserve/unpublish, audit, redirects",
+      "files": ["scripts/imports/review.mjs", "scripts/imports/approve.mjs", "scripts/imports/unpublish.mjs", "scripts/lib/puppy-redirects.mjs"],
+      "do": "Local-only server on 127.0.0.1:4791 that lists the queue (failing gates, parsed fields, photos, private source link, breeder-contact template prefilled) with Approve / Reject / Edit / Mark photo-permission-granted. CLI equivalents. unpublish removes the item from the public JSON, purges images when --purge-images (forced for --reason takedown), appends a redirect /puppies/<breed>/<imp-id>/ → /puppies/<breed>/ (extend puppy-redirects.mjs to read a private-free list src/data/imported-retired.json containing only public ids and slugs), writes audit, and optionally runs build+deploy (--deploy). The reserve command sets status reserved.",
+      "acceptance": [
+        "The server binds only to 127.0.0.1 (a test asserts the bind address)",
+        "Approve then sync publishes the item; reject keeps it out on later runs",
+        "unpublish --reason takedown removes the JSON entry and the WebPs, adds a redirect, and writes an audit line with the actor",
+        "imported-retired.json contains only {id, breed} keys"
+      ]
+    },
+    {
+      "id": "T21", "owner": "opencode", "phase": 4, "depends_on": ["T14"],
+      "title": "ImportedPuppies.astro + breed pages",
+      "files": ["src/components/ImportedPuppies.astro", "src/pages/puppies/*.astro"],
+      "do": "Generalise OverseasPuppies into ImportedPuppies (reads imported-puppies.json, filters by breed and status published|reserved). Card copy is exactly copy deck §1, section heading §2. Place it directly after <AvailablePuppies> on breed pages (same slot as OverseasPuppies). Alt text per copy deck §8. CTA uses whatsappLink(copy deck §5) with data-wa-source=`import:${id}`.",
+      "acceptance": [
+        "With the sample listing copied into src/data/imported-puppies.json, /puppies/jack-russell-terrier/ shows one card with 'Available for reservation · Imported', 'S$4,550', 'S$2,275', 'Estimated arrival December 2026 · subject to import approval' and 'HDB-approved breed'",
+        "With an empty feed the section renders nothing (no heading)",
+        "npm run check:design and check:tokens pass; npm run build passes"
+      ]
+    },
+    {
+      "id": "T22", "owner": "opencode", "phase": 4, "depends_on": ["T21"],
+      "title": "Imported detail page branch + PreOrder schema + noindex",
+      "files": ["src/pages/puppies/[breed]/[id].astro", "src/lib/sitemap-exclusions.mjs"],
+      "do": "Extend getStaticPaths with imported pups (path /puppies/<breed>/<imp-id>/). Branch the layout on imported: gallery, the 4-step timeline, price/deposit box, 5-day-from-arrival promise, arrival note, FAQ (copy deck §3–4). Product schema per spec §9 with offers.availability https://schema.org/PreOrder, priceCurrency SGD, availabilityStarts = first day of the arrival month, seller Curious Tails, no sku or county. Add <meta name=robots content='noindex,follow'> and exclude from the sitemap (D11 default).",
+      "acceptance": [
+        "dist/puppies/jack-russell-terrier/imp-7f3a2c91de/index.html contains 'https://schema.org/PreOrder' and 'noindex,follow', and no supplier token (check:import-leaks --dist passes)",
+        "sitemap*.xml does not list /imp- URLs",
+        "npm run check:schema:req passes for the page"
+      ]
+    },
+    {
+      "id": "T23", "owner": "opencode", "phase": 4, "depends_on": ["T21"],
+      "title": "/available-puppies/: 'Arriving soon · Imported' section + filter chips",
+      "files": ["src/pages/available-puppies.astro"],
+      "do": "Add the section below the local grid with chips All · In the shop now · Arriving soon (no-JS fallback: all sections visible; JS toggles). Hide it when empty.",
+      "acceptance": [
+        "With the sample data, the section and chips render; keyboard focus works on the chips (npm run check:keyboard)",
+        "With an empty feed there is no section and no 'Arriving soon' chip"
+      ]
+    },
+    {
+      "id": "T24", "owner": "opencode", "phase": 4, "depends_on": ["T21", "T22"],
+      "title": "GA4 events for imports",
+      "files": ["scripts/ga4-events.mjs", "src/lib/track.ts"],
+      "do": "Register the 'import:<id>' value on the existing whatsapp_click (data-wa-source) and a new import_details_click event.",
+      "acceptance": ["npm run check:ga4 passes and lists import_details_click"]
+    },
+    {
+      "id": "T25", "owner": "opencode", "phase": 5, "depends_on": ["T15", "T16"],
+      "title": "Daily schedule + alerts",
+      "files": ["scripts/imports/run-daily.bat", "setup-imports-task.ps1", "scripts/imports/lib/alert.mjs"],
+      "do": "Create the Windows Task Scheduler task 'Curious Tails Imports Sync' daily at 06:15 SGT (same pattern as setup-task-scheduler.ps1). run-daily.bat runs: sync:imports → commit only imports paths if changed ('chore(imports): sync imported listings (+N/-M)') → build:deploy → deploy. Alerts per spec §6.8 to logs/imports/ALERTS.md plus email (D10).",
+      "acceptance": [
+        "setup-imports-task.ps1 -WhatIf prints the trigger and action without registering",
+        "A forced source block produces an ALERTS.md entry",
+        "A commit from run-daily.bat touches only src/data/imported-puppies.json, src/assets/imported/** and src/data/imported-retired.json"
+      ]
+    },
+    {
+      "id": "T26", "owner": "opencode", "phase": 5, "depends_on": ["T25", "T22", "T23"],
+      "title": "End-to-end dry run in safety-valve mode",
+      "files": [],
+      "do": "Run sync:imports against the live sources with IMPORTS_AUTOPUBLISH=0 and IMPORTS_DFSI_MODE=lead-only. Produce reports/imports-first-run-<date>.md with counts per source/gate, sample review items (public fields only), and leak-scan output.",
+      "acceptance": [
+        "The report exists and shows ≥1 item from at least 2 of dogsy, dogquest and dfsi",
+        "Zero requests to *.dogs.ie in the run log",
+        "check:import-leaks --dist passes on a preview build (npm run deploy:preview only with owner approval)"
+      ]
+    },
+    {
+      "id": "T17", "owner": "owner+legal", "phase": 0, "depends_on": [],
+      "title": "Legal review: reservation, deposit, refund, arrival and CPFTA copy; copyright position",
+      "do": "Review copy deck §3–7 and spec §5. Confirm the cancellation-after-purchase terms, admin fee (D8), and late-arrival right. Confirm the takedown process.",
+      "acceptance": ["Signed-off terms text replaces the 'pending legal review' markers in the copy deck before IMPORTS_AUTOPUBLISH=1"]
+    },
+    {
+      "id": "T18", "owner": "owner", "phase": 0, "depends_on": [],
+      "title": "Verify with AVS: commercial import for resale by a licensed pet shop; source-disclosure duty",
+      "do": "Ask AVS (live chat or email) whether importing dogs from Ireland for resale needs anything beyond the per-consignment import licence, and whether pet-shop licence conditions require disclosing the breeder or source to the buyer.",
+      "acceptance": ["Written AVS answer saved to the private store; spec §10 updated if needed"]
+    },
+    {
+      "id": "T19", "owner": "opencode", "phase": 6, "depends_on": ["T26"], "optional": true,
+      "title": "Migrate the AU overseas feed onto the imports system (drop the weserv proxy fallback)",
+      "do": "Owner decision D14. Map overseas-puppies rows into ImportedPup with origin 'AU' and the same gates; remove the images.weserv.nl fallback; retire OverseasPuppies.astro after parity.",
+      "acceptance": ["No 'weserv' string in scripts/; AU pups render through ImportedPuppies with identical prices"]
+    },
+    {
+      "id": "T20", "owner": "owner", "phase": 0, "depends_on": [],
+      "title": "Pet-relocation partner, landed-cost quotes and IE→SIN SOP",
+      "do": "Get two quotes (agent, flight Dublin→Changi as manifest cargo, crate, vet/DAFM health certificate, AVS licence) for a 12-week small-breed puppy. Write the SOP checklist: chip scan, vaccines, parasite treatment windows, AVS import licence, dog licence, flight booking, Changi inspection. Re-confirm the S$4,000 markup (D2b).",
+      "acceptance": ["Quotes and SOP stored privately; D2b and D7 marked decided in the risks file"]
+    }
+  ]
+}

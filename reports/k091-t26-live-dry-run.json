@@ -1,0 +1,1833 @@
+{
+  "at": "2026-11-13T13:38:47.771Z",
+  "mode": "dry-run",
+  "args": {
+    "dryRun": true,
+    "maxDetail": 3,
+    "source": "all"
+  },
+  "env": {
+    "IMPORTS_AUTOPUBLISH": "unset",
+    "IMPORTS_DFSI_MODE": "lead-only"
+  },
+  "summary": {
+    "sources": {
+      "dogsy": {
+        "discovered": 38,
+        "records": 3,
+        "errors": 0,
+        "blocked": false
+      },
+      "dogquest": {
+        "discovered": 5,
+        "records": 3,
+        "errors": 0,
+        "blocked": false
+      },
+      "dfsi": {
+        "discovered": 95,
+        "records": 3,
+        "errors": 0,
+        "blocked": false
+      },
+      "puppiesie": {
+        "discovered": 67,
+        "records": 67,
+        "errors": 0,
+        "blocked": false
+      }
+    },
+    "discovered": 205,
+    "records": 76,
+    "groups": 76,
+    "merged": 0,
+    "rejected": 0,
+    "gates": {
+      "pass": 5,
+      "review": 66,
+      "reject": 5,
+      "auto-ready": 5,
+      "publish": 0
+    },
+    "images": {
+      "downloaded": 17,
+      "failed": 0
+    },
+    "feedPups": 0,
+    "published": 0,
+    "unpublished": 0,
+    "errors": [],
+    "valveActive": true
+  },
+  "network": {
+    "requests": 41,
+    "hosts": {
+      "dogsy.ie": 15,
+      "www.dogquest.ie": 5,
+      "dogsforsaleireland.ie": 7,
+      "puppies.ie": 5,
+      "sehzakutrlropprdcewu.supabase.co": 9
+    },
+    "dogsieRequests": 0
+  },
+  "feedValidatedPups": [],
+  "queue": [
+    {
+      "id": "imp-1bbbfc9722",
+      "source": "dogsy",
+      "disposition": "auto-ready",
+      "leadOnly": false,
+      "breed": "cavachon",
+      "breedLabel": "Cavachon",
+      "crossLabel": "Cavachon x Poodle",
+      "sex": {
+        "male": 1,
+        "female": 1
+      },
+      "age": "8 weeks",
+      "priceSGD": 4800,
+      "arrivalEstimate": "2026-12",
+      "photos": 3,
+      "reviewReasons": []
+    },
+    {
+      "id": "imp-26765996a7",
+      "source": "dogsy",
+      "disposition": "auto-ready",
+      "leadOnly": false,
+      "breed": "border-collie",
+      "breedLabel": "Border Collie",
+      "crossLabel": null,
+      "sex": {
+        "male": 2,
+        "female": 4
+      },
+      "age": "9 weeks",
+      "priceSGD": 4350,
+      "arrivalEstimate": "2026-12",
+      "photos": 3,
+      "reviewReasons": []
+    },
+    {
+      "id": "imp-38c92a0ee0",
+      "source": "dogsy",
+      "disposition": "auto-ready",
+      "leadOnly": false,
+      "breed": "mini-dachshund",
+      "breedLabel": "Miniature Dachshund",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 1
+      },
+      "age": "9 weeks",
+      "priceSGD": 4700,
+      "arrivalEstimate": "2026-12",
+      "photos": 3,
+      "reviewReasons": []
+    },
+    {
+      "id": "imp-3f9c3f1d9f",
+      "source": "dogquest",
+      "disposition": "auto-ready",
+      "leadOnly": false,
+      "breed": "jack-russell-terrier",
+      "breedLabel": "Jack Russell Terrier",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 0
+      },
+      "age": "10 weeks",
+      "priceSGD": 4650,
+      "arrivalEstimate": "2026-11",
+      "photos": 3,
+      "reviewReasons": []
+    },
+    {
+      "id": "imp-81bc12c5fd",
+      "source": "dogquest",
+      "disposition": "auto-ready",
+      "leadOnly": false,
+      "breed": "mini-dachshund",
+      "breedLabel": "Miniature Dachshund",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 1
+      },
+      "age": "13 weeks",
+      "priceSGD": 4750,
+      "arrivalEstimate": "2026-11",
+      "photos": 3,
+      "reviewReasons": []
+    },
+    {
+      "id": "imp-aea13bd342",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "toy-poodle",
+      "breedLabel": "Toy Poodle",
+      "crossLabel": null,
+      "sex": {
+        "male": 4,
+        "female": 2
+      },
+      "age": null,
+      "priceSGD": 5300,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-b56675b904",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "labrador",
+      "breedLabel": "Labrador",
+      "crossLabel": null,
+      "sex": {
+        "male": 4,
+        "female": 3
+      },
+      "age": null,
+      "priceSGD": 4850,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-6b64950782",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "labrador",
+      "breedLabel": "Labrador",
+      "crossLabel": null,
+      "sex": {
+        "male": 2,
+        "female": 2
+      },
+      "age": null,
+      "priceSGD": 4500,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-f20cd3074e",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "maltese",
+      "breedLabel": "Maltese",
+      "crossLabel": null,
+      "sex": {
+        "male": 2,
+        "female": 0
+      },
+      "age": null,
+      "priceSGD": 5000,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-516c6494e1",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "shiba-inu",
+      "breedLabel": "Shiba Inu",
+      "crossLabel": null,
+      "sex": {
+        "male": 0,
+        "female": 2
+      },
+      "age": null,
+      "priceSGD": 5200,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-4fdb668511",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": null,
+      "breedLabel": null,
+      "crossLabel": null,
+      "sex": {
+        "male": 3,
+        "female": 2
+      },
+      "age": null,
+      "priceSGD": 4800,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: breed,dob-or-age,photo",
+        "G2:unmapped-breed",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-18b1b850ac",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "golden-retriever",
+      "breedLabel": "Golden Retriever",
+      "crossLabel": null,
+      "sex": {
+        "male": 2,
+        "female": 2
+      },
+      "age": null,
+      "priceSGD": 5000,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-7ac2266e24",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "miniature-schnauzer",
+      "breedLabel": "Miniature Schnauzer",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 0
+      },
+      "age": null,
+      "priceSGD": 5000,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-7e5a20d702",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "pomeranian",
+      "breedLabel": "Pomeranian",
+      "crossLabel": null,
+      "sex": {
+        "male": 0,
+        "female": 1
+      },
+      "age": null,
+      "priceSGD": 5150,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-4f4b57f5d2",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "bichonpoo",
+      "breedLabel": "Bichonpoo",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 1
+      },
+      "age": null,
+      "priceSGD": 4950,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-627302c464",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "cavapoo",
+      "breedLabel": "Cavapoo",
+      "crossLabel": null,
+      "sex": {
+        "male": 0,
+        "female": 3
+      },
+      "age": null,
+      "priceSGD": 4700,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-347d64d1c3",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "bichon-frise",
+      "breedLabel": "Bichon Frise",
+      "crossLabel": null,
+      "sex": {
+        "male": 4,
+        "female": 1
+      },
+      "age": null,
+      "priceSGD": 4800,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-9fc97137a2",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "mini-dachshund",
+      "breedLabel": "Miniature Dachshund",
+      "crossLabel": null,
+      "sex": {
+        "male": 2,
+        "female": 4
+      },
+      "age": null,
+      "priceSGD": 4800,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-83583cccee",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "cocker-spaniel",
+      "breedLabel": "Cocker Spaniel",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 0
+      },
+      "age": null,
+      "priceSGD": 4850,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-862234b777",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "goldendoodle",
+      "breedLabel": "Goldendoodle",
+      "crossLabel": null,
+      "sex": {
+        "male": 2,
+        "female": 2
+      },
+      "age": null,
+      "priceSGD": 5000,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-a926191d41",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "german-shepherd",
+      "breedLabel": "German Shepherd",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 1
+      },
+      "age": null,
+      "priceSGD": 4875,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G9:specified-breed",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-daee68f1f8",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "mini-dachshund",
+      "breedLabel": "Miniature Dachshund",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 0
+      },
+      "age": null,
+      "priceSGD": 4300,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-b608033b24",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "toy-poodle",
+      "breedLabel": "Toy Poodle",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 1
+      },
+      "age": null,
+      "priceSGD": 4500,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-4dbbd9e3c1",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "shih-tzu",
+      "breedLabel": "Shih Tzu",
+      "crossLabel": null,
+      "sex": {
+        "male": 5,
+        "female": 1
+      },
+      "age": null,
+      "priceSGD": 4600,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-ccdfedbe01",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "labrador",
+      "breedLabel": "Labrador",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 0
+      },
+      "age": null,
+      "priceSGD": 4500,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-68bba91243",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "toy-poodle",
+      "breedLabel": "Toy Poodle",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 0
+      },
+      "age": null,
+      "priceSGD": 5500,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-33a72d4f47",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": null,
+      "breedLabel": null,
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 0
+      },
+      "age": null,
+      "priceSGD": 4950,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: breed,dob-or-age,photo",
+        "G2:unmapped-breed",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-cede7d8b89",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": null,
+      "breedLabel": null,
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 2
+      },
+      "age": null,
+      "priceSGD": 4650,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: breed,dob-or-age,photo",
+        "G2:unmapped-breed",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-55ae5d377d",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "mini-dachshund",
+      "breedLabel": "Miniature Dachshund",
+      "crossLabel": null,
+      "sex": {
+        "male": 2,
+        "female": 0
+      },
+      "age": null,
+      "priceSGD": 5100,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-181289c769",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "golden-retriever",
+      "breedLabel": "Golden Retriever",
+      "crossLabel": null,
+      "sex": {
+        "male": 4,
+        "female": 5
+      },
+      "age": null,
+      "priceSGD": 5200,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-c88c8f8f83",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "goldendoodle",
+      "breedLabel": "Goldendoodle",
+      "crossLabel": null,
+      "sex": {
+        "male": 4,
+        "female": 3
+      },
+      "age": null,
+      "priceSGD": 4600,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-d3d4c7e2af",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": null,
+      "breedLabel": null,
+      "crossLabel": null,
+      "sex": {
+        "male": 0,
+        "female": 1
+      },
+      "age": null,
+      "priceSGD": 4800,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: breed,dob-or-age,photo",
+        "G2:unmapped-breed",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-6f986fe557",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "cockapoo",
+      "breedLabel": "Cockapoo",
+      "crossLabel": null,
+      "sex": {
+        "male": 4,
+        "female": 1
+      },
+      "age": null,
+      "priceSGD": 4700,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-02765dae80",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "jack-russell-terrier",
+      "breedLabel": "Jack Russell Terrier",
+      "crossLabel": null,
+      "sex": {
+        "male": 2,
+        "female": 3
+      },
+      "age": null,
+      "priceSGD": 4400,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-fa0991b7db",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": null,
+      "breedLabel": null,
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 1
+      },
+      "age": null,
+      "priceSGD": 4500,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: breed,dob-or-age,photo",
+        "G2:unmapped-breed",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G9:specified-breed",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-78396e3ee0",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "jack-russell-terrier",
+      "breedLabel": "Jack Russell Terrier",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 0
+      },
+      "age": null,
+      "priceSGD": 4450,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-bbc3997fc2",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "jack-russell-terrier",
+      "breedLabel": "Jack Russell Terrier",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 2
+      },
+      "age": null,
+      "priceSGD": 4200,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-b4026da437",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "pug",
+      "breedLabel": "Pug",
+      "crossLabel": null,
+      "sex": {
+        "male": 4,
+        "female": 4
+      },
+      "age": null,
+      "priceSGD": 4450,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-df224a996f",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "toy-poodle",
+      "breedLabel": "Toy Poodle",
+      "crossLabel": null,
+      "sex": {
+        "male": 2,
+        "female": 2
+      },
+      "age": null,
+      "priceSGD": 4500,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-97a8555d08",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "cockapoo",
+      "breedLabel": "Cockapoo",
+      "crossLabel": null,
+      "sex": {
+        "male": 3,
+        "female": 3
+      },
+      "age": null,
+      "priceSGD": 4600,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-c623c0633e",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "beagle",
+      "breedLabel": "Beagle",
+      "crossLabel": null,
+      "sex": {
+        "male": 2,
+        "female": 2
+      },
+      "age": null,
+      "priceSGD": 4400,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-f44c091c4a",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "chihuahua",
+      "breedLabel": "Chihuahua",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 0
+      },
+      "age": null,
+      "priceSGD": 4450,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-2b692f1338",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": null,
+      "breedLabel": null,
+      "crossLabel": null,
+      "sex": {
+        "male": 2,
+        "female": 1
+      },
+      "age": null,
+      "priceSGD": 5500,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: breed,dob-or-age,photo",
+        "G2:unmapped-breed",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G9:specified-breed",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-d733578f7c",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": null,
+      "breedLabel": null,
+      "crossLabel": null,
+      "sex": {
+        "male": 2,
+        "female": 0
+      },
+      "age": null,
+      "priceSGD": 6200,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: breed,dob-or-age,photo",
+        "G2:unmapped-breed",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-8dd4636a6d",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "cockapoo",
+      "breedLabel": "Cockapoo",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 2
+      },
+      "age": null,
+      "priceSGD": 4600,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-18ffbfcc74",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "cockapoo",
+      "breedLabel": "Cockapoo",
+      "crossLabel": null,
+      "sex": {
+        "male": 4,
+        "female": 3
+      },
+      "age": null,
+      "priceSGD": 4650,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-028fe117cb",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "jack-russell-terrier",
+      "breedLabel": "Jack Russell Terrier",
+      "crossLabel": null,
+      "sex": {
+        "male": 2,
+        "female": 1
+      },
+      "age": null,
+      "priceSGD": 4700,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-f65a35a792",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "border-collie",
+      "breedLabel": "Border Collie",
+      "crossLabel": null,
+      "sex": {
+        "male": 6,
+        "female": 3
+      },
+      "age": null,
+      "priceSGD": 4250,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G9:specified-breed",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-c1b12c7b62",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": null,
+      "breedLabel": null,
+      "crossLabel": null,
+      "sex": {
+        "male": 4,
+        "female": 1
+      },
+      "age": null,
+      "priceSGD": 4250,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: breed,dob-or-age,photo",
+        "G2:unmapped-breed",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-8ca5bf71e5",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": null,
+      "breedLabel": null,
+      "crossLabel": null,
+      "sex": {
+        "male": 2,
+        "female": 3
+      },
+      "age": null,
+      "priceSGD": 5000,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: breed,dob-or-age,photo",
+        "G2:unmapped-breed",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-7a6d4d188a",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "shih-tzu",
+      "breedLabel": "Shih Tzu",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 5
+      },
+      "age": null,
+      "priceSGD": 4650,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-d357a27ed7",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "cockapoo",
+      "breedLabel": "Cockapoo",
+      "crossLabel": null,
+      "sex": {
+        "male": 2,
+        "female": 2
+      },
+      "age": null,
+      "priceSGD": 4600,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-b464f8c13b",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "cavachon",
+      "breedLabel": "Cavachon",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 2
+      },
+      "age": null,
+      "priceSGD": 4480,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-39471106fa",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "yorkshire-terrier",
+      "breedLabel": "Yorkshire Terrier",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 0
+      },
+      "age": null,
+      "priceSGD": 4500,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-c877c40cb2",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "jack-russell-terrier",
+      "breedLabel": "Jack Russell Terrier",
+      "crossLabel": null,
+      "sex": {
+        "male": 2,
+        "female": 1
+      },
+      "age": null,
+      "priceSGD": 4450,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-a7ad325bd7",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "jack-russell-terrier",
+      "breedLabel": "Jack Russell Terrier",
+      "crossLabel": null,
+      "sex": {
+        "male": 0,
+        "female": 3
+      },
+      "age": null,
+      "priceSGD": 4400,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-e0ea3c9c65",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": null,
+      "breedLabel": null,
+      "crossLabel": null,
+      "sex": {
+        "male": 4,
+        "female": 0
+      },
+      "age": null,
+      "priceSGD": 4750,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: breed,dob-or-age,photo",
+        "G2:unmapped-breed",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-d68ba89429",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": null,
+      "breedLabel": null,
+      "crossLabel": null,
+      "sex": {
+        "male": 4,
+        "female": 0
+      },
+      "age": null,
+      "priceSGD": 4200,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: breed,dob-or-age,photo",
+        "G2:unmapped-breed",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-44521bb928",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": null,
+      "breedLabel": null,
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 0
+      },
+      "age": null,
+      "priceSGD": 4500,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: breed,dob-or-age,photo",
+        "G2:unmapped-breed",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-e8280712d5",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "mini-dachshund",
+      "breedLabel": "Miniature Dachshund",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 0
+      },
+      "age": null,
+      "priceSGD": 4800,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-fb951ed5a8",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "cavapoo",
+      "breedLabel": "Cavapoo",
+      "crossLabel": null,
+      "sex": {
+        "male": 2,
+        "female": 2
+      },
+      "age": null,
+      "priceSGD": 4650,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-d6ca1c2b99",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "cavapoo",
+      "breedLabel": "Cavapoo",
+      "crossLabel": null,
+      "sex": {
+        "male": 3,
+        "female": 4
+      },
+      "age": null,
+      "priceSGD": 4750,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-e1df8d352f",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "chihuahua",
+      "breedLabel": "Chihuahua",
+      "crossLabel": null,
+      "sex": {
+        "male": 0,
+        "female": 1
+      },
+      "age": null,
+      "priceSGD": 4750,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-e5441613de",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "japanese-spitz",
+      "breedLabel": "Japanese Spitz",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 0
+      },
+      "age": null,
+      "priceSGD": 4700,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-d12c15c603",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "shih-tzu",
+      "breedLabel": "Shih Tzu",
+      "crossLabel": null,
+      "sex": {
+        "male": 3,
+        "female": 2
+      },
+      "age": null,
+      "priceSGD": 4700,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-5225944bea",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "border-collie",
+      "breedLabel": "Border Collie",
+      "crossLabel": null,
+      "sex": {
+        "male": 4,
+        "female": 1
+      },
+      "age": null,
+      "priceSGD": 4350,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-de4359e536",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "bichon-frise",
+      "breedLabel": "Bichon Frise",
+      "crossLabel": null,
+      "sex": {
+        "male": 2,
+        "female": 0
+      },
+      "age": null,
+      "priceSGD": 4700,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-0ead1cc24c",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "chihuahua",
+      "breedLabel": "Chihuahua",
+      "crossLabel": null,
+      "sex": {
+        "male": 0,
+        "female": 1
+      },
+      "age": null,
+      "priceSGD": 5250,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-e3bddd1b7b",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "german-shepherd",
+      "breedLabel": "German Shepherd",
+      "crossLabel": null,
+      "sex": {
+        "male": 3,
+        "female": 5
+      },
+      "age": null,
+      "priceSGD": 4750,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G9:specified-breed",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-c64bd78a70",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "shih-tzu",
+      "breedLabel": "Shih Tzu",
+      "crossLabel": null,
+      "sex": {
+        "male": 1,
+        "female": 0
+      },
+      "age": null,
+      "priceSGD": 4700,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    },
+    {
+      "id": "imp-b2ec51a77d",
+      "source": "dogsie",
+      "disposition": "review",
+      "leadOnly": true,
+      "breed": "jack-russell-terrier",
+      "breedLabel": "Jack Russell Terrier",
+      "crossLabel": null,
+      "sex": {
+        "male": 4,
+        "female": 1
+      },
+      "age": null,
+      "priceSGD": 4500,
+      "arrivalEstimate": "2027-02",
+      "photos": 0,
+      "reviewReasons": [
+        "G1:missing: dob-or-age,photo",
+        "G4:age-unverified",
+        "G6:no-local-photo",
+        "G10:no-microchip",
+        "G12:short-description",
+        "G14:lead-only,no-photos-source-blocked"
+      ]
+    }
+  ]
+}

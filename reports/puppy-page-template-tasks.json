@@ -1,0 +1,264 @@
+{
+  "id": "K-128",
+  "title": "Puppy page template: the Biscuit page becomes the structure for every individual puppy page",
+  "created": "2026-11-14",
+  "spec": "reports/puppy-page-template-plan-2026-11-14.md",
+  "design_source": "outputs/puppy-page-redesign-biscuit.html (K-124 build; preview https://k124-biscuit-reorder.curioustails-staging.pages.dev/outputs/)",
+  "prior_spec": "reports/puppy-page-template-spec-2026-11-08.md",
+  "imported_copy_deck": "reports/imported-puppy-copy-deck-2026-11-08.md",
+  "hard_rules": [
+    "Extraction, not redesign: section order, dossier, chips, marquees and the K-124 map/licence alignment are kept. Any visual difference from the prototype is listed as a named compromise (plan §4 C1-C7) and shown in screenshots, never shipped silently.",
+    "One structure, many puppies: no Biscuit-specific string survives in src/. Every per-puppy word comes from PuppyPageData; every shop term comes from src/data/buying-terms.ts or src/data/site.ts; every template sentence lives in src/data/puppy-page-copy.ts.",
+    "Variants extend the prototype's only-av / only-placed pattern with only-imp, resolved at build time (<Only on=...>). A hidden branch never reaches dist/; each built page has exactly one H1 text.",
+    "Honesty rules H1-H7 (plan §3): no invented temperament, dates, reviews, guarantees or prices; null hdbApproved is unknown; a cross is never the pure breed; no AI or stock imagery of puppies, families or the shop.",
+    "URLs, pupPageSlug, puppy-redirects, sitemap exclusions and imported noindex,follow are unchanged. Route count before == after.",
+    "Use existing tokens (src/styles/global.css) and existing components where they already do the job (ListingGrid/pupCard, FAQ, Schema, Breadcrumb). No new palette.",
+    "Read secrets only from C:\\Users\\admin\\.claude\\.env; never print them. No production deploy in this work order."
+  ],
+  "owner_decisions": {
+    "D1": "Payment methods: prototype 'PayNow or credit card' vs buying-terms.ts PAYMENT_LINE 'PayNow, bank transfer, cash at handover, or credit card'. Default: buying-terms.ts.",
+    "D2": "Hero availability line prints today's date only while syncedAt is inside the feed:check freshness window. Default: apply.",
+    "D3": "A non-Balestier (Choa Chu Kang) puppy gets no page. Default: apply.",
+    "D4": "breedFacts only from sentences already published on that breed's own page; breed without facts hides Breed fit. Default: apply."
+  },
+  "go_live_blockers": ["D1 answered", "T15 preview signed off by the owner", "Imported variant terms still subject to the counsel sign-off recorded in reports/imported-puppy-legal-redline-2026-11-11.md"],
+  "tasks": [
+    {
+      "id": "T01", "owner": "opencode", "phase": 1, "depends_on": [],
+      "title": "Sync writes dob and images[] (additive)",
+      "files": ["scripts/sync-puppies.mjs", "src/lib/puppy-cards.ts", "src/data/available-puppies.json"],
+      "do": [
+        "In toJson(), add dob: ISO yyyy-mm-dd from parseGvizDate(cell(row,'DOB-')) or null (keep the existing 0..730-day plausibility rule).",
+        "Add images: every real Image-..Image5- photo for live pups, each through the existing sold-overlay check and download path, saved like image; images[0] === image.",
+        "Extend the Pup interface with dob?: string | null and images?: string[]; keep image and age unchanged so every current reader works.",
+        "Run npm run sync:puppies once and commit the regenerated JSON."
+      ],
+      "acceptance": [
+        "Every available pup has dob (or null) and images (length >= 1, first equals image).",
+        "Biscuit 2938 has dob 2026-08-04 (the DOB- value read on 2026-11-12).",
+        "npm run build is green and the rendered old pages are byte-identical apart from the build id."
+      ]
+    },
+    {
+      "id": "T02", "owner": "opencode", "phase": 1, "depends_on": [],
+      "title": "Component scaffold, token map and the Only wrapper",
+      "files": ["src/components/puppy-page/Only.astro", "src/components/puppy-page/puppy-page.css", "src/layouts/BaseLayout.astro", "reports/k128-token-map.md"],
+      "do": [
+        "Port the prototype <style> block into a scoped stylesheet for src/components/puppy-page/, dropping the .note, .util, .hdr, burger and prototype footer rules (site chrome comes from BaseLayout).",
+        "Map every prototype custom property (--cream-*, --lilac-*, --peach-*, --mint-*, --coral-*) to its global.css --color-* token; list any token without an exact match in reports/k128-token-map.md for owner approval (compromise C1).",
+        "Do not port the body.is-placed .only-* CSS; add Only.astro: props on: 'av'|'imp'|'pl' or an array, renders its slot only when the page variant matches.",
+        "Add a BaseLayout prop hideWhatsAppFloat so the sticky bar is the only floating action on this route."
+      ],
+      "acceptance": [
+        "Token map has no unapproved substitutions.",
+        "Only.astro renders nothing (no wrapper element) for a non-matching variant."
+      ]
+    },
+    {
+      "id": "T03", "owner": "opencode", "phase": 1, "depends_on": [],
+      "title": "Terms and the local copy deck as data",
+      "files": ["src/data/buying-terms.ts", "src/data/puppy-page-copy.ts"],
+      "do": [
+        "Add FIVE_DAY_LINE to buying-terms.ts with the wording already live on the puppy page; replace the three typed copies with it when their components are rebuilt.",
+        "Apply D1 to PAYMENT_LINE (or leave it and record the default).",
+        "Create puppy-page-copy.ts: every heading, kicker, card sentence, CTA label and WhatsApp prefill on the prototype as (p: PuppyPageData) => string, with pronouns and article() from the adapter. Banned words never appear in this file.",
+        "Each function has a null-safe path (no name -> 'this puppy', no gender -> they/them, no colour -> omitted)."
+      ],
+      "acceptance": [
+        "rg 'Biscuit|2938|Maltipoo|\\$3,888' src/data/puppy-page-copy.ts returns nothing.",
+        "Unit test: every copy function returns a non-empty string free of 'null', 'undefined' and 'a a' / 'a apricot' artefacts for a fixture with every optional field null."
+      ]
+    },
+    {
+      "id": "T04", "owner": "opencode", "phase": 1, "depends_on": [],
+      "title": "breedFacts data file for the 7 stocked breeds",
+      "files": ["src/data/breed-facts.ts", "scripts/check-breed-facts.mjs"],
+      "do": [
+        "Create breedFacts: Record<slug, {parentage?, temperament?, size?, coat?, exercise?, lifespan?, fitIf?: string[], thinkTwiceIf?: string[], guideAnchors?: {temperament?, size?, hdb?, grooming?}, source: string}>.",
+        "Fill bichon-frise, cavachon, cavapoo, cockapoo, maltese, maltipoo, toy-poodle using only sentences published on src/pages/puppies/<slug>.astro; record the source page per entry. Leave a field undefined rather than writing a fact the page does not state (D4).",
+        "check-breed-facts.mjs: every guideAnchors id exists in the built breed page; every entry names a source."
+      ],
+      "acceptance": [
+        "Maltipoo entry reproduces the prototype's Breed fit content exactly.",
+        "Script passes on dist/ after a build."
+      ]
+    },
+    {
+      "id": "T05", "owner": "opencode", "phase": 2, "depends_on": ["T01", "T03", "T04"],
+      "title": "Data adapter and publish gate (src/lib/puppy-page.ts)",
+      "files": ["src/lib/puppy-page.ts"],
+      "do": [
+        "Define PuppyPageData (variant 'av'|'imp'|'pl', id, displayId, breed, breedName, breedNoun, name, displayName, gender, pronouns, color/colours, ageLabel, dob, readyDate, images[] with alt, video, bookHref, hdbApproved, price/priceSGD, deposit fields, arrivalLabel, placedWhen, location, facts, canonicalPath, waSource).",
+        "fromLocal(pup, breed), fromPlaced(placed), fromImported(pup): the only functions that read the three JSON shapes.",
+        "Derived fields at build time: ageLabel from dob (fallback age), readyDate = dob + 63 days labelled 'about' and rendered 'now' when past, displayName fallback, article(), alt text per plan (photo 1 / photo n of N).",
+        "publishable(raw, kind) -> {ok, blockers[], warnings[]} with the blockers from plan §5.3 (id, breed slug, real photo, price for av, Balestier for av; imported rows 24-30).",
+        "SECTION_ORDER per variant exactly as plan §4."
+      ],
+      "acceptance": [
+        "Unit tests cover each blocker and each warning.",
+        "Biscuit through fromLocal produces the prototype's H1, kicker, chips and age 'About 3 months' on 2026-11-14."
+      ]
+    },
+    {
+      "id": "T06", "owner": "opencode", "phase": 2, "depends_on": ["T02", "T05"],
+      "title": "Hero, gallery and sticky bar components",
+      "files": ["src/components/puppy-page/PuppyHero.astro", "src/components/puppy-page/PuppyGallery.astro", "src/components/puppy-page/StickyBar.astro"],
+      "do": [
+        "Hero per plan §1 for av/imp/pl: breadcrumb, ID stamp or placed ribbon, kicker, H1, availability line (H6/D2 rule from syncedAt), price card (av) / reservation box (imp) / no-longer-available card (pl), CTAs with data-wa-source pup:{id} / sold:{id}, chips (HDB only on true), trust line from site.ts.",
+        "Gallery: N photos (1..5) + ask-for-video slide, or the video slide when video is set; dots, thumbs and counter generated from the slide list; astro:assets images, fetchpriority=high on photo 1 only; works stacked with JS off.",
+        "Sticky bar: shows after #hero-ctas leaves, hides while #final is in view; variant buttons per plan; ≤ 8 KB page JS total."
+      ],
+      "acceptance": [
+        "390x844: kicker, H1, price and primary CTA above the fold (Playwright bounding boxes).",
+        "Shots with 1, 3 and 5 photos at 1440 and 390 (compromise C7)."
+      ]
+    },
+    {
+      "id": "T07", "owner": "opencode", "phase": 2, "depends_on": ["T02", "T05"],
+      "title": "Includes, gifts marquee, families marquee and reviews",
+      "files": ["src/components/puppy-page/PriceIncludes.astro", "src/components/puppy-page/GiftsMarquee.astro", "src/components/puppy-page/FamiliesMarquee.astro", "src/components/puppy-page/PuppyReviews.astro", "src/data/reviews.ts"],
+      "do": [
+        "PriceIncludes: av from buying-terms + KIT_COUNT/KIT_TOTAL; imp from perks[] + copy-deck line, never buying-terms.",
+        "GiftsMarquee: two rows from starter-kit-items.json; heading number from KIT_COUNT; hide below 8 items; reduced-motion makes rows scrollable.",
+        "FamiliesMarquee: src/assets/testimonials photos, no names; hide below 6.",
+        "Add reviewsMentioning(term, n) to reviews.ts (case-insensitive match on verbatim text). PuppyReviews uses it with breedNoun; fewer than 2 matches -> heading 'What Curious Tails families say' + reviewsFor()."
+      ],
+      "acceptance": [
+        "Maltipoo page shows the same two reviews as the prototype (Jin RY, Antonio Priore) if they are the matches.",
+        "A breed with no matching review never shows a breed-specific review heading."
+      ]
+    },
+    {
+      "id": "T08", "owner": "opencode", "phase": 2, "depends_on": ["T02", "T04", "T05"],
+      "title": "About dossier, Breed fit and Final CTA",
+      "files": ["src/components/puppy-page/PuppyDossier.astro", "src/components/puppy-page/BreedFit.astro", "src/components/puppy-page/PuppyFinalCta.astro"],
+      "do": [
+        "Dossier: tag, eyebrow, H2, five chips (each hides on null), portrait, cards 01-03; card 01 only when facts.temperament exists and is phrased as the breed, never the puppy; keep .dossier--joined with the families band.",
+        "BreedFit: facts tiles, fit/think-twice columns, More-about links filtered to anchors that exist; hide the section without both lists.",
+        "Final CTA with variant headings and prefills from the copy deck; keeps id=final for the sticky observer."
+      ],
+      "acceptance": [
+        "Two-card dossier shot at 1440 and 390 has no hole (compromise C4).",
+        "No sentence of the form '{name} is <temperament>' anywhere in dist/puppies/**."
+      ]
+    },
+    {
+      "id": "T09", "owner": "opencode", "phase": 2, "depends_on": ["T02", "T03", "T05"],
+      "title": "Health record, payment methods, next steps and visit",
+      "files": ["src/components/puppy-page/HealthRecord.astro", "src/components/puppy-page/PaymentMethods.astro", "src/components/puppy-page/NextSteps.astro", "src/components/puppy-page/VisitShop.astro"],
+      "do": [
+        "HealthRecord: av timeline from VACCINATION_ROWS, home node date from readyDate (or generic), FIVE_DAY_LINE, vetsForPetsHtml(), POC_URL; imp renders the three copy-deck promise cards in this slot.",
+        "PaymentMethods (av only) from PAYMENT_LINE + SURCHARGE_LINE; card count follows the methods (compromise C3).",
+        "NextSteps: av/pl from RESERVE_STEPS + site.hours; imp from the copy deck's four reservation steps filled with deposit fields.",
+        "VisitShop from site.ts; keep the K-124 flex geometry (map fills its column at >=1024, 4/3 below, link overlaid); link-card fallback without googleMapsEmbed (C6).",
+        "Band tones assigned from the rendered section sequence (src/lib/section-rhythm.ts), so a dropped section never leaves two same-tone bands touching (C5)."
+      ],
+      "acceptance": [
+        "Map bottom == licence bottom (Δ 0) at 1440, 1280, 1024 for Biscuit.",
+        "No per-puppy vaccination date appears anywhere."
+      ]
+    },
+    {
+      "id": "T10", "owner": "opencode", "phase": 2, "depends_on": ["T03", "T05"],
+      "title": "FAQ, other puppies and reserving",
+      "files": ["src/components/puppy-page/PuppyFaq.astro", "src/components/puppy-page/OtherPuppies.astro", "src/components/puppy-page/Reserving.astro", "src/lib/puppy-page.ts"],
+      "do": [
+        "puppyFaq(page): Q1-Q9 per plan §1 §13; drop any question whose data is missing; imp uses the copy-deck reservation FAQ. Return the array used for both markup and FAQPage.",
+        "OtherPuppies: pupCard() over the feed minus this id, same breed first, max 6; position 'top' on pl; hide when empty.",
+        "Reserving (av only) from AVAILABILITY_LINE with the reserve prefill."
+      ],
+      "acceptance": [
+        "Visible FAQ text equals FAQPage text for every built page (scripted compare).",
+        "Placed pages render Others directly after the hero."
+      ]
+    },
+    {
+      "id": "T11", "owner": "opencode", "phase": 3, "depends_on": ["T06", "T07", "T08", "T09", "T10"],
+      "title": "Imported variant (only-imp) folded into the template",
+      "files": ["src/components/puppy-page/PuppyPage.astro", "src/lib/imported-puppies.ts"],
+      "do": [
+        "PuppyPage.astro renders SECTION_ORDER[variant]; the imp order uses the copy-deck content already live in ImportedPuppyDetail.astro (hero reservation box, how reserving works, promises, reservation FAQ).",
+        "Keep noindex,follow, businessSchema=false and the imported Product node exactly as ImportedPuppyDetail does today.",
+        "Never import buying-terms local-shop terms into an imp branch."
+      ],
+      "acceptance": [
+        "test:imports passes; check:import-leaks passes on the built fixture page.",
+        "Imported fixture HTML contains the arrival month and 'subject to import approval', and no 'up to a month' boarding line."
+      ]
+    },
+    {
+      "id": "T12", "owner": "opencode", "phase": 3, "depends_on": ["T05", "T10"],
+      "title": "SEO block per puppy: title, meta, H1, canonical, JSON-LD",
+      "files": ["src/lib/puppy-page.ts", "src/components/puppy-page/PuppySeo.astro"],
+      "do": [
+        "Title '{Name}, {Colour} {Breed} {Girl|Boy} for Sale | Curious Tails' (drop the brand suffix over 60; unnamed form '{Colour} {Breed} {Girl|Boy} #{id} for Sale'); placed '{Name} the {Breed} Found a Loving Home | Curious Tails'.",
+        "Meta <= 155 from the template-spec B5 pattern with null-safe parts.",
+        "One H1 per page from the copy deck; canonical unchanged.",
+        "JSON-LD: av Product{name, sku, category, image[], description, additionalProperty[gender, colour, dob, HDB only when set], offers{price, SGD, InStock, url, seller @id}}; FAQPage from puppyFaq(); BreadcrumbList matching the visible crumbs; VideoObject only for a hosted video with thumbnail; pl no Product/FAQPage; imp keeps today's nodes. No review/aggregateRating on Product."
+      ],
+      "acceptance": [
+        "check:schema and check:schema:req pass for every built puppy page.",
+        "Title <= 60 and meta <= 155 for all live pups and fixtures."
+      ]
+    },
+    {
+      "id": "T13", "owner": "opencode", "phase": 3, "depends_on": ["T05", "T11"],
+      "title": "Gate report and honesty linter: npm run check:puppy-pages",
+      "files": ["scripts/check-puppy-pages.mjs", "package.json", "NEEDS-ATTENTION.md"],
+      "do": [
+        "Run publishable() over the three feeds; print blocked pups with reasons and warnings; append blocked pups to NEEDS-ATTENTION.md as one line each ('<id> <name>: no price in the sheet').",
+        "Lint dist/puppies/**/index.html: banned words (pedigree, DNA, Malay, hypoallergenic-as-promise, guaranteed arrival, GST, 'guarantee' outside the two allowed negations), 'null', 'undefined', 'a a'/'a apricot' articles, more than one H1, hidden-branch text, Product without a visible price.",
+        "Hard fails exit non-zero; blockers and warnings do not."
+      ],
+      "acceptance": [
+        "Script passes on the current 9 available + placed pages.",
+        "Injecting a pup without price produces a blocker line and no page; injecting 'pedigree' into a fixture fails the script."
+      ]
+    },
+    {
+      "id": "T14", "owner": "opencode", "phase": 3, "depends_on": ["T11", "T12", "T13"],
+      "title": "Proof test: a brand-new puppy renders with no hand editing",
+      "files": ["scripts/test-puppy-page.mjs", "scripts/fixtures/puppy-page/*.json", "package.json"],
+      "do": [
+        "Fixtures: av-min (id, breed slug with facts, one photo, price, Balestier; every optional field null), av-min-nofacts (a breed with no breedFacts), av-max (5 photos, video, dob, name, HDB tick), pl-min, imp-min.",
+        "Build with the fixtures merged into a temp copy of the feeds (never the real JSON) and assert on dist/: page exists at the pupPageSlug URL, section ids match SECTION_ORDER minus the data-conditional ones, one H1, no forbidden strings, title/meta limits, JSON-LD shape per variant, data-wa-source carries the id, FAQ == FAQPage.",
+        "Add npm run test:puppy-page."
+      ],
+      "acceptance": [
+        "All five fixtures pass with no change to any file under src/components or src/data.",
+        "av-min renders 15 sections; av-min-nofacts renders 14 (no Breed fit) and a two-card dossier."
+      ]
+    },
+    {
+      "id": "T15", "owner": "opencode", "phase": 4, "depends_on": ["T14"],
+      "title": "Preview parity behind PUPPY_TEMPLATE=v2",
+      "files": ["src/pages/puppies/[breed]/[id].astro", "reports/k128-shots/", "reports/k128-parity-report.md"],
+      "do": [
+        "Route switch: PUPPY_TEMPLATE=v2 sends every path to PuppyPage.astro; default stays on the old components.",
+        "Preview deploy (npm run deploy:preview) with v2 on.",
+        "Biscuit v2 vs prototype screenshots at 1440/1280/1024/768/390, plus the K-124 map/licence geometry check; every other live and placed pup at 1440 and 390.",
+        "List every visible difference against compromises C1-C7; anything not on that list is a bug."
+      ],
+      "acceptance": [
+        "Route count v2 == old; check:redirects unchanged.",
+        "0 overflow at 390, 0 console errors, Lighthouse mobile >= 90 performance / >= 95 accessibility on Biscuit.",
+        "Owner sign-off recorded in the parity report."
+      ]
+    },
+    {
+      "id": "T16", "owner": "opencode", "phase": 4, "depends_on": ["T15"],
+      "title": "Switch over, retire the old components and freeze the prototype",
+      "files": ["src/pages/puppies/[breed]/[id].astro", "src/components/PuppyDetail.astro", "src/components/ImportedPuppyDetail.astro", "outputs/puppy-page-redesign-biscuit.html", "outputs/build-biscuit-stage.py", "BUILD-STATE.md"],
+      "do": [
+        "Remove the flag; the route renders PuppyPage.astro for av, pl and imp.",
+        "Delete PuppyDetail.astro and ImportedPuppyDetail.astro after rg shows no other importer.",
+        "Add one line to the prototype's header comment: 'Superseded by src/components/puppy-page/ (K-128). Reference only. Do not edit.'; retire build-biscuit-stage.py and the _k002_stage mirror.",
+        "Add check:puppy-pages and test:puppy-page to npm run verify; note the publishing flow (sheet row -> sync -> page, gate -> NEEDS-ATTENTION) in BUILD-STATE.md."
+      ],
+      "acceptance": [
+        "npm run verify green; check:puppy-pages and test:puppy-page in it.",
+        "No production deploy in this task; production goes out on a separate card after owner approval."
+      ]
+    }
+  ]
+}

@@ -104,3 +104,18 @@
 - deployed_build: c05ca4d8aa10 · deployed_at: 2026-10-10T08:01:52Z · branch: main · project: curioustails-sg
 
 - deployed_build: 0ca61a536371 · deployed_at: 2026-10-10T08:06:42Z · branch: main · project: curioustails-sg
+
+- deployed_build: aebdc00c70cb · deployed_at: 2026-11-13T08:47:12Z · branch: main · project: curioustails-sg
+
+- deployed_build: cd8cdd0fbe64 · deployed_at: 2026-11-14T05:12:45Z · branch: k129-content-gap · project: curioustails-sg
+- deployed_build: fc33e1aaad78 · deployed_at: 2026-11-14T05:25:16Z · branch: k129-content-gap · project: curioustails-sg (K-129 scoped build from a copy: [id].astro + puppy-page/ at HEAD; see reports/k129-content-gap-resume-report-2026-11-14.md §6)
+
+## K-130 puppy page template (2026-11-14, preview only)
+- Every puppy page (`/puppies/<breed>/<id-slug>/`) renders `src/components/puppy-page/PuppyPage.astro`; variants av / pl / imp. Adapter `src/lib/puppy-page.ts`, copy `src/data/puppy-page-copy.ts`, breed facts `src/data/breed-facts.ts` (also read by 7 breed pages), terms `src/data/buying-terms.ts` (D1: 4 payment methods).
+- Publishing flow: sheet row -> `npm run sync:puppies` -> page. Rule in `src/lib/puppy-publish.mjs`: Balestier only (other locations: no page, no card, logged); a Balestier puppy missing breed page / photo / price gets a THIN page (noindex,follow, out of the sitemap, no Offer) that flips to indexable on the next build once the row is filled.
+- Gate: `npm run check:puppy-pages` (runs in `npm run build`) writes thin + excluded rows to NEEDS-ATTENTION.md and fails on any hard rule. Proof: `npm run test:puppy-page`. Breed facts: `npm run check:breed-facts`.
+
+- deployed_build: 8a177ab0e3a0 · deployed_at: 2026-11-14T06:12:40Z · branch: k130-puppy-template · project: curioustails-sg
+- deployed_build: 9bb2d604929f - deployed_at: 2026-11-14T07:05:00Z - branch: preview - project: curioustails-staging (K-119 preview from the working tree; see reports/k119-content-gap-report-2026-11-14.md)
+- deployed_build: 94e83966 - deployed_at: 2026-11-14T08:00:06Z - branch: k135-review-sheet - project: curioustails-staging (K-135 read-only imports review sheet; see reports/k135-review-sheet-report-2026-11-14.md)
+- deployed_build: 0c8c730b - deployed_at: 2026-11-14T08:09:10Z - branch: k135-review-sheet - project: curioustails-staging (K-139 queue split; same preview URL; see reports/k139-queue-split-report-2026-11-14.md)

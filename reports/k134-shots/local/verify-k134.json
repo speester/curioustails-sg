@@ -1,0 +1,296 @@
+{
+  "base": "http://localhost:4334",
+  "runs": [
+    {
+      "page": "available-1440",
+      "status": 200,
+      "xRobots": null,
+      "overflow": {
+        "sw": 1440,
+        "cw": 1440
+      },
+      "sampleCards": 4,
+      "cardLabels": 4,
+      "firstCard": {
+        "labelText": "Sample listing — demo data, not a real puppy",
+        "labelOffsetFromCardTop": 15,
+        "labelInViewport": true,
+        "priceText": "S$4,550all-in to your door",
+        "priceFont": 20,
+        "priceColor": "oklch(0.52 0.185 30)",
+        "arrivalText": "Estimated arrival December 2026 · subject to import approval",
+        "arrivalFont": 14,
+        "arrivalColor": "oklch(0.37 0.032 55)",
+        "cardWidth": 313
+      },
+      "waLinks": [
+        {
+          "id": "imp-5a3d1e0001",
+          "hasText": true,
+          "textHasId": true
+        },
+        {
+          "id": "imp-5a3d1e0002",
+          "hasText": true,
+          "textHasId": true
+        },
+        {
+          "id": "imp-5a3d1e0003",
+          "hasText": true,
+          "textHasId": true
+        },
+        {
+          "id": "imp-5a3d1e0004",
+          "hasText": true,
+          "textHasId": true
+        }
+      ],
+      "chips": {
+        "imported": {
+          "importedVisible": 1,
+          "localVisible": 0
+        },
+        "local": {
+          "importedVisible": 0,
+          "localVisible": 7
+        },
+        "all": {
+          "importedVisible": 1,
+          "localVisible": 7
+        }
+      },
+      "cardLink": {
+        "href": "/puppies/jack-russell-terrier/imp-5a3d1e0001/",
+        "landed": "/puppies/jack-russell-terrier/imp-5a3d1e0001/",
+        "bannerOnDetail": 1
+      },
+      "consoleErrors": []
+    },
+    {
+      "robots": "noindex, follow",
+      "title": "Sample Listing (Demo Data) · Jack Russell Terrier | Curious Tails",
+      "banner": {
+        "text": "Sample listing — demo data, not a real puppy. Built from pipeline test fixtures to preview the layout. This puppy does not exist and cannot be reserved; the photos are from our breed library.",
+        "top": 116,
+        "bottom": 190,
+        "inViewport": true
+      },
+      "schemaTypes": [
+        "Product",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "schemaParseErrors": 0,
+      "product": {
+        "name": "SAMPLE LISTING (demo data, not a real puppy): Jack Russell Terrier puppy (imported, for reservation)",
+        "availability": "https://schema.org/PreOrder",
+        "availabilityStarts": "2026-12-01",
+        "price": 4550,
+        "priceCurrency": "SGD"
+      },
+      "sections": "hero includes gifts about final health next visit faq others",
+      "priceText": "S$4,550",
+      "priceFont": 48,
+      "arrivalText": "Estimated arrival December 2026 · subject to import approval · 10 weeks old",
+      "arrivalFont": 14.4,
+      "steps": [
+        "Message us.Tell us which puppy and which boy or girl you'd like. We confirm availability, usually within 24 to 48 hours, before you pay anything.",
+        "Pay the 50% deposit (S$2,275).To reserve, you pay a deposit of 50% of the price by PayNow or bank transfer, after we have confirmed availability. We send your written reservation confirmation, with the breeder's name, the price, the estimated arrival date and the refund terms, within 1 business day of receiving the deposit. We pay the breeder only after your deposit has cleared.",
+        "Pay the balance (S$2,275) before the flight.The remaining 50% (the balance) is due before the puppy flies, after we have sent you written confirmation of the booked flight, the puppy's pre-export vet check, and copies of its vaccination, worming and microchip records.",
+        "Welcome home.Your puppy lands, clears AVS checks at Changi, and we deliver to your door with the 30-item starter kit and set everything up with you."
+      ],
+      "vet": {
+        "text": "Our appointed vetVets For Pets, for the 5-day promiseVets For Pets, our appointed vet. Jurong: call 6569 1627. Lengkok Bahru: WhatsApp or call the mobile 8268 4039, or call the landline 6255 6064.",
+        "tel": [
+          "tel:+6565691627",
+          "tel:+6582684039",
+          "tel:+6562556064"
+        ],
+        "wa": 1
+      },
+      "wa": [
+        {
+          "src": "import:imp-5a3d1e0001",
+          "hasText": true,
+          "textHasId": true,
+          "text": "[SAMPLE LISTING PREVIEW - demo data, not a real puppy] Puppy id imp-5a3d1e0001, ref SAMPLE-1: Jack Russell Terrier (S$4,550, arriving around December 2026)."
+        },
+        {
+          "src": "import:imp-5a3d1e0001:about",
+          "hasText": true,
+          "textHasId": true,
+          "text": "[SAMPLE LISTING PREVIEW - demo data, not a real puppy] Puppy id imp-5a3d1e0001, ref SAMPLE-1: Jack Russell Terrier (S$4,550, arriving around December 2026)."
+        },
+        {
+          "src": "import:imp-5a3d1e0001:final",
+          "hasText": true,
+          "textHasId": true,
+          "text": "[SAMPLE LISTING PREVIEW - demo data, not a real puppy] Puppy id imp-5a3d1e0001, ref SAMPLE-1: Jack Russell Terrier (S$4,550, arriving around December 2026)."
+        },
+        {
+          "src": "import:imp-5a3d1e0001:sticky",
+          "hasText": true,
+          "textHasId": true,
+          "text": "[SAMPLE LISTING PREVIEW - demo data, not a real puppy] Puppy id imp-5a3d1e0001, ref SAMPLE-1: Jack Russell Terrier (S$4,550, arriving around December 2026)."
+        }
+      ],
+      "overflow": {
+        "sw": 1440,
+        "cw": 1440
+      },
+      "reviewsOrFamilies": 0,
+      "uen": false,
+      "guarantee": false,
+      "page": "detail-1440",
+      "status": 200,
+      "xRobots": null,
+      "consoleErrors": []
+    },
+    {
+      "page": "available-390",
+      "status": 200,
+      "xRobots": null,
+      "overflow": {
+        "sw": 390,
+        "cw": 390
+      },
+      "sampleCards": 4,
+      "cardLabels": 4,
+      "firstCard": {
+        "labelText": "Sample listing — demo data, not a real puppy",
+        "labelOffsetFromCardTop": 15,
+        "labelInViewport": true,
+        "priceText": "S$4,550all-in to your door",
+        "priceFont": 20,
+        "priceColor": "oklch(0.52 0.185 30)",
+        "arrivalText": "Estimated arrival December 2026 · subject to import approval",
+        "arrivalFont": 14,
+        "arrivalColor": "oklch(0.37 0.032 55)",
+        "cardWidth": 350
+      },
+      "waLinks": [
+        {
+          "id": "imp-5a3d1e0001",
+          "hasText": true,
+          "textHasId": true
+        },
+        {
+          "id": "imp-5a3d1e0002",
+          "hasText": true,
+          "textHasId": true
+        },
+        {
+          "id": "imp-5a3d1e0003",
+          "hasText": true,
+          "textHasId": true
+        },
+        {
+          "id": "imp-5a3d1e0004",
+          "hasText": true,
+          "textHasId": true
+        }
+      ],
+      "chips": {
+        "imported": {
+          "importedVisible": 1,
+          "localVisible": 0
+        },
+        "local": {
+          "importedVisible": 0,
+          "localVisible": 7
+        },
+        "all": {
+          "importedVisible": 1,
+          "localVisible": 7
+        }
+      },
+      "cardLink": {
+        "href": "/puppies/jack-russell-terrier/imp-5a3d1e0001/",
+        "landed": "/puppies/jack-russell-terrier/imp-5a3d1e0001/",
+        "bannerOnDetail": 1
+      },
+      "consoleErrors": []
+    },
+    {
+      "robots": "noindex, follow",
+      "title": "Sample Listing (Demo Data) · Jack Russell Terrier | Curious Tails",
+      "banner": {
+        "text": "Sample listing — demo data, not a real puppy. Built from pipeline test fixtures to preview the layout. This puppy does not exist and cannot be reserved; the photos are from our breed library.",
+        "top": 84,
+        "bottom": 202,
+        "inViewport": true
+      },
+      "schemaTypes": [
+        "Product",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "schemaParseErrors": 0,
+      "product": {
+        "name": "SAMPLE LISTING (demo data, not a real puppy): Jack Russell Terrier puppy (imported, for reservation)",
+        "availability": "https://schema.org/PreOrder",
+        "availabilityStarts": "2026-12-01",
+        "price": 4550,
+        "priceCurrency": "SGD"
+      },
+      "sections": "hero includes gifts about final health next visit faq others",
+      "priceText": "S$4,550",
+      "priceFont": 35.2,
+      "arrivalText": "Estimated arrival December 2026 · subject to import approval · 10 weeks old",
+      "arrivalFont": 14.4,
+      "steps": [
+        "Message us.Tell us which puppy and which boy or girl you'd like. We confirm availability, usually within 24 to 48 hours, before you pay anything.",
+        "Pay the 50% deposit (S$2,275).To reserve, you pay a deposit of 50% of the price by PayNow or bank transfer, after we have confirmed availability. We send your written reservation confirmation, with the breeder's name, the price, the estimated arrival date and the refund terms, within 1 business day of receiving the deposit. We pay the breeder only after your deposit has cleared.",
+        "Pay the balance (S$2,275) before the flight.The remaining 50% (the balance) is due before the puppy flies, after we have sent you written confirmation of the booked flight, the puppy's pre-export vet check, and copies of its vaccination, worming and microchip records.",
+        "Welcome home.Your puppy lands, clears AVS checks at Changi, and we deliver to your door with the 30-item starter kit and set everything up with you."
+      ],
+      "vet": {
+        "text": "Our appointed vetVets For Pets, for the 5-day promiseVets For Pets, our appointed vet. Jurong: call 6569 1627. Lengkok Bahru: WhatsApp or call the mobile 8268 4039, or call the landline 6255 6064.",
+        "tel": [
+          "tel:+6565691627",
+          "tel:+6582684039",
+          "tel:+6562556064"
+        ],
+        "wa": 1
+      },
+      "wa": [
+        {
+          "src": "import:imp-5a3d1e0001",
+          "hasText": true,
+          "textHasId": true,
+          "text": "[SAMPLE LISTING PREVIEW - demo data, not a real puppy] Puppy id imp-5a3d1e0001, ref SAMPLE-1: Jack Russell Terrier (S$4,550, arriving around December 2026)."
+        },
+        {
+          "src": "import:imp-5a3d1e0001:about",
+          "hasText": true,
+          "textHasId": true,
+          "text": "[SAMPLE LISTING PREVIEW - demo data, not a real puppy] Puppy id imp-5a3d1e0001, ref SAMPLE-1: Jack Russell Terrier (S$4,550, arriving around December 2026)."
+        },
+        {
+          "src": "import:imp-5a3d1e0001:final",
+          "hasText": true,
+          "textHasId": true,
+          "text": "[SAMPLE LISTING PREVIEW - demo data, not a real puppy] Puppy id imp-5a3d1e0001, ref SAMPLE-1: Jack Russell Terrier (S$4,550, arriving around December 2026)."
+        },
+        {
+          "src": "import:imp-5a3d1e0001:sticky",
+          "hasText": true,
+          "textHasId": true,
+          "text": "[SAMPLE LISTING PREVIEW - demo data, not a real puppy] Puppy id imp-5a3d1e0001, ref SAMPLE-1: Jack Russell Terrier (S$4,550, arriving around December 2026)."
+        }
+      ],
+      "overflow": {
+        "sw": 390,
+        "cw": 390
+      },
+      "reviewsOrFamilies": 0,
+      "uen": false,
+      "guarantee": false,
+      "page": "detail-390",
+      "status": 200,
+      "xRobots": null,
+      "consoleErrors": []
+    }
+  ],
+  "failures": []
+}

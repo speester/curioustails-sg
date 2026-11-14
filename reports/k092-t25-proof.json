@@ -1,0 +1,84 @@
+{
+  "generatedAt": "2026-11-13T14:43:12.976Z",
+  "pass": true,
+  "failures": 0,
+  "steps": [
+    {
+      "step": "forced-blocked-host",
+      "exitCode": 1,
+      "status": "failed",
+      "reasonCodes": [
+        "source-blocked"
+      ],
+      "alertExists": true,
+      "pointerExists": true,
+      "logExists": true,
+      "lastRunStatus": "failed",
+      "lastRunAutopublish": false,
+      "board": {
+        "posted": false,
+        "skipped": "no-board-token"
+      },
+      "hasSourceBlocked": true,
+      "logNoPii": true,
+      "alertNoPii": true
+    },
+    {
+      "step": "forced-schema-violation",
+      "exitCode": 1,
+      "status": "failed",
+      "reasonCodes": [
+        "feed-validation"
+      ],
+      "alertExists": true,
+      "pointerExists": true,
+      "logExists": true,
+      "lastRunStatus": "failed",
+      "lastRunAutopublish": false,
+      "board": {
+        "posted": false,
+        "skipped": "no-board-token"
+      },
+      "hasFeedValidation": true,
+      "hasPricePath": true,
+      "malformedFeedUntouched": true
+    },
+    {
+      "step": "clean-success",
+      "exitCode": 0,
+      "status": "ok",
+      "reasonCodes": [],
+      "alertExists": false,
+      "pointerExists": false,
+      "logExists": true,
+      "lastRunStatus": "ok",
+      "lastRunAutopublish": false,
+      "board": null,
+      "queueAutoReady": 1,
+      "queueReview": 0,
+      "feedPups": 0,
+      "counts": {
+        "discovered": 0,
+        "records": 0,
+        "groups": 1,
+        "merged": 0,
+        "rejected": 0,
+        "gates": {
+          "pass": 1,
+          "review": 0,
+          "reject": 0,
+          "auto-ready": 1,
+          "publish": 0
+        },
+        "images": {
+          "downloaded": 0,
+          "failed": 0
+        },
+        "feedPups": 0,
+        "published": 0,
+        "unpublished": 0
+      },
+      "logNoPii": true
+    }
+  ]
+}

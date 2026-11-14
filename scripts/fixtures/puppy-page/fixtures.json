@@ -1,0 +1,222 @@
+{
+  "_comment": "K-130 test fixtures for scripts/test-puppy-page.mjs. Merged into the build ONLY through PUPPY_FIXTURES; the real feeds are never written. Photos reuse files already in src/assets/live so the build has a real image to process; ids 99001-99099 are reserved for fixtures.",
+  "local": [
+    {
+      "_case": "av-min: a brand-new sheet row with only the five required fields",
+      "breed": "maltipoo",
+      "pup": {
+        "id": 99001,
+        "name": null,
+        "color": null,
+        "gender": null,
+        "age": null,
+        "dob": null,
+        "price": 3888,
+        "image": "2950-1-64963ef1.webp",
+        "images": [
+          "2950-1-64963ef1.webp"
+        ],
+        "location": "Balestier Area",
+        "origin": null,
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": null,
+        "video": null,
+        "bookHref": null
+      }
+    },
+    {
+      "_case": "av-min-nofacts: a breed with a breed page but no breed-facts entry",
+      "breed": "pomeranian",
+      "pup": {
+        "id": 99002,
+        "name": null,
+        "color": null,
+        "gender": null,
+        "age": null,
+        "dob": null,
+        "price": 4288,
+        "image": "2954-1-494c6ce2.webp",
+        "images": [
+          "2954-1-494c6ce2.webp"
+        ],
+        "location": "Balestier Area",
+        "origin": null,
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": null,
+        "video": null,
+        "bookHref": null
+      }
+    },
+    {
+      "_case": "av-max: every optional field filled, 5 photos and a video",
+      "breed": "maltipoo",
+      "pup": {
+        "id": 99003,
+        "name": "Pebble",
+        "color": "Apricot",
+        "gender": "Female",
+        "age": "2 months",
+        "dob": "2026-09-01",
+        "price": 4288,
+        "image": "2950-1-64963ef1.webp",
+        "images": [
+          "2950-1-64963ef1.webp",
+          "2950-2-8558c489.webp",
+          "2950-3-bde3fd88.webp",
+          "2950-4-1ef7b60b.webp",
+          "2954-2-e0462909.webp"
+        ],
+        "location": "Balestier Area",
+        "origin": "Local",
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": true,
+        "video": "https://example.com/fixture-video.mp4",
+        "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=99003"
+      }
+    },
+    {
+      "_case": "av-thin: Balestier puppy with no photo and no price (owner D3: page, but noindex)",
+      "breed": "cavapoo",
+      "pup": {
+        "id": 99004,
+        "name": "Bean",
+        "color": "Cream",
+        "gender": "Male",
+        "age": null,
+        "dob": null,
+        "price": null,
+        "image": null,
+        "images": [],
+        "location": "Balestier Area",
+        "origin": null,
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": null,
+        "video": null,
+        "bookHref": null
+      }
+    },
+    {
+      "_case": "av-cck: a complete row in Choa Chu Kang (owner ruling: not our inventory, no page)",
+      "breed": "cavapoo",
+      "pup": {
+        "id": 99005,
+        "name": "Kopi",
+        "color": "Brown",
+        "gender": "Male",
+        "age": "2 months",
+        "dob": null,
+        "price": 3288,
+        "image": "2954-1-494c6ce2.webp",
+        "images": [
+          "2954-1-494c6ce2.webp"
+        ],
+        "location": "Choa Chu Kang",
+        "origin": null,
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": true,
+        "video": null,
+        "bookHref": null
+      }
+    }
+  ],
+  "placed": [
+    {
+      "_case": "pl-min: a placed puppy, minimum fields",
+      "id": 99006,
+      "breed": "cockapoo",
+      "status": "placed",
+      "evidence": "sold-overlay",
+      "placedAt": "2026-11-10",
+      "lastListed": "2026-11-09",
+      "source": "fixture",
+      "name": null,
+      "color": null,
+      "gender": null,
+      "age": null,
+      "image": "2950-1-64963ef1.webp",
+      "origin": null,
+      "sizeNote": null,
+      "crossLabel": null,
+      "hdbApproved": null
+    }
+  ],
+  "imported": [
+    {
+      "_case": "imp-min: an imported reservation with no photo",
+      "id": "imp-0000fcafe1",
+      "ref": "CT-FX01",
+      "breed": "cavapoo",
+      "breedLabel": "Cavapoo",
+      "crossLabel": null,
+      "name": null,
+      "sex": {
+        "male": 1,
+        "female": 1
+      },
+      "colours": [],
+      "dob": null,
+      "age": null,
+      "priceSGD": 5200,
+      "depositPct": 50,
+      "depositSGD": 2600,
+      "balanceSGD": 2600,
+      "balanceDue": "before-flight",
+      "arrivalEstimate": "2027-01",
+      "arrivalBasis": "listing-date",
+      "imported": true,
+      "origin": "IE",
+      "reservation": true,
+      "perks": [],
+      "photos": [],
+      "photoAlt": [],
+      "status": "published",
+      "publishedAt": "2026-11-14",
+      "updatedAt": "2026-11-14",
+      "sourceHash": "fixture",
+      "hdbApproved": null,
+      "eligibleSG": true,
+      "specified": false
+    },
+    {
+      "_case": "imp-au: an Australian reservation on the imports instrument (K-136), no location field, Both sexes, no photo",
+      "id": "imp-0000fcafe2",
+      "ref": "CT-AU-FX0002",
+      "breed": "golden-retriever",
+      "breedLabel": "Golden Retriever",
+      "crossLabel": null,
+      "name": null,
+      "sex": {
+        "male": 1,
+        "female": 1
+      },
+      "colours": [],
+      "dob": null,
+      "age": null,
+      "priceSGD": 4900,
+      "depositPct": 50,
+      "depositSGD": 2450,
+      "balanceSGD": 2450,
+      "balanceDue": "before-flight",
+      "arrivalEstimate": "2026-11",
+      "arrivalBasis": "age",
+      "imported": true,
+      "origin": "AU",
+      "reservation": true,
+      "perks": [],
+      "photos": [],
+      "photoAlt": [],
+      "status": "published",
+      "publishedAt": "2026-11-14",
+      "updatedAt": "2026-11-14",
+      "sourceHash": "fixture",
+      "hdbApproved": null,
+      "eligibleSG": true,
+      "specified": false
+    }
+  ]
+}

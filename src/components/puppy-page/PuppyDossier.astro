@@ -1,0 +1,66 @@
+---
+// §4 About {name}: the dossier. AV · IMP · PL. Always on.
+// Card 01 is breed copy from breed-facts.ts (the published breed page), shown
+// as the breed and never as this puppy; without facts the grid holds two cards
+// (compromise C4). Each chip hides on null.
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import { aboutEyebrow, aboutHeading, doneCard, nextCard, wa } from '../../data/puppy-page-copy';
+import type { PuppyPageData } from '../../lib/puppy-page';
+
+interface Props { p: PuppyPageData }
+const { p } = Astro.props;
+const breedChip = p.facts?.parentage ? `${p.breedNoun}, ${p.facts.parentage}` : p.breedNoun;
+const chips = [
+  { k: 'Breed', v: breedChip },
+  { k: 'Colour', v: p.variant === 'imp' ? p.colours.join(', ') || null : p.color },
+  { k: 'Sex', v: p.variant === 'imp' ? p.imp?.sexLine || null : p.gender ? p.genderWord : null },
+  { k: 'Age', v: p.ageLabel },
+  { k: 'Area', v: p.variant === 'imp' ? (p.imp?.month ? `Arriving ${p.imp.month}` : null) : p.location },
+].filter((c) => c.v);
+const cards = [
+  ...(p.facts?.temperament ? [{ title: 'The breed', body: p.facts.temperament }] : []),
+  doneCard(p),
+  nextCard(p),
+];
+const portrait = p.images[0] ?? null;
+const ctaHref = p.variant === 'pl' ? wa.sold(p) : p.variant === 'imp' ? wa.impReserve(p) : wa.interest(p);
+const ctaText = p.variant === 'pl' ? `Ask about a similar ${p.breedNoun}` : p.variant === 'imp' ? (p.imp?.reserved ? 'Ask about the next one' : 'Ask about this puppy') : `WhatsApp about ${p.who}`;
+---
+<section class="dossier dossier--joined" id="about" aria-labelledby="about-h" data-section="about" data-treatment="split" data-tone="tint" data-location={p.location ?? undefined}>
+  <div class="wrap">
+    <div class="dossier-in">
+      <span class="dossier-tag" aria-hidden="true">{p.name ? `${p.name} · ${p.displayId}` : `ID · ${p.displayId}`}</span>
+      <div class="dossier-main">
+        <header class="dossier-head" data-reveal>
+          <span class="dossier-eyebrow">{aboutEyebrow(p)}</span>
+          <h2 id="about-h">{aboutHeading(p)}</h2>
+        </header>
+        <ul class="dossier-chips" data-reveal aria-label={`${p.name ? `${p.name}'s` : "This puppy's"} details`}>
+          {chips.map((c) => <li><b>{c.k}</b><span>{c.v}</span></li>)}
+        </ul>
+        <div class="dossier-grid">
+          {portrait ? (
+            <figure class="dossier-portrait" data-reveal>
+              <Image src={portrait.src} alt={portrait.alt} widths={[480, 800]} sizes="(max-width:1023px) 92vw, 640px" loading="lazy" />
+            </figure>
+          ) : (
+            <figure class="dossier-portrait dossier-portrait--ph" data-reveal><figcaption>Photos coming</figcaption></figure>
+          )}
+          <div class:list={['dossier-cards', cards.length === 2 && 'dossier-cards--2']}>
+            {cards.map((c, i) => (
+              <article class="dossier-card" data-reveal>
+                <span class="dc-i">{String(i + 1).padStart(2, '0')}</span>
+                <h3>{c.title}</h3>
+                <p>{c.body}</p>
+                {i === cards.length - 1 && (
+                  <a class="dossier-cta" href={ctaHref} data-wa-source={`${p.waSource}:about`}><Icon name="wa" />{ctaText}</a>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

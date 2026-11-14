@@ -15,6 +15,13 @@ export const site = {
     country: "SG",
   },
   hours: "Tuesday–Sunday 11am–6pm, closed Mondays",
+  // K-119 G3/G4. Directions ship as the puppy page already prints them (K-118 Q4);
+  // bus list and the Novena walk time were checked against that copy on 2026-11-14,
+  // not independently re-surveyed. Owner-facing copy, not a live transit feed.
+  directions:
+    "Toa Payoh MRT, then bus 129 for 2 stops, or a 12-minute walk from Novena MRT. Buses 21, 129, 130, 131, 139, 145 and 186 stop a minute away on Balestier Road. Paid HDB parking behind the shop.",
+  ownersLine:
+    "Run by owners Nelson and Kim, who are in the shop, do the deliveries and set up the playpens themselves.",
   hoursSpecification: [
     { days: ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "11:00", closes: "18:00" },
   ],

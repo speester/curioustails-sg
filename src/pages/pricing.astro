@@ -18,6 +18,7 @@ import FinalCta from '../components/FinalCta.astro';
 import Carousel from '../components/Carousel.astro';
 import FAQ from '../components/FAQ.astro';
 import Schema from '../components/Schema.astro';
+import { RESERVE_STEPS } from '../data/buying-terms';
 import ScatterFloat from '../components/decor/ScatterFloat.astro';
 import CloudDivider from '../components/decor/CloudDivider.astro';
 import PawTrail from '../components/decor/PawTrail.astro';
@@ -169,7 +170,7 @@ const faqItems = [
   {
     question: 'Can you hold my puppy if my home is not ready yet?',
     answer:
-      'Yes. After your deposit, we board your puppy free of charge, lodging and food both covered, until you are ready. Delivery is then scheduled around your availability, usually mornings or evenings.',
+      `Yes. After your deposit, we board your puppy free of charge, lodging and food both covered, until you are ready. ${RESERVE_STEPS[3]}`,
   },
   {
     question: 'How much does a Cavapoo cost in Singapore?',

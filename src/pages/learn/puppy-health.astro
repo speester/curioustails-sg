@@ -23,13 +23,13 @@ import ExpertQuote from '../../components/ExpertQuote.astro';
 
 const title = 'Puppy Vaccinations Singapore: Exact Schedule | Curious Tails';
 const description =
-  "Singapore's puppy vaccination schedule: weeks 6, 8, 12 (optional 16), annual boosters, deworming at every visit, microchipping, and licensing requirements.";
+  "Singapore's puppy vaccination schedule: weeks 6, 8, 12 and 16, annual boosters, deworming at every visit, microchipping, and licensing requirements.";
 
 const faqItems = [
   {
     question: 'When do puppies get vaccinated in Singapore?',
     answer:
-      'Core vaccinations at weeks 6, 8, and 12, with an optional fourth at week 16 if your vet advises it for extra early-life protection. Deworming happens together with every vaccination visit, and from year one onward the booster is annual.',
+      'Core vaccinations at weeks 6, 8, 12 and 16. Deworming happens together with every vaccination visit, and from year one onward the booster is annual.',
   },
   {
     question: 'Why can\'t a puppy come home before week 9?',
@@ -80,7 +80,7 @@ const schemas = [
     eyebrow="Buyer protection · Guide 3"
     h1="Vaccination Schedule + Health Checks for Your New Puppy"
     h1Accent="Health Checks"
-    subhead="Singapore's puppy vaccination schedule in exact weeks (6, 8, 12, optional 16), why homecoming is week 9 and not earlier, what a proper pre-sale health check covers, and how to read a vaccination record before you pay anyone."
+    subhead="Singapore's puppy vaccination schedule in exact weeks (6, 8, 12, 16), why homecoming is week 9 and not earlier, what a proper pre-sale health check covers, and how to read a vaccination record before you pay anyone."
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I have a puppy health/vaccination question:"
     secondaryCtaLabel="See the schedule"
@@ -101,7 +101,7 @@ const schemas = [
     <ScatterFloat />
     <DefBox
       term="What is the puppy vaccination schedule in Singapore?"
-      definition="Core vaccinations at weeks 6, 8, and 12, with an optional fourth at week 16 if the vet advises it. Deworming happens together with every vaccination visit. Puppies go home about a week after the second vaccination, around week 9, and the booster is annual from year one onward."
+      definition="Core vaccinations at weeks 6, 8, 12 and 16. Deworming happens together with every vaccination visit. Puppies go home about a week after the second vaccination, around week 9, and the booster is annual from year one onward."
       bridge="That paragraph settles most arguments with confusing schedules online. The table below adds the licensing steps, and the rest of the page teaches the skill that protects buyers: reading the record before paying."
       citationLabel="Singapore Vaccination Guidelines for Dogs and Cats"
       citationHref="https://avs.nparks.gov.sg/businesses/veterinarians/guidelines-for-veterinarians/sg-vaccination-guidelines-for-dogs-and-cats/"
@@ -110,8 +110,7 @@ const schemas = [
         <p class="text-xs font-bold uppercase text-white/60" style="letter-spacing: 0.08em;">The schedule, memorised</p>
         <ul class="mt-4 space-y-3">
           {[
-            'Weeks 6, 8, 12: core vaccinations',
-            'Week 16: optional fourth, vet\'s call',
+            'Weeks 6, 8, 12, 16: core vaccinations',
             'Deworming with every visit',
             'Home around week 9',
             'Annual booster from year 1',
@@ -139,8 +138,8 @@ const schemas = [
         { label: 'Week 6', values: ['First core vaccination and deworming'] },
         { label: 'Week 8', values: ['Second core vaccination and deworming'] },
         { label: 'Week 9', values: ['Homecoming: about one week after the second vaccination'] },
-        { label: 'Week 12', values: ['Third core vaccination and deworming; completes the puppy course'] },
-        { label: 'Week 16', values: ['Optional fourth vaccination, if your vet advises it'] },
+        { label: 'Week 12', values: ['Third core vaccination and deworming'] },
+        { label: 'Week 16', values: ['Fourth core vaccination and deworming; completes the puppy course'] },
         { label: 'Year 1 onward', values: ['Annual booster and deworming, every year'] },
         { label: 'Before homecoming', values: ['Microchipping (mandatory) is done'] },
         { label: 'At purchase', values: ['Dog licensing completed; first-time owners do the free online pet ownership course'] },

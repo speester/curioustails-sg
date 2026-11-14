@@ -1,0 +1,61 @@
+---
+// §6 Is a {breed} right for your home? AV · IMP · PL. Reads breed-facts.ts only
+// (built from the published breed page, owner decision D4). Hidden unless the
+// breed has both a fit and a think-twice row; each fact tile hides on its own.
+import Icon from './Icon.astro';
+import { fitHeading, fitIntro } from '../../data/puppy-page-copy';
+import type { PuppyPageData } from '../../lib/puppy-page';
+
+interface Props { p: PuppyPageData; tone: string }
+const { p, tone } = Astro.props;
+const f = p.facts;
+const fitRows = f?.match?.filter((r) => r.verdict === 'fit') ?? [];
+const thinkRows = f?.match?.filter((r) => r.verdict === 'think') ?? [];
+const tiles = f
+  ? [
+      { k: 'Grown size', v: f.size },
+      { k: 'Coat', v: f.coat },
+      { k: 'Exercise', v: f.exercise },
+      { k: 'Lifespan', v: f.lifespan },
+    ].filter((t) => t.v)
+  : [];
+const anchorLabels: Record<string, string> = { temperament: 'Temperament', size: 'Size and coat', hdb: 'HDB rules', grooming: 'Grooming' };
+const more =
+  p.breedHref && f?.guideAnchors
+    ? Object.entries(f.guideAnchors)
+        .filter(([, id]) => id)
+        .map(([k, id]) => ({ label: anchorLabels[k], href: `${p.breedHref}#${id}` }))
+    : [];
+---
+{fitRows.length > 0 && thinkRows.length > 0 && (
+  <section class:list={['band', tone]} id="fit" aria-labelledby="fit-h" data-section="fit" data-treatment="cards" data-tone={tone.includes('lilac') ? 'accent' : tone ? 'tint' : 'paper'}>
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="kicker">Honest breed advice</span>
+        <h2 id="fit-h" style="margin-top:6px">{fitHeading(p)}</h2>
+        <p>{fitIntro(p)}{p.breedHref && <> More in <a href={p.breedHref}>our {p.breedNoun} guide</a>.</>}</p>
+      </div>
+      {tiles.length > 0 && (
+        <div class="fit-facts" data-reveal>
+          {tiles.map((t) => <div><b>{t.k}</b><span>{t.v}</span></div>)}
+        </div>
+      )}
+      <div class="fit-cols">
+        <div class="clay fit-col fit-yes" data-reveal>
+          <h3>A great fit if…</h3>
+          <ul>{fitRows.map((r) => <li><i>✓</i><span><b>{r.situation}.</b> {r.take}</span></li>)}</ul>
+        </div>
+        <div class="clay fit-col fit-no" data-reveal>
+          <h3>Think twice if…</h3>
+          <ul>{thinkRows.map((r) => <li><i>!</i><span><b>{r.situation}.</b> {r.take}</span></li>)}</ul>
+        </div>
+      </div>
+      {more.length > 0 && (
+        <nav class="more-links" aria-labelledby="more-h" data-reveal>
+          <h3 id="more-h">More about the {p.breedNoun}</h3>
+          <ul>{more.map((m) => <li><a href={m.href}>{m.label}<Icon name="chev" size={16} /></a></li>)}</ul>
+        </nav>
+      )}
+    </div>
+  </section>
+)}

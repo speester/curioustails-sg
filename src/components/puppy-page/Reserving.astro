@@ -1,0 +1,28 @@
+---
+// §15 Reserving {name}. AV only. AVAILABILITY_LINE from buying-terms.ts.
+import Icon from './Icon.astro';
+import { reserveCopy, wa, bookLink } from '../../data/puppy-page-copy';
+import type { PuppyPageData } from '../../lib/puppy-page';
+
+interface Props { p: PuppyPageData; tone: string }
+const { p, tone } = Astro.props;
+const c = reserveCopy(p);
+const book = bookLink(p);
+---
+<section class:list={['band', tone]} id="reserve" aria-labelledby="reserve-h" data-section="reserve" data-treatment="callout" data-tone={tone.includes('lilac') ? 'accent' : tone ? 'tint' : 'paper'}>
+  <div class="wrap">
+    <div class="clay reserve" data-reveal>
+      <div>
+        <span class="kicker">Reserve</span>
+        <h2 id="reserve-h" style="margin-top:6px">{c.heading}</h2>
+        <p class="reserve-copy">{c.body}</p>
+        <p class="reserve-note"><Icon name="alert" size={20} stroke="var(--coral-600)" /><span>{c.note}</span></p>
+      </div>
+      <div class="reserve-actions">
+        <a class="btn btn--wa" href={wa.reserve(p)} data-wa-source={`${p.waSource}:reserve`}><Icon name="wa" size={20} /><span>WhatsApp about {p.who}</span></a>
+        <a class="btn btn--ghost" href={book.href} target={book.external ? '_blank' : undefined} rel={book.external ? 'noopener' : undefined} data-card-action={book.external ? 'book' : undefined}>Book a viewing</a>
+        <p class="reserve-id">Puppy ID #{p.displayId} · {p.location}</p>
+      </div>
+    </div>
+  </div>
+</section>

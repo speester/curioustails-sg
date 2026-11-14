@@ -1,0 +1,171 @@
+---
+// §1 Hero: gallery + buy box. AV · IMP · PL. Always on.
+// A thin page shows honest placeholders ("Photos coming", "Ask for price"):
+// never an invented photo or figure.
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import { site } from '../../data/site';
+import { INCLUSIONS_LINE, SURCHARGE_LINE, FIVE_DAY_LINE } from '../../data/buying-terms';
+import { h1, kicker, placedLine, placedCard, ctaLabel, wa, bookLink, INCLUSIONS_SHORT } from '../../data/puppy-page-copy';
+import type { PuppyPageData } from '../../lib/puppy-page';
+
+interface Props {
+  p: PuppyPageData;
+  crumbs: { label: string; href: string }[];
+}
+const { p, crumbs } = Astro.props;
+const v = p.variant;
+const book = bookLink(p);
+const hasPhoto = p.images.length > 0;
+// Slides: the real photos, then (available only) the clip or the ask-for-a-video tile.
+const extra = v === 'av' && hasPhoto ? (p.video ? 'video' : 'ask') : null;
+const slideCount = (hasPhoto ? p.images.length : 1) + (extra ? 1 : 0);
+---
+<section class="hero" aria-labelledby="pup-h1" data-section="hero" data-treatment="split" data-tone="paper" data-hero-archetype="split-panel">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      {crumbs.map((c, i) =>
+        i < crumbs.length - 1 ? (
+          <><a href={c.href}>{c.label}</a>›</>
+        ) : (
+          <span aria-current="page">{c.label}</span>
+        ),
+      )}
+    </nav>
+    <div class="hero-grid hero__inner">
+      <div class="gallery" data-tilt>
+        <div class="clay plate">
+          {(v === 'av' || v === 'imp') && (<><span class="idstamp">{v === 'imp' ? `Ref ${p.displayId}` : `ID #${p.displayId}`}</span></>)}
+          {v === 'pl' && (<><span class="ribbon"><Icon name="heart" size={16} />Found a loving home</span></>)}
+          <div class="strip" id="strip" tabindex="0" aria-label={`Photos of ${p.who}`}>
+            {hasPhoto ? (
+              p.images.map((img, i) => (
+                <div class="slide">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    widths={[480, 768, 1000]}
+                    sizes="(max-width:1023px) 92vw, 620px"
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                    fetchpriority={i === 0 ? 'high' : undefined}
+                  />
+                </div>
+              ))
+            ) : (
+              <div class="slide slide--ph">
+                <a href={wa.photos(p)} data-wa-source={`${p.waSource}:photos`} style="text-decoration:none">
+                  <span class="play" style="display:grid;place-items:center;margin:0 auto 10px;width:64px;height:64px;border-radius:50%;background:#fff;border:3px solid var(--cream-300)"><Icon name="camera" size={26} /></span>
+                  <strong>Photos coming</strong>
+                  <span>Ask us on WhatsApp and we'll send you photos of {p.who} today.</span>
+                </a>
+              </div>
+            )}
+            {extra === 'ask' && (
+              <div class="slide slide--ask">
+                <a href={wa.video(p)} data-wa-source={`pup-video:${p.id}`}>
+                  <span class="play"><Icon name="play" size={26} /></span>
+                  <span>Ask for a video of {p.who}</span>
+                  <small class="muted" style="font-family:var(--body);font-weight:700">We'll send it on WhatsApp</small>
+                </a>
+              </div>
+            )}
+            {extra === 'video' && (
+              <div class="slide slide--ask">
+                <a href={p.video!} target="_blank" rel="noopener" data-card-action="video" data-wa-source={p.waSource}>
+                  <span class="play"><Icon name="play" size={26} /></span>
+                  <span>Watch {p.who}'s video</span>
+                </a>
+              </div>
+            )}
+          </div>
+        </div>
+        {slideCount > 1 && (
+          <>
+            <div class="gal-foot">
+              <div class="dots" role="tablist" aria-label="Choose photo">
+                {Array.from({ length: slideCount }, (_, i) => (
+                  <button type="button" aria-current={i === 0 ? 'true' : 'false'} aria-label={i < p.images.length ? `Photo ${i + 1}` : extra === 'video' ? 'Video' : 'Ask for a video'}></button>
+                ))}
+              </div>
+              <span class="muted" style="font-size:.8125rem;font-weight:700"><span id="count">1</span> / {slideCount} · swipe</span>
+            </div>
+            <div class="thumbs" aria-hidden="true">
+              {p.images.map((img, i) => (
+                <button type="button" aria-current={i === 0 ? 'true' : 'false'} tabindex="-1"><Image src={img.src} alt="" width={144} height={144} loading="lazy" /></button>
+              ))}
+              {extra && <button type="button" class="t-ask" tabindex="-1">▶<br />{extra === 'video' ? 'Video' : <>Ask for<br />video</>}</button>}
+            </div>
+          </>
+        )}
+      </div>
+
+      <div class="buy">
+        <span class="kicker">{kicker(p)}</span>
+        <h1 id="pup-h1">{h1(p)}</h1>
+
+        {v === 'av' && (<>
+          {/* D2: today's date only, in Singapore time, written in the browser. No "checked", no "may be out of date". */}
+          <p class="avail"><span class="live-dot" aria-hidden="true"></span><span data-avail>Available now · Balestier</span></p>
+          {p.priceText ? (
+            <div class="pricecard">
+              <div class="price-row"><span class="price">{p.priceText}</span><span class="allin">All-in price</span></div>
+              <p><span class="inc-long">{INCLUSIONS_LINE} {SURCHARGE_LINE}</span><span class="inc-short">{INCLUSIONS_SHORT} <a href="#inc-h">See all</a></span></p>
+              <p class="promise"><Icon name="shield" size={18} stroke="var(--mint-700)" />{FIVE_DAY_LINE}</p>
+            </div>
+          ) : (
+            <div class="pricecard" data-thin-price>
+              <div class="price-row"><span class="price price--ask">Ask for price</span><span class="allin">All-in price</span></div>
+              <p>The price for {p.who} is not on our list yet. WhatsApp us and we'll tell you today. Like every puppy, it is one all-in price: {INCLUSIONS_SHORT.charAt(0).toLowerCase() + INCLUSIONS_SHORT.slice(1)}</p>
+              <p class="promise"><Icon name="shield" size={18} stroke="var(--mint-700)" />{FIVE_DAY_LINE}</p>
+            </div>
+          )}
+        </>)}
+        {v === 'pl' && (<>
+          <p class="avail">{placedLine(p)}</p>
+          <div class="pricecard" style="background:var(--mint-100);border-color:var(--mint-300)">
+            <p style="margin:0;color:var(--cream-900);font-weight:800">{placedCard(p).title}</p>
+            <p>{placedCard(p).body}</p>
+          </div>
+        </>)}
+        {v === 'imp' && (<>
+          <p class="avail">{p.imp?.arrivalLine}{p.ageLabel ? ` · ${p.ageLabel}` : ''}</p>
+          <div class="pricecard">
+            <div class="price-row"><span class="price">{p.imp?.priceText}</span><span class="allin">All-in price</span></div>
+            <p><strong>Reserve with 50%:</strong> {p.imp?.depositText} · <strong>Balance, due before your puppy flies:</strong> {p.imp?.balanceText}</p>
+            <p>Includes the import, flight, AVS clearance, first dog licence, home delivery &amp; setup, starter kit and first training lesson.</p>
+          </div>
+        </>)}
+
+        <div class="ctas" id="hero-ctas">
+          {v === 'av' && (<>
+            <a class="btn btn--wa" href={wa.interest(p)} data-wa-source={p.waSource}><Icon name="wa" size={20} />{ctaLabel.interest(p)}</a>
+            <a class="btn btn--ghost" href={book.href} target={book.external ? '_blank' : undefined} rel={book.external ? 'noopener' : undefined} data-card-action={book.external ? 'book' : undefined} data-wa-source={book.external ? undefined : `${p.waSource}:visit`}><Icon name="cal" />{ctaLabel.book}</a>
+          </>)}
+          {v === 'pl' && (<>
+            <a class="btn btn--wa" href={wa.sold(p)} data-wa-source={p.waSource}>{ctaLabel.similar(p)}</a>
+            <a class="btn btn--ghost" href="#others">{ctaLabel.seeNow}</a>
+          </>)}
+          {v === 'imp' && (<>
+            <a class="btn btn--wa" href={wa.impReserve(p)} data-wa-source={p.waSource}><Icon name="wa" size={20} />{ctaLabel.reserveImp(p)}</a>
+            <a class="btn btn--ghost" href="#next">{ctaLabel.howReserving}</a>
+          </>)}
+        </div>
+
+        {v === 'av' && (<>
+          <ul class="chips" aria-label={`${p.name ? `${p.name}'s` : "This puppy's"} checks`}>
+            <li class="chip"><Icon name="check" size={14} />Vaccinated</li>
+            <li class="chip"><Icon name="check" size={14} />Microchipped</li>
+            <li class="chip"><Icon name="check" size={14} />Vet health-checked</li>
+            {p.hdbApproved && <li class="chip"><Icon name="check" size={14} />HDB approved</li>}
+          </ul>
+        </>)}
+        <p class="trustline">
+          <span><strong>AVS-licensed pet shop</strong> · {site.license.avsNumber}</span>
+          {v !== 'imp' && site.reviews && (
+            <span><span class="stars" aria-hidden="true">★★★★★</span> <strong>{site.reviews.rating}</strong> from {site.reviews.count} Google reviews</span>
+          )}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

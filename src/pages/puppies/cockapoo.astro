@@ -13,10 +13,15 @@ import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
 import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import OverseasPuppies from '../../components/OverseasPuppies.astro';
+import ImportedPuppies from '../../components/ImportedPuppies.astro';
 import StarterKitMarquee from '../../components/StarterKitMarquee.astro';
 import TestimonialWall from '../../components/TestimonialWall.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
+import VaccinationTimeline from '../../components/VaccinationTimeline.astro';
+import ReserveSteps from '../../components/ReserveSteps.astro';
+import { INCLUSIONS_LINE, PAYMENT_LINE, SURCHARGE_LINE, SHARED_BUY_FAQ, KIT_TOTAL, KIT_COUNT } from '../../data/buying-terms';
+import { BREED_FACTS, matchRows } from '../../data/breed-facts';
 import Carousel from '../../components/Carousel.astro';
 import ReviewSlider from '../../components/ReviewSlider.astro';
 import FAQ from '../../components/FAQ.astro';
@@ -68,7 +73,7 @@ const faqItems = [
   {
     question: 'How much is a Cockapoo in Singapore?',
     answer:
-      `A Cockapoo in Singapore costs ${priceRange} at Curious Tails, all-in. Most Singapore shops quote Cockapoos on enquiry only, so there is little to compare against: checked in ${monthStamp}, the one published local figure is a UK import at $4,600. Our price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
+      `A Cockapoo in Singapore costs ${priceRange} at Curious Tails, all-in. Most Singapore shops quote Cockapoos on enquiry only, so there is little to compare against: checked in ${monthStamp}, the one published local figure is a UK import at $4,600. Our price already includes the $${KIT_TOTAL} starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
   },
   {
     question: 'What is the Cockapoo price in Singapore right now?',
@@ -113,9 +118,11 @@ const faqItems = [
   {
     question: 'What happens after I reserve a Cockapoo?',
     answer:
-      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+      `You place a deposit, and we board your puppy free for up to a month, food and lodging covered. Delivery is scheduled around your availability, and we set up the playpen and walk you through all ${KIT_COUNT} starter-kit items before we leave.`,
   },
 ];
+
+const allFaqItems = [...faqItems, ...SHARED_BUY_FAQ];
 
 const schemas = [
   localBusinessSchema(),
@@ -145,7 +152,7 @@ const schemas = [
     description: 'Free island-wide home delivery with playpen, bed, and toy setup for every Cockapoo puppy, scheduled around the owner\'s availability.',
     price: 'Included',
   }),
-  faqPageSchema(faqItems),
+  faqPageSchema(allFaqItems),
   definedTermSchema({
     name: 'Cockapoo',
     description:
@@ -153,6 +160,8 @@ const schemas = [
     sameAs: 'https://en.wikipedia.org/wiki/Cockapoo',
   }),
 ];
+// K-130 D4: size-table and lifestyle rows read the shared breed facts (src/data/breed-facts.ts).
+const BF = BREED_FACTS['cockapoo'];
 ---
 
 <BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies/cockapoo" ogImage="/assets/cockapoo/og-cockapoo.jpg">
@@ -160,12 +169,12 @@ const schemas = [
     eyebrow="AVS licence AS24J00046 · Cockapoo"
     h1="Cockapoo Puppies for Sale in Singapore"
     h1Accent="Cockapoo"
-    subhead={`A Cockapoo in Singapore costs ${priceRange} at Curious Tails, all-in. Most Singapore shops quote Cockapoos on enquiry only; the one published comparable we found is a UK import at $4,600. Ours includes the $500+ starter kit, free home delivery and setup, and a free first training lesson. Family-friendly, HDB-approved, and kind to first-time owners.`}
+    subhead={`A Cockapoo in Singapore costs ${priceRange} at Curious Tails, all-in. Most Singapore shops quote Cockapoos on enquiry only; the one published comparable we found is a UK import at $4,600. Ours includes the $${KIT_TOTAL} starter kit, free home delivery and setup, and a free first training lesson. Family-friendly, HDB-approved, and kind to first-time owners.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Cockapoo puppies."
     secondaryCtaLabel="See price & what's included"
     secondaryCtaHref="#price"
-    priceAnchor={`From $${fmtPrice(price.low)} all-in. No add-ons quietly billed later.`}
+    priceAnchor={`From $${fmtPrice(price.low)} all-in.`}
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
@@ -181,20 +190,21 @@ const schemas = [
 
   <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
     <AnswerCapsule>
-      <p>{`Cockapoo puppies in Singapore cost ${priceRange} at Curious Tails as of ${monthStamp}. A Cocker Spaniel and Poodle cross, the Cockapoo is HDB-approved, low-shedding, and typically 6 to 10 kg grown. The price includes the $500+ starter kit, free home delivery and setup, and a first training lesson.`}</p>
+      <p>{`Cockapoo puppies in Singapore cost ${priceRange} at Curious Tails as of ${monthStamp}. A Cocker Spaniel and Poodle cross, the Cockapoo is HDB-approved, low-shedding, and typically 6 to 10 kg grown. The price includes the $${KIT_TOTAL} starter kit, free home delivery and setup, and a first training lesson.`}</p>
     </AnswerCapsule>
   </div>
 
   <div id="available" class="scroll-mt-40">
     <TestimonialWall />
     <AvailablePuppies breed="cockapoo" breedName="Cockapoo" only="available" />
+    <ImportedPuppies breed="cockapoo" breedName="Cockapoo" />
     <OverseasPuppies breed="cockapoo" breedName="Cockapoo" />
     <AvailablePuppies breed="cockapoo" breedName="Cockapoo" only="placed" />
     <StarterKitMarquee />
 
     <CaptionedBlock heading="Looking for a Cockapoo for Sale in Singapore?" imageAlt="Apricot Cockapoo puppy available in Singapore, seated portrait with long ears" imageSrc={apricotPortrait} variant="mid">
       <p>Cockapoo litters get reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. Message us for photos, gender, age, colour, and a short walkthrough video of the Cockapoo puppies available now.</p>
-      <p>Every Cockapoo here is between $3,288 and $5,300, and what you see is the full price. After you reserve with a deposit, we board your puppy free, food and lodging covered, until your home is ready.</p>
+      <p>Every Cockapoo here is between $3,288 and $5,300, and what you see is the full price. After you reserve with a deposit, we board your puppy free for up to a month, food and lodging covered, with vaccinations kept on schedule at our cost.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Cockapoo puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Cockapoo photos and prices</a>, or meet them at our Balestier shop.
       </p>
@@ -238,8 +248,8 @@ const schemas = [
     heading="Why Singapore families get their Cockapoo from Curious Tails"
     stats={[
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
-      { value: '$3,288', label: 'Cockapoo pricing starts here, all-in' },
-      { value: '$500+', label: 'starter kit included free' },
+      { value: '$3,288', label: 'Cockapoo pricing starts here' },
+      { value: `$${KIT_TOTAL}`, label: 'starter kit included free' },
       { value: '2+', label: 'years in Balestier' },
     ]}
   />
@@ -288,10 +298,10 @@ const schemas = [
       rows={[
         { label: 'Adult weight (toy cross)', values: ['5 to 7 kg where the Poodle parent is a Toy'] },
         { label: 'Adult weight (mini cross)', values: ['7 to 10 kg with a Miniature Poodle parent; the more common size'] },
-        { label: 'Coat', values: ['Wavy to loosely curled, low-shedding; apricot, red, cream, chocolate'] },
+        { label: 'Coat', values: [BF.coat!] },
         { label: 'Grooming', values: ['Brush 3 to 4 times weekly; professional grooming every 6 to 8 weeks'] },
-        { label: 'Lifespan', values: ['13 to 15 years'] },
-        { label: 'Exercise', values: ['40 to 60 minutes daily, split around the heat'] },
+        { label: 'Lifespan', values: [BF.lifespan!] },
+        { label: 'Exercise', values: [BF.exercise!] },
         { label: 'Shedding & allergies', values: ['Low-shedding and often better tolerated, though no dog is truly allergen-free'] },
       ]}
     />
@@ -318,10 +328,10 @@ const schemas = [
           heading: 'Curious Tails',
           items: [
             `${priceRange}, printed right here`,
-            '$500+ starter kit with 30+ items included',
+            `$${KIT_TOTAL} starter kit with ${KIT_COUNT} items included`,
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer',
-            'Free boarding after deposit until you are ready',
+            'Free boarding after deposit, up to a month',
           ],
           emphasis: true,
         },
@@ -329,6 +339,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        {`${INCLUSIONS_LINE} ${PAYMENT_LINE} ${SURCHARGE_LINE} `}
         The full market picture and the deposit process are on our transparent puppy pricing page; plan the ongoing costs with the first-year budget planner.
       </p>
     </div>
@@ -383,13 +394,7 @@ const schemas = [
       subhead="We ask about your week before recommending any breed. Here is the honest short version for a Cockapoo."
       mode="table"
       tableHeaders={['Your situation', 'Our honest take']}
-      rows={[
-        { label: 'Family with primary-school children', values: ['The strongest fit we place. A Cockapoo meets children at their energy and stays patient through the noisy end of the day'] },
-        { label: 'Working couple, out 8am to 6pm, nobody home in the day', values: ['Workable, not automatic. A Cockapoo tolerates the day alone only with the playpen routine and a real walk at both ends of it'] },
-        { label: 'Quiet household that wants a calm lap dog', values: ['Look at the Cavapoo instead. A Cockapoo has a Spaniel engine and will ask for a game you did not plan'] },
-        { label: 'First puppy, no dog experience', values: ['Good fit. Eager to please and forgiving of beginner mistakes, which is why we hand it to first-timers often'] },
-        { label: 'HDB flat', values: ['Good fit. The Cockapoo is HDB-approved; mind the one-dog-per-flat rule and book grooming every 6 to 8 weeks'] },
-      ]}
+      rows={matchRows('cockapoo')}
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
@@ -440,33 +445,12 @@ const schemas = [
   <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
 
   <div id="timeline" class="scroll-mt-40">
-    <ComparisonSplit
-      heading="Vaccination and Licensing Timeline"
-      headingAccent="Timeline"
-      subhead="The exact weeks, so nothing is left to guesswork."
-      mode="table"
-      tableHeaders={['When', 'What happens']}
-      rows={[
-        { label: 'Week 6', values: ['First vaccination and deworming'] },
-        { label: 'Week 8', values: ['Second vaccination and deworming'] },
-        { label: 'Week 9', values: ['Puppy goes home, one week after the second vaccination'] },
-        { label: 'Week 12', values: ['Third vaccination and deworming, completing the core puppy course'] },
-        { label: 'Week 16', values: ['Optional fourth vaccination, if advised by your vet for extra early-life protection'] },
-        { label: 'Year 1 onward', values: ['Annual booster shot and deworming, done every year as advised by your vet'] },
-        { label: 'At purchase', values: ['Microchipping is already done; dog licensing paperwork is completed with our full assistance at the point of purchase'] },
-        { label: 'Before licensing (first-time owners)', values: ['A one-time free online pet ownership course, required since September 2024'] },
-      ]}
-    />
-    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
-      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Every puppy goes home vet-checked, vaccinated, dewormed, and microchipped. First-time owners must complete the <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">free online pet ownership course</a> before licensing.
-      </p>
-    </div>
+    <VaccinationTimeline />
   </div>
 
   <div id="first-week" class="scroll-mt-40">
     <CaptionedBlock heading="Your Cockapoo’s First Week at Home" imagePosition="none" variant="card">
-      <p>Day 0: we deliver free, usually morning or evening, with the playpen, bed, water, and toys set up before your puppy explores. We walk you through all 30+ starter-kit items in person; see how our free home delivery and setup works.</p>
+      <p>Day 0: we deliver free, usually morning or evening, with the playpen, bed, water, and toys set up before your puppy explores. We walk you through all {KIT_COUNT} starter-kit items in person; see how our free home delivery and setup works.</p>
       <p>Days 1 to 3: calm and consistent. Same food, fixed times, gentle short play; a sociable cross settles best when the household is present but not overwhelming.</p>
       <p>Days 4 to 7: the routine holds, and it's the window to book the free first lesson; see what the free training lesson covers. Start the weekly ear-check habit this week too, while it's still a game.</p>
       <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
@@ -494,6 +478,8 @@ const schemas = [
   <div id="reviews" class="scroll-mt-40">
     <ReviewSlider slug="puppies/cockapoo" />
   </div>
+
+  <ReserveSteps heading="What Happens After You Reserve a Cockapoo" />
 
   <div id="trust" class="scroll-mt-40">
     <DefBox
@@ -529,7 +515,7 @@ const schemas = [
   <div id="faq" class="scroll-mt-40">
 
   <ExpertQuote id="amylee-3" />
-    <FAQ heading="Cockapoo FAQs" items={faqItems} />
+    <FAQ heading="Cockapoo FAQs" items={allFaqItems} />
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">

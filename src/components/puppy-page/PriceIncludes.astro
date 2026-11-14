@@ -1,0 +1,39 @@
+---
+// §2 What {price} includes. AV · IMP (PL: hidden). AV items are shop-wide terms
+// (buying-terms.ts); IMP items come from the imported copy deck and perks[], never
+// from the local terms (imported boarding and delivery run on different terms).
+import Icon from './Icon.astro';
+import { includesHeading, includesItems, INCLUDES_INTRO, IMP_INCLUDES, IMP_INCLUDES_INTRO } from '../../data/puppy-page-copy';
+import type { PuppyPageData } from '../../lib/puppy-page';
+
+interface Props { p: PuppyPageData; tone: string }
+const { p, tone } = Astro.props;
+const items = p.variant === 'imp'
+  // K-136: feed perks are machine ids ("starter-kit", "five-day-promise-from-arrival"),
+  // all already said in words by IMP_INCLUDES; only a human-written perk is added.
+  ? [...IMP_INCLUDES, ...(p.imp?.perks ?? []).filter((x) => !IMP_INCLUDES.includes(x) && !/^[a-z0-9-]+$/.test(x))].map((t) => ({ icon: 'check' as const, title: t, body: '', link: undefined }))
+  : includesItems(p);
+---
+<section class:list={['band', tone]} id="includes" aria-labelledby="inc-h" data-section="includes" data-treatment="cards" data-tone={tone.includes('lilac') ? 'accent' : tone ? 'tint' : 'paper'}>
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="kicker">One honest price</span>
+      <h2 id="inc-h" style="margin-top:6px">{includesHeading(p)}</h2>
+      <p>{p.variant === 'imp' ? IMP_INCLUDES_INTRO : INCLUDES_INTRO}</p>
+    </div>
+    <div class="inc-grid">
+      {items.map((it) => (
+        <div class="clay inc" data-reveal>
+          <span class="ic"><Icon name={it.icon as any} size={22} /></span>
+          <div>
+            <h3>{it.title}</h3>
+            {(it.body || it.link) && <p>{it.body}{it.link && <> <a href={it.link.href}>{it.link.label}</a></>}</p>}
+          </div>
+        </div>
+      ))}
+    </div>
+    {p.variant === 'av' && (
+      <p class="inc-foot" data-reveal><span>Plus WhatsApp support for care questions long after {p.pron.subj} goes home.</span><a href="/pricing/">How our all-in prices work →</a></p>
+    )}
+  </div>
+</section>

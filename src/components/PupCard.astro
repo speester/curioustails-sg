@@ -88,7 +88,7 @@ const chatLabel = placed ? 'Similar' : 'Chat';
     )}
   </div>
   <div class="pc-row">
-    {item.price ? <span class="pc-price">${fmtPrice(item.price)} <small>all-in</small></span> : <span></span>}
+    {item.price ? <span class="pc-price">${fmtPrice(item.price)}</span> : <span></span>}
     {item.breed && <span class="pc-breed" style={`background:${tagColor}`}>🐾 {item.breed}</span>}
   </div>
   <div class="pc-status">{statusText} {item.pupId && <span class="pc-id">· ID {item.pupId}</span>}</div>

@@ -14,10 +14,14 @@ import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
 import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import OverseasPuppies from '../../components/OverseasPuppies.astro';
+import ImportedPuppies from '../../components/ImportedPuppies.astro';
 import StarterKitMarquee from '../../components/StarterKitMarquee.astro';
 import TestimonialWall from '../../components/TestimonialWall.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
+import VaccinationTimeline from '../../components/VaccinationTimeline.astro';
+import ReserveSteps from '../../components/ReserveSteps.astro';
+import { INCLUSIONS_LINE, PAYMENT_LINE, SURCHARGE_LINE, SHARED_BUY_FAQ, KIT_TOTAL, KIT_COUNT } from '../../data/buying-terms';
 import Carousel from '../../components/Carousel.astro';
 import ReviewSlider from '../../components/ReviewSlider.astro';
 import FAQ from '../../components/FAQ.astro';
@@ -64,7 +68,7 @@ const faqItems = [
   {
     question: 'How much does a Bichonpoo cost in Singapore?',
     answer:
-      'The Poochon market in Singapore commonly runs $5,000 to $8,000. At Curious Tails, Bichonpoo puppies are $3,288 to $5,988, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      `The Poochon market in Singapore commonly runs $5,000 to $8,000. At Curious Tails, Bichonpoo puppies are $3,288 to $5,988, and that price already includes the $${KIT_TOTAL} starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
   },
   {
     question: 'Are Bichonpoos HDB-approved?',
@@ -94,9 +98,11 @@ const faqItems = [
   {
     question: 'What happens after I reserve a Bichonpoo?',
     answer:
-      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+      `You place a deposit, and we board your puppy free for up to a month, food and lodging covered. Delivery is scheduled around your availability, and we set up the playpen and walk you through all ${KIT_COUNT} starter-kit items before we leave.`,
   },
 ];
+
+const allFaqItems = [...faqItems, ...SHARED_BUY_FAQ];
 
 const schemas = [
   localBusinessSchema(),
@@ -125,7 +131,7 @@ const schemas = [
     description: 'Free island-wide home delivery with playpen, bed, and toy setup for every Bichonpoo puppy, scheduled around the owner\'s availability.',
     price: 'Included',
   }),
-  faqPageSchema(faqItems),
+  faqPageSchema(allFaqItems),
   definedTermSchema({
     name: 'Bichonpoo',
     description:
@@ -139,12 +145,12 @@ const schemas = [
     eyebrow="Bichonpoo, sold under an AVS licence"
     h1="Bichonpoo Puppies for Sale in Singapore"
     h1Accent="Bichonpoo"
-    subhead="The Poochon market in Singapore runs $5,000 to $8,000. Ours are $3,288 to $5,988, printed here, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price. Low-shedding, HDB-approved, and thoroughly sunny."
+    subhead={`The Poochon market in Singapore runs $5,000 to $8,000. Ours are $3,288 to $5,988, printed here, with the $${KIT_TOTAL} starter kit, free home delivery and setup, and a free first training lesson already in the price. Low-shedding, HDB-approved, and thoroughly sunny.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Bichonpoo puppies."
     secondaryCtaLabel="See price & what's included"
     secondaryCtaHref="#price"
-    priceAnchor="From $3,288 all-in. No add-ons quietly billed later."
+    priceAnchor="From $3,288 all-in."
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
@@ -161,13 +167,14 @@ const schemas = [
   <div id="available" class="scroll-mt-40">
     <TestimonialWall />
     <AvailablePuppies breed="bichonpoo" breedName="Bichonpoo" only="available" />
+    <ImportedPuppies breed="bichonpoo" breedName="Bichonpoo" />
     <OverseasPuppies breed="bichonpoo" breedName="Bichonpoo" />
     <AvailablePuppies breed="bichonpoo" breedName="Bichonpoo" only="placed" />
     <StarterKitMarquee />
 
     <CaptionedBlock heading="Looking for a Bichonpoo for Sale in Singapore?" imageAlt="White Bichonpoo puppy available in Singapore, seated portrait with a teddy-round face" imageSrc={whitePortrait} variant="mid">
       <p>Bichonpoo litters get reserved fast, and half the listings you'll find elsewhere already wear a "reserved" tag. We update this list as puppies are reserved; message us for photos, gender, age, colour, and a short walkthrough video of the Bichonpoo puppies available now.</p>
-      <p>Every Bichonpoo here is between $3,288 and $5,988, and what you see is the full price. After you reserve with a deposit, we board your puppy free, food and lodging covered, until your home is ready.</p>
+      <p>Every Bichonpoo here is between $3,288 and $5,988, and what you see is the full price. After you reserve with a deposit, we board your puppy free for up to a month, food and lodging covered, with vaccinations kept on schedule at our cost.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Bichonpoo puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Bichonpoo photos and prices</a>, or meet them at our Balestier shop.
       </p>
@@ -211,8 +218,8 @@ const schemas = [
     heading="Why Singapore families get their Bichonpoo from Curious Tails"
     stats={[
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
-      { value: '$3,288', label: 'Bichonpoo pricing starts here, all-in' },
-      { value: '$500+', label: 'starter kit included free' },
+      { value: '$3,288', label: 'Bichonpoo pricing starts here' },
+      { value: `$${KIT_TOTAL}`, label: 'starter kit included free' },
       { value: '2+', label: 'years in Balestier' },
     ]}
   />
@@ -266,10 +273,10 @@ const schemas = [
           heading: 'Curious Tails',
           items: [
             '$3,288 to $5,988, printed right here',
-            '$500+ starter kit with 30+ items included',
+            `$${KIT_TOTAL} starter kit with ${KIT_COUNT} items included`,
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer',
-            'Free boarding after deposit until you are ready',
+            'Free boarding after deposit, up to a month',
           ],
           emphasis: true,
         },
@@ -277,6 +284,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        {`${INCLUSIONS_LINE} ${PAYMENT_LINE} ${SURCHARGE_LINE} `}
         The full market picture and deposit process are on our transparent puppy pricing page; grooming is this breed's real recurring cost, so run the first-year budget planner with that line in mind.
       </p>
     </div>
@@ -388,33 +396,12 @@ const schemas = [
   <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
 
   <div id="health" class="scroll-mt-40">
-    <ComparisonSplit
-      heading="Vaccination and Licensing Timeline"
-      headingAccent="Timeline"
-      subhead="The exact weeks, so nothing is left to guesswork."
-      mode="table"
-      tableHeaders={['When', 'What happens']}
-      rows={[
-        { label: 'Week 6', values: ['First vaccination and deworming'] },
-        { label: 'Week 8', values: ['Second vaccination and deworming'] },
-        { label: 'Week 9', values: ['Puppy goes home, one week after the second vaccination'] },
-        { label: 'Week 12', values: ['Third vaccination and deworming, completing the core puppy course'] },
-        { label: 'Week 16', values: ['Optional fourth vaccination, if advised by your vet for extra early-life protection'] },
-        { label: 'Year 1 onward', values: ['Annual booster shot and deworming, done every year as advised by your vet'] },
-        { label: 'At purchase', values: ['Microchipping is already done; dog licensing paperwork is completed with our full assistance at the point of purchase'] },
-        { label: 'Before licensing (first-time owners)', values: ['A one-time free online pet ownership course, required since September 2024'] },
-      ]}
-    />
-    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
-      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Every puppy goes home vet-checked, vaccinated, dewormed, and microchipped. First-time owners must complete the <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">free online pet ownership course</a> before licensing.
-      </p>
-    </div>
+    <VaccinationTimeline />
   </div>
 
   <div id="first-week" class="scroll-mt-40">
     <CaptionedBlock heading="Your Bichonpoo’s First Week at Home" imagePosition="none" variant="card">
-      <p>Day 0: we deliver free, usually morning or evening, with the playpen, bed, water, and toys set up before your puppy explores. We walk you through all 30+ starter-kit items in person; see how our free home delivery and setup works.</p>
+      <p>Day 0: we deliver free, usually morning or evening, with the playpen, bed, water, and toys set up before your puppy explores. We walk you through all {KIT_COUNT} starter-kit items in person; see how our free home delivery and setup works.</p>
       <p>Days 1 to 3: calm and consistent. Same food, fixed times, gentle short play; a companion cross settles fastest when the family is present but unhurried.</p>
       <p>Days 4 to 7: book the free first lesson; see what the free training lesson covers. Start the daily face-wipe ritual this week too, while everything is still a game.</p>
       <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
@@ -442,6 +429,8 @@ const schemas = [
   <div id="reviews" class="scroll-mt-40">
     <ReviewSlider slug="puppies/bichonpoo" />
   </div>
+
+  <ReserveSteps heading="What Happens After You Reserve a Bichonpoo" />
 
   <div id="trust" class="scroll-mt-40">
     <DefBox
@@ -477,7 +466,7 @@ const schemas = [
   <div id="faq" class="scroll-mt-40">
 
   <ExpertQuote id="ferox-2" />
-    <FAQ heading="Bichonpoo FAQs" items={faqItems} />
+    <FAQ heading="Bichonpoo FAQs" items={allFaqItems} />
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">

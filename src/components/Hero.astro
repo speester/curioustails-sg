@@ -1,6 +1,7 @@
 ---
 import PlaceholderImage from './PlaceholderImage.astro';
 import { whatsappLink } from '../data/site';
+import { SURCHARGE_LINE } from '../data/buying-terms';
 import PawPrint from './decor/PawPrint.astro';
 import Bone from './decor/Bone.astro';
 import Sparkle from './decor/Sparkle.astro';
@@ -124,6 +125,9 @@ const h1Parts = h1Accent ? h1.split(h1Accent) : [h1, ''];
       {priceAnchor && (
         <p class="mt-4 text-sm text-[var(--color-cream-600)]">{priceAnchor}</p>
       )}
+      {priceAnchor && /all-in/i.test(priceAnchor) && (
+        <p class="mt-1 text-sm text-[var(--color-cream-500)]">{SURCHARGE_LINE}</p>
+      )}
 
       <ul class="mt-9 flex flex-wrap gap-3">
         {trustBadges.map((badge) => (
@@ -145,13 +149,16 @@ const h1Parts = h1Accent ? h1.split(h1Accent) : [h1, ''];
           </div>
         </div>
       </div>
+      <div class="dc-seal" aria-hidden="true">
+        <span><b>30+</b>ITEMS<br />INCLUDED</span>
+      </div>
       {tagLabel && (
-        <div class="absolute -right-4 -top-6 -rotate-6 rounded-2xl border-3 border-[var(--color-mint-300)] bg-white px-4 py-3 shadow-[0_5px_0_0_var(--color-mint-300)] blob-drift">
+        <div class="dc-sticker hero-tag absolute -right-4 -top-6 -rotate-6 rounded-2xl border-3 border-[var(--color-mint-300)] bg-white px-4 py-3 shadow-[0_5px_0_0_var(--color-mint-300)] blob-drift">
           <p class="font-[family-name:var(--font-heading)] text-2xl font-bold leading-none text-[var(--color-lilac-700)]">{tagLabel}</p>
         </div>
       )}
       {proofChip && (
-        <div class="absolute -left-4 bottom-6 rotate-3 flex items-center gap-2 rounded-2xl border-3 border-[var(--color-coral-300)] bg-white px-3.5 py-2.5 shadow-[0_5px_0_0_var(--color-coral-300)] blob-drift-slow">
+        <div class="dc-sticker absolute -left-4 bottom-6 rotate-3 flex items-center gap-2 rounded-2xl border-3 border-[var(--color-coral-300)] bg-white px-3.5 py-2.5 shadow-[0_5px_0_0_var(--color-coral-300)] blob-drift-slow">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-coral-500)" aria-hidden="true">
             <path d="M12 2.2l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.02 6.2 20.06l1.11-6.46-4.7-4.58 6.49-.94L12 2.2z" />
           </svg>

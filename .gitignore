@@ -13,6 +13,8 @@ yarn-error.log*
 pnpm-debug.log*
 # imports pipeline: counts-only operational log, never committed
 logs/imports/
+# imports failure marker the next session must see (written by run-daily.mjs)
+NEEDS-ATTENTION.md
 
 
 # environment variables

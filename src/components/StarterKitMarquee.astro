@@ -5,12 +5,13 @@
 // edge-to-edge; no Section wrapper so no auto section-divider is emitted.
 import { Image } from 'astro:assets';
 import kit from '../data/starter-kit-items.json';
+import { KIT_COUNT, KIT_TOTAL } from '../data/buying-terms';
 
 interface Props {
   subhead?: string;
 }
 const {
-  subhead = 'The kit that comes home with your puppy - 30+ items across 8 categories, worth $500+ at pet shops, included free with every Curious Tails puppy.',
+  subhead = `The kit that comes home with your puppy - ${KIT_COUNT} items across 8 categories, worth $${KIT_TOTAL} at pet shops, included free with every Curious Tails puppy.`,
 } = Astro.props;
 
 const photos = import.meta.glob<ImageMetadata>('../assets/starter-kit/*.webp', {
@@ -30,7 +31,7 @@ const track = [...items, ...items];
     <div class="flex flex-wrap items-end justify-between gap-4">
       <div class="max-w-[60ch]">
         <h2 class="font-semibold text-[var(--color-cream-900)]" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">
-          The <span class="text-[var(--color-coral-500)]">$500+ Starter Kit</span>, Free With Every Puppy
+          The <span class="text-[var(--color-coral-500)]">${KIT_TOTAL} Starter Kit</span>, Free With Every Puppy
         </h2>
         {subhead && <p class="mt-2 text-base text-[var(--color-cream-600)]">{subhead}</p>}
       </div>

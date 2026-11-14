@@ -1,0 +1,35 @@
+---
+// §12 What {breed} families say. AV · IMP · PL. Verbatim Google reviews with the
+// reviewer's own name. A breed heading only sits over reviews that name the breed
+// (reviewsMentioning); with fewer than 2, the heading is generic. No review is
+// attributed to a puppy and none reaches the puppy's Product schema.
+import { site } from '../../data/site';
+import { reviewsHeading } from '../../data/puppy-page-copy';
+import { reviewsForPage, type PuppyPageData } from '../../lib/puppy-page';
+
+interface Props { p: PuppyPageData; tone: string }
+const { p, tone } = Astro.props;
+const { breedMatched, reviews } = reviewsForPage(p);
+const trim = (q: string) => (q.length > 320 ? `${q.slice(0, q.lastIndexOf(' ', 310))}…` : q);
+---
+{reviews.length > 0 && (
+  <section class:list={['band', tone]} id="reviews" aria-labelledby="rv-h" data-section="reviews" data-treatment="cards" data-tone={tone.includes('lilac') ? 'accent' : tone ? 'tint' : 'paper'} data-breed-matched={breedMatched ? 'true' : 'false'}>
+    <div class="wrap">
+      <div class="rv-top" data-reveal>
+        <div><span class="kicker">Real Google reviews</span><h2 id="rv-h" style="margin-top:6px">{reviewsHeading(p, breedMatched)}</h2></div>
+        {site.reviews && (
+          <div class="score"><b>{site.reviews.rating}</b><div><span class="stars" aria-hidden="true" style="font-size:1.2rem">★★★★★</span><br /><span class="muted" style="font-size:.9rem;font-weight:700">{site.reviews.count} Google reviews · <a href="/reviews/">read them all</a></span></div></div>
+        )}
+      </div>
+      <div class="rv-grid">
+        {reviews.map((r) => (
+          <article class="clay rv" data-reveal>
+            {r.rating && <span class="stars" aria-label={`${r.rating} out of 5`}>{'★'.repeat(r.rating)}</span>}
+            <blockquote>"{trim(r.quote)}"</blockquote>
+            <footer><strong>{r.name}</strong><span>Google review</span></footer>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

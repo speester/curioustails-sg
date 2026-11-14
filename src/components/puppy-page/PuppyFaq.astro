@@ -1,0 +1,28 @@
+---
+// §13 Questions about {name}. AV · IMP (PL: hidden). The same puppyFaq() array is
+// emitted as FAQPage JSON-LD by PuppyPage.astro, so the visible text and the
+// schema cannot drift (check:puppy-pages compares them on every built page).
+import { puppyFaq, type Seg } from '../../data/puppy-page-copy';
+import type { PuppyPageData } from '../../lib/puppy-page';
+
+interface Props { p: PuppyPageData; tone: string }
+const { p, tone } = Astro.props;
+const items = puppyFaq(p);
+const isSeg = (s: Seg): s is Exclude<Seg, string> => typeof s !== 'string';
+---
+{items.length >= 3 && (
+  <section class:list={['band', tone]} id="faq" aria-labelledby="faq-h" data-section="faq" data-treatment="band" data-tone={tone.includes('lilac') ? 'accent' : tone ? 'tint' : 'paper'}>
+    <div class="wrap">
+      <div class="faq">
+        <span class="kicker">Questions</span>
+        <h2 id="faq-h" style="margin-top:6px">{p.variant === 'imp' ? `${p.breedNoun} reservation questions` : `Questions about ${p.who}`}</h2>
+        {items.map((q, i) => (
+          <details open={i === 0} data-faq-item>
+            <summary>{q.question}</summary>
+            <div class="ans"><p data-faq-answer>{q.answer.map((s) => (isSeg(s) ? <a href={s.href} target={s.external ? '_blank' : undefined} rel={s.external ? 'noopener' : undefined} data-wa-source={s.wa}>{s.text}</a> : s))}</p></div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

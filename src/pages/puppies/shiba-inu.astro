@@ -13,10 +13,14 @@ import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
 import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import OverseasPuppies from '../../components/OverseasPuppies.astro';
+import ImportedPuppies from '../../components/ImportedPuppies.astro';
 import StarterKitMarquee from '../../components/StarterKitMarquee.astro';
 import TestimonialWall from '../../components/TestimonialWall.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
+import VaccinationTimeline from '../../components/VaccinationTimeline.astro';
+import ReserveSteps from '../../components/ReserveSteps.astro';
+import { INCLUSIONS_LINE, PAYMENT_LINE, SURCHARGE_LINE, SHARED_BUY_FAQ, KIT_TOTAL, KIT_COUNT } from '../../data/buying-terms';
 import Carousel from '../../components/Carousel.astro';
 import ReviewSlider from '../../components/ReviewSlider.astro';
 import FAQ from '../../components/FAQ.astro';
@@ -71,7 +75,7 @@ const faqItems = [
   {
     question: 'How much does a Shiba Inu cost in Singapore?',
     answer:
-      'Market listings run roughly $4,000 to $8,000, with imports at the top. At Curious Tails, Shiba Inu puppies are $4,788 to $6,500, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      `Market listings run roughly $4,000 to $8,000, with imports at the top. At Curious Tails, Shiba Inu puppies are $4,788 to $6,500, and that price already includes the $${KIT_TOTAL} starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
   },
   {
     question: 'A Shiba online for $1,500 or less: is it real?',
@@ -100,6 +104,8 @@ const faqItems = [
   },
 ];
 
+const allFaqItems = [...faqItems, ...SHARED_BUY_FAQ];
+
 const schemas = [
   localBusinessSchema(),
   personSchema(),
@@ -127,7 +133,7 @@ const schemas = [
     description: 'Free island-wide home delivery with playpen, bed, and toy setup for every Shiba Inu puppy, scheduled around the owner\'s availability.',
     price: 'Included',
   }),
-  faqPageSchema(faqItems),
+  faqPageSchema(allFaqItems),
   definedTermSchema({
     name: 'Shiba Inu',
     description:
@@ -171,6 +177,7 @@ const schemas = [
   <div id="available" class="scroll-mt-40">
     <TestimonialWall />
     <AvailablePuppies breed="shiba-inu" breedName="Shiba Inu" only="available" />
+    <ImportedPuppies breed="shiba-inu" breedName="Shiba Inu" />
     <OverseasPuppies breed="shiba-inu" breedName="Shiba Inu" />
     <AvailablePuppies breed="shiba-inu" breedName="Shiba Inu" only="placed" />
     <StarterKitMarquee />
@@ -221,8 +228,8 @@ const schemas = [
     heading="Why private-housing families get their Shiba from Curious Tails"
     stats={[
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
-      { value: '$4,788', label: 'Shiba pricing starts here, all-in' },
-      { value: '$500+', label: 'starter kit included free' },
+      { value: '$4,788', label: 'Shiba pricing starts here' },
+      { value: `$${KIT_TOTAL}`, label: 'starter kit included free' },
       { value: '2+', label: 'years in Balestier' },
     ]}
   />
@@ -288,9 +295,9 @@ const schemas = [
           items: [
             '$4,788 to $6,500, printed right here',
             'Licence AS24J00046, checkable in 60 seconds',
-            '$500+ starter kit with 30+ items included',
+            `$${KIT_TOTAL} starter kit with ${KIT_COUNT} items included`,
             'Free delivery, setup, and first training lesson',
-            'Free boarding after deposit until you are ready',
+            'Free boarding after deposit, up to a month',
           ],
           emphasis: true,
         },
@@ -298,6 +305,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        {`${INCLUSIONS_LINE} ${PAYMENT_LINE} ${SURCHARGE_LINE} `}
         Shiba forums here regularly ask whether a $1,300-plus listing can be real; the useful answer is a process, not a guess: check the seller on the registry before falling in love, and see how to verify any seller's licence. The full deposit-to-homecoming process is on our transparent puppy pricing page.
       </p>
     </div>
@@ -347,28 +355,7 @@ const schemas = [
   <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
 
   <div id="health" class="scroll-mt-40">
-    <ComparisonSplit
-      heading="Vaccination and Licensing Timeline"
-      headingAccent="Timeline"
-      subhead="The exact weeks, so nothing is left to guesswork."
-      mode="table"
-      tableHeaders={['When', 'What happens']}
-      rows={[
-        { label: 'Week 6', values: ['First vaccination and deworming'] },
-        { label: 'Week 8', values: ['Second vaccination and deworming'] },
-        { label: 'Week 9', values: ['Puppy goes home, one week after the second vaccination'] },
-        { label: 'Week 12', values: ['Third vaccination and deworming, completing the core puppy course'] },
-        { label: 'Week 16', values: ['Optional fourth vaccination, if advised by your vet for extra early-life protection'] },
-        { label: 'Year 1 onward', values: ['Annual booster shot and deworming, done every year as advised by your vet'] },
-        { label: 'At purchase', values: ['Microchipping is already done; dog licensing paperwork is completed with our full assistance at the point of purchase'] },
-        { label: 'Before licensing (first-time owners)', values: ['A one-time free online pet ownership course, required since September 2024'] },
-      ]}
-    />
-    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
-      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Every puppy goes home vet-checked, vaccinated, dewormed, and microchipped. First-time owners must complete the <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">free online pet ownership course</a> before licensing.
-      </p>
-    </div>
+    <VaccinationTimeline />
   </div>
 
   <div id="first-week" class="scroll-mt-40">
@@ -401,6 +388,8 @@ const schemas = [
   <div id="reviews" class="scroll-mt-40">
     <ReviewSlider slug="puppies/shiba-inu" />
   </div>
+
+  <ReserveSteps heading="What Happens After You Reserve a Shiba Inu" />
 
   <div id="trust" class="scroll-mt-40">
     <DefBox
@@ -436,7 +425,7 @@ const schemas = [
   <div id="faq" class="scroll-mt-40">
 
   <ExpertQuote id="mccann-5" />
-    <FAQ heading="Shiba Inu FAQs" items={faqItems} />
+    <FAQ heading="Shiba Inu FAQs" items={allFaqItems} />
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">

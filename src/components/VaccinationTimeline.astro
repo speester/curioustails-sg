@@ -1,0 +1,37 @@
+---
+// K-119 D1/D2/D3/D5/D7/D8: the one vaccination and licensing timeline.
+// It replaces the six hand-typed tables (cavapoo, bichonpoo, cockapoo, corgi,
+// mini-dachshund, shiba-inu) and is inserted on the other 42 breed pages, so the
+// rows can never drift apart again.
+//
+// Scope guard: the Vets For Pets and records lines describe puppies at our shop.
+// Imported and overseas listings run on a 50% deposit and different terms, so
+// this component is never rendered inside ImportedPuppies or OverseasPuppies.
+import ComparisonSplit from './ComparisonSplit.astro';
+import {
+
+  VACCINATION_ROWS,
+  vetsForPetsHtml,
+  RECORDS_LINE,
+  POC_URL,
+} from '../data/buying-terms';
+
+const vetsHtml = vetsForPetsHtml();
+---
+
+<ComparisonSplit
+  heading="Vaccination and Licensing Timeline"
+  headingAccent="Timeline"
+  subhead="The exact weeks, so nothing is left to guesswork."
+  mode="table"
+  tableHeaders={['When', 'What happens']}
+  rows={VACCINATION_ROWS}
+/>
+<div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10 space-y-2">
+  <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+    For puppies at our shop: <Fragment set:html={vetsHtml} /> {RECORDS_LINE}
+  </p>
+  <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+    Full licensing details are on the <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/information-on-dog-and-cat-licences/licensing-requirements/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS dog licensing requirements</a> page. You won't need to chase any of it yourself; it's handled with you at purchase. First-time owners must also complete the <a href={POC_URL} class="underline underline-offset-2 text-[var(--color-accent-hover)]">free online pet ownership course</a> before licensing.
+  </p>
+</div>

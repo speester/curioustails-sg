@@ -10,7 +10,9 @@ import PlaceholderImage from './PlaceholderImage.astro';
 import PawPrint from './decor/PawPrint.astro';
 import { fmtPrice } from '../data/pricing';
 import { whatsappLink } from '../data/site';
+import { SURCHARGE_LINE } from '../data/buying-terms';
 import overseas from '../data/overseas-puppies.json';
+import { AU_CUTOVER } from '../lib/imported-puppies';
 
 interface Props {
   breed: string; // page slug
@@ -27,7 +29,12 @@ const photos = import.meta.glob<ImageMetadata>('../assets/overseas/*.webp', { ea
 const imgFor = (file: string | null) => (file ? photos[`../assets/overseas/${file}`] : undefined);
 // Owner decision 2026-09-30: only list an overseas reservation puppy when it has
 // a real photo. Pups whose source image could not be fetched are hidden.
-const pups = ((overseas.breeds as Record<string, OsPup[]>)[breed] ?? []).filter((p) => imgFor(p.image));
+//
+// K-136: LEGACY. The Australian reservations now live on the imports instrument
+// (src/data/au-reservations.json, rendered by ImportedPuppies with the written
+// terms link). Once the owner approves and `au-reservations.mjs sync --cutover`
+// runs, this section renders nothing; until then it keeps the live site as is.
+const pups = AU_CUTOVER ? [] : ((overseas.breeds as Record<string, OsPup[]>)[breed] ?? []).filter((p) => imgFor(p.image));
 const genderWord = (g: OsPup['gender']) => (g === 'Female' ? 'Girl' : g === 'Male' ? 'Boy' : 'Puppy');
 ---
 
@@ -100,5 +107,7 @@ const genderWord = (g: OsPup['gender']) => (g === 'Female' ? 'Girl' : g === 'Mal
       </li>
     ))}
   </ul>
+
+  <p class="mt-7 text-sm leading-relaxed text-[var(--color-cream-600)]">All-in prices. {SURCHARGE_LINE}</p>
 </section>
 )}

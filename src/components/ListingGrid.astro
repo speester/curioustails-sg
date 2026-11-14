@@ -3,6 +3,7 @@ import PlaceholderImage from './PlaceholderImage.astro';
 import PawPrint from './decor/PawPrint.astro';
 import PupCard from './PupCard.astro';
 import { fmtPrice } from '../data/pricing';
+import { SURCHARGE_LINE } from '../data/buying-terms';
 
 interface Item {
   title: string;
@@ -345,6 +346,10 @@ const rotations = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1', '-rotate-2'
       </li>
     ))}
   </ul>
+
+  {items.some((item) => item.price != null) && (
+    <p class="mt-7 text-sm leading-relaxed text-[var(--color-cream-600)]">All-in prices. {SURCHARGE_LINE}</p>
+  )}
 
   {footerCtaLabel && footerCtaHref && (
     <div class="mt-9">

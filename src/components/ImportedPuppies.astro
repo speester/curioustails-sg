@@ -1,0 +1,78 @@
+---
+// Imported reservation puppies, from src/data/imported-puppies.json only.
+//
+// Two surfaces, one component:
+//   * breed pages (context="breed"): heading and intro from copy deck §2, placed
+//     directly after the local AvailablePuppies grid, in the same slot as
+//     OverseasPuppies. The section renders nothing at all when the breed has no
+//     published or reserved imported pup.
+//   * /available-puppies/ (context="site"): the "Arriving soon · Imported"
+//     section, wrapped by the filter groups on that page.
+//
+// The copy is copy deck §1–2. No supplier, county, microchip, original price or
+// country claim is available to this component: the feed does not carry them.
+import ImportedPuppyCard from './ImportedPuppyCard.astro';
+import { importedForBreed, importedPups, SAMPLE_LABEL, SAMPLE_NOTE } from '../lib/imported-puppies';
+import { SURCHARGE_LINE } from '../data/buying-terms';
+import live from '../data/available-puppies.json';
+
+interface Props {
+  breed?: string;
+  breedName?: string;
+  context?: 'breed' | 'site';
+  id?: string;
+}
+const { breed, breedName = '', context = 'breed', id } = Astro.props;
+
+const pups = breed ? importedForBreed(breed) : importedPups();
+const localCount = breed
+  ? (((live.breeds as Record<string, { available?: unknown[] }>)[breed]?.available ?? []).length)
+  : 0;
+
+const REST =
+  'Pay a 50% deposit and we handle the whole import: paperwork, vet checks, the flight and AVS clearance. Pay the balance before your puppy flies, and we deliver to your door with everything our local puppies get.';
+
+const hasSample = pups.some((p) => p.sample);
+
+const intro =
+  context === 'site'
+    ? 'Puppies you can reserve now and welcome home in the coming weeks. Every price is all-in, delivered to your door in Singapore.'
+    : localCount > 0
+      ? `These ${breedName} puppies can be reserved today. ${REST}`
+      : `No ${breedName} in the shop right now, but these puppies can be reserved today. ${REST}`;
+---
+
+{pups.length > 0 && (
+  <section
+    id={id}
+    data-import-section="imported"
+    data-listing-group={context === 'site' ? 'imported' : undefined}
+    class="mx-auto max-w-[1400px] px-5 sm:px-8 py-16"
+  >
+    <div class="max-w-[70ch]">
+      <h2 class="font-semibold text-[var(--color-cream-900)]" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">
+        {context === 'site' ? (
+          <>Arriving soon · <span class="text-[var(--color-coral-500)]">Imported</span></>
+        ) : (
+          <>Reserve a <span class="text-[var(--color-coral-500)]">{breedName}</span> puppy · arriving soon</>
+        )}
+      </h2>
+      <p class="mt-2 text-base text-[var(--color-cream-600)]">{intro}</p>
+      {hasSample && (
+        <p data-sample-label role="note" class="mt-4 rounded-[1rem] border-2 border-dashed border-[var(--color-coral-600)] bg-[var(--color-peach-100)] px-4 py-3 text-sm font-semibold leading-relaxed text-[var(--color-cream-900)]">
+          <strong>{SAMPLE_LABEL}.</strong> Every card below is a sample. {SAMPLE_NOTE}
+        </p>
+      )}
+    </div>
+
+    <ul class="mt-9 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {pups.map((pup, i) => (
+        <li data-reveal style={`--i:${i % 6}`}>
+          <ImportedPuppyCard pup={pup} breedName={breedName} />
+        </li>
+      ))}
+    </ul>
+
+    <p class="mt-7 text-sm leading-relaxed text-[var(--color-cream-600)]">All-in prices. {SURCHARGE_LINE}</p>
+  </section>
+)}

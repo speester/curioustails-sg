@@ -321,7 +321,7 @@ export const POSTS: PostEntry[] = [
     "path": "/learn/puppy-health/",
     "file": "src/pages/learn/puppy-health.astro",
     "title": "Puppy Vaccinations Singapore: Exact Schedule | Curious Tails",
-    "description": "Singapore's puppy vaccination schedule: weeks 6, 8, 12 (optional 16), annual boosters, deworming at every visit, microchipping, and licensing requirements.",
+    "description": "Singapore's puppy vaccination schedule: weeks 6, 8, 12 and 16, annual boosters, deworming at every visit, microchipping, and licensing requirements.",
     "kicker": "",
     "tier": "outer",
     "hub": "L3",

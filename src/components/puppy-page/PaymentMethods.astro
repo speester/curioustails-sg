@@ -1,0 +1,29 @@
+---
+// §9 Payment methods. AV only. Renders PAYMENT_METHODS from buying-terms.ts, the
+// one source (owner decision D1: PayNow, bank transfer, cash, card). Typographic
+// labels stand in for payment logos (none on file, no fake logos). Compromise C3:
+// four cards, 2 x 2, where the prototype drew two.
+import { PAYMENT_LINE, PAYMENT_METHODS, SURCHARGE_LINE } from '../../data/buying-terms';
+
+interface Props { tone: string }
+const { tone } = Astro.props;
+---
+<section class:list={['band', tone]} id="payment" aria-labelledby="pay-h" data-section="payment" data-treatment="cards" data-tone={tone.includes('lilac') ? 'accent' : tone ? 'tint' : 'paper'}>
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="kicker">Ways to pay</span>
+      <h2 id="pay-h" style="margin-top:6px">Payment methods</h2>
+      <p>{PAYMENT_LINE} {SURCHARGE_LINE}</p>
+    </div>
+    <div class:list={['pay-grid', PAYMENT_METHODS.length === 4 && 'pay-grid--4']}>
+      {PAYMENT_METHODS.map((m) => (
+        <div class:list={['clay pay-card', `pay-card--${m.key}`]} data-reveal data-payment-method={m.key}>
+          <span class="pay-overline">{m.overline}</span>
+          <span class="pay-word">{m.label}</span>
+          {m.surcharge && <span class="pay-rule">3% bank surcharge applies</span>}
+          <p class:list={[m.surcharge && 'pay-fine']}>{m.note}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

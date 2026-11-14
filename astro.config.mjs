@@ -8,6 +8,7 @@ import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { puppyRedirects } from './scripts/lib/puppy-redirects.mjs';
+import { isExcludedFromSitemap } from './src/lib/sitemap-exclusions.mjs';
 
 const pagesDir = new URL('./src/pages/', import.meta.url);
 
@@ -58,6 +59,9 @@ function sitemapLastmod(item) {
 export default defineConfig({
   site: 'https://curioustails.sg',
   output: 'static',
+  // K-130: scripts/test-puppy-page.mjs builds its fixture site into a separate folder,
+  // so a test run never touches dist/.
+  ...(process.env.PUPPY_OUTDIR ? { outDir: process.env.PUPPY_OUTDIR } : {}),
   // One canonical URL form. The host 308s /path -> /path/ already; this keeps
   // dev, sitemap, and any new internal links on the trailing-slash form so GSC
   // stops discovering the redirect variants.
@@ -66,5 +70,5 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [mdx(), sitemap({ serialize: sitemapLastmod }), puppyRedirects()]
+  integrations: [mdx(), sitemap({ filter: (page) => !isExcludedFromSitemap(page), serialize: sitemapLastmod }), puppyRedirects()]
 });

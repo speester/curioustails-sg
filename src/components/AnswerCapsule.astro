@@ -1,5 +1,11 @@
 ---
 // kit:AnswerCapsule@1.0.0 - the front-loaded 40-60 word answer.
+//
+// K-119 A7: when the capsule states a price as all-in, the 3% card surcharge is
+// rendered inside the same block. The capsule is a plain <div> outside the page
+// sections, so a disclosure elsewhere on the page would not travel with it.
+import { SURCHARGE_LINE } from '../data/buying-terms';
+
 interface Props { label?: 'The short answer' | 'The verdict'; }
 const { label = 'The short answer' } = Astro.props as Props;
 
@@ -9,6 +15,11 @@ const { label = 'The short answer' } = Astro.props as Props;
 // and renders as a band of the wrong colour. markTone exists for exactly this case.
 import { markTone } from '../lib/section-rhythm';
 if (Astro.locals?.rhythm) markTone(Astro.locals.rhythm, 'tint');
+
+const body = await Astro.slots.render('default');
+const capsuleHtml = /all-in/i.test(body)
+  ? `${body}<p class="answer-capsule__surcharge">${SURCHARGE_LINE}</p>`
+  : body;
 ---
 {/* A plain <div>. <figure> was tried to make the capsule count as a structural break, but a
     figure holding prose paragraphs is a misuse of the element and the landmark check is right
@@ -16,7 +27,7 @@ if (Astro.locals?.rhythm) markTone(Astro.locals.rhythm, 'tint');
     should be anyway, so it never forms a run with the dek above it. */}
 <div class="answer-capsule" data-answer-capsule data-treatment="callout" role="note" aria-label={label}>
   <div class="answer-capsule__label">{label}</div>
-  <div class="answer-capsule__body"><slot /></div>
+  <div class="answer-capsule__body" set:html={capsuleHtml} />
 </div>
 <style>
   /* The capsule sits directly above a seam divider when it is hoisted to the top of a page.
@@ -26,4 +37,5 @@ if (Astro.locals?.rhythm) markTone(Astro.locals.rhythm, 'tint');
   .answer-capsule { border: 1px solid var(--border-soft); border-left: 4px solid var(--color-accent); background: var(--surface-tint); border-radius: var(--radius-md); padding: 1rem 1.25rem; margin-block: 1.5rem; }
   .answer-capsule__label { margin: 0 0 .35rem; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-kicker); }
   .answer-capsule__body > :last-child { margin-bottom: 0; }
+  .answer-capsule__surcharge { margin: .5rem 0 0; font-size: var(--text-sm); }
 </style>

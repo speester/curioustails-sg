@@ -13,10 +13,14 @@ import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
 import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import OverseasPuppies from '../../components/OverseasPuppies.astro';
+import ImportedPuppies from '../../components/ImportedPuppies.astro';
 import StarterKitMarquee from '../../components/StarterKitMarquee.astro';
 import TestimonialWall from '../../components/TestimonialWall.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
+import VaccinationTimeline from '../../components/VaccinationTimeline.astro';
+import ReserveSteps from '../../components/ReserveSteps.astro';
+import { INCLUSIONS_LINE, PAYMENT_LINE, SURCHARGE_LINE, SHARED_BUY_FAQ, KIT_TOTAL, KIT_COUNT } from '../../data/buying-terms';
 import Carousel from '../../components/Carousel.astro';
 import ReviewSlider from '../../components/ReviewSlider.astro';
 import FAQ from '../../components/FAQ.astro';
@@ -64,7 +68,7 @@ const faqItems = [
   {
     question: 'How much does a Miniature Schnauzer cost in Singapore?',
     answer:
-      'Miniature Schnauzer prices in Singapore commonly run from around $2,500 to $5,500 depending on colour and shop. At Curious Tails, Miniature Schnauzer puppies are $4,888 to $5,388, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      `Miniature Schnauzer prices in Singapore commonly run from around $2,500 to $5,500 depending on colour and shop. At Curious Tails, Miniature Schnauzer puppies are $4,888 to $5,388, and that price already includes the $${KIT_TOTAL} starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
   },
   {
     question: 'Is a Miniature Schnauzer HDB-approved?',
@@ -104,9 +108,11 @@ const faqItems = [
   {
     question: 'What happens after I reserve a Miniature Schnauzer?',
     answer:
-      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+      `You place a deposit, and we board your puppy free for up to a month, food and lodging covered. Delivery is scheduled around your availability, and we set up the playpen and walk you through all ${KIT_COUNT} starter-kit items before we leave.`,
   },
 ];
+
+const allFaqItems = [...faqItems, ...SHARED_BUY_FAQ];
 
 const schemas = [
   localBusinessSchema(),
@@ -143,7 +149,7 @@ const schemas = [
     ratingValue: 5,
     datePublished: '2026-06-09',
   }),
-  faqPageSchema(faqItems),
+  faqPageSchema(allFaqItems),
   definedTermSchema({
     name: 'Miniature Schnauzer',
     description:
@@ -158,12 +164,12 @@ const schemas = [
     eyebrow="AVS licence AS24J00046 · Miniature Schnauzer"
     h1="Miniature Schnauzer Puppies for Sale in Singapore"
     h1Accent="Miniature Schnauzer"
-    subhead="Miniature Schnauzer prices in Singapore commonly run $2,500 to $5,500. Ours are $4,888 to $5,388, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    subhead={`Miniature Schnauzer prices in Singapore commonly run $2,500 to $5,500. Ours are $4,888 to $5,388, with the $${KIT_TOTAL} starter kit, free home delivery and setup, and a free first training lesson already in the price.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Miniature Schnauzer puppies."
     secondaryCtaLabel="See price & what's included"
     secondaryCtaHref="#price"
-    priceAnchor="From $4,888 all-in. HDB-approved. No add-ons quietly billed later."
+    priceAnchor="From $4,888 all-in. HDB-approved."
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved small breed']}
@@ -179,13 +185,14 @@ const schemas = [
   <div id="available" class="scroll-mt-40">
     <TestimonialWall />
     <AvailablePuppies breed="miniature-schnauzer" breedName="Miniature Schnauzer" only="available" />
+    <ImportedPuppies breed="miniature-schnauzer" breedName="Miniature Schnauzer" />
     <OverseasPuppies breed="miniature-schnauzer" breedName="Miniature Schnauzer" />
     <AvailablePuppies breed="miniature-schnauzer" breedName="Miniature Schnauzer" only="placed" />
     <StarterKitMarquee />
 
     <CaptionedBlock heading="Looking to Buy a Miniature Schnauzer in Singapore?" imageAlt="Salt and pepper Miniature Schnauzer puppy portrait, one of the Mini Schnauzer puppies available in Singapore" imageSrc={imgScene1} variant="mid">
       <p>Our Miniature Schnauzer puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, colour, and a short walkthrough video for the Mini Schnauzer puppies available now.</p>
-      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Miniature Schnauzer for sale in Singapore here is between $4,888 and $5,388, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Miniature Schnauzer for sale in Singapore here is between $4,888 and $5,388, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free for up to a month, food and lodging covered, with vaccinations kept on schedule at our cost.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Miniature Schnauzer puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Mini Schnauzer photos and prices</a>, or meet our Miniature Schnauzer puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
       </p>
@@ -229,8 +236,8 @@ const schemas = [
     heading="Why Singapore families get their Mini Schnauzer from Curious Tails"
     stats={[
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
-      { value: '$4,888', label: 'Mini Schnauzer pricing starts here, all-in' },
-      { value: '$500+', label: 'starter kit included free' },
+      { value: '$4,888', label: 'Mini Schnauzer pricing starts here' },
+      { value: `$${KIT_TOTAL}`, label: 'starter kit included free' },
       { value: '2+', label: 'years in Balestier' },
     ]}
   />
@@ -309,7 +316,7 @@ const schemas = [
           heading: 'Curious Tails',
           items: [
             '$4,888 to $5,388, printed right here',
-            '$500+ starter kit with 30+ items included',
+            `$${KIT_TOTAL} starter kit with ${KIT_COUNT} items included`,
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
           ],
@@ -319,16 +326,17 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        {`${INCLUSIONS_LINE} ${PAYMENT_LINE} ${SURCHARGE_LINE} `}
         Why is our price printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on our transparent puppy pricing page, and plan the ongoing costs with the first-year puppy budget guide.
       </p>
     </div>
   </div>
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
-  <CaptionedBlock heading="The $500+ Starter Kit Every Mini Schnauzer Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
-    <p>Every Miniature Schnauzer leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the harness and leash earn their keep first, because a Schnauzer's day is built around its walks, and the measured feeding cup matters more than you'd think; see the diet note below.</p>
+  <CaptionedBlock heading={`The $${KIT_TOTAL} Starter Kit Every Mini Schnauzer Goes Home With`} imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Miniature Schnauzer leaves us with a starter kit worth $${KIT_TOTAL}: {KIT_COUNT} items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For this breed the harness and leash earn their keep first, because a Schnauzer's day is built around its walks, and the measured feeding cup matters more than you'd think; see the diet note below.</p>
     <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Mini Schnauzer's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
-    <p>See the full 30+ item kit breakdown, category by category.</p>
+    <p>See the full {KIT_COUNT} item kit breakdown, category by category.</p>
   </CaptionedBlock>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
@@ -427,6 +435,8 @@ const schemas = [
       <p>Feeding is simple: your puppy comes with the food it is already eating, and any change should be gradual over a week. For portioning guidance see the puppy health checks explained guide.</p>
     </CaptionedBlock>
   </div>
+
+  <VaccinationTimeline />
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
   <div class="scroll-mt-40">
@@ -456,7 +466,7 @@ const schemas = [
   </div>
 
   <CaptionedBlock heading="Your Mini Schnauzer’s First Week at Home" imageAlt="Miniature Schnauzer puppy settling into a set-up playpen during its first week home" imageSrc={imgScene5} imagePosition="left">
-    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Schnauzer explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Schnauzer explores the room, and we walk you through all {KIT_COUNT} starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
     <p>Days 1 to 3: keep it calm and predictable. A fixed feeding routine, the toilet pads where we placed them, and short, gentle play. Some night whimpering is normal adjustment, and this confident breed usually settles quickly.</p>
     <p>Days 4 to 7: the routine sticks, and the personality arrives on schedule. Book your free first lesson with an AVS-certified trainer this week; early manners are what separate a charming Schnauzer from a loud one. See what the free AVS-certified training lesson covers. For anything in between, you WhatsApp us.</p>
   </CaptionedBlock>
@@ -471,14 +481,14 @@ const schemas = [
   </div>
 
   <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
-    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    
     <p>And the safety net we're asked about most: if your Mini Schnauzer falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
     <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
       <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
       <ul class="mt-4 space-y-3">
         {[
           'Free first lesson, AVS-Accredited Certified Dog Trainer',
-          'Free boarding after deposit, until you\'re ready',
+          'Free boarding after deposit, up to a month',
           '5-day sick-return guarantee',
         ].map((fact) => (
           <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
@@ -491,6 +501,8 @@ const schemas = [
       </ul>
     </div>
   </CaptionedBlock>
+
+  <ReserveSteps heading="What Happens After You Reserve a Miniature Schnauzer" />
 
   <div id="trust" class="scroll-mt-40">
     <DefBox
@@ -525,7 +537,7 @@ const schemas = [
   <div id="faq" class="scroll-mt-40">
 
   <ExpertQuote id="ferox-12" />
-    <FAQ heading="Miniature Schnauzer FAQs" items={faqItems} />
+    <FAQ heading="Miniature Schnauzer FAQs" items={allFaqItems} />
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
@@ -537,7 +549,7 @@ const schemas = [
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
       <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
       <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit ({KIT_COUNT} items)</a></li>
       <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
       <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
       <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>

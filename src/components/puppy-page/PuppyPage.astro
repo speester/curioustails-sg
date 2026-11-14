@@ -1,0 +1,279 @@
+---
+// K-130: the puppy page template. The K-124 Biscuit page (outputs/
+// puppy-page-redesign-biscuit.html, now the frozen reference) extracted into
+// components: 15 sections plus the sticky bar. Four are always on (Hero, About,
+// Final CTA, Visit); eleven depend on the variant (av / imp / pl) or on data.
+// Section order per variant: SECTION_ORDER in src/lib/puppy-page.ts.
+//
+// Variants are resolved at build time with inline {variant === ...} conditions (the
+// prototype's only-av / only-placed classes plus only-imp). An <Only> slot wrapper
+// was tried and dropped: Astro evaluates slot expressions even when the slot is not
+// rendered, so a hidden imp branch would still read p.imp on an av page.
+//
+// Thin page (a Balestier puppy missing its breed page, photo or price): built and
+// reachable, honest placeholders, noindex,follow, out of the sitemap, no Product
+// or Offer. The flag comes from src/lib/puppy-publish.mjs, the same rule the
+// sitemap filter and check:puppy-pages use.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Schema from '../Schema.astro';
+import PuppyHero from './PuppyHero.astro';
+import PriceIncludes from './PriceIncludes.astro';
+import GiftsMarquee from './GiftsMarquee.astro';
+import PuppyDossier from './PuppyDossier.astro';
+import FamiliesMarquee from './FamiliesMarquee.astro';
+import BreedFit from './BreedFit.astro';
+import PuppyFinalCta from './PuppyFinalCta.astro';
+import HealthRecord from './HealthRecord.astro';
+import PaymentMethods from './PaymentMethods.astro';
+import NextSteps from './NextSteps.astro';
+import VisitShop from './VisitShop.astro';
+import PuppyReviews from './PuppyReviews.astro';
+import PuppyFaq from './PuppyFaq.astro';
+import OtherPuppies from './OtherPuppies.astro';
+import Reserving from './Reserving.astro';
+import StickyBar from './StickyBar.astro';
+import './puppy-page.css';
+import kit from '../../data/starter-kit-items.json';
+import { site } from '../../data/site';
+import { localBusinessSchema, faqPageSchema } from '../../lib/schema';
+import { availabilityStarts, SAMPLE_LABEL, SAMPLE_NOTE } from '../../lib/imported-puppies';
+import { pageTitle, metaDescription, h1, puppyFaq, faqText } from '../../data/puppy-page-copy';
+import {
+  SECTION_ORDER,
+  absoluteUrl,
+  otherPuppies,
+  reviewsForPage,
+  type PuppyPageData,
+  type SectionId,
+} from '../../lib/puppy-page';
+
+interface Props {
+  p: PuppyPageData;
+  rows: Parameters<typeof otherPuppies>[1];
+}
+const { p, rows } = Astro.props;
+
+// --- which sections render (data conditions, plan §1 variant matrix) ---------
+const f = p.facts;
+const faq = puppyFaq(p);
+const shown: Record<SectionId, boolean> = {
+  hero: true,
+  includes: p.variant !== 'pl',
+  gifts: kit.items.length >= 8,
+  about: true,
+  families: true,
+  fit: Boolean(f?.match?.some((r) => r.verdict === 'fit') && f?.match?.some((r) => r.verdict === 'think')),
+  final: true,
+  health: p.variant !== 'pl',
+  payment: p.variant === 'av',
+  next: true,
+  visit: true,
+  reviews: reviewsForPage(p).reviews.length > 0,
+  faq: p.variant !== 'pl' && faq.length >= 3,
+  others: otherPuppies(p, rows).length > 0,
+  reserve: p.variant === 'av',
+};
+// K-134: a sample carries no reviews and no families (no testimonial may sit beside demo data).
+if (p.sample) {
+  shown.families = false;
+  shown.reviews = false;
+}
+const order = SECTION_ORDER[p.variant].filter((s) => shown[s]);
+
+// --- band rhythm (compromise C5): tones follow the RENDERED sequence, so a
+// dropped section never leaves two same-tone bands touching -----------------
+const PREFERRED: Record<SectionId, string> = {
+  hero: 'fixed', includes: 'plain', gifts: 'peach', about: 'fixed', families: 'fixed', fit: 'peach', final: 'plain',
+  health: 'lilac', payment: 'plain', next: 'plain', visit: 'fixed', reviews: 'plain', faq: 'peach', others: 'plain', reserve: 'peach',
+};
+const FIXED_TONE: Partial<Record<SectionId, string>> = { hero: 'plain', about: 'cream', families: 'cream', visit: 'deep' };
+const tone: Partial<Record<SectionId, string>> = {};
+let prev = '';
+order.forEach((s, i) => {
+  let t = PREFERRED[s] === 'fixed' ? FIXED_TONE[s]! : PREFERRED[s];
+  if (PREFERRED[s] !== 'fixed' && t === prev) {
+    const nextPref = order[i + 1] ? (PREFERRED[order[i + 1]] === 'fixed' ? FIXED_TONE[order[i + 1]] : PREFERRED[order[i + 1]]) : '';
+    t = ['plain', 'cream', 'peach'].find((c) => c !== prev && c !== nextPref) ?? t;
+  }
+  tone[s] = t;
+  prev = t;
+});
+const TONE_CLASS: Record<string, string> = { plain: '', peach: 'band--peach', lilac: 'band--lilac', cream: 'band--cream' };
+const tc = (s: SectionId) => TONE_CLASS[tone[s] ?? 'plain'] ?? '';
+
+// --- SEO block ---------------------------------------------------------------
+const title = pageTitle(p);
+const description = metaDescription(p);
+const heading = h1(p);
+const imagesAbs = p.images.map((i) => absoluteUrl(i.src.src));
+const crumbs = [
+  { label: 'Puppies', href: '/puppies/' },
+  ...(p.breedHref ? [{ label: p.breedName, href: p.breedHref }] : []),
+  { label: p.variant === 'imp' ? `${p.breedNoun} reservation` : (p.name ?? `Puppy #${p.displayId}`), href: p.canonicalPath },
+];
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [{ label: 'Home', href: '/' }, ...crumbs].map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.label, item: absoluteUrl(c.href) })),
+};
+const props = [
+  ...(p.gender && p.variant !== 'imp' ? [{ '@type': 'PropertyValue', name: 'Sex', value: p.genderWord }] : []),
+  ...(p.color ? [{ '@type': 'PropertyValue', name: 'Colour', value: p.color }] : []),
+  ...(p.dob ? [{ '@type': 'PropertyValue', name: 'Date of birth', value: p.dob }] : []),
+  ...(p.hdbApproved ? [{ '@type': 'PropertyValue', name: 'HDB approved', value: 'Yes' }] : []),
+];
+// A Product/Offer only when the price is visible (H5). Never on a thin page, never on a placed page.
+const productLd =
+  p.variant === 'av' && p.indexable && p.price
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: heading,
+        sku: p.id,
+        category: `${p.breedName} puppy`,
+        image: imagesAbs,
+        description,
+        ...(props.length ? { additionalProperty: props } : {}),
+        offers: {
+          '@type': 'Offer',
+          price: p.price,
+          priceCurrency: 'SGD',
+          availability: 'https://schema.org/InStock',
+          url: absoluteUrl(p.canonicalPath),
+          seller: { '@id': `${site.domain}#business` },
+        },
+      }
+    : null;
+const importedLd =
+  p.variant === 'imp' && p.imported && !p.thin
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: p.sample ? `SAMPLE LISTING (demo data, not a real puppy): ${p.breedNoun} puppy (imported, for reservation)` : `${p.breedNoun} puppy (imported, for reservation)`,
+        ...(imagesAbs.length ? { image: imagesAbs } : {}),
+        description,
+        category: `${p.breedNoun} puppy`,
+        brand: { '@type': 'Brand', name: 'Curious Tails' },
+        offers: {
+          '@type': 'Offer',
+          price: p.imported.priceSGD,
+          priceCurrency: 'SGD',
+          availability: 'https://schema.org/PreOrder',
+          ...(availabilityStarts(p.imported) ? { availabilityStarts: availabilityStarts(p.imported) } : {}),
+          url: absoluteUrl(p.canonicalPath),
+          seller: { '@type': 'Organization', name: 'Curious Tails', url: site.domain },
+        },
+      }
+    : null;
+const faqLd = shown.faq ? faqPageSchema(faq.map((q) => ({ question: q.question, answer: faqText(q.answer) }))) : null;
+const schemas = [
+  ...(productLd ? [productLd] : []),
+  ...(importedLd ? [importedLd] : []),
+  // A noindex page (thin or imported) carries no business schema (page-health `schema`).
+  ...(p.indexable && p.variant !== 'imp' ? [localBusinessSchema()] : []),
+  ...(faqLd ? [faqLd] : []),
+  breadcrumbLd,
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath={p.canonicalPath}
+  noindex={!p.indexable}
+  robots="noindex, follow"
+  businessSchema={p.indexable && p.variant !== 'imp'}
+  ogImage={imagesAbs[0]}
+  hideWhatsAppFloat
+>
+  <Schema schemas={schemas} />
+  <div
+    class="pp"
+    data-puppy-page
+    data-variant={p.variant}
+    data-pup-id={p.id}
+    data-thin={p.thin ? 'true' : 'false'}
+    data-missing={p.missing.join(' ') || undefined}
+    data-indexable={p.indexable ? 'true' : 'false'}
+    data-location={p.location ?? undefined}
+    data-origin={p.imported?.origin}
+    data-sections={order.join(' ')}
+    data-sample={p.sample ? 'true' : undefined}
+  >
+    {p.sample && (
+      <div class="sample-banner" role="note" data-sample-label>
+        <div class="wrap"><strong>{SAMPLE_LABEL}.</strong> <span>{SAMPLE_NOTE}</span></div>
+      </div>
+    )}
+    {order.map((s) => (
+      <>
+        {s === 'hero' && <PuppyHero p={p} crumbs={crumbs} />}
+        {s === 'includes' && <PriceIncludes p={p} tone={tc(s)} />}
+        {s === 'gifts' && <GiftsMarquee tone={tc(s)} />}
+        {s === 'about' && <PuppyDossier p={p} />}
+        {s === 'families' && <FamiliesMarquee />}
+        {s === 'fit' && <BreedFit p={p} tone={tc(s)} />}
+        {s === 'final' && <PuppyFinalCta p={p} />}
+        {s === 'health' && <HealthRecord p={p} tone={tc(s)} />}
+        {s === 'payment' && <PaymentMethods tone={tc(s)} />}
+        {s === 'next' && <NextSteps p={p} tone={tc(s)} />}
+        {s === 'visit' && <VisitShop p={p} />}
+        {s === 'reviews' && <PuppyReviews p={p} tone={tc(s)} />}
+        {s === 'faq' && <PuppyFaq p={p} tone={tc(s)} />}
+        {s === 'others' && <OtherPuppies p={p} tone={tc(s)} rows={rows} />}
+        {s === 'reserve' && <Reserving p={p} tone={tc(s)} />}
+      </>
+    ))}
+    <StickyBar p={p} />
+  </div>
+</BaseLayout>
+
+<script>
+  // K-130: the prototype's page script, unchanged in behaviour (< 2 KB).
+  const $ = (s: string, r: ParentNode = document) => r.querySelector(s) as HTMLElement | null;
+  const $$ = (s: string, r: ParentNode = document) => [...r.querySelectorAll(s)] as HTMLElement[];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // D2: today's date in Singapore, shown as-is. A display stamp, not a freshness check.
+  const avail = $('[data-avail]');
+  if (avail) {
+    const now = new Date();
+    const label = now.toLocaleDateString('en-SG', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Asia/Singapore' });
+    const iso = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Singapore', year: 'numeric', month: '2-digit', day: '2-digit' }).format(now);
+    const stamp = document.createElement('time');
+    stamp.dateTime = iso;
+    stamp.textContent = label;
+    avail.replaceChildren('Available now · ', stamp, ' · Balestier');
+  }
+
+  // gallery: dots + thumbs + counter driven by scroll-snap position
+  const strip = $('#strip');
+  const count = $('#count');
+  const dots = $$('.pp .dots button');
+  const thumbs = $$('.pp .thumbs button');
+  if (strip) {
+    const go = (i: number) => {
+      const s = $$('.slide', strip)[i];
+      if (s) strip.scrollTo({ left: s.offsetLeft - strip.offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
+    };
+    dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+    thumbs.forEach((t, i) => t.addEventListener('click', () => go(i)));
+    strip.addEventListener('scroll', () => {
+      const i = Math.round(strip.scrollLeft / strip.clientWidth);
+      if (count) count.textContent = String(i + 1);
+      [dots, thumbs].forEach((set) => set.forEach((b, j) => b.setAttribute('aria-current', String(j === i))));
+    }, { passive: true });
+  }
+
+  // sticky bar: show once the hero CTAs leave the viewport, hide over the final CTA
+  const sticky = $('#sticky');
+  const heroCtas = $('#hero-ctas');
+  const final = $('#final');
+  if (sticky && heroCtas && 'IntersectionObserver' in window) {
+    let heroGone = false;
+    let finalIn = false;
+    const sync = () => sticky.classList.toggle('on', heroGone && !finalIn);
+    new IntersectionObserver(([e]) => { heroGone = !e.isIntersecting && e.boundingClientRect.top < 0; sync(); }).observe(heroCtas);
+    if (final) new IntersectionObserver(([e]) => { finalIn = e.isIntersecting; sync(); }, { threshold: 0.25 }).observe(final);
+  }
+
+</script>

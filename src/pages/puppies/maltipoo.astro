@@ -13,10 +13,15 @@ import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
 import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import OverseasPuppies from '../../components/OverseasPuppies.astro';
+import ImportedPuppies from '../../components/ImportedPuppies.astro';
 import StarterKitMarquee from '../../components/StarterKitMarquee.astro';
 import TestimonialWall from '../../components/TestimonialWall.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
+import VaccinationTimeline from '../../components/VaccinationTimeline.astro';
+import ReserveSteps from '../../components/ReserveSteps.astro';
+import { INCLUSIONS_LINE, PAYMENT_LINE, SURCHARGE_LINE, SHARED_BUY_FAQ, KIT_TOTAL, KIT_COUNT } from '../../data/buying-terms';
+import { BREED_FACTS, matchRows } from '../../data/breed-facts';
 import Carousel from '../../components/Carousel.astro';
 import ReviewSlider from '../../components/ReviewSlider.astro';
 import FAQ from '../../components/FAQ.astro';
@@ -71,7 +76,7 @@ const faqItems = [
   {
     question: 'How much does a Maltipoo cost in Singapore?',
     answer:
-      'The Maltipoo price in Singapore ranges widely, from around $3,000 to $9,000 depending on size, coat, and shop. At Curious Tails, Maltipoo puppies are $3,288 to $5,988, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      `The Maltipoo price in Singapore ranges widely, from around $3,000 to $9,000 depending on size, coat, and shop. At Curious Tails, Maltipoo puppies are $3,288 to $5,988, and that price already includes the $${KIT_TOTAL} starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
   },
   {
     question: 'Is a Maltipoo HDB-approved?',
@@ -111,7 +116,7 @@ const faqItems = [
   {
     question: 'What happens after I reserve a Maltipoo?',
     answer:
-      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+      `You place a deposit, and we board your puppy free for up to a month, food and lodging covered. Delivery is scheduled around your availability, and we set up the playpen and walk you through all ${KIT_COUNT} starter-kit items before we leave.`,
   },
   {
     question: 'How do I check that a puppy seller is licensed?',
@@ -119,6 +124,8 @@ const faqItems = [
       "Search the seller's name or licence number on the AVS public registry of licensed pet shops. Curious Tails holds AVS pet shop licence AS24J00046. If a seller isn't on that registry, they aren't licensed, whatever their listing says.",
   },
 ];
+
+const allFaqItems = [...faqItems, ...SHARED_BUY_FAQ];
 
 const schemas = [
   localBusinessSchema(),
@@ -156,7 +163,7 @@ const schemas = [
     ratingValue: 5,
     datePublished: '2026-06-09',
   }),
-  faqPageSchema(faqItems),
+  faqPageSchema(allFaqItems),
   definedTermSchema({
     name: 'Maltipoo',
     description:
@@ -164,6 +171,8 @@ const schemas = [
     sameAs: 'https://en.wikipedia.org/wiki/Maltipoo',
   }),
 ];
+// K-130 D4: size-table and lifestyle rows read the shared breed facts (src/data/breed-facts.ts).
+const BF = BREED_FACTS['maltipoo'];
 ---
 
 <BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/puppies/maltipoo" ogImage="/assets/maltipoo/og-maltipoo.jpg">
@@ -171,12 +180,12 @@ const schemas = [
     eyebrow="Licensed by AVS · Maltipoo in Balestier"
     h1="Maltipoo Puppies for Sale in Singapore"
     h1Accent="Maltipoo"
-    subhead="Maltipoo prices in Singapore run anywhere from $3,000 to $9,000. Ours are $3,288 to $5,988, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    subhead={`Maltipoo prices in Singapore run anywhere from $3,000 to $9,000. Ours are $3,288 to $5,988, with the $${KIT_TOTAL} starter kit, free home delivery and setup, and a free first training lesson already in the price.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Maltipoo puppies."
     secondaryCtaLabel="See price & what's included"
     secondaryCtaHref="#price"
-    priceAnchor="From $3,288 all-in. HDB-approved. No add-ons quietly billed later."
+    priceAnchor="From $3,288 all-in. HDB-approved."
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, 'HDB-approved small breed']}
@@ -200,13 +209,14 @@ const schemas = [
   <div id="available" class="scroll-mt-40">
     <TestimonialWall />
     <AvailablePuppies breed="maltipoo" breedName="Maltipoo" only="available" />
+    <ImportedPuppies breed="maltipoo" breedName="Maltipoo" />
     <OverseasPuppies breed="maltipoo" breedName="Maltipoo" />
     <AvailablePuppies breed="maltipoo" breedName="Maltipoo" only="placed" />
     <StarterKitMarquee />
 
     <CaptionedBlock heading="Looking to Buy a Maltipoo in Singapore?" imageAlt="Maltipoo puppy portrait, one of the Maltipoo puppies available in Singapore" imageSrc={maltipooPortrait} variant="mid">
       <p>Our Maltipoo puppies in Singapore arrive and are reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. As an AVS licensed pet shop in Singapore, we'll send you photos, gender, age, and a short walkthrough video for the Maltipoo puppies available now.</p>
-      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Maltipoo for sale in Singapore here is between $3,288 and $5,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free, food and lodging covered, until your home is ready.</p>
+      <p>Unlike most listings you'll compare us against, we tell you the number upfront: every Maltipoo for sale in Singapore here is between $3,288 and $5,988, and what you see is the full price. Book a puppy viewing appointment at our Balestier shop to meet them in person, or after you reserve with a deposit we board your puppy for free for up to a month, food and lodging covered, with vaccinations kept on schedule at our cost.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Maltipoo puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Maltipoo photos and prices</a>, or meet our Maltipoo puppies at our Balestier pet shop in person, with free home delivery in Singapore once you reserve.
       </p>
@@ -250,8 +260,8 @@ const schemas = [
     heading="Why Singapore families get their Maltipoo from Curious Tails"
     stats={[
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
-      { value: '$3,288', label: 'Maltipoo pricing starts here, all-in' },
-      { value: '$500+', label: 'starter kit included free' },
+      { value: '$3,288', label: 'Maltipoo pricing starts here' },
+      { value: `$${KIT_TOTAL}`, label: 'starter kit included free' },
       { value: '2+', label: 'years in Balestier' },
     ]}
   />
@@ -297,9 +307,9 @@ const schemas = [
       rows={[
         { label: 'Adult weight', values: ['Roughly 3 to 6 kg, depending on the Toy or Miniature Poodle parent'] },
         { label: 'Height', values: ['Around 20 to 30 cm at the shoulder'] },
-        { label: 'Coat', values: ['Soft and low-shedding, wavy to curly; common colours include white, cream and apricot'] },
-        { label: 'Lifespan', values: ['12 to 15 years'] },
-        { label: 'Exercise', values: ['About 30 minutes a day, plus indoor play and company'] },
+        { label: 'Coat', values: [BF.coat!] },
+        { label: 'Lifespan', values: [BF.lifespan!] },
+        { label: 'Exercise', values: [BF.exercise!] },
         { label: 'Shedding & allergies', values: ['Low-shedding and often better tolerated by allergy sufferers, though no dog is truly allergen-free'] },
       ]}
     />
@@ -330,7 +340,7 @@ const schemas = [
           heading: 'Curious Tails',
           items: [
             '$3,288 to $5,988, printed right here',
-            '$500+ starter kit with 30+ items included',
+            `$${KIT_TOTAL} starter kit with ${KIT_COUNT} items included`,
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer, plus free boarding after deposit',
           ],
@@ -340,16 +350,17 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        {`${INCLUSIONS_LINE} ${PAYMENT_LINE} ${SURCHARGE_LINE} `}
         Why is our price lower and printed? We don't carry the marketing spend the bigger names do, and we'd rather win on value and word of mouth. Compare the full picture on our transparent puppy pricing page, and plan the ongoing costs with the first-year puppy budget guide.
       </p>
     </div>
   </div>
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
-  <CaptionedBlock heading="The $500+ Starter Kit Every Maltipoo Goes Home With" imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
-    <p>Every Maltipoo leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For a coat-and-eye breed like the Maltipoo, the grooming tools and the eye-wipe routine start on day one.</p>
+  <CaptionedBlock heading={`The $${KIT_TOTAL} Starter Kit Every Maltipoo Goes Home With`} imageAlt="Puppy starter kit with playpen, carrier, grooming tools, food and toys laid out" imageSrc={starterKit} variant="mid">
+    <p>Every Maltipoo leaves us with a starter kit worth $${KIT_TOTAL}: {KIT_COUNT} items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral health care, and toys. For a coat-and-eye breed like the Maltipoo, the grooming tools and the eye-wipe routine start on day one.</p>
     <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your Maltipoo's daily care. Most of the questions new owners would otherwise ask later are answered before we leave your home.</p>
-    <p>See the full 30+ item kit breakdown, category by category.</p>
+    <p>See the full {KIT_COUNT} item kit breakdown, category by category.</p>
   </CaptionedBlock>
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
@@ -360,12 +371,7 @@ const schemas = [
       subhead="We ask about your routine before recommending any breed. Here's the honest short version for a Maltipoo."
       mode="table"
       tableHeaders={['Your situation', 'Our honest take']}
-      rows={[
-        { label: 'Someone home most of the day (family, retiree, helper, remote work)', values: ['Ideal. This is the Maltipoo home; the company is exactly what they want'] },
-        { label: 'Family with children wanting an affectionate lap dog', values: ['Great fit. Gentle, playful, and endlessly cuddly'] },
-        { label: 'Adding a companion for an existing dog', values: ['Good fit. Sociable and rarely the one to start trouble'] },
-        { label: 'Nobody home 8am to 6pm on weekdays', values: ['Reconsider. A Maltipoo may fret; an independent Cavapoo is usually the kinder match'] },
-      ]}
+      rows={matchRows('maltipoo')}
     />
   </div>
 
@@ -447,6 +453,8 @@ const schemas = [
       <p>Feeding is simple: your puppy comes with the small-breed food it is already eating, and any change should be gradual over a week. For portioning guidance see the puppy health checks explained guide.</p>
     </CaptionedBlock>
   </div>
+
+  <VaccinationTimeline />
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" flip />
 
   <div class="scroll-mt-40">
@@ -476,7 +484,7 @@ const schemas = [
   </div>
 
   <CaptionedBlock heading="Your Maltipoo’s First Week at Home" imageAlt="Maltipoo puppy settling into a set-up playpen during its first week home" imageSrc={maltipooSettling} imagePosition="left">
-    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Maltipoo explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
+    <p>Day 0: we deliver, free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your Maltipoo explores the room, and we walk you through all {KIT_COUNT} starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
     <p>Days 1 to 3: keep it calm and close. Maltipoos settle fastest with gentle company nearby, a fixed feeding routine, and the toilet pads where we placed them. Some night whimpering is normal adjustment.</p>
     <p>Days 4 to 7: the routine sticks. This is the window to book your free first lesson with an AVS-certified trainer; see what the free AVS-certified training lesson covers. For anything in between, you WhatsApp us.</p>
   </CaptionedBlock>
@@ -491,14 +499,14 @@ const schemas = [
   </div>
 
   <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
-    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    
     <p>And the safety net we're asked about most: if your Maltipoo falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
     <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
       <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
       <ul class="mt-4 space-y-3">
         {[
           'Free first lesson, AVS-Accredited Certified Dog Trainer',
-          'Free boarding after deposit, until you\'re ready',
+          'Free boarding after deposit, up to a month',
           '5-day sick-return guarantee',
         ].map((fact) => (
           <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
@@ -511,6 +519,8 @@ const schemas = [
       </ul>
     </div>
   </CaptionedBlock>
+
+  <ReserveSteps heading="What Happens After You Reserve a Maltipoo" />
 
   <div id="trust" class="scroll-mt-40">
     <DefBox
@@ -545,7 +555,7 @@ const schemas = [
   <div id="faq" class="scroll-mt-40">
 
   <ExpertQuote id="ferox-2" />
-    <FAQ heading="Maltipoo FAQs" items={faqItems} />
+    <FAQ heading="Maltipoo FAQs" items={allFaqItems} />
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
@@ -557,7 +567,7 @@ const schemas = [
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
       <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
       <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit ({KIT_COUNT} items)</a></li>
       <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
       <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>
       <li><a href="/free-training/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free training lesson</a></li>

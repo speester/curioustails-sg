@@ -1,0 +1,32 @@
+---
+// Sticky action bar (mobile). Shows once #hero-ctas leaves the viewport, hides
+// while #final is in view. The BaseLayout WhatsApp float is suppressed on this
+// route, so this is the only floating action. Script in PuppyPage.astro.
+import Icon from './Icon.astro';
+import { wa, bookLink } from '../../data/puppy-page-copy';
+import type { PuppyPageData } from '../../lib/puppy-page';
+
+interface Props { p: PuppyPageData }
+const { p } = Astro.props;
+const book = bookLink(p);
+---
+<div class="sticky" id="sticky" data-sticky-cta aria-label="Quick actions">
+  {p.variant === 'av' && (
+    <>
+      <a class="btn btn--wa" href={wa.interest(p)} data-wa-source={`${p.waSource}:sticky`}><Icon name="wa" />About {p.name ?? 'this puppy'}</a>
+      <a class="btn btn--ghost" href={book.href} target={book.external ? '_blank' : undefined} rel={book.external ? 'noopener' : undefined} data-card-action={book.external ? 'book' : undefined}>Book a viewing</a>
+    </>
+  )}
+  {p.variant === 'pl' && (
+    <>
+      <a class="btn btn--wa" href={wa.soldSticky(p)} data-wa-source={`${p.waSource}:sticky`}>Similar {p.breedNoun}</a>
+      <a class="btn btn--ghost" href="#others">See puppies</a>
+    </>
+  )}
+  {p.variant === 'imp' && (
+    <>
+      <a class="btn btn--wa" href={wa.impReserve(p)} data-wa-source={`${p.waSource}:sticky`}><Icon name="wa" />{p.imp?.reserved ? 'Ask about the next one' : 'Reserve on WhatsApp'}</a>
+      <a class="btn btn--ghost" href="#next">How reserving works</a>
+    </>
+  )}
+</div>

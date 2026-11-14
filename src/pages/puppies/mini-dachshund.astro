@@ -13,10 +13,14 @@ import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
 import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import OverseasPuppies from '../../components/OverseasPuppies.astro';
+import ImportedPuppies from '../../components/ImportedPuppies.astro';
 import StarterKitMarquee from '../../components/StarterKitMarquee.astro';
 import TestimonialWall from '../../components/TestimonialWall.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
+import VaccinationTimeline from '../../components/VaccinationTimeline.astro';
+import ReserveSteps from '../../components/ReserveSteps.astro';
+import { INCLUSIONS_LINE, PAYMENT_LINE, SURCHARGE_LINE, SHARED_BUY_FAQ, KIT_TOTAL, KIT_COUNT } from '../../data/buying-terms';
 import Carousel from '../../components/Carousel.astro';
 import ReviewSlider from '../../components/ReviewSlider.astro';
 import FAQ from '../../components/FAQ.astro';
@@ -69,12 +73,12 @@ const faqItems = [
   {
     question: 'Where can I buy a dachshund in Singapore?',
     answer:
-      `Curious Tails sells mini dachshund puppies in Singapore at ${priceRange} all-in as of ${monthStamp}, from our AVS licensed shop in Balestier. The mini dachshund is HDB-approved, and every puppy goes home with the $500+ starter kit, free delivery and setup, and a first training lesson.`,
+      `Curious Tails sells mini dachshund puppies in Singapore at ${priceRange} all-in as of ${monthStamp}, from our AVS licensed shop in Balestier. The mini dachshund is HDB-approved, and every puppy goes home with the $${KIT_TOTAL} starter kit, free delivery and setup, and a first training lesson.`,
   },
   {
     question: 'How much does a Mini Dachshund cost in Singapore?',
     answer:
-      'The market runs anywhere from $2,500 to $9,000 depending on coat type, colour, and origin. At Curious Tails, Mini Dachshund puppies are $4,288 to $6,088, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      `The market runs anywhere from $2,500 to $9,000 depending on coat type, colour, and origin. At Curious Tails, Mini Dachshund puppies are $4,288 to $6,088, and that price already includes the $${KIT_TOTAL} starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
   },
   {
     question: 'Can I keep a Mini Dachshund in an HDB flat?',
@@ -104,9 +108,11 @@ const faqItems = [
   {
     question: 'What happens after I reserve a Mini Dachshund?',
     answer:
-      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, usually mornings or evenings, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+      `You place a deposit, and we board your puppy free for up to a month, food and lodging covered. Delivery is scheduled around your availability, usually mornings or evenings, and we set up the playpen and walk you through all ${KIT_COUNT} starter-kit items before we leave.`,
   },
 ];
+
+const allFaqItems = [...faqItems, ...SHARED_BUY_FAQ];
 
 const schemas = [
   localBusinessSchema(),
@@ -137,7 +143,7 @@ const schemas = [
     description: 'Free island-wide home delivery with playpen, bed, and toy setup for every Mini Dachshund puppy, scheduled around the owner\'s availability.',
     price: 'Included',
   }),
-  faqPageSchema(faqItems),
+  faqPageSchema(allFaqItems),
   definedTermSchema({
     name: 'Miniature Dachshund',
     description:
@@ -152,12 +158,12 @@ const schemas = [
     eyebrow="Mini Dachshund from an AVS licensed shop"
     h1="Mini Dachshund Puppies for Sale in Singapore"
     h1Accent="Mini Dachshund"
-    subhead="Mini Dachshund prices in Singapore run anywhere from $2,500 to $9,000, usually without explanation. Ours are $4,288 to $6,088, printed here, with the $500+ starter kit, free home delivery and setup, and a free first training lesson already in the price."
+    subhead={`Mini Dachshund prices in Singapore run anywhere from $2,500 to $9,000, usually without explanation. Ours are $4,288 to $6,088, printed here, with the $${KIT_TOTAL} starter kit, free home delivery and setup, and a free first training lesson already in the price.`}
     ctaLabel="WhatsApp us"
     ctaMessage="Hi! I'd like to ask about your available Mini Dachshund puppies."
     secondaryCtaLabel="See price & what's included"
     secondaryCtaHref="#price"
-    priceAnchor="From $4,288 all-in. No add-ons quietly billed later."
+    priceAnchor="From $4,288 all-in."
     rating={site.reviews.rating}
     reviewCount={site.reviews.count}
     trustBadges={[`AVS licensed · ${site.license.avsNumber}`, `${site.reviews.count} five-star reviews`, '2+ years in Balestier']}
@@ -173,20 +179,21 @@ const schemas = [
 
   <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
     <AnswerCapsule>
-      <p>{`Mini Dachshund puppies in Singapore cost ${priceRange} at Curious Tails as of ${monthStamp}, against a market range of $2,500 to $9,000. Every dachshund here is HDB-approved, comes from an AVS licensed shop at Balestier, and includes the $500+ starter kit, free home delivery and setup, and a first training lesson.`}</p>
+      <p>{`Mini Dachshund puppies in Singapore cost ${priceRange} at Curious Tails as of ${monthStamp}, against a market range of $2,500 to $9,000. Every dachshund here is HDB-approved, comes from an AVS licensed shop at Balestier, and includes the $${KIT_TOTAL} starter kit, free home delivery and setup, and a first training lesson.`}</p>
     </AnswerCapsule>
   </div>
 
   <div id="available" class="scroll-mt-40">
     <TestimonialWall />
     <AvailablePuppies breed="mini-dachshund" breedName="Mini Dachshund" only="available" />
+    <ImportedPuppies breed="mini-dachshund" breedName="Mini Dachshund" />
     <OverseasPuppies breed="mini-dachshund" breedName="Mini Dachshund" />
     <AvailablePuppies breed="mini-dachshund" breedName="Mini Dachshund" only="placed" />
     <StarterKitMarquee />
 
     <CaptionedBlock heading="Looking for a Dachshund in Singapore?" imageAlt="Red smooth-coat Mini Dachshund puppy available in Singapore, seated portrait" imageSrc={redPortrait} variant="mid">
       <p>Litters arrive and get reserved quickly, so we update this list as puppies are reserved and confirm what is still available on WhatsApp. Message us and we'll send photos, gender, age, coat type, and a short walkthrough video for the Mini Dachshund puppies available now.</p>
-      <p>Every Mini Dachshund puppy for sale here is between $4,288 and $6,088, and what you see is the full price. After you reserve with a deposit, we board your puppy free, food and lodging covered, until your home is ready.</p>
+      <p>Every Mini Dachshund puppy for sale here is between $4,288 and $6,088, and what you see is the full price. After you reserve with a deposit, we board your puppy free for up to a month, food and lodging covered, with vaccinations kept on schedule at our cost.</p>
       <p>
         <a href={whatsappLink("Hi! Could you send me photos and prices of your available Mini Dachshund puppies?")} class="underline underline-offset-2 text-[var(--color-accent-hover)]">Ask for current Mini Dachshund photos and prices</a>, or book a viewing at our Balestier shop and meet them in person.
       </p>
@@ -230,8 +237,8 @@ const schemas = [
     heading="Why Singapore families get their Mini Dachshund from Curious Tails"
     stats={[
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
-      { value: '$4,288', label: 'Mini Dachshund pricing starts here, all-in' },
-      { value: '$500+', label: 'starter kit included free' },
+      { value: '$4,288', label: 'Mini Dachshund pricing starts here' },
+      { value: `$${KIT_TOTAL}`, label: 'starter kit included free' },
       { value: '2+', label: 'years in Balestier' },
     ]}
   />
@@ -315,10 +322,10 @@ const schemas = [
           heading: 'Curious Tails',
           items: [
             '$4,288 to $6,088, printed right here',
-            '$500+ starter kit with 30+ items included',
+            `$${KIT_TOTAL} starter kit with ${KIT_COUNT} items included`,
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer',
-            'Free boarding after deposit until you are ready',
+            'Free boarding after deposit, up to a month',
           ],
           emphasis: true,
         },
@@ -326,14 +333,15 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        {`${INCLUSIONS_LINE} ${PAYMENT_LINE} ${SURCHARGE_LINE} `}
         The full market picture, deposit process, and what every dollar covers are on our transparent puppy pricing page. Budgeting past day one? The first-year puppy budget guide lays out food, vet, and grooming numbers before you commit.
       </p>
     </div>
   </div>
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />
-  <CaptionedBlock heading="The $500+ Starter Kit Every Mini Dachshund Goes Home With" imagePosition="none" variant="mid">
-    <p>Every Mini Dachshund leaves us with a starter kit worth $500 and up: more than 30 items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral care, and toys. For this breed, the harness in the outdoor set matters most: dachshunds walk on harnesses, never neck collars, to protect that long spine.</p>
+  <CaptionedBlock heading={`The $${KIT_TOTAL} Starter Kit Every Mini Dachshund Goes Home With`} imagePosition="none" variant="mid">
+    <p>Every Mini Dachshund leaves us with a starter kit worth $${KIT_TOTAL}: {KIT_COUNT} items across eight categories, a playpen, a carrier, grooming tools, small-breed puppy food, outdoor gear, toilet training supplies, oral care, and toys. For this breed, the harness in the outdoor set matters most: dachshunds walk on harnesses, never neck collars, to protect that long spine.</p>
     <p>On delivery day, Nelson or Kim walks you through every item: how to use it, and how it fits into your dachshund's daily care. See everything inside the starter kit, item by item.</p>
     <div slot="side" class="clay h-full bg-[var(--color-surface-card)] p-6 sm:p-8">
       <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Dachshund-critical kit items</p>
@@ -430,33 +438,12 @@ const schemas = [
   <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
 
   <div id="health" class="scroll-mt-40">
-    <ComparisonSplit
-      heading="Vaccination and Licensing Timeline"
-      headingAccent="Timeline"
-      subhead="The exact weeks, so nothing is left to guesswork."
-      mode="table"
-      tableHeaders={['When', 'What happens']}
-      rows={[
-        { label: 'Week 6', values: ['First vaccination and deworming'] },
-        { label: 'Week 8', values: ['Second vaccination and deworming'] },
-        { label: 'Week 9', values: ['Puppy goes home, one week after the second vaccination'] },
-        { label: 'Week 12', values: ['Third vaccination and deworming, completing the core puppy course'] },
-        { label: 'Week 16', values: ['Optional fourth vaccination, if advised by your vet for extra early-life protection'] },
-        { label: 'Year 1 onward', values: ['Annual booster shot and deworming, done every year as advised by your vet'] },
-        { label: 'At purchase', values: ['Microchipping is already done; dog licensing paperwork is completed with our full assistance at the point of purchase'] },
-        { label: 'Before licensing (first-time owners)', values: ['A one-time free online pet ownership course, required since September 2024'] },
-      ]}
-    />
-    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
-      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Every puppy goes home vet-checked, vaccinated, dewormed, and microchipped; our puppy health checks explained covers what we screen and why. First-time owners must also complete the <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">free online pet ownership course</a> before licensing.
-      </p>
-    </div>
+    <VaccinationTimeline />
   </div>
 
   <div id="first-week" class="scroll-mt-40">
     <CaptionedBlock heading="Your Mini Dachshund’s First Week at Home" imagePosition="none">
-      <p>Day 0: we deliver free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your puppy explores the room, and we walk you through all 30+ starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
+      <p>Day 0: we deliver free, at a time that suits you, usually morning or evening. The playpen, bed, water, and toys are set up before your puppy explores the room, and we walk you through all {KIT_COUNT} starter-kit items in person. Learn more about how our free home delivery and setup works.</p>
       <p>Days 1 to 3: keep it calm. Same food, fixed feeding times, toilet pads where we placed them, gentle short play. Some night whimpering is normal adjustment, not distress.</p>
       <p>Days 4 to 7: the routine starts sticking, and this is the window to book your free first lesson; see what the free training lesson covers. For everything in between, you WhatsApp us and get a real reply.</p>
       <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
@@ -486,14 +473,14 @@ const schemas = [
   </div>
 
   <CaptionedBlock heading="Free Training, Free Boarding and Real Aftercare" imagePosition="none" variant="card">
-    <p>The price includes a free first lesson with an <a href="https://avs.nparks.gov.sg/outreach/resources/acdt-dog-trainers/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">AVS-Accredited Certified Dog Trainer</a>, free boarding after your deposit until you're ready, and free ongoing customer service for care questions after the sale.</p>
+    
     <p>And the safety net we're asked about most: if your Mini Dachshund falls sick within the first 5 days of going home, bring them back to the shop and we'll nurse them ourselves.</p>
     <div slot="side" class="clay h-full bg-[var(--color-mint-100)] p-6 sm:p-8">
       <p class="text-xs font-bold uppercase text-[var(--color-cream-500)]" style="letter-spacing: 0.08em;">Included, no add-on</p>
       <ul class="mt-4 space-y-3">
         {[
           'Free first lesson, AVS-Accredited Certified Dog Trainer',
-          'Free boarding after deposit, until you\'re ready',
+          'Free boarding after deposit, up to a month',
           '5-day sick-return: we nurse your puppy at the shop',
         ].map((fact) => (
           <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--color-cream-700)]">
@@ -506,6 +493,8 @@ const schemas = [
       </ul>
     </div>
   </CaptionedBlock>
+
+  <ReserveSteps heading="What Happens After You Reserve a Mini Dachshund" />
 
   <div id="trust" class="scroll-mt-40">
     <DefBox
@@ -540,7 +529,7 @@ const schemas = [
   <div id="faq" class="scroll-mt-40">
 
   <ExpertQuote id="ferox-10" />
-    <FAQ heading="Mini Dachshund FAQs" items={faqItems} />
+    <FAQ heading="Mini Dachshund FAQs" items={allFaqItems} />
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">
@@ -553,7 +542,7 @@ const schemas = [
       <li><a href="/first-time-owners/breed-selector/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Breed selector quiz</a></li>
       <li><a href="/pricing/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Transparent pricing</a></li>
       <li><a href="/first-time-owners/budget-guide/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">First-year budget planner</a></li>
-      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit (30+ items)</a></li>
+      <li><a href="/starter-kit/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Starter kit ({KIT_COUNT} items)</a></li>
       <li><a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB approved breeds</a></li>
       <li><a href="/learn/puppy-health/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Vaccinations and health</a></li>
       <li><a href="/delivery/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">Free delivery and setup</a></li>

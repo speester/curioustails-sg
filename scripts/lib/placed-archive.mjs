@@ -73,9 +73,12 @@ export const isExpired = (entry, today) =>
  */
 export function classify({ id, row, manualSold, locationAllowed, overlaid, previous }) {
   let evidence;
-  if (manualSold.has(Number(id))) evidence = 'sold-override';
+  // K-130 owner ruling (2026-11-14): only Balestier puppies are listed. A row the
+  // sheet now places outside Balestier is out of area even when it was reported
+  // sold, so it gets no placed page and no loving-homes card.
+  if (row && !locationAllowed(row)) evidence = 'out-of-area';
+  else if (manualSold.has(Number(id))) evidence = 'sold-override';
   else if (!row) evidence = 'not-in-sheet';
-  else if (!locationAllowed(row)) evidence = 'out-of-area';
   else if (!row.images?.[0]) evidence = 'no-photo';
   else if (overlaid === undefined) evidence = previous ?? 'check-failed';
   else evidence = overlaid ? 'sold-overlay' : 'no-overlay';

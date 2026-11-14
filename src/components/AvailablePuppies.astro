@@ -16,6 +16,7 @@ import { pupCard, livePupCards, stockedBreeds, type BreedBucket } from '../lib/p
 import { lovingHomeCards } from '../lib/loving-homes';
 import { nearestBreeds } from '../data/breed-neighbours';
 import { breedName as displayBreedName } from '../data/breed-names';
+import { NEXT_LITTER_LINE } from '../data/buying-terms';
 
 // "Maltipoo, Cockapoo and Cavapoo" - an Oxford-comma-free English list.
 const listNames = (names: string[]) =>
@@ -62,12 +63,15 @@ const nearestNames = nearest.map((slug) => displayBreedName(slug));
 
 {
   showAvailable && hasStock && (
-    <ListingGrid
-      heading={`Available ${breedName} Puppies`}
-      headingAccent="Available"
-      subhead={`Real ${breedName} puppies in stock right now, updated from our live list. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop.`}
-      items={availableItems}
-    />
+    <>
+      <ListingGrid
+        heading={`Available ${breedName} Puppies`}
+        headingAccent="Available"
+        subhead={`Real ${breedName} puppies in stock right now, updated from our live list. Litters move fast, so tap any pup to WhatsApp us for its latest photos, video and health records, or to arrange a viewing at our Balestier shop.`}
+        items={availableItems}
+      />
+      <p class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10 text-sm leading-relaxed text-[var(--color-cream-600)]">{NEXT_LITTER_LINE}</p>
+    </>
   )
 }
 
@@ -85,6 +89,10 @@ const nearestNames = nearest.map((slug) => displayBreedName(slug));
 }
 
 {showAvailable && !hasStock && <AvailabilityCta breedName={breedName} standalone={nearestItems.length === 0} />}
+
+{showAvailable && !hasStock && (
+  <p class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10 text-sm leading-relaxed text-[var(--color-cream-600)]">{NEXT_LITTER_LINE}</p>
+)}
 
 {/* Placed puppies render after everything available that this component draws. */}
 {showPlaced && placedCount > 0 && <LovingHomesSection breed={breed} breedName={breedName} limit={PLACED_LIMIT} />}

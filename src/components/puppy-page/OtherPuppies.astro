@@ -1,0 +1,37 @@
+---
+// §14 Other puppies available now. AV · IMP · PL (on PL it is slot 2, straight
+// after the hero). The live Balestier feed minus this puppy, photo only, same
+// breed first, max 6. Hidden when no other puppy has a photo.
+import { Image } from 'astro:assets';
+import { othersHeading, OTHERS_INTRO } from '../../data/puppy-page-copy';
+import { otherPuppies, type PuppyPageData } from '../../lib/puppy-page';
+
+interface Props { p: PuppyPageData; tone: string; rows: Parameters<typeof otherPuppies>[1] }
+const { p, tone, rows } = Astro.props;
+const cards = otherPuppies(p, rows);
+---
+{cards.length > 0 && (
+  <section class:list={['band', tone, p.variant === 'pl' && 'others-top']} id="others" aria-labelledby="others-h" data-section="others" data-treatment="cards" data-tone={tone.includes('lilac') ? 'accent' : tone ? 'tint' : 'paper'}>
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="kicker">With us now</span>
+        <h2 id="others-h" style="margin-top:6px">{othersHeading(p)}</h2>
+        <p>{OTHERS_INTRO}</p>
+      </div>
+      <div class="cards">
+        {cards.map((c) => (
+          <article class="clay pcard" data-reveal>
+            {c.imageSrc && <Image src={c.imageSrc} alt={c.imageAlt} widths={[320, 520]} sizes="(max-width:767px) 74vw, 300px" loading="lazy" />}
+            <div class="bd">
+              <span class="meta">{[c.breedName, c.gender === 'Female' ? 'Girl' : c.gender === 'Male' ? 'Boy' : null, c.age].filter(Boolean).join(' · ')}</span>
+              <h3>{c.title}</h3>
+              <span class="pr">{typeof c.price === 'number' ? `$${c.price.toLocaleString('en-SG')}` : 'Ask for price'}</span>
+              <a class="more" href={c.pageHref}>See this puppy →</a>
+            </div>
+          </article>
+        ))}
+      </div>
+      <p style="margin-top:22px;font-weight:800"><a href="/available-puppies/">See every puppy available now →</a></p>
+    </div>
+  </section>
+)}

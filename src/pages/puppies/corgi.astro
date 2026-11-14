@@ -13,10 +13,14 @@ import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
 import AvailablePuppies from '../../components/AvailablePuppies.astro';
 import OverseasPuppies from '../../components/OverseasPuppies.astro';
+import ImportedPuppies from '../../components/ImportedPuppies.astro';
 import StarterKitMarquee from '../../components/StarterKitMarquee.astro';
 import TestimonialWall from '../../components/TestimonialWall.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
 import FinalCta from '../../components/FinalCta.astro';
+import VaccinationTimeline from '../../components/VaccinationTimeline.astro';
+import ReserveSteps from '../../components/ReserveSteps.astro';
+import { INCLUSIONS_LINE, PAYMENT_LINE, SURCHARGE_LINE, SHARED_BUY_FAQ, KIT_TOTAL, KIT_COUNT } from '../../data/buying-terms';
 import Carousel from '../../components/Carousel.astro';
 import ReviewSlider from '../../components/ReviewSlider.astro';
 import FAQ from '../../components/FAQ.astro';
@@ -73,7 +77,7 @@ const faqItems = [
   {
     question: 'How much does a Corgi cost in Singapore?',
     answer:
-      'The market commonly runs $6,000 to $10,000 for a Corgi. At Curious Tails, Corgi puppies are $3,688 to $5,500, and that price already includes the $500+ starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.',
+      `The market commonly runs $6,000 to $10,000 for a Corgi. At Curious Tails, Corgi puppies are $3,688 to $5,500, and that price already includes the $${KIT_TOTAL} starter kit, free home delivery and setup, and a free first training lesson with an AVS-certified trainer.`,
   },
   {
     question: 'Pembroke or Cardigan: which Corgi is sold in Singapore?',
@@ -103,9 +107,11 @@ const faqItems = [
   {
     question: 'What happens after I reserve a Corgi?',
     answer:
-      "You place a deposit, and we board your puppy for free, food and lodging covered, until you're ready. Delivery is scheduled around your availability, and we set up the playpen and walk you through all 30+ starter-kit items before we leave.",
+      `You place a deposit, and we board your puppy free for up to a month, food and lodging covered. Delivery is scheduled around your availability, and we set up the playpen and walk you through all ${KIT_COUNT} starter-kit items before we leave.`,
   },
 ];
+
+const allFaqItems = [...faqItems, ...SHARED_BUY_FAQ];
 
 const schemas = [
   localBusinessSchema(),
@@ -136,7 +142,7 @@ const schemas = [
     description: 'Free island-wide home delivery with playpen, bed, and toy setup for every Corgi puppy, scheduled around the owner\'s availability.',
     price: 'Included',
   }),
-  faqPageSchema(faqItems),
+  faqPageSchema(allFaqItems),
   definedTermSchema({
     name: 'Pembroke Welsh Corgi',
     description:
@@ -180,6 +186,7 @@ const schemas = [
   <div id="available" class="scroll-mt-40">
     <TestimonialWall />
     <AvailablePuppies breed="corgi" breedName="Corgi" only="available" />
+    <ImportedPuppies breed="corgi" breedName="Corgi" />
     <OverseasPuppies breed="corgi" breedName="Corgi" />
     <AvailablePuppies breed="corgi" breedName="Corgi" only="placed" />
     <StarterKitMarquee />
@@ -230,8 +237,8 @@ const schemas = [
     heading="Why private-housing families get their Corgi from Curious Tails"
     stats={[
       { value: String(site.reviews.count), label: 'five-star Google reviews' },
-      { value: '$3,688', label: 'Corgi pricing starts here, all-in' },
-      { value: '$500+', label: 'starter kit included free' },
+      { value: '$3,688', label: 'Corgi pricing starts here' },
+      { value: `$${KIT_TOTAL}`, label: 'starter kit included free' },
       { value: '2+', label: 'years in Balestier' },
     ]}
   />
@@ -301,10 +308,10 @@ const schemas = [
           heading: 'Curious Tails',
           items: [
             '$3,688 to $5,500, printed right here',
-            '$500+ starter kit with 30+ items included',
+            `$${KIT_TOTAL} starter kit with ${KIT_COUNT} items included`,
             'Free home delivery with the playpen set up before you arrive',
             'Free first lesson with an AVS-certified trainer',
-            'Free boarding after deposit until you are ready',
+            'Free boarding after deposit, up to a month',
           ],
           emphasis: true,
         },
@@ -312,6 +319,7 @@ const schemas = [
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
       <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+        {`${INCLUSIONS_LINE} ${PAYMENT_LINE} ${SURCHARGE_LINE} `}
         The full market picture and the deposit-to-homecoming process are on our transparent puppy pricing page; ongoing costs for a 10-plus-kilo dog are in the first-year budget planner.
       </p>
     </div>
@@ -361,33 +369,12 @@ const schemas = [
   <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
 
   <div id="health" class="scroll-mt-40">
-    <ComparisonSplit
-      heading="Vaccination and Licensing Timeline"
-      headingAccent="Timeline"
-      subhead="The exact weeks, so nothing is left to guesswork."
-      mode="table"
-      tableHeaders={['When', 'What happens']}
-      rows={[
-        { label: 'Week 6', values: ['First vaccination and deworming'] },
-        { label: 'Week 8', values: ['Second vaccination and deworming'] },
-        { label: 'Week 9', values: ['Puppy goes home, one week after the second vaccination'] },
-        { label: 'Week 12', values: ['Third vaccination and deworming, completing the core puppy course'] },
-        { label: 'Week 16', values: ['Optional fourth vaccination, if advised by your vet for extra early-life protection'] },
-        { label: 'Year 1 onward', values: ['Annual booster shot and deworming, done every year as advised by your vet'] },
-        { label: 'At purchase', values: ['Microchipping is already done; dog licensing paperwork is completed with our full assistance at the point of purchase'] },
-        { label: 'Before licensing (first-time owners)', values: ['A one-time free online pet ownership course, required since September 2024'] },
-      ]}
-    />
-    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
-      <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
-        Every puppy goes home vet-checked, vaccinated, dewormed, and microchipped. First-time owners must also complete the <a href="https://avs.nparks.gov.sg/pets/licensing-a-pet/applying-for-dog-and-cat-licences/pet-ownership-course/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">free online pet ownership course</a> before licensing; we point you to it at purchase so nothing stalls homecoming.
-      </p>
-    </div>
+    <VaccinationTimeline />
   </div>
 
   <div id="first-week" class="scroll-mt-40">
     <CaptionedBlock heading="Your Corgi’s First Week at Home" imagePosition="none" variant="card">
-      <p>Day 0: we deliver free, usually morning or evening, with the playpen, bed, water, and toys set up before your Corgi explores. We walk you through all 30+ starter-kit items in person; see how our free home delivery and setup works.</p>
+      <p>Day 0: we deliver free, usually morning or evening, with the playpen, bed, water, and toys set up before your Corgi explores. We walk you through all {KIT_COUNT} starter-kit items in person; see how our free home delivery and setup works.</p>
       <p>Days 1 to 3: calm and consistent. Same food, fixed times, short gentle play; some night whimpering is normal adjustment.</p>
       <p>Days 4 to 7: the routine holds, and it's the window to book the free first lesson; see what the free training lesson covers. For a herding brain, that early lesson pays double.</p>
       <div slot="side" class="clay h-full bg-[var(--color-peach-100)] p-6 sm:p-8">
@@ -415,6 +402,8 @@ const schemas = [
   <div id="reviews" class="scroll-mt-40">
     <ReviewSlider slug="puppies/corgi" />
   </div>
+
+  <ReserveSteps heading="What Happens After You Reserve a Corgi" />
 
   <div id="trust" class="scroll-mt-40">
     <DefBox
@@ -450,7 +439,7 @@ const schemas = [
   <div id="faq" class="scroll-mt-40">
 
   <ExpertQuote id="mccann-7" />
-    <FAQ heading="Corgi FAQs" items={faqItems} />
+    <FAQ heading="Corgi FAQs" items={allFaqItems} />
   </div>
 
   <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 sm:px-8 py-8">

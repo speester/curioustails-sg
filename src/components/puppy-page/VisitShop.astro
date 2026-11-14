@@ -1,0 +1,50 @@
+---
+// §11 Meet {name} in Balestier: address, hours, directions, owners, AVS licence
+// and the map (K-124 geometry: the map fills its column so it ends level with the
+// licence panel at >= 1024px). AV · IMP · PL. Always on. Reads site.ts only.
+// Compromise C6: without a map embed the column is the "Open in Google Maps" card.
+import { site } from '../../data/site';
+import { visitHeading, wa, bookLink } from '../../data/puppy-page-copy';
+import type { PuppyPageData } from '../../lib/puppy-page';
+
+interface Props { p: PuppyPageData }
+const { p } = Astro.props;
+const mapsQuery = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`Curious Tails, ${site.address.street}, Singapore ${site.address.postalCode}`)}`;
+const book = bookLink(p);
+---
+<section class="visit" id="visit" aria-labelledby="visit-h" data-section="visit" data-treatment="split" data-tone="deep">
+  <div class="wrap">
+    <span class="kicker">A real shop you can walk into</span>
+    <h2 id="visit-h" style="margin-top:6px">{visitHeading(p)}</h2>
+    <div class="visit-grid">
+      <div data-reveal>
+        <div class="vcard">
+          <dl>
+            <div><dt>Address</dt><dd>{site.address.full}</dd></div>
+            <div><dt>Opening hours</dt><dd>{site.hours}</dd></div>
+            <div><dt>Getting here</dt><dd>{site.directions}</dd></div>
+          </dl>
+          <div class="owners"><span style="font-size:.95rem">{site.ownersLine}</span></div>
+        </div>
+        <div class="licence">
+          <span class="seal">AVS<br />licensed</span>
+          <div><strong>AVS pet shop licence {site.license.avsNumber}</strong><br /><a href={site.license.registryUrl} target="_blank" rel="noopener">Check it on the AVS public registry →</a></div>
+        </div>
+      </div>
+      <div class="map-wrap" data-reveal>
+        <div class="map">
+          {site.googleMapsEmbed && (
+            <iframe title={`Google Map showing Curious Tails at ${site.address.full}`} src={site.googleMapsEmbed} loading="lazy" tabindex="-1" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          )}
+          <a class="btn btn--ghost map-open" href={mapsQuery} target="_blank" rel="noopener">Open in Google Maps</a>
+        </div>
+      </div>
+    </div>
+    {p.variant === 'av' && (
+      <div class="ctas" style="max-width:560px;margin-top:28px">
+        <a class="btn btn--wa" href={wa.visit(p)} data-wa-source={`${p.waSource}:visit`}>WhatsApp to visit</a>
+        <a class="btn btn--ghost" href={book.href} target={book.external ? '_blank' : undefined} rel={book.external ? 'noopener' : undefined} data-card-action={book.external ? 'book' : undefined}>Book a viewing</a>
+      </div>
+    )}
+  </div>
+</section>

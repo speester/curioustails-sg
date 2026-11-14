@@ -1,0 +1,47 @@
+---
+// §3 Free gifts: two marquee rows of the real starter-kit items. AV · IMP · PL.
+// Hidden below 8 items. The heading number is spelled from KIT_COUNT, the value
+// is KIT_TOTAL (both computed from the kit data, never typed).
+import { Image } from 'astro:assets';
+import kit from '../../data/starter-kit-items.json';
+import { giftsHeading, giftsIntro } from '../../data/puppy-page-copy';
+
+interface Props { tone: string }
+const { tone } = Astro.props;
+const photos = import.meta.glob<ImageMetadata>('../../assets/starter-kit/*.webp', { eager: true, import: 'default' });
+const items = (kit.items as { title: string; price: number | null; category: string | null; image: string }[])
+  .map((i) => ({ ...i, src: photos[`../../assets/starter-kit/${i.image}`] }))
+  .filter((i) => i.src);
+const mid = Math.ceil(items.length / 2);
+const rows = [items.slice(0, mid), items.slice(mid)];
+---
+{items.length >= 8 && (
+  <section class:list={['band', tone]} id="gifts" aria-labelledby="gifts-h" data-section="gifts" data-treatment="rail" data-tone={tone.includes('lilac') ? 'accent' : tone ? 'tint' : 'paper'}>
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="kicker">Free with every puppy</span>
+        <h2 id="gifts-h" style="margin-top:6px">{giftsHeading()}</h2>
+        <p>{giftsIntro()}</p>
+      </div>
+    </div>
+    {rows.map((row, r) => (
+      <div class:list={['mq', r === 1 && 'mq--reverse']} tabindex="0" role="region" aria-label={`Starter kit row ${r + 1} of 2 (${row.length} items)`}>
+        <ul class="mq-track">
+          {[...row, ...row].map((it, i) => (
+            <li class="mq-card" aria-hidden={i >= row.length ? 'true' : undefined}>
+              <div class="clay">
+                <div class="mq-photo">
+                  <Image src={it.src!} alt={i >= row.length ? '' : `${it.title} from the Curious Tails starter kit`} width={280} height={280} loading="lazy" />
+                  {typeof it.price === 'number' && <span class="mq-price">${it.price}</span>}
+                </div>
+                {it.category && <span class="mq-cat">{it.category}</span>}
+                <p class="mq-name">{it.title}</p>
+                <p class="mq-free">Included free</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </section>
+)}

@@ -84,6 +84,8 @@ test('classify: only an owner override or the sheet overlay counts as sold', () 
   assert.deepEqual(c('2939', undefined, undefined), { evidence: 'sold-override', status: 'placed' });
   assert.deepEqual(c('1', undefined, undefined), { evidence: 'not-in-sheet', status: 'withdrawn' });
   assert.deepEqual(c('1', row({ location: 'Choa Chu Kang' }), true), { evidence: 'out-of-area', status: 'withdrawn' });
+  // K-130: location wins over an owner sold override - a Choa Chu Kang puppy gets no placed page.
+  assert.deepEqual(c('2939', row({ id: 2939, location: 'Choa Chu Kang' }), undefined), { evidence: 'out-of-area', status: 'withdrawn' });
   assert.deepEqual(c('1', row({ images: [] }), undefined), { evidence: 'no-photo', status: 'withdrawn' });
   assert.deepEqual(c('1', row(), true), { evidence: 'sold-overlay', status: 'placed' });
   assert.deepEqual(c('1', row(), false), { evidence: 'no-overlay', status: 'withdrawn' });

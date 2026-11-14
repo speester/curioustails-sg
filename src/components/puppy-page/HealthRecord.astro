@@ -1,0 +1,68 @@
+---
+// §8 Health record. AV: the Singapore schedule every puppy follows (no per-puppy
+// vaccination dates: no source holds them), the ready-to-go-home date from dob
+// (labelled "about"), the five-day promise and the Vets For Pets line, all from
+// buying-terms.ts. IMP: the three imported promise cards. PL: hidden.
+import Icon from './Icon.astro';
+import { FIVE_DAY_LINE, POC_URL, VACCINATION_ROWS, vetsForPetsHtml, vetsForPetsContactHtml } from '../../data/buying-terms';
+import { healthHeading, HEALTH_INTRO, healthPoc, FIVE_DAY_TITLE, IMP_PROMISES } from '../../data/puppy-page-copy';
+import type { PuppyPageData } from '../../lib/puppy-page';
+
+interface Props { p: PuppyPageData; tone: string }
+const { p, tone } = Astro.props;
+const timeline = VACCINATION_ROWS.filter((r) => /^(Week \d+|Year 1)/.test(r.label));
+const node = (label: string) => (/Week 9/.test(label) ? 'home' : /Year/.test(label) ? '1y' : label.replace(/\D+/g, ''));
+const homeSmall = p.ready ? (p.ready.past ? 'Ready to go home now' : `About ${p.ready.label} for ${p.who}`) : null;
+const [pocBefore, pocAfter] = healthPoc(p).split('AVS Pet Ownership Course');
+---
+<section class:list={['band', tone]} id="health" aria-labelledby="health-h" data-section="health" data-treatment="timeline" data-tone={tone.includes('lilac') ? 'accent' : tone ? 'tint' : 'paper'}>
+  <div class="wrap">
+    {p.variant === 'imp' ? (
+      <>
+        <div class="section-head" data-reveal><span class="kicker">Health and arrival</span><h2 id="health-h" style="margin-top:6px">{healthHeading(p)}</h2></div>
+        <div class="inc-grid">
+          {IMP_PROMISES.map((c) => <div class="clay inc" data-reveal><div><h3>{c.title}</h3><p>{c.body}</p></div></div>)}
+        </div>
+        <div class="clay vet-card" data-reveal data-vets-for-pets>
+          <span class="kicker">Our appointed vet</span>
+          <h3 style="margin-top:2px">Vets For Pets, for the 5-day promise</h3>
+          <p set:html={vetsForPetsContactHtml()} />
+        </div>
+      </>
+    ) : (
+      <>
+        <div class="health-grid">
+          <div data-reveal>
+            <span class="kicker">Health</span>
+            <h2 id="health-h" style="margin-top:6px">{healthHeading(p)}</h2>
+            <p style="margin-top:12px;color:var(--cream-700)">{HEALTH_INTRO}</p>
+            <div class="stamps">
+              {['Vaccinated', 'Dewormed', 'Microchipped', 'Vet health-checked'].map((s) => (
+                <div class="stamp" data-reveal><span><Icon name="check" size={18} /></span>{s}</div>
+              ))}
+            </div>
+            <div class="promise-card">
+              <Icon name="shield" size={28} stroke="var(--lilac-500)" />
+              <div><h3 style="font-size:1.05rem">{FIVE_DAY_TITLE}</h3><p style="margin-top:4px">{FIVE_DAY_LINE}</p></div>
+            </div>
+            <p style="margin-top:14px;font-size:.9rem" class="muted">{pocBefore}<a href={POC_URL} rel="noopener" target="_blank">AVS Pet Ownership Course</a>{pocAfter}</p>
+          </div>
+          <ol class="clay timeline" data-reveal aria-label="Puppy vaccination schedule">
+            {timeline.map((r) => (
+              <li>
+                <span class:list={['node', node(r.label) === 'home' && 'node--home']}>{node(r.label) === 'home' ? <Icon name="home" size={14} /> : node(r.label)}</span>
+                <strong>{node(r.label) === 'home' ? `About ${r.label.toLowerCase()} · ready to go home` : r.label}</strong>
+                <small>{r.values[0]}{node(r.label) === 'home' && homeSmall ? ` · ${homeSmall}` : ''}</small>
+              </li>
+            ))}
+          </ol>
+        </div>
+        <div class="clay vet-card" data-reveal>
+          <span class="kicker">Puppy vaccinations</span>
+          <h3 style="margin-top:2px">{p.name ? `${p.name}'s` : "Your puppy's"} remaining core vaccines</h3>
+          <p set:html={vetsForPetsHtml()} />
+        </div>
+      </>
+    )}
+  </div>
+</section>

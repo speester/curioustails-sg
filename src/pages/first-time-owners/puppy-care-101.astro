@@ -17,6 +17,7 @@ import ScatterFloat from '../../components/decor/ScatterFloat.astro';
 import CloudDivider from '../../components/decor/CloudDivider.astro';
 import PawTrail from '../../components/decor/PawTrail.astro';
 import { site, whatsappLink } from '../../data/site';
+import { VACCINATION_ROWS } from '../../data/buying-terms';
 import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
 import mealTime from '../../assets/guides/2-puppy-mealtime-fixed-schedule.webp';
 import nightRoutine from '../../assets/guides/3-puppy-night-routine-sleeping-pen.webp';
@@ -24,6 +25,8 @@ import socialisationWalk from '../../assets/free-training/2-puppy-socialisation-
 import exploring from '../../assets/delivery/4-puppy-first-24-hours-exploring.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
 
+// K-131: the rows that repeat the shop-wide schedule read it, so the wording cannot drift (copy_lint C16).
+const scheduleRow = (label: string) => VACCINATION_ROWS.find((r) => r.label === label)!;
 const title = 'Puppy Care 101: Week-by-Week Guide Singapore | Curious Tails';
 const description =
   "Your puppy's first weeks home: feeding times, toilet routine, sleep, the 3-16 week socialisation window, and Singapore's exact vaccination schedule.";
@@ -188,11 +191,11 @@ const schemas = [
         { label: 'Week 6', values: ['First vaccination and deworming'] },
         { label: 'Week 8', values: ['Second vaccination and deworming'] },
         { label: 'Week 9', values: ['Puppy goes home, one week after the second vaccination'] },
-        { label: 'Week 12', values: ['Third vaccination and deworming, completing the core puppy course; your first vet visit'] },
-        { label: 'Week 16', values: ['Optional fourth vaccination, if advised by your vet for extra early-life protection'] },
-        { label: 'Year 1 onward', values: ['Annual booster shot and deworming, every year as advised by your vet'] },
+        { label: 'Week 12', values: ['Third vaccination and deworming; your first vet visit'] },
+        { label: 'Week 16', values: ['Fourth core vaccination, completing the core puppy course'] },
+        scheduleRow('Year 1 onward'),
         { label: 'At purchase', values: ['Microchipping is done; dog licensing paperwork is completed with our full assistance'] },
-        { label: 'Before licensing (first-time owners)', values: ['The free online pet ownership course, required since September 2024'] },
+        scheduleRow('Before licensing (first-time owners)'),
       ]}
     />
     <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">

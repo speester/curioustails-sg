@@ -296,8 +296,19 @@ export const SILO_ITEMS: string[] = ["Cavapoo","Maltipoo","Mini Dachshund","Corg
 // hard-coded whatsapp_click / form_submit / cta_click list), plus cta_click only when a
 // [data-cta] element exists in the component library.
 // Names emitted through track(): the delegated bindAutoEvents set. The card-action events
-// (book_click, video_click, details_click) and whatsapp_click are emitted straight from BaseLayout.
-export const GA4_EVENTS = ["cta_click", "outbound_click", "call_click", "whatsapp_click"] as const;
+// (book_click, video_click, details_click, import_details_click) and whatsapp_click /
+// phone_click / import_view / import_filter_click are emitted straight from BaseLayout
+// or the page script. `listing_type` separates imported inventory from local stock.
+export const GA4_EVENTS = [
+  "cta_click",
+  "outbound_click",
+  "call_click",
+  "whatsapp_click",
+  "phone_click",
+  "import_view",
+  "import_details_click",
+  "import_filter_click",
+] as const;
 export const PRIMARY_CTA = { label: "WhatsApp us", href: "/contact/" };
 export const FOOTER = {
   legal: UTILITY.filter(r => r.slug !== '/' && r.slug !== '/404').map(r => ({ label: r.title, href: r.slug })),

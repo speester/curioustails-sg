@@ -1,0 +1,32 @@
+---
+// §10 Bringing {name} home, step by step. AV · PL: RESERVE_STEPS (buying-terms.ts)
+// + site hours. IMP: the copy deck's four reservation steps with the deposit
+// figures. No local deposit amount is ever shown (none in config).
+import { nextHeading, localSteps, impSteps } from '../../data/puppy-page-copy';
+import type { PuppyPageData } from '../../lib/puppy-page';
+import { RESERVATION_TERMS_LABEL, RESERVATION_TERMS_PATH } from '../../data/buying-terms';
+
+interface Props { p: PuppyPageData; tone: string }
+const { p, tone } = Astro.props;
+const steps: { title: string; body: string; tag?: string }[] = p.variant === 'imp' ? impSteps(p) : localSteps();
+---
+<section class:list={['band', tone]} id="next" aria-labelledby="next-h" data-section="next" data-treatment="rail" data-tone={tone.includes('lilac') ? 'accent' : tone ? 'tint' : 'paper'}>
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="kicker">How it works</span>
+      <h2 id="next-h" style="margin-top:6px">{nextHeading(p)}</h2>
+    </div>
+    <ol class:list={['steps', steps.length === 4 && 'steps--4']}>
+      {steps.map((s) => (
+        <li class:list={['clay step', s.tag && 'step--free']} data-reveal>
+          <h3>{s.title}</h3>
+          <p>{s.body}</p>
+          {s.tag && <span class="tag">{s.tag}</span>}
+        </li>
+      ))}
+    </ol>
+    {p.variant === 'imp' && (
+      <p class="terms-line" data-reveal><a href={RESERVATION_TERMS_PATH} data-terms-link>{RESERVATION_TERMS_LABEL}</a>. The final terms come with your written reservation confirmation.</p>
+    )}
+  </div>
+</section>

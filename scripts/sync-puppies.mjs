@@ -308,6 +308,18 @@ function parseGvizDate(s) {
   return new Date(Number(m[1]), Number(m[2]), Number(m[3])); // month is 0-based
 }
 
+// K-130 T01: the sheet's DOB- as an ISO date (yyyy-mm-dd), or null. Same
+// plausibility rule as ageLabel (0..730 days old); the parts are read straight
+// from the gviz Date(y,m,d) cell, so no timezone shift can move the day.
+function dobIso(row) {
+  const m = /^Date\((\d+),(\d+),(\d+)/.exec(cell(row, 'DOB-'));
+  if (!m) return null;
+  const [y, mo, d] = [Number(m[1]), Number(m[2]) + 1, Number(m[3])];
+  const days = (Date.now() - Date.UTC(y, mo - 1, d)) / 86400000;
+  if (days < 0 || days > 730) return null;
+  return `${y}-${String(mo).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+}
+
 function ageLabel(row, { live }) {
   const ageText = cell(row, 'Age-');
   const dob = parseGvizDate(cell(row, 'DOB-')) ?? (Number.isNaN(Date.parse(ageText)) ? null : new Date(ageText));
@@ -372,17 +384,44 @@ const allPups = rows.map(normalize);
 // placed can ever surface an out-of-area puppy.
 const pups = allPups.filter(locationAllowed);
 const droppedByLocation = allPups.length - pups.length;
+// K-130 owner ruling (2026-11-14): only Balestier puppies are listed. A row
+// anywhere else gets no page, no card and no listing; it is recorded here so
+// check:puppy-pages can write it to NEEDS-ATTENTION.md. `excluded` lists the
+// non-Balestier rows on page 1 of the sheet (the shop's current rows, the same
+// AVAILABLE_ROWS window the spread site shows); `excludedByLocation` counts
+// every row on the sheet, sold history included.
+const liveWindowEnd = AVAILABLE_ROWS;
+const excluded = allPups
+  .slice(0, liveWindowEnd)
+  .filter((p) => !locationAllowed(p))
+  .map((p) => ({
+    id: p.id,
+    name: p.name,
+    breedLabel: p.breedLabel,
+    location: p.location,
+    reason: p.location ? `location "${p.location}" is not Balestier` : 'no location in the sheet',
+  }));
+const excludedByLocation = {};
+for (const p of allPups) {
+  if (locationAllowed(p)) continue;
+  const k = p.location ?? '(blank)';
+  excludedByLocation[k] = (excludedByLocation[k] ?? 0) + 1;
+}
 const summary = { droppedOverlaid: [], unmapped: new Map(), imageErrors: [] };
 
 const breeds = {}; // slug -> { available: [], recentlyPlaced: [] }
 const ensure = (slug) => (breeds[slug] ??= { available: [], recentlyPlaced: [] });
 
-const toJson = (p, imageFile, { live }) => ({
+const toJson = (p, imageFile, { live, images } = {}) => ({
   id: p.id,
   name: p.name,
   color: p.color,
   gender: p.gender,
   age: ageLabel(p.row, { live }),
+  // K-130 T01 (additive): DOB from the sheet, and every real photo (Image- ..
+  // Image5-), each through the sold-overlay check; images[0] === image.
+  dob: live ? dobIso(p.row) : null,
+  images: images ?? (imageFile ? [imageFile] : []),
   price: p.price,
   image: imageFile,
   location: p.location,
@@ -421,11 +460,24 @@ for (const p of pups.slice(0, AVAILABLE_ROWS)) {
       summary.imageErrors.push(`${p.id}: ${e.message}`);
     }
   }
+  // Image2-..Image5-: each one through the same overlay check; a stamped or
+  // broken photo is skipped, never shown.
+  const images = imageFile ? [imageFile] : [];
+  if (imageFile) {
+    for (let n = 2; n <= p.images.length; n++) {
+      try {
+        if (await checkOverlaid(p.images[n - 1])) continue;
+        images.push(await savePhoto(p.id, n, p.images[n - 1]));
+      } catch (e) {
+        summary.imageErrors.push(`${p.id} (photo ${n}): ${e.message}`);
+      }
+    }
+  }
   if (p.slug) {
-    ensure(p.slug).available.push(toJson(p, imageFile, { live: true }));
+    ensure(p.slug).available.push(toJson(p, imageFile, { live: true, images }));
   } else {
     summary.unmapped.set(p.breedLabel, (summary.unmapped.get(p.breedLabel) ?? 0) + 1);
-    other.push({ ...toJson(p, imageFile, { live: true }), breedLabel: p.breedLabel });
+    other.push({ ...toJson(p, imageFile, { live: true, images }), breedLabel: p.breedLabel });
   }
 }
 
@@ -532,7 +584,7 @@ const archiveOut = archiveFile({ archived, breeds, now: new Date().toISOString()
 // history to restore a pruned file from.
 const referenced = new Set([
   ...[...Object.values(breeds).flatMap((b) => [...b.available, ...b.recentlyPlaced]), ...other]
-    .map((p) => p.image)
+    .flatMap((p) => [p.image, ...(p.images ?? [])])
     .filter(Boolean),
   ...archivePhotos(archiveOut.pups),
 ]);
@@ -549,6 +601,8 @@ const out = {
   breeds: Object.fromEntries(Object.entries(breeds).sort(([a], [b]) => a.localeCompare(b))),
   other: other.sort((a, b) => (a.breedLabel ?? '').localeCompare(b.breedLabel ?? '')),
   unmapped: [...summary.unmapped.keys()].sort(),
+  excluded,
+  excludedByLocation,
 };
 await writeFile(DATA_FILE, JSON.stringify(out, null, 2) + '\n');
 await writeFile(ARCHIVE_FILE, JSON.stringify(archiveOut, null, 2) + '\n');
@@ -556,7 +610,8 @@ await writeFile(VERDICT_FILE, JSON.stringify(verdicts) + '\n');
 
 // ---- report -----------------------------------------------------------------
 console.log('\n=== sync summary ===');
-console.log(`location filter: kept ${pups.length}, dropped ${droppedByLocation} out-of-area (Choa Chu Kang / Balestier only)`);
+console.log(`location filter: kept ${pups.length}, dropped ${droppedByLocation} out-of-area (Balestier only)`);
+console.log(`  excluded by location (whole sheet): ${JSON.stringify(excludedByLocation)}; in the live window: ${excluded.length}`);
 const avail = Object.entries(breeds).filter(([, b]) => b.available.length > 0);
 console.log(`available: ${avail.reduce((n, [, b]) => n + b.available.length, 0)} pups across ${avail.length} breeds`);
 for (const [slug, b] of avail.sort()) console.log(`  ${slug}: ${b.available.length}`);

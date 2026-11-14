@@ -1,0 +1,35 @@
+---
+// §5 Happy Curious Tails families: real handover photos, no names (none exist in
+// the data, so none are added). AV · IMP · PL. Hidden below 6 photos.
+import { Image } from 'astro:assets';
+import { FAMILIES } from '../../data/puppy-page-copy';
+
+const all = import.meta.glob<ImageMetadata>('../../assets/testimonials/*.webp', { eager: true, import: 'default' });
+// The twelve families the K-124 prototype shows, in its order; any that is gone is skipped.
+const PICK = ['002', '009', '013', '020', '025', '030', '041', '052', '066', '080', '095', '110'];
+const photos = PICK.map((n) => all[`../../assets/testimonials/ct-${n}.webp`]).filter(Boolean) as ImageMetadata[];
+const total = Object.keys(all).length;
+---
+{total >= 6 && photos.length >= 6 && (
+  <section class="band band--story" id="families" aria-labelledby="fam-h" data-section="families" data-treatment="rail" data-tone="tint">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="kicker">{FAMILIES.kicker}</span>
+        <h2 id="fam-h" style="margin-top:6px">{FAMILIES.heading}</h2>
+        <p>{FAMILIES.intro}</p>
+      </div>
+    </div>
+    <div class="mq" tabindex="0" role="region" aria-label="Photos of Curious Tails families collecting their puppies in Balestier">
+      <ul class="mq-track">
+        {[...photos, ...photos].map((src, i) => (
+          <li class="fam-card" aria-hidden={i >= photos.length ? 'true' : undefined}>
+            <div class="clay"><Image src={src} alt={i >= photos.length ? '' : 'A Curious Tails family collecting their puppy at the Balestier shop'} width={260} height={260} loading="lazy" /></div>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="wrap">
+      <p class="inc-foot" data-reveal><span>{FAMILIES.foot}</span><a href="/reviews/">Read the full reviews and see more families →</a></p>
+    </div>
+  </section>
+)}

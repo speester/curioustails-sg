@@ -16,14 +16,20 @@ interface Props {
   description: string;
   canonicalPath?: string;
   noindex?: boolean;
+  /** Robots directive when noindex is set; defaults to "noindex, nofollow". */
+  robots?: string;
+  /** Imported reservation pages are noindex by policy and carry no business schema. */
+  businessSchema?: boolean;
   ogImage?: string;
   /** YYYY-MM-DD from revision history. When given, the page renders a visible
       dateline; a schema dateModified with nothing on the page is a claim the
       reader cannot check (page-health `dates`). */
   updated?: string;
+  /** K-130: the puppy page has its own sticky action bar, the only floating action there. */
+  hideWhatsAppFloat?: boolean;
 }
 
-const { title, description, canonicalPath = '/', noindex = false, ogImage, updated } = Astro.props;
+const { title, description, canonicalPath = '/', noindex = false, robots, businessSchema = true, ogImage, updated, hideWhatsAppFloat = false } = Astro.props;
 // The build emits directory-style routes and the host 308s /path to /path/, so the
 // canonical must carry the trailing slash too - otherwise it points at a redirect
 // and Google discards it in favour of its own pick.
@@ -46,7 +52,7 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
   <link rel="icon" href="/curious-tails-icon.png" type="image/png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="canonical" href={canonicalURL} />
-  {noindex && <meta name="robots" content="noindex, nofollow" />}
+  {noindex && <meta name="robots" content={robots ?? 'noindex, nofollow'} />}
 
   <title>{title}</title>
   <meta name="description" content={description} />
@@ -86,22 +92,48 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
         gtag('js', new Date());
         gtag('config', id);
 
+        // One property separates imported inventory from local shop stock:
+        // `data-wa-source` already prefixes card links with `import:` or `pup:`.
+        // The page path is the fallback for chrome CTAs on a detail page.
+        function sourceListingType(source) {
+          if (/^import:/i.test(source || '')) return 'imported';
+          if (/^pup:/i.test(source || '')) return 'local';
+          return '';
+        }
+        const pageListingType = /^\/puppies\/[^/]+\/imp-[a-z0-9]+\/?$/i.test(location.pathname)
+          ? 'imported'
+          : /^\/puppies\/[^/]+\/[^/]+\/?$/i.test(location.pathname) ? 'local' : '';
+
+        // View of an imported reservation page. The imp- id is already public;
+        // the payload carries no seller, source URL or microchip.
+        const importedView = location.pathname.match(/^\/puppies\/([^/]+)\/(imp-[a-z0-9]+)\/?$/i);
+        if (importedView) {
+          gtag('event', 'import_view', {
+            listing_type: 'imported',
+            breed: importedView[1],
+            import_id: importedView[2],
+            page_path: location.pathname,
+          });
+        }
+
         // Lead tracking: every WhatsApp (wa.me) and phone (tel:) link on the
         // site fires a GA4 event. Delegated so it covers links added anywhere.
-        // Card actions: any element tagged data-card-action="book|video|details" (puppy cards,
-        // puppy page, match swiper, loving-homes card) fires <action>_click with the puppy's
-        // wa_source. WhatsApp hrefs are skipped here, since the branch below already counts
-        // them as whatsapp_click; that keeps one tap = one event.
+        // Card actions: any element tagged data-card-action="book|video|details|import_details"
+        // (puppy cards, puppy page, match swiper, loving-homes card) fires <action>_click with
+        // the puppy's wa_source. WhatsApp hrefs are skipped here, since the branch below already
+        // counts them as whatsapp_click; that keeps one tap = one event.
         document.addEventListener('click', (e) => {
           const card = e.target instanceof Element ? e.target.closest('[data-card-action]') : null;
           if (card) {
             const cardHref = card.getAttribute('href') || '';
             if (!/(^|\/\/)(wa\.me|api\.whatsapp\.com)\//.test(cardHref)) {
               const cardSource = card.getAttribute('data-wa-source') || '';
+              const cardListingType = sourceListingType(cardSource) || pageListingType;
               gtag('event', (card.getAttribute('data-card-action') || 'card') + '_click', {
                 link_url: cardHref || undefined,
                 link_text: (card.textContent || '').trim().slice(0, 100),
                 wa_source: [location.pathname, cardSource].filter(Boolean).join(' '),
+                ...(cardListingType ? { listing_type: cardListingType } : {}),
               });
             }
           }
@@ -112,6 +144,7 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
             gtag('event', 'phone_click', {
               link_url: href,
               link_text: (link.textContent || '').trim().slice(0, 100),
+              ...(pageListingType ? { listing_type: pageListingType } : {}),
             });
           } else if (/(^|\/\/)(wa\.me|api\.whatsapp\.com)\//.test(href)) {
             // wa_source identifies WHICH page and WHICH puppy produced the
@@ -124,6 +157,9 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
             // wa_variant powers the button-text A/B experiment (src/data/wa-experiment.ts).
             // Register it as a GA4 event-scoped custom dimension to segment CVR by variant.
             const waVariant = link.getAttribute('data-wa-variant') || '';
+            // One enquiry event for both inventories; listing_type is the only
+            // difference, so imported vs local CVR is a single GA4 segment.
+            const listingType = sourceListingType(puppy) || pageListingType;
             gtag('event', 'whatsapp_click', {
               link_url: href,
               link_text: (link.textContent || '').trim().slice(0, 100),
@@ -131,6 +167,7 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
                 location.pathname,
                 puppy || (section ? '#' + section.id : ''),
               ].filter(Boolean).join(' '),
+              ...(listingType ? { listing_type: listingType } : {}),
               ...(waVariant ? { wa_variant: waVariant } : {}),
             });
           } else if (href.startsWith('mailto:')) {
@@ -143,10 +180,12 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
       </script>
     </>
   )}
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@graph": [organizationSchema(), websiteSchema()],
-  })} />
+  {businessSchema && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [organizationSchema(), websiteSchema()],
+    })} />
+  )}
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -155,8 +194,8 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
     <PawPrint class="h-6 w-6 -translate-x-1/2 -translate-y-1/2 text-[var(--color-coral-400)] drop-shadow-[0_2px_2px_rgba(0,0,0,0.12)]" />
   </div>
   <a href="/available-puppies/" class="sticky top-0 z-sticky flex h-7 sm:h-9 items-center justify-center whitespace-nowrap bg-[#c8102e] px-3 text-center text-xs sm:text-sm leading-none font-semibold text-white underline-offset-2 hover:underline">
-    <span class="sm:hidden">Open daily 11am–6pm · Closed Mon</span>
-    <span class="hidden sm:inline">Visit us daily 11am–6pm (closed Mondays) · See puppies available now →</span>
+    <span class="sm:hidden">Open Daily 11am - 6pm. Closed on Monday.</span>
+    <span class="hidden sm:inline">Open Daily 11am - 6pm. Closed on Monday.</span>
   </a>
   <Header />
   <main id="main">
@@ -170,7 +209,7 @@ const ogImageSize = ogImage ? undefined : { width: defaultOgImage.width, height:
     )}
   </main>
   <Footer />
-  <WhatsAppFloat />
+  {!hideWhatsAppFloat && <WhatsAppFloat />}
 
   <script>
     import { gsap } from 'gsap';

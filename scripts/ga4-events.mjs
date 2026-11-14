@@ -12,9 +12,10 @@
 // a launch gate row that could be marked PASS with no events configured at all.
 //
 // DECLARED = the union of:
-//   * src/data/site.ts GA4_EVENTS
-//   * every `track('<name>'` / `data-ga4-event="<name>"` in src/ — the events the CTAs
-//     REALLY emit, which is the set that matters
+//   * src/data/site.ts / src/data/registry.ts GA4_EVENTS
+//   * every `track('<name>'` / `data-ga4-event="<name>"` / literal
+//     `gtag('event', '<name>'` in src/ — the events the CTAs REALLY emit, which
+//     is the set that matters
 //   * config/forms.json entries' ga4_event, when that file exists
 // EMITTED  = what GA4 has received, read from config/ga4-events-observed.json if the
 //   analytics pull has written one (launch's analytics-mcp step). Absent, the emitted
@@ -56,16 +57,22 @@ function walk(dir, out = []) {
 
 const declared = new Set();
 
-// 1. the declared list in src/data/site.ts
-const site = read('src/data/site.ts');
-const m = site.match(/GA4_EVENTS[^=]*=\s*\[([\s\S]*?)\]/);
-if (m) for (const q of m[1].matchAll(/['"`]([\w.-]+)['"`]/g)) declared.add(q[1]);
+// 1. the declared list in src/data/site.ts, or the generated registry
+for (const file of ['src/data/site.ts', 'src/data/registry.ts']) {
+  const text = read(file);
+  const m = text.match(/GA4_EVENTS[^=]*=\s*\[([\s\S]*?)\]/);
+  if (m) for (const q of m[1].matchAll(/['"`]([\w.-]+)['"`]/g)) declared.add(q[1]);
+}
 
 // 2. what the CTAs actually emit
 for (const f of walk('src')) {
   const text = read(f);
   for (const q of text.matchAll(/\btrack\(\s*['"`]([\w.-]+)['"`]/g)) declared.add(q[1]);
   for (const q of text.matchAll(/data-ga4-event=["']([\w.-]+)["']/g)) declared.add(q[1]);
+  // Direct gtag calls (BaseLayout's delegated lead tracking) are invisible to
+  // track(), so scan them too; otherwise phone_click and import_view look
+  // undeclared on a site that emits them on every page.
+  for (const q of text.matchAll(/gtag\(\s*['"]event['"]\s*,\s*['"`]([\w.-]+)['"`]/g)) declared.add(q[1]);
 }
 
 // 3. the form registry, when there is one

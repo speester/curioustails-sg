@@ -4,6 +4,7 @@
 // full-width "browse all" navigation card. Shared across all breed pages so the
 // closing CTA is consistent and only styled once.
 import { site, whatsappLink } from '../data/site';
+import { AVAILABILITY_LINE, HELP_FIND_LINE, NO_PRESSURE_LINE } from '../data/buying-terms';
 import PawPrint from './decor/PawPrint.astro';
 
 interface Props {
@@ -18,7 +19,7 @@ interface Props {
 const {
   breed,
   heading = `Meet Our ${breed}s at Balestier`,
-  body = `Can't make the trip? WhatsApp us for current ${breed} photos and prices, with free home delivery across Singapore.`,
+  body = `Can't make the trip? WhatsApp us for current ${breed} photos and prices, with free home delivery across Singapore. ${HELP_FIND_LINE}`,
   reserveMessage = `Hi! I'd like to reserve a ${breed} puppy.`,
   quizHref = '/first-time-owners/breed-selector/',
   browseHref = '/puppies/',
@@ -44,6 +45,8 @@ const {
           {site.address.full}
         </p>
         <p class="mt-1 text-sm text-white/60">{site.hours}</p>
+        <p class="mt-3 max-w-[48ch] text-sm leading-relaxed text-white/70">{site.directions}</p>
+        <p class="mt-2 max-w-[48ch] text-sm leading-relaxed text-white/70">{site.ownersLine} {NO_PRESSURE_LINE}</p>
         <p class="mt-4 max-w-[48ch] text-sm leading-relaxed text-white/70">
           {body}
         </p>
@@ -70,6 +73,7 @@ const {
           </svg>
         </a>
       </div>
+      <p class="relative text-xs leading-relaxed text-white/55">{AVAILABILITY_LINE}</p>
     </div>
 
     

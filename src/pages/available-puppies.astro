@@ -6,11 +6,13 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 import ListingGrid from '../components/ListingGrid.astro';
 import AvailabilityCta from '../components/AvailabilityCta.astro';
 import LovingHomesSection from '../components/LovingHomesSection.astro';
+import ImportedPuppies from '../components/ImportedPuppies.astro';
 import FinalCta from '../components/FinalCta.astro';
 import Schema from '../components/Schema.astro';
 import data from '../data/available-puppies.json';
 import { breedName } from '../data/breed-names';
 import { pupCard, type BreedBucket } from '../lib/puppy-cards';
+import { importedPups } from '../lib/imported-puppies';
 import { whatsappLink } from '../data/site';
 import { webPageSchema, localBusinessSchema } from '../lib/schema';
 import ExpertQuote from '../components/ExpertQuote.astro';
@@ -35,6 +37,11 @@ const syncedAt = new Date(data.syncedAt).toLocaleDateString('en-SG', {
   year: 'numeric',
   timeZone: 'Asia/Singapore',
 });
+
+// Imported reservations are NOT "with us right now": they stay out of the local
+// count, the local groups and the CollectionPage description. The section below
+// the local grid carries them instead.
+const imported = importedPups();
 
 const title = 'Available Puppies in Singapore | Curious Tails';
 const description = `Every puppy at Curious Tails right now: ${totalPups} puppies across ${breedCount} breeds, with prices, gender and age. AVS licensed, Balestier. WhatsApp us for photos.`;
@@ -100,7 +107,7 @@ const schemas = [
   </section>
 
   {inStock.map(([slug, bucket]) => (
-    <div id={slug} class="scroll-mt-28">
+    <div id={slug} data-listing-group="local" class="scroll-mt-28">
       <ListingGrid
         heading={`${breedName(slug)} Puppies Available Now`}
         headingAccent={breedName(slug)}
@@ -113,7 +120,7 @@ const schemas = [
   ))}
 
   {otherPups.length > 0 && (
-    <div id="other-crosses" class="scroll-mt-28">
+    <div id="other-crosses" data-listing-group="local" class="scroll-mt-28">
       <ListingGrid
         heading="Crosses Without a Breed Page"
         headingAccent="Crosses"
@@ -126,6 +133,44 @@ const schemas = [
   )}
 
   {inStock.length === 0 && otherPups.length === 0 && <AvailabilityCta breedName="Puppy" standalone />}
+
+  {/* Imported reservations sit below the local grid (T23, copy deck §2).
+      The chip bar only exists when there is at least one imported pup to show;
+      with an empty feed there is no section and no "Arriving soon" chip.
+      No-JS fallback: every group stays visible and the buttons do nothing. */}
+  {imported.length > 0 && (
+    <>
+      <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pt-4">
+        <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter puppies by availability">
+          <button
+            type="button"
+            data-import-filter="all"
+            aria-pressed="true"
+            class="rounded-full border-2 border-[var(--color-border)] bg-[var(--color-surface-card)] px-4 py-2 text-sm font-semibold text-[var(--color-cream-700)] transition-colors hover:border-[var(--color-coral-400)] aria-pressed:border-[var(--color-coral-500)] aria-pressed:bg-[var(--color-coral-500)] aria-pressed:text-white"
+          >
+            All
+          </button>
+          <button
+            type="button"
+            data-import-filter="local"
+            aria-pressed="false"
+            class="rounded-full border-2 border-[var(--color-border)] bg-[var(--color-surface-card)] px-4 py-2 text-sm font-semibold text-[var(--color-cream-700)] transition-colors hover:border-[var(--color-coral-400)] aria-pressed:border-[var(--color-coral-500)] aria-pressed:bg-[var(--color-coral-500)] aria-pressed:text-white"
+          >
+            In the shop now
+          </button>
+          <button
+            type="button"
+            data-import-filter="imported"
+            aria-pressed="false"
+            class="rounded-full border-2 border-[var(--color-border)] bg-[var(--color-surface-card)] px-4 py-2 text-sm font-semibold text-[var(--color-cream-700)] transition-colors hover:border-[var(--color-coral-400)] aria-pressed:border-[var(--color-coral-500)] aria-pressed:bg-[var(--color-coral-500)] aria-pressed:text-white"
+          >
+            Arriving soon
+          </button>
+        </div>
+      </div>
+      <ImportedPuppies context="site" id="arriving-soon" />
+    </>
+  )}
 
   {/* Below every available puppy, never above (owner decision 2026-10-14). */}
   <LovingHomesSection limit={12} mobileLimit={6} />
@@ -148,4 +193,41 @@ const schemas = [
   />
 
   <Schema {schemas} />
+
+  <script>
+    // T23 chips: All / In the shop now / Arriving soon. The page works without
+    // this script (all groups visible); JS only narrows what is already there.
+    (() => {
+      const buttons = Array.from(document.querySelectorAll<HTMLElement>('[data-import-filter]'));
+      if (!buttons.length) return;
+      const groups = Array.from(document.querySelectorAll<HTMLElement>('[data-listing-group]'));
+      if (!groups.length) return;
+      const apply = (value: string) => {
+        for (const button of buttons) {
+          button.setAttribute('aria-pressed', String(button.dataset.importFilter === value));
+        }
+        for (const group of groups) {
+          group.hidden = value !== 'all' && group.dataset.listingGroup !== value;
+        }
+      };
+      // T24: the chip bar is the site's only inventory filter, so a click is a
+      // real intent signal. Reuse the page's gtag; no second analytics library.
+      const track = (name: string, params: Record<string, unknown>) => {
+        const g = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
+        if (typeof g === 'function') g('event', name, params);
+      };
+      for (const button of buttons) {
+        button.addEventListener('click', () => {
+          const value = button.dataset.importFilter || 'all';
+          apply(value);
+          track('import_filter_click', {
+            filter_value: value,
+            filter_label: (button.textContent || '').trim(),
+            listing_type: 'imported',
+            page_path: '/available-puppies/',
+          });
+        });
+      }
+    })();
+  </script>
 </BaseLayout>

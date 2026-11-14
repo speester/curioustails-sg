@@ -11,7 +11,7 @@
 //           every record status 'review' with reason 'lead-only' (gate G14), so no
 //           dfsi item can auto-publish (dfsi T&Cs prohibit republishing photos).
 import { textOf, jsonLdOfType, sitemapEntries, decodeEntities } from '../lib/html.mjs';
-import { newSourceRecord, isoDob, numOrNull, cleanStr, forceReview } from '../lib/source-record.mjs';
+import { newSourceRecord, isoDob, numOrNull, cleanStr, cleanId, forceReview } from '../lib/source-record.mjs';
 
 export const SUPPLIER = 'dfsi';
 export const ORIGIN = 'https://dogsforsaleireland.ie';
@@ -148,7 +148,7 @@ export function parseDetail(html, { url, fetchedAt, listingId = null, mode = dfs
   // Seller: registration id and type when the ad shows them (PII minimised, never logged).
   rec.seller = {};
   const regKey = Object.keys(f).find((k) => /registered seller id|seller id|registration (no|number)/.test(k));
-  if (regKey && cleanStr(f[regKey])) rec.seller.regNo = cleanStr(f[regKey]);
+  if (regKey && cleanId(f[regKey])) rec.seller.regNo = cleanId(f[regKey]);
   const typeKey = Object.keys(f).find((k) => /seller type/.test(k));
   if (typeKey && cleanStr(f[typeKey])) rec.seller.type = cleanStr(f[typeKey]);
   const nameKey = Object.keys(f).find((k) => /^(seller( name)?|name)$/.test(k));

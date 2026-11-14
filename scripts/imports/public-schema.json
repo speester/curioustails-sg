@@ -9,6 +9,7 @@
   "properties": {
     "syncedAt": { "type": "string", "format": "date-time" },
     "schema": { "const": 1 },
+    "cutover": { "type": "boolean", "description": "AU feed only (K-136): true once the owner-approved AU feed replaces the legacy OverseasPuppies section." },
     "pups": {
       "type": "array",
       "items": { "$ref": "#/$defs/pup" }
@@ -27,7 +28,7 @@
       "additionalProperties": false,
       "properties": {
         "id": { "type": "string", "pattern": "^imp-[0-9a-f]{10}$" },
-        "ref": { "type": "string", "pattern": "^CT-IE-[0-9A-F]{6}$" },
+        "ref": { "type": "string", "pattern": "^CT-(IE|AU)-[0-9A-F]{6}$" },
         "breed": { "type": "string", "minLength": 1 },
         "breedLabel": { "type": "string", "minLength": 1 },
         "crossLabel": { "type": ["string", "null"] },
@@ -52,7 +53,7 @@
         "arrivalEstimate": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}$" },
         "arrivalBasis": { "enum": ["dob", "age", "listing-date"] },
         "imported": { "const": true },
-        "origin": { "const": "IE" },
+        "origin": { "enum": ["IE", "AU"] },
         "reservation": { "const": true },
         "perks": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
         "photos": {

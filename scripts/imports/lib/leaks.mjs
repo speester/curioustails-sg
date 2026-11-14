@@ -13,6 +13,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, extname } from 'node:path';
 import { SUPPLIER_TOKENS, findLeaks } from './public.mjs';
 import { isImageFilename } from './images.mjs';
+import { BREED_MAP } from './breed-map.mjs';
 
 export const SHINGLE_WORDS = 8;
 export const DIST_EXTS = new Set(['.html', '.json', '.xml', '.txt', '.js', '.mjs', '.css', '.webmanifest']);
@@ -23,6 +24,31 @@ export const DIST_BARE = new Set(['_redirects', '_headers', 'CNAME']);
 // generic microchip, phone, email and URL patterns apply to every string.
 const MIN_LEN = { 'seller-name': 5, 'seller-regno': 4, 'seller-vet': 5, 'listing-id': 5 };
 const MIN_DIGITS = { 'seller-phone': 7, microchip: 15 };
+
+// K-129: listing ids that are the ad's public URL slug (dfsi). A slug made only of
+// breed and puppy words ("labradoodles", "male-pug") identifies nobody, and on a
+// puppy site it collides with the shop's own copy and image filenames. Such an id
+// is not word-matched. The exception is deliberately narrow:
+//   - only suppliers whose listing id is a slug (SLUG_ID_SUPPLIERS),
+//   - only ids with no digit,
+//   - only when EVERY hyphen token is in SLUG_VOCAB (a plural "s"/"es" allowed).
+// Anything else ("antoinette-moore", "labradoodle-moore") stays denylisted. The
+// source URL, seller name, regNo, phone, vet and microchip rules never use this.
+export const SLUG_ID_SUPPLIERS = new Set(['dfsi']);
+const GENERIC_SLUG_WORDS = ['male', 'female', 'puppy', 'puppies', 'pup', 'pups', 'dog', 'dogs', 'for', 'sale',
+  'mini', 'miniature', 'toy', 'pedigree', 'purebred', 'cross', 'x'];
+export const SLUG_VOCAB = new Set([
+  ...GENERIC_SLUG_WORDS,
+  ...Object.keys(BREED_MAP).flatMap((label) => label.toLowerCase().split(/[^a-z]+/)).filter(Boolean),
+]);
+const inVocab = (t) => SLUG_VOCAB.has(t) || (t.endsWith('es') && SLUG_VOCAB.has(t.slice(0, -2))) || (t.endsWith('s') && SLUG_VOCAB.has(t.slice(0, -1)));
+export function isGenericSlugId(supplier, listingId) {
+  if (!SLUG_ID_SUPPLIERS.has(supplier)) return false;
+  const id = low(listingId).trim();
+  if (!id || /\d/.test(id)) return false;
+  const tokens = id.split('-');
+  return tokens.every((t) => t && inVocab(t));
+}
 
 const PHONE_RE = /(?:\+|\b00)?\b353[\s-]?\(?0?\)?[\s-]?[1-9]\d?(?:[\s-]?\d){5,8}\b|\b0[1-9]\d?(?:[\s-]?\d){6,8}\b/;
 
@@ -108,7 +134,7 @@ export function buildDenylist({ records = [], suppressed = [] } = {}) {
     if (s.phone) addDigits('seller-phone', s.phone);
     for (const p of r.puppies || []) if (p?.microchip) addDigits('microchip', p.microchip);
     if (r.microchip) addDigits('microchip', r.microchip);
-    if (r.listingId != null) addWord('listing-id', r.listingId);
+    if (r.listingId != null && !isGenericSlugId(r.supplier, r.listingId)) addWord('listing-id', r.listingId);
     if (r.sourceUrl) addUrl(r.sourceUrl);
     for (const u of r.imageSourceUrls || []) addUrl(u);
     for (const sh of shinglesOf(r.descriptionRaw)) shingles.add(sh);

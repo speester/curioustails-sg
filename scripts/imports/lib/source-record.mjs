@@ -66,6 +66,34 @@ export const numOrNull = (v) => {
 
 export const cleanStr = (v) => (v == null || v === '$undefined' ? null : String(v).trim() || null);
 
+// K-129: suppliers print an empty field as a word ("NULL", "N/A", "-"). Two dogsy
+// records stored seller.regNo = "NULL", and the leak gate then matched that word
+// against ordinary JS on every built page. An identifier that is only a placeholder
+// is no identifier: the field stays absent.
+export const PLACEHOLDER_RE = /^(?:null|undefined|\$undefined|none|nil|n\/?a|na|tbc|tba|unknown|not (?:applicable|available|provided)|-+|\.+|0+)$/i;
+export const isPlaceholder = (v) => v != null && PLACEHOLDER_RE.test(String(v).trim());
+export const cleanId = (v) => {
+  const s = cleanStr(v);
+  return s && !isPlaceholder(s) ? s : null;
+};
+
+// The store-entry gate: drop placeholder seller identifiers from a record before it
+// is merged into imports-state.json, whatever adapter produced it. Returns the names
+// of the fields it dropped (never their values, which may be private).
+export const SELLER_ID_FIELDS = ['regNo', 'vet', 'type'];
+export function dropPlaceholderSellerFields(rec) {
+  const dropped = [];
+  const s = rec?.seller;
+  if (!s || typeof s !== 'object') return dropped;
+  for (const k of SELLER_ID_FIELDS) {
+    if (k in s && (s[k] == null || isPlaceholder(s[k]))) {
+      delete s[k];
+      dropped.push(k);
+    }
+  }
+  return dropped;
+}
+
 // "5 minutes ago" / "3 days ago" / "1 week ago" → ISO at the time of first sight
 // (spec §2.1 sourcePublishedAt fallback). Months count as 30 days. null if unparsed.
 const UNIT_MS = { second: 1e3, minute: 6e4, hour: 36e5, day: 864e5, week: 6048e5, month: 2592e6, year: 31536e6 };

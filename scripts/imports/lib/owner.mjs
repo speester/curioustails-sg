@@ -11,6 +11,11 @@
 //
 // Lead-only sources (dfsi, puppies.ie) can be seen and rejected, never
 // approved: the refusal here is the enforcement, not just a disabled button.
+//
+// K-136: the Australian reservations use the same queue, decisions, audit and
+// takedown. Their public feed is src/data/au-reservations.json and their photos
+// src/assets/imported-au/ (written by scripts/imports/au-reservations.mjs), so
+// reserve / reject / unpublish look for an id in either feed.
 import { existsSync, mkdirSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { REPO_ROOT } from './store.mjs';
@@ -23,6 +28,8 @@ export const QUEUE_FILE = 'review-queue.json';
 export const FEED_FILE = join('src', 'data', 'imported-puppies.json');
 export const RETIRED_FILE = join('src', 'data', 'imported-retired.json');
 export const ASSET_DIR = join('src', 'assets', 'imported');
+export const AU_FEED_FILE = join('src', 'data', 'au-reservations.json');
+export const AU_ASSET_DIR = join('src', 'assets', 'imported-au');
 const PUBLIC_ID_RE = /^imp-[0-9a-f]{10}$/;
 
 export class OwnerActionError extends Error {
@@ -64,7 +71,16 @@ const readQueue = (store) => {
   return Array.isArray(q) ? q : [];
 };
 const readFeed = (repoRoot) => readJson(feedPath(repoRoot), { schema: 1, pups: [] });
-const writeFeed = (repoRoot, feed) => writeJson(feedPath(repoRoot), feed);
+
+// The feed (Irish or AU) that carries a live id, with its own writer.
+function liveFeedOf(repoRoot, id) {
+  for (const file of [feedPath(repoRoot), join(repoRoot, AU_FEED_FILE)]) {
+    const feed = readJson(file, null);
+    const pup = (feed?.pups || []).find((p) => p.id === id);
+    if (pup) return { feed, pup, write: (f) => writeJson(file, f) };
+  }
+  return { feed: null, pup: null, write: null };
+}
 
 function recordsById(store, state) {
   const map = new Map();
@@ -127,13 +143,13 @@ function addSuppressed(state, { id, record, reason, actor, at }) {
 }
 
 function removeRepoImages(repoRoot, id) {
-  const dir = assetDirOf(repoRoot);
-  if (!existsSync(dir)) return [];
-  mkdirSync(dir, { recursive: true });
   const removed = [];
-  for (const name of readdirSync(dir)) {
-    if (!name.startsWith(`${id}-`) || !name.endsWith('.webp')) continue;
-    try { unlinkSync(join(dir, name)); removed.push(name); } catch { /* locked file: next sync prunes */ }
+  for (const dir of [assetDirOf(repoRoot), join(repoRoot, AU_ASSET_DIR)]) {
+    if (!existsSync(dir)) continue;
+    for (const name of readdirSync(dir)) {
+      if (!name.startsWith(`${id}-`) || !name.endsWith('.webp')) continue;
+      try { unlinkSync(join(dir, name)); removed.push(name); } catch { /* locked file: next sync prunes */ }
+    }
   }
   return removed;
 }
@@ -171,7 +187,8 @@ function removePublished(state, id) {
 export function queueView({ store, repoRoot = REPO_ROOT } = {}) {
   const state = readState(store);
   const feed = readFeed(repoRoot);
-  const live = new Map((feed.pups || []).map((p) => [p.id, p]));
+  const auFeed = readJson(join(repoRoot, AU_FEED_FILE), { pups: [] });
+  const live = new Map([...(feed.pups || []), ...(auFeed.pups || [])].map((p) => [p.id, p]));
   const records = recordsById(store, state);
 
   const queue = readQueue(store).map((item) => {
@@ -278,12 +295,11 @@ export function rejectItem({ store, repoRoot = REPO_ROOT, id, actor, now = () =>
   addSuppressed(state, { id, record, reason: 'rejected', actor, at });
 
   // A rejection of something already live takes it down in the same action.
-  const feed = readFeed(repoRoot);
-  const pup = (feed.pups || []).find((p) => p.id === id);
+  const { feed, pup, write } = liveFeedOf(repoRoot, id);
   let removed = false;
   if (pup) {
     feed.pups = feed.pups.filter((p) => p.id !== id);
-    writeFeed(repoRoot, feed);
+    write(feed);
     removeRepoImages(repoRoot, id);
     addRetired(repoRoot, { id, breed: pup.breed });
     removePublished(state, id);
@@ -304,14 +320,24 @@ export function rejectItem({ store, repoRoot = REPO_ROOT, id, actor, now = () =>
 export function reserveItem({ store, repoRoot = REPO_ROOT, id, actor, now = () => new Date() }) {
   if (!PUBLIC_ID_RE.test(String(id))) throw new OwnerActionError(`bad id: ${id}`, 400);
   const at = nowIso(now());
-  const feed = readFeed(repoRoot);
-  const pup = (feed.pups || []).find((p) => p.id === id);
-  if (!pup) throw new OwnerActionError(`not live: ${id} is not in the public feed`, 409);
+  const { feed, pup, write } = liveFeedOf(repoRoot, id);
+  if (!pup) {
+    // K-136: an AU listing still in the queue can be marked reserved (a buyer
+    // already holds it); `au-reservations.mjs sync` then publishes it reserved.
+    const item = findQueueItem(store, id);
+    if (item?.origin !== 'AU') throw new OwnerActionError(`not live: ${id} is not in the public feed`, 409);
+    const state = readState(store);
+    state.decisions[id] = { decision: 'reserve', by: actor, at };
+    store.writeJson(STATE_FILE, state);
+    patchQueue(store, id, { decision: 'reserve', decidedBy: actor, decidedAt: at });
+    store.audit({ event: 'reserved', id, actor, at, detail: { origin: 'AU', queued: true } });
+    return { id, status: 'reserved', queued: true };
+  }
 
   if (pup.status !== 'reserved') {
     pup.status = 'reserved';
     pup.updatedAt = at;
-    writeFeed(repoRoot, feed);
+    write(feed);
   }
   const state = readState(store);
   const prev = state.published[id] || {};
@@ -339,8 +365,7 @@ export function unpublishItem({
 }) {
   if (!PUBLIC_ID_RE.test(String(id))) throw new OwnerActionError(`bad id: ${id}`, 400);
   const at = nowIso(now());
-  const feed = readFeed(repoRoot);
-  const pup = (feed.pups || []).find((p) => p.id === id);
+  const { feed, pup, write } = liveFeedOf(repoRoot, id);
   if (!pup) throw new OwnerActionError(`not live: ${id} is not in the public feed`, 409);
 
   const state = readState(store);
@@ -348,7 +373,7 @@ export function unpublishItem({
   const record = findRecord(store, state, id, item?.key);
 
   feed.pups = feed.pups.filter((p) => p.id !== id);
-  writeFeed(repoRoot, feed);
+  write(feed);
   removeRepoImages(repoRoot, id);
   const purge = purgeImages || reason === 'takedown';
   const purged = purge ? purgeStageImages(store, id) : [];

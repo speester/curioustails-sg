@@ -20,6 +20,7 @@ import { dedupe, selectPrimary } from './dedupe.mjs';
 import { evaluateGates, ageWeeks, isLeadOnly, OWNER_WAIVABLE_GATES } from './gates.mjs';
 import { buildFeed, buildPublicPup, validateFeed, findLeaks, loadPublicSchema, ageLabel, PUP_KEYS } from './public.mjs';
 import { downloadPupImages, imageFilename, isImageFilename } from './images.mjs';
+import { dropPlaceholderSellerFields } from './source-record.mjs';
 import * as dogsy from '../adapters/dogsy.mjs';
 import * as dogquest from '../adapters/dogquest.mjs';
 import * as dfsi from '../adapters/dfsi.mjs';
@@ -140,6 +141,8 @@ function readState(store) {
 const recordsOf = (state) => Object.values(state.records || {});
 
 function mergeFetchedRecord(state, rec, atIso) {
+  // K-129: no placeholder seller identifier ("NULL", "N/A") enters the store.
+  dropPlaceholderSellerFields(rec);
   const old = state.records[rec.key];
   state.records[rec.key] = {
     ...(old || {}),
@@ -150,6 +153,7 @@ function mergeFetchedRecord(state, rec, atIso) {
     // Keep processed local images across a re-fetch; they belong to this listing.
     images: old?.images?.length ? old.images : rec.images || [],
   };
+  dropPlaceholderSellerFields(state.records[rec.key]);
   return state.records[rec.key];
 }
 
@@ -383,12 +387,18 @@ export function syncPublicAssets(feedPups, { assetDir, stageDir }) {
 const EMAIL_RE = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/;
 const URL_RE = /https?:\/\/\S+/gi;
 const CHIP_RE = /\b\d{15}\b/g;
+// Irish mobile (086..., +353 86...) and Singapore mobile/landline (8/9/6...).
+// The look-behind keeps a 15-digit microchip from being read as a phone.
+const IE_PHONE_RE = /(?<!\d)(?:\+?353|0)8\d[\s-]?\d{3}[\s-]?\d{4}(?!\d)/g;
+const SG_PHONE_RE = /(?<!\d)(?:\+?65)?[689]\d{3}[\s-]?\d{4}(?!\d)/g;
 
 export function sanitiseLogLine(line) {
   return String(line)
     .replace(URL_RE, '[url]')
     .replace(EMAIL_RE, '[email]')
-    .replace(CHIP_RE, '[chip]');
+    .replace(CHIP_RE, '[chip]')
+    .replace(IE_PHONE_RE, '[phone]')
+    .replace(SG_PHONE_RE, '[phone]');
 }
 
 function logPathFor(repoRoot, now) {
@@ -473,7 +483,17 @@ export async function runPipeline({
         fetchImpl,
         lastRequestAt: lastRequestAt || {},
         onEvent: (e) => {
-          if (e.type === 'alert') summary.errors.push({ stage: 'http', code: e.reason, host: e.host });
+          if (e.type === 'alert') {
+            // A `blocked:` alert is the hard stop (spec §6.4); the warn-level
+            // alerts (deny-list, redirect refusal, Retry-After cap) are source
+            // errors the next run can prove or clear.
+            summary.errors.push({
+              stage: 'http',
+              code: e.reason,
+              host: e.host,
+              blocked: e.level === 'error' || /^blocked/.test(String(e.reason || '')),
+            });
+          }
         },
       });
     }
@@ -795,6 +815,12 @@ export async function runPipeline({
         };
       }
       store.writeJson(STATE_FILE, state);
+      // K-136: the Australian reservations share this queue but are not fetched
+      // by this pipeline (scripts/imports/au-reservations.mjs owns them). Carry
+      // them over untouched so a daily run never drops one awaiting the owner.
+      for (const q of Array.isArray(oldQueue) ? oldQueue : []) {
+        if (q?.origin === 'AU' && !queue.some((x) => x.id === q.id)) queue.push(q);
+      }
       store.writeJson('review-queue.json', queue.sort((a, b) => a.id.localeCompare(b.id)));
       for (const ev of auditEvents) store.audit(ev);
       // Full detail stays private (spec §6.8): one entry per run, per day.

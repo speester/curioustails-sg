@@ -10,7 +10,7 @@
 // The API's age_weeks is ignored (it is wrong, often negative).
 // robots.txt disallows /dogs-for-sale?* — the http client enforces it.
 import { decodeEntities, textOf, jsonLdOfType, sexCounts, sexCode } from '../lib/html.mjs';
-import { newSourceRecord, isoDob, numOrNull, cleanStr } from '../lib/source-record.mjs';
+import { newSourceRecord, isoDob, numOrNull, cleanStr, cleanId } from '../lib/source-record.mjs';
 
 export const SUPPLIER = 'dogsy';
 export const ORIGIN = 'https://dogsy.ie';
@@ -146,7 +146,7 @@ export function parseDetail(html, { url, fetchedAt, listingId = null, summary = 
   rec.seller = {};
   if (name) rec.seller.name = name;
   if (tel) rec.seller.phone = tel[1].replace(/\s+/g, '');
-  if (cleanStr(ad.user?.seller_license)) rec.seller.regNo = cleanStr(ad.user.seller_license);
+  if (cleanId(ad.user?.seller_license)) rec.seller.regNo = cleanId(ad.user.seller_license);
 
   const photos = (ad.photos || []).map((p) => `${ORIGIN}/storage/${String(p).replace(/^\/+/, '')}`);
   const ldImgs = [].concat(ld.image || []).map(String);

@@ -15,7 +15,7 @@ export const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', 
 export class StoreError extends Error {}
 
 // Read one KEY=value from a dotenv file without loading (or echoing) the rest.
-function readDotenvValue(file, key) {
+export function readDotenvValue(file, key) {
   if (!existsSync(file)) return null;
   for (const line of readFileSync(file, 'utf8').split(/\r?\n/)) {
     const m = /^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)\s*$/.exec(line);
@@ -24,7 +24,7 @@ function readDotenvValue(file, key) {
   return null;
 }
 
-export function resolvePrivateDir({ env = process.env, dotenvPath = join(homedir(), '.claude', '.env') } = {}) {
+export function resolvePrivateDir({ env = process.env, dotenvPath = env.IMPORTS_DOTENV || join(homedir(), '.claude', '.env') } = {}) {
   const raw = env.IMPORTS_PRIVATE_DIR || readDotenvValue(dotenvPath, 'IMPORTS_PRIVATE_DIR');
   if (!raw) {
     throw new StoreError(

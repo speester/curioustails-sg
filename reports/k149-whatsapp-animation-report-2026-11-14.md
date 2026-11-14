@@ -69,3 +69,14 @@ The delta is neutral, as expected: same assets, the demo moved and was not dupli
 
 - The `DEMO_CHANNEL` edit in the generator was already on disk, uncommitted, when I started. It matched the intended change, so I kept it as is. My only generator edit was the Telegram title.
 - The limits from K-145 still apply. A click is not a join. On staging without `?ga_test=1`, clicks are deliberately not recorded. `channel`, `section` and `environment` still need registering as custom dimensions.
+
+## Correction: stale stage closed (deploy `48769922`)
+
+- **What went wrong.** My deploy `3e293cfe` shipped the new Telegram H2; its 390 screenshot shows "On Telegram, every post leads with the photo". But the duplicate K-149 run rebuilt `_k132_stage/index.html` with the old title just before my `git add`, so commit `9648792` captured the stale "Prefer Telegram? …" bytes. Its deploy `d656ec94` then put that title back on the live alias. My earlier statement that `9648792` carried the new H2 was wrong for `index.html`: only the generator had it.
+- **Fix.** The stage was rebuilt from the generator at HEAD (`b176587`), with no other change. The diff is one line, the Telegram H2. Redeployed as **`48769922`** (https://48769922.curioustails-staging.pages.dev), alias https://k132-channel-join.curioustails-staging.pages.dev/. Wrangler uploaded 0 new files because these bytes were already stored from `3e293cfe`.
+- **Verified on the live HTML, not the local file.** The live HTML from both the deploy URL and the alias is byte-identical to the rebuilt `_k132_stage/index.html` (sha256 `2fa4366d115d24c9…`):
+  - H2s: "On Telegram, every post leads with the photo", then "Follow us on WhatsApp, the app you already have".
+  - Order: `section_telegram`, `section_whatsapp`.
+  - `cj-phone`: 1 in total, 0 in Telegram, 1 in WhatsApp.
+  - `x-robots-tag: noindex, nofollow`. Production untouched.
+- The rebuilt stage is committed with this note, so the repo and the deployed bytes agree.

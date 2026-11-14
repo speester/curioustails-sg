@@ -3,8 +3,8 @@
 //   node scripts/k145-build-channel-stage.mjs
 //
 // Two self-contained sections, one per channel. CHANNELS decides the order: reorder
-// the array and the page flips. The phone demo always goes to the FIRST section and
-// the still post strip to the second, so a flip never clones the animation.
+// the array and the page flips. DEMO_CHANNEL owns the phone demo whatever its position;
+// every other section gets the still post strip, so a flip never clones the animation.
 // The strip photos are cut once from src/assets/live into _k132_stage (sharp).
 import { readFile, writeFile, access } from 'node:fs/promises';
 import path from 'node:path';
@@ -20,6 +20,9 @@ const UTM = 'utm_source=website&utm_medium=channel_section&utm_campaign=channel_
 // day); the WhatsApp channel shows no post dates. Driven by posting activity, not preference (K-145).
 const CHANNELS = ['telegram', 'whatsapp'];
 
+// The one phone demo stays on WhatsApp (owner, 14 Nov 2026: K-149), even though WhatsApp is second.
+const DEMO_CHANNEL = 'whatsapp';
+
 const CH = {
   whatsapp: {
     ch: 'wa',
@@ -33,7 +36,7 @@ const CH = {
   telegram: {
     ch: 'tg',
     url: 'https://t.me/puppysingapore',
-    title: 'Prefer Telegram? Every post leads with the photo',
+    title: 'On Telegram, every post leads with the photo',
     sub: 'Each puppy lands photo first, and a tap opens it full-size. Joining shares nothing personal with other members, and you can leave whenever you like.',
     stkName: 'Telegram',
     stkAction: 'Join the channel',
@@ -142,12 +145,13 @@ ${cards}
     </figure>`;
 }
 
-function section(key, i) {
+function section(key) {
   const c = CH[key];
-  const proof = i === 0 ? phoneDemo(key) : postStrip();
+  const demo = key === DEMO_CHANNEL;
+  const proof = demo ? phoneDemo(key) : postStrip();
   return `<!-- ===================== section_${key} ===================== -->
 <section class="cj" id="section_${key}" aria-labelledby="cj-${c.ch}-title">
-  <div class="cj-k132 ${i === 0 ? 'cj-has-demo' : 'cj-has-strip'}" data-ch="${c.ch}">
+  <div class="cj-k132 ${demo ? 'cj-has-demo' : 'cj-has-strip'}" data-ch="${c.ch}">
 
     <div class="cj-copy">
       <h2 class="cj-title" id="cj-${c.ch}-title">${esc(c.title)}</h2>
@@ -229,7 +233,7 @@ ${CHANNELS.map(section).join('\n\n')}
 </html>
 `;
   await writeFile(path.join(STAGE, 'index.html'), html);
-  console.log('wrote _k132_stage/index.html, order:', CHANNELS.join(' > '));
+  console.log('wrote _k132_stage/index.html, order:', CHANNELS.join(' > '), '| demo:', DEMO_CHANNEL);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

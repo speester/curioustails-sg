@@ -1,0 +1,705 @@
+{
+ "url": "https://3e293cfe.curioustails-staging.pages.dev/",
+ "layouts": {
+  "1440-motion": {
+   "scrollWidth": 1440,
+   "clientWidth": 1440,
+   "sections": [
+    {
+     "id": "section_telegram",
+     "ch": "tg",
+     "h2": "On Telegram, every post leads with the photo",
+     "sub": "Each puppy lands photo first, and a tap opens it full-size. Joining shares nothing personal with other members, and you can leave whenever you like.",
+     "box": [
+      146,
+      1294,
+      1148
+     ],
+     "ctaCount": 1,
+     "cta": {
+      "href": "https://t.me/puppysingapore?utm_source=website&utm_medium=channel_section&utm_campaign=channel_join&utm_content=section_telegram",
+      "channel": "telegram",
+      "section": "section_telegram",
+      "layout": [
+       223,
+       78
+      ],
+      "right": 427
+     },
+     "proof": "post-strip",
+     "stripCards": 3,
+     "hiddenContent": []
+    },
+    {
+     "id": "section_whatsapp",
+     "ch": "wa",
+     "h2": "Follow us on WhatsApp, the app you already have",
+     "sub": "It is already on your phone. One tap on Follow and our puppy posts start arriving in your Updates tab. No new app to install, no new account to make.",
+     "box": [
+      146,
+      1294,
+      1148
+     ],
+     "ctaCount": 1,
+     "cta": {
+      "href": "https://www.whatsapp.com/channel/0029VaDo1HT9WtCCFm6zUn3b?utm_source=website&utm_medium=channel_section&utm_campaign=channel_join&utm_content=section_whatsapp",
+      "channel": "whatsapp",
+      "section": "section_whatsapp",
+      "layout": [
+       243,
+       78
+      ],
+      "right": 447
+     },
+     "proof": "phone-demo",
+     "stripCards": 0,
+     "hiddenContent": []
+    }
+   ],
+   "h2s": [
+    "On Telegram, every post leads with the photo",
+    "Follow us on WhatsApp, the app you already have"
+   ],
+   "segmentedControl": 0,
+   "phones": 1,
+   "runningAnimations": 12,
+   "gaDisabled": [
+    [
+     "ga-disable-G-S1WGGDQKQ4",
+     true
+    ]
+   ],
+   "gtagScript": false,
+   "contrast": {
+    ".cj-title": {
+     "fg": "33,18,11",
+     "bg": "253,248,240",
+     "ratio": 17.18
+    },
+    ".cj-sub": {
+     "fg": "92,72,64",
+     "bg": "253,248,240",
+     "ratio": 8.09
+    },
+    ".cj-stk-txt b": {
+     "fg": "17,27,33",
+     "bg": "34,158,217",
+     "ratio": 5.79
+    },
+    ".cj-stk-txt small": {
+     "fg": "17,27,33",
+     "bg": "34,158,217",
+     "ratio": 5.79
+    },
+    ".cj-strip-label": {
+     "fg": "92,72,64",
+     "bg": "253,248,240",
+     "ratio": 8.09
+    },
+    ".cj-strip-note": {
+     "fg": "92,72,64",
+     "bg": "253,248,240",
+     "ratio": 8.09
+    },
+    ".cj-sp-cap b": {
+     "fg": "17,27,33",
+     "bg": "255,255,255",
+     "ratio": 17.46
+    },
+    ".cj-sp-price": {
+     "fg": "23,115,173",
+     "bg": "255,255,255",
+     "ratio": 5.13
+    },
+    ".cj-sp-meta": {
+     "fg": "93,107,116",
+     "bg": "255,255,255",
+     "ratio": 5.5
+    }
+   },
+   "errors": [],
+   "collectRequestsWithoutOptIn": 0
+  },
+  "1440-reduced": {
+   "scrollWidth": 1440,
+   "clientWidth": 1440,
+   "sections": [
+    {
+     "id": "section_telegram",
+     "ch": "tg",
+     "h2": "On Telegram, every post leads with the photo",
+     "sub": "Each puppy lands photo first, and a tap opens it full-size. Joining shares nothing personal with other members, and you can leave whenever you like.",
+     "box": [
+      146,
+      1294,
+      1148
+     ],
+     "ctaCount": 1,
+     "cta": {
+      "href": "https://t.me/puppysingapore?utm_source=website&utm_medium=channel_section&utm_campaign=channel_join&utm_content=section_telegram",
+      "channel": "telegram",
+      "section": "section_telegram",
+      "layout": [
+       223,
+       78
+      ],
+      "right": 427
+     },
+     "proof": "post-strip",
+     "stripCards": 3,
+     "hiddenContent": []
+    },
+    {
+     "id": "section_whatsapp",
+     "ch": "wa",
+     "h2": "Follow us on WhatsApp, the app you already have",
+     "sub": "It is already on your phone. One tap on Follow and our puppy posts start arriving in your Updates tab. No new app to install, no new account to make.",
+     "box": [
+      146,
+      1294,
+      1148
+     ],
+     "ctaCount": 1,
+     "cta": {
+      "href": "https://www.whatsapp.com/channel/0029VaDo1HT9WtCCFm6zUn3b?utm_source=website&utm_medium=channel_section&utm_campaign=channel_join&utm_content=section_whatsapp",
+      "channel": "whatsapp",
+      "section": "section_whatsapp",
+      "layout": [
+       243,
+       78
+      ],
+      "right": 447
+     },
+     "proof": "phone-demo",
+     "stripCards": 0,
+     "hiddenContent": []
+    }
+   ],
+   "h2s": [
+    "On Telegram, every post leads with the photo",
+    "Follow us on WhatsApp, the app you already have"
+   ],
+   "segmentedControl": 0,
+   "phones": 1,
+   "runningAnimations": 0,
+   "gaDisabled": [
+    [
+     "ga-disable-G-S1WGGDQKQ4",
+     true
+    ]
+   ],
+   "gtagScript": false,
+   "contrast": {
+    ".cj-title": {
+     "fg": "33,18,11",
+     "bg": "253,248,240",
+     "ratio": 17.18
+    },
+    ".cj-sub": {
+     "fg": "92,72,64",
+     "bg": "253,248,240",
+     "ratio": 8.09
+    },
+    ".cj-stk-txt b": {
+     "fg": "17,27,33",
+     "bg": "34,158,217",
+     "ratio": 5.79
+    },
+    ".cj-stk-txt small": {
+     "fg": "17,27,33",
+     "bg": "34,158,217",
+     "ratio": 5.79
+    },
+    ".cj-strip-label": {
+     "fg": "92,72,64",
+     "bg": "253,248,240",
+     "ratio": 8.09
+    },
+    ".cj-strip-note": {
+     "fg": "92,72,64",
+     "bg": "253,248,240",
+     "ratio": 8.09
+    },
+    ".cj-sp-cap b": {
+     "fg": "17,27,33",
+     "bg": "255,255,255",
+     "ratio": 17.46
+    },
+    ".cj-sp-price": {
+     "fg": "23,115,173",
+     "bg": "255,255,255",
+     "ratio": 5.13
+    },
+    ".cj-sp-meta": {
+     "fg": "93,107,116",
+     "bg": "255,255,255",
+     "ratio": 5.5
+    }
+   },
+   "errors": [],
+   "collectRequestsWithoutOptIn": 0
+  },
+  "390-motion": {
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "sections": [
+    {
+     "id": "section_telegram",
+     "ch": "tg",
+     "h2": "On Telegram, every post leads with the photo",
+     "sub": "Each puppy lands photo first, and a tap opens it full-size. Joining shares nothing personal with other members, and you can leave whenever you like.",
+     "box": [
+      16,
+      374,
+      358
+     ],
+     "ctaCount": 1,
+     "cta": {
+      "href": "https://t.me/puppysingapore?utm_source=website&utm_medium=channel_section&utm_campaign=channel_join&utm_content=section_telegram",
+      "channel": "telegram",
+      "section": "section_telegram",
+      "layout": [
+       316,
+       78
+      ],
+      "right": 352
+     },
+     "proof": "post-strip",
+     "stripCards": 3,
+     "hiddenContent": []
+    },
+    {
+     "id": "section_whatsapp",
+     "ch": "wa",
+     "h2": "Follow us on WhatsApp, the app you already have",
+     "sub": "It is already on your phone. One tap on Follow and our puppy posts start arriving in your Updates tab. No new app to install, no new account to make.",
+     "box": [
+      16,
+      374,
+      358
+     ],
+     "ctaCount": 1,
+     "cta": {
+      "href": "https://www.whatsapp.com/channel/0029VaDo1HT9WtCCFm6zUn3b?utm_source=website&utm_medium=channel_section&utm_campaign=channel_join&utm_content=section_whatsapp",
+      "channel": "whatsapp",
+      "section": "section_whatsapp",
+      "layout": [
+       316,
+       78
+      ],
+      "right": 352
+     },
+     "proof": "phone-demo",
+     "stripCards": 0,
+     "hiddenContent": []
+    }
+   ],
+   "h2s": [
+    "On Telegram, every post leads with the photo",
+    "Follow us on WhatsApp, the app you already have"
+   ],
+   "segmentedControl": 0,
+   "phones": 1,
+   "runningAnimations": 0,
+   "gaDisabled": [
+    [
+     "ga-disable-G-S1WGGDQKQ4",
+     true
+    ]
+   ],
+   "gtagScript": false,
+   "contrast": {
+    ".cj-title": {
+     "fg": "33,18,11",
+     "bg": "253,248,240",
+     "ratio": 17.18
+    },
+    ".cj-sub": {
+     "fg": "92,72,64",
+     "bg": "253,248,240",
+     "ratio": 8.09
+    },
+    ".cj-stk-txt b": {
+     "fg": "17,27,33",
+     "bg": "34,158,217",
+     "ratio": 5.79
+    },
+    ".cj-stk-txt small": {
+     "fg": "17,27,33",
+     "bg": "34,158,217",
+     "ratio": 5.79
+    },
+    ".cj-strip-label": {
+     "fg": "92,72,64",
+     "bg": "253,248,240",
+     "ratio": 8.09
+    },
+    ".cj-strip-note": {
+     "fg": "92,72,64",
+     "bg": "253,248,240",
+     "ratio": 8.09
+    },
+    ".cj-sp-cap b": {
+     "fg": "17,27,33",
+     "bg": "255,255,255",
+     "ratio": 17.46
+    },
+    ".cj-sp-price": {
+     "fg": "23,115,173",
+     "bg": "255,255,255",
+     "ratio": 5.13
+    },
+    ".cj-sp-meta": {
+     "fg": "93,107,116",
+     "bg": "255,255,255",
+     "ratio": 5.5
+    }
+   },
+   "errors": [],
+   "collectRequestsWithoutOptIn": 0
+  },
+  "390-reduced": {
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "sections": [
+    {
+     "id": "section_telegram",
+     "ch": "tg",
+     "h2": "On Telegram, every post leads with the photo",
+     "sub": "Each puppy lands photo first, and a tap opens it full-size. Joining shares nothing personal with other members, and you can leave whenever you like.",
+     "box": [
+      16,
+      374,
+      358
+     ],
+     "ctaCount": 1,
+     "cta": {
+      "href": "https://t.me/puppysingapore?utm_source=website&utm_medium=channel_section&utm_campaign=channel_join&utm_content=section_telegram",
+      "channel": "telegram",
+      "section": "section_telegram",
+      "layout": [
+       316,
+       78
+      ],
+      "right": 352
+     },
+     "proof": "post-strip",
+     "stripCards": 3,
+     "hiddenContent": []
+    },
+    {
+     "id": "section_whatsapp",
+     "ch": "wa",
+     "h2": "Follow us on WhatsApp, the app you already have",
+     "sub": "It is already on your phone. One tap on Follow and our puppy posts start arriving in your Updates tab. No new app to install, no new account to make.",
+     "box": [
+      16,
+      374,
+      358
+     ],
+     "ctaCount": 1,
+     "cta": {
+      "href": "https://www.whatsapp.com/channel/0029VaDo1HT9WtCCFm6zUn3b?utm_source=website&utm_medium=channel_section&utm_campaign=channel_join&utm_content=section_whatsapp",
+      "channel": "whatsapp",
+      "section": "section_whatsapp",
+      "layout": [
+       316,
+       78
+      ],
+      "right": 352
+     },
+     "proof": "phone-demo",
+     "stripCards": 0,
+     "hiddenContent": []
+    }
+   ],
+   "h2s": [
+    "On Telegram, every post leads with the photo",
+    "Follow us on WhatsApp, the app you already have"
+   ],
+   "segmentedControl": 0,
+   "phones": 1,
+   "runningAnimations": 0,
+   "gaDisabled": [
+    [
+     "ga-disable-G-S1WGGDQKQ4",
+     true
+    ]
+   ],
+   "gtagScript": false,
+   "contrast": {
+    ".cj-title": {
+     "fg": "33,18,11",
+     "bg": "253,248,240",
+     "ratio": 17.18
+    },
+    ".cj-sub": {
+     "fg": "92,72,64",
+     "bg": "253,248,240",
+     "ratio": 8.09
+    },
+    ".cj-stk-txt b": {
+     "fg": "17,27,33",
+     "bg": "34,158,217",
+     "ratio": 5.79
+    },
+    ".cj-stk-txt small": {
+     "fg": "17,27,33",
+     "bg": "34,158,217",
+     "ratio": 5.79
+    },
+    ".cj-strip-label": {
+     "fg": "92,72,64",
+     "bg": "253,248,240",
+     "ratio": 8.09
+    },
+    ".cj-strip-note": {
+     "fg": "92,72,64",
+     "bg": "253,248,240",
+     "ratio": 8.09
+    },
+    ".cj-sp-cap b": {
+     "fg": "17,27,33",
+     "bg": "255,255,255",
+     "ratio": 17.46
+    },
+    ".cj-sp-price": {
+     "fg": "23,115,173",
+     "bg": "255,255,255",
+     "ratio": 5.13
+    },
+    ".cj-sp-meta": {
+     "fg": "93,107,116",
+     "bg": "255,255,255",
+     "ratio": 5.5
+    }
+   },
+   "errors": [],
+   "collectRequestsWithoutOptIn": 0
+  }
+ },
+ "ga": {
+  "mouse": {
+   "popupUrls": [
+    "https://www.whatsapp.com/channel/0029VaDo1HT9WtCCFm6zUn3b?utm_source=website&utm_medium=channel_section&utm_campaign=channel_join&utm_content=section_whatsapp",
+    "https://t.me/puppysingapore?utm_source=website&utm_medium=channel_section&utm_campaign=channel_join&utm_content=section_telegram"
+   ],
+   "channelJoin": [
+    {
+     "transport": "fetch",
+     "method": "POST",
+     "tid": "G-S1WGGDQKQ4",
+     "en": "channel_join",
+     "ep.channel": "whatsapp",
+     "ep.section": "section_whatsapp",
+     "ep.environment": "staging",
+     "dl": "https://3e293cfe.curioustails-staging.pages.dev/",
+     "other_ep": [
+      "ep.debug_mode"
+     ],
+     "raw": "v=2&tid=G-S1WGGDQKQ4&gtm=45je6bb1v9257595481za200zd9257595481xf1&_p=1794666961380&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&cid=1389748399.1794666962&frm=0&ngs=1&pscdl=noapi&rcb=18&sr=1440x900&uaa=x86&uab=64&uafvl=HeadlessChrome;153.0.8010.12|Not_A%20Brand;8.0.0.0|Chromium;153.0.8010.12&uam=&uamb=0&uap=Windows&uapv=10.0.0&uaw=0&ul=en-us&_s=2&tag_exp=100940091~115938466~115938469~118897920~118897930~120213116~120385422~120412526~120420414~120469145~120469153~121246026~121246034~123785232&dl=https://3e293cfe.curioustails-staging.pages.dev/&sid=1794666961&sct=1&seg=0&dt=Channel Join Sections&en=channel_join&_ee=1&ep.debug_mode=true&ep.channel=whatsapp&ep.section=section_whatsapp&ep.environment=staging&_et=2272&tfd=3008"
+    },
+    {
+     "transport": "fetch",
+     "method": "POST",
+     "tid": "G-S1WGGDQKQ4",
+     "en": "channel_join",
+     "ep.channel": "telegram",
+     "ep.section": "section_telegram",
+     "ep.environment": "staging",
+     "dl": "https://3e293cfe.curioustails-staging.pages.dev/",
+     "other_ep": [
+      "ep.debug_mode"
+     ],
+     "raw": "v=2&tid=G-S1WGGDQKQ4&gtm=45je6bb1v9257595481za200zd9257595481xf1&_p=1794666961380&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&cid=1389748399.1794666962&frm=0&ngs=1&pscdl=noapi&rcb=18&sr=1440x900&uaa=x86&uab=64&uafvl=HeadlessChrome;153.0.8010.12|Not_A%20Brand;8.0.0.0|Chromium;153.0.8010.12&uam=&uamb=0&uap=Windows&uapv=10.0.0&uaw=0&ul=en-us&_s=4&tag_exp=100940091~115938466~115938469~118897920~118897930~120213116~120385422~120412526~120420414~120469145~120469153~121246026~121246034~123785232&dl=https://3e293cfe.curioustails-staging.pages.dev/&sid=1794666961&sct=1&seg=0&dt=Channel Join Sections&en=channel_join&_ee=1&ep.debug_mode=true&ep.channel=telegram&ep.section=section_telegram&ep.environment=staging&_et=2567&tfd=5590"
+    }
+   ],
+   "allEvents": [
+    "page_view",
+    "channel_join",
+    "click",
+    "scroll",
+    "channel_join",
+    "click"
+   ]
+  },
+  "keyboard": {
+   "popupUrls": [
+    "https://www.whatsapp.com/channel/0029VaDo1HT9WtCCFm6zUn3b?utm_source=website&utm_medium=channel_section&utm_campaign=channel_join&utm_content=section_whatsapp",
+    "https://t.me/puppysingapore?utm_source=website&utm_medium=channel_section&utm_campaign=channel_join&utm_content=section_telegram"
+   ],
+   "channelJoin": [
+    {
+     "transport": "fetch",
+     "method": "POST",
+     "tid": "G-S1WGGDQKQ4",
+     "en": "channel_join",
+     "ep.channel": "whatsapp",
+     "ep.section": "section_whatsapp",
+     "ep.environment": "staging",
+     "dl": "https://3e293cfe.curioustails-staging.pages.dev/",
+     "other_ep": [
+      "ep.debug_mode"
+     ],
+     "raw": "v=2&tid=G-S1WGGDQKQ4&gtm=45je6bb1v9257595481za200zd9257595481xf1&_p=1794666972545&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&cid=785282601.1794666973&frm=0&ngs=1&pscdl=noapi&rcb=7&sr=1440x900&uaa=x86&uab=64&uafvl=HeadlessChrome;153.0.8010.12|Not_A%20Brand;8.0.0.0|Chromium;153.0.8010.12&uam=&uamb=0&uap=Windows&uapv=10.0.0&uaw=0&ul=en-us&_s=3&tag_exp=100940092~115616986~115938466~115938468~118897920~118897930~120213116~120385422~120412528~120420416~120469145~120469153~121246026~121246034~123785232&dl=https://3e293cfe.curioustails-staging.pages.dev/&sid=1794666972&sct=1&seg=0&dt=Channel Join Sections&en=channel_join&_ee=1&ep.debug_mode=true&ep.channel=whatsapp&ep.section=section_whatsapp&ep.environment=staging&_et=5&tfd=2957"
+    },
+    {
+     "transport": "fetch",
+     "method": "POST",
+     "tid": "G-S1WGGDQKQ4",
+     "en": "channel_join",
+     "ep.channel": "telegram",
+     "ep.section": "section_telegram",
+     "ep.environment": "staging",
+     "dl": "https://3e293cfe.curioustails-staging.pages.dev/",
+     "other_ep": [
+      "ep.debug_mode"
+     ],
+     "raw": "v=2&tid=G-S1WGGDQKQ4&gtm=45je6bb1v9257595481za200zd9257595481xf1&_p=1794666972545&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&cid=785282601.1794666973&frm=0&ngs=1&pscdl=noapi&rcb=7&sr=1440x900&uaa=x86&uab=64&uafvl=HeadlessChrome;153.0.8010.12|Not_A%20Brand;8.0.0.0|Chromium;153.0.8010.12&uam=&uamb=0&uap=Windows&uapv=10.0.0&uaw=0&ul=en-us&_s=5&tag_exp=100940092~115616986~115938466~115938468~118897920~118897930~120213116~120385422~120412528~120420416~120469145~120469153~121246026~121246034~123785232&dl=https://3e293cfe.curioustails-staging.pages.dev/&sid=1794666972&sct=1&seg=0&dt=Channel Join Sections&en=channel_join&_ee=1&ep.debug_mode=true&ep.channel=telegram&ep.section=section_telegram&ep.environment=staging&_et=2517&tfd=5483"
+    }
+   ],
+   "allEvents": [
+    "page_view",
+    "scroll",
+    "channel_join",
+    "click",
+    "channel_join",
+    "click"
+   ]
+  },
+  "sameTabOptIn": {
+   "log": [
+    "2511ms click",
+    "2526ms GA fetch keepalive=true channel_join/whatsapp",
+    "3318ms pagehide",
+    "3319ms GA fetch keepalive=true scroll"
+   ],
+   "finalUrl": "https://www.whatsapp.com/channel/0029VaDo1HT9WtCCFm6zUn3b?utm_source=website&utm_medium=channel_section&utm_campaign=channel_join&utm_content=section_whatsapp"
+  },
+  "sameTabNoOptIn": {
+   "log": [
+    "2498ms click",
+    "4211ms pagehide"
+   ],
+   "finalUrl": "https://www.whatsapp.com/channel/0029VaDo1HT9WtCCFm6zUn3b?utm_source=website&utm_medium=channel_section&utm_campaign=channel_join&utm_content=section_whatsapp"
+  }
+ },
+ "weight": {
+  "after": {
+   "requests": 10,
+   "initialRequests": 10,
+   "totalBytes": 119739,
+   "ownBytes": 48971,
+   "rows": [
+    {
+     "url": "https://3e293cfe.curioustails-staging.pages.dev/",
+     "type": "document",
+     "bytes": 4245
+    },
+    {
+     "url": "https://3e293cfe.curioustails-staging.pages.dev/channel-join.css",
+     "type": "stylesheet",
+     "bytes": 5714
+    },
+    {
+     "url": "https://3e293cfe.curioustails-staging.pages.dev/channel-join.js",
+     "type": "script",
+     "bytes": 1432
+    },
+    {
+     "url": "https://fonts.googleapis.com/css2",
+     "type": "stylesheet",
+     "bytes": 1233
+    },
+    {
+     "url": "https://3e293cfe.curioustails-staging.pages.dev/puppy-2950.webp",
+     "type": "image",
+     "bytes": 16710
+    },
+    {
+     "url": "https://3e293cfe.curioustails-staging.pages.dev/post-2899.webp",
+     "type": "image",
+     "bytes": 8823
+    },
+    {
+     "url": "https://3e293cfe.curioustails-staging.pages.dev/post-2954.webp",
+     "type": "image",
+     "bytes": 3953
+    },
+    {
+     "url": "https://fonts.gstatic.com/s/fredoka/v17/X7n64b87HvSqjb_WIi2yDCRwoQ_k7367_DWu89U.woff2",
+     "type": "font",
+     "bytes": 30272
+    },
+    {
+     "url": "https://3e293cfe.curioustails-staging.pages.dev/post-3010.webp",
+     "type": "image",
+     "bytes": 8094
+    },
+    {
+     "url": "https://fonts.gstatic.com/s/nunito/v32/XRXV3I6Li01BKofINeaB.woff2",
+     "type": "font",
+     "bytes": 39263
+    }
+   ]
+  },
+  "before": {
+   "requests": 10,
+   "initialRequests": 10,
+   "totalBytes": 120129,
+   "ownBytes": 49361,
+   "rows": [
+    {
+     "url": "https://fonts.googleapis.com/css2",
+     "type": "stylesheet",
+     "bytes": 1233
+    },
+    {
+     "url": "https://a168e933.curioustails-staging.pages.dev/",
+     "type": "document",
+     "bytes": 4243
+    },
+    {
+     "url": "https://a168e933.curioustails-staging.pages.dev/channel-join.js",
+     "type": "script",
+     "bytes": 1672
+    },
+    {
+     "url": "https://a168e933.curioustails-staging.pages.dev/puppy-2950.webp",
+     "type": "image",
+     "bytes": 16904
+    },
+    {
+     "url": "https://a168e933.curioustails-staging.pages.dev/channel-join.css",
+     "type": "stylesheet",
+     "bytes": 5720
+    },
+    {
+     "url": "https://a168e933.curioustails-staging.pages.dev/post-2899.webp",
+     "type": "image",
+     "bytes": 8783
+    },
+    {
+     "url": "https://a168e933.curioustails-staging.pages.dev/post-3010.webp",
+     "type": "image",
+     "bytes": 8088
+    },
+    {
+     "url": "https://fonts.gstatic.com/s/fredoka/v17/X7n64b87HvSqjb_WIi2yDCRwoQ_k7367_DWu89U.woff2",
+     "type": "font",
+     "bytes": 30272
+    },
+    {
+     "url": "https://fonts.gstatic.com/s/nunito/v32/XRXV3I6Li01BKofINeaB.woff2",
+     "type": "font",
+     "bytes": 39263
+    },
+    {
+     "url": "https://a168e933.curioustails-staging.pages.dev/post-2954.webp",
+     "type": "image",
+     "bytes": 3951
+    }
+   ]
+  }
+ }
+}

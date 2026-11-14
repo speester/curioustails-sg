@@ -1,0 +1,92 @@
+# mouse activation, fetch POST google-analytics.com /g/collect
+v=2
+tid=G-S1WGGDQKQ4
+cid=2112276285.1794666233
+sr=1440x900
+ul=en-us
+_s=2
+dl=https://k132-channel-join.curioustails-staging.pages.dev/
+sid=1794666233
+sct=1
+seg=0
+dt=Channel Join Sections
+en=channel_join
+_ee=1
+ep.debug_mode=true
+ep.channel=whatsapp
+ep.section=section_whatsapp
+ep.environment=staging
+_et=2224
+tfd=2791
+
+# mouse activation, fetch POST google-analytics.com /g/collect
+v=2
+tid=G-S1WGGDQKQ4
+cid=2112276285.1794666233
+sr=1440x900
+ul=en-us
+_s=4
+dl=https://k132-channel-join.curioustails-staging.pages.dev/
+sid=1794666233
+sct=1
+seg=0
+dt=Channel Join Sections
+en=channel_join
+_ee=1
+ep.debug_mode=true
+ep.channel=telegram
+ep.section=section_telegram
+ep.environment=staging
+_et=2553
+tfd=5351
+
+# keyboard activation, fetch POST google-analytics.com /g/collect
+v=2
+tid=G-S1WGGDQKQ4
+cid=1244636132.1794666244
+sr=1440x900
+ul=en-us
+_s=2
+dl=https://k132-channel-join.curioustails-staging.pages.dev/
+sid=1794666244
+sct=1
+seg=0
+dt=Channel Join Sections
+en=channel_join
+_ee=1
+ep.debug_mode=true
+ep.channel=whatsapp
+ep.section=section_whatsapp
+ep.environment=staging
+_et=2232
+tfd=2825
+
+# keyboard activation, fetch POST google-analytics.com /g/collect
+v=2
+tid=G-S1WGGDQKQ4
+cid=1244636132.1794666244
+sr=1440x900
+ul=en-us
+_s=4
+dl=https://k132-channel-join.curioustails-staging.pages.dev/
+sid=1794666244
+sct=1
+seg=0
+dt=Channel Join Sections
+en=channel_join
+_ee=1
+ep.debug_mode=true
+ep.channel=telegram
+ep.section=section_telegram
+ep.environment=staging
+_et=2523
+tfd=5355
+
+# same-tab path (target removed), opt-in: in-page log
+2483ms click
+4216ms pagehide
+4221ms GA fetch keepalive=true channel_join/whatsapp,user_engagement
+
+# same-tab path, no opt-in (guard on): in-page log
+3551ms click
+5315ms pagehide

@@ -1,6 +1,8 @@
 /* ==========================================================================
-   K-132 Channel join block: Phone Peek base, die-cut stickers, join demo.
-   Markup: <section class="cj"><div class="cj-k132" data-ch="tg">...</div></section>
+   K-132 / K-145 Channel join sections: one section per channel, die-cut sticker,
+   and a proof: the join demo (first section) or a still post strip (second).
+   Markup: <section class="cj"><div class="cj-k132 cj-has-demo|cj-has-strip" data-ch="wa|tg">
+   Built by scripts/k145-build-channel-stage.mjs from one CHANNELS array.
    .cj is the size container, so the block lays out by the space it is given.
    Motion: transform / opacity only, one 7 s loop. Every element's resting
    style IS the finished state (joined, bell on, toast shown); the keyframes
@@ -59,7 +61,15 @@
 
 /* ---------- Die-cut sticker buttons --------------------------------------- */
 .cj-stickers { display: flex; flex-wrap: wrap; gap: 18px 22px; margin-top: 30px; padding: 4px 10px 12px 0; }
-.cj-stk { position: relative; display: inline-block; border-radius: 999px; -webkit-tap-highlight-color: transparent; }
+/* Static hand-placed tilt, deliberately uneven. It sits on .cj-stk (not the face)
+   so the face and its offset shadow, both children, rotate as one. The separate
+   `rotate` property composes with the children's hover / press transforms. */
+.cj-stk {
+  position: relative; display: inline-block; border-radius: 999px; -webkit-tap-highlight-color: transparent;
+  rotate: var(--cj-tilt, 0deg); transition: rotate .35s var(--cj-spring);
+}
+.cj-stk.tg { --cj-tilt: -3deg; }
+.cj-stk.wa { --cj-tilt: 2.5deg; }
 .cj-stk:focus-visible { outline: 3px solid var(--cj-ink); outline-offset: 6px; }
 /* The sticker's offset shadow: a flat ink pill behind the face, nudged down-right. */
 .cj-stk-sh {
@@ -85,34 +95,18 @@
 .cj-stk-txt b { font: 600 21px/1.05 var(--cj-font-display); letter-spacing: -.005em; }
 .cj-stk-txt small { font: 800 14.5px/1.15 var(--cj-font-body); }
 @media (hover: hover) {
-  .cj-stk:hover .cj-stk-face { transform: translateY(-4px) rotate(-1deg); }
+  /* Peel up: lift 4px and straighten toward 0deg, never tilt further. */
+  .cj-stk:hover { rotate: calc(var(--cj-tilt, 0deg) / 3); }
+  .cj-stk:hover .cj-stk-face { transform: translateY(-4px); }
   .cj-stk:hover .cj-stk-sh { transform: translate(5px, 9px); }
 }
+/* Press: face onto the shadow, tilt kept. */
+.cj-stk:active { rotate: var(--cj-tilt, 0deg); transition-duration: .08s; }
 .cj-stk:active .cj-stk-face { transform: translate(3px, 4px); transition-duration: .08s; }
 .cj-stk:active .cj-stk-sh { transform: translate(1px, 2px); transition-duration: .08s; }
 
-/* ---------- Demo column: app selector + phone ----------------------------- */
-.cj-demo { display: grid; justify-items: center; gap: 22px; }
-.cj-seg {
-  display: inline-grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; padding: 4px;
-  border-radius: 999px; background: var(--cj-surface);
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--cj-ink) 10%, transparent), 0 6px 14px -10px rgba(0,0,0,.35);
-}
-.cj-seg button {
-  all: unset; box-sizing: border-box; cursor: pointer;
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  min-height: 44px; padding: 0 18px; border-radius: 999px;
-  font: 800 15px/1 var(--cj-font-body); color: var(--cj-ink-soft);
-  transition: background-color .25s, color .25s;
-}
-.cj-seg button svg { width: 18px; height: 18px; }
-.cj-seg button .cj-tick { width: 16px; height: 16px; display: none; }
-.cj-seg button[aria-pressed="true"] { color: #fff; }
-.cj-seg button[aria-pressed="true"] .cj-tick { display: block; }
-.cj-seg button[data-ch="tg"][aria-pressed="true"] { background: var(--cj-tg-700); }
-.cj-seg button[data-ch="wa"][aria-pressed="true"] { background: var(--cj-wa-700); }
-.cj-seg button:focus-visible { outline: 3px solid var(--cj-ink); outline-offset: 2px; }
-@media (hover: hover) { .cj-seg button[aria-pressed="false"]:hover { color: var(--cj-ink); background: color-mix(in oklab, var(--cj-ink) 6%, transparent); } }
+/* ---------- Demo column: the phone (first section only) ------------------ */
+.cj-demo { display: grid; justify-items: center; }
 
 /* ---------- Phone ---------------------------------------------------------- */
 .cj-phone {
@@ -188,17 +182,53 @@
 .cj-rip { border: 2px solid rgba(255,255,255,.95); box-shadow: 0 0 0 1px rgba(17,27,33,.25); }
 .cj-rip-bell { left: 204px; top: 32px; }
 
-/* ---------- Narrow container: stack, full-width selector and stickers ------ */
+/* ---------- Still post strip (second section): three sample posts ---------- */
+.cj-strip { margin: 0; display: grid; justify-items: center; gap: 12px; }
+.cj-strip-label { font: 800 13px/1.2 var(--cj-font-body); letter-spacing: .08em; text-transform: uppercase; color: var(--cj-ink-soft); }
+.cj-strip-row {
+  list-style: none; margin: 0; padding: 14px; display: flex; gap: 12px; align-items: flex-end;
+  border-radius: 24px; background: #dbe6cf; box-shadow: inset 0 0 0 1px rgba(17, 27, 33, .06);
+}
+.cj-sp { width: 168px; flex: none; background: #fff; border-radius: 14px 14px 14px 4px; padding: 4px; box-shadow: 0 1px 1.5px rgba(0,0,0,.14); }
+.cj-sp:nth-child(2) { margin-bottom: 18px; }
+.cj-sp img { display: block; width: 160px; height: 180px; object-fit: cover; border-radius: 11px 11px 4px 4px; }
+.cj-sp-cap { padding: 7px 6px 3px; font: 500 12.5px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #111b21; }
+.cj-sp-cap b { font-weight: 700; }
+.cj-sp-price { color: var(--cj-tg-700); font-weight: 800; }
+.cj-sp-meta { display: flex; justify-content: space-between; align-items: end; gap: 6px; color: #5d6b74; font-size: 11.5px; }
+.cj-strip-note { margin: 0; font-size: 13.5px; color: var(--cj-ink-soft); }
+/* Skin follows the channel, so a flipped order (strip under WhatsApp) still matches its app. */
+[data-ch="wa"] .cj-strip-row { background: #efeae2; }
+[data-ch="wa"] .cj-sp-price { color: var(--cj-wa-700); }
+
+/* The strip is wider than the phone, so its section stacks earlier. */
+@container (max-width: 980px) {
+  .cj-has-strip { grid-template-columns: minmax(0, 1fr); }
+  .cj-has-strip .cj-title { max-width: 22ch; }
+}
+/* Too narrow for three across: the posts become a chat column, photo left. */
+@container (max-width: 600px) {
+  .cj-strip { justify-items: stretch; }
+  .cj-strip-label, .cj-strip-note { text-align: center; }
+  .cj-strip-row { flex-direction: column; align-items: stretch; padding: 10px; gap: 10px; }
+  .cj-sp { width: auto; display: grid; grid-template-columns: 96px minmax(0, 1fr); align-items: center; gap: 4px; border-radius: 14px 14px 14px 4px; }
+  .cj-sp:nth-child(2) { margin-bottom: 0; }
+  .cj-sp img { width: 96px; height: 96px; border-radius: 11px 4px 4px 11px; }
+  .cj-sp-cap { padding: 4px 8px; font-size: 14px; }
+  .cj-sp-meta { font-size: 12.5px; }
+}
+
+/* ---------- Narrow container: stack, full-width sticker ------------------- */
 @container (max-width: 720px) {
   .cj-k132 { grid-template-columns: minmax(0, 1fr); gap: 32px; padding: 26px 18px 34px; }
   .cj-title { max-width: none; }
   .cj-sub { font-size: 16px; }
-  .cj-stickers { flex-direction: column; gap: 16px; margin-top: 24px; padding: 0 6px 6px 0; }
+  /* Gap and padding make room for the tilt: the rotated ends of the two
+     full-width pills lean toward each other on the left. */
+  .cj-stickers { flex-direction: column; gap: 28px; margin-top: 24px; padding: 6px 6px 12px 0; }
   .cj-stk { display: block; }
   .cj-stk-face { min-height: 72px; }
-  .cj-demo { width: 100%; gap: 20px; }
-  .cj-seg { display: grid; width: 100%; }
-  .cj-seg button { min-height: 48px; font-size: 16px; }
+  .cj-demo { width: 100%; }
   .cj-phone, .cj-k132:hover .cj-phone { transform: none; }
 }
 
@@ -249,6 +279,8 @@
 @media (prefers-reduced-motion: reduce) {
   .cj *, .cj *::before, .cj *::after { animation: none !important; transition: none !important; }
   .cj-phone, .cj-k132:hover .cj-phone { transform: none; }
+  /* The tilt is static, not motion: it stays, and hover / press do not change it. */
+  .cj-stk:hover, .cj-stk:active { rotate: var(--cj-tilt, 0deg); }
   .cj-stk:hover .cj-stk-face, .cj-stk:active .cj-stk-face { transform: none; }
   .cj-stk:hover .cj-stk-sh, .cj-stk:active .cj-stk-sh { transform: translate(4px, 6px); }
   .cj-stk:hover .cj-stk-face { box-shadow: 0 0 0 2px var(--cj-ink); }

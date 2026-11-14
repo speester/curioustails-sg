@@ -1,54 +1,52 @@
-/* K-132 channel join block: app selector and off-screen pause.
-   Without JS the block still works: both sticker links are plain links and
-   the phone plays the Telegram demo. */
+/* K-145 channel join sections: click measurement and off-screen pause.
+   Without JS both sticker links are plain links and the phone demo still plays. */
 (function () {
   'use strict';
 
-  var DEMO = {
-    tg: 'The phone shows a Telegram channel post with a puppy photo, breed, price, gender, age and puppy ID, then a tap on Join and a tap on the bell to turn notifications on.',
-    wa: 'The phone shows a WhatsApp channel post with a puppy photo, breed, price, gender, age and puppy ID, then a tap on Follow and a tap on the bell to turn notifications on.'
-  };
-
-  document.querySelectorAll('.cj-k132').forEach(function (block) {
-    var buttons = block.querySelectorAll('.cj-seg button');
-    var note = block.querySelector('.cj-demo-note');
-
-    function restart() {
-      // Restart the loop so the new app's demo plays from the first frame.
-      block.querySelectorAll('.cj-screen *').forEach(function (el) {
-        el.style.animation = 'none';
-      });
-      void block.offsetWidth;
-      block.querySelectorAll('.cj-screen *').forEach(function (el) {
-        el.style.animation = '';
-      });
+  // channel_join: one event per CTA activation (mouse, touch or Enter on the link).
+  // A click is intent to join, not a join: neither app reports back who joined.
+  // No personal data: channel, section, environment and the page URL without its query.
+  function track(a, navigateAfter) {
+    var params = {
+      channel: a.dataset.cjChannel,
+      section: a.dataset.cjSection,
+      environment: window.cjEnv || 'staging',
+      page_location: location.origin + location.pathname
+    };
+    if (!navigateAfter) {
+      window.gtag && gtag('event', 'channel_join', params);
+      return;
     }
+    // Same-tab navigation (an in-app browser that ignores target=_blank). GA4 queues the hit
+    // and sends it in a batch, so event_callback fires on queue, not on send. What carries the
+    // hit is GA4's own pagehide flush: fetch(..., { keepalive: true }), which outlives the page
+    // (K-145, measured). The callback plus a short cap only keeps the click from feeling stuck.
+    var gone = false;
+    function go() { if (!gone) { gone = true; location.href = a.href; } }
+    params.event_callback = go;
+    params.event_timeout = 800;
+    setTimeout(go, 900);
+    window.gtag && gtag('event', 'channel_join', params);
+  }
 
-    function pick(ch) {
-      if (block.dataset.ch === ch) return;
-      block.dataset.ch = ch;
-      buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.ch === ch)); });
-      if (note) note.textContent = DEMO[ch];
-      restart();
-    }
-
-    buttons.forEach(function (b, i) {
-      b.addEventListener('click', function () { pick(b.dataset.ch); });
-      // Left / Right move between the two options, like a segmented control.
-      b.addEventListener('keydown', function (e) {
-        if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
-        e.preventDefault();
-        var next = buttons[(i + (e.key === 'ArrowRight' ? 1 : buttons.length - 1)) % buttons.length];
-        next.focus();
-        pick(next.dataset.ch);
-      });
+  document.querySelectorAll('a[data-cj-channel]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      // A new tab (target=_blank, or a modifier key) leaves this page alive, so the hit lands.
+      var newTab = a.target === '_blank' || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey;
+      if (newTab || e.defaultPrevented) { track(a, false); return; }
+      e.preventDefault();
+      track(a, true);
     });
+    // Middle click opens a tab without a click event.
+    a.addEventListener('auxclick', function (e) { if (e.button === 1) track(a, false); });
+  });
 
-    // Pause the loop while the block is off screen.
-    if ('IntersectionObserver' in window) {
+  // Pause the demo loop while its section is off screen.
+  if ('IntersectionObserver' in window) {
+    document.querySelectorAll('.cj-has-demo').forEach(function (block) {
       new IntersectionObserver(function (entries) {
         entries.forEach(function (en) { block.classList.toggle('is-idle', !en.isIntersecting); });
       }).observe(block);
-    }
-  });
+    });
+  }
 })();

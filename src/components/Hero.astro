@@ -24,6 +24,9 @@ interface Props {
   imageSrc?: ImageMetadata;
   tagLabel?: string;
   proofChip?: string;
+  /** The die-cut "30+ items included" seal. Its CSS lives in styles/diecut.css, which only the home page loads,
+   *  so only the home page may turn it on; elsewhere it would render as bare text. */
+  seal?: boolean;
 }
 const {
   eyebrow,
@@ -42,6 +45,7 @@ const {
   imageSrc,
   tagLabel,
   proofChip,
+  seal = false,
 } = Astro.props;
 
 const h1Parts = h1Accent ? h1.split(h1Accent) : [h1, ''];
@@ -149,9 +153,11 @@ const h1Parts = h1Accent ? h1.split(h1Accent) : [h1, ''];
           </div>
         </div>
       </div>
-      <div class="dc-seal" aria-hidden="true">
-        <span><b>30+</b>ITEMS<br />INCLUDED</span>
-      </div>
+      {seal && (
+        <div class="dc-seal" aria-hidden="true">
+          <span><b>30+</b>ITEMS<br />INCLUDED</span>
+        </div>
+      )}
       {tagLabel && (
         <div class="dc-sticker hero-tag absolute -right-4 -top-6 -rotate-6 rounded-2xl border-3 border-[var(--color-mint-300)] bg-white px-4 py-3 shadow-[0_5px_0_0_var(--color-mint-300)] blob-drift">
           <p class="font-[family-name:var(--font-heading)] text-2xl font-bold leading-none text-[var(--color-lilac-700)]">{tagLabel}</p>

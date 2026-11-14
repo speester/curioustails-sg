@@ -1,7 +1,7 @@
 ---
 import PlaceholderImage from './PlaceholderImage.astro';
 import { whatsappLink } from '../data/site';
-import { SURCHARGE_LINE } from '../data/buying-terms';
+import { SURCHARGE_LINE, KIT_COUNT } from '../data/buying-terms';
 import PawPrint from './decor/PawPrint.astro';
 import Bone from './decor/Bone.astro';
 import Sparkle from './decor/Sparkle.astro';
@@ -155,7 +155,7 @@ const h1Parts = h1Accent ? h1.split(h1Accent) : [h1, ''];
       </div>
       {seal && (
         <div class="dc-seal" aria-hidden="true">
-          <span><b>30+</b>ITEMS<br />INCLUDED</span>
+          <span><b>{KIT_COUNT}+</b>ITEMS<br />INCLUDED</span>
         </div>
       )}
       {tagLabel && (

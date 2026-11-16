@@ -119,3 +119,4 @@
 - deployed_build: 9bb2d604929f - deployed_at: 2026-11-14T07:05:00Z - branch: preview - project: curioustails-staging (K-119 preview from the working tree; see reports/k119-content-gap-report-2026-11-14.md)
 - deployed_build: 94e83966 - deployed_at: 2026-11-14T08:00:06Z - branch: k135-review-sheet - project: curioustails-staging (K-135 read-only imports review sheet; see reports/k135-review-sheet-report-2026-11-14.md)
 - deployed_build: 0c8c730b - deployed_at: 2026-11-14T08:09:10Z - branch: k135-review-sheet - project: curioustails-staging (K-139 queue split; same preview URL; see reports/k139-queue-split-report-2026-11-14.md)
+- deployed_build: a6f4c6e2 - deployed_at: 2026-11-14T10:32:34Z - branch: k132-channel-join - project: curioustails-staging (K-144 sticker tilt; see reports/k144-sticker-tilt-report-2026-11-14.md)

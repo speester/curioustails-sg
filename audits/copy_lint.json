@@ -22294,7 +22294,7 @@
   {
    "route": "/puppies/cockapoo/2899-apricot-boy/",
    "rule": "C11",
-   "msg": "figure \"3 months\" outside <Fact> ([data-fact]): \"Age About 3 months\""
+   "msg": "figure \"4 months\" outside <Fact> ([data-fact]): \"Age About 4 months\""
   },
   {
    "route": "/puppies/cockapoo/2899-apricot-boy/",
@@ -283090,21 +283090,6 @@
    "route": "/reviews/",
    "rule": "C6b",
    "msg": "85-word run repeated on /reviews/ and /starter-kit/: \"2 balestier road 01 701 s320002 singapore tuesday sunday 11am 6pm closed mond...\""
-  },
-  {
-   "route": "/",
-   "rule": "C16",
-   "msg": "disclosure registry: \"card-surcharge\" is stale: src/data/buying-terms.ts changed since the registry was built (run disclosures.py build)"
-  },
-  {
-   "route": "/",
-   "rule": "C16",
-   "msg": "disclosure registry: \"vaccination-schedule\" is stale: src/data/buying-terms.ts changed since the registry was built (run disclosures.py build)"
-  },
-  {
-   "route": "/",
-   "rule": "C16",
-   "msg": "disclosure registry: \"reserve-steps\" is stale: src/data/buying-terms.ts changed since the registry was built (run disclosures.py build)"
   },
   {
    "route": "/",

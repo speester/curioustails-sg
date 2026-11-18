@@ -1,5 +1,414 @@
 {
-  "syncedAt": "2026-11-16T02:55:43.138Z",
+  "syncedAt": "2026-11-18T14:41:25.659Z",
   "schema": 1,
-  "pups": []
+  "pups": [
+    {
+      "id": "imp-7ec9239fff",
+      "ref": "CT-IE-7EC923",
+      "breed": "shih-tzu",
+      "breedLabel": "Shih Tzu",
+      "crossLabel": "Shih Tzu x Jack Russell Terrier",
+      "name": null,
+      "sex": {
+        "male": 2,
+        "female": 1
+      },
+      "colours": [
+        "Black / White"
+      ],
+      "dob": "2026-09-08",
+      "age": "10 weeks",
+      "priceSGD": 4350,
+      "depositPct": 50,
+      "depositSGD": 2175,
+      "balanceSGD": 2175,
+      "balanceDue": "before-flight",
+      "arrivalEstimate": "2026-12",
+      "arrivalBasis": "dob",
+      "imported": true,
+      "origin": "IE",
+      "reservation": true,
+      "perks": [
+        "starter-kit",
+        "home-delivery-setup",
+        "training-lesson",
+        "whatsapp-support",
+        "five-day-promise-from-arrival"
+      ],
+      "photos": [
+        "imp-7ec9239fff-1.webp",
+        "imp-7ec9239fff-2.webp"
+      ],
+      "photoAlt": [
+        "black / white Shih Tzu puppy, male and female, 10 weeks",
+        "black / white Shih Tzu puppy, male and female, 10 weeks"
+      ],
+      "status": "published",
+      "publishedAt": "2026-11-18T14:38:23.425Z",
+      "updatedAt": "2026-11-18T14:41:25.659Z",
+      "sourceHash": "7ec9239fff3783c7152afc86a01928eef8d61a64efe64a691d63c3ad9f5578ab",
+      "hdbApproved": null,
+      "eligibleSG": true,
+      "specified": false
+    },
+    {
+      "id": "imp-1bbbfc9722",
+      "ref": "CT-IE-1BBBFC",
+      "breed": "cavachon",
+      "breedLabel": "Cavachon",
+      "crossLabel": "Cavachon x Poodle",
+      "name": null,
+      "sex": {
+        "male": 1,
+        "female": 1
+      },
+      "colours": [
+        "Apricot"
+      ],
+      "dob": "2026-09-13",
+      "age": "9 weeks",
+      "priceSGD": 4800,
+      "depositPct": 50,
+      "depositSGD": 2400,
+      "balanceSGD": 2400,
+      "balanceDue": "before-flight",
+      "arrivalEstimate": "2026-12",
+      "arrivalBasis": "dob",
+      "imported": true,
+      "origin": "IE",
+      "reservation": true,
+      "perks": [
+        "starter-kit",
+        "home-delivery-setup",
+        "training-lesson",
+        "whatsapp-support",
+        "five-day-promise-from-arrival"
+      ],
+      "photos": [
+        "imp-1bbbfc9722-1.webp",
+        "imp-1bbbfc9722-2.webp",
+        "imp-1bbbfc9722-3.webp"
+      ],
+      "photoAlt": [
+        "apricot Cavachon puppy, male and female, 9 weeks",
+        "apricot Cavachon puppy, male and female, 9 weeks",
+        "apricot Cavachon puppy, male and female, 9 weeks"
+      ],
+      "status": "published",
+      "publishedAt": "2026-11-18T14:38:23.425Z",
+      "updatedAt": "2026-11-18T14:41:25.659Z",
+      "sourceHash": "1bbbfc9722a7f4679cdd6b072717f1dd0488e8bc28f028e3ecfab4fde7937c52",
+      "hdbApproved": null,
+      "eligibleSG": true,
+      "specified": false
+    },
+    {
+      "id": "imp-26765996a7",
+      "ref": "CT-IE-267659",
+      "breed": "border-collie",
+      "breedLabel": "Border Collie",
+      "crossLabel": null,
+      "name": null,
+      "sex": {
+        "male": 2,
+        "female": 4
+      },
+      "colours": [
+        "Black / White"
+      ],
+      "dob": "2026-09-11",
+      "age": "9 weeks",
+      "priceSGD": 4350,
+      "depositPct": 50,
+      "depositSGD": 2175,
+      "balanceSGD": 2175,
+      "balanceDue": "before-flight",
+      "arrivalEstimate": "2026-12",
+      "arrivalBasis": "dob",
+      "imported": true,
+      "origin": "IE",
+      "reservation": true,
+      "perks": [
+        "starter-kit",
+        "home-delivery-setup",
+        "training-lesson",
+        "whatsapp-support",
+        "five-day-promise-from-arrival"
+      ],
+      "photos": [
+        "imp-26765996a7-1.webp",
+        "imp-26765996a7-2.webp",
+        "imp-26765996a7-3.webp"
+      ],
+      "photoAlt": [
+        "black / white Border Collie puppy, male and female, 9 weeks",
+        "black / white Border Collie puppy, male and female, 9 weeks",
+        "black / white Border Collie puppy, male and female, 9 weeks"
+      ],
+      "status": "published",
+      "publishedAt": "2026-11-18T14:38:23.425Z",
+      "updatedAt": "2026-11-18T14:41:25.659Z",
+      "sourceHash": "26765996a7e1a0a514ce2f20f8af9189634b6cde11b423afbdd625c89e1aab9e",
+      "hdbApproved": false,
+      "eligibleSG": true,
+      "specified": false
+    },
+    {
+      "id": "imp-91f6023b4c",
+      "ref": "CT-IE-91F602",
+      "breed": "toy-poodle",
+      "breedLabel": "Toy Poodle",
+      "crossLabel": null,
+      "name": null,
+      "sex": {
+        "male": 3,
+        "female": 1
+      },
+      "colours": [
+        "Silver / Grey",
+        "Apricot",
+        "Red"
+      ],
+      "dob": "2026-08-27",
+      "age": "11 weeks",
+      "priceSGD": 4950,
+      "depositPct": 50,
+      "depositSGD": 2475,
+      "balanceSGD": 2475,
+      "balanceDue": "before-flight",
+      "arrivalEstimate": "2026-11",
+      "arrivalBasis": "dob",
+      "imported": true,
+      "origin": "IE",
+      "reservation": true,
+      "perks": [
+        "starter-kit",
+        "home-delivery-setup",
+        "training-lesson",
+        "whatsapp-support",
+        "five-day-promise-from-arrival"
+      ],
+      "photos": [
+        "imp-91f6023b4c-1.webp",
+        "imp-91f6023b4c-2.webp",
+        "imp-91f6023b4c-3.webp"
+      ],
+      "photoAlt": [
+        "silver / grey Toy Poodle puppy, male and female, 11 weeks",
+        "silver / grey Toy Poodle puppy, male and female, 11 weeks",
+        "silver / grey Toy Poodle puppy, male and female, 11 weeks"
+      ],
+      "status": "published",
+      "publishedAt": "2026-11-18T14:38:23.425Z",
+      "updatedAt": "2026-11-18T14:41:25.659Z",
+      "sourceHash": "91f6023b4c25b8f3bf1baa57151a4a69792e974228f93f096970340161e46081",
+      "hdbApproved": true,
+      "eligibleSG": true,
+      "specified": false
+    },
+    {
+      "id": "imp-9e14b455f3",
+      "ref": "CT-IE-9E14B4",
+      "breed": "bichonpoo",
+      "breedLabel": "Bichonpoo",
+      "crossLabel": "Poochon x Poodle",
+      "name": null,
+      "sex": {
+        "male": 1,
+        "female": 1
+      },
+      "colours": [
+        "White"
+      ],
+      "dob": "2026-09-01",
+      "age": "11 weeks",
+      "priceSGD": 4550,
+      "depositPct": 50,
+      "depositSGD": 2275,
+      "balanceSGD": 2275,
+      "balanceDue": "before-flight",
+      "arrivalEstimate": "2026-12",
+      "arrivalBasis": "dob",
+      "imported": true,
+      "origin": "IE",
+      "reservation": true,
+      "perks": [
+        "starter-kit",
+        "home-delivery-setup",
+        "training-lesson",
+        "whatsapp-support",
+        "five-day-promise-from-arrival"
+      ],
+      "photos": [
+        "imp-9e14b455f3-1.webp",
+        "imp-9e14b455f3-2.webp",
+        "imp-9e14b455f3-3.webp"
+      ],
+      "photoAlt": [
+        "white Bichonpoo puppy, male and female, 11 weeks",
+        "white Bichonpoo puppy, male and female, 11 weeks",
+        "white Bichonpoo puppy, male and female, 11 weeks"
+      ],
+      "status": "published",
+      "publishedAt": "2026-11-18T14:38:23.425Z",
+      "updatedAt": "2026-11-18T14:41:25.659Z",
+      "sourceHash": "9e14b455f3bb0b64e549a9353227a27d8558a089098d8ccf418ff1b7484a51e4",
+      "hdbApproved": null,
+      "eligibleSG": true,
+      "specified": false
+    },
+    {
+      "id": "imp-3f9c3f1d9f",
+      "ref": "CT-IE-3F9C3F",
+      "breed": "jack-russell-terrier",
+      "breedLabel": "Jack Russell Terrier",
+      "crossLabel": null,
+      "name": null,
+      "sex": {
+        "male": 1,
+        "female": 0
+      },
+      "colours": [
+        "Brown & White"
+      ],
+      "dob": "2026-08-31",
+      "age": "11 weeks",
+      "priceSGD": 4650,
+      "depositPct": 50,
+      "depositSGD": 2325,
+      "balanceSGD": 2325,
+      "balanceDue": "before-flight",
+      "arrivalEstimate": "2026-11",
+      "arrivalBasis": "dob",
+      "imported": true,
+      "origin": "IE",
+      "reservation": true,
+      "perks": [
+        "starter-kit",
+        "home-delivery-setup",
+        "training-lesson",
+        "whatsapp-support",
+        "five-day-promise-from-arrival"
+      ],
+      "photos": [
+        "imp-3f9c3f1d9f-1.webp",
+        "imp-3f9c3f1d9f-2.webp",
+        "imp-3f9c3f1d9f-3.webp"
+      ],
+      "photoAlt": [
+        "brown & white Jack Russell Terrier puppy, male, 11 weeks",
+        "brown & white Jack Russell Terrier puppy, male, 11 weeks",
+        "brown & white Jack Russell Terrier puppy, male, 11 weeks"
+      ],
+      "status": "published",
+      "publishedAt": "2026-11-18T14:38:23.425Z",
+      "updatedAt": "2026-11-18T14:41:25.659Z",
+      "sourceHash": "3f9c3f1d9fc853b1db048088eadcc2b624c93e1f975cbde062f453d97d8f0cf9",
+      "hdbApproved": true,
+      "eligibleSG": true,
+      "specified": false
+    },
+    {
+      "id": "imp-81bc12c5fd",
+      "ref": "CT-IE-81BC12",
+      "breed": "mini-dachshund",
+      "breedLabel": "Miniature Dachshund",
+      "crossLabel": null,
+      "name": null,
+      "sex": {
+        "male": 1,
+        "female": 1
+      },
+      "colours": [
+        "Black & Tan"
+      ],
+      "dob": "2026-08-09",
+      "age": "14 weeks",
+      "priceSGD": 4750,
+      "depositPct": 50,
+      "depositSGD": 2375,
+      "balanceSGD": 2375,
+      "balanceDue": "before-flight",
+      "arrivalEstimate": "2026-11",
+      "arrivalBasis": "dob",
+      "imported": true,
+      "origin": "IE",
+      "reservation": true,
+      "perks": [
+        "starter-kit",
+        "home-delivery-setup",
+        "training-lesson",
+        "whatsapp-support",
+        "five-day-promise-from-arrival"
+      ],
+      "photos": [
+        "imp-81bc12c5fd-1.webp",
+        "imp-81bc12c5fd-2.webp",
+        "imp-81bc12c5fd-3.webp"
+      ],
+      "photoAlt": [
+        "black & tan Miniature Dachshund puppy, male and female, 14 weeks",
+        "black & tan Miniature Dachshund puppy, male and female, 14 weeks",
+        "black & tan Miniature Dachshund puppy, male and female, 14 weeks"
+      ],
+      "status": "published",
+      "publishedAt": "2026-11-18T14:38:23.425Z",
+      "updatedAt": "2026-11-18T14:41:25.659Z",
+      "sourceHash": "81bc12c5fdd78e5d20cbac8efcd73c14020d204d3d35484c8bd44afcea2e47af",
+      "hdbApproved": true,
+      "eligibleSG": true,
+      "specified": false
+    },
+    {
+      "id": "imp-b3be0cddb6",
+      "ref": "CT-IE-B3BE0C",
+      "breed": "mini-dachshund",
+      "breedLabel": "Miniature Dachshund",
+      "crossLabel": null,
+      "name": null,
+      "sex": {
+        "male": 1,
+        "female": 0
+      },
+      "colours": [
+        "Brown & Tan"
+      ],
+      "dob": "2026-08-17",
+      "age": "13 weeks",
+      "priceSGD": 4950,
+      "depositPct": 50,
+      "depositSGD": 2475,
+      "balanceSGD": 2475,
+      "balanceDue": "before-flight",
+      "arrivalEstimate": "2026-11",
+      "arrivalBasis": "dob",
+      "imported": true,
+      "origin": "IE",
+      "reservation": true,
+      "perks": [
+        "starter-kit",
+        "home-delivery-setup",
+        "training-lesson",
+        "whatsapp-support",
+        "five-day-promise-from-arrival"
+      ],
+      "photos": [
+        "imp-b3be0cddb6-1.webp",
+        "imp-b3be0cddb6-2.webp",
+        "imp-b3be0cddb6-3.webp"
+      ],
+      "photoAlt": [
+        "brown & tan Miniature Dachshund puppy, male, 13 weeks",
+        "brown & tan Miniature Dachshund puppy, male, 13 weeks",
+        "brown & tan Miniature Dachshund puppy, male, 13 weeks"
+      ],
+      "status": "published",
+      "publishedAt": "2026-11-18T14:38:23.425Z",
+      "updatedAt": "2026-11-18T14:41:25.659Z",
+      "sourceHash": "b3be0cddb667fca6b0f5ce6458f3c2d20e039e2f32f2629ec2173263a61e1433",
+      "hdbApproved": true,
+      "eligibleSG": true,
+      "specified": false
+    }
+  ]
 }

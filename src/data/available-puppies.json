@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-11-18T07:45:20.183Z",
+  "syncedAt": "2026-11-18T14:39:05.537Z",
   "breeds": {
     "bichon-frise": {
       "available": [
@@ -9,6 +9,10 @@
           "color": "White",
           "gender": "Male",
           "age": null,
+          "dob": null,
+          "images": [
+            "2980-1-545c5e85.webp"
+          ],
           "price": 5288,
           "image": "2980-1-545c5e85.webp",
           "location": "Balestier Area",
@@ -25,6 +29,10 @@
           "color": "White",
           "gender": "Female",
           "age": null,
+          "dob": null,
+          "images": [
+            "2979-1-fadb4f50.webp"
+          ],
           "price": 5288,
           "image": "2979-1-fadb4f50.webp",
           "location": "Balestier Area",
@@ -43,6 +51,10 @@
           "color": "White",
           "gender": "Male",
           "age": "4 months",
+          "dob": null,
+          "images": [
+            "2251-2-f8d0e5e2.webp"
+          ],
           "price": 2888,
           "image": "2251-2-f8d0e5e2.webp",
           "location": "Balestier Area",
@@ -59,6 +71,10 @@
           "color": "White",
           "gender": "Male",
           "age": "3 months",
+          "dob": null,
+          "images": [
+            "2252-2-b26553a2.webp"
+          ],
           "price": 3888,
           "image": "2252-2-b26553a2.webp",
           "location": "Balestier Area",
@@ -75,6 +91,10 @@
           "color": "White",
           "gender": "Female",
           "age": "3 months",
+          "dob": null,
+          "images": [
+            "2052-2-34662f27.webp"
+          ],
           "price": 4888,
           "image": "2052-2-34662f27.webp",
           "location": "Balestier Area",
@@ -91,6 +111,10 @@
           "color": "Cream",
           "gender": "Male",
           "age": "3 months",
+          "dob": null,
+          "images": [
+            "2102-2-b0908c76.webp"
+          ],
           "price": 4288,
           "image": "2102-2-b0908c76.webp",
           "location": "Balestier Area",
@@ -112,6 +136,10 @@
           "color": "Apricot",
           "gender": "Male",
           "age": "8 months",
+          "dob": null,
+          "images": [
+            "2410-2-a479d256.webp"
+          ],
           "price": 2888,
           "image": "2410-2-a479d256.webp",
           "location": "Balestier Area",
@@ -128,6 +156,10 @@
           "color": "Apricot",
           "gender": "Male",
           "age": "8 months",
+          "dob": null,
+          "images": [
+            "2409-2-37373b36.webp"
+          ],
           "price": 3288,
           "image": "2409-2-37373b36.webp",
           "location": "Balestier Area",
@@ -144,6 +176,10 @@
           "color": "Apricot",
           "gender": "Male",
           "age": "8 months",
+          "dob": null,
+          "images": [
+            "2408-2-7b3cf76d.webp"
+          ],
           "price": 3488,
           "image": "2408-2-7b3cf76d.webp",
           "location": "Balestier Area",
@@ -160,6 +196,10 @@
           "color": "Apricot",
           "gender": "Male",
           "age": "2 months",
+          "dob": null,
+          "images": [
+            "2176-2-fde1e096.webp"
+          ],
           "price": 3988,
           "image": "2176-2-fde1e096.webp",
           "location": "Balestier Area",
@@ -181,6 +221,10 @@
           "color": "Brown White",
           "gender": "Female",
           "age": "3 months",
+          "dob": null,
+          "images": [
+            "2056-2-7dd0300e.webp"
+          ],
           "price": 3988,
           "image": "2056-2-7dd0300e.webp",
           "location": "Balestier Area",
@@ -194,15 +238,20 @@
       ]
     },
     "cavachon": {
-      "available": [
+      "available": [],
+      "recentlyPlaced": [
         {
           "id": 2954,
           "name": "Rumi",
           "color": "Cream",
           "gender": "Male",
           "age": "2 months",
+          "dob": null,
+          "images": [
+            "2954-2-e0462909.webp"
+          ],
           "price": 4288,
-          "image": "2954-1-494c6ce2.webp",
+          "image": "2954-2-e0462909.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
@@ -212,29 +261,15 @@
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2954"
         },
         {
-          "id": 2575,
-          "name": "Yoru",
-          "color": "Cream",
-          "gender": "Male",
-          "age": "5 months",
-          "price": 3888,
-          "image": "2575-1-446e174f.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true,
-          "video": null,
-          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2575"
-        }
-      ],
-      "recentlyPlaced": [
-        {
           "id": 2573,
           "name": null,
           "color": "Cream",
           "gender": "Male",
           "age": "5 months",
+          "dob": null,
+          "images": [
+            "2573-2-9ec49ad0.webp"
+          ],
           "price": 3688,
           "image": "2573-2-9ec49ad0.webp",
           "location": "Balestier Area",
@@ -251,6 +286,10 @@
           "color": "Cream",
           "gender": "Male",
           "age": "5 months",
+          "dob": null,
+          "images": [
+            "2574-2-f99b87f7.webp"
+          ],
           "price": 3688,
           "image": "2574-2-f99b87f7.webp",
           "location": "Balestier Area",
@@ -267,6 +306,10 @@
           "color": "Apricot",
           "gender": "Male",
           "age": "3 months",
+          "dob": null,
+          "images": [
+            "1863-2-81cbf30e.webp"
+          ],
           "price": 3888,
           "image": "1863-2-81cbf30e.webp",
           "location": "Balestier Area",
@@ -276,22 +319,6 @@
           "hdbApproved": true,
           "video": null,
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=1863"
-        },
-        {
-          "id": 1864,
-          "name": null,
-          "color": "Apricot",
-          "gender": "Male",
-          "age": "8 weeks",
-          "price": 4488,
-          "image": "1864-2-8dcd0ca3.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true,
-          "video": null,
-          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=1864"
         }
       ]
     },
@@ -304,6 +331,10 @@
           "color": "Apricot",
           "gender": "Female",
           "age": null,
+          "dob": null,
+          "images": [
+            "2652-2-5f81ca76.webp"
+          ],
           "price": 3488,
           "image": "2652-2-5f81ca76.webp",
           "location": "Balestier Area",
@@ -320,6 +351,10 @@
           "color": "Apricot White",
           "gender": "Female",
           "age": null,
+          "dob": null,
+          "images": [
+            "2897-2-a0c4e6c2.webp"
+          ],
           "price": 3888,
           "image": "2897-2-a0c4e6c2.webp",
           "location": "Balestier Area",
@@ -336,6 +371,10 @@
           "color": "Cream",
           "gender": "Female",
           "age": null,
+          "dob": null,
+          "images": [
+            "2895-2-c577e870.webp"
+          ],
           "price": 3888,
           "image": "2895-2-c577e870.webp",
           "location": "Balestier Area",
@@ -352,6 +391,10 @@
           "color": "Cream",
           "gender": "Female",
           "age": null,
+          "dob": null,
+          "images": [
+            "2917-2-d4d4e2a2.webp"
+          ],
           "price": 4088,
           "image": "2917-2-d4d4e2a2.webp",
           "location": "Balestier Area",
@@ -373,6 +416,10 @@
           "color": "Blue Tan",
           "gender": "Female",
           "age": "4 months",
+          "dob": null,
+          "images": [
+            "2375-2-335441b7.webp"
+          ],
           "price": 4288,
           "image": "2375-2-335441b7.webp",
           "location": "Balestier Area",
@@ -386,31 +433,18 @@
       ]
     },
     "cockapoo": {
-      "available": [
-        {
-          "id": 2899,
-          "name": "Archie",
-          "color": "Apricot",
-          "gender": "Male",
-          "age": "4 months",
-          "price": 3488,
-          "image": "2899-1-82f949fd.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true,
-          "video": null,
-          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2899"
-        }
-      ],
+      "available": [],
       "recentlyPlaced": [
         {
           "id": 2698,
           "name": "Maple",
           "color": "Apricot",
           "gender": "Male",
-          "age": "3 months",
+          "age": "4 months",
+          "dob": null,
+          "images": [
+            "2698-2-98defe87.webp"
+          ],
           "price": 3488,
           "image": "2698-2-98defe87.webp",
           "location": "Balestier Area",
@@ -426,7 +460,11 @@
           "name": "Cinder",
           "color": "Apricot",
           "gender": "Male",
-          "age": "3 months",
+          "age": "4 months",
+          "dob": null,
+          "images": [
+            "2699-2-efe83f0d.webp"
+          ],
           "price": 3488,
           "image": "2699-2-efe83f0d.webp",
           "location": "Balestier Area",
@@ -443,6 +481,10 @@
           "color": "Apricot",
           "gender": "Male",
           "age": "3 months",
+          "dob": null,
+          "images": [
+            "2157-2-f4cb855c.webp"
+          ],
           "price": 3288,
           "image": "2157-2-f4cb855c.webp",
           "location": "Balestier Area",
@@ -464,6 +506,10 @@
           "color": "Red White",
           "gender": "Male",
           "age": "8 months",
+          "dob": null,
+          "images": [
+            "2431-2-792159ed.webp"
+          ],
           "price": 3488,
           "image": "2431-2-792159ed.webp",
           "location": "Balestier Area",
@@ -480,6 +526,10 @@
           "color": "Red White",
           "gender": "Female",
           "age": "8 months",
+          "dob": null,
+          "images": [
+            "2432-2-5f72bc0a.webp"
+          ],
           "price": 2988,
           "image": "2432-2-5f72bc0a.webp",
           "location": "Balestier Area",
@@ -496,6 +546,10 @@
           "color": "Tri Color",
           "gender": "Female",
           "age": "4 months",
+          "dob": null,
+          "images": [
+            "2215-2-9adbdeb8.webp"
+          ],
           "price": 3688,
           "image": "2215-2-9adbdeb8.webp",
           "location": "Balestier Area",
@@ -512,6 +566,10 @@
           "color": "Tri Color",
           "gender": "Female",
           "age": "3 months",
+          "dob": null,
+          "images": [
+            "1945-2-7bd19224.webp"
+          ],
           "price": 4488,
           "image": "1945-2-7bd19224.webp",
           "location": "Balestier Area",
@@ -533,6 +591,10 @@
           "color": "Golden",
           "gender": "Female",
           "age": "3 months",
+          "dob": null,
+          "images": [
+            "2249-2-bb0b3784.webp"
+          ],
           "price": 4488,
           "image": "2249-2-bb0b3784.webp",
           "location": "Balestier Area",
@@ -549,6 +611,10 @@
           "color": "Cream",
           "gender": "Female",
           "age": "4 months",
+          "dob": null,
+          "images": [
+            "2058-2-f00358bf.webp"
+          ],
           "price": 4688,
           "image": "2058-2-f00358bf.webp",
           "location": "Balestier Area",
@@ -570,6 +636,10 @@
           "color": "White",
           "gender": "Male",
           "age": "3 months",
+          "dob": null,
+          "images": [
+            "2093-2-e71550a2.webp"
+          ],
           "price": 4588,
           "image": "2093-2-e71550a2.webp",
           "location": "Balestier Area",
@@ -587,9 +657,13 @@
         {
           "id": 3010,
           "name": "Rowan",
-          "color": "Tri Color",
+          "color": "Black White",
           "gender": "Female",
           "age": null,
+          "dob": null,
+          "images": [
+            "3010-1-fbe5464d.webp"
+          ],
           "price": 4488,
           "image": "3010-1-fbe5464d.webp",
           "location": "Balestier Area",
@@ -606,6 +680,10 @@
           "color": "Tri Color",
           "gender": "Female",
           "age": null,
+          "dob": null,
+          "images": [
+            "3011-1-fa41e6c6.webp"
+          ],
           "price": 4488,
           "image": "3011-1-fa41e6c6.webp",
           "location": "Balestier Area",
@@ -622,6 +700,10 @@
           "color": "Tri Color",
           "gender": "Female",
           "age": null,
+          "dob": null,
+          "images": [
+            "3012-1-ad8cd478.webp"
+          ],
           "price": 4488,
           "image": "3012-1-ad8cd478.webp",
           "location": "Balestier Area",
@@ -640,6 +722,10 @@
           "color": "Choco Liver",
           "gender": "Female",
           "age": "4 months",
+          "dob": null,
+          "images": [
+            "2940-2-69c1a155.webp"
+          ],
           "price": 4588,
           "image": "2940-2-69c1a155.webp",
           "location": "Balestier Area",
@@ -656,6 +742,10 @@
           "color": "White",
           "gender": "Male",
           "age": "3 months",
+          "dob": null,
+          "images": [
+            "2094-2-08d3da19.webp"
+          ],
           "price": 4888,
           "image": "2094-2-08d3da19.webp",
           "location": "Balestier Area",
@@ -676,7 +766,14 @@
           "color": "Red",
           "gender": "Male",
           "age": "2 months",
-          "price": 3888,
+          "dob": "2026-08-28",
+          "images": [
+            "2950-1-64963ef1.webp",
+            "2950-2-8558c489.webp",
+            "2950-3-bde3fd88.webp",
+            "2950-4-1ef7b60b.webp"
+          ],
+          "price": 3688,
           "image": "2950-1-64963ef1.webp",
           "location": "Balestier Area",
           "origin": "Local",
@@ -694,6 +791,10 @@
           "color": "Apricot",
           "gender": "Female",
           "age": "3 months",
+          "dob": null,
+          "images": [
+            "2938-2-12c9f626.webp"
+          ],
           "price": 4088,
           "image": "2938-2-12c9f626.webp",
           "location": "Balestier Area",
@@ -710,6 +811,10 @@
           "color": "Cream",
           "gender": "Male",
           "age": null,
+          "dob": null,
+          "images": [
+            "2931-2-c8e08b8d.webp"
+          ],
           "price": 4088,
           "image": "2931-2-c8e08b8d.webp",
           "location": "Balestier Area",
@@ -726,6 +831,10 @@
           "color": "Apricot",
           "gender": "Female",
           "age": "5 months",
+          "dob": null,
+          "images": [
+            "2579-2-1d98fefc.webp"
+          ],
           "price": 4088,
           "image": "2579-2-1d98fefc.webp",
           "location": "Balestier Area",
@@ -742,6 +851,10 @@
           "color": "Apricot",
           "gender": "Male",
           "age": "5 months",
+          "dob": null,
+          "images": [
+            "2581-2-c2a03dac.webp"
+          ],
           "price": 3488,
           "image": "2581-2-c2a03dac.webp",
           "location": "Balestier Area",
@@ -763,6 +876,10 @@
           "color": "Dapple",
           "gender": "Female",
           "age": "3 months",
+          "dob": null,
+          "images": [
+            "2915-2-53e66033.webp"
+          ],
           "price": 3888,
           "image": "2915-2-53e66033.webp",
           "location": "Balestier Area",
@@ -779,6 +896,10 @@
           "color": "Golden",
           "gender": "Male",
           "age": "5 months",
+          "dob": null,
+          "images": [
+            "2608-2-267a983d.webp"
+          ],
           "price": 4088,
           "image": "2608-2-267a983d.webp",
           "location": "Balestier Area",
@@ -795,6 +916,10 @@
           "color": "Black Tan",
           "gender": "Female",
           "age": "5 months",
+          "dob": null,
+          "images": [
+            "2591-2-af0d69f4.webp"
+          ],
           "price": 4488,
           "image": "2591-2-af0d69f4.webp",
           "location": "Balestier Area",
@@ -811,6 +936,10 @@
           "color": "Black Tan",
           "gender": "Male",
           "age": "3 months",
+          "dob": null,
+          "images": [
+            "2392-2-f34db67b.webp"
+          ],
           "price": 4388,
           "image": "2392-2-f34db67b.webp",
           "location": "Balestier Area",
@@ -832,6 +961,10 @@
           "color": "Premium Chocolate Liver",
           "gender": "Male",
           "age": null,
+          "dob": null,
+          "images": [
+            "2918-2-aeff5fad.webp"
+          ],
           "price": 4588,
           "image": "2918-2-aeff5fad.webp",
           "location": "Balestier Area",
@@ -852,6 +985,10 @@
           "color": "Brown White",
           "gender": "Female",
           "age": null,
+          "dob": null,
+          "images": [
+            "2977-1-edcaa875.webp"
+          ],
           "price": 4488,
           "image": "2977-1-edcaa875.webp",
           "location": "Balestier Area",
@@ -868,6 +1005,13 @@
           "color": "Brown",
           "gender": "Male",
           "age": "2 months",
+          "dob": "2026-09-09",
+          "images": [
+            "3013-1-6c917932.webp",
+            "3013-2-53a90bbb.webp",
+            "3013-3-90326a86.webp",
+            "3013-4-a3b3365f.webp"
+          ],
           "price": 4088,
           "image": "3013-1-6c917932.webp",
           "location": "Balestier Area",
@@ -884,6 +1028,12 @@
           "color": "Red",
           "gender": "Male",
           "age": "2 months",
+          "dob": "2026-09-09",
+          "images": [
+            "3014-1-82f64fd3.webp",
+            "3014-2-cf09032d.webp",
+            "3014-3-6c102b7b.webp"
+          ],
           "price": 3888,
           "image": "3014-1-82f64fd3.webp",
           "location": "Balestier Area",
@@ -902,6 +1052,10 @@
           "color": "Cream",
           "gender": "Female",
           "age": "2 months",
+          "dob": null,
+          "images": [
+            "2952-2-0376f96b.webp"
+          ],
           "price": 4288,
           "image": "2952-2-0376f96b.webp",
           "location": "Balestier Area",
@@ -918,6 +1072,10 @@
           "color": "Apricot",
           "gender": "Female",
           "age": "3 months",
+          "dob": null,
+          "images": [
+            "2378-2-84c19d2e.webp"
+          ],
           "price": 3288,
           "image": "2378-2-84c19d2e.webp",
           "location": "Balestier Area",
@@ -934,6 +1092,10 @@
           "color": "Red",
           "gender": "Male",
           "age": "3 months",
+          "dob": null,
+          "images": [
+            "2280-2-dbb7c64e.webp"
+          ],
           "price": 3288,
           "image": "2280-2-dbb7c64e.webp",
           "location": "Balestier Area",
@@ -950,6 +1112,10 @@
           "color": "Apricot",
           "gender": "Male",
           "age": "3 months",
+          "dob": null,
+          "images": [
+            "2281-2-7da284e5.webp"
+          ],
           "price": 3488,
           "image": "2281-2-7da284e5.webp",
           "location": "Balestier Area",
@@ -970,6 +1136,13 @@
       "color": "Tri Color",
       "gender": "Female",
       "age": "3 months",
+      "dob": "2026-07-21",
+      "images": [
+        "2937-1-b8742a9d.webp",
+        "2937-2-99ce09c1.webp",
+        "2937-3-74d3fa43.webp",
+        "2937-4-88dd6a71.webp"
+      ],
       "price": 3288,
       "image": "2937-1-b8742a9d.webp",
       "location": "Balestier Area",
@@ -984,5 +1157,407 @@
   ],
   "unmapped": [
     "Corgipoo"
-  ]
+  ],
+  "excluded": [
+    {
+      "id": "",
+      "name": null,
+      "breedLabel": "Import Services",
+      "location": null,
+      "reason": "no location in the sheet"
+    },
+    {
+      "id": 3015,
+      "name": "Nico",
+      "breedLabel": "Cavapoo",
+      "location": "Choa Chu Kang",
+      "reason": "location \"Choa Chu Kang\" is not Balestier"
+    },
+    {
+      "id": 3016,
+      "name": "Lake",
+      "breedLabel": "Cavapoo",
+      "location": "Choa Chu Kang",
+      "reason": "location \"Choa Chu Kang\" is not Balestier"
+    },
+    {
+      "id": 3017,
+      "name": "Echo",
+      "breedLabel": "Cavapoo",
+      "location": "Choa Chu Kang",
+      "reason": "location \"Choa Chu Kang\" is not Balestier"
+    },
+    {
+      "id": 2916,
+      "name": "Milo",
+      "breedLabel": "Dachshund",
+      "location": "Choa Chu Kang",
+      "reason": "location \"Choa Chu Kang\" is not Balestier"
+    },
+    {
+      "id": 2899,
+      "name": "Archie",
+      "breedLabel": "Cockapoo",
+      "location": "Choa Chu Kang",
+      "reason": "location \"Choa Chu Kang\" is not Balestier"
+    },
+    {
+      "id": 2985,
+      "name": "Dakota",
+      "breedLabel": "Corgipoo",
+      "location": "Choa Chu Kang",
+      "reason": "location \"Choa Chu Kang\" is not Balestier"
+    },
+    {
+      "id": 2986,
+      "name": "Fuji",
+      "breedLabel": "Corgipoo",
+      "location": "Choa Chu Kang",
+      "reason": "location \"Choa Chu Kang\" is not Balestier"
+    },
+    {
+      "id": 2987,
+      "name": "Frankie",
+      "breedLabel": "Corgipoo",
+      "location": "Choa Chu Kang",
+      "reason": "location \"Choa Chu Kang\" is not Balestier"
+    },
+    {
+      "id": 2700,
+      "name": "Comet",
+      "breedLabel": "Cockapoo",
+      "location": "Choa Chu Kang",
+      "reason": "location \"Choa Chu Kang\" is not Balestier"
+    },
+    {
+      "id": 2930,
+      "name": "Mochi",
+      "breedLabel": "Maltipoo",
+      "location": "Choa Chu Kang",
+      "reason": "location \"Choa Chu Kang\" is not Balestier"
+    },
+    {
+      "id": 2694,
+      "name": "Pepper",
+      "breedLabel": "Cavapoo",
+      "location": "Choa Chu Kang",
+      "reason": "location \"Choa Chu Kang\" is not Balestier"
+    },
+    {
+      "id": 2907,
+      "name": "Honey",
+      "breedLabel": "Corgipoo",
+      "location": "Choa Chu Kang",
+      "reason": "location \"Choa Chu Kang\" is not Balestier"
+    },
+    {
+      "id": 3004,
+      "name": "Keiko",
+      "breedLabel": "Yorkshire Terrier",
+      "location": "MacPherson",
+      "reason": "location \"MacPherson\" is not Balestier"
+    },
+    {
+      "id": 3005,
+      "name": "Pax",
+      "breedLabel": "Yorkshire Terrier",
+      "location": "MacPherson",
+      "reason": "location \"MacPherson\" is not Balestier"
+    },
+    {
+      "id": 3006,
+      "name": "Piper",
+      "breedLabel": "Yorkshire Terrier",
+      "location": "MacPherson",
+      "reason": "location \"MacPherson\" is not Balestier"
+    },
+    {
+      "id": 3008,
+      "name": "Max",
+      "breedLabel": "Cavapoo",
+      "location": "MacPherson",
+      "reason": "location \"MacPherson\" is not Balestier"
+    },
+    {
+      "id": 2999,
+      "name": "Sutton",
+      "breedLabel": "Shihpoo",
+      "location": "Joo Chiat",
+      "reason": "location \"Joo Chiat\" is not Balestier"
+    },
+    {
+      "id": 3000,
+      "name": "Haven",
+      "breedLabel": "Shihpoo",
+      "location": "Joo Chiat",
+      "reason": "location \"Joo Chiat\" is not Balestier"
+    },
+    {
+      "id": 3001,
+      "name": "Spencer",
+      "breedLabel": "Whippet",
+      "location": "Joo Chiat",
+      "reason": "location \"Joo Chiat\" is not Balestier"
+    },
+    {
+      "id": 3002,
+      "name": "Jasper",
+      "breedLabel": "Pug",
+      "location": "Joo Chiat",
+      "reason": "location \"Joo Chiat\" is not Balestier"
+    },
+    {
+      "id": 3003,
+      "name": "Ginger",
+      "breedLabel": "French Bulldog",
+      "location": "Joo Chiat",
+      "reason": "location \"Joo Chiat\" is not Balestier"
+    },
+    {
+      "id": 2996,
+      "name": "Logan",
+      "breedLabel": "Schnoodle",
+      "location": "Eng Kong",
+      "reason": "location \"Eng Kong\" is not Balestier"
+    },
+    {
+      "id": 2997,
+      "name": "Fern",
+      "breedLabel": "Schnoodle",
+      "location": "Eng Kong",
+      "reason": "location \"Eng Kong\" is not Balestier"
+    },
+    {
+      "id": 2998,
+      "name": "Ash",
+      "breedLabel": "Chowspitz",
+      "location": "Eng Kong",
+      "reason": "location \"Eng Kong\" is not Balestier"
+    },
+    {
+      "id": 2983,
+      "name": "Robin",
+      "breedLabel": "Golden Retriever",
+      "location": "Choa Chu Kang Area",
+      "reason": "location \"Choa Chu Kang Area\" is not Balestier"
+    },
+    {
+      "id": 2991,
+      "name": "Charlie",
+      "breedLabel": "Goldendoodle",
+      "location": "Joo Chiat",
+      "reason": "location \"Joo Chiat\" is not Balestier"
+    },
+    {
+      "id": 2992,
+      "name": "Bobo",
+      "breedLabel": "Bordodoodle",
+      "location": "Joo Chiat",
+      "reason": "location \"Joo Chiat\" is not Balestier"
+    },
+    {
+      "id": 2995,
+      "name": "Dune",
+      "breedLabel": "Cockapoo",
+      "location": "Joo Chiat",
+      "reason": "location \"Joo Chiat\" is not Balestier"
+    },
+    {
+      "id": 2976,
+      "name": "Clover",
+      "breedLabel": "Maltipoo",
+      "location": "Paya Lebar",
+      "reason": "location \"Paya Lebar\" is not Balestier"
+    },
+    {
+      "id": 2970,
+      "name": "Yuki",
+      "breedLabel": "Cavapoo",
+      "location": "Joo Chiat",
+      "reason": "location \"Joo Chiat\" is not Balestier"
+    },
+    {
+      "id": 2955,
+      "name": "Reese",
+      "breedLabel": "Cavapoo",
+      "location": "Serangoon",
+      "reason": "location \"Serangoon\" is not Balestier"
+    },
+    {
+      "id": 2957,
+      "name": "Toby",
+      "breedLabel": "Maltipoo",
+      "location": "Serangoon",
+      "reason": "location \"Serangoon\" is not Balestier"
+    },
+    {
+      "id": 2958,
+      "name": "Jules",
+      "breedLabel": "Samoyed",
+      "location": "Serangoon",
+      "reason": "location \"Serangoon\" is not Balestier"
+    },
+    {
+      "id": 2959,
+      "name": "River",
+      "breedLabel": "Poochon",
+      "location": "Serangoon",
+      "reason": "location \"Serangoon\" is not Balestier"
+    },
+    {
+      "id": 2960,
+      "name": "Lucky",
+      "breedLabel": "Poochon",
+      "location": "Serangoon",
+      "reason": "location \"Serangoon\" is not Balestier"
+    },
+    {
+      "id": 2961,
+      "name": "Phoenix",
+      "breedLabel": "Alaskan Malamute",
+      "location": "Serangoon",
+      "reason": "location \"Serangoon\" is not Balestier"
+    },
+    {
+      "id": 2963,
+      "name": "Jelly",
+      "breedLabel": "Poochon",
+      "location": "Serangoon",
+      "reason": "location \"Serangoon\" is not Balestier"
+    },
+    {
+      "id": 2948,
+      "name": "Jamie",
+      "breedLabel": "Labradoodle",
+      "location": "Eng Kong",
+      "reason": "location \"Eng Kong\" is not Balestier"
+    },
+    {
+      "id": 2942,
+      "name": "Sam",
+      "breedLabel": "Malshi",
+      "location": "Bedok",
+      "reason": "location \"Bedok\" is not Balestier"
+    },
+    {
+      "id": 2941,
+      "name": "Gizmo",
+      "breedLabel": "Malshi",
+      "location": "Bedok",
+      "reason": "location \"Bedok\" is not Balestier"
+    },
+    {
+      "id": 2943,
+      "name": "Kobe",
+      "breedLabel": "Dachshund",
+      "location": "Bedok",
+      "reason": "location \"Bedok\" is not Balestier"
+    },
+    {
+      "id": 2964,
+      "name": "Blake",
+      "breedLabel": "Goldendoodle",
+      "location": "Eng Kong",
+      "reason": "location \"Eng Kong\" is not Balestier"
+    },
+    {
+      "id": 2967,
+      "name": "Bella",
+      "breedLabel": "Pomsky Spitz",
+      "location": "Eng Kong",
+      "reason": "location \"Eng Kong\" is not Balestier"
+    },
+    {
+      "id": 2968,
+      "name": "Brook",
+      "breedLabel": "Golden Retriever",
+      "location": "Eng Kong",
+      "reason": "location \"Eng Kong\" is not Balestier"
+    },
+    {
+      "id": 2900,
+      "name": "Loki",
+      "breedLabel": "French Bulldog",
+      "location": "Joo Chiat",
+      "reason": "location \"Joo Chiat\" is not Balestier"
+    },
+    {
+      "id": 2920,
+      "name": "Willow",
+      "breedLabel": "Maltipoo",
+      "location": "Serangoon",
+      "reason": "location \"Serangoon\" is not Balestier"
+    },
+    {
+      "id": 2922,
+      "name": "Churro",
+      "breedLabel": "Golden Retriever",
+      "location": "Serangoon",
+      "reason": "location \"Serangoon\" is not Balestier"
+    },
+    {
+      "id": 2925,
+      "name": "Remy",
+      "breedLabel": "Poodle",
+      "location": "Serangoon",
+      "reason": "location \"Serangoon\" is not Balestier"
+    },
+    {
+      "id": 2889,
+      "name": "Bandit",
+      "breedLabel": "Bichon Frise",
+      "location": "MacPherson",
+      "reason": "location \"MacPherson\" is not Balestier"
+    },
+    {
+      "id": 2695,
+      "name": "Trixie",
+      "breedLabel": "Cockerpoo",
+      "location": "Bedok",
+      "reason": "location \"Bedok\" is not Balestier"
+    },
+    {
+      "id": 2686,
+      "name": "Blue",
+      "breedLabel": "Poochon",
+      "location": "Serangoon",
+      "reason": "location \"Serangoon\" is not Balestier"
+    },
+    {
+      "id": 2665,
+      "name": "Roxy",
+      "breedLabel": "Maltipoo",
+      "location": "Eng Kong",
+      "reason": "location \"Eng Kong\" is not Balestier"
+    },
+    {
+      "id": 2655,
+      "name": "Theo",
+      "breedLabel": "Corgi",
+      "location": "Katong",
+      "reason": "location \"Katong\" is not Balestier"
+    },
+    {
+      "id": 2656,
+      "name": "Sakura",
+      "breedLabel": "Corgi",
+      "location": "Katong",
+      "reason": "location \"Katong\" is not Balestier"
+    }
+  ],
+  "excludedByLocation": {
+    "(blank)": 282,
+    "Choa Chu Kang": 113,
+    "MacPherson": 59,
+    "Joo Chiat": 109,
+    "Eng Kong": 26,
+    "Choa Chu Kang Area": 10,
+    "Paya Lebar": 20,
+    "Serangoon": 197,
+    "Bedok": 57,
+    "Katong": 32,
+    "Serangoon Garden": 126,
+    "MacPherson Area": 20,
+    "Lavender": 10
+  }
 }

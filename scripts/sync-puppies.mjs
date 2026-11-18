@@ -42,10 +42,10 @@ const archive = existsSync(ARCHIVE_FILE)
   ? JSON.parse(await readFile(ARCHIVE_FILE, 'utf8'))
   : { pups: [] };
 
-const SHEET = 'I1dT5XVf1N96882pe1ZISdPxULIp0uvEMWU1nEaf-qstyqVRK-IKhTNhSjTAY1GevnSG';
-// Options blob captured from the live site (33 rows/page, its known-good config).
+const SHEET = 'dlg55NJL1N96882pe1ZISdPxULIp0uQxp0zWdoaf-qstyqVRK-IKhTNhSjTA-HEU0S5w';
+// Options blob as the live availablepuppies page uses it (66 rows/page, re-pointed 2026-11-18).
 const OPTIONS =
-  'eyJyb3dzTGltaXQiOjUwMDAsImRlYWxUeXBlIjoiYXBwc3VtbyIsImR5bmFtaWNEYXRhIjp7InNoZWV0SGFzaCI6IjEwNzA0MzA4NTMiLCJTQ1BUYWJsZUxhdGVzdFVwZGF0ZVRpbWVzdGFtcCI6MTc4NTM5MTI4NDg3MX0sInNlYXJjaCI6eyJlbmFibGVkIjp0cnVlLCJjb2x1bW5zIjpbIkJyZWVkLSIsIlByaWNlJC0iLCJDb2xvci0iLCJBZ2UtIiwiR2VuZGVyLSIsIkhEQkFwcHJvdmVkLSIsIlNpemUtIiwiTG9jYXRpb24tIiwiT3JpZ2luLSIsIkltYWdlLSJdfSwic29ydGluZyI6eyJlbmFibGVkIjp0cnVlLCJzaHVmZmxlIjpmYWxzZX0sInBhZ2luYXRpb24iOnsiZW5hYmxlZCI6dHJ1ZSwiaXRlbXNQZXJQYWdlIjoiMzMifSwiZmlsdGVycyI6eyJlbmFibGVkIjp0cnVlLCJ2YWx1ZXMiOlt7ImlkIjoiQnJlZWQtIiwidHlwZSI6Im11bHRpcGxlIn0seyJpZCI6IkdlbmRlci0iLCJ0eXBlIjoibXVsdGlwbGUifSx7ImlkIjoiTG9jYXRpb24tIiwidHlwZSI6Im11bHRpcGxlIn0seyJpZCI6IkhEQkFwcHJvdmVkLSIsInR5cGUiOiJtdWx0aXBsZSJ9XX0sIm1hcFZpZXciOnsiZW5hYmxlZCI6ZmFsc2UsImlkIjpudWxsLCJtYXJrZXJUeXBlIjoicGluIiwiaW1hZ2VDb2xJZCI6IiJ9LCJjYWxlbmRhclZpZXciOnsiZW5hYmxlZCI6ZmFsc2UsInN0YXJ0RGF0ZUNvbElkIjpudWxsLCJ0aXRsZUNvbElkIjoiQnJlZWQtIn19';
+  'eyJyb3dzTGltaXQiOjUwMDAsImRlYWxUeXBlIjoiYXBwc3VtbyIsImR5bmFtaWNEYXRhIjp7InNoZWV0SGFzaCI6IjE5MjIyOTYwMTMiLCJTQ1BUYWJsZUxhdGVzdFVwZGF0ZVRpbWVzdGFtcCI6MTc5NDk4ODk5MzMxNH0sInNlYXJjaCI6eyJlbmFibGVkIjp0cnVlLCJjb2x1bW5zIjpbIkJyZWVkLSIsIlByaWNlJC0iLCJDb2xvci0iLCJBZ2UtIiwiR2VuZGVyLSIsIkhEQkFwcHJvdmVkLSIsIlNpemUtIiwiTG9jYXRpb24tIiwiT3JpZ2luLSIsIkltYWdlLSJdfSwic29ydGluZyI6eyJlbmFibGVkIjp0cnVlLCJzaHVmZmxlIjpmYWxzZX0sInBhZ2luYXRpb24iOnsiZW5hYmxlZCI6dHJ1ZSwiaXRlbXNQZXJQYWdlIjoiNjYifSwiZmlsdGVycyI6eyJlbmFibGVkIjp0cnVlLCJ2YWx1ZXMiOlt7ImlkIjoiQnJlZWQtIiwidHlwZSI6Im11bHRpcGxlIn0seyJpZCI6IkdlbmRlci0iLCJ0eXBlIjoibXVsdGlwbGUifSx7ImlkIjoiTG9jYXRpb24tIiwidHlwZSI6Im11bHRpcGxlIn0seyJpZCI6IkhEQkFwcHJvdmVkLSIsInR5cGUiOiJtdWx0aXBsZSJ9XX0sIm1hcFZpZXciOnsiZW5hYmxlZCI6ZmFsc2UsImlkIjpudWxsLCJtYXJrZXJUeXBlIjoicGluIiwiaW1hZ2VDb2xJZCI6IiJ9LCJjYWxlbmRhclZpZXciOnsiZW5hYmxlZCI6ZmFsc2UsInN0YXJ0RGF0ZUNvbElkIjpudWxsLCJ0aXRsZUNvbElkIjoiQnJlZWQtIn19';
 
 // Owner-reported sales the sheet has not marked yet (src/data/sold-overrides.json).
 const MANUAL_SOLD = new Set(
@@ -61,7 +61,7 @@ const LOCATION_OVERRIDES = existsSync(path.join(ROOT, 'src', 'data', 'location-o
   ? JSON.parse(await readFile(path.join(ROOT, 'src', 'data', 'location-overrides.json'), 'utf8')).locations
   : {};
 
-const AVAILABLE_ROWS = 33; // top of the sheet = page 1 of the spread site
+const AVAILABLE_ROWS = 66; // top of the sheet = page 1 of the live spread site (itemsPerPage 66)
 const MAX_PLACED = 4;
 const IMG_WIDTH = 800;
 
@@ -169,20 +169,36 @@ const numCell = (row, key) => {
 };
 
 async function fetchAllRows() {
+  // Read in 300-row pages (the server honours it): ~5 requests, not one per 33 rows.
+  const FETCH_OPTIONS = Buffer.from(
+    JSON.stringify({ ...JSON.parse(Buffer.from(OPTIONS, 'base64').toString('utf8')), pagination: { enabled: true, itemsPerPage: 300 } }),
+  ).toString('base64');
   const rows = [];
   let page = 1;
   for (;;) {
     const query = Buffer.from(
       JSON.stringify({ paginate: { currentPage: page }, sortBy: { id: 'INDEX', direction: 'asc' } }),
     ).toString('base64');
-    const url = `https://spread.name/sheet/${SHEET}?query=${encodeURIComponent(query)}&options=${encodeURIComponent(OPTIONS)}`;
-    const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (curious-tails sync)' } });
-    if (!res.ok) throw new Error(`feed page ${page}: HTTP ${res.status}`);
+    const url = `https://spread.name/sheet/${SHEET}?query=${encodeURIComponent(query)}&options=${encodeURIComponent(FETCH_OPTIONS)}`;
+    // The feed rate-limits bursts with 403; retry 403/429/5xx with a growing pause.
+    let res;
+    for (let attempt = 1; ; attempt++) {
+      res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (curious-tails sync)' } });
+      if (res.ok) break;
+      const retryable = res.status === 403 || res.status === 429 || res.status >= 500;
+      if (!retryable || attempt >= 6) throw new Error(`feed page ${page}: HTTP ${res.status}`);
+      const wait = 20000 * attempt;
+      process.stdout.write(`
+feed HTTP ${res.status}; retry ${attempt} in ${wait / 1000}s
+`);
+      await new Promise((r) => setTimeout(r, wait));
+    }
     const json = await res.json();
     const batch = json.table?.rows ?? [];
     if (batch.length === 0) break;
     rows.push(...batch);
-    process.stdout.write(`\rfeed: ${rows.length}/${json.totalRows} rows`);
+    process.stdout.write(`
+feed: ${rows.length}/${json.totalRows} rows`);
     if (rows.length >= json.totalRows) break;
     page += 1;
     await new Promise((r) => setTimeout(r, 400));

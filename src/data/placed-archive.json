@@ -1,7 +1,7 @@
 {
   "_note": "Written by scripts/sync-puppies.mjs, never rebuilt from scratch: puppies that left the available list. status: placed (sold evidence, shown under \"Puppies That Found Their Loving Homes\"), withdrawn (no evidence, never shown), expired (past retention). placedAt = the day the sync first saw it gone (SGT); lastListed = the last day it was listed. Do not hand-edit; to mark a sale, add the id to sold-overrides.json and re-run the sync.",
   "lastSync": {
-    "at": "2026-11-14T05:22:45.354Z",
+    "at": "2026-11-18T07:45:20.181Z",
     "listed": [
       {
         "id": 2980,
@@ -38,6 +38,32 @@
         "age": null,
         "image": "2977-1-edcaa875.webp",
         "origin": "UK",
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": true
+      },
+      {
+        "id": 3013,
+        "breed": "toy-poodle",
+        "name": "Mango",
+        "color": "Brown",
+        "gender": "Male",
+        "age": "2 months",
+        "image": "3013-1-6c917932.webp",
+        "origin": "Local",
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": true
+      },
+      {
+        "id": 3014,
+        "breed": "toy-poodle",
+        "name": "Pip",
+        "color": "Red",
+        "gender": "Male",
+        "age": "2 months",
+        "image": "3014-1-82f64fd3.webp",
+        "origin": "Local",
         "sizeNote": null,
         "crossLabel": null,
         "hdbApproved": true
@@ -126,7 +152,7 @@
         "name": "Archie",
         "color": "Apricot",
         "gender": "Male",
-        "age": "3 months",
+        "age": "4 months",
         "image": "2899-1-82f949fd.webp",
         "origin": "Local",
         "sizeNote": null,
@@ -136,24 +162,6 @@
     ]
   },
   "pups": [
-    {
-      "id": 2981,
-      "breed": "cavapoo",
-      "name": "Noodle",
-      "color": "Brown",
-      "gender": "Male",
-      "age": "3 months",
-      "image": "2981-1-11dbb137.webp",
-      "origin": "Local",
-      "sizeNote": null,
-      "crossLabel": null,
-      "hdbApproved": true,
-      "status": "withdrawn",
-      "placedAt": "2026-11-14",
-      "lastListed": "2026-11-01",
-      "source": "sync",
-      "evidence": "out-of-area"
-    },
     {
       "id": 2978,
       "breed": "maltese",
@@ -168,9 +176,27 @@
       "hdbApproved": true,
       "status": "withdrawn",
       "placedAt": "2026-11-14",
-      "lastListed": "2026-11-01",
+      "lastListed": "2026-11-13",
       "source": "sync",
       "evidence": "not-in-sheet"
+    },
+    {
+      "id": 2981,
+      "breed": "cavapoo",
+      "name": "Noodle",
+      "color": "Brown",
+      "gender": "Male",
+      "age": "3 months",
+      "image": "2981-1-11dbb137.webp",
+      "origin": "Local",
+      "sizeNote": null,
+      "crossLabel": null,
+      "hdbApproved": true,
+      "status": "withdrawn",
+      "placedAt": "2026-11-05",
+      "lastListed": "2026-11-04",
+      "source": "sync",
+      "evidence": "out-of-area"
     },
     {
       "id": 2952,
@@ -185,8 +211,8 @@
       "crossLabel": null,
       "hdbApproved": true,
       "status": "placed",
-      "placedAt": "2026-11-14",
-      "lastListed": "2026-11-01",
+      "placedAt": "2026-11-03",
+      "lastListed": "2026-11-02",
       "source": "sync",
       "evidence": "sold-overlay"
     },
@@ -203,7 +229,7 @@
       "crossLabel": null,
       "hdbApproved": true,
       "status": "placed",
-      "placedAt": "2026-11-14",
+      "placedAt": "2026-11-02",
       "lastListed": "2026-11-01",
       "source": "sync",
       "evidence": "sold-overlay"
@@ -391,7 +417,7 @@
     {
       "id": 2700,
       "breed": "cockapoo",
-      "status": "withdrawn",
+      "status": "placed",
       "placedAt": "2026-10-11",
       "lastListed": "2026-10-11",
       "source": "git-history",
@@ -404,7 +430,7 @@
       "sizeNote": null,
       "crossLabel": "Cockapoo",
       "hdbApproved": true,
-      "evidence": "out-of-area"
+      "evidence": "sold-override"
     },
     {
       "id": 2918,

@@ -4,6 +4,16 @@ The imported-puppy feed refreshes itself once a day. It never deploys: the
 scheduled run stops after the public JSON and the images are written, so a
 publish is still an owner decision.
 
+> **Changed 2026-11-18 (owner decision, PLAN-puppy-sales-recovery D2):** the
+> scheduled run now **auto-publishes** every gate-passing item (safety valve off)
+> and runs with `--push`, which commits only `src/data/imported-puppies.json` and
+> `src/assets/imported/` to GitHub `main` from a dedicated worktree
+> (`D:\Claude Code\_ct-imports-publish`). That push deploys the site. Lead-only
+> sources (dfsi, puppies.ie), the leak check, liveness (a listing gone from its
+> source never publishes) and takedowns still apply. Kill switch:
+> `IMPORTS_DAILY_AUTOPUBLISH=0` in the task environment. The sections below
+> describe the original queue-only design.
+
 ## What runs
 
 - **Task name:** `Curious Tails Imports Sync`

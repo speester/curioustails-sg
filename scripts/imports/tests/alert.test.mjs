@@ -172,7 +172,7 @@ test('writeAlertFiles: both durable files exist and carry no PII', () => {
     assert.match(full, /NEEDS-ATTENTION/);
     assert.match(full, /run-failed/);
     assert.match(full, /no BOARD_TOKEN/);
-    assert.match(full, /Autopublish: OFF/);
+    assert.match(full, /Autopublish: ON/);
     assert.match(pointer, /logs\/imports\/NEEDS-ATTENTION\.md/);
     assertNoPii(full, 'alert');
     assertNoPii(pointer, 'pointer');
@@ -242,7 +242,8 @@ test('runDaily: a blocked host exits 1 and leaves the alert artefacts', async ()
     const record = JSON.parse(readFileSync(join(root, 'logs', 'imports', 'last-run.json'), 'utf8'));
     assert.equal(record.status, 'failed');
     assert.equal(record.exitCode, 1);
-    assert.equal(record.autopublish, false);
+    assert.equal(record.autopublish, true);
+    assert.equal(record.push, null, 'a failed run never pushes');
     assert.equal(record.board.skipped, 'no-board-token');
     const alert = readFileSync(join(root, 'logs', 'imports', 'NEEDS-ATTENTION.md'), 'utf8');
     assert.match(alert, /source-blocked/);
@@ -254,7 +255,7 @@ test('runDaily: a blocked host exits 1 and leaves the alert artefacts', async ()
   }
 });
 
-test('runDaily: a clean no-fetch run exits 0, records auto-ready and stays unpublished', async () => {
+test('runDaily: with the kill switch, a clean no-fetch run records auto-ready and stays unpublished', async () => {
   const root = tempRepo();
   const store = tempStore();
   const rec = cleanRecord(store, { listingId: 'k092-clean-jrt' });
@@ -264,8 +265,9 @@ test('runDaily: a clean no-fetch run exits 0, records auto-ready and stays unpub
       argv: ['--no-fetch'],
       repoRoot: root,
       store,
-      // Proves the scheduled runner overrides an inherited auto-publish flag.
-      env: { IMPORTS_AUTOPUBLISH: '1' },
+      // IMPORTS_DAILY_AUTOPUBLISH=0 restores queue-only mode, and an inherited
+      // IMPORTS_AUTOPUBLISH still cannot override the runner's decision.
+      env: { IMPORTS_AUTOPUBLISH: '1', IMPORTS_DAILY_AUTOPUBLISH: '0' },
       now: () => NOW,
     });
     assert.equal(r.exitCode, 0);
@@ -291,6 +293,96 @@ test('runDaily: a clean no-fetch run exits 0, records auto-ready and stays unpub
   }
 });
 
+test('runDaily: by default a clean item publishes, a lead-only item never does, and --push ships the feed', async () => {
+  const root = tempRepo();
+  const store = tempStore();
+  const clean = cleanRecord(store, { listingId: 'd2-clean' });
+  const lead = cleanRecord(store, { supplier: 'dogsie', listingId: 'd2-lead', viaSite: 'puppies.ie', dhashBase: 'abcdabcdabcdabc', chips: ['372112345678911'] });
+  seed(store, [clean, lead]);
+  const calls = [];
+  try {
+    const r = await runDaily({
+      argv: ['--no-fetch', '--push'],
+      repoRoot: root,
+      store,
+      env: {},
+      now: () => NOW,
+      pushFeed: (opts) => { calls.push(opts); return { pushed: true, commit: 'abc1234' }; },
+    });
+    assert.equal(r.exitCode, 0);
+    assert.equal(r.record.autopublish, true);
+    assert.equal(r.record.counts.feedPups, 1, 'the clean item reaches the public feed');
+    const feed = JSON.parse(readFileSync(join(root, 'src', 'data', 'imported-puppies.json'), 'utf8'));
+    assert.equal(feed.pups.length, 1);
+    assert.equal(r.record.queue.leadOnly, 1, 'the lead-only record stays in the queue');
+    assert.equal(calls.length, 1);
+    assert.equal(calls[0].repoRoot, root);
+    assert.deepEqual(r.record.push, { pushed: true, commit: 'abc1234' });
+    assertNoPii(JSON.stringify(feed), 'public feed');
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+    rmSync(store.dir, { recursive: true, force: true });
+  }
+});
+
+test('runDaily: a listing its source no longer shows never publishes, even on first sight', async () => {
+  const root = tempRepo();
+  const store = tempStore();
+  const gone = cleanRecord(store, { listingId: 'd2-gone' });
+  gone.missingRuns = 2;
+  seed(store, [gone]);
+  try {
+    const r = await runDaily({ argv: ['--no-fetch'], repoRoot: root, store, env: {}, now: () => NOW });
+    assert.equal(r.exitCode, 0);
+    assert.equal(r.record.counts.feedPups, 0, 'a gone listing must not reach the public feed');
+    const feed = JSON.parse(readFileSync(join(root, 'src', 'data', 'imported-puppies.json'), 'utf8'));
+    assert.equal(feed.pups.length, 0);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+    rmSync(store.dir, { recursive: true, force: true });
+  }
+});
+
+test('runDaily: a failed push is a soft alert, the run still exits 0', async () => {
+  const root = tempRepo();
+  const store = tempStore();
+  seed(store, [cleanRecord(store, { listingId: 'd2-push-fail' })]);
+  try {
+    const r = await runDaily({
+      argv: ['--no-fetch', '--push'],
+      repoRoot: root,
+      store,
+      env: {},
+      now: () => NOW,
+      pushFeed: () => { throw new Error('rejected: non-fast-forward'); },
+    });
+    assert.equal(r.exitCode, 0);
+    assert.equal(r.status, 'attention');
+    assert.equal(r.record.push.pushed, false);
+    assert.ok(r.record.alerts.some((a) => a.code === 'push-failed'));
+    assert.ok(existsSync(join(root, 'logs', 'imports', 'NEEDS-ATTENTION.md')));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+    rmSync(store.dir, { recursive: true, force: true });
+  }
+});
+
+test('runDaily: without --push nothing is pushed', async () => {
+  const root = tempRepo();
+  const store = tempStore();
+  seed(store, [cleanRecord(store, { listingId: 'd2-no-push' })]);
+  let called = false;
+  try {
+    const r = await runDaily({ argv: ['--no-fetch'], repoRoot: root, store, env: {}, now: () => NOW, pushFeed: () => { called = true; return {}; } });
+    assert.equal(r.exitCode, 0);
+    assert.equal(called, false);
+    assert.equal(r.record.push, null);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+    rmSync(store.dir, { recursive: true, force: true });
+  }
+});
+
 test('runDaily: last-run.json carries autoReady, review and leadOnly as separate counts', async () => {
   const root = tempRepo();
   const store = tempStore();
@@ -298,7 +390,7 @@ test('runDaily: last-run.json carries autoReady, review and leadOnly as separate
   const lead = cleanRecord(store, { supplier: 'dogsie', listingId: 'k139-lead', viaSite: 'puppies.ie', dhashBase: 'abcdabcdabcdabc', chips: ['372112345678911'] });
   seed(store, [clean, lead]);
   try {
-    const r = await runDaily({ argv: ['--no-fetch'], repoRoot: root, store, env: {}, now: () => NOW });
+    const r = await runDaily({ argv: ['--no-fetch'], repoRoot: root, store, env: { IMPORTS_DAILY_AUTOPUBLISH: '0' }, now: () => NOW });
     assert.equal(r.exitCode, 0);
     const record = JSON.parse(readFileSync(join(root, 'logs', 'imports', 'last-run.json'), 'utf8'));
     assert.equal(record.queue.autoReady, 1);

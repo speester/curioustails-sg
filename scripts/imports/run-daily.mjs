@@ -6,19 +6,21 @@
 //
 // It runs the SAME pipeline as `npm run sync:imports` (fetch → normalise →
 // dedupe → gates → images → public JSON) and then:
-//   * forces IMPORTS_AUTOPUBLISH off, so the scheduled run only ever produces
-//     auto-ready records and a queue; publishing stays an owner action
+//   * auto-publishes gate-passing records (owner decision 2026-11-18; kill
+//     switch IMPORTS_DAILY_AUTOPUBLISH=0) and, with --push, commits only the
+//     public feed + its WebPs to GitHub main, which deploys the site
 //   * appends a counts-only run line to logs/imports/<UTC date>.log
 //   * writes logs/imports/last-run.json (the clean-run record)
 //   * on a hard failure or a soft owner action, writes NEEDS-ATTENTION.md in
 //     logs/imports/ and at the repo root, and posts to the board when
 //     BOARD_TOKEN (and BOARD_URL) are set
-// It never builds, commits or deploys.
+// It never builds; it commits and pushes only with --push (see lib/publish-feed.mjs).
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { openStore, readDotenvValue } from './lib/store.mjs';
 import { runSync } from './sync-imports.mjs';
+import { publishFeed } from './lib/publish-feed.mjs';
 import { sanitiseLogLine, FeedValidationError, RunBusyError } from './lib/pipeline.mjs';
 import {
   classifyRun,
@@ -39,6 +41,7 @@ export const USAGE = [
   '                  or IMPORTS_DOTENV). The scheduled task passes the owner path explicitly',
   '                  so a SYSTEM task does not look in the system profile.',
   '  --repo DIR      repository root (default: this checkout)',
+  '  --push          after a run that did not fail, commit the public feed + WebPs to main and push',
   '  every other flag is handed to the imports pipeline unchanged.',
 ].join('\n');
 
@@ -48,9 +51,12 @@ export function parseDailyArgs(argv = []) {
   let dotenv = null;
   let repoRoot = null;
   let help = false;
+  let push = false;
   for (let i = 0; i < argv.length; i++) {
     const k = argv[i];
-    if (k === '--dotenv' || k === '--repo') {
+    if (k === '--push') {
+      push = true;
+    } else if (k === '--dotenv' || k === '--repo') {
       const v = argv[++i];
       if (!v) throw new Error(`${k} needs a value`);
       if (k === '--dotenv') dotenv = v;
@@ -61,7 +67,7 @@ export function parseDailyArgs(argv = []) {
       pipelineArgv.push(k);
     }
   }
-  return { pipelineArgv, dotenv, repoRoot, help };
+  return { pipelineArgv, dotenv, repoRoot, help, push };
 }
 
 function appendLog(logPath, lines) {
@@ -106,6 +112,7 @@ export async function runDaily({
   createHttpFn,
   fetchImpl,
   boardFetch,
+  pushFeed,
 } = {}) {
   let parsed;
   try {
@@ -137,12 +144,24 @@ export async function runDaily({
     }
   }
   const autopublishEnvPresent = Object.prototype.hasOwnProperty.call(envIn, 'IMPORTS_AUTOPUBLISH');
-  // The scheduled run is deliberately not an auto-publisher. The owner approves
-  // in the review queue; the next manual/supervised run writes the feed.
+  // Owner decision 2026-11-18 (PLAN-puppy-sales-recovery D2), taken before the
+  // T17 counsel sign-off: the scheduled run auto-publishes every gate-passing
+  // item. The gates, the lead-only rule (dfsi, puppies.ie), the leak check and
+  // the takedown path all still apply; only the first-run safety valve (14 days
+  // / first 20 per supplier held as auto-ready) is switched off.
+  // Kill switch: IMPORTS_DAILY_AUTOPUBLISH=0 restores queue-only behaviour.
+  // An inherited IMPORTS_AUTOPUBLISH is still ignored: this runner decides.
+  const dailyAutopublish = !['0', 'false', 'no', 'off'].includes(
+    String(envIn.IMPORTS_DAILY_AUTOPUBLISH ?? '').trim().toLowerCase(),
+  );
   delete envIn.IMPORTS_AUTOPUBLISH;
+  if (dailyAutopublish) {
+    envIn.IMPORTS_AUTOPUBLISH = '1';
+    envIn.IMPORTS_SAFETY_VALVE = '0';
+  }
 
   appendLog(logPath, [
-    `run-daily start ${started.toISOString()} (${sgtLabel(started)}) mode=${parsed.pipelineArgv.includes('--no-fetch') ? 'no-fetch' : parsed.pipelineArgv.includes('--dry-run') ? 'dry-run' : 'live'} autopublish=off${autopublishEnvPresent ? ' (env had IMPORTS_AUTOPUBLISH; ignored)' : ''}`,
+    `run-daily start ${started.toISOString()} (${sgtLabel(started)}) mode=${parsed.pipelineArgv.includes('--no-fetch') ? 'no-fetch' : parsed.pipelineArgv.includes('--dry-run') ? 'dry-run' : 'live'} autopublish=${dailyAutopublish ? 'on' : 'off'}${autopublishEnvPresent ? ' (env had IMPORTS_AUTOPUBLISH; ignored)' : ''} push=${parsed.push ? 'on' : 'off'}`,
   ]);
 
   let summary = null;
@@ -187,8 +206,24 @@ export async function runDaily({
   }
 
   const classification = classifyRun({ summary, queue, error: failure, startedAt: started });
-  const status = classification.status;
+  let status = classification.status;
   const reasons = classification.reasons;
+
+  // Ship the public feed (--push, the scheduled task's mode): only after a run
+  // that did not fail, and never on a dry run.
+  let push = null;
+  if (parsed.push && !classification.failed && !parsed.pipelineArgv.includes('--dry-run')) {
+    try {
+      push = (pushFeed || publishFeed)({ repoRoot: root });
+    } catch (e) {
+      push = { pushed: false, error: sanitiseLogLine(e?.message || String(e)) };
+      reasons.push({ code: 'push-failed', message: `the feed was written but not pushed to main: ${push.error}` });
+      if (status === 'ok') status = 'attention';
+    }
+    appendLog(logPath, [
+      `run-daily push ${push.pushed ? `pushed ${push.commit}` : push.error ? 'FAILED' : push.reason}`,
+    ]);
+  }
 
   const recordLog = relativeLog(root, logPath);
   appendLog(logPath, [
@@ -225,8 +260,9 @@ export async function runDaily({
     status,
     exitCode: classification.failed ? 1 : 0,
     mode: summary?.mode || (parsed.pipelineArgv.includes('--no-fetch') ? 'no-fetch' : parsed.pipelineArgv.includes('--dry-run') ? 'dry-run' : 'live'),
-    autopublish: false,
+    autopublish: dailyAutopublish,
     autopublishEnvPresent,
+    push,
     counts: summary
       ? {
           discovered: summary.discovered,

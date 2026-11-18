@@ -9,7 +9,13 @@ import { join } from 'node:path';
 
 const script = join(homedir(), '.claude', 'skills', 'rtp-v3', 'scripts', 'disclosures.py');
 if (!existsSync(script)) {
-  console.error(`build-disclosures: ${script} not found; cannot regenerate config/disclosures.json`);
+  // CI (GitHub Actions, Cloudflare Pages) has no ~/.claude: build from the committed
+  // registry. Only the owner's machine can regenerate it, and copy_lint C16 checks it there.
+  if (existsSync(join('config', 'disclosures.json'))) {
+    console.warn(`build-disclosures: generator not on this machine; using the committed config/disclosures.json`);
+    process.exit(0);
+  }
+  console.error(`build-disclosures: ${script} not found and no committed config/disclosures.json`);
   process.exit(1);
 }
 const python = process.platform === 'win32' ? 'python' : 'python3';

@@ -660,12 +660,22 @@ export async function runPipeline({
         } else {
           group.disposition = 'published';
         }
-      } else if (approved) {
-        // Explicit owner approval. It outranks the safety valve and the
-        // IMPORTS_AUTOPUBLISH default; the next sync is what writes the feed.
-        group.disposition = 'publish';
-      } else if (outcome.disposition === 'publish' && valveActiveFor(state, identity.supplier, started, env)) {
-        group.disposition = 'auto-ready';
+      } else if (outcome.disposition === 'publish' || approved) {
+        // Not live yet. A listing the source no longer shows (or past the age or
+        // arrival limit) never goes live, approval or not: the liveness check
+        // used to run only on already-published groups, so a litter that had
+        // vanished from its source could publish for one run (2026-11-18).
+        const stale = livenessReasons(group, started, nowMonth);
+        if (stale.length) {
+          group.disposition = 'unpublished';
+          group.liveness = stale;
+        } else if (approved) {
+          // Explicit owner approval. It outranks the safety valve and the
+          // IMPORTS_AUTOPUBLISH default; the next sync is what writes the feed.
+          group.disposition = 'publish';
+        } else if (valveActiveFor(state, identity.supplier, started, env)) {
+          group.disposition = 'auto-ready';
+        }
       }
       // Defence in depth for D3/D4: a group with no publishable record never
       // publishes, even if a future gate change let it through.

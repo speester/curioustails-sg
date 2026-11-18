@@ -178,7 +178,7 @@ export function alertMarkdown({
     '- Command: node scripts/imports/run-daily.mjs',
     `- Status: ${status.toUpperCase()}${status === 'failed' ? ' (exit 1)' : ' (exit 0)'}`,
     `- Log: ${logLabel}`,
-    '- Autopublish: OFF (IMPORTS_AUTOPUBLISH is forced unset by the scheduled runner)',
+    '- Autopublish: ON for gate-passing items (owner decision 2026-11-18; IMPORTS_DAILY_AUTOPUBLISH=0 turns it off)',
     boardLine(board),
     '',
     '## Why',

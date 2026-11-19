@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-11-18T14:39:05.537Z",
+  "syncedAt": "2026-11-19T07:41:16.266Z",
   "breeds": {
     "bichon-frise": {
       "available": [
@@ -55,7 +55,7 @@
           "images": [
             "2251-2-f8d0e5e2.webp"
           ],
-          "price": 2888,
+          "price": 4488,
           "image": "2251-2-f8d0e5e2.webp",
           "location": "Balestier Area",
           "origin": "Australia",
@@ -673,46 +673,6 @@
           "hdbApproved": true,
           "video": null,
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3010"
-        },
-        {
-          "id": 3011,
-          "name": "Ellis",
-          "color": "Tri Color",
-          "gender": "Female",
-          "age": null,
-          "dob": null,
-          "images": [
-            "3011-1-fa41e6c6.webp"
-          ],
-          "price": 4488,
-          "image": "3011-1-fa41e6c6.webp",
-          "location": "Balestier Area",
-          "origin": "UK",
-          "sizeNote": null,
-          "crossLabel": "Maltese x Shih Tzu",
-          "hdbApproved": true,
-          "video": null,
-          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3011"
-        },
-        {
-          "id": 3012,
-          "name": "Marley",
-          "color": "Tri Color",
-          "gender": "Female",
-          "age": null,
-          "dob": null,
-          "images": [
-            "3012-1-ad8cd478.webp"
-          ],
-          "price": 4488,
-          "image": "3012-1-ad8cd478.webp",
-          "location": "Balestier Area",
-          "origin": "UK",
-          "sizeNote": null,
-          "crossLabel": "Maltese x Shih Tzu",
-          "hdbApproved": true,
-          "video": null,
-          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3012"
         }
       ],
       "recentlyPlaced": [
@@ -880,7 +840,7 @@
           "images": [
             "2915-2-53e66033.webp"
           ],
-          "price": 3888,
+          "price": 3488,
           "image": "2915-2-53e66033.webp",
           "location": "Balestier Area",
           "origin": "Local",
@@ -1143,7 +1103,7 @@
         "2937-3-74d3fa43.webp",
         "2937-4-88dd6a71.webp"
       ],
-      "price": 3288,
+      "price": 2888,
       "image": "2937-1-b8742a9d.webp",
       "location": "Balestier Area",
       "origin": "Local",
@@ -1543,6 +1503,20 @@
       "breedLabel": "Corgi",
       "location": "Katong",
       "reason": "location \"Katong\" is not Balestier"
+    },
+    {
+      "id": 2599,
+      "name": "Kai",
+      "breedLabel": "Maltipoo",
+      "location": "MacPherson",
+      "reason": "location \"MacPherson\" is not Balestier"
+    },
+    {
+      "id": 2600,
+      "name": "Toffee",
+      "breedLabel": "Maltipoo",
+      "location": "MacPherson",
+      "reason": "location \"MacPherson\" is not Balestier"
     }
   ],
   "excludedByLocation": {

@@ -1,0 +1,379 @@
+---
+import { fileURLToPath } from 'node:url';
+import { updatedFor } from '../../lib/page-updated';
+const lastUpdated = updatedFor(fileURLToPath(import.meta.url));
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import FAQ from '../../components/FAQ.astro';
+import Schema from '../../components/Schema.astro';
+import PawTrail from '../../components/decor/PawTrail.astro';
+import Blob from '../../components/decor/Blob.astro';
+import PawPrint from '../../components/decor/PawPrint.astro';
+import { site } from '../../data/site';
+import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from '../../lib/schema';
+import { LISTED, NOT_LISTED, builderOptions } from '../../data/hdb-checker';
+
+const title = 'HDB Dog Breed Checker: Is Your Breed Approved? | Curious Tails';
+const description =
+  "Check any dog breed or cross against HDB's approved list in seconds. Browse all 61 approved breeds, check a cross by its two parents, and jump straight to our breed pages.";
+const WA = `https://wa.me/65${site.whatsapp}`;
+
+const faqItems = [
+  {
+    question: 'How does the checker decide?',
+    answer:
+      "It matches your breed to HDB's approved table, including its size rules: the Poodle, Dachshund and Boston Terrier are listed only in certain sizes. For a cross, it checks both parents. A cross of two listed breeds is covered by HDB's rule. If a parent is not on the list, the checker tells you to check with HDB before you buy.",
+  },
+  {
+    question: "Does this replace HDB's official list?",
+    answer:
+      "No. The checker is a fast first answer. HDB's list can change, so confirm on HDB's keeping-pets page before you commit to a breed or pay a deposit.",
+  },
+  {
+    question: 'What if my dog is a mixed breed or a local dog?',
+    answer:
+      'Mixed-breed and local dogs are not on HDB\'s table. For a medium local dog, Project ADORE is the one structured route: it covers adopted Singapore Specials through participating rehoming groups, under AVS conditions.',
+  },
+  {
+    question: 'Can I keep a breed that is not on the list in my flat?',
+    answer:
+      "Not under HDB's rules, and non-compliance can draw a fine of up to $4,000. If your heart is set on a breed that is not listed, private housing is the route, or you can look for a listed breed with a similar temperament.",
+  },
+];
+
+const schemas = [
+  localBusinessSchema(),
+  personSchema(),
+  webPageSchema({
+    path: '/first-time-owners/hdb-breed-checker/',
+    title,
+    description,
+    aboutName: 'HDB approved dog breed checker',
+    aboutAlternateName: 'HDB dog breed checker Singapore',
+    aboutSameAs: 'https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets',
+    datePublished: '2026-11-20',
+    dateModified: lastUpdated,
+  }),
+  faqPageSchema(faqItems),
+];
+
+const options = builderOptions();
+const quickChecks = ['Westie', 'Toy Poodle', 'Cavapoo', 'Shih Tzu', 'Dachshund', 'Maltese', 'Corgi', 'Golden Retriever'];
+const quickCrosses = ['Cavapoo', 'Maltipoo', 'Bichonpoo', 'Cavachon', 'Cockapoo', 'Labradoodle'];
+---
+
+<BaseLayout updated={lastUpdated} {title} {description} canonicalPath="/first-time-owners/hdb-breed-checker">
+  <section class="hdb-hero relative overflow-hidden bg-[var(--color-peach-100)] pb-14 pt-2">
+    <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+      <Blob class="absolute -top-16 -left-20 h-80 w-80 fill-[var(--color-mint-200)]/70 blob-drift-slow" />
+      <Blob class="absolute top-10 right-[-6rem] h-72 w-72 fill-[var(--color-lilac-100)] blob-drift" />
+      <PawPrint class="absolute left-[6%] top-[30%] h-10 w-10 text-[var(--color-mint-300)]/70 -rotate-12 blob-drift" />
+      <PawPrint class="absolute right-[9%] top-[58%] h-8 w-8 text-[var(--color-coral-300)]/70 rotate-12 blob-drift-slow" />
+    </div>
+    <div class="relative mx-auto max-w-[1400px] px-5 pt-5 sm:px-8">
+      <Breadcrumb bare items={[{ label: 'First-Time Owners', href: '/first-time-owners/' }, { label: 'HDB Breed Checker', href: '/first-time-owners/hdb-breed-checker/' }]} />
+      <div class="mx-auto mt-8 max-w-[70ch] text-center">
+        <p class="inline-flex items-center gap-2 rounded-full border-3 border-[var(--color-coral-400)] bg-white px-4 py-1.5 text-xs font-bold uppercase text-[var(--color-coral-600)] shadow-[0_4px_0_0_var(--color-coral-300)]" style="letter-spacing: 0.06em;">
+          <PawPrint class="h-3.5 w-3.5" />
+          Free HDB breed checker
+        </p>
+        <h1 class="mt-5 font-[family-name:var(--font-heading)] font-semibold leading-[1.05] text-[var(--color-cream-900)]" style="font-size: clamp(2.5rem, 5.5vw, 4rem);">
+          Is Your Dog <span class="text-[var(--color-coral-500)]">HDB-Approved?</span>
+        </h1>
+        <p class="mt-4 text-lg leading-relaxed text-[var(--color-cream-700)]">
+          Type a breed, or check a cross by its two parents. You get an answer in a second, with the size rules HDB applies and a link to our page for that breed.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="checker" class="scroll-mt-28 mx-auto max-w-[1400px] px-5 pb-6 sm:px-8">
+    <div class="clay relative mx-auto -mt-6 max-w-[820px] bg-[var(--color-surface-card)] p-6 sm:p-10">
+      <div class="grid items-center gap-6 sm:grid-cols-[150px_1fr]">
+        <div class="hdb-mascot-wrap relative mx-auto w-[150px]" id="mascot" data-mood="idle">
+          <svg class="hdb-mascot" viewBox="0 0 200 200" role="img" aria-label="Friendly dog mascot that reacts to your answer">
+            <g class="hdb-ear-l"><ellipse cx="46" cy="72" rx="26" ry="44" transform="rotate(20 46 72)" fill="var(--color-coral-300)" stroke="var(--color-cream-900)" stroke-width="3" /></g>
+            <g class="hdb-ear-r"><ellipse cx="154" cy="72" rx="26" ry="44" transform="rotate(-20 154 72)" fill="var(--color-coral-300)" stroke="var(--color-cream-900)" stroke-width="3" /></g>
+            <circle cx="100" cy="104" r="62" fill="#fffaf2" stroke="var(--color-cream-900)" stroke-width="3" />
+            <circle cx="66" cy="124" r="9" fill="var(--color-coral-300)" opacity=".7" />
+            <circle cx="134" cy="124" r="9" fill="var(--color-coral-300)" opacity=".7" />
+            <g class="hdb-eyes">
+              <g class="hdb-blink"><circle cx="78" cy="98" r="7" fill="var(--color-cream-900)" /><circle cx="80" cy="95" r="2.4" fill="#fff" /></g>
+              <g class="hdb-blink"><circle cx="122" cy="98" r="7" fill="var(--color-cream-900)" /><circle cx="124" cy="95" r="2.4" fill="#fff" /></g>
+            </g>
+            <ellipse cx="100" cy="120" rx="9" ry="6.5" fill="var(--color-cream-900)" />
+            <g class="m m-idle"><path d="M88 136 Q100 144 112 136" stroke="var(--color-cream-900)" stroke-width="3.5" fill="none" stroke-linecap="round" /></g>
+            <g class="m m-yes"><path d="M80 132 Q100 156 120 132" stroke="var(--color-cream-900)" stroke-width="3.5" fill="none" stroke-linecap="round" /><ellipse cx="100" cy="148" rx="8" ry="7" fill="var(--color-coral-400)" /></g>
+            <g class="m m-no"><path d="M82 144 Q100 128 118 144" stroke="var(--color-cream-900)" stroke-width="3.5" fill="none" stroke-linecap="round" /></g>
+            <g class="m m-check"><path d="M84 138 Q92 132 100 138 T116 138" stroke="var(--color-cream-900)" stroke-width="3.5" fill="none" stroke-linecap="round" /></g>
+          </svg>
+        </div>
+        <div>
+          <p id="bubble" class="relative rounded-[1.25rem] bg-[var(--color-mint-100)] px-5 py-4 text-base font-semibold text-[var(--color-cream-900)]" aria-live="polite">Woof! Type a breed and I'll check it for HDB.</p>
+          <form id="check-form" class="mt-4 flex flex-col gap-3 sm:flex-row" role="search">
+            <label for="breed-q" class="sr-only">Breed name or cross</label>
+            <input id="breed-q" name="breed" type="search" list="breed-names" autocomplete="off" placeholder="Try: westie, toy poodle, cavapoo, corgi" class="min-h-[52px] flex-1 rounded-[1rem] border-3 border-[var(--color-border)] bg-white px-4 text-base text-[var(--color-cream-900)] placeholder:text-[var(--color-cream-500)] focus:outline-none focus:ring-4 focus:ring-[var(--color-coral-300)]" />
+            <button type="submit" class="clay-btn min-h-[52px] bg-[var(--color-accent)] px-6 text-base font-bold text-white hover:bg-[var(--color-accent-hover)]">Check breed</button>
+          </form>
+          <datalist id="breed-names">
+            {[...LISTED, ...NOT_LISTED].map((b) => <option value={b.name}></option>)}
+          </datalist>
+          <div class="mt-4 flex flex-wrap gap-2" aria-label="Quick checks">
+            {quickChecks.map((q) => (
+              <button type="button" data-q={q} class="rounded-full border-2 border-[var(--color-border)] bg-white px-3 py-1.5 text-sm font-semibold text-[var(--color-cream-800)] hover:bg-[var(--color-peach-100)]">{q}</button>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div id="result" class="mt-6" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="cross-heading" class="mx-auto max-w-[1400px] px-5 py-10 sm:px-8">
+    <div class="clay mx-auto max-w-[820px] bg-[var(--color-lilac-100)] p-6 sm:p-10">
+      <p class="text-xs font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">Checking a cross?</p>
+      <h2 id="cross-heading" class="mt-2 font-[family-name:var(--font-heading)] text-2xl font-semibold text-[var(--color-cream-900)] sm:text-3xl">Pick both parents</h2>
+      <p class="mt-3 text-[var(--color-cream-700)]">HDB's rule covers a cross of two breeds on its list. Choose both parents and we check each one, including the Poodle size.</p>
+      <form id="cross-form" class="mt-6 grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] sm:items-center">
+        <label class="sr-only" for="parent-a">First parent</label>
+        <select id="parent-a" class="min-h-[48px] w-full min-w-0 truncate rounded-[1rem] border-3 border-[var(--color-border)] bg-white px-3 text-base text-[var(--color-cream-900)]">
+          {options.map((o) => <option value={o.value} selected={o.value === 'cavalier king charles spaniel' || undefined}>{o.label}</option>)}
+        </select>
+        <span class="text-center text-2xl font-bold text-[var(--color-coral-500)]" aria-hidden="true">×</span>
+        <label class="sr-only" for="parent-b">Second parent</label>
+        <select id="parent-b" class="min-h-[48px] w-full min-w-0 truncate rounded-[1rem] border-3 border-[var(--color-border)] bg-white px-3 text-base text-[var(--color-cream-900)]">
+          {options.map((o) => <option value={o.value} selected={o.value === 'toy poodle' || undefined}>{o.label}</option>)}
+        </select>
+        <button type="submit" class="clay-btn min-h-[48px] bg-[var(--color-accent)] px-6 text-base font-bold text-white hover:bg-[var(--color-accent-hover)] sm:col-span-3 sm:justify-self-start">Check this cross</button>
+      </form>
+      <div class="mt-5 flex flex-wrap gap-2" aria-label="Common crosses">
+        {quickCrosses.map((q) => (
+          <button type="button" data-q={q} class="rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-[var(--color-cream-800)] hover:bg-[var(--color-peach-100)]">{q}</button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="browse-heading" class="mx-auto max-w-[1400px] px-5 py-10 sm:px-8">
+    <p class="text-xs font-bold uppercase text-[var(--color-coral-600)]" style="letter-spacing: 0.08em;">The list</p>
+    <h2 id="browse-heading" class="mt-2 font-[family-name:var(--font-heading)] text-3xl font-semibold text-[var(--color-cream-900)] sm:text-4xl">All <span class="text-[var(--color-coral-500)]">61</span> approved breeds</h2>
+    <p class="mt-3 max-w-[62ch] leading-relaxed text-[var(--color-cream-600)]">Tap a breed to check it. Breeds we carry link to their own page.</p>
+    <label for="browse-q" class="sr-only">Filter the approved breeds</label>
+    <input id="browse-q" type="search" placeholder="Filter: terrier, spaniel, toy…" autocomplete="off" class="mt-6 min-h-[48px] w-full max-w-[420px] rounded-[1rem] border-3 border-[var(--color-border)] bg-white px-4 text-base text-[var(--color-cream-900)] placeholder:text-[var(--color-cream-500)] focus:outline-none focus:ring-4 focus:ring-[var(--color-mint-300)]" />
+    <ul id="browse-grid" class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {LISTED.map((b) => (
+        <li class="browse-tile clay flex flex-col justify-between gap-3 bg-[var(--color-surface-card)] p-4" data-search={[b.name, ...b.aliases].join(' ').toLowerCase()}>
+          <button type="button" data-q={b.aliases[0]} class="text-left">
+            <span class="block font-semibold text-[var(--color-cream-900)]">{b.name}</span>
+            {b.note && <span class="mt-1 block text-xs leading-snug text-[var(--color-cream-600)]">{b.note}</span>}
+          </button>
+          {b.slug && (
+            <a href={`/puppies/${b.slug}/`} class="text-sm font-semibold text-[var(--color-accent-hover)] underline underline-offset-2">Our {b.name} page →</a>
+          )}
+        </li>
+      ))}
+    </ul>
+    <p id="browse-empty" class="mt-4 hidden text-sm text-[var(--color-cream-600)]">No approved breed matches that. Try the cross checker above.</p>
+  </section>
+
+  <section aria-labelledby="not-listed-heading" class="mx-auto max-w-[1400px] px-5 pb-10 sm:px-8">
+    <h2 id="not-listed-heading" class="font-[family-name:var(--font-heading)] text-2xl font-semibold text-[var(--color-cream-900)]">Popular breeds that are <span class="text-[var(--color-coral-600)]">not</span> on the list</h2>
+    <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-[var(--color-cream-600)]">These need private housing (a condo or landed home). Tap one to see why, or open our page.</p>
+    <div class="mt-5 flex flex-wrap gap-3">
+      {NOT_LISTED.filter((b) => b.slug).map((b) => (
+        <div class="flex items-center gap-2 rounded-full border-2 border-[var(--color-coral-300)] bg-white py-1.5 pl-4 pr-2">
+          <button type="button" data-q={b.aliases[0]} class="text-sm font-semibold text-[var(--color-cream-900)] hover:text-[var(--color-coral-600)]">{b.name}</button>
+          <a href={`/puppies/${b.slug}/`} class="rounded-full bg-[var(--color-coral-100)] px-2.5 py-0.5 text-xs font-bold text-[var(--color-coral-700)] hover:bg-[var(--color-coral-300)]">Page →</a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section aria-labelledby="rules-heading" class="mx-auto max-w-[1400px] px-5 py-12 sm:px-8">
+    <h2 id="rules-heading" class="font-[family-name:var(--font-heading)] text-3xl font-semibold text-[var(--color-cream-900)] sm:text-4xl">How the answer is <span class="text-[var(--color-coral-500)]">worked out</span></h2>
+    <div class="mt-8 grid gap-5 md:grid-cols-3">
+      <div class="clay bg-[var(--color-mint-100)] p-6">
+        <p class="text-3xl" aria-hidden="true">🏠</p>
+        <h3 class="mt-3 font-semibold text-[var(--color-cream-900)]">One dog per flat</h3>
+        <p class="mt-2 text-sm leading-relaxed text-[var(--color-cream-700)]">An HDB flat may keep one dog, and it has to come from HDB's approved table or be a cross of two breeds on it.</p>
+      </div>
+      <div class="clay bg-[var(--color-peach-100)] p-6">
+        <p class="text-3xl" aria-hidden="true">📏</p>
+        <h3 class="mt-3 font-semibold text-[var(--color-cream-900)]">Size counts</h3>
+        <p class="mt-2 text-sm leading-relaxed text-[var(--color-cream-700)]">Some breeds are listed only in certain sizes. A Standard Poodle is not the Toy or Miniature the table lists.</p>
+      </div>
+      <div class="clay bg-[var(--color-lilac-100)] p-6">
+        <p class="text-3xl" aria-hidden="true">🐾</p>
+        <h3 class="mt-3 font-semibold text-[var(--color-cream-900)]">Crosses check both parents</h3>
+        <p class="mt-2 text-sm leading-relaxed text-[var(--color-cream-700)]">If a parent is not on the list, the cross is not covered by the rule. We tell you to check with HDB first.</p>
+      </div>
+    </div>
+    <p class="mt-6 text-sm leading-relaxed text-[var(--color-cream-600)]">Fines for non-compliance can reach $4,000. Lists change, so confirm on <a href="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets" rel="noopener" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB's keeping-pets page</a> before you commit. For the full guide, read <a href="/first-time-owners/hdb-breeds/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">the HDB-approved breeds list, explained</a>.</p>
+  </section>
+
+  <PawTrail bg="bg-[var(--color-surface)]" colorClass="text-[var(--color-coral-300)]" />
+
+  <div id="faq" class="scroll-mt-40">
+    <FAQ heading="HDB Checker, Answered" items={faqItems} />
+  </div>
+
+  <section aria-label="Keep exploring" class="mx-auto max-w-[1400px] px-5 py-8 sm:px-8">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">Still choosing? Try the <a href="/first-time-owners/breed-selector/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">two-minute breed quiz</a>, or see <a href="/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">puppies available today</a>.</p>
+  </section>
+
+  <FinalCta
+    breed="Puppy"
+    heading="Approved? Come Meet Them"
+    body="Can't make it to Balestier? WhatsApp us the breed you checked and we'll send current photos and prices."
+    reserveMessage="Hi! I used the HDB breed checker and want to know about a breed that's approved."
+  />
+
+  <Schema {schemas} />
+
+  <div id="hdb-config" data-wa={WA} hidden></div>
+
+  <style>
+    .hdb-mascot { display: block; width: 100%; height: auto; animation: hdb-bob 3.2s ease-in-out infinite; transform-origin: 50% 90%; }
+    .hdb-blink { animation: hdb-blink 4.2s infinite; transform-box: fill-box; transform-origin: center; }
+    .m { display: none; }
+    .hdb-mascot-wrap[data-mood="idle"] .m-idle,
+    .hdb-mascot-wrap[data-mood="yes"] .m-yes,
+    .hdb-mascot-wrap[data-mood="no"] .m-no,
+    .hdb-mascot-wrap[data-mood="check"] .m-check { display: inline; }
+    .hdb-mascot-wrap[data-mood="yes"] .hdb-mascot { animation: hdb-nod 0.7s ease-in-out 2; }
+    .hdb-mascot-wrap[data-mood="no"] .hdb-mascot { animation: hdb-shake 0.5s ease-in-out 2; }
+    .hdb-mascot-wrap[data-mood="no"] .hdb-ear-l,
+    .hdb-mascot-wrap[data-mood="no"] .hdb-ear-r { transform: translateY(8px); transform-box: fill-box; }
+    .hdb-ear-l, .hdb-ear-r { transform-box: fill-box; transform-origin: center top; transition: transform 300ms ease; }
+    @keyframes hdb-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    @keyframes hdb-nod { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-6deg) translateY(-4px); } }
+    @keyframes hdb-shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+    @keyframes hdb-blink { 0%, 94%, 100% { transform: scaleY(1); } 96% { transform: scaleY(0.1); } }
+    @media (prefers-reduced-motion: reduce) {
+      .hdb-mascot, .hdb-blink { animation: none !important; }
+    }
+  </style>
+
+  <script>
+    import { check, type Result } from '../../data/hdb-checker';
+
+    const input = document.getElementById('breed-q') as HTMLInputElement;
+    const form = document.getElementById('check-form') as HTMLFormElement;
+    const result = document.getElementById('result') as HTMLElement;
+    const bubble = document.getElementById('bubble') as HTMLElement;
+    const mascot = document.getElementById('mascot') as HTMLElement;
+    const waBase = document.getElementById('hdb-config')?.dataset.wa ?? 'https://wa.me/6582206408';
+
+    const esc = (s: string) =>
+      s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c] as string);
+
+    type Look = { mood: 'idle' | 'yes' | 'no' | 'check'; say: string; eyebrow: string; title: string; box: string; badge: string };
+    const LOOK: Record<Result['kind'], Look> = {
+      empty: { mood: 'idle', say: "Woof! Type a breed and I'll check it for HDB.", eyebrow: '', title: '', box: '', badge: '' },
+      approved: { mood: 'yes', say: 'Good news! That one is welcome in a flat.', eyebrow: '✓ Approved', title: 'Approved for HDB flats', box: 'bg-[var(--color-mint-100)]', badge: 'bg-[var(--color-mint-300)]' },
+      conditional: { mood: 'yes', say: 'Almost! Read the small print below.', eyebrow: '✓ Approved, with a condition', title: 'Approved, with a size condition', box: 'bg-[var(--color-mint-100)]', badge: 'bg-[var(--color-lilac-300)]' },
+      check: { mood: 'check', say: "Hmm, let's check with HDB first.", eyebrow: '? Check first', title: 'Not clearly covered: check with HDB', box: 'bg-[var(--color-peach-100)]', badge: 'bg-[var(--color-peach-300)]' },
+      no: { mood: 'no', say: "Sorry, that one can't live in a flat.", eyebrow: '✕ Not allowed in a flat', title: 'Not on HDB’s approved list', box: 'bg-[var(--color-coral-100)]', badge: 'bg-[var(--color-coral-300)]' },
+      choose: { mood: 'check', say: 'Which one did you mean?', eyebrow: 'Pick one', title: '', box: 'bg-[var(--color-lilac-100)]', badge: 'bg-[var(--color-lilac-300)]' },
+    };
+
+    function render(r: Result, typed: string) {
+      const look = LOOK[r.kind];
+      mascot.dataset.mood = look.mood;
+      bubble.textContent = look.say;
+
+      if (r.kind === 'empty') {
+        result.innerHTML = '';
+        return;
+      }
+      if (r.kind === 'choose') {
+        result.innerHTML = `
+          <div class="clay ${look.box} p-6">
+            <p class="font-semibold text-[var(--color-cream-900)]">${esc(r.prompt)}</p>
+            <div class="mt-4 grid gap-2 sm:grid-cols-2">
+              ${r.options
+                .map(
+                  (o) => `<button type="button" data-q="${esc(o.query)}" class="clay-press rounded-[1rem] border-2 border-[var(--color-border)] bg-white px-4 py-3 text-left text-sm font-semibold text-[var(--color-cream-900)] hover:bg-[var(--color-peach-100)]"><span class="mr-1">${o.tone === 'ok' ? '✅' : '❌'}</span>${esc(o.label)}</button>`,
+                )
+                .join('')}
+            </div>
+            ${r.more ? `<p class="mt-3 text-sm text-[var(--color-cream-600)]">+${r.more} more. Type a little more to narrow it down.</p>` : ''}
+          </div>`;
+        return;
+      }
+
+      const parents = r.parents
+        ? `<ul class="mt-4 flex flex-wrap gap-2" aria-label="Parents">${r.parents
+            .map((p) => {
+              const cls =
+                p.state === 'listed' ? 'bg-[var(--color-mint-300)]' : p.state === 'conditional' ? 'bg-[var(--color-lilac-100)]' : 'bg-[var(--color-coral-300)]';
+              const tag = p.state === 'listed' ? 'listed' : p.state === 'conditional' ? 'size to confirm' : 'not on list';
+              return `<li class="rounded-full px-3 py-1 text-sm font-semibold text-[var(--color-cream-900)] ${cls}">${esc(p.name)} · ${tag}</li>`;
+            })
+            .join('')}</ul>`
+        : '';
+      const note = 'note' in r && r.note ? `<p class="mt-3 text-base leading-relaxed text-[var(--color-cream-800)]">${esc(r.note)}</p>` : '';
+      const page = 'slug' in r && r.slug ? `<a href="/puppies/${r.slug}/" class="clay-btn inline-flex items-center gap-2 bg-white px-5 py-3 text-sm font-bold text-[var(--color-cream-900)] hover:bg-[var(--color-mint-100)]">See our ${esc(r.name)} page →</a>` : '';
+      const wa = `${waBase}?text=${encodeURIComponent(`Hi! I checked ${typed.trim() || r.name} on the HDB breed checker. Could you help?`)}`;
+      const name = r.name;
+
+      result.innerHTML = `
+        <article class="clay ${look.box} p-6 sm:p-8" aria-labelledby="verdict-name">
+          <span class="inline-block rounded-full ${look.badge} px-3 py-1 text-xs font-bold uppercase text-[var(--color-cream-900)]" style="letter-spacing: 0.06em;">${esc(look.eyebrow)}</span>
+          <h3 id="verdict-name" class="mt-3 font-[family-name:var(--font-heading)] text-2xl font-semibold text-[var(--color-cream-900)] sm:text-3xl">${esc(name)}</h3>
+          <p class="mt-1 text-base font-semibold text-[var(--color-cream-800)]">${esc(look.title)}</p>
+          ${note}
+          ${parents}
+          <div class="mt-6 flex flex-wrap gap-3">
+            ${page}
+            <a href="${wa}" target="_blank" rel="noopener" class="clay-btn inline-flex items-center gap-2 bg-[var(--color-accent)] px-5 py-3 text-sm font-bold text-white hover:bg-[var(--color-accent-hover)]">Ask us on WhatsApp</a>
+          </div>
+        </article>`;
+    }
+
+    function run(q: string) {
+      input.value = q;
+      render(check(q), q);
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      run(input.value);
+    });
+
+    // Quick chips, choose-list options, browse tiles and cross chips all route through run().
+    document.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest<HTMLElement>('[data-q]');
+      if (!btn) return;
+      const q = btn.dataset.q ?? '';
+      run(q);
+      // Taps from outside the checker (browse tiles, cross chips, not-listed row) bring the answer into view.
+      if (!btn.closest('#checker')) {
+        document.getElementById('checker')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+
+    document.getElementById('cross-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const a = (document.getElementById('parent-a') as HTMLSelectElement).value;
+      const b = (document.getElementById('parent-b') as HTMLSelectElement).value;
+      run(`${a} x ${b}`);
+      document.getElementById('checker')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    const browse = document.getElementById('browse-q') as HTMLInputElement;
+    const tiles = [...document.querySelectorAll<HTMLElement>('.browse-tile')];
+    const empty = document.getElementById('browse-empty') as HTMLElement;
+    browse.addEventListener('input', () => {
+      const f = browse.value.trim().toLowerCase();
+      let shown = 0;
+      for (const t of tiles) {
+        const hit = !f || (t.dataset.search ?? '').includes(f);
+        t.hidden = !hit;
+        if (hit) shown++;
+      }
+      empty.classList.toggle('hidden', shown > 0);
+    });
+  </script>
+</BaseLayout>

@@ -21,6 +21,8 @@ import { localBusinessSchema, personSchema, webPageSchema, faqPageSchema } from 
 import bichonpooPortrait from '../../assets/bichonpoo/2-bichonpoo-white-portrait.webp';
 import dachshundPortrait from '../../assets/mini-dachshund/2-mini-dachshund-red-smooth-portrait.webp';
 import ExpertQuote from '../../components/ExpertQuote.astro';
+import SortableTable from '../../components/SortableTable.astro';
+import { LISTED } from '../../data/hdb-checker';
 
 const monthStamp = new Date().toLocaleString('en-SG', { month: 'long', year: 'numeric' });
 
@@ -178,6 +180,24 @@ const schemas = [
         The authoritative A-to-Z list (and the one that settles any dispute) is on <a href="https://www.hdb.gov.sg/managing-my-home/home-ownership/keeping-pets" class="underline underline-offset-2 text-[var(--color-accent-hover)]" rel="noopener">HDB's keeping-pets page</a>. When in doubt about a specific breed or cross, check there first, then ask us; we would rather lose a sale than place a dog somewhere it legally cannot live.
       </p>
     </div>
+  </div>
+
+  <SortableTable
+    heading="All 61 HDB-Approved Breeds, A to Z"
+    headingAccent="HDB-Approved"
+    subhead="The full HDB table in one place. Click a column to sort. Breed names link to our own page wherever we carry the breed."
+    headers={['Breed', 'Notes on the HDB table', 'Our breed page']}
+    rows={LISTED.map((b) => ({
+      label: b.name,
+      href: b.slug ? `/puppies/${b.slug}/` : undefined,
+      cells: [b.note ?? '—', b.slug ? 'Yes' : '—'],
+      sort: [b.name, b.note ?? '', b.slug ? 'a' : 'b'],
+    }))}
+  />
+  <div class="mx-auto max-w-[1400px] px-5 sm:px-8 -mt-6 pb-10">
+    <p class="text-sm leading-relaxed text-[var(--color-cream-600)]">
+      The table also covers crosses of any two breeds on it. To check a specific cross, or a size such as Toy versus Standard Poodle, use the <a href="/first-time-owners/hdb-breed-checker/" class="underline underline-offset-2 text-[var(--color-accent-hover)]">HDB breed checker</a>.
+    </p>
   </div>
 
   <CloudDivider fillClass="fill-[var(--color-mint-100)]" />

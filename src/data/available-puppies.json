@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-11-18T14:39:05.537Z",
+  "syncedAt": "2026-11-20T15:47:00.278Z",
   "breeds": {
     "bichon-frise": {
       "available": [
@@ -55,7 +55,7 @@
           "images": [
             "2251-2-f8d0e5e2.webp"
           ],
-          "price": 2888,
+          "price": 4488,
           "image": "2251-2-f8d0e5e2.webp",
           "location": "Balestier Area",
           "origin": "Australia",
@@ -659,13 +659,16 @@
           "name": "Rowan",
           "color": "Black White",
           "gender": "Female",
-          "age": null,
-          "dob": null,
+          "age": "2 months",
+          "dob": "2026-08-24",
           "images": [
-            "3010-1-fbe5464d.webp"
+            "3010-1-cf695652.webp",
+            "3010-2-1fe9c2ab.webp",
+            "3010-3-93424bfa.webp",
+            "3010-4-bafd0ccc.webp"
           ],
           "price": 4488,
-          "image": "3010-1-fbe5464d.webp",
+          "image": "3010-1-cf695652.webp",
           "location": "Balestier Area",
           "origin": "UK",
           "sizeNote": null,
@@ -673,46 +676,6 @@
           "hdbApproved": true,
           "video": null,
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3010"
-        },
-        {
-          "id": 3011,
-          "name": "Ellis",
-          "color": "Tri Color",
-          "gender": "Female",
-          "age": null,
-          "dob": null,
-          "images": [
-            "3011-1-fa41e6c6.webp"
-          ],
-          "price": 4488,
-          "image": "3011-1-fa41e6c6.webp",
-          "location": "Balestier Area",
-          "origin": "UK",
-          "sizeNote": null,
-          "crossLabel": "Maltese x Shih Tzu",
-          "hdbApproved": true,
-          "video": null,
-          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3011"
-        },
-        {
-          "id": 3012,
-          "name": "Marley",
-          "color": "Tri Color",
-          "gender": "Female",
-          "age": null,
-          "dob": null,
-          "images": [
-            "3012-1-ad8cd478.webp"
-          ],
-          "price": 4488,
-          "image": "3012-1-ad8cd478.webp",
-          "location": "Balestier Area",
-          "origin": "UK",
-          "sizeNote": null,
-          "crossLabel": "Maltese x Shih Tzu",
-          "hdbApproved": true,
-          "video": null,
-          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3012"
         }
       ],
       "recentlyPlaced": [
@@ -768,13 +731,13 @@
           "age": "2 months",
           "dob": "2026-08-28",
           "images": [
-            "2950-1-64963ef1.webp",
-            "2950-2-8558c489.webp",
-            "2950-3-bde3fd88.webp",
-            "2950-4-1ef7b60b.webp"
+            "2950-1-149d282b.webp",
+            "2950-2-530b139a.webp",
+            "2950-3-943a28b2.webp",
+            "2950-4-3b4537b2.webp"
           ],
           "price": 3688,
-          "image": "2950-1-64963ef1.webp",
+          "image": "2950-1-149d282b.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
@@ -880,7 +843,7 @@
           "images": [
             "2915-2-53e66033.webp"
           ],
-          "price": 3888,
+          "price": 3488,
           "image": "2915-2-53e66033.webp",
           "location": "Balestier Area",
           "origin": "Local",
@@ -980,24 +943,27 @@
     "toy-poodle": {
       "available": [
         {
-          "id": 2977,
-          "name": "Cocoa",
-          "color": "Brown White",
+          "id": 3018,
+          "name": "Buddy",
+          "color": "Apricot",
           "gender": "Female",
-          "age": null,
-          "dob": null,
+          "age": "2 months",
+          "dob": "2026-09-10",
           "images": [
-            "2977-1-edcaa875.webp"
+            "3018-1-e8be88eb.webp",
+            "3018-2-b383fcfe.webp",
+            "3018-3-01959c48.webp",
+            "3018-4-f074fe7d.webp"
           ],
-          "price": 4488,
-          "image": "2977-1-edcaa875.webp",
+          "price": null,
+          "image": "3018-1-e8be88eb.webp",
           "location": "Balestier Area",
-          "origin": "UK",
+          "origin": "Local",
           "sizeNote": null,
           "crossLabel": null,
           "hdbApproved": true,
           "video": null,
-          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2977"
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3018"
         },
         {
           "id": 3013,
@@ -1007,13 +973,13 @@
           "age": "2 months",
           "dob": "2026-09-09",
           "images": [
-            "3013-1-6c917932.webp",
-            "3013-2-53a90bbb.webp",
-            "3013-3-90326a86.webp",
-            "3013-4-a3b3365f.webp"
+            "3013-1-ca24cfcf.webp",
+            "3013-2-fe343ef2.webp",
+            "3013-3-b7c74ec7.webp",
+            "3013-4-1561b418.webp"
           ],
           "price": 4088,
-          "image": "3013-1-6c917932.webp",
+          "image": "3013-1-ca24cfcf.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
@@ -1030,12 +996,13 @@
           "age": "2 months",
           "dob": "2026-09-09",
           "images": [
-            "3014-1-82f64fd3.webp",
-            "3014-2-cf09032d.webp",
-            "3014-3-6c102b7b.webp"
+            "3014-1-78613fc5.webp",
+            "3014-2-ce2b2866.webp",
+            "3014-3-43e1ad9f.webp",
+            "3014-4-0eb2ae72.webp"
           ],
           "price": 3888,
-          "image": "3014-1-82f64fd3.webp",
+          "image": "3014-1-78613fc5.webp",
           "location": "Balestier Area",
           "origin": "Local",
           "sizeNote": null,
@@ -1043,6 +1010,52 @@
           "hdbApproved": true,
           "video": null,
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3014"
+        },
+        {
+          "id": 3019,
+          "name": "Indy",
+          "color": "Apricot",
+          "gender": "Male",
+          "age": "3 months",
+          "dob": "2026-08-17",
+          "images": [
+            "3019-1-1d9bd261.webp",
+            "3019-2-c51c5db9.webp",
+            "3019-3-d5700f85.webp",
+            "3019-4-f7c1dd16.webp"
+          ],
+          "price": null,
+          "image": "3019-1-1d9bd261.webp",
+          "location": "Balestier Area",
+          "origin": "UK",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": null,
+          "video": null,
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3019"
+        },
+        {
+          "id": 3020,
+          "name": "Taylor",
+          "color": "Apricot",
+          "gender": "Male",
+          "age": "3 months",
+          "dob": "2026-08-17",
+          "images": [
+            "3020-1-c55f5dcf.webp",
+            "3020-2-4c985a3a.webp",
+            "3020-3-baee20d3.webp",
+            "3020-4-1bf0ad3a.webp"
+          ],
+          "price": null,
+          "image": "3020-1-c55f5dcf.webp",
+          "location": "Balestier Area",
+          "origin": "UK",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": null,
+          "video": null,
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3020"
         }
       ],
       "recentlyPlaced": [
@@ -1135,7 +1148,7 @@
       "name": "Daisy",
       "color": "Tri Color",
       "gender": "Female",
-      "age": "3 months",
+      "age": "4 months",
       "dob": "2026-07-21",
       "images": [
         "2937-1-b8742a9d.webp",
@@ -1143,7 +1156,7 @@
         "2937-3-74d3fa43.webp",
         "2937-4-88dd6a71.webp"
       ],
-      "price": 3288,
+      "price": 2888,
       "image": "2937-1-b8742a9d.webp",
       "location": "Balestier Area",
       "origin": "Local",

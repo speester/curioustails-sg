@@ -120,3 +120,11 @@
 - deployed_build: 94e83966 - deployed_at: 2026-11-14T08:00:06Z - branch: k135-review-sheet - project: curioustails-staging (K-135 read-only imports review sheet; see reports/k135-review-sheet-report-2026-11-14.md)
 - deployed_build: 0c8c730b - deployed_at: 2026-11-14T08:09:10Z - branch: k135-review-sheet - project: curioustails-staging (K-139 queue split; same preview URL; see reports/k139-queue-split-report-2026-11-14.md)
 - deployed_build: a6f4c6e2 - deployed_at: 2026-11-14T10:32:34Z - branch: k132-channel-join - project: curioustails-staging (K-144 sticker tilt; see reports/k144-sticker-tilt-report-2026-11-14.md)
+
+- deployed_build: a164cc1bc2ee · deployed_at: 2026-11-18T14:46:36Z · branch: preview · project: curioustails-sg
+
+- deployed_build: 2f27831218c9 · deployed_at: 2026-11-20T09:32:56Z · branch: main · project: curioustails-sg
+
+- deployed_build: 2f27831218c9 · deployed_at: 2026-11-20T09:41:58Z · branch: main · project: curioustails-sg
+
+- deployed_build: df1df78a1026 · deployed_at: 2026-11-20T15:50:17Z · branch: main · project: curioustails-sg

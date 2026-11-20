@@ -1,0 +1,72 @@
+---
+// One "Reserve a <breed> from <countries>" section for breed pages. Merges what
+// used to be two back-to-back sections with the same job:
+//   * ImportedPuppies ("Reserve a <breed> puppy · arriving soon"): the imports
+//     feed (Irish litters today; Australian ones too after the K-136 cutover)
+//   * OverseasPuppies ("Reserve a <breed> from Australia"): legacy AU listings
+// The heading names only the countries actually in the grid.
+//
+// Placement (owner decision 2026-11-20): when the breed has no local stock, the
+// reserve grid goes straight after the Happy Curious Tails Families wall, ahead
+// of the "closest breeds" fallback. With local stock, it follows the local grid.
+// Each breed page renders this twice (when="no-stock" before AvailablePuppies,
+// when="in-stock" after it); exactly one of the two renders.
+import ImportedPuppyCard from './ImportedPuppyCard.astro';
+import OverseasPuppyCard from './OverseasPuppyCard.astro';
+import { importedForBreed } from '../lib/imported-puppies';
+import { overseasForBreed } from '../lib/overseas-puppies';
+import { SURCHARGE_LINE } from '../data/buying-terms';
+import live from '../data/available-puppies.json';
+
+interface Props {
+  breed: string;
+  breedName: string;
+  when?: 'no-stock' | 'in-stock';
+}
+const { breed, breedName, when } = Astro.props;
+
+const localCount = ((live.breeds as Record<string, { available?: unknown[] }>)[breed]?.available ?? []).length;
+const hasStock = localCount > 0;
+const show = when === undefined || (when === 'no-stock' ? !hasStock : hasStock);
+
+const imported = importedForBreed(breed);
+const legacyAu = overseasForBreed(breed);
+const total = imported.length + legacyAu.length;
+
+const COUNTRY: Record<string, string> = { IE: 'Ireland', AU: 'Australia', UK: 'the UK', GB: 'the UK' };
+const origins = [...new Set([...imported.map((p) => p.origin as string), ...(legacyAu.length ? ['AU'] : [])])];
+const countries = origins.map((o) => COUNTRY[o]).filter(Boolean);
+const countryList =
+  countries.length <= 1 ? (countries[0] ?? '') : `${countries.slice(0, -1).join(', ')} or ${countries[countries.length - 1]}`;
+
+const lead = hasStock
+  ? `Want more choice? These ${breedName} puppies are overseas now and can be reserved today.`
+  : `No ${breedName} in the shop right now, but these puppies are overseas now and can be reserved today.`;
+const intro = `${lead} Pay a 50% deposit and we handle the whole import: paperwork, vet checks, the flight and AVS clearance. Pay the balance before your puppy flies, and we deliver to your door in Singapore with everything our local puppies get. Every price is all-in.`;
+---
+
+{show && total > 0 && (
+  <section id="reserve" data-import-section="imported" class="mx-auto max-w-[1400px] scroll-mt-40 px-5 sm:px-8 py-16">
+    <div class="max-w-[70ch]">
+      <h2 class="font-semibold text-[var(--color-cream-900)]" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">
+        Reserve {/^[AEIOU]/i.test(breedName) ? 'an' : 'a'} <span class="text-[var(--color-coral-500)]">{breedName}</span>{countryList ? ` from ${countryList}` : ' puppy'}
+      </h2>
+      <p class="mt-2 text-base text-[var(--color-cream-600)]">{intro}</p>
+    </div>
+
+    <ul class="mt-9 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {imported.map((pup, i) => (
+        <li data-reveal data-origin={pup.origin} style={`--i:${i % 6}`}>
+          <ImportedPuppyCard pup={pup} breedName={breedName} />
+        </li>
+      ))}
+      {legacyAu.map((p, i) => (
+        <li data-origin="AU">
+          <OverseasPuppyCard p={p} breedName={breedName} index={i} />
+        </li>
+      ))}
+    </ul>
+
+    <p class="mt-7 text-sm leading-relaxed text-[var(--color-cream-600)]">All-in prices. {SURCHARGE_LINE}</p>
+  </section>
+)}

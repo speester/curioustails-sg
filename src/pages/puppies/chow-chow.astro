@@ -12,8 +12,7 @@ import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
 import AvailablePuppies from '../../components/AvailablePuppies.astro';
-import OverseasPuppies from '../../components/OverseasPuppies.astro';
-import ImportedPuppies from '../../components/ImportedPuppies.astro';
+import ReservePuppies from '../../components/ReservePuppies.astro';
 import StarterKitMarquee from '../../components/StarterKitMarquee.astro';
 import TestimonialWall from '../../components/TestimonialWall.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
@@ -194,9 +193,9 @@ const schemas = [
 
   <div id="available" class="scroll-mt-40">
     <TestimonialWall />
+    <ReservePuppies breed="chow-chow" breedName="Chow Chow" when="no-stock" />
     <AvailablePuppies breed="chow-chow" breedName="Chow Chow" only="available" />
-    <ImportedPuppies breed="chow-chow" breedName="Chow Chow" />
-    <OverseasPuppies breed="chow-chow" breedName="Chow Chow" />
+    <ReservePuppies breed="chow-chow" breedName="Chow Chow" when="in-stock" />
     <AvailablePuppies breed="chow-chow" breedName="Chow Chow" only="placed" />
     <StarterKitMarquee />
 

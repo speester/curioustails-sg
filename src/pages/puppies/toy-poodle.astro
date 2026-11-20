@@ -12,8 +12,7 @@ import ComparisonSplit from '../../components/ComparisonSplit.astro';
 import CaptionedBlock from '../../components/CaptionedBlock.astro';
 import ListingGrid from '../../components/ListingGrid.astro';
 import AvailablePuppies from '../../components/AvailablePuppies.astro';
-import OverseasPuppies from '../../components/OverseasPuppies.astro';
-import ImportedPuppies from '../../components/ImportedPuppies.astro';
+import ReservePuppies from '../../components/ReservePuppies.astro';
 import StarterKitMarquee from '../../components/StarterKitMarquee.astro';
 import TestimonialWall from '../../components/TestimonialWall.astro';
 import BannerRibbon from '../../components/BannerRibbon.astro';
@@ -215,9 +214,9 @@ const BF = BREED_FACTS['toy-poodle'];
 
   <div id="available" class="scroll-mt-40">
     <TestimonialWall />
+    <ReservePuppies breed="toy-poodle" breedName="Toy Poodle" when="no-stock" />
     <AvailablePuppies breed="toy-poodle" breedName="Toy Poodle" only="available" />
-    <ImportedPuppies breed="toy-poodle" breedName="Toy Poodle" />
-    <OverseasPuppies breed="toy-poodle" breedName="Toy Poodle" />
+    <ReservePuppies breed="toy-poodle" breedName="Toy Poodle" when="in-stock" />
     <AvailablePuppies breed="toy-poodle" breedName="Toy Poodle" only="placed" />
     <StarterKitMarquee />
 

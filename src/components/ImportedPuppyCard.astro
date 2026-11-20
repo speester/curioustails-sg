@@ -74,7 +74,7 @@ const alt = altFor(pup, 0);
       ]}
     >
       <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
-      {reserved ? 'Reserved' : 'Available for reservation · Imported'}
+      {reserved ? 'Reserved' : pup.origin === 'IE' ? 'In Ireland · Reserve' : pup.origin === 'AU' ? 'In Australia · Reserve' : 'Available for reservation · Imported'}
     </span>
     {!reserved && oldEnoughToFly(pup) && (
       <span class="absolute right-5 top-5 inline-flex items-center gap-1.5 rounded-full bg-[var(--color-mint-100)] px-2.5 py-1 text-xs font-bold text-[var(--color-lilac-700)] shadow-[0_3px_0_0_rgba(0,0,0,0.12)]">

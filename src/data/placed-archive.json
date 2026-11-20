@@ -1,7 +1,7 @@
 {
   "_note": "Written by scripts/sync-puppies.mjs, never rebuilt from scratch: puppies that left the available list. status: placed (sold evidence, shown under \"Puppies That Found Their Loving Homes\"), withdrawn (no evidence, never shown), expired (past retention). placedAt = the day the sync first saw it gone (SGT); lastListed = the last day it was listed. Do not hand-edit; to mark a sale, add the id to sold-overrides.json and re-run the sync.",
   "lastSync": {
-    "at": "2026-11-19T07:41:16.264Z",
+    "at": "2026-11-20T07:32:13.763Z",
     "listed": [
       {
         "id": 2980,
@@ -30,14 +30,14 @@
         "hdbApproved": true
       },
       {
-        "id": 2977,
+        "id": 3018,
         "breed": "toy-poodle",
-        "name": "Cocoa",
-        "color": "Brown White",
+        "name": "Buddy",
+        "color": "Apricot",
         "gender": "Female",
-        "age": null,
-        "image": "2977-1-edcaa875.webp",
-        "origin": "UK",
+        "age": "2 months",
+        "image": "3018-1-e8be88eb.webp",
+        "origin": "Local",
         "sizeNote": null,
         "crossLabel": null,
         "hdbApproved": true
@@ -49,7 +49,7 @@
         "color": "Brown",
         "gender": "Male",
         "age": "2 months",
-        "image": "3013-1-6c917932.webp",
+        "image": "3013-1-ca24cfcf.webp",
         "origin": "Local",
         "sizeNote": null,
         "crossLabel": null,
@@ -62,10 +62,49 @@
         "color": "Red",
         "gender": "Male",
         "age": "2 months",
-        "image": "3014-1-82f64fd3.webp",
+        "image": "3014-1-78613fc5.webp",
         "origin": "Local",
         "sizeNote": null,
         "crossLabel": null,
+        "hdbApproved": true
+      },
+      {
+        "id": 3019,
+        "breed": "toy-poodle",
+        "name": "Indy",
+        "color": "Apricot",
+        "gender": "Male",
+        "age": "3 months",
+        "image": "3019-1-1d9bd261.webp",
+        "origin": "UK",
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": null
+      },
+      {
+        "id": 3020,
+        "breed": "toy-poodle",
+        "name": "Taylor",
+        "color": "Apricot",
+        "gender": "Male",
+        "age": "3 months",
+        "image": "3020-1-c55f5dcf.webp",
+        "origin": "UK",
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": null
+      },
+      {
+        "id": 3010,
+        "breed": "maltese",
+        "name": "Rowan",
+        "color": "Black White",
+        "gender": "Female",
+        "age": "2 months",
+        "image": "3010-1-cf695652.webp",
+        "origin": "UK",
+        "sizeNote": null,
+        "crossLabel": "Maltese x Shih Tzu",
         "hdbApproved": true
       },
       {
@@ -75,28 +114,33 @@
         "color": "Red",
         "gender": "Male",
         "age": "2 months",
-        "image": "2950-1-64963ef1.webp",
+        "image": "2950-1-149d282b.webp",
         "origin": "Local",
         "sizeNote": null,
         "crossLabel": null,
-        "hdbApproved": true
-      },
-      {
-        "id": 3010,
-        "breed": "maltese",
-        "name": "Rowan",
-        "color": "Black White",
-        "gender": "Female",
-        "age": null,
-        "image": "3010-1-fbe5464d.webp",
-        "origin": "UK",
-        "sizeNote": null,
-        "crossLabel": "Maltese x Shih Tzu",
         "hdbApproved": true
       }
     ]
   },
   "pups": [
+    {
+      "id": 2977,
+      "breed": "toy-poodle",
+      "name": "Cocoa",
+      "color": "Brown White",
+      "gender": "Female",
+      "age": null,
+      "image": "2977-1-edcaa875.webp",
+      "origin": "UK",
+      "sizeNote": null,
+      "crossLabel": null,
+      "hdbApproved": true,
+      "status": "withdrawn",
+      "placedAt": "2026-11-20",
+      "lastListed": "2026-11-19",
+      "source": "sync",
+      "evidence": "not-in-sheet"
+    },
     {
       "id": 3012,
       "breed": "maltese",

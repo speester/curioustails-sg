@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Telegram join, animated SVG</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap">
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:16px;font:16px/1.5 Nunito,system-ui,sans-serif;background:#fafafa;color:#15202b}
+.wrap{max-width:1140px;margin:0 auto}
+h1{font:800 22px/1.2 Nunito,sans-serif;margin:8px 0 18px}
+.row{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}
+.cjw{width:100%}
+.cjw[data-w="2"]{width:calc(66.666% - 10px)}
+.cjw[data-w="1"]{width:calc(33.333% - 14px)}
+.tb{display:flex;gap:6px;align-items:center;margin:0 0 8px;font-size:13px;color:#345a72}
+.tb b{margin-right:auto}
+.tb button{border:1px solid #bcd3e2;background:#fff;border-radius:999px;padding:4px 10px;font:700 12px Nunito;cursor:pointer}
+.tb button[aria-pressed="true"]{background:#229ed9;color:#fff;border-color:#229ed9}
+iframe{width:100%;height:600px;border:0;display:block;overflow:hidden}
+@media (max-width:720px){.cjw[data-w="2"],.cjw[data-w="1"]{width:100%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Telegram join, 10 animated SVG designs</h1>
+<div class="row" id="rows"></div>
+</div>
+<script>
+var names=["Sunrise","Bubbles","Paper plane","Ribbons","Orbit","Heartbeat","Fireworks","Radar","Fan cards","Bell"];
+var rows=document.getElementById('rows');
+names.forEach(function(nm,i){
+  var n=('0'+(i+1)).slice(-2);
+  var box=document.createElement('div');
+  box.className='cjw';
+  box.dataset.w='3';
+  box.innerHTML='<div class="tb"><b>'+n+' · '+nm+'</b>'
+    +'<button data-set="3" aria-pressed="true">1/1</button>'
+    +'<button data-set="2" aria-pressed="false">2/3</button>'
+    +'<button data-set="1" aria-pressed="false">1/3</button></div>'
+    +'<iframe src="s'+n+'.html" scrolling="no" loading="lazy" title="'+nm+'"></iframe>';
+  rows.appendChild(box);
+});
+function fit(f){try{var d=f.contentDocument;if(d&&d.documentElement){f.style.height=d.documentElement.scrollHeight+'px';}}catch(e){}}
+document.querySelectorAll('.cjw').forEach(function(c){
+  var f=c.querySelector('iframe');
+  f.addEventListener('load',function(){fit(f);
+    if(window.ResizeObserver){new ResizeObserver(function(){fit(f);}).observe(f);}
+  });
+  c.querySelectorAll('.tb button').forEach(function(b){
+    b.addEventListener('click',function(){
+      c.dataset.w=b.dataset.set;
+      c.querySelectorAll('.tb button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+      setTimeout(function(){fit(f);},60);
+    });
+  });
+});
+</script>
+</body>
+</html>

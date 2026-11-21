@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-11-20T07:32:13.766Z",
+  "syncedAt": "2026-11-21T07:27:40.789Z",
   "breeds": {
     "bichon-frise": {
       "available": [
@@ -13,7 +13,7 @@
           "images": [
             "2980-1-545c5e85.webp"
           ],
-          "price": 5288,
+          "price": 4888,
           "image": "2980-1-545c5e85.webp",
           "location": "Balestier Area",
           "origin": "Australia",
@@ -33,7 +33,7 @@
           "images": [
             "2979-1-fadb4f50.webp"
           ],
-          "price": 5288,
+          "price": 4888,
           "image": "2979-1-fadb4f50.webp",
           "location": "Balestier Area",
           "origin": "Australia",
@@ -265,7 +265,7 @@
           "name": null,
           "color": "Cream",
           "gender": "Male",
-          "age": "5 months",
+          "age": "6 months",
           "dob": null,
           "images": [
             "2573-2-9ec49ad0.webp"
@@ -285,7 +285,7 @@
           "name": null,
           "color": "Cream",
           "gender": "Male",
-          "age": "5 months",
+          "age": "6 months",
           "dob": null,
           "images": [
             "2574-2-f99b87f7.webp"
@@ -662,18 +662,18 @@
           "age": "2 months",
           "dob": "2026-08-24",
           "images": [
-            "3010-1-cf695652.webp",
+            "3010-1-bafd0ccc.webp",
             "3010-2-1fe9c2ab.webp",
             "3010-3-93424bfa.webp",
-            "3010-4-bafd0ccc.webp"
+            "3010-4-cf695652.webp"
           ],
           "price": 4488,
-          "image": "3010-1-cf695652.webp",
+          "image": "3010-1-bafd0ccc.webp",
           "location": "Balestier Area",
           "origin": "UK",
           "sizeNote": null,
           "crossLabel": "Maltese x Shih Tzu",
-          "hdbApproved": true,
+          "hdbApproved": null,
           "video": null,
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3010"
         }
@@ -736,7 +736,7 @@
             "2950-3-943a28b2.webp",
             "2950-4-3b4537b2.webp"
           ],
-          "price": 3688,
+          "price": 3488,
           "image": "2950-1-149d282b.webp",
           "location": "Balestier Area",
           "origin": "Local",
@@ -793,7 +793,7 @@
           "name": null,
           "color": "Apricot",
           "gender": "Female",
-          "age": "5 months",
+          "age": "6 months",
           "dob": null,
           "images": [
             "2579-2-1d98fefc.webp"
@@ -813,7 +813,7 @@
           "name": null,
           "color": "Apricot",
           "gender": "Male",
-          "age": "5 months",
+          "age": "6 months",
           "dob": null,
           "images": [
             "2581-2-c2a03dac.webp"
@@ -955,7 +955,7 @@
             "3018-3-01959c48.webp",
             "3018-4-f074fe7d.webp"
           ],
-          "price": null,
+          "price": 3888,
           "image": "3018-1-e8be88eb.webp",
           "location": "Balestier Area",
           "origin": "Local",
@@ -964,29 +964,6 @@
           "hdbApproved": true,
           "video": null,
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3018"
-        },
-        {
-          "id": 3013,
-          "name": "Mango",
-          "color": "Brown",
-          "gender": "Male",
-          "age": "2 months",
-          "dob": "2026-09-09",
-          "images": [
-            "3013-1-ca24cfcf.webp",
-            "3013-2-fe343ef2.webp",
-            "3013-3-b7c74ec7.webp",
-            "3013-4-1561b418.webp"
-          ],
-          "price": 4088,
-          "image": "3013-1-ca24cfcf.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true,
-          "video": null,
-          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3013"
         },
         {
           "id": 3014,
@@ -1001,7 +978,7 @@
             "3014-3-43e1ad9f.webp",
             "3014-4-0eb2ae72.webp"
           ],
-          "price": 3888,
+          "price": 3688,
           "image": "3014-1-78613fc5.webp",
           "location": "Balestier Area",
           "origin": "Local",
@@ -1010,6 +987,29 @@
           "hdbApproved": true,
           "video": null,
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3014"
+        },
+        {
+          "id": 3013,
+          "name": "Mango",
+          "color": "Brown",
+          "gender": "Male",
+          "age": "2 months",
+          "dob": "2026-09-09",
+          "images": [
+            "3013-1-ca24cfcf.webp",
+            "3013-2-fe343ef2.webp",
+            "3013-3-b7c74ec7.webp",
+            "3013-4-1561b418.webp"
+          ],
+          "price": 3888,
+          "image": "3013-1-ca24cfcf.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true,
+          "video": null,
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3013"
         },
         {
           "id": 3019,
@@ -1024,13 +1024,13 @@
             "3019-3-d5700f85.webp",
             "3019-4-f7c1dd16.webp"
           ],
-          "price": null,
+          "price": 4288,
           "image": "3019-1-1d9bd261.webp",
           "location": "Balestier Area",
           "origin": "UK",
           "sizeNote": null,
           "crossLabel": null,
-          "hdbApproved": null,
+          "hdbApproved": true,
           "video": null,
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3019"
         },
@@ -1047,13 +1047,13 @@
             "3020-3-baee20d3.webp",
             "3020-4-1bf0ad3a.webp"
           ],
-          "price": null,
+          "price": 4288,
           "image": "3020-1-c55f5dcf.webp",
           "location": "Balestier Area",
           "origin": "UK",
           "sizeNote": null,
           "crossLabel": null,
-          "hdbApproved": null,
+          "hdbApproved": true,
           "video": null,
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3020"
         }
@@ -1264,6 +1264,20 @@
       "reason": "location \"Choa Chu Kang\" is not Balestier"
     },
     {
+      "id": 3021,
+      "name": "Ellis",
+      "breedLabel": "Dachshund",
+      "location": "Eng Kong",
+      "reason": "location \"Eng Kong\" is not Balestier"
+    },
+    {
+      "id": 3022,
+      "name": "Marley",
+      "breedLabel": "Dachshund",
+      "location": "Eng Kong",
+      "reason": "location \"Eng Kong\" is not Balestier"
+    },
+    {
       "id": 3004,
       "name": "Keiko",
       "breedLabel": "Yorkshire Terrier",
@@ -1358,13 +1372,6 @@
       "id": 2991,
       "name": "Charlie",
       "breedLabel": "Goldendoodle",
-      "location": "Joo Chiat",
-      "reason": "location \"Joo Chiat\" is not Balestier"
-    },
-    {
-      "id": 2992,
-      "name": "Bobo",
-      "breedLabel": "Bordodoodle",
       "location": "Joo Chiat",
       "reason": "location \"Joo Chiat\" is not Balestier"
     },
@@ -1488,13 +1495,6 @@
       "reason": "location \"Eng Kong\" is not Balestier"
     },
     {
-      "id": 2900,
-      "name": "Loki",
-      "breedLabel": "French Bulldog",
-      "location": "Joo Chiat",
-      "reason": "location \"Joo Chiat\" is not Balestier"
-    },
-    {
       "id": 2920,
       "name": "Willow",
       "breedLabel": "Maltipoo",
@@ -1561,9 +1561,9 @@
   "excludedByLocation": {
     "(blank)": 282,
     "Choa Chu Kang": 113,
+    "Eng Kong": 28,
     "MacPherson": 59,
     "Joo Chiat": 109,
-    "Eng Kong": 26,
     "Choa Chu Kang Area": 10,
     "Paya Lebar": 20,
     "Serangoon": 197,

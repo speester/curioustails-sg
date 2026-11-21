@@ -1,7 +1,7 @@
 {
   "_note": "Written by scripts/sync-puppies.mjs, never rebuilt from scratch: puppies that left the available list. status: placed (sold evidence, shown under \"Puppies That Found Their Loving Homes\"), withdrawn (no evidence, never shown), expired (past retention). placedAt = the day the sync first saw it gone (SGT); lastListed = the last day it was listed. Do not hand-edit; to mark a sale, add the id to sold-overrides.json and re-run the sync.",
   "lastSync": {
-    "at": "2026-11-20T07:32:13.763Z",
+    "at": "2026-11-21T07:27:40.788Z",
     "listed": [
       {
         "id": 2980,
@@ -30,6 +30,32 @@
         "hdbApproved": true
       },
       {
+        "id": 3010,
+        "breed": "maltese",
+        "name": "Rowan",
+        "color": "Black White",
+        "gender": "Female",
+        "age": "2 months",
+        "image": "3010-1-bafd0ccc.webp",
+        "origin": "UK",
+        "sizeNote": null,
+        "crossLabel": "Maltese x Shih Tzu",
+        "hdbApproved": null
+      },
+      {
+        "id": 2950,
+        "breed": "maltipoo",
+        "name": "Smokey",
+        "color": "Red",
+        "gender": "Male",
+        "age": "2 months",
+        "image": "2950-1-149d282b.webp",
+        "origin": "Local",
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": true
+      },
+      {
         "id": 3018,
         "breed": "toy-poodle",
         "name": "Buddy",
@@ -37,19 +63,6 @@
         "gender": "Female",
         "age": "2 months",
         "image": "3018-1-e8be88eb.webp",
-        "origin": "Local",
-        "sizeNote": null,
-        "crossLabel": null,
-        "hdbApproved": true
-      },
-      {
-        "id": 3013,
-        "breed": "toy-poodle",
-        "name": "Mango",
-        "color": "Brown",
-        "gender": "Male",
-        "age": "2 months",
-        "image": "3013-1-ca24cfcf.webp",
         "origin": "Local",
         "sizeNote": null,
         "crossLabel": null,
@@ -69,6 +82,19 @@
         "hdbApproved": true
       },
       {
+        "id": 3013,
+        "breed": "toy-poodle",
+        "name": "Mango",
+        "color": "Brown",
+        "gender": "Male",
+        "age": "2 months",
+        "image": "3013-1-ca24cfcf.webp",
+        "origin": "Local",
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": true
+      },
+      {
         "id": 3019,
         "breed": "toy-poodle",
         "name": "Indy",
@@ -79,7 +105,7 @@
         "origin": "UK",
         "sizeNote": null,
         "crossLabel": null,
-        "hdbApproved": null
+        "hdbApproved": true
       },
       {
         "id": 3020,
@@ -90,32 +116,6 @@
         "age": "3 months",
         "image": "3020-1-c55f5dcf.webp",
         "origin": "UK",
-        "sizeNote": null,
-        "crossLabel": null,
-        "hdbApproved": null
-      },
-      {
-        "id": 3010,
-        "breed": "maltese",
-        "name": "Rowan",
-        "color": "Black White",
-        "gender": "Female",
-        "age": "2 months",
-        "image": "3010-1-cf695652.webp",
-        "origin": "UK",
-        "sizeNote": null,
-        "crossLabel": "Maltese x Shih Tzu",
-        "hdbApproved": true
-      },
-      {
-        "id": 2950,
-        "breed": "maltipoo",
-        "name": "Smokey",
-        "color": "Red",
-        "gender": "Male",
-        "age": "2 months",
-        "image": "2950-1-149d282b.webp",
-        "origin": "Local",
         "sizeNote": null,
         "crossLabel": null,
         "hdbApproved": true

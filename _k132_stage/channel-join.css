@@ -49,15 +49,16 @@
   display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px 56px; align-items: center;
   padding: clamp(24px, 5cqi, 56px);
   border-radius: var(--cj-radius);
+  box-shadow: 0 1px 2px rgba(20, 12, 4, .06), 0 18px 40px -22px rgba(20, 12, 4, .22);
   background:
     radial-gradient(120% 90% at 100% 0%, color-mix(in oklab, var(--cj-primary) 16%, transparent), transparent 60%),
     linear-gradient(160deg, color-mix(in oklab, var(--cj-primary) 8%, var(--cj-paper)), var(--cj-paper));
 }
 .cj-title {
   font: 600 clamp(28px, 4.6cqi, 46px)/1.06 var(--cj-font-display);
-  letter-spacing: -.015em; margin: 0 0 14px; max-width: 16ch; text-wrap: balance;
+  letter-spacing: -.02em; margin: 0 0 16px; max-width: 16ch; text-wrap: balance; color: var(--cj-ink);
 }
-.cj-sub { font-size: 17px; line-height: 1.55; color: var(--cj-ink-soft); margin: 0; max-width: 42ch; }
+.cj-sub { font-size: 17px; line-height: 1.6; color: var(--cj-ink-soft); margin: 0; max-width: 42ch; text-wrap: pretty; }
 
 /* ---------- Die-cut sticker buttons --------------------------------------- */
 .cj-stickers { display: flex; flex-wrap: wrap; gap: 18px 22px; margin-top: 30px; padding: 4px 10px 12px 0; }
@@ -109,6 +110,8 @@
 .cj-demo { display: grid; justify-items: center; }
 
 /* ---------- Phone ---------------------------------------------------------- */
+.cj-phone-link { display: block; color: inherit; text-decoration: none; border-radius: 32px; }
+.cj-phone-link:focus-visible { outline: 3px solid #229ed9; outline-offset: 4px; }
 .cj-phone {
   width: 268px; padding: 10px; border-radius: 42px; background: #17151b;
   box-shadow: inset 0 0 0 2px #2c2a31, 0 26px 40px -22px rgba(0,0,0,.55);
@@ -118,7 +121,7 @@
 
 .cj-screen {
   /* Phone skin tokens: Telegram by default, WhatsApp under data-ch="wa". */
-  --sk-head: #3a7fbf; --sk-head-ink: #fff; --sk-feed: #dbe6cf; --sk-cta: #229ed9; --sk-cta-ink: #fff;
+  --sk-head: #2b6ea5; --sk-head-ink: #fff; --sk-feed: #dbe6cf; --sk-cta: #229ed9; --sk-cta-ink: #fff;
   --sk-accent: #1773ad; --sk-bar: #fff;
   position: relative; width: 248px; height: 500px; border-radius: 32px; overflow: hidden;
   background: var(--sk-feed); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #111b21;
@@ -220,14 +223,18 @@
 
 /* ---------- Narrow container: stack, full-width sticker ------------------- */
 @container (max-width: 720px) {
-  .cj-k132 { grid-template-columns: minmax(0, 1fr); gap: 32px; padding: 26px 18px 34px; }
-  .cj-title { max-width: none; }
-  .cj-sub { font-size: 16px; }
-  /* Gap and padding make room for the tilt: the rotated ends of the two
-     full-width pills lean toward each other on the left. */
-  .cj-stickers { flex-direction: column; gap: 28px; margin-top: 24px; padding: 6px 6px 12px 0; }
-  .cj-stk { display: block; }
-  .cj-stk-face { min-height: 72px; }
+  .cj-k132 { grid-template-columns: minmax(0, 1fr); gap: 32px; padding: 28px 18px 34px; text-align: center; }
+  .cj-title { max-width: none; margin-inline: auto; }
+  .cj-sub { font-size: 16px; margin-inline: auto; }
+  /* Centred, compact sticker: sized to its label, not the full width. */
+  .cj-stickers { flex-direction: column; align-items: center; gap: 22px; margin-top: 22px; padding: 6px 8px 10px; }
+  .cj-stk { display: inline-block; }
+  .cj-stk-face { min-height: 0; gap: 10px; padding: 6px 20px 6px 6px; border-width: 4px; }
+  .cj-stk-ico { width: 38px; height: 38px; }
+  .cj-stk-ico svg { width: 21px; height: 21px; }
+  .cj-stk-txt { text-align: left; }
+  .cj-stk-txt b { font-size: 18px; }
+  .cj-stk-txt small { font-size: 13px; }
   .cj-demo { width: 100%; }
   .cj-phone, .cj-k132:hover .cj-phone { transform: none; }
 }

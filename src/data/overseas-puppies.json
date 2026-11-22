@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-11-20T15:48:08.100Z",
+  "syncedAt": "2026-11-22T08:18:42.405Z",
   "breeds": {
     "beagle": [
       {
@@ -1215,6 +1215,30 @@
         "image": "os-f423c0eb.webp"
       },
       {
+        "id": "os-f376dfea",
+        "listingId": "12359",
+        "breedLabel": "Chihuahua",
+        "crossLabel": null,
+        "gender": "Female",
+        "age": "9 weeks",
+        "canFly": null,
+        "price": 4750,
+        "deposit": 2375,
+        "image": "os-f376dfea.webp"
+      },
+      {
+        "id": "os-7150d9ce",
+        "listingId": "75400",
+        "breedLabel": "Chihuahua",
+        "crossLabel": null,
+        "gender": "Female",
+        "age": "15 weeks",
+        "canFly": null,
+        "price": 4200,
+        "deposit": 2100,
+        "image": "os-7150d9ce.webp"
+      },
+      {
         "id": "os-25c9758e",
         "listingId": "18014",
         "breedLabel": "Chihuahua",
@@ -1287,6 +1311,18 @@
         "price": 8500,
         "deposit": 4250,
         "image": "os-94026062.webp"
+      },
+      {
+        "id": "os-ffb6d37e",
+        "listingId": "47601",
+        "breedLabel": "Chow chow",
+        "crossLabel": null,
+        "gender": "Male",
+        "age": "9 weeks",
+        "canFly": null,
+        "price": 3900,
+        "deposit": 1950,
+        "image": "os-ffb6d37e.webp"
       }
     ],
     "cockapoo": [
@@ -1811,6 +1847,30 @@
         "price": null,
         "deposit": null,
         "image": "os-52b2480a.webp"
+      },
+      {
+        "id": "os-86dff65d",
+        "listingId": "23313",
+        "breedLabel": "French bulldog",
+        "crossLabel": null,
+        "gender": "Male",
+        "age": "13 weeks",
+        "canFly": null,
+        "price": 4190,
+        "deposit": 2095,
+        "image": "os-86dff65d.webp"
+      },
+      {
+        "id": "os-86dff65d",
+        "listingId": "11323",
+        "breedLabel": "French bulldog",
+        "crossLabel": null,
+        "gender": "Female",
+        "age": "13 weeks",
+        "canFly": null,
+        "price": 4190,
+        "deposit": 2095,
+        "image": "os-86dff65d.webp"
       },
       {
         "id": "os-c5d89b81",
@@ -2815,18 +2875,6 @@
     ],
     "havanese": [
       {
-        "id": "os-76a7769e",
-        "listingId": "84708",
-        "breedLabel": "Havanese",
-        "crossLabel": null,
-        "gender": "Female",
-        "age": "14 weeks",
-        "canFly": null,
-        "price": null,
-        "deposit": null,
-        "image": "os-76a7769e.webp"
-      },
-      {
         "id": "os-35f881b0",
         "listingId": "10552",
         "breedLabel": "Havanese",
@@ -3653,6 +3701,18 @@
         "image": "os-1e105390.webp"
       },
       {
+        "id": "os-0f9f8885",
+        "listingId": "88117",
+        "breedLabel": "Dachshund",
+        "crossLabel": null,
+        "gender": "Male",
+        "age": "3 weeks",
+        "canFly": null,
+        "price": 4900,
+        "deposit": 2450,
+        "image": "os-0f9f8885.webp"
+      },
+      {
         "id": "os-dd47847e",
         "listingId": "85553",
         "breedLabel": "Dachshund",
@@ -3933,18 +3993,6 @@
         "image": "os-cef43d2f.webp"
       },
       {
-        "id": "os-00b25c1d",
-        "listingId": "17344",
-        "breedLabel": "Schnauzer",
-        "crossLabel": null,
-        "gender": null,
-        "age": "17 weeks",
-        "canFly": null,
-        "price": 7000,
-        "deposit": 3500,
-        "image": "os-00b25c1d.webp"
-      },
-      {
         "id": "os-4e56d808",
         "listingId": "63526",
         "breedLabel": "Schnauzer",
@@ -3958,18 +4006,6 @@
       }
     ],
     "papillon": [
-      {
-        "id": "os-bde71755",
-        "listingId": "16355",
-        "breedLabel": "Papillon",
-        "crossLabel": null,
-        "gender": null,
-        "age": "14 weeks",
-        "canFly": null,
-        "price": null,
-        "deposit": null,
-        "image": "os-bde71755.webp"
-      },
       {
         "id": "os-302399de",
         "listingId": "34248",
@@ -4793,6 +4829,18 @@
         "image": "os-44781244.webp"
       },
       {
+        "id": "os-b632c213",
+        "listingId": "10822",
+        "breedLabel": "Yorkshire terrier",
+        "crossLabel": null,
+        "gender": "Female",
+        "age": "8 weeks",
+        "canFly": null,
+        "price": 3750,
+        "deposit": 1875,
+        "image": "os-b632c213.webp"
+      },
+      {
         "id": "os-a930f8bb",
         "listingId": "16869",
         "breedLabel": "Yorkshire Terrier",
@@ -4838,6 +4886,7 @@
     "Chesapeake Bay Retriever",
     "Chinese Crested Dog",
     "Clumber Spaniel",
+    "Cockapoo = Cocker Spaniel and Poodle",
     "Collie",
     "Collie (Rough)",
     "Dalmatian",
@@ -4872,7 +4921,6 @@
     "Lakeland Terrier",
     "Large Munsterlander",
     "Lhasa Apso",
-    "Lowchen",
     "Miniature American Shepherd",
     "Norwegian Buhund",
     "Old english sheepdog",

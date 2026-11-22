@@ -23,9 +23,6 @@ export const NOINDEX_ROUTES = [
   // design, so it is noindex wherever a project chooses to publish it
   '/patterns/',
   '/_patterns/',
-  // K-136: the reservation terms are a draft with counsel; the page is noindex
-  // until counsel signs (src/pages/reservation-terms.astro).
-  '/reservation-terms/',
 ];
 
 const ENDPOINT_RX = /\.(xml|txt|json|js|ts)$/i;

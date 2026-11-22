@@ -15,7 +15,7 @@ import ImportedPuppyCard from './ImportedPuppyCard.astro';
 import OverseasPuppyCard from './OverseasPuppyCard.astro';
 import { importedForBreed } from '../lib/imported-puppies';
 import { overseasForBreed } from '../lib/overseas-puppies';
-import { SURCHARGE_LINE } from '../data/buying-terms';
+import { SURCHARGE_LINE, RESERVATION_TERMS_PATH } from '../data/buying-terms';
 import live from '../data/available-puppies.json';
 
 interface Props {
@@ -67,6 +67,6 @@ const intro = `${lead} Pay a 50% deposit and we handle the whole import: paperwo
       ))}
     </ul>
 
-    <p class="mt-7 text-sm leading-relaxed text-[var(--color-cream-600)]">All-in prices. {SURCHARGE_LINE}</p>
+    <p class="mt-7 text-sm leading-relaxed text-[var(--color-cream-600)]">All-in prices. {SURCHARGE_LINE} Every reservation follows our <a href={RESERVATION_TERMS_PATH} data-terms-link class="font-semibold text-[var(--color-coral-600)] underline underline-offset-2">reservation terms</a>, and a copy comes with your written reservation.</p>
   </section>
 )}

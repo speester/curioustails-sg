@@ -104,10 +104,8 @@ export const SHARED_BUY_FAQ = [
 ];
 
 // K-136: the written reservation terms for imported puppies (Ireland and the
-// Australian reservations, redline clause A1). The wording is the 2026-11-13
-// redline (reports/imported-puppy-legal-redline-2026-11-11.md), still with
-// counsel, so every link says so: it is never presented as final wording.
-// When counsel signs, drop " (under legal review)" here and the draft banner on
-// the page; nothing else changes.
+// Australian reservations, clause A1). Final, owner-approved wording since
+// 2026-11-22 (no counsel review, by owner decision); the text lives in
+// src/data/reservation-terms.json.
 export const RESERVATION_TERMS_PATH = '/reservation-terms/';
-export const RESERVATION_TERMS_LABEL = 'Reservation terms (under legal review)';
+export const RESERVATION_TERMS_LABEL = 'Reservation terms';

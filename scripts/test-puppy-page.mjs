@@ -168,7 +168,7 @@ const map1 = sitemap(D1);
     ok(!/balestier/i.test(mainText(h)), 'no "Balestier" anywhere in the page content (<main>)');
     ok(!ld(h).some((x) => /balestier/i.test(JSON.stringify(x))), 'no "Balestier" in any JSON-LD');
     ok(!/(visit|families)/.test(attr(h, 'data-sections') ?? ''), `no Visit or Families section (${attr(h, 'data-sections')})`);
-    ok(/href="\/reservation-terms\/"[^>]*>Reservation terms \(under legal review\)/.test(h), 'terms link, labelled "under legal review"');
+    ok(/href="\/reservation-terms\/"[^>]*>Reservation terms</.test(h), 'terms link, labelled "Reservation terms"');
   }
 }
 {

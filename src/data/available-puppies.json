@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-11-22T08:18:02.405Z",
+  "syncedAt": "2026-11-23T07:55:48.071Z",
   "breeds": {
     "bichon-frise": {
       "available": [
@@ -659,7 +659,7 @@
           "name": "Rowan",
           "color": "Black White",
           "gender": "Female",
-          "age": "2 months",
+          "age": "3 months",
           "dob": "2026-08-24",
           "images": [
             "3010-1-bafd0ccc.webp",
@@ -878,7 +878,7 @@
           "name": null,
           "color": "Black Tan",
           "gender": "Female",
-          "age": "5 months",
+          "age": "6 months",
           "dob": null,
           "images": [
             "2591-2-af0d69f4.webp"
@@ -1142,35 +1142,8 @@
       ]
     }
   },
-  "other": [
-    {
-      "id": 2937,
-      "name": "Daisy",
-      "color": "Tri Color",
-      "gender": "Female",
-      "age": "4 months",
-      "dob": "2026-07-21",
-      "images": [
-        "2937-1-b8742a9d.webp",
-        "2937-2-99ce09c1.webp",
-        "2937-3-74d3fa43.webp",
-        "2937-4-88dd6a71.webp"
-      ],
-      "price": 2888,
-      "image": "2937-1-b8742a9d.webp",
-      "location": "Balestier Area",
-      "origin": "Local",
-      "sizeNote": null,
-      "crossLabel": null,
-      "hdbApproved": true,
-      "video": "https://www.youtube.com/shorts/ChXos1MZ8Rs",
-      "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2937",
-      "breedLabel": "Corgipoo"
-    }
-  ],
-  "unmapped": [
-    "Corgipoo"
-  ],
+  "other": [],
+  "unmapped": [],
   "excluded": [
     {
       "id": "",
@@ -1189,13 +1162,6 @@
     {
       "id": 3016,
       "name": "Lake",
-      "breedLabel": "Cavapoo",
-      "location": "Choa Chu Kang",
-      "reason": "location \"Choa Chu Kang\" is not Balestier"
-    },
-    {
-      "id": 3017,
-      "name": "Echo",
       "breedLabel": "Cavapoo",
       "location": "Choa Chu Kang",
       "reason": "location \"Choa Chu Kang\" is not Balestier"
@@ -1239,13 +1205,6 @@
       "id": 2700,
       "name": "Comet",
       "breedLabel": "Cockapoo",
-      "location": "Choa Chu Kang",
-      "reason": "location \"Choa Chu Kang\" is not Balestier"
-    },
-    {
-      "id": 2930,
-      "name": "Mochi",
-      "breedLabel": "Maltipoo",
       "location": "Choa Chu Kang",
       "reason": "location \"Choa Chu Kang\" is not Balestier"
     },
@@ -1556,6 +1515,27 @@
       "breedLabel": "Corgi",
       "location": "Katong",
       "reason": "location \"Katong\" is not Balestier"
+    },
+    {
+      "id": 2599,
+      "name": "Kai",
+      "breedLabel": "Maltipoo",
+      "location": "MacPherson",
+      "reason": "location \"MacPherson\" is not Balestier"
+    },
+    {
+      "id": 2600,
+      "name": "Toffee",
+      "breedLabel": "Maltipoo",
+      "location": "MacPherson",
+      "reason": "location \"MacPherson\" is not Balestier"
+    },
+    {
+      "id": 2515,
+      "name": "Zara",
+      "breedLabel": "Japanese Spitz",
+      "location": "MacPherson",
+      "reason": "location \"MacPherson\" is not Balestier"
     }
   ],
   "excludedByLocation": {

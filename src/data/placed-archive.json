@@ -1,7 +1,7 @@
 {
   "_note": "Written by scripts/sync-puppies.mjs, never rebuilt from scratch: puppies that left the available list. status: placed (sold evidence, shown under \"Puppies That Found Their Loving Homes\"), withdrawn (no evidence, never shown), expired (past retention). placedAt = the day the sync first saw it gone (SGT); lastListed = the last day it was listed. Do not hand-edit; to mark a sale, add the id to sold-overrides.json and re-run the sync.",
   "lastSync": {
-    "at": "2026-11-22T08:18:02.392Z",
+    "at": "2026-11-23T07:55:48.069Z",
     "listed": [
       {
         "id": 2980,
@@ -35,7 +35,7 @@
         "name": "Rowan",
         "color": "Black White",
         "gender": "Female",
-        "age": "2 months",
+        "age": "3 months",
         "image": "3010-1-bafd0ccc.webp",
         "origin": "UK",
         "sizeNote": null,

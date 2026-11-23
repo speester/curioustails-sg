@@ -18,6 +18,30 @@ export interface WallReview {
 
 export const REVIEW_WALL: WallReview[] = [
   {
+    id: "Ci9DQUlRQUNvZENodHljRjlvT2t4VFdUbENSVlZ1TjNWRVIwRjViR0ZaY25Obk1GRRAB",
+    quote: "Was nervous about buying a puppy in Singapore. The team at Curious Tails put all of that to rest. We didn't need to sleep on it, our little Cavachon came home the same day we met her. Kim and Nelson really went out of the way to help us, not obligated to do so much, plus left nothing unanswered including the awkward questions about cost, and checked we were actually ready rather than just taking the money. Thank you Curious Tails in Balestier, our family couldn't be happier.",
+    name: "Rajiv Selvakumar",
+    rating: 5,
+    timeAgo: "a week ago",
+    url: "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2t4VFdUbENSVlZ1TjNWRVIwRjViR0ZaY25Obk1GRRAB!2m1!1s0x0:0xb4c1905c6481624!3m1!1s2@1:CAIQACodChtycF9oOkxTWTlCRVVuN3VER0F5bGFZcnNnMFE%7C%7C?hl=en-GB",
+    photos: ["p-94e56d99ee.webp"],
+    avatar: "a-9ace82453e.webp",
+    localGuide: true,
+    reviewsCount: 14,
+  },
+  {
+    id: "Ci9DQUlRQUNvZENodHljRjlvT25remNEWmxibmt0V2xkU2JsSnNVRUpRWnpnNVIwRRAB",
+    quote: "Wanted a Cavachon that was genuinely well raised, and Curious Tails in Balestier delivered exactly that. If nothing else stood out, it's that Kim and Nelson made a first-time owner feel completely looked after and took the time to explain how the whole process works. They matched us with our Cavachon based on our energy level, not just what was available. We keep sending friends to Curious Tails at Balestier since, and every one of them came back happy. 💛",
+    name: "Walter Song",
+    rating: 5,
+    timeAgo: "a week ago",
+    url: "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25remNEWmxibmt0V2xkU2JsSnNVRUpRWnpnNVIwRRAB!2m1!1s0x0:0xb4c1905c6481624!3m1!1s2@1:CAIQACodChtycF9oOnkzcDZlbnktWldSblJsUEJQZzg5R0E%7C%7C?hl=en-GB",
+    photos: ["p-acef4bb7d6.webp"],
+    avatar: "a-30b93adfbe.webp",
+    localGuide: true,
+    reviewsCount: 22,
+  },
+  {
     id: "Ci9DQUlRQUNvZENodHljRjlvT25sQ09YbGxZMXBmZVVwTWFVbHVUWEpwYWxCVU9HYxAB",
     quote: "Visited other shops before Curious Tails at Balestier, and theirs stood out straight away. it was clear Nelson shared very useful tips, the kind you usually get from experienced owners. Our Poodle is doing brilliantly, by the way. Will be back, and will recommend without hesitation. ⭐",
     name: "Jacqueline Liu",

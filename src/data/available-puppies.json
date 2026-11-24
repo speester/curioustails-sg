@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-11-23T07:55:48.071Z",
+  "syncedAt": "2026-11-24T10:08:41.145Z",
   "breeds": {
     "bichon-frise": {
       "available": [
@@ -245,7 +245,7 @@
           "name": "Rumi",
           "color": "Cream",
           "gender": "Male",
-          "age": "2 months",
+          "age": "3 months",
           "dob": null,
           "images": [
             "2954-2-e0462909.webp"
@@ -858,7 +858,7 @@
           "name": "Poppy",
           "color": "Golden",
           "gender": "Male",
-          "age": "5 months",
+          "age": "6 months",
           "dob": null,
           "images": [
             "2608-2-267a983d.webp"
@@ -978,7 +978,7 @@
             "3014-3-43e1ad9f.webp",
             "3014-4-0eb2ae72.webp"
           ],
-          "price": 3688,
+          "price": 3888,
           "image": "3014-1-78613fc5.webp",
           "location": "Balestier Area",
           "origin": "Local",
@@ -1293,13 +1293,6 @@
       "reason": "location \"Joo Chiat\" is not Balestier"
     },
     {
-      "id": 3003,
-      "name": "Ginger",
-      "breedLabel": "French Bulldog",
-      "location": "Joo Chiat",
-      "reason": "location \"Joo Chiat\" is not Balestier"
-    },
-    {
       "id": 2996,
       "name": "Logan",
       "breedLabel": "Schnoodle",
@@ -1328,32 +1321,11 @@
       "reason": "location \"Choa Chu Kang Area\" is not Balestier"
     },
     {
-      "id": 2991,
-      "name": "Charlie",
-      "breedLabel": "Goldendoodle",
-      "location": "Joo Chiat",
-      "reason": "location \"Joo Chiat\" is not Balestier"
-    },
-    {
-      "id": 2995,
-      "name": "Dune",
-      "breedLabel": "Cockapoo",
-      "location": "Joo Chiat",
-      "reason": "location \"Joo Chiat\" is not Balestier"
-    },
-    {
       "id": 2976,
       "name": "Clover",
       "breedLabel": "Maltipoo",
       "location": "Paya Lebar",
       "reason": "location \"Paya Lebar\" is not Balestier"
-    },
-    {
-      "id": 2970,
-      "name": "Yuki",
-      "breedLabel": "Cavapoo",
-      "location": "Joo Chiat",
-      "reason": "location \"Joo Chiat\" is not Balestier"
     },
     {
       "id": 2955,
@@ -1410,13 +1382,6 @@
       "breedLabel": "Labradoodle",
       "location": "Eng Kong",
       "reason": "location \"Eng Kong\" is not Balestier"
-    },
-    {
-      "id": 2942,
-      "name": "Sam",
-      "breedLabel": "Malshi",
-      "location": "Bedok",
-      "reason": "location \"Bedok\" is not Balestier"
     },
     {
       "id": 2941,
@@ -1536,6 +1501,41 @@
       "breedLabel": "Japanese Spitz",
       "location": "MacPherson",
       "reason": "location \"MacPherson\" is not Balestier"
+    },
+    {
+      "id": 2535,
+      "name": "Monty",
+      "breedLabel": "Golden Retriever",
+      "location": "Eng Kong",
+      "reason": "location \"Eng Kong\" is not Balestier"
+    },
+    {
+      "id": 2671,
+      "name": "Cupcake",
+      "breedLabel": "Cockapoo",
+      "location": "Serangoon",
+      "reason": "location \"Serangoon\" is not Balestier"
+    },
+    {
+      "id": 2672,
+      "name": "Pippa",
+      "breedLabel": "Cockapoo",
+      "location": "Serangoon",
+      "reason": "location \"Serangoon\" is not Balestier"
+    },
+    {
+      "id": 2673,
+      "name": "Onyx",
+      "breedLabel": "Dachshund",
+      "location": "Serangoon",
+      "reason": "location \"Serangoon\" is not Balestier"
+    },
+    {
+      "id": 2676,
+      "name": "Koda",
+      "breedLabel": "Cavachon",
+      "location": "Serangoon",
+      "reason": "location \"Serangoon\" is not Balestier"
     }
   ],
   "excludedByLocation": {

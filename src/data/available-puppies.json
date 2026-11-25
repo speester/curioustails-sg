@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-11-24T10:08:41.145Z",
+  "syncedAt": "2026-11-25T08:54:37.309Z",
   "breeds": {
     "bichon-frise": {
       "available": [
@@ -323,7 +323,28 @@
       ]
     },
     "cavapoo": {
-      "available": [],
+      "available": [
+        {
+          "id": 3023,
+          "name": "Linden",
+          "color": "Apricot",
+          "gender": "Female",
+          "age": "3 months",
+          "dob": "2026-08-25",
+          "images": [
+            "3023-1-d9b3b68d.webp"
+          ],
+          "price": 4288,
+          "image": "3023-1-d9b3b68d.webp",
+          "location": "Balestier Area",
+          "origin": "UK",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true,
+          "video": null,
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3023"
+        }
+      ],
       "recentlyPlaced": [
         {
           "id": 2652,
@@ -966,29 +987,6 @@
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3018"
         },
         {
-          "id": 3014,
-          "name": "Pip",
-          "color": "Red",
-          "gender": "Male",
-          "age": "2 months",
-          "dob": "2026-09-09",
-          "images": [
-            "3014-1-78613fc5.webp",
-            "3014-2-ce2b2866.webp",
-            "3014-3-43e1ad9f.webp",
-            "3014-4-0eb2ae72.webp"
-          ],
-          "price": 3888,
-          "image": "3014-1-78613fc5.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true,
-          "video": null,
-          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3014"
-        },
-        {
           "id": 3013,
           "name": "Mango",
           "color": "Brown",
@@ -1060,6 +1058,26 @@
       ],
       "recentlyPlaced": [
         {
+          "id": 3014,
+          "name": "Pip",
+          "color": "Red",
+          "gender": "Male",
+          "age": "2 months",
+          "dob": null,
+          "images": [
+            "3014-2-ce2b2866.webp"
+          ],
+          "price": 3888,
+          "image": "3014-2-ce2b2866.webp",
+          "location": "Balestier Area",
+          "origin": "Local",
+          "sizeNote": null,
+          "crossLabel": null,
+          "hdbApproved": true,
+          "video": null,
+          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=3014"
+        },
+        {
           "id": 2952,
           "name": "Bowie",
           "color": "Cream",
@@ -1118,26 +1136,6 @@
           "hdbApproved": true,
           "video": null,
           "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2280"
-        },
-        {
-          "id": 2281,
-          "name": null,
-          "color": "Apricot",
-          "gender": "Male",
-          "age": "3 months",
-          "dob": null,
-          "images": [
-            "2281-2-7da284e5.webp"
-          ],
-          "price": 3488,
-          "image": "2281-2-7da284e5.webp",
-          "location": "Balestier Area",
-          "origin": "Local",
-          "sizeNote": null,
-          "crossLabel": null,
-          "hdbApproved": true,
-          "video": null,
-          "bookHref": "https://cal.com/puppy-singapore/appointment?puppyid=2281"
         }
       ]
     }
@@ -1433,13 +1431,6 @@
       "reason": "location \"Serangoon\" is not Balestier"
     },
     {
-      "id": 2925,
-      "name": "Remy",
-      "breedLabel": "Poodle",
-      "location": "Serangoon",
-      "reason": "location \"Serangoon\" is not Balestier"
-    },
-    {
       "id": 2889,
       "name": "Bandit",
       "breedLabel": "Bichon Frise",
@@ -1534,6 +1525,13 @@
       "id": 2676,
       "name": "Koda",
       "breedLabel": "Cavachon",
+      "location": "Serangoon",
+      "reason": "location \"Serangoon\" is not Balestier"
+    },
+    {
+      "id": 2677,
+      "name": "Bambi",
+      "breedLabel": "Poochon",
       "location": "Serangoon",
       "reason": "location \"Serangoon\" is not Balestier"
     }

@@ -1,7 +1,7 @@
 {
   "_note": "Written by scripts/sync-puppies.mjs, never rebuilt from scratch: puppies that left the available list. status: placed (sold evidence, shown under \"Puppies That Found Their Loving Homes\"), withdrawn (no evidence, never shown), expired (past retention). placedAt = the day the sync first saw it gone (SGT); lastListed = the last day it was listed. Do not hand-edit; to mark a sale, add the id to sold-overrides.json and re-run the sync.",
   "lastSync": {
-    "at": "2026-11-24T10:08:41.143Z",
+    "at": "2026-11-25T08:54:37.307Z",
     "listed": [
       {
         "id": 2980,
@@ -69,19 +69,6 @@
         "hdbApproved": true
       },
       {
-        "id": 3014,
-        "breed": "toy-poodle",
-        "name": "Pip",
-        "color": "Red",
-        "gender": "Male",
-        "age": "2 months",
-        "image": "3014-1-78613fc5.webp",
-        "origin": "Local",
-        "sizeNote": null,
-        "crossLabel": null,
-        "hdbApproved": true
-      },
-      {
         "id": 3013,
         "breed": "toy-poodle",
         "name": "Mango",
@@ -119,10 +106,41 @@
         "sizeNote": null,
         "crossLabel": null,
         "hdbApproved": true
+      },
+      {
+        "id": 3023,
+        "breed": "cavapoo",
+        "name": "Linden",
+        "color": "Apricot",
+        "gender": "Female",
+        "age": "3 months",
+        "image": "3023-1-d9b3b68d.webp",
+        "origin": "UK",
+        "sizeNote": null,
+        "crossLabel": null,
+        "hdbApproved": true
       }
     ]
   },
   "pups": [
+    {
+      "id": 3014,
+      "breed": "toy-poodle",
+      "name": "Pip",
+      "color": "Red",
+      "gender": "Male",
+      "age": "2 months",
+      "image": "3014-1-78613fc5.webp",
+      "origin": "Local",
+      "sizeNote": null,
+      "crossLabel": null,
+      "hdbApproved": true,
+      "status": "placed",
+      "placedAt": "2026-11-25",
+      "lastListed": "2026-11-24",
+      "source": "sync",
+      "evidence": "sold-overlay"
+    },
     {
       "id": 3012,
       "breed": "maltese",
